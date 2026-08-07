@@ -3,13 +3,13 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { Args, Meta, StoryObj } from '@storybook/react-vite'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
-import { Card, Grid, Heading, Paragraph, SearchField, UnorderedList } from '@amsterdam/design-system-react'
+import { Card, Heading, Paragraph } from '@amsterdam/design-system-react'
 import { Mark } from '@amsterdam/design-system-react/src'
-import { useState } from 'react'
 
 import { childrenArgType } from '#storybook/_common/argTypes'
+import { maximiseInlineSize } from '#storybook/_common/decorators'
 
 const meta = {
   title: 'Components/Text/Mark',
@@ -24,7 +24,7 @@ export const Default: Story = {
   args: {
     children: 'Wat vinden Amsterdammers belangrijk?',
   },
-  // Only this story renders a single Mark whose text the control drives – the other story composes many instances.
+  // Only this story renders a single Mark whose text the control drives – the other story writes its highlights out.
   argTypes: {
     children: childrenArgType('The text to mark.'),
   },
@@ -37,108 +37,25 @@ export const Default: Story = {
   ),
 }
 
-type Article = {
-  category: string
-  date: Date
-  fragment: string
-  heading: string
-}
-
-const articles: Article[] = [
-  {
-    category: 'Kansspelen',
-    date: new Date('2025-10-27'),
-    fragment:
-      'Op dit moment zijn alle vergunning voor speelautomatenhallen verleend. Als u kansspelautomaten wilt plaatsen in uw horecabedrijf dan heeft u de …',
-    heading: 'Vergunning speelautomatenhal of kansspelautomaten aanvragen',
-  },
-  {
-    category: 'Veelgevraagd',
-    date: new Date('2024-09-15'),
-    fragment:
-      'U heeft een ontheffing nodig als u de geldende geluidsgrenzen van uw horecagelegenheid wil overschrijden. Kijk hier hoe het werkt en hoe u de …',
-    heading: 'Ontheffing geluidsvoorschriften',
-  },
-  {
-    category: 'Vergunningen',
-    date: new Date('2023-08-03'),
-    fragment: `Voor de organisatie van grootschalige vechtsportgala’s in Amsterdam moet u een vergunning aanvragen bij de gemeente. Vooraf moet u een Bibobformulier …`,
-    heading: 'Vergunning vechtsportevenementen',
-  },
-]
-
-const dateFormat = new Intl.DateTimeFormat('nl', {
-  day: 'numeric',
-  month: 'long',
-  year: 'numeric',
-})
-
-const mark = (text: string, query: string, args: Args) => {
-  if (!query) return text
-
-  const words = query
-    .split(/\s+/)
-    .filter(Boolean)
-    .map((w) => w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))
-
-  if (words.length === 0) return text
-
-  const regex = new RegExp(`(${words.join('|')})`, 'gi')
-  const parts = text.split(regex)
-
-  return parts.map((part) =>
-    part.match(regex) ? (
-      <Mark key={part} {...args}>
-        {part}
-      </Mark>
-    ) : (
-      part
-    ),
-  )
-}
-
 export const SearchResults = {
-  render: (args: Args) => {
-    const [query, setQuery] = useState('horeca vergunning')
-
-    const searchResults = articles.filter(({ fragment, heading }) =>
-      [fragment, heading].some((text) =>
-        query
-          .split(/\s+/)
-          .filter(Boolean)
-          .some((word) => text.toLowerCase().includes(word.toLowerCase())),
-      ),
-    )
-
-    return (
-      <Grid>
-        <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
-          <SearchField className="ams-mb-m">
-            <SearchField.Input label="Zoeken" onChange={(e) => setQuery(e.target.value)} value={query} />
-            <SearchField.Button />
-          </SearchField>
-          <Paragraph className="ams-mb-xl">
-            <strong>{searchResults.length}</strong> artikelen gaan over ‘{query}’.
-          </Paragraph>
-          <UnorderedList className="ams-gap-xl" markers={false}>
-            {searchResults.map(({ category, date, fragment, heading }) => (
-              <UnorderedList.Item key={heading}>
-                <Card>
-                  <Card.HeadingGroup tagline={category}>
-                    <Heading level={2} size="level-4">
-                      <Card.Link href="#">{mark(heading, query, args)}</Card.Link>
-                    </Heading>
-                  </Card.HeadingGroup>
-                  <Paragraph className="ams-mb-xs">{mark(fragment, query, args)}</Paragraph>
-                  <Paragraph size="small">
-                    <time dateTime={date.toISOString()}>{dateFormat.format(date)}</time>
-                  </Paragraph>
-                </Card>
-              </UnorderedList.Item>
-            ))}
-          </UnorderedList>
-        </Grid.Cell>
-      </Grid>
-    )
-  },
+  decorators: [maximiseInlineSize('7-of-12-columns')],
+  render: () => (
+    <Card>
+      {/* The category is a label rather than text the search matched, so the word in it stays unmarked. */}
+      <Card.HeadingGroup tagline="Vergunningen">
+        <Heading level={2} size="level-4">
+          <Card.Link href="#">
+            <Mark>Vergunning</Mark> vechtsportevenementen
+          </Card.Link>
+        </Heading>
+      </Card.HeadingGroup>
+      <Paragraph className="ams-mb-xs">
+        Voor de organisatie van grootschalige vechtsportgala’s in Amsterdam moet u een <Mark>vergunning</Mark> aanvragen
+        bij de gemeente. Vooraf moet u een Bibobformulier …
+      </Paragraph>
+      <Paragraph size="small">
+        <time dateTime="2023-08-03">3 augustus 2023</time>
+      </Paragraph>
+    </Card>
+  ),
 }
