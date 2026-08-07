@@ -588,13 +588,13 @@
 <header>
   <div class="wrap">
     <h1>Manifest Debugger</h1>
-    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">14/86 prop type errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">14/86 infos</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">1/296 story errors</a><a class="filter-pill ok" data-k="docs" href="#filter-docs">123 docs ok</a></div>
+    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">14/86 prop type errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">14/86 infos</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">1/294 story errors</a><a class="filter-pill ok" data-k="docs" href="#filter-docs">123 docs ok</a></div>
   </div>
 </header>
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>3.5s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>5.9s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -10454,6 +10454,7 @@ This lets you mix a Grid with a [Spotlight](/docs/components-containers-spotligh
 
 Never nest a Grid inside another Grid.
 The Grid is currently intended for the full width of the page only.
+Use a Subgrid where a region needs to place its own children on the columns of the page.
 
 Do not apply [Gap utility classes](/docs/utilities-css-gap--docs) to the Grid.
 The Grid manages its own gaps; the utility classes interfere with that.
@@ -10471,13 +10472,14 @@ The browser would add columns to fit, which breaks the layout.
 
 Use the `as` prop to give a Grid or a Grid Cell a meaningful HTML element when one applies.
 For example, set a top-level Cell that holds the main content of the page to `as=&quot;main&quot;`, or a sidebar Cell to `as=&quot;aside&quot;`.
+A Grid or a Cell can be an `article` or a `section` too, among the other tags `as` offers.
 
 Put `as=&quot;main&quot;` on the Grid itself when the main content of a page is a single section: the Grid then is that region.
 Wrap the sections in a plain `main` element instead when the region holds several of them, such as more Grids, a [Spotlight](/docs/components-containers-spotlight--docs), or a full-bleed [Image](/docs/components-media-image--docs).
 Next to a sidebar, the main content goes in its own Grid Cell.
 
 Give a Grid or a Subgrid `as=&quot;ul&quot;` and the Cells inside it `as=&quot;li&quot;` where those Cells hold the same kind of thing, such as a set of Cards.
-‘A set of Cells as a list’ below shows how.
+‘Semantic list of cards’ below shows how.
 
 #### Reading order
 
@@ -10566,14 +10568,7 @@ This example appears best with Compact Mode active in the toolbar above.
 
 &lt;Canvas of={GridStories.BackgroundInCompactMode} /&gt;
 
-### Improve semantics
-
-Both Grid and Grid Cell render a `&lt;div&gt;` by default.
-Use the `as` prop on either to make the markup more semantic.
-
-&lt;Canvas of={GridCellStories.ImproveSemantics} /&gt;
-
-### A set of Cells as a list
+### Semantic list of cards
 
 A set of Cells that hold the same kind of thing is a list: news items, search results, a row of Cards.
 Render the Grid or the Subgrid around them as an `ol` or a `ul`, and every Cell inside it as an `li`.
@@ -10588,7 +10583,7 @@ A Subgrid inside a Subgrid still hands down the columns of the page, and takes t
 A list looks exactly like a `div`: it drops the marker, the indent and the margin a browser gives a list.
 A Grid keeps its own inline padding, the gutter of the page.
 
-&lt;Canvas of={GridSubgridStories.SemanticList} /&gt;
+&lt;Canvas of={GridSubgridStories.SemanticListOfCards} /&gt;
 
 ## Features
 
@@ -20428,7 +20423,7 @@ A screen reader then announces how many there are and which one it is on, and ca
       <div class="badges">
         <label for="c-52-components-text-ordered-list-props" class="badge ok as-toggle">3 prop types</label>
         
-        <label for="c-52-components-text-ordered-list-stories" class="badge ok as-toggle">7 stories</label>
+        <label for="c-52-components-text-ordered-list-stories" class="badge ok as-toggle">6 stories</label>
         <label for="c-52-components-text-ordered-list-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
@@ -20484,8 +20479,7 @@ size?: &quot;small&quot;</code></pre>
                 <div class="row">
                   <span class="ex-name">Imports</span>
                 </div>
-                <pre><code>import { Card, Paragraph } from "@amsterdam/design-system-react";
-import { OrderedList } from "@amsterdam/design-system-react/src";</code></pre>
+                <pre><code>import { OrderedList } from "@amsterdam/design-system-react/src";</code></pre>
               </div>
           
           
@@ -20547,52 +20541,6 @@ import { OrderedList } from "@amsterdam/design-system-react/src";</code></pre>
       &lt;OrderedList.Item key={3}&gt;Drie&lt;/OrderedList.Item&gt;,
       &lt;OrderedList.Item key={2}&gt;Twee&lt;/OrderedList.Item&gt;,
       &lt;OrderedList.Item key={1}&gt;Eén&lt;/OrderedList.Item&gt;,
-    ]}&lt;/OrderedList&gt;;</code></pre>
-            </div>
-            <div class="note ok">
-              <div class="row">
-                <span class="ex-name">Without Markers</span>
-                <span class="badge ok">story ok</span>
-              </div>
-              
-              
-              <pre><code>const WithoutMarkers = () =&gt; &lt;OrderedList className=&quot;ams-gap-xl&quot; markers={false}&gt;{[
-      &lt;OrderedList.Item key={1}&gt;
-        &lt;Card&gt;
-          &lt;Card.Heading level={2}&gt;
-            &lt;Card.Link href=&quot;#&quot;&gt;Weg met steen, hallo extra groen en koelte&lt;/Card.Link&gt;
-          &lt;/Card.Heading&gt;
-          &lt;Paragraph&gt;
-            Sinds 2021 kwamen er maar liefst 60 nieuwe groene plekken bij in de stad. Groen is fijn en het verkoelt de
-            stad in de zomer. Een paar voorbeelden.
-          &lt;/Paragraph&gt;
-          &lt;Paragraph size=&quot;small&quot;&gt;16 augustus 2023&lt;/Paragraph&gt;
-        &lt;/Card&gt;
-      &lt;/OrderedList.Item&gt;,
-      &lt;OrderedList.Item key={2}&gt;
-        &lt;Card&gt;
-          &lt;Card.Heading level={2}&gt;
-            &lt;Card.Link href=&quot;#&quot;&gt;Amsterdam bindt de strijd aan met lawaaierige voertuigen&lt;/Card.Link&gt;
-          &lt;/Card.Heading&gt;
-          &lt;Paragraph&gt;
-            Deze zomer testen we of digitale borden langs de weg kunnen helpen om geluidsoverlast van voertuigen zoals
-            motoren en auto’s tegen te gaan.
-          &lt;/Paragraph&gt;
-          &lt;Paragraph size=&quot;small&quot;&gt;10 augustus 2023&lt;/Paragraph&gt;
-        &lt;/Card&gt;
-      &lt;/OrderedList.Item&gt;,
-      &lt;OrderedList.Item key={3}&gt;
-        &lt;Card&gt;
-          &lt;Card.Heading level={2}&gt;
-            &lt;Card.Link href=&quot;#&quot;&gt;Een prachtroute door de wonderlijke Baarsjes&lt;/Card.Link&gt;
-          &lt;/Card.Heading&gt;
-          &lt;Paragraph&gt;
-            In de Baarsjes zijn kunst en cultuur met elkaar vervlochten. We zetten een prachtige wandelroute voor u uit
-            en laten zien hoe het was en hoe het nu is.
-          &lt;/Paragraph&gt;
-          &lt;Paragraph size=&quot;small&quot;&gt;8 augustus 2023&lt;/Paragraph&gt;
-        &lt;/Card&gt;
-      &lt;/OrderedList.Item&gt;,
     ]}&lt;/OrderedList&gt;;</code></pre>
             </div>
             <div class="note ok">
@@ -20688,16 +20636,11 @@ Use the HTML attribute `reversed`.
 
 ### Without markers
 
-An overview of search results can be seen as an ordered list.
-In such cases, apply the list semantics while hiding markers.
-This helps screen readers understand and navigate the list.
+Set `markers` to false where a group of items reads as a list but should not show its numbers.
+The list keeps its `ol` and `li` elements, so a screen reader still announces it as a list and reports how many items it holds, while the numbers stay out of the way.
+Its items then hold blocks rather than sentences, so the list defines no typography and the `color` prop has no effect.
 
-Note: each item typically contains a container with headings and other text components in this variant.
-Therefore, it does not define typography for the items and the `color` prop has no effect.
-
-For example, here are three news articles:
-
-&lt;Canvas of={OrderedListStories.WithoutMarkers} /&gt;
+For a set of Cards laid out across the page, make the [Grid](/docs/components-layout-grid--docs) or a Grid Subgrid the list instead.
 
 ### Inverse colour
 
@@ -36417,7 +36360,7 @@ The invalid styling responds to `aria-invalid=&quot;true&quot;` and to the brows
       <div class="badges">
         <label for="c-84-components-text-unordered-list-props" class="badge ok as-toggle">3 prop types</label>
         
-        <label for="c-84-components-text-unordered-list-stories" class="badge ok as-toggle">5 stories</label>
+        <label for="c-84-components-text-unordered-list-stories" class="badge ok as-toggle">4 stories</label>
         <label for="c-84-components-text-unordered-list-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
@@ -36473,8 +36416,7 @@ size?: &quot;small&quot;</code></pre>
                 <div class="row">
                   <span class="ex-name">Imports</span>
                 </div>
-                <pre><code>import { Card, Paragraph } from "@amsterdam/design-system-react";
-import { UnorderedList } from "@amsterdam/design-system-react/src";</code></pre>
+                <pre><code>import { UnorderedList } from "@amsterdam/design-system-react/src";</code></pre>
               </div>
           
           
@@ -36511,52 +36453,6 @@ import { UnorderedList } from "@amsterdam/design-system-react/src";</code></pre>
         &lt;/UnorderedList&gt;
     &lt;/UnorderedList.Item&gt;
 &lt;/UnorderedList&gt;;</code></pre>
-            </div>
-            <div class="note ok">
-              <div class="row">
-                <span class="ex-name">Without Markers</span>
-                <span class="badge ok">story ok</span>
-              </div>
-              
-              
-              <pre><code>const WithoutMarkers = () =&gt; &lt;UnorderedList className=&quot;ams-gap-xl&quot; markers={false}&gt;{[
-      &lt;UnorderedList.Item key={1}&gt;
-        &lt;Card&gt;
-          &lt;Card.Heading level={2}&gt;
-            &lt;Card.Link href=&quot;#&quot;&gt;Weg met steen, hallo extra groen en koelte&lt;/Card.Link&gt;
-          &lt;/Card.Heading&gt;
-          &lt;Paragraph&gt;
-            Sinds 2021 kwamen er maar liefst 60 nieuwe groene plekken bij in de stad. Groen is fijn en het verkoelt de
-            stad in de zomer. Een paar voorbeelden.
-          &lt;/Paragraph&gt;
-          &lt;Paragraph size=&quot;small&quot;&gt;16 augustus 2023&lt;/Paragraph&gt;
-        &lt;/Card&gt;
-      &lt;/UnorderedList.Item&gt;,
-      &lt;UnorderedList.Item key={2}&gt;
-        &lt;Card&gt;
-          &lt;Card.Heading level={2}&gt;
-            &lt;Card.Link href=&quot;#&quot;&gt;Amsterdam bindt de strijd aan met lawaaierige voertuigen&lt;/Card.Link&gt;
-          &lt;/Card.Heading&gt;
-          &lt;Paragraph&gt;
-            Deze zomer testen we of digitale borden langs de weg kunnen helpen om geluidsoverlast van voertuigen zoals
-            motoren en auto’s tegen te gaan.
-          &lt;/Paragraph&gt;
-          &lt;Paragraph size=&quot;small&quot;&gt;10 augustus 2023&lt;/Paragraph&gt;
-        &lt;/Card&gt;
-      &lt;/UnorderedList.Item&gt;,
-      &lt;UnorderedList.Item key={3}&gt;
-        &lt;Card&gt;
-          &lt;Card.Heading level={2}&gt;
-            &lt;Card.Link href=&quot;#&quot;&gt;Een prachtroute door de wonderlijke Baarsjes&lt;/Card.Link&gt;
-          &lt;/Card.Heading&gt;
-          &lt;Paragraph&gt;
-            In de Baarsjes zijn kunst en cultuur met elkaar vervlochten. We zetten een prachtige wandelroute voor u uit
-            en laten zien hoe het was en hoe het nu is.
-          &lt;/Paragraph&gt;
-          &lt;Paragraph size=&quot;small&quot;&gt;8 augustus 2023&lt;/Paragraph&gt;
-        &lt;/Card&gt;
-      &lt;/UnorderedList.Item&gt;,
-    ]}&lt;/UnorderedList&gt;;</code></pre>
             </div>
             <div class="note ok">
               <div class="row">
@@ -36638,16 +36534,11 @@ It is left-aligned with the text of the higher-level item.
 
 ### Without markers
 
-An overview of articles can be seen as an unordered list.
-In such cases, apply the list semantics while hiding markers.
-This helps screen readers understand and navigate the list.
+Set `markers` to false where a group of items reads as a list but should not look like one.
+The list keeps its `ul` and `li` elements, so a screen reader still announces it as a list and reports how many items it holds, while the markers stay out of the way.
+Its items then hold blocks rather than sentences, so the list defines no typography and the `color` prop has no effect.
 
-Note: each item typically contains a container with headings and other text components in this variant.
-Therefore, it does not define typography for the items and the `color` prop has no effect.
-
-For example, here are three news articles:
-
-&lt;Canvas of={UnorderedListStories.WithoutMarkers} /&gt;
+For a set of Cards laid out across the page, make the [Grid](/docs/components-layout-grid--docs) or a Grid Subgrid the list instead.
 
 ### Inverse colour
 
@@ -57000,7 +56891,7 @@ The Subgrid hands its columns to its own Cells, so each block is placed against 
 Where those blocks hold the same kind of thing – Cards, news items, search results – the set is a list.
 Give the Subgrid `as=&quot;ul&quot;` and each Cell inside it `as=&quot;li&quot;`.
 Keep whatever is not one of the items outside it, such as the heading or a Pagination.
-[A set of Cells as a list](/docs/components-layout-grid--docs#a-set-of-cells-as-a-list) shows how.
+[Semantic list of cards](/docs/components-layout-grid--docs#semantic-list-of-cards) shows how.
 
 Where two columns run beside one another and one is much taller, give **each column** its own Subgrid instead.
 A Subgrid is a single item in the row of the Grid however many rows it holds, so the columns stack independently rather than a tall block pushing its neighbour down.
