@@ -29,17 +29,22 @@
   color: var(--ams-metadata-inverse-color);
 }
 
-/* The separator is a background on an empty pseudo-element, so nothing is announced between one item and the next. */
-.ams-metadata__item:not(:last-child)::after {
+/*
+ * The separator holds an en dash, which the rules below hide behind a square.
+ * Clipping the dash rather than setting `font-size: 0` keeps the font size, which the em below resolves against.
+ */
+.ams-metadata__separator {
   background-color: currentColor;
   block-size: var(--ams-metadata-separator-block-size);
-  content: "";
   display: inline-block;
   inline-size: var(--ams-metadata-separator-inline-size);
   margin-inline: var(--ams-metadata-separator-margin-inline);
+  overflow: hidden;
+  text-indent: 100%;
 
   /* Not `middle`: that reads the x-height Amsterdam Sans reports, which sits below the one it draws. */
   vertical-align: var(--ams-metadata-separator-vertical-align);
+  white-space: nowrap;
 
   // A background set to a system colour remains visible in forced-colors mode.
   @media (forced-colors: active) {

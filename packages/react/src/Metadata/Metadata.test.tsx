@@ -60,20 +60,32 @@ describe('Metadata', () => {
     expect(component).toHaveClass('ams-metadata--inverse')
   })
 
-  it('renders its items', () => {
+  it('reads as one line of text, separator included, without a stylesheet', () => {
     render(
       <Metadata>
-        <Metadata.Item>
-          <time dateTime="2026-01-01">1 januari 2026</time>
-        </Metadata.Item>
-        <Metadata.Item>Belastingen, Wonen, WOZ</Metadata.Item>
+        <time dateTime="2026-01-01">1 januari 2026</time>
+        <Metadata.Separator />
+        Belastingen, Wonen, WOZ
       </Metadata>,
     )
 
     const component = screen.getByRole('paragraph')
 
-    expect(component.querySelectorAll('.ams-metadata__item')).toHaveLength(2)
-    expect(screen.getByText('1 januari 2026')).toBeInTheDocument()
+    expect(component.querySelectorAll('.ams-metadata__separator')).toHaveLength(1)
+    expect(component.textContent).toBe('1 januari 2026 – Belastingen, Wonen, WOZ')
+  })
+
+  it('needs no separator for a single kind of metadata', () => {
+    render(
+      <Metadata>
+        <time dateTime="2025-07-29">29 juli 2025</time>
+      </Metadata>,
+    )
+
+    const component = screen.getByRole('paragraph')
+
+    expect(component.querySelector('.ams-metadata__separator')).not.toBeInTheDocument()
+    expect(component.textContent).toBe('29 juli 2025')
   })
 
   it('supports ForwardRef in React', () => {

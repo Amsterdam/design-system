@@ -5,4 +5,4 @@
 
 export { Metadata } from './Metadata'
 export type { MetadataProps } from './Metadata'
-export type { MetadataItemProps } from './MetadataItem'
+export type { MetadataSeparatorProps } from './MetadataSeparator'

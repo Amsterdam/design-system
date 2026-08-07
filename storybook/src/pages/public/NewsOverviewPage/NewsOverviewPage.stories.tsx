@@ -176,10 +176,8 @@ export const Default: StoryObj = {
                   </Paragraph>
                   {/* A Card takes the small size, where a content page takes the regular one. */}
                   <Metadata size="small">
-                    <Metadata.Item>
-                      {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
-                      <time dateTime="2023-10-20">20 oktober 2023</time>
-                    </Metadata.Item>
+                    {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
+                    <time dateTime="2023-10-20">20 oktober 2023</time>
                   </Metadata>
                 </Column>
               </Card.Content>
@@ -323,10 +321,8 @@ export const Default: StoryObj = {
                         <Paragraph>{article.teaser}</Paragraph>
                         {/* A Card takes the small size, where a content page takes the regular one. */}
                         <Metadata size="small">
-                          <Metadata.Item>
-                            {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
-                            <time dateTime={article.isoDate}>{article.date}</time>
-                          </Metadata.Item>
+                          {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
+                          <time dateTime={article.isoDate}>{article.date}</time>
                         </Metadata>
                       </Column>
                     </Card.Content>

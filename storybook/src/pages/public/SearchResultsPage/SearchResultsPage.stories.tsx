@@ -152,10 +152,8 @@ export const Default: StoryObj = {
                 </Paragraph>
                 {/* A Card takes the small size, where a content page takes the regular one. */}
                 <Metadata size="small">
-                  <Metadata.Item>
-                    {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
-                    <time dateTime="2023-07-01">1 juli 2023</time>
-                  </Metadata.Item>
+                  {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
+                  <time dateTime="2023-07-01">1 juli 2023</time>
                 </Metadata>
               </Column>
             </Card>
@@ -274,10 +272,8 @@ export const Default: StoryObj = {
                       <Paragraph>{markSearchTerm(result.teaser)}</Paragraph>
                       {/* A Card takes the small size, where a content page takes the regular one. */}
                       <Metadata size="small">
-                        <Metadata.Item>
-                          {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
-                          <time dateTime={result.isoDate}>{result.date}</time>
-                        </Metadata.Item>
+                        {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
+                        <time dateTime={result.isoDate}>{result.date}</time>
                       </Metadata>
                     </Column>
                   </Card>

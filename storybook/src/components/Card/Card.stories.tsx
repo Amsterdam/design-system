@@ -73,9 +73,7 @@ export const Default: DefaultStory = {
         </Card.HeadingGroup>
         <Column gap="small">
           <Paragraph>{text}</Paragraph>
-          <Metadata size="small">
-            <Metadata.Item>{date}</Metadata.Item>
-          </Metadata>
+          <Metadata size="small">{date}</Metadata>
         </Column>
       </Card.Content>
     </Card>

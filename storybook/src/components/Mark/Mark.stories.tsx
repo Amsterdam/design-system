@@ -54,9 +54,7 @@ export const SearchResults = {
         bij de gemeente. Vooraf moet u een Bibobformulier …
       </Paragraph>
       <Metadata size="small">
-        <Metadata.Item>
-          <time dateTime="2023-08-03">3 augustus 2023</time>
-        </Metadata.Item>
+        <time dateTime="2023-08-03">3 augustus 2023</time>
       </Metadata>
     </Card>
   ),

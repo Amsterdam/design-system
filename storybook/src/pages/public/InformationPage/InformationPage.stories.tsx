@@ -58,9 +58,9 @@ export const Default: StoryObj = {
       {/* ams-prose sets the vertical rhythm between the elements of this Content Header. */}
       <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <Heading level={1}>Natuurbescherming bij evenementen in parken en groengebieden</Heading>
-        {/* Categories are values of one kind, so they share an Item and a comma separates them. */}
+        {/* Categories are values of one kind, so a comma separates them and no Separator does. */}
         <Metadata>
-          <Metadata.Item>Evenementen, Natuur en groen, Vergunningen</Metadata.Item>
+          Evenementen, Natuur en groen, Vergunningen
         </Metadata>
       </Grid.Cell>
       {/*
@@ -190,10 +190,8 @@ export const Default: StoryObj = {
             start={{ narrow: 1, medium: 1, wide: 2 }}
           >
             <Heading level={1}>Natuurbescherming bij evenementen in parken en groengebieden</Heading>
-            {/* Categories are values of one kind, so they share an Item and a comma separates them. */}
-            <Metadata>
-              <Metadata.Item>Evenementen, Natuur en groen, Vergunningen</Metadata.Item>
-            </Metadata>
+            {/* Categories are values of one kind, so a comma separates them and no Separator does. */}
+            <Metadata>Evenementen, Natuur en groen, Vergunningen</Metadata>
           </Grid.Cell>
           {/*
            * The lead paragraph and the lead image take the side-by-side Cell sizes, so the pair reaches a
@@ -327,13 +325,12 @@ export const WithTable: StoryObj = {
       {/* ams-prose sets the vertical rhythm between the elements of this Content Header. */}
       <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <Heading level={1}>Landelijk vastgestelde gegevens voor de WOZ-waarde van uw woning</Heading>
-        {/* Date and categories are two kinds of metadata, so each takes an Item and Metadata separates them. */}
+        {/* Date and categories are two kinds of metadata, so a Separator sits between them. */}
         <Metadata>
-          <Metadata.Item>
-            {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
-            <time dateTime="2026-01-01">1 januari 2026</time>
-          </Metadata.Item>
-          <Metadata.Item>Belastingen, Wonen, WOZ</Metadata.Item>
+          {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
+          <time dateTime="2026-01-01">1 januari 2026</time>
+          <Metadata.Separator />
+          Belastingen, Wonen, WOZ
         </Metadata>
         <Paragraph size="large">
           De gemeente stelt elk jaar de WOZ-waarde van uw woning vast. Welke gegevens daarbij horen en hoe zij
@@ -466,13 +463,12 @@ export const WithTable: StoryObj = {
             start={{ narrow: 1, medium: 1, wide: 2 }}
           >
             <Heading level={1}>Landelijk vastgestelde gegevens voor de WOZ-waarde van uw woning</Heading>
-            {/* Date and categories are two kinds of metadata, so each takes an Item and Metadata separates them. */}
+            {/* Date and categories are two kinds of metadata, so a Separator sits between them. */}
             <Metadata>
-              <Metadata.Item>
-                {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
-                <time dateTime="2026-01-01">1 januari 2026</time>
-              </Metadata.Item>
-              <Metadata.Item>Belastingen, Wonen, WOZ</Metadata.Item>
+              {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
+              <time dateTime="2026-01-01">1 januari 2026</time>
+              <Metadata.Separator />
+              Belastingen, Wonen, WOZ
             </Metadata>
             <Paragraph size="large">
               De gemeente stelt elk jaar de WOZ-waarde van uw woning vast. Welke gegevens daarbij horen en hoe zij

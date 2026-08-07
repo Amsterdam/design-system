@@ -8,7 +8,7 @@ import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
 
-import { MetadataItem } from './MetadataItem'
+import { MetadataSeparator } from './MetadataSeparator'
 
 export type MetadataProps = {
   /** Changes the text colour for readability on a dark background. */
@@ -36,4 +36,4 @@ MetadataRoot.displayName = 'Metadata'
  *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-text-metadata--docs Metadata docs at Amsterdam Design System}
  */
-export const Metadata = Object.assign(MetadataRoot, { Item: MetadataItem })
+export const Metadata = Object.assign(MetadataRoot, { Separator: MetadataSeparator })
