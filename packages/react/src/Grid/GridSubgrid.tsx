@@ -9,7 +9,6 @@ import { clsx } from 'clsx'
 import { forwardRef } from 'react'
 
 import type { GridColumnNumber, GridColumnNumbers, GridRowNumber, GridRowNumbers } from './Grid'
-import type { GridCellTag } from './GridCell'
 
 import { gridSubgridClasses } from './gridSubgridClasses'
 
@@ -19,6 +18,24 @@ import { gridSubgridClasses } from './gridSubgridClasses'
  */
 export const gridSubgridGaps = ['none', 'large', 'x-large', '2x-large'] as const
 export type GridSubgridGap = (typeof gridSubgridGaps)[number]
+
+/**
+ * A Subgrid can be the list a set of Cells belongs to, but never an item of one:
+ * an `li` holds content, which is what a Cell is for.
+ */
+export const gridSubgridTags = [
+  'article',
+  'aside',
+  'div',
+  'footer',
+  'header',
+  'main',
+  'nav',
+  'ol',
+  'section',
+  'ul',
+] as const
+export type GridSubgridTag = (typeof gridSubgridTags)[number]
 
 type GridSubgridSpanAllProp = {
   /** Lets the subgrid span the full width of all grid variants. */
@@ -44,7 +61,7 @@ export type GridSubgridProps = {
    * The HTML tag to use.
    * @default div
    */
-  readonly as?: GridCellTag
+  readonly as?: GridSubgridTag
   /**
    * The amount of space between the rows of the subgrid.
    * Defaults to the vertical gap of the Grid.
@@ -68,7 +85,7 @@ export type GridSubgridProps = {
 
 /**
  * A region of the Grid that shares its columns with its children, so they align to the columns of the page.
- * Every direct child must be a Grid Cell.
+ * Every direct child must be a Grid Cell, or another Subgrid if part of the region is a set of its own.
  *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-layout-grid--docs Grid docs at Amsterdam Design System}
  */

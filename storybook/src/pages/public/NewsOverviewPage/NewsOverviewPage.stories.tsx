@@ -148,34 +148,41 @@ export const Default: StoryObj = {
           <Paragraph role="status">{resultsMessage}</Paragraph>
         </Grid.Cell>
         {/*
-         * On the medium Grid a Card takes 4 of the 5 columns of the results region, leaving the last one
-         * empty. That is below the width at which a Card with an image goes horizontal, so it stays vertical.
+         * The articles are a list, so they get a Subgrid of their own: a ul with every Cell in it an li.
+         * The result count above and the Pagination below stay outside it; neither is one of the articles.
+         * A Subgrid inside a Subgrid still hands down the columns of the page, and takes the same row gap.
          */}
-        <Grid.Cell span={{ narrow: 4, medium: 4, wide: 9 }}>
-          <Card>
-            {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
-            <Card.Image alt="" loading="lazy" src="https://picsum.photos/id/122/640/360" />
-            {/* A Card that pairs an image with a Content lays out horizontally in a cell this wide. */}
-            <Card.Content>
-              <Card.HeadingGroup tagline="Algemeen, Centrum, Werkzaamheden">
-                <Card.Heading level={3}>
-                  <Card.Link href="#">Berlagebrug een aantal nachten dicht</Card.Link>
-                </Card.Heading>
-              </Card.HeadingGroup>
-              <Column gap="small">
-                <Paragraph>
-                  Tussen 3 juni en 21 juli leggen we het tramspoor op de Berlagebrug aan. De brug is ongeveer 12
-                  nachten dicht voor gemotoriseerd verkeer en in 3 nachten voor al het verkeer.
-                </Paragraph>
-                <Paragraph size="small">
-                  {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
-                  <time dateTime="2023-10-20">20 oktober 2023</time>
-                </Paragraph>
-              </Column>
-            </Card.Content>
-          </Card>
-        </Grid.Cell>
-        {/* … one Cell per article … */}
+        <Grid.Subgrid as="ul" span="all">
+          {/*
+           * On the medium Grid a Card takes 4 of the 5 columns of the results region, leaving the last one
+           * empty. That is below the width at which a Card with an image goes horizontal, so it stays vertical.
+           */}
+          <Grid.Cell as="li" span={{ narrow: 4, medium: 4, wide: 9 }}>
+            <Card>
+              {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
+              <Card.Image alt="" loading="lazy" src="https://picsum.photos/id/122/640/360" />
+              {/* A Card that pairs an image with a Content lays out horizontally in a cell this wide. */}
+              <Card.Content>
+                <Card.HeadingGroup tagline="Algemeen, Centrum, Werkzaamheden">
+                  <Card.Heading level={3}>
+                    <Card.Link href="#">Berlagebrug een aantal nachten dicht</Card.Link>
+                  </Card.Heading>
+                </Card.HeadingGroup>
+                <Column gap="small">
+                  <Paragraph>
+                    Tussen 3 juni en 21 juli leggen we het tramspoor op de Berlagebrug aan. De brug is ongeveer 12
+                    nachten dicht voor gemotoriseerd verkeer en in 3 nachten voor al het verkeer.
+                  </Paragraph>
+                  <Paragraph size="small">
+                    {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
+                    <time dateTime="2023-10-20">20 oktober 2023</time>
+                  </Paragraph>
+                </Column>
+              </Card.Content>
+            </Card>
+          </Grid.Cell>
+          {/* … one Cell per article … */}
+        </Grid.Subgrid>
         <Grid.Cell span="all">
           <Pagination
             accessibleNameId="paginering"
@@ -287,32 +294,39 @@ export const Default: StoryObj = {
               <Paragraph role="status">{resultsMessage}</Paragraph>
             </Grid.Cell>
             {/*
-             * On the medium Grid a Card takes 4 of the 5 columns of the results region, leaving the last one
-             * empty. That is below the width at which a Card with an image goes horizontal, so it stays vertical.
+             * The articles are a list, so they get a Subgrid of their own: a ul with every Cell in it an li.
+             * The result count above and the Pagination below stay outside it; neither is one of the articles.
+             * A Subgrid inside a Subgrid still hands down the columns of the page, and takes the same row gap.
              */}
-            {newsArticles.map((article) => (
-              <Grid.Cell key={article.id} span={{ narrow: 4, medium: 4, wide: 9 }}>
-                <Card>
-                  {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
-                  <Card.Image alt="" loading="lazy" src={article.imageSource} />
-                  {/* A Card that pairs an image with a Content lays out horizontally in a cell this wide. */}
-                  <Card.Content>
-                    <Card.HeadingGroup tagline={article.category}>
-                      <Card.Heading level={3}>
-                        <Card.Link href="#">{article.title}</Card.Link>
-                      </Card.Heading>
-                    </Card.HeadingGroup>
-                    <Column gap="small">
-                      <Paragraph>{article.teaser}</Paragraph>
-                      <Paragraph size="small">
-                        {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
-                        <time dateTime={article.isoDate}>{article.date}</time>
-                      </Paragraph>
-                    </Column>
-                  </Card.Content>
-                </Card>
-              </Grid.Cell>
-            ))}
+            <Grid.Subgrid as="ul" span="all">
+              {/*
+               * On the medium Grid a Card takes 4 of the 5 columns of the results region, leaving the last one
+               * empty. That is below the width at which a Card with an image goes horizontal, so it stays vertical.
+               */}
+              {newsArticles.map((article) => (
+                <Grid.Cell as="li" key={article.id} span={{ narrow: 4, medium: 4, wide: 9 }}>
+                  <Card>
+                    {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
+                    <Card.Image alt="" loading="lazy" src={article.imageSource} />
+                    {/* A Card that pairs an image with a Content lays out horizontally in a cell this wide. */}
+                    <Card.Content>
+                      <Card.HeadingGroup tagline={article.category}>
+                        <Card.Heading level={3}>
+                          <Card.Link href="#">{article.title}</Card.Link>
+                        </Card.Heading>
+                      </Card.HeadingGroup>
+                      <Column gap="small">
+                        <Paragraph>{article.teaser}</Paragraph>
+                        <Paragraph size="small">
+                          {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
+                          <time dateTime={article.isoDate}>{article.date}</time>
+                        </Paragraph>
+                      </Column>
+                    </Card.Content>
+                  </Card>
+                </Grid.Cell>
+              ))}
+            </Grid.Subgrid>
             <Grid.Cell span="all">
               <Pagination
                 accessibleNameId="paginering"

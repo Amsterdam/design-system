@@ -40,16 +40,11 @@ It is left-aligned with the text of the higher-level item.
 
 ### Without markers
 
-An overview of articles can be seen as an unordered list.
-In such cases, apply the list semantics while hiding markers.
-This helps screen readers understand and navigate the list.
+Set `markers` to false where a group of items reads as a list but should not look like one.
+The list keeps its `ul` and `li` elements, so a screen reader still announces it as a list and reports how many items it holds, while the markers stay out of the way.
+Its items then hold blocks rather than sentences, so the list defines no typography and the `color` prop has no effect.
 
-Note: each item typically contains a container with headings and other text components in this variant.
-Therefore, it does not define typography for the items and the `color` prop has no effect.
-
-For example, here are three news articles:
-
-<Canvas of={UnorderedListStories.WithoutMarkers} />
+For a set of Cards laid out across the page, make the [Grid](/docs/components-layout-grid--docs) or a Grid Subgrid the list instead.
 
 ### Inverse colour
 

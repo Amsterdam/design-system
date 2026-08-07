@@ -128,22 +128,89 @@ const SubgridRowStartCase = () => (
   </Grid>
 )
 
+/*
+ * A Subgrid that is a list is indistinguishable from one that is not: markers or an indent in the first row
+ * mean the list reset is gone. The second list sits inside a plain Subgrid, the arrangement of a page where
+ * the set is only part of a wider region, and its rows must still line up with the reference row above.
+ */
+const ListCase = () => (
+  <Grid paddingVertical="large">
+    <Grid.Subgrid as="ul" span="all">
+      <Grid.Cell {...item} as="li" span={quarter} />
+      <Grid.Cell {...item} as="li" span={quarter} />
+      <Grid.Cell {...item} as="li" span={quarter} />
+      <Grid.Cell {...item} as="li" span={quarter} />
+    </Grid.Subgrid>
+    <Grid.Subgrid span="all">
+      <Grid.Cell {...item} span={quarter} />
+      <Grid.Cell {...item} span={quarter} />
+      <Grid.Cell {...item} span={quarter} />
+      <Grid.Cell {...item} span={quarter} />
+    </Grid.Subgrid>
+    <Grid.Subgrid span={threeQuarters} start={secondQuarter}>
+      <Grid.Cell {...item} span={quarter} />
+      <Grid.Subgrid as="ol" span="all">
+        <Grid.Cell {...item} as="li" span={quarter} />
+        <Grid.Cell {...item} as="li" span={quarter} />
+        <Grid.Cell {...item} as="li" span={quarter} />
+      </Grid.Subgrid>
+      <Grid.Cell {...item} span={quarter} />
+    </Grid.Subgrid>
+  </Grid>
+)
+
+/*
+ * A Grid can be the list itself. Unlike a Subgrid it keeps its inline padding, the gutter of the page, which
+ * the list reset would zero: these Cells must line up with those of every other case rather than sit further
+ * out. The Grid below it is the reference.
+ */
+const GridListCase = () => (
+  <>
+    <Grid as="ul" paddingVertical="large">
+      <Grid.Cell {...item} as="li" span={quarter} />
+      <Grid.Cell {...item} as="li" span={quarter} />
+      <Grid.Cell {...item} as="li" span={quarter} />
+      <Grid.Cell {...item} as="li" span={quarter} />
+    </Grid>
+    <Grid paddingVertical="large">
+      <Grid.Cell {...item} span={quarter} />
+      <Grid.Cell {...item} span={quarter} />
+      <Grid.Cell {...item} span={quarter} />
+      <Grid.Cell {...item} span={quarter} />
+    </Grid>
+  </>
+)
+
 export const Test: Story = {
   args: {
-    children: [<Grid.Cell key={1} span="all" />, <Grid.Cell key={2} span="all" />],
+    // Empty Cells leave every variant blank, so the gaps and paddings they differ in have nothing to measure.
+    children: [<Grid.Cell key={1} {...item} span="all" />, <Grid.Cell key={2} {...item} span="all" />],
   },
   render: (args, context) => (
     <div className="_ams-tests-stack">
+      <p>Gaps and paddings</p>
       {renderComponentVariants(Grid, { args }, context)}
+      <p>Subgrid</p>
       <SubgridCase />
+      <p>Subgrid in a Grid without a row gap</p>
       <SubgridCase gapVertical="none" />
+      <p>Subgrid with a 2x-large row gap</p>
       <SubgridCase subgridGapVertical="2x-large" />
       {/* The reason x-large exists: the Grid drops its gap, and the Subgrid puts the regular one back. */}
+      <p>Subgrid restoring the x-large row gap</p>
       <SubgridCase gapVertical="none" subgridGapVertical="x-large" />
+      <p>Subgrid placement</p>
       <SubgridPlacementCase />
+      <p>Subgrid spanning two rows</p>
       <SubgridRowSpanCase />
+      <p>Row start</p>
       <RowStartCase />
+      <p>Row start for a Subgrid</p>
       <SubgridRowStartCase />
+      <p>Subgrid as a list</p>
+      <ListCase />
+      <p>Grid as a list</p>
+      <GridListCase />
     </div>
   ),
   tags: ['!dev', '!autodocs', '!manifest'],

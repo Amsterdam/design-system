@@ -45,6 +45,9 @@ Put the results in a [Grid Subgrid](/docs/components-layout-grid--docs) rather t
 A Subgrid hands the columns it spans to its own children, so the Cells inside it sit on the columns of the page.
 Without it the results have no columns of their own, and nothing in them can line up with the rest of the page.
 
+The articles are a list, so give them a Subgrid of their own inside that one: a `ul` with every Cell in it an `li`.
+The sentence announcing the total and the Pagination are not part of that list, so they stay outside it.
+
 Announce the number of results in a `role="status"` paragraph, and name the filters that produced it.
 A visitor using a screen reader otherwise has no way to tell that ticking a checkbox changed anything.
 
@@ -84,6 +87,9 @@ The heading of the filter column is hidden visually but not from assistive techn
 
 The number of results is announced in a `role="status"` paragraph that names the filters which produced it.
 A visitor using a screen reader otherwise has no way to tell that ticking a checkbox changed anything.
+
+The articles are a list in the markup as well as on screen.
+A screen reader then announces how many there are and which one it is on, and can skip past them all at once.
 
 ## See also
 
