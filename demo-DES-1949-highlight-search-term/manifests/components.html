@@ -594,7 +594,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>6.6s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>5.6s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -31652,13 +31652,13 @@ export const Default: StoryObj = {
         &lt;Grid.Cell span={{ narrow: 4, medium: 5, wide: 7 }}&gt;
           {/* A search result has no image, so this Card needs no Card Content and stays vertical at any width. */}
           &lt;Card&gt;
+            {/* Every match is marked, in the title of a result as well as in its teaser. This title holds none. */}
             &lt;Card.HeadingGroup tagline=&quot;Actiecentrum Veiligheid en Zorg&quot;&gt;
               &lt;Card.Heading level={3}&gt;
                 &lt;Card.Link href=&quot;#&quot;&gt;Top 400/600&lt;/Card.Link&gt;
               &lt;/Card.Heading&gt;
             &lt;/Card.HeadingGroup&gt;
             &lt;Column gap=&quot;small&quot;&gt;
-              {/* Only the teaser marks the term: a highlight inside the title would make that link harder to read out. */}
               &lt;Paragraph&gt;
                 Om de stad veiliger te maken coördineert de gemeente, samen met haar maatschappelijke partners,
                 vanuit het Actiecentrum &lt;Mark&gt;Veiligheid&lt;/Mark&gt; en Zorg verschillende aanpakken op het snijvlak
@@ -31765,13 +31765,13 @@ export const Default: StoryObj = {
               &lt;Grid.Cell key={result.id} span={{ narrow: 4, medium: 5, wide: 7 }}&gt;
                 {/* A search result has no image, so this Card needs no Card Content and stays vertical at any width. */}
                 &lt;Card&gt;
+                  {/* Every match is marked, in the title of a result as well as in its teaser. */}
                   &lt;Card.HeadingGroup tagline={result.section}&gt;
                     &lt;Card.Heading level={3}&gt;
-                      &lt;Card.Link href=&quot;#&quot;&gt;{result.title}&lt;/Card.Link&gt;
+                      &lt;Card.Link href=&quot;#&quot;&gt;{markSearchTerm(result.title)}&lt;/Card.Link&gt;
                     &lt;/Card.Heading&gt;
                   &lt;/Card.HeadingGroup&gt;
                   &lt;Column gap=&quot;small&quot;&gt;
-                    {/* Only the teaser marks the term: a highlight inside the title would make that link harder to read out. */}
                     &lt;Paragraph&gt;{markSearchTerm(result.teaser)}&lt;/Paragraph&gt;
                     &lt;Paragraph size=&quot;small&quot;&gt;
                       {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
@@ -31925,13 +31925,13 @@ export const Default: StoryObj = {
             &lt;Grid.Cell key={result.id} span={{ narrow: 4, medium: 5, wide: 7 }}&gt;
               {/* A search result has no image, so this Card needs no Card Content and stays vertical at any width. */}
               &lt;Card&gt;
+                {/* Every match is marked, in the title of a result as well as in its teaser. */}
                 &lt;Card.HeadingGroup tagline={result.section}&gt;
                   &lt;Card.Heading level={3}&gt;
-                    &lt;Card.Link href=&quot;#&quot;&gt;{result.title}&lt;/Card.Link&gt;
+                    &lt;Card.Link href=&quot;#&quot;&gt;{markSearchTerm(result.title)}&lt;/Card.Link&gt;
                   &lt;/Card.Heading&gt;
                 &lt;/Card.HeadingGroup&gt;
                 &lt;Column gap=&quot;small&quot;&gt;
-                  {/* Only the teaser marks the term: a highlight inside the title would make that link harder to read out. */}
                   &lt;Paragraph&gt;{markSearchTerm(result.teaser)}&lt;/Paragraph&gt;
                   &lt;Paragraph size=&quot;small&quot;&gt;
                     {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
@@ -32014,9 +32014,9 @@ Keep it out of the filter form as well: nesting one `form` inside another is inv
 Put the results in a [Grid Subgrid](/docs/components-layout-grid--docs) and announce the total in a `role=&quot;status&quot;` paragraph, as on any index page.
 Name the term that was searched for in that sentence, so it is clear what produced the list.
 
-Highlight the term in the teaser of a result with [Mark](/docs/components-text-mark--docs), so a visitor sees at a glance why a result is in the list.
-Match it whatever its casing, and keep the casing the teaser uses.
-A result can match on text the teaser does not show, so not every teaser has something to highlight.
+Highlight the term with [Mark](/docs/components-text-mark--docs), in the title of a result as well as in its teaser, so a visitor sees at a glance why a result is in the list.
+Match it whatever its casing, and keep the casing of the text.
+A result can match on text that neither the title nor the teaser shows, so not every result has something to highlight.
 
 The page title is the only Heading 1, and it names the activity rather than the query.
 The filter column and the list of results each take a Heading 2, and the title of every result is a Heading 3.
@@ -32042,9 +32042,8 @@ The heading of the filter column is hidden visually but not from assistive techn
 The total is announced in a `role=&quot;status&quot;` paragraph that names the term searched for, so it is clear what produced the list.
 Leave the term unhighlighted there: a highlight adds nothing to a sentence that is read out in full anyway.
 
-A result title is the title of the page it links to, neither shortened to fit nor marked up to highlight the matched words.
-A highlight inside a link makes the link harder to read out.
-The teaser below it carries the highlights instead.
+A result title is the title of the page it links to, not shortened to fit.
+Highlighting the term inside it leaves the name the link is announced with unchanged.
 
 ## See also
 
@@ -52389,13 +52388,13 @@ export const Default: StoryObj = {
         &lt;Grid.Cell span={{ narrow: 4, medium: 5, wide: 7 }}&gt;
           {/* A search result has no image, so this Card needs no Card Content and stays vertical at any width. */}
           &lt;Card&gt;
+            {/* Every match is marked, in the title of a result as well as in its teaser. This title holds none. */}
             &lt;Card.HeadingGroup tagline=&quot;Actiecentrum Veiligheid en Zorg&quot;&gt;
               &lt;Card.Heading level={3}&gt;
                 &lt;Card.Link href=&quot;#&quot;&gt;Top 400/600&lt;/Card.Link&gt;
               &lt;/Card.Heading&gt;
             &lt;/Card.HeadingGroup&gt;
             &lt;Column gap=&quot;small&quot;&gt;
-              {/* Only the teaser marks the term: a highlight inside the title would make that link harder to read out. */}
               &lt;Paragraph&gt;
                 Om de stad veiliger te maken coördineert de gemeente, samen met haar maatschappelijke partners,
                 vanuit het Actiecentrum &lt;Mark&gt;Veiligheid&lt;/Mark&gt; en Zorg verschillende aanpakken op het snijvlak
@@ -52502,13 +52501,13 @@ export const Default: StoryObj = {
               &lt;Grid.Cell key={result.id} span={{ narrow: 4, medium: 5, wide: 7 }}&gt;
                 {/* A search result has no image, so this Card needs no Card Content and stays vertical at any width. */}
                 &lt;Card&gt;
+                  {/* Every match is marked, in the title of a result as well as in its teaser. */}
                   &lt;Card.HeadingGroup tagline={result.section}&gt;
                     &lt;Card.Heading level={3}&gt;
-                      &lt;Card.Link href=&quot;#&quot;&gt;{result.title}&lt;/Card.Link&gt;
+                      &lt;Card.Link href=&quot;#&quot;&gt;{markSearchTerm(result.title)}&lt;/Card.Link&gt;
                     &lt;/Card.Heading&gt;
                   &lt;/Card.HeadingGroup&gt;
                   &lt;Column gap=&quot;small&quot;&gt;
-                    {/* Only the teaser marks the term: a highlight inside the title would make that link harder to read out. */}
                     &lt;Paragraph&gt;{markSearchTerm(result.teaser)}&lt;/Paragraph&gt;
                     &lt;Paragraph size=&quot;small&quot;&gt;
                       {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
@@ -52662,13 +52661,13 @@ export const Default: StoryObj = {
             &lt;Grid.Cell key={result.id} span={{ narrow: 4, medium: 5, wide: 7 }}&gt;
               {/* A search result has no image, so this Card needs no Card Content and stays vertical at any width. */}
               &lt;Card&gt;
+                {/* Every match is marked, in the title of a result as well as in its teaser. */}
                 &lt;Card.HeadingGroup tagline={result.section}&gt;
                   &lt;Card.Heading level={3}&gt;
-                    &lt;Card.Link href=&quot;#&quot;&gt;{result.title}&lt;/Card.Link&gt;
+                    &lt;Card.Link href=&quot;#&quot;&gt;{markSearchTerm(result.title)}&lt;/Card.Link&gt;
                   &lt;/Card.Heading&gt;
                 &lt;/Card.HeadingGroup&gt;
                 &lt;Column gap=&quot;small&quot;&gt;
-                  {/* Only the teaser marks the term: a highlight inside the title would make that link harder to read out. */}
                   &lt;Paragraph&gt;{markSearchTerm(result.teaser)}&lt;/Paragraph&gt;
                   &lt;Paragraph size=&quot;small&quot;&gt;
                     {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
@@ -52751,9 +52750,9 @@ Keep it out of the filter form as well: nesting one `form` inside another is inv
 Put the results in a [Grid Subgrid](/docs/components-layout-grid--docs) and announce the total in a `role=&quot;status&quot;` paragraph, as on any index page.
 Name the term that was searched for in that sentence, so it is clear what produced the list.
 
-Highlight the term in the teaser of a result with [Mark](/docs/components-text-mark--docs), so a visitor sees at a glance why a result is in the list.
-Match it whatever its casing, and keep the casing the teaser uses.
-A result can match on text the teaser does not show, so not every teaser has something to highlight.
+Highlight the term with [Mark](/docs/components-text-mark--docs), in the title of a result as well as in its teaser, so a visitor sees at a glance why a result is in the list.
+Match it whatever its casing, and keep the casing of the text.
+A result can match on text that neither the title nor the teaser shows, so not every result has something to highlight.
 
 The page title is the only Heading 1, and it names the activity rather than the query.
 The filter column and the list of results each take a Heading 2, and the title of every result is a Heading 3.
@@ -52779,9 +52778,8 @@ The heading of the filter column is hidden visually but not from assistive techn
 The total is announced in a `role=&quot;status&quot;` paragraph that names the term searched for, so it is clear what produced the list.
 Leave the term unhighlighted there: a highlight adds nothing to a sentence that is read out in full anyway.
 
-A result title is the title of the page it links to, neither shortened to fit nor marked up to highlight the matched words.
-A highlight inside a link makes the link harder to read out.
-The teaser below it carries the highlights instead.
+A result title is the title of the page it links to, not shortened to fit.
+Highlighting the term inside it leaves the name the link is announced with unchanged.
 
 ## See also
 
