@@ -1,7 +1,0 @@
-import{n as e}from"./rolldown-runtime-DkW27tQK.js";import{h as t,u as n}from"./blocks-zzQRermb.js";import{t as r}from"./jsx-runtime-ATHzeHXA.js";import{i,r as a}from"./react-Dyi61YEg.js";import{n as o,t as s}from"./DesignTokensTable-CoxPGuFl.js";var c,l;function u(){return(u=e((()=>{c={cursor:{disabled:{$value:`not-allowed`,$extensions:{"nl.amsterdam.type":`cursor`}},interactive:{$value:`pointer`,$description:`All interactive elements in their default state that lack a cursor style.`,$extensions:{"nl.amsterdam.type":`cursor`}}}},l={ams:c}})))()}function d(e){let t={a:`a`,code:`code`,h1:`h1`,p:`p`,...i(),...e.components};return(0,p.jsxs)(p.Fragment,{children:[`
-`,`
-`,`
-`,(0,p.jsx)(n,{title:`Brand/Design tokens/Cursor`}),`
-`,(0,p.jsx)(t.h1,{id:`cursor`,children:`Cursor`}),`
-`,(0,p.jsxs)(t.p,{children:[(0,p.jsx)(t.a,{href:`/docs/docs-developer-guide-interactivity--docs`,children:`Interactive elements`}),` that do not have a cursor style, such as buttons, should use one of these `,(0,p.jsx)(t.code,{children:`cursor`}),` values.`]}),`
-`,(0,p.jsx)(s,{hideExamples:!0,path:`ams.cursor`,showDescriptions:!0,tokens:l})]})}function f(e={}){let{wrapper:t}={...i(),...e.components};return t?(0,p.jsx)(t,{...e,children:(0,p.jsx)(d,{...e})}):d(e)}var p;function m(){return(m=e((()=>{p=r(),a(),t(),o(),u()})))()}m();export{f as default};
