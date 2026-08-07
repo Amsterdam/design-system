@@ -5,7 +5,10 @@
 
 /**
  * Converts a token path to the name of the CSS custom property that the build pipeline ships for it.
- * A trailing `default` segment is dropped, mirroring the `name/customKebab` transform in the tokens package.
+ * A trailing `default` segment is dropped, as the `name/customKebab` and `name/customCamel` transforms in the tokens
+ * package do.
+ * Those transforms also run the path through `kebabCase` and this does not, which holds only while every path segment
+ * is lower case and hyphenated already, as all of them currently are.
  *
  * @param path - The token path segments, e.g. `['ams', 'color', 'interactive', 'default']`.
  * @returns The custom property name, including the leading double hyphen.
