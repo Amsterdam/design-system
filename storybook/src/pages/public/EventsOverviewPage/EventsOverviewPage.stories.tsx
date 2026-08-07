@@ -194,7 +194,7 @@ export const Default: StoryObj = {
            * On the medium grid a Card takes 4 of the 5 columns of the results region, leaving the last one
            * empty. That is below the width at which a Card with an image goes horizontal, so it stays vertical.
            */}
-          <Grid.Cell as="li" key="open-dag-stadsarchief" span={{ narrow: 4, medium: 4, wide: 9 }}>
+          <Grid.Cell as="li" span={{ narrow: 4, medium: 4, wide: 9 }}>
             <Card>
               {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
               <Card.Image alt="" loading="lazy" src="https://picsum.photos/id/1048/640/360" />
@@ -564,7 +564,7 @@ export const CardGrid: StoryObj = {
            * That is narrower than the width at which a Card with an image goes horizontal, so each one stays
            * vertical and its image spans the full width of the Card.
            */}
-          <Grid.Cell as="li" key="open-dag-stadsarchief" span={{ narrow: 4, medium: 4, wide: 3 }}>
+          <Grid.Cell as="li" span={{ narrow: 4, medium: 4, wide: 3 }}>
             <Card>
               {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
               <Card.Image alt="" loading="lazy" src="https://picsum.photos/id/1048/640/360" />
