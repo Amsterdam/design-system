@@ -37,21 +37,30 @@ An [Alert](/docs/components-feedback-alert--docs) carries that meaning and annou
 
 Never let the highlight carry information by itself.
 The text around it has to make sense without it, so that what the highlight shows reaches everyone, as [WCAG 1.3.1](https://www.w3.org/TR/WCAG22/#info-and-relationships) requires.
-A list of search results already satisfies this: each result is meaningful on its own, and the highlight only speeds up scanning.
+
+#### Search terms
+
+A list of search results meets that on its own: each result is meaningful without the highlight, which only speeds up scanning.
+
+A highlight here follows the query rather than an editorial choice, so no limit applies to how many appear.
+Mark every match on the page, including matches inside the heading of a result.
+Ignore capitalisation and include partial matches.
+
+Leave the labels around a result alone, such as the category it is filed under.
+A full-text search does not match those, so a word that looks like a match there is not one.
+
+#### Editorial highlights
 
 Keep an editorial highlight to one fragment per page, and to at most one sentence.
 Marking a whole paragraph, or several passages at once, leaves nothing standing out.
 Rewrite a heading that needs emphasis rather than highlighting part of it.
-
-Highlighted search terms follow the search instead of an editorial choice, so those limits do not apply to them.
-Mark every match on the page, including matches inside the heading of a result.
-Ignore capitalisation and include partial matches.
 
 ## Examples
 
 ### Search results
 
 Every match of every keyword is highlighted, in the heading of a result as well as in its summary.
+The category above each heading stays unmarked, so the third result shows an unmarked ‘Vergunningen’ above a heading that marks the same word.
 
 <Canvas of={MarkStories.SearchResults} />
 
