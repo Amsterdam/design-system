@@ -5,7 +5,7 @@
 
 $_ams-body-block: ".ams-blockquote, .ams-image, .ams-paragraph--large, .ams-table";
 $_ams-list-or-paragraph: ".ams-description-list, .ams-link-list, .ams-ordered-list, .ams-paragraph:not(.ams-paragraph--large), .ams-unordered-list";
-$_ams-paragraph: ".ams-paragraph:not(.ams-paragraph--large)";
+$_ams-paragraph: ".ams-metadata, .ams-paragraph:not(.ams-paragraph--large)";
 $_ams-spaced-from-heading: ".ams-description-list, .ams-image, .ams-link-list, .ams-standalone-link, .ams-table";
 
 .ams-prose {
@@ -35,8 +35,8 @@ $_ams-spaced-from-heading: ".ams-description-list, .ams-image, .ams-link-list, .
     margin-block-end: var(--ams-space-l);
   }
 
-  /* Metadata Paragraph before the lead Paragraph: the Content Header holds them closer together */
-  > #{$_ams-paragraph}:has(+ .ams-paragraph--large) {
+  /* Metadata before the lead Paragraph: the Content Header holds them closer together */
+  > :is(#{$_ams-paragraph}):has(+ .ams-paragraph--large) {
     margin-block-end: var(--ams-space-m);
   }
 
@@ -85,7 +85,7 @@ $_ams-spaced-from-heading: ".ams-description-list, .ams-image, .ams-link-list, .
     margin-block-end: var(--ams-space-s);
   }
 
-  /* Heading level 1 followed by its content: the Metadata Paragraph or the lead of a Content Header, a list, an image */
+  /* Heading level 1 followed by its content: the Metadata or the lead of a Content Header, a list, an image */
   > .ams-heading--1:has(+ :not(.ams-heading)) {
     margin-block-end: var(--ams-space-m);
   }
@@ -114,7 +114,7 @@ $_ams-spaced-from-heading: ".ams-description-list, .ams-image, .ams-link-list, .
   }
 
   /* Paragraph followed by a Standalone Link, which reads as a closing line to the text above it */
-  > #{$_ams-paragraph}:has(+ .ams-standalone-link) {
+  > :is(#{$_ams-paragraph}):has(+ .ams-standalone-link) {
     margin-block-end: var(--ams-space-s);
   }
 
