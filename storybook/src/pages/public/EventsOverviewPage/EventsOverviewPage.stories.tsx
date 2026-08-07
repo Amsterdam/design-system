@@ -185,41 +185,48 @@ export const Default: StoryObj = {
           <Paragraph role="status">{resultsMessage}</Paragraph>
         </Grid.Cell>
         {/*
-         * On the medium grid a Card takes 4 of the 5 columns of the results region, leaving the last one
-         * empty. That is below the width at which a Card with an image goes horizontal, so it stays vertical.
+         * The activities are a list, so they get a Subgrid of their own: a ul with every Cell in it an li.
+         * The result count above and the Pagination below stay outside it; neither is one of the activities.
+         * A Subgrid inside a Subgrid still hands down the columns of the page, and takes the same row gap.
          */}
-        <Grid.Cell key="open-dag-stadsarchief" span={{ narrow: 4, medium: 4, wide: 9 }}>
-          <Card>
-            {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
-            <Card.Image alt="" loading="lazy" src="https://picsum.photos/id/1048/640/360" />
-            {/* A Card that pairs an image with a Content lays out horizontally in a cell this wide. */}
-            <Card.Content>
-              <Card.HeadingGroup>
-                <Card.Heading level={3}>
-                  <Card.Link href="#">Open dag Stadsarchief Amsterdam</Card.Link>
-                </Card.Heading>
-                {/* The Metadata carries the facets of the activity, comma separated. */}
-                <Metadata size="small">Kunst en cultuur, Centrum</Metadata>
-              </Card.HeadingGroup>
-              <Column gap="small">
-                <Paragraph>Ontdek eeuwenoude kaarten, foto’s en films over Amsterdam.</Paragraph>
-                {/* When and where, below the description. A Card takes the small size of Metadata. */}
-                <Metadata size="small">
-                  {/*
-                   * The visible date is prose; dateTime repeats it in the machine-readable format software parses.
-                   */}
-                  <time dateTime="2026-06-20">20 juni 2026</time>
-                  {/* The day, the time and the place are three kinds of metadata, so a Separator sits between them. */}
-                  <Metadata.Separator />
-                  10.00–16.00 uur
-                  <Metadata.Separator />
-                  Stadsarchief Amsterdam
-                </Metadata>
-              </Column>
-            </Card.Content>
-          </Card>
-        </Grid.Cell>
-        {/* … one Cell per activity … */}
+        <Grid.Subgrid as="ul" span="all">
+          {/*
+           * On the medium grid a Card takes 4 of the 5 columns of the results region, leaving the last one
+           * empty. That is below the width at which a Card with an image goes horizontal, so it stays vertical.
+           */}
+          <Grid.Cell as="li" key="open-dag-stadsarchief" span={{ narrow: 4, medium: 4, wide: 9 }}>
+            <Card>
+              {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
+              <Card.Image alt="" loading="lazy" src="https://picsum.photos/id/1048/640/360" />
+              {/* A Card that pairs an image with a Content lays out horizontally in a cell this wide. */}
+              <Card.Content>
+                <Card.HeadingGroup>
+                  <Card.Heading level={3}>
+                    <Card.Link href="#">Open dag Stadsarchief Amsterdam</Card.Link>
+                  </Card.Heading>
+                  {/* The Metadata carries the facets of the activity, comma separated. */}
+                  <Metadata size="small">Kunst en cultuur, Centrum</Metadata>
+                </Card.HeadingGroup>
+                <Column gap="small">
+                  <Paragraph>Ontdek eeuwenoude kaarten, foto’s en films over Amsterdam.</Paragraph>
+                  {/* When and where, below the description. A Card takes the small size of Metadata. */}
+                  <Metadata size="small">
+                    {/*
+                     * The visible date is prose; dateTime repeats it in the machine-readable format software parses.
+                     */}
+                    <time dateTime="2026-06-20">20 juni 2026</time>
+                    {/* The day, the time and the place are three kinds of metadata, so a Separator sits between them. */}
+                    <Metadata.Separator />
+                    10.00–16.00 uur
+                    <Metadata.Separator />
+                    Stadsarchief Amsterdam
+                  </Metadata>
+                </Column>
+              </Card.Content>
+            </Card>
+          </Grid.Cell>
+          {/* … one Cell per activity … */}
+        </Grid.Subgrid>
         {/* The Pagination takes the width of the results above it rather than that of the region. */}
         <Grid.Cell span={{ narrow: 4, medium: 4, wide: 9 }}>
           <Pagination
@@ -360,44 +367,51 @@ export const Default: StoryObj = {
               <Paragraph role="status">{resultsMessage}</Paragraph>
             </Grid.Cell>
             {/*
-             * On the medium grid a Card takes 4 of the 5 columns of the results region, leaving the last one
-             * empty. That is below the width at which a Card with an image goes horizontal, so it stays vertical.
+             * The activities are a list, so they get a Subgrid of their own: a ul with every Cell in it an li.
+             * The result count above and the Pagination below stay outside it; neither is one of the activities.
+             * A Subgrid inside a Subgrid still hands down the columns of the page, and takes the same row gap.
              */}
-            {eventItems.map((event) => (
-              <Grid.Cell key={event.id} span={{ narrow: 4, medium: 4, wide: 9 }}>
-                <Card>
-                  {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
-                  <Card.Image alt="" loading="lazy" src={event.imageSource} />
-                  {/* A Card that pairs an image with a Content lays out horizontally in a cell this wide. */}
-                  <Card.Content>
-                    <Card.HeadingGroup>
-                      <Card.Heading level={3}>
-                        <Card.Link href={event.href}>{event.title}</Card.Link>
-                      </Card.Heading>
-                      {/* The Metadata carries the facets of the activity, comma separated. */}
-                      <Metadata size="small">{`${event.category}, ${event.district}`}</Metadata>
-                    </Card.HeadingGroup>
-                    <Column gap="small">
-                      <Paragraph>{event.teaser}</Paragraph>
-                      {/* When and where, below the description. A Card takes the small size of Metadata. */}
-                      <Metadata size="small">
-                        {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
-                        <time dateTime={event.isoDate}>{event.date}</time>
-                        {/* The day, the time and the place are three kinds of metadata, so a Separator sits between them. */}
-                        {event.timeLabel && (
-                          <>
-                            <Metadata.Separator />
-                            {event.timeLabel}
-                          </>
-                        )}
-                        <Metadata.Separator />
-                        {event.venue}
-                      </Metadata>
-                    </Column>
-                  </Card.Content>
-                </Card>
-              </Grid.Cell>
-            ))}
+            <Grid.Subgrid as="ul" span="all">
+              {/*
+               * On the medium grid a Card takes 4 of the 5 columns of the results region, leaving the last one
+               * empty. That is below the width at which a Card with an image goes horizontal, so it stays vertical.
+               */}
+              {eventItems.map((event) => (
+                <Grid.Cell as="li" key={event.id} span={{ narrow: 4, medium: 4, wide: 9 }}>
+                  <Card>
+                    {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
+                    <Card.Image alt="" loading="lazy" src={event.imageSource} />
+                    {/* A Card that pairs an image with a Content lays out horizontally in a cell this wide. */}
+                    <Card.Content>
+                      <Card.HeadingGroup>
+                        <Card.Heading level={3}>
+                          <Card.Link href={event.href}>{event.title}</Card.Link>
+                        </Card.Heading>
+                        {/* The Metadata carries the facets of the activity, comma separated. */}
+                        <Metadata size="small">{`${event.category}, ${event.district}`}</Metadata>
+                      </Card.HeadingGroup>
+                      <Column gap="small">
+                        <Paragraph>{event.teaser}</Paragraph>
+                        {/* When and where, below the description. A Card takes the small size of Metadata. */}
+                        <Metadata size="small">
+                          {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
+                          <time dateTime={event.isoDate}>{event.date}</time>
+                          {/* The day, the time and the place are three kinds of metadata, so a Separator sits between them. */}
+                          {event.timeLabel && (
+                            <>
+                              <Metadata.Separator />
+                              {event.timeLabel}
+                            </>
+                          )}
+                          <Metadata.Separator />
+                          {event.venue}
+                        </Metadata>
+                      </Column>
+                    </Card.Content>
+                  </Card>
+                </Grid.Cell>
+              ))}
+            </Grid.Subgrid>
             {/* The Pagination takes the width of the results above it rather than that of the region. */}
             <Grid.Cell span={{ narrow: 4, medium: 4, wide: 9 }}>
               <Pagination
@@ -540,41 +554,48 @@ export const CardGrid: StoryObj = {
           <Paragraph role="status">{resultsMessage}</Paragraph>
         </Grid.Cell>
         {/*
-         * Three columns of the nine the results span, so the Cards tile three to a row on the wide grid.
-         * That is narrower than the width at which a Card with an image goes horizontal, so each one stays
-         * vertical and its image spans the full width of the Card.
+         * The activities are a list, so they get a Subgrid of their own: a ul with every Cell in it an li.
+         * The result count above and the Pagination below stay outside it; neither is one of the activities.
+         * A Subgrid inside a Subgrid still hands down the columns of the page, and takes the same row gap.
          */}
-        <Grid.Cell key="open-dag-stadsarchief" span={{ narrow: 4, medium: 4, wide: 3 }}>
-          <Card>
-            {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
-            <Card.Image alt="" loading="lazy" src="https://picsum.photos/id/1048/640/360" />
-            <Card.Content>
-              <Card.HeadingGroup>
-                <Card.Heading level={3}>
-                  <Card.Link href="#">Open dag Stadsarchief Amsterdam</Card.Link>
-                </Card.Heading>
-                {/* The Metadata carries the facets of the activity, comma separated. */}
-                <Metadata size="small">Kunst en cultuur, Centrum</Metadata>
-              </Card.HeadingGroup>
-              <Column gap="small">
-                <Paragraph>Ontdek eeuwenoude kaarten, foto’s en films over Amsterdam.</Paragraph>
-                {/* When and where, below the description. A Card takes the small size of Metadata. */}
-                <Metadata size="small">
-                  {/*
-                   * The visible date is prose; dateTime repeats it in the machine-readable format software parses.
-                   */}
-                  <time dateTime="2026-06-20">20 juni 2026</time>
-                  {/* The day, the time and the place are three kinds of metadata, so a Separator sits between them. */}
-                  <Metadata.Separator />
-                  10.00–16.00 uur
-                  <Metadata.Separator />
-                  Stadsarchief Amsterdam
-                </Metadata>
-              </Column>
-            </Card.Content>
-          </Card>
-        </Grid.Cell>
-        {/* … one Cell per activity … */}
+        <Grid.Subgrid as="ul" span="all">
+          {/*
+           * Three columns of the nine the results span, so the Cards tile three to a row on the wide grid.
+           * That is narrower than the width at which a Card with an image goes horizontal, so each one stays
+           * vertical and its image spans the full width of the Card.
+           */}
+          <Grid.Cell as="li" key="open-dag-stadsarchief" span={{ narrow: 4, medium: 4, wide: 3 }}>
+            <Card>
+              {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
+              <Card.Image alt="" loading="lazy" src="https://picsum.photos/id/1048/640/360" />
+              <Card.Content>
+                <Card.HeadingGroup>
+                  <Card.Heading level={3}>
+                    <Card.Link href="#">Open dag Stadsarchief Amsterdam</Card.Link>
+                  </Card.Heading>
+                  {/* The Metadata carries the facets of the activity, comma separated. */}
+                  <Metadata size="small">Kunst en cultuur, Centrum</Metadata>
+                </Card.HeadingGroup>
+                <Column gap="small">
+                  <Paragraph>Ontdek eeuwenoude kaarten, foto’s en films over Amsterdam.</Paragraph>
+                  {/* When and where, below the description. A Card takes the small size of Metadata. */}
+                  <Metadata size="small">
+                    {/*
+                     * The visible date is prose; dateTime repeats it in the machine-readable format software parses.
+                     */}
+                    <time dateTime="2026-06-20">20 juni 2026</time>
+                    {/* The day, the time and the place are three kinds of metadata, so a Separator sits between them. */}
+                    <Metadata.Separator />
+                    10.00–16.00 uur
+                    <Metadata.Separator />
+                    Stadsarchief Amsterdam
+                  </Metadata>
+                </Column>
+              </Card.Content>
+            </Card>
+          </Grid.Cell>
+          {/* … one Cell per activity … */}
+        </Grid.Subgrid>
         {/* The Pagination takes the width of the results above it rather than that of the region. */}
         <Grid.Cell span={{ narrow: 4, medium: 4, wide: 9 }}>
           <Pagination
@@ -715,44 +736,51 @@ export const CardGrid: StoryObj = {
               <Paragraph role="status">{resultsMessage}</Paragraph>
             </Grid.Cell>
             {/*
-             * Three columns of the nine the results span, so the Cards tile three to a row on the wide grid.
-             * That is narrower than the width at which a Card with an image goes horizontal, so each one stays
-             * vertical and its image spans the full width of the Card.
+             * The activities are a list, so they get a Subgrid of their own: a ul with every Cell in it an li.
+             * The result count above and the Pagination below stay outside it; neither is one of the activities.
+             * A Subgrid inside a Subgrid still hands down the columns of the page, and takes the same row gap.
              */}
-            {eventItems.map((event) => (
-              <Grid.Cell key={event.id} span={{ narrow: 4, medium: 4, wide: 3 }}>
-                <Card>
-                  {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
-                  <Card.Image alt="" loading="lazy" src={event.imageSource} />
-                  <Card.Content>
-                    <Card.HeadingGroup>
-                      <Card.Heading level={3}>
-                        <Card.Link href={event.href}>{event.title}</Card.Link>
-                      </Card.Heading>
-                      {/* The Metadata carries the facets of the activity, comma separated. */}
-                      <Metadata size="small">{`${event.category}, ${event.district}`}</Metadata>
-                    </Card.HeadingGroup>
-                    <Column gap="small">
-                      <Paragraph>{event.teaser}</Paragraph>
-                      {/* When and where, below the description. A Card takes the small size of Metadata. */}
-                      <Metadata size="small">
-                        {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
-                        <time dateTime={event.isoDate}>{event.date}</time>
-                        {/* The day, the time and the place are three kinds of metadata, so a Separator sits between them. */}
-                        {event.timeLabel && (
-                          <>
-                            <Metadata.Separator />
-                            {event.timeLabel}
-                          </>
-                        )}
-                        <Metadata.Separator />
-                        {event.venue}
-                      </Metadata>
-                    </Column>
-                  </Card.Content>
-                </Card>
-              </Grid.Cell>
-            ))}
+            <Grid.Subgrid as="ul" span="all">
+              {/*
+               * Three columns of the nine the results span, so the Cards tile three to a row on the wide grid.
+               * That is narrower than the width at which a Card with an image goes horizontal, so each one stays
+               * vertical and its image spans the full width of the Card.
+               */}
+              {eventItems.map((event) => (
+                <Grid.Cell as="li" key={event.id} span={{ narrow: 4, medium: 4, wide: 3 }}>
+                  <Card>
+                    {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
+                    <Card.Image alt="" loading="lazy" src={event.imageSource} />
+                    <Card.Content>
+                      <Card.HeadingGroup>
+                        <Card.Heading level={3}>
+                          <Card.Link href={event.href}>{event.title}</Card.Link>
+                        </Card.Heading>
+                        {/* The Metadata carries the facets of the activity, comma separated. */}
+                        <Metadata size="small">{`${event.category}, ${event.district}`}</Metadata>
+                      </Card.HeadingGroup>
+                      <Column gap="small">
+                        <Paragraph>{event.teaser}</Paragraph>
+                        {/* When and where, below the description. A Card takes the small size of Metadata. */}
+                        <Metadata size="small">
+                          {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
+                          <time dateTime={event.isoDate}>{event.date}</time>
+                          {/* The day, the time and the place are three kinds of metadata, so a Separator sits between them. */}
+                          {event.timeLabel && (
+                            <>
+                              <Metadata.Separator />
+                              {event.timeLabel}
+                            </>
+                          )}
+                          <Metadata.Separator />
+                          {event.venue}
+                        </Metadata>
+                      </Column>
+                    </Card.Content>
+                  </Card>
+                </Grid.Cell>
+              ))}
+            </Grid.Subgrid>
             {/* The Pagination takes the width of the results above it rather than that of the region. */}
             <Grid.Cell span={{ narrow: 4, medium: 4, wide: 9 }}>
               <Pagination
