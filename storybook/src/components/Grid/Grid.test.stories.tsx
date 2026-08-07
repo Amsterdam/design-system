@@ -183,21 +183,33 @@ const GridListCase = () => (
 
 export const Test: Story = {
   args: {
-    children: [<Grid.Cell key={1} span="all" />, <Grid.Cell key={2} span="all" />],
+    // Empty Cells leave every variant blank, so the gaps and paddings they differ in have nothing to measure.
+    children: [<Grid.Cell key={1} {...item} span="all" />, <Grid.Cell key={2} {...item} span="all" />],
   },
   render: (args, context) => (
     <div className="_ams-tests-stack">
+      <p>Gaps and paddings</p>
       {renderComponentVariants(Grid, { args }, context)}
+      <p>Subgrid</p>
       <SubgridCase />
+      <p>Subgrid in a Grid without a row gap</p>
       <SubgridCase gapVertical="none" />
+      <p>Subgrid with a 2x-large row gap</p>
       <SubgridCase subgridGapVertical="2x-large" />
       {/* The reason x-large exists: the Grid drops its gap, and the Subgrid puts the regular one back. */}
+      <p>Subgrid restoring the x-large row gap</p>
       <SubgridCase gapVertical="none" subgridGapVertical="x-large" />
+      <p>Subgrid placement</p>
       <SubgridPlacementCase />
+      <p>Subgrid spanning two rows</p>
       <SubgridRowSpanCase />
+      <p>Row start</p>
       <RowStartCase />
+      <p>Row start for a Subgrid</p>
       <SubgridRowStartCase />
+      <p>Subgrid as a list</p>
       <ListCase />
+      <p>Grid as a list</p>
       <GridListCase />
     </div>
   ),
