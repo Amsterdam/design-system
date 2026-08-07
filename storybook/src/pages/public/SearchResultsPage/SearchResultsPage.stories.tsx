@@ -31,10 +31,11 @@ const totalResults = 62
 const totalPages = 8
 
 // Splitting on the term itself keeps the casing of each occurrence, so a sentence still starts with a capital.
+// The capturing group puts every match at an odd position in the split.
 const markSearchTerm = (text: string) => {
   const regex = new RegExp(`(${searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi')
 
-  return text.split(regex).map((part, index) => (part.match(regex) ? <Mark key={index}>{part}</Mark> : part))
+  return text.split(regex).map((part, index) => (index % 2 === 1 ? <Mark key={index}>{part}</Mark> : part))
 }
 
 const meta = {
