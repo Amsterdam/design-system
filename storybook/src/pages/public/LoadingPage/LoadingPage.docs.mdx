@@ -29,7 +29,8 @@ Use this page where the content arrives after the first render, so the reader se
 
 ### When not to use
 
-Where the server renders the results with the page, use the [Search Results Page](/docs/pages-public-search-results-page--docs), which has no loading state to manage.
+Where the results are in the response that renders the page, there is nothing to wait for, so show them straight away, as the [Search Results Page](/docs/pages-public-search-results-page--docs) does.
+Which of the two a search needs follows from where its results come from, not from the kind of page it is.
 
 ## Variants
 
@@ -80,5 +81,5 @@ No component wraps this pattern yet, so the Grid carries the busy state and the 
 ## See also
 
 - [Skeleton](/docs/components-feedback-skeleton--docs) – what stands in for a result while it loads.
-- [Search Results Page](/docs/pages-public-search-results-page--docs) – the same page without a loading state.
+- [Search Results Page](/docs/pages-public-search-results-page--docs) – search results beside a column of filters.
 - [News Overview Page](/docs/pages-public-news-overview-page--docs) – the filter-and-results layout these share.

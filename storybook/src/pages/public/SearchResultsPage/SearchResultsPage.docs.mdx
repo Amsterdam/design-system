@@ -27,6 +27,9 @@ This schematic shows the default sections for this page type and how the grids a
 
 Use this page for the results of a site-wide search, where a result can be any kind of content.
 
+The results may come with the page or be fetched after it has rendered.
+Where they arrive later, show [Skeletons](/docs/components-feedback-skeleton--docs) in their place while they load, as the [Loading Page](/docs/pages-public-loading-page--docs) does.
+
 ### When not to use
 
 Use a [News Overview Page](/docs/pages-public-news-overview-page--docs) for an index of one content type, where every item has an image.
@@ -44,6 +47,10 @@ Keep it out of the filter form as well: nesting one `form` inside another is inv
 Put the results in a [Grid Subgrid](/docs/components-layout-grid--docs) and announce the total in a `role="status"` paragraph, as on any index page.
 Name the term that was searched for in that sentence, so it is clear what produced the list.
 The Cards take a `ul` Subgrid of their own inside that one, as on the [News Overview Page](/docs/pages-public-news-overview-page--docs).
+
+Highlight the term with [Mark](/docs/components-text-mark--docs), in the title of a result as well as in its teaser, so a visitor sees at a glance why a result is in the list.
+Match it whatever its casing, and keep the casing of the text.
+A result can match on text that neither the title nor the teaser shows, so not every result has something to highlight.
 
 The page title is the only Heading 1, and it names the activity rather than the query.
 The filter column and the list of results each take a Heading 2, and the title of every result is a Heading 3.
@@ -67,12 +74,15 @@ Leave the row gap of the Subgrid at the vertical gap of the Grid.
 The heading of the filter column is hidden visually but not from assistive technology, so it still names the landmark that `aria-labelledby` points at.
 
 The total is announced in a `role="status"` paragraph that names the term searched for, so it is clear what produced the list.
+Leave the term unhighlighted there: a highlight adds nothing to a sentence that is read out in full anyway.
 
-A result title is the title of the page it links to, neither shortened to fit nor marked up to highlight the matched words.
-A highlight inside a link makes the link harder to read out.
+A result title is the title of the page it links to, not shortened to fit.
+Highlighting the term inside it leaves the name the link is announced with unchanged.
 
 ## See also
 
 - [News Overview Page](/docs/pages-public-news-overview-page--docs) – the same layout for one content type.
-- [Loading Page](/docs/pages-public-loading-page--docs) – this page while its results are on their way.
+- [Loading Page](/docs/pages-public-loading-page--docs) – the loading state to show while results are on their way.
 - [Search Field](/docs/components-forms-search-field--docs) – the field this page repeats.
+- [Mark](/docs/components-text-mark--docs) – the highlight on a matched word, and the rules it follows.
+- [Semantic list of cards](/docs/components-layout-grid--docs#semantic-list-of-cards) – the `ul` Subgrid the results sit in.
