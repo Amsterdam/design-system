@@ -76,7 +76,7 @@ export const Subgrid: SubgridStory = {
  * A set of Cells that hold the same kind of thing is a list. Render the Subgrid as an `ol` or a `ul` and every
  * Cell inside it as an `li`. It looks exactly the same, and assistive technology announces the set and its size.
  */
-export const SemanticList: SubgridStory = {
+export const SemanticListOfCards: SubgridStory = {
   // Taking no argument keeps the Code Panel showing this markup as written.
   render: () => (
     <Grid.Subgrid as="ul" span="all">

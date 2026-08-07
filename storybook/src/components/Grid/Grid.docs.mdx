@@ -87,13 +87,14 @@ The browser would add columns to fit, which breaks the layout.
 
 Use the `as` prop to give a Grid or a Grid Cell a meaningful HTML element when one applies.
 For example, set a top-level Cell that holds the main content of the page to `as="main"`, or a sidebar Cell to `as="aside"`.
+A Grid or a Cell can be an `article` or a `section` too, among the other tags `as` offers.
 
 Put `as="main"` on the Grid itself when the main content of a page is a single section: the Grid then is that region.
 Wrap the sections in a plain `main` element instead when the region holds several of them, such as more Grids, a [Spotlight](/docs/components-containers-spotlight--docs), or a full-bleed [Image](/docs/components-media-image--docs).
 Next to a sidebar, the main content goes in its own Grid Cell.
 
 Give a Grid or a Subgrid `as="ul"` and the Cells inside it `as="li"` where those Cells hold the same kind of thing, such as a set of Cards.
-‘A set of Cells as a list’ below shows how.
+‘Semantic list of cards’ below shows how.
 
 #### Reading order
 
@@ -182,14 +183,7 @@ This example appears best with Compact Mode active in the toolbar above.
 
 <Canvas of={GridStories.BackgroundInCompactMode} />
 
-### Improve semantics
-
-Both Grid and Grid Cell render a `<div>` by default.
-Use the `as` prop on either to make the markup more semantic.
-
-<Canvas of={GridCellStories.ImproveSemantics} />
-
-### A set of Cells as a list
+### Semantic list of cards
 
 A set of Cells that hold the same kind of thing is a list: news items, search results, a row of Cards.
 Render the Grid or the Subgrid around them as an `ol` or a `ul`, and every Cell inside it as an `li`.
@@ -204,7 +198,7 @@ A Subgrid inside a Subgrid still hands down the columns of the page, and takes t
 A list looks exactly like a `div`: it drops the marker, the indent and the margin a browser gives a list.
 A Grid keeps its own inline padding, the gutter of the page.
 
-<Canvas of={GridSubgridStories.SemanticList} />
+<Canvas of={GridSubgridStories.SemanticListOfCards} />
 
 ## Features
 

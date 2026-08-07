@@ -102,11 +102,3 @@ export const StartPosition: CellStory = {
     start: { narrow: 2, medium: 4, wide: 6 },
   },
 }
-
-export const ImproveSemantics: CellStory = {
-  args: {
-    as: 'section',
-    className: '_ams-item',
-    span: 'all',
-  },
-}
