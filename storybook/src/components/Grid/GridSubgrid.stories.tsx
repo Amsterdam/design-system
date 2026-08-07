@@ -77,13 +77,14 @@ export const Subgrid: SubgridStory = {
  * Cell inside it as an `li`. It looks exactly the same, and assistive technology announces the set and its size.
  */
 export const SemanticListOfCards: SubgridStory = {
-  // Taking no argument keeps the Code Panel showing this markup as written.
-  render: () => (
-    <Grid.Subgrid as="ul" span="all">
-      <Grid.Cell as="li" className="_ams-item" span={{ narrow: 4, medium: 4, wide: 3 }} style={{ blockSize: '6rem' }} />
-      <Grid.Cell as="li" className="_ams-item" span={{ narrow: 4, medium: 4, wide: 3 }} style={{ blockSize: '6rem' }} />
-      <Grid.Cell as="li" className="_ams-item" span={{ narrow: 4, medium: 4, wide: 3 }} style={{ blockSize: '6rem' }} />
-      <Grid.Cell as="li" className="_ams-item" span={{ narrow: 4, medium: 4, wide: 3 }} style={{ blockSize: '6rem' }} />
-    </Grid.Subgrid>
-  ),
+  args: {
+    as: 'ul',
+    children: [
+      <Grid.Cell as="li" className="_ams-item" key={1} span={{ narrow: 4, medium: 4, wide: 3 }} />,
+      <Grid.Cell as="li" className="_ams-item" key={2} span={{ narrow: 4, medium: 4, wide: 3 }} />,
+      <Grid.Cell as="li" className="_ams-item" key={3} span={{ narrow: 4, medium: 4, wide: 3 }} />,
+      <Grid.Cell as="li" className="_ams-item" key={4} span={{ narrow: 4, medium: 4, wide: 3 }} />,
+    ],
+    span: 'all',
+  },
 }
