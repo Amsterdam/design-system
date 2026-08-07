@@ -27,6 +27,9 @@ This schematic shows the default sections for this page type and how the grids a
 
 Use this page for the results of a site-wide search, where a result can be any kind of content.
 
+The results may come with the page or be fetched after it has rendered.
+Where they arrive later, show [Skeletons](/docs/components-feedback-skeleton--docs) in their place while they load, as the [Loading Page](/docs/pages-public-loading-page--docs) does.
+
 ### When not to use
 
 Use a [News Overview Page](/docs/pages-public-news-overview-page--docs) for an index of one content type, where every item has an image.
@@ -79,7 +82,7 @@ Highlighting the term inside it leaves the name the link is announced with uncha
 ## See also
 
 - [News Overview Page](/docs/pages-public-news-overview-page--docs) – the same layout for one content type.
-- [Loading Page](/docs/pages-public-loading-page--docs) – this page while its results are on their way, a state the results here do not use yet.
+- [Loading Page](/docs/pages-public-loading-page--docs) – the loading state to show while results are on their way.
 - [Search Field](/docs/components-forms-search-field--docs) – the field this page repeats.
 - [Mark](/docs/components-text-mark--docs) – the highlight on a matched word, and the rules it follows.
 - [Semantic list of cards](/docs/components-layout-grid--docs#semantic-list-of-cards) – the `ul` Subgrid the results sit in.
