@@ -588,7 +588,7 @@
 <header>
   <div class="wrap">
     <h1>Manifest Debugger</h1>
-    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">15/88 prop type errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">15/88 infos</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">1/301 story errors</a><a class="filter-pill ok" data-k="docs" href="#filter-docs">125 docs ok</a></div>
+    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">15/88 prop type errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">15/88 infos</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">1/300 story errors</a><a class="filter-pill ok" data-k="docs" href="#filter-docs">125 docs ok</a></div>
   </div>
 </header>
 <main>
@@ -7185,7 +7185,7 @@ Announcing it is the job of the field that now describes it, or of an [Invalid F
       <div class="badges">
         <label for="c-23-pages-public-events-overview-page-err" class="badge err as-toggle">prop type error</label>
         <label for="c-23-pages-public-events-overview-page-info" class="badge info as-toggle">1 info</label>
-        <label for="c-23-pages-public-events-overview-page-stories" class="badge ok as-toggle">3 stories</label>
+        <label for="c-23-pages-public-events-overview-page-stories" class="badge ok as-toggle">2 stories</label>
         <label for="c-23-pages-public-events-overview-page-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
@@ -7211,13 +7211,13 @@ Announcing it is the job of the field that now describes it, or of an [Invalid F
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
-  69 | )
-  70 |
-&gt; 71 | const meta = {
+  50 | )
+  51 |
+&gt; 52 | const meta = {
      | ^
-  72 |   ...commonMeta,
-  73 |   title: &#39;Pages/Public/Events Overview Page&#39;,
-  74 |   parameters: pageParameters(
+  53 |   ...commonMeta,
+  54 |   title: &#39;Pages/Public/Events Overview Page&#39;,
+  55 |   parameters: pageParameters(
 
 ./src/pages/public/EventsOverviewPage/EventsOverviewPage.stories.tsx:
 /**
@@ -7229,7 +7229,6 @@ import type { Meta, StoryObj } from &#39;@storybook/react-vite&#39;
 import type { AnchorHTMLAttributes } from &#39;react&#39;
 
 import {
-  Badge,
   Breadcrumb,
   Button,
   Calendar,
@@ -7244,12 +7243,9 @@ import {
   Metadata,
   Pagination,
   Paragraph,
-  Row,
   SearchField,
   Select,
-  StandaloneLink,
 } from &#39;@amsterdam/design-system-react&#39;
-import { CloseIcon } from &#39;@amsterdam/design-system-react-icons&#39;
 
 import { commonMeta, pageParameters } from &#39;../common/commonMeta&#39;
 import { eventCategories, eventDistricts, eventItems } from &#39;./data&#39;
@@ -7258,22 +7254,7 @@ import { eventCategories, eventDistricts, eventItems } from &#39;./data&#39;
 const totalResults = 132
 const totalPages = 22
 
-const selectedCategories = [&#39;Sport en spel&#39;]
-const selectedDistricts = [&#39;Noord&#39;]
-
-/**
- * Intl.ListFormat joins the values with the punctuation and the conjunction of the language itself:
- * ‘a, b en c’ in Dutch, ‘a, b, and c’ in English. Composing the sentence with it rather than with a
- * hard-coded ‘en’ keeps it correct once the page is translated.
- */
-const listFormatter = new Intl.ListFormat(&#39;nl&#39;, { style: &#39;long&#39;, type: &#39;conjunction&#39; })
-
-/** Every chosen value is quoted, so it reads as a label rather than as part of the sentence around it. */
-const quotedList = (values: ReadonlyArray&lt;string&gt;) =&gt; listFormatter.format(values.map((value) =&gt; `‘${value}’`))
-
 const resultsMessage = `${totalResults} activiteiten gevonden.`
-
-const noResultsMessage = `Geen activiteiten gevonden in stadsdeel ${quotedList(selectedDistricts)} met categorie ${quotedList(selectedCategories)}.`
 
 /** Format a Date as YYYY-MM-DD in local time; `toISOString` would shift to UTC and could change the day. */
 const formatIsoDate = (date: Date) =&gt;
@@ -8010,317 +7991,6 @@ export const CardGrid: StoryObj = {
     &lt;/&gt;
   ),
 }
-
-export const NoResults: StoryObj = {
-  parameters: {
-    docs: {
-      source: {
-        // Because this story’s `render` takes no argument, the Code Panel prints its source as written, the story
-        // wrapper and its types included. Provide the source by hand so the panel shows the markup to compose,
-        // without that scaffolding.
-        code: `&lt;&gt;
-  {/* Keep the breadcrumb in its own Grid above &lt;main&gt;, so it sits outside the main content region. */}
-  &lt;Grid paddingTop=&quot;large&quot;&gt;
-    &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-      &lt;Breadcrumb&gt;
-        &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Home&lt;/Breadcrumb.Link&gt;
-        &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Activiteiten&lt;/Breadcrumb.Link&gt;
-      &lt;/Breadcrumb&gt;
-    &lt;/Grid.Cell&gt;
-  &lt;/Grid&gt;
-  &lt;main id=&quot;inhoud&quot;&gt;
-    {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
-    {/*
-     * Both this Grid and the one below it have the default background colour, so this Grid takes a paddingBottom of
-     * 2x-large.
-     */}
-    &lt;Grid paddingBottom=&quot;2x-large&quot;&gt;
-      {/* ams-prose sets the vertical rhythm between the title, the lead, and the search below it. */}
-      &lt;Grid.Cell
-        className=&quot;ams-prose&quot;
-        span={{ narrow: 4, medium: 7, wide: 9 }}
-        start={{ narrow: 1, medium: 1, wide: 2 }}
-      &gt;
-        &lt;Heading level={1}&gt;Activiteiten in Amsterdam&lt;/Heading&gt;
-        &lt;Paragraph size=&quot;large&quot;&gt;
-          Een overzicht van gemeentelijke én maatschappelijke activiteiten voor alle Amsterdammers.
-        &lt;/Paragraph&gt;
-        {/* Search Field renders its own form with role=search, so it needs no form around it. */}
-        &lt;SearchField&gt;
-          &lt;SearchField.Input
-            label=&quot;Zoek op trefwoord&quot;
-            name=&quot;trefwoord&quot;
-            placeholder=&quot;Bijvoorbeeld: zwemles of vergadering&quot;
-          /&gt;
-          &lt;SearchField.Button&gt;Zoeken&lt;/SearchField.Button&gt;
-        &lt;/SearchField&gt;
-      &lt;/Grid.Cell&gt;
-    &lt;/Grid&gt;
-    {/*
-     * Two adjacent Grids add their touching paddings together, so this one leaves its paddingTop off.
-     * The last Grid before the Page Footer takes a paddingBottom of 2x-large.
-     */}
-    &lt;Grid paddingBottom=&quot;2x-large&quot;&gt;
-      {/*
-       * The filter column comes first in source, so it precedes the results in the reading and tab order.
-       * It only sits beside them from the medium grid up; on narrow screens it spans the full width above them.
-       */}
-      {/* A Subgrid rather than a Cell, so every control sits in a Cell of its own and the row gap spaces them. */}
-      &lt;Grid.Subgrid
-        aria-labelledby=&quot;events-filters-heading&quot;
-        as=&quot;aside&quot;
-        gapVertical=&quot;large&quot;
-        span={{ narrow: 4, medium: 3, wide: 3 }}
-      &gt;
-        &lt;Grid.Cell span=&quot;all&quot;&gt;
-          &lt;Heading className=&quot;ams-visually-hidden&quot; id=&quot;events-filters-heading&quot; level={2}&gt;Filteren&lt;/Heading&gt;
-          {/*
-           * The Calendar is date navigation rather than a date input: every day links to the activities on it,
-           * which suits someone asking what is on next Saturday.
-           */}
-          &lt;Calendar
-            accessibleName=&quot;Ga naar een dag met activiteiten&quot;
-            accessibleNameId=&quot;events-calendar&quot;
-            /*
-             * The month the listing starts in. Without it a Calendar opens on the current month, which would
-             * put the visual test on a different month every month.
-             */
-            defaultMonth={new Date(2026, 5, 17)}
-            /*
-             * Calendar renders plain anchors from linkTemplate; linkComponent lets you pass your router’s link.
-             * Here a small wrapper keeps navigation inside Storybook rather than reloading the iframe – see
-             * PreventNavigationLink.
-             */
-            linkComponent={PreventNavigationLink}
-            linkTemplate={(date) =&gt; \`?datum=\${formatIsoDate(date)}\`}
-          /&gt;
-        &lt;/Grid.Cell&gt;
-        &lt;Grid.Cell span=&quot;all&quot;&gt;
-          {/* A Cell of its own means a form of its own: a form element cannot span the Cells of a Subgrid. */}
-          &lt;form method=&quot;get&quot;&gt;
-            &lt;Field&gt;
-              &lt;Label htmlFor=&quot;events-district&quot;&gt;Stadsdeel&lt;/Label&gt;
-              &lt;Select defaultValue=&quot;Noord&quot; id=&quot;events-district&quot; name=&quot;stadsdeel&quot;&gt;
-                &lt;Select.Option value=&quot;&quot;&gt;Alle stadsdelen&lt;/Select.Option&gt;
-                &lt;Select.Option value=&quot;Centrum&quot;&gt;Centrum&lt;/Select.Option&gt;
-                {/* … one Option per district … */}
-              &lt;/Select&gt;
-            &lt;/Field&gt;
-          &lt;/form&gt;
-        &lt;/Grid.Cell&gt;
-        &lt;Grid.Cell span=&quot;all&quot;&gt;
-          &lt;form method=&quot;get&quot;&gt;
-            {/* A Field Set spaces its own children, so the Checkboxes inside one need no margin. */}
-            &lt;FieldSet className=&quot;ams-mb-m&quot; legend=&quot;Categorie&quot;&gt;
-              &lt;Checkbox defaultChecked name=&quot;categorie&quot; value=&quot;Sport en spel&quot;&gt;
-                Sport en spel
-              &lt;/Checkbox&gt;
-              {/* … one Checkbox per category … */}
-            &lt;/FieldSet&gt;
-            {/* The design filters as soon as a box is ticked; the button keeps the form usable without that script. */}
-            &lt;Button type=&quot;submit&quot;&gt;Toon activiteiten&lt;/Button&gt;
-          &lt;/form&gt;
-        &lt;/Grid.Cell&gt;
-      &lt;/Grid.Subgrid&gt;
-      {/*
-       * A Subgrid hands the columns it spans to its own children, so the Cells inside it are placed on the
-       * columns of the page rather than on columns of their own. That is what lines the Cards up with the rest.
-       */}
-      &lt;Grid.Subgrid span={{ narrow: 4, medium: 5, wide: 9 }} start={{ narrow: 1, medium: 4, wide: 4 }}&gt;
-        {/*
-         * The result count takes the width of the results below it, capped at the 7 columns a reading measure takes.
-         */}
-        &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 7 }}&gt;
-          &lt;Heading className=&quot;ams-visually-hidden&quot; level={2}&gt;Zoekresultaten&lt;/Heading&gt;
-          {/* A polite live region, so a screen reader hears the new total when the search or the filters change. */}
-          &lt;Paragraph className=&quot;ams-mb-m&quot; role=&quot;status&quot;&gt;
-            {noResultsMessage}
-          &lt;/Paragraph&gt;
-          {/*
-           * The filters that produced the empty result, named again beside the sentence above so they can be
-           * read and cleared without going back up the filter column.
-           */}
-          &lt;Row alignVertical=&quot;center&quot; aria-label=&quot;Actieve filters&quot; as=&quot;section&quot; gap=&quot;x-small&quot; wrap&gt;
-            {selectedDistricts.map((district) =&gt; (
-              &lt;Badge key={district} label={\`Stadsdeel: \${district}\`} /&gt;
-            ))}
-            {selectedCategories.map((category) =&gt; (
-              &lt;Badge key={category} label={\`Categorie: \${category}\`} /&gt;
-            ))}
-            &lt;StandaloneLink href=&quot;#&quot; icon={CloseIcon}&gt;
-              Wis alle filters
-            &lt;/StandaloneLink&gt;
-          &lt;/Row&gt;
-        &lt;/Grid.Cell&gt;
-        &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 7 }}&gt;
-          &lt;Paragraph&gt;
-            Er zijn geen activiteiten die voldoen aan uw filters. Probeer een ruimere periode, of kies een ander
-            stadsdeel of een andere categorie.
-          &lt;/Paragraph&gt;
-        &lt;/Grid.Cell&gt;
-      &lt;/Grid.Subgrid&gt;
-    &lt;/Grid&gt;
-  &lt;/main&gt;
-&lt;/&gt;`,
-        language: &#39;tsx&#39;,
-      },
-    },
-  },
-  render: () =&gt; (
-    &lt;&gt;
-      {/* Keep the breadcrumb in its own Grid above &lt;main&gt;, so it sits outside the main content region. */}
-      &lt;Grid paddingTop=&quot;large&quot;&gt;
-        &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-          &lt;Breadcrumb&gt;
-            &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Home&lt;/Breadcrumb.Link&gt;
-            &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Activiteiten&lt;/Breadcrumb.Link&gt;
-          &lt;/Breadcrumb&gt;
-        &lt;/Grid.Cell&gt;
-      &lt;/Grid&gt;
-      &lt;main id=&quot;inhoud&quot;&gt;
-        {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
-        {/* Both this Grid and the one below it have the default background colour, so this Grid takes a paddingBottom of 2x-large. */}
-        &lt;Grid paddingBottom=&quot;2x-large&quot;&gt;
-          {/* ams-prose sets the vertical rhythm between the title, the lead, and the search below it. */}
-          &lt;Grid.Cell
-            className=&quot;ams-prose&quot;
-            span={{ narrow: 4, medium: 7, wide: 9 }}
-            start={{ narrow: 1, medium: 1, wide: 2 }}
-          &gt;
-            &lt;Heading level={1}&gt;Activiteiten in Amsterdam&lt;/Heading&gt;
-            &lt;Paragraph size=&quot;large&quot;&gt;
-              Een overzicht van gemeentelijke én maatschappelijke activiteiten voor alle Amsterdammers.
-            &lt;/Paragraph&gt;
-            {/* Search Field renders its own form with role=search, so it needs no form around it. */}
-            &lt;SearchField&gt;
-              &lt;SearchField.Input
-                label=&quot;Zoek op trefwoord&quot;
-                name=&quot;trefwoord&quot;
-                placeholder=&quot;Bijvoorbeeld: zwemles of vergadering&quot;
-              /&gt;
-              &lt;SearchField.Button&gt;Zoeken&lt;/SearchField.Button&gt;
-            &lt;/SearchField&gt;
-          &lt;/Grid.Cell&gt;
-        &lt;/Grid&gt;
-        {/*
-         * Two adjacent Grids add their touching paddings together, so this one leaves its paddingTop off.
-         * The last Grid before the Page Footer takes a paddingBottom of 2x-large.
-         */}
-        &lt;Grid paddingBottom=&quot;2x-large&quot;&gt;
-          {/*
-           * The filter column comes first in source, so it precedes the results in the reading and tab order.
-           * It only sits beside them from the medium grid up; on narrow screens it spans the full width above them.
-           */}
-          {/* A Subgrid rather than a Cell, so every control sits in a Cell of its own and the row gap spaces them. */}
-          &lt;Grid.Subgrid
-            aria-labelledby=&quot;events-filters-heading&quot;
-            as=&quot;aside&quot;
-            gapVertical=&quot;large&quot;
-            span={{ narrow: 4, medium: 3, wide: 3 }}
-          &gt;
-            &lt;Grid.Cell span=&quot;all&quot;&gt;
-              &lt;Heading className=&quot;ams-visually-hidden&quot; id=&quot;events-filters-heading&quot; level={2}&gt;
-                Filteren
-              &lt;/Heading&gt;
-              {/*
-               * The Calendar is date navigation rather than a date input: every day links to the activities on it,
-               * which suits someone asking what is on next Saturday.
-               */}
-              &lt;Calendar
-                accessibleName=&quot;Ga naar een dag met activiteiten&quot;
-                accessibleNameId=&quot;events-calendar&quot;
-                /*
-                 * The month the listing starts in. Without it a Calendar opens on the current month, which would
-                 * put the visual test on a different month every month.
-                 */
-                defaultMonth={new Date(2026, 5, 17)}
-                /*
-                 * Calendar renders plain anchors from linkTemplate; linkComponent lets you pass your router’s link.
-                 * Here a small wrapper keeps navigation inside Storybook rather than reloading the iframe – see
-                 * PreventNavigationLink.
-                 */
-                linkComponent={PreventNavigationLink}
-                linkTemplate={(date) =&gt; `?datum=${formatIsoDate(date)}`}
-              /&gt;
-            &lt;/Grid.Cell&gt;
-            &lt;Grid.Cell span=&quot;all&quot;&gt;
-              {/* A Cell of its own means a form of its own: a form element cannot span the Cells of a Subgrid. */}
-              &lt;form method=&quot;get&quot;&gt;
-                &lt;Field&gt;
-                  &lt;Label htmlFor=&quot;events-district&quot;&gt;Stadsdeel&lt;/Label&gt;
-                  &lt;Select defaultValue=&quot;Noord&quot; id=&quot;events-district&quot; name=&quot;stadsdeel&quot;&gt;
-                    &lt;Select.Option value=&quot;&quot;&gt;Alle stadsdelen&lt;/Select.Option&gt;
-                    {eventDistricts.map((district) =&gt; (
-                      &lt;Select.Option key={district} value={district}&gt;
-                        {district}
-                      &lt;/Select.Option&gt;
-                    ))}
-                  &lt;/Select&gt;
-                &lt;/Field&gt;
-              &lt;/form&gt;
-            &lt;/Grid.Cell&gt;
-            &lt;Grid.Cell span=&quot;all&quot;&gt;
-              &lt;form method=&quot;get&quot;&gt;
-                {/* A Field Set spaces its own children, so the Checkboxes inside one need no margin. */}
-                &lt;FieldSet className=&quot;ams-mb-m&quot; legend=&quot;Categorie&quot;&gt;
-                  {eventCategories.map((category) =&gt; (
-                    &lt;Checkbox
-                      defaultChecked={selectedCategories.includes(category)}
-                      key={category}
-                      name=&quot;categorie&quot;
-                      value={category}
-                    &gt;
-                      {category}
-                    &lt;/Checkbox&gt;
-                  ))}
-                &lt;/FieldSet&gt;
-                {/* The design filters as soon as a box is ticked; the button keeps the form usable without that script. */}
-                &lt;Button type=&quot;submit&quot;&gt;Toon activiteiten&lt;/Button&gt;
-              &lt;/form&gt;
-            &lt;/Grid.Cell&gt;
-          &lt;/Grid.Subgrid&gt;
-          {/*
-           * A Subgrid hands the columns it spans to its own children, so the Cells inside it are placed on the
-           * columns of the page rather than on columns of their own. That is what lines the Cards up with the rest.
-           */}
-          &lt;Grid.Subgrid span={{ narrow: 4, medium: 5, wide: 9 }} start={{ narrow: 1, medium: 4, wide: 4 }}&gt;
-            {/* The result count takes the width of the results below it, capped at the 7 columns a reading measure takes. */}
-            &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 7 }}&gt;
-              &lt;Heading className=&quot;ams-visually-hidden&quot; level={2}&gt;
-                Zoekresultaten
-              &lt;/Heading&gt;
-              {/* A polite live region, so a screen reader hears the new total when the search or the filters change. */}
-              &lt;Paragraph className=&quot;ams-mb-m&quot; role=&quot;status&quot;&gt;
-                {noResultsMessage}
-              &lt;/Paragraph&gt;
-              {/*
-               * The filters that produced the empty result, named again beside the sentence above so they can be
-               * read and cleared without going back up the filter column.
-               */}
-              &lt;Row alignVertical=&quot;center&quot; aria-label=&quot;Actieve filters&quot; as=&quot;section&quot; gap=&quot;x-small&quot; wrap&gt;
-                {selectedDistricts.map((district) =&gt; (
-                  &lt;Badge key={district} label={`Stadsdeel: ${district}`} /&gt;
-                ))}
-                {selectedCategories.map((category) =&gt; (
-                  &lt;Badge key={category} label={`Categorie: ${category}`} /&gt;
-                ))}
-                &lt;StandaloneLink href=&quot;#&quot; icon={CloseIcon}&gt;
-                  Wis alle filters
-                &lt;/StandaloneLink&gt;
-              &lt;/Row&gt;
-            &lt;/Grid.Cell&gt;
-            &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 7 }}&gt;
-              &lt;Paragraph&gt;
-                Er zijn geen activiteiten die voldoen aan uw filters. Probeer een ruimere periode, of kies een ander
-                stadsdeel of een andere categorie.
-              &lt;/Paragraph&gt;
-            &lt;/Grid.Cell&gt;
-          &lt;/Grid.Subgrid&gt;
-        &lt;/Grid&gt;
-      &lt;/main&gt;
-    &lt;/&gt;
-  ),
-}
 </code></pre></div>
     </div>
         </div>
@@ -8343,7 +8013,6 @@ export const NoResults: StoryObj = {
                   <span class="ex-name">Imports</span>
                 </div>
                 <pre><code>import {
-    Badge,
     Breadcrumb,
     Button,
     Calendar,
@@ -8358,10 +8027,8 @@ export const NoResults: StoryObj = {
     Metadata,
     Pagination,
     Paragraph,
-    Row,
     SearchField,
     Select,
-    StandaloneLink,
 } from "@amsterdam/design-system-react";</code></pre>
               </div>
           
@@ -8732,168 +8399,6 @@ export const NoResults: StoryObj = {
   &lt;/&gt;
 );</code></pre>
             </div>
-            <div class="note ok">
-              <div class="row">
-                <span class="ex-name">No Results</span>
-                <span class="badge ok">story ok</span>
-              </div>
-              
-              
-              <pre><code>const NoResults = () =&gt; (
-  &lt;&gt;
-    {/* Keep the breadcrumb in its own Grid above &lt;main&gt;, so it sits outside the main content region. */}
-    &lt;Grid paddingTop=&quot;large&quot;&gt;
-      &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-        &lt;Breadcrumb&gt;
-          &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Home&lt;/Breadcrumb.Link&gt;
-          &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Activiteiten&lt;/Breadcrumb.Link&gt;
-        &lt;/Breadcrumb&gt;
-      &lt;/Grid.Cell&gt;
-    &lt;/Grid&gt;
-    &lt;main id=&quot;inhoud&quot;&gt;
-      {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
-      {/* Both this Grid and the one below it have the default background colour, so this Grid takes a paddingBottom of 2x-large. */}
-      &lt;Grid paddingBottom=&quot;2x-large&quot;&gt;
-        {/* ams-prose sets the vertical rhythm between the title, the lead, and the search below it. */}
-        &lt;Grid.Cell
-          className=&quot;ams-prose&quot;
-          span={{ narrow: 4, medium: 7, wide: 9 }}
-          start={{ narrow: 1, medium: 1, wide: 2 }}
-        &gt;
-          &lt;Heading level={1}&gt;Activiteiten in Amsterdam&lt;/Heading&gt;
-          &lt;Paragraph size=&quot;large&quot;&gt;
-            Een overzicht van gemeentelijke én maatschappelijke activiteiten voor alle Amsterdammers.
-          &lt;/Paragraph&gt;
-          {/* Search Field renders its own form with role=search, so it needs no form around it. */}
-          &lt;SearchField&gt;
-            &lt;SearchField.Input
-              label=&quot;Zoek op trefwoord&quot;
-              name=&quot;trefwoord&quot;
-              placeholder=&quot;Bijvoorbeeld: zwemles of vergadering&quot;
-            /&gt;
-            &lt;SearchField.Button&gt;Zoeken&lt;/SearchField.Button&gt;
-          &lt;/SearchField&gt;
-        &lt;/Grid.Cell&gt;
-      &lt;/Grid&gt;
-      {/*
-       * Two adjacent Grids add their touching paddings together, so this one leaves its paddingTop off.
-       * The last Grid before the Page Footer takes a paddingBottom of 2x-large.
-       */}
-      &lt;Grid paddingBottom=&quot;2x-large&quot;&gt;
-        {/*
-         * The filter column comes first in source, so it precedes the results in the reading and tab order.
-         * It only sits beside them from the medium grid up; on narrow screens it spans the full width above them.
-         */}
-        {/* A Subgrid rather than a Cell, so every control sits in a Cell of its own and the row gap spaces them. */}
-        &lt;Grid.Subgrid
-          aria-labelledby=&quot;events-filters-heading&quot;
-          as=&quot;aside&quot;
-          gapVertical=&quot;large&quot;
-          span={{ narrow: 4, medium: 3, wide: 3 }}
-        &gt;
-          &lt;Grid.Cell span=&quot;all&quot;&gt;
-            &lt;Heading className=&quot;ams-visually-hidden&quot; id=&quot;events-filters-heading&quot; level={2}&gt;
-              Filteren
-            &lt;/Heading&gt;
-            {/*
-             * The Calendar is date navigation rather than a date input: every day links to the activities on it,
-             * which suits someone asking what is on next Saturday.
-             */}
-            &lt;Calendar
-              accessibleName=&quot;Ga naar een dag met activiteiten&quot;
-              accessibleNameId=&quot;events-calendar&quot;
-              /*
-               * The month the listing starts in. Without it a Calendar opens on the current month, which would
-               * put the visual test on a different month every month.
-               */
-              defaultMonth={new Date(2026, 5, 17)}
-              /*
-               * Calendar renders plain anchors from linkTemplate; linkComponent lets you pass your router’s link.
-               * Here a small wrapper keeps navigation inside Storybook rather than reloading the iframe – see
-               * PreventNavigationLink.
-               */
-              linkComponent={PreventNavigationLink}
-              linkTemplate={(date) =&gt; `?datum=${formatIsoDate(date)}`}
-            /&gt;
-          &lt;/Grid.Cell&gt;
-          &lt;Grid.Cell span=&quot;all&quot;&gt;
-            {/* A Cell of its own means a form of its own: a form element cannot span the Cells of a Subgrid. */}
-            &lt;form method=&quot;get&quot;&gt;
-              &lt;Field&gt;
-                &lt;Label htmlFor=&quot;events-district&quot;&gt;Stadsdeel&lt;/Label&gt;
-                &lt;Select defaultValue=&quot;Noord&quot; id=&quot;events-district&quot; name=&quot;stadsdeel&quot;&gt;
-                  &lt;Select.Option value=&quot;&quot;&gt;Alle stadsdelen&lt;/Select.Option&gt;
-                  {eventDistricts.map((district) =&gt; (
-                    &lt;Select.Option key={district} value={district}&gt;
-                      {district}
-                    &lt;/Select.Option&gt;
-                  ))}
-                &lt;/Select&gt;
-              &lt;/Field&gt;
-            &lt;/form&gt;
-          &lt;/Grid.Cell&gt;
-          &lt;Grid.Cell span=&quot;all&quot;&gt;
-            &lt;form method=&quot;get&quot;&gt;
-              {/* A Field Set spaces its own children, so the Checkboxes inside one need no margin. */}
-              &lt;FieldSet className=&quot;ams-mb-m&quot; legend=&quot;Categorie&quot;&gt;
-                {eventCategories.map((category) =&gt; (
-                  &lt;Checkbox
-                    defaultChecked={selectedCategories.includes(category)}
-                    key={category}
-                    name=&quot;categorie&quot;
-                    value={category}
-                  &gt;
-                    {category}
-                  &lt;/Checkbox&gt;
-                ))}
-              &lt;/FieldSet&gt;
-              {/* The design filters as soon as a box is ticked; the button keeps the form usable without that script. */}
-              &lt;Button type=&quot;submit&quot;&gt;Toon activiteiten&lt;/Button&gt;
-            &lt;/form&gt;
-          &lt;/Grid.Cell&gt;
-        &lt;/Grid.Subgrid&gt;
-        {/*
-         * A Subgrid hands the columns it spans to its own children, so the Cells inside it are placed on the
-         * columns of the page rather than on columns of their own. That is what lines the Cards up with the rest.
-         */}
-        &lt;Grid.Subgrid span={{ narrow: 4, medium: 5, wide: 9 }} start={{ narrow: 1, medium: 4, wide: 4 }}&gt;
-          {/* The result count takes the width of the results below it, capped at the 7 columns a reading measure takes. */}
-          &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 7 }}&gt;
-            &lt;Heading className=&quot;ams-visually-hidden&quot; level={2}&gt;
-              Zoekresultaten
-            &lt;/Heading&gt;
-            {/* A polite live region, so a screen reader hears the new total when the search or the filters change. */}
-            &lt;Paragraph className=&quot;ams-mb-m&quot; role=&quot;status&quot;&gt;
-              {noResultsMessage}
-            &lt;/Paragraph&gt;
-            {/*
-             * The filters that produced the empty result, named again beside the sentence above so they can be
-             * read and cleared without going back up the filter column.
-             */}
-            &lt;Row alignVertical=&quot;center&quot; aria-label=&quot;Actieve filters&quot; as=&quot;section&quot; gap=&quot;x-small&quot; wrap&gt;
-              {selectedDistricts.map((district) =&gt; (
-                &lt;Badge key={district} label={`Stadsdeel: ${district}`} /&gt;
-              ))}
-              {selectedCategories.map((category) =&gt; (
-                &lt;Badge key={category} label={`Categorie: ${category}`} /&gt;
-              ))}
-              &lt;StandaloneLink href=&quot;#&quot; icon={CloseIcon}&gt;
-                Wis alle filters
-              &lt;/StandaloneLink&gt;
-            &lt;/Row&gt;
-          &lt;/Grid.Cell&gt;
-          &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 7 }}&gt;
-            &lt;Paragraph&gt;
-              Er zijn geen activiteiten die voldoen aan uw filters. Probeer een ruimere periode, of kies een ander
-              stadsdeel of een andere categorie.
-            &lt;/Paragraph&gt;
-          &lt;/Grid.Cell&gt;
-        &lt;/Grid.Subgrid&gt;
-      &lt;/Grid&gt;
-    &lt;/main&gt;
-  &lt;/&gt;
-);</code></pre>
-            </div>
         </div>
     
         <div class="panel panel-docs">
@@ -8961,16 +8466,6 @@ That is below the horizontal breakpoint, so every Card stays vertical, and becau
 
 Both layouts hold the same markup.
 Only the `span` of the Cell around each Card differs, so nothing about the page changes for someone reading it in source order.
-
-### No results
-
-An empty result set is a place people leave, so give them a way on.
-
-Name the filters that produced it twice over: once in the sentence the live region announces, and once as a row of [Badges](/docs/components-feedback-badge--docs) beside a link that clears them all.
-The visitor can then see what narrowed the search without going back up the filter column.
-
-Follow that with a paragraph suggesting what to widen.
-Keep the filter column exactly as it is, with the chosen values still selected, so the visitor can adjust one facet rather than starting again.
 
 ## Structure
 
@@ -39753,7 +39248,7 @@ The hero Image and the Card images take an empty `alt`, because the text beside 
       <div class="badges">
         <label for="c-error-1-pages-public-events-overview-page-err" class="badge err as-toggle">prop type error</label>
         <label for="c-error-1-pages-public-events-overview-page-info" class="badge info as-toggle">1 info</label>
-        <label for="c-error-1-pages-public-events-overview-page-stories" class="badge ok as-toggle">3 stories</label>
+        <label for="c-error-1-pages-public-events-overview-page-stories" class="badge ok as-toggle">2 stories</label>
         <label for="c-error-1-pages-public-events-overview-page-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
@@ -39779,13 +39274,13 @@ The hero Image and the Card images take an empty `alt`, because the text beside 
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
-  69 | )
-  70 |
-&gt; 71 | const meta = {
+  50 | )
+  51 |
+&gt; 52 | const meta = {
      | ^
-  72 |   ...commonMeta,
-  73 |   title: &#39;Pages/Public/Events Overview Page&#39;,
-  74 |   parameters: pageParameters(
+  53 |   ...commonMeta,
+  54 |   title: &#39;Pages/Public/Events Overview Page&#39;,
+  55 |   parameters: pageParameters(
 
 ./src/pages/public/EventsOverviewPage/EventsOverviewPage.stories.tsx:
 /**
@@ -39797,7 +39292,6 @@ import type { Meta, StoryObj } from &#39;@storybook/react-vite&#39;
 import type { AnchorHTMLAttributes } from &#39;react&#39;
 
 import {
-  Badge,
   Breadcrumb,
   Button,
   Calendar,
@@ -39812,12 +39306,9 @@ import {
   Metadata,
   Pagination,
   Paragraph,
-  Row,
   SearchField,
   Select,
-  StandaloneLink,
 } from &#39;@amsterdam/design-system-react&#39;
-import { CloseIcon } from &#39;@amsterdam/design-system-react-icons&#39;
 
 import { commonMeta, pageParameters } from &#39;../common/commonMeta&#39;
 import { eventCategories, eventDistricts, eventItems } from &#39;./data&#39;
@@ -39826,22 +39317,7 @@ import { eventCategories, eventDistricts, eventItems } from &#39;./data&#39;
 const totalResults = 132
 const totalPages = 22
 
-const selectedCategories = [&#39;Sport en spel&#39;]
-const selectedDistricts = [&#39;Noord&#39;]
-
-/**
- * Intl.ListFormat joins the values with the punctuation and the conjunction of the language itself:
- * ‘a, b en c’ in Dutch, ‘a, b, and c’ in English. Composing the sentence with it rather than with a
- * hard-coded ‘en’ keeps it correct once the page is translated.
- */
-const listFormatter = new Intl.ListFormat(&#39;nl&#39;, { style: &#39;long&#39;, type: &#39;conjunction&#39; })
-
-/** Every chosen value is quoted, so it reads as a label rather than as part of the sentence around it. */
-const quotedList = (values: ReadonlyArray&lt;string&gt;) =&gt; listFormatter.format(values.map((value) =&gt; `‘${value}’`))
-
 const resultsMessage = `${totalResults} activiteiten gevonden.`
-
-const noResultsMessage = `Geen activiteiten gevonden in stadsdeel ${quotedList(selectedDistricts)} met categorie ${quotedList(selectedCategories)}.`
 
 /** Format a Date as YYYY-MM-DD in local time; `toISOString` would shift to UTC and could change the day. */
 const formatIsoDate = (date: Date) =&gt;
@@ -40578,317 +40054,6 @@ export const CardGrid: StoryObj = {
     &lt;/&gt;
   ),
 }
-
-export const NoResults: StoryObj = {
-  parameters: {
-    docs: {
-      source: {
-        // Because this story’s `render` takes no argument, the Code Panel prints its source as written, the story
-        // wrapper and its types included. Provide the source by hand so the panel shows the markup to compose,
-        // without that scaffolding.
-        code: `&lt;&gt;
-  {/* Keep the breadcrumb in its own Grid above &lt;main&gt;, so it sits outside the main content region. */}
-  &lt;Grid paddingTop=&quot;large&quot;&gt;
-    &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-      &lt;Breadcrumb&gt;
-        &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Home&lt;/Breadcrumb.Link&gt;
-        &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Activiteiten&lt;/Breadcrumb.Link&gt;
-      &lt;/Breadcrumb&gt;
-    &lt;/Grid.Cell&gt;
-  &lt;/Grid&gt;
-  &lt;main id=&quot;inhoud&quot;&gt;
-    {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
-    {/*
-     * Both this Grid and the one below it have the default background colour, so this Grid takes a paddingBottom of
-     * 2x-large.
-     */}
-    &lt;Grid paddingBottom=&quot;2x-large&quot;&gt;
-      {/* ams-prose sets the vertical rhythm between the title, the lead, and the search below it. */}
-      &lt;Grid.Cell
-        className=&quot;ams-prose&quot;
-        span={{ narrow: 4, medium: 7, wide: 9 }}
-        start={{ narrow: 1, medium: 1, wide: 2 }}
-      &gt;
-        &lt;Heading level={1}&gt;Activiteiten in Amsterdam&lt;/Heading&gt;
-        &lt;Paragraph size=&quot;large&quot;&gt;
-          Een overzicht van gemeentelijke én maatschappelijke activiteiten voor alle Amsterdammers.
-        &lt;/Paragraph&gt;
-        {/* Search Field renders its own form with role=search, so it needs no form around it. */}
-        &lt;SearchField&gt;
-          &lt;SearchField.Input
-            label=&quot;Zoek op trefwoord&quot;
-            name=&quot;trefwoord&quot;
-            placeholder=&quot;Bijvoorbeeld: zwemles of vergadering&quot;
-          /&gt;
-          &lt;SearchField.Button&gt;Zoeken&lt;/SearchField.Button&gt;
-        &lt;/SearchField&gt;
-      &lt;/Grid.Cell&gt;
-    &lt;/Grid&gt;
-    {/*
-     * Two adjacent Grids add their touching paddings together, so this one leaves its paddingTop off.
-     * The last Grid before the Page Footer takes a paddingBottom of 2x-large.
-     */}
-    &lt;Grid paddingBottom=&quot;2x-large&quot;&gt;
-      {/*
-       * The filter column comes first in source, so it precedes the results in the reading and tab order.
-       * It only sits beside them from the medium grid up; on narrow screens it spans the full width above them.
-       */}
-      {/* A Subgrid rather than a Cell, so every control sits in a Cell of its own and the row gap spaces them. */}
-      &lt;Grid.Subgrid
-        aria-labelledby=&quot;events-filters-heading&quot;
-        as=&quot;aside&quot;
-        gapVertical=&quot;large&quot;
-        span={{ narrow: 4, medium: 3, wide: 3 }}
-      &gt;
-        &lt;Grid.Cell span=&quot;all&quot;&gt;
-          &lt;Heading className=&quot;ams-visually-hidden&quot; id=&quot;events-filters-heading&quot; level={2}&gt;Filteren&lt;/Heading&gt;
-          {/*
-           * The Calendar is date navigation rather than a date input: every day links to the activities on it,
-           * which suits someone asking what is on next Saturday.
-           */}
-          &lt;Calendar
-            accessibleName=&quot;Ga naar een dag met activiteiten&quot;
-            accessibleNameId=&quot;events-calendar&quot;
-            /*
-             * The month the listing starts in. Without it a Calendar opens on the current month, which would
-             * put the visual test on a different month every month.
-             */
-            defaultMonth={new Date(2026, 5, 17)}
-            /*
-             * Calendar renders plain anchors from linkTemplate; linkComponent lets you pass your router’s link.
-             * Here a small wrapper keeps navigation inside Storybook rather than reloading the iframe – see
-             * PreventNavigationLink.
-             */
-            linkComponent={PreventNavigationLink}
-            linkTemplate={(date) =&gt; \`?datum=\${formatIsoDate(date)}\`}
-          /&gt;
-        &lt;/Grid.Cell&gt;
-        &lt;Grid.Cell span=&quot;all&quot;&gt;
-          {/* A Cell of its own means a form of its own: a form element cannot span the Cells of a Subgrid. */}
-          &lt;form method=&quot;get&quot;&gt;
-            &lt;Field&gt;
-              &lt;Label htmlFor=&quot;events-district&quot;&gt;Stadsdeel&lt;/Label&gt;
-              &lt;Select defaultValue=&quot;Noord&quot; id=&quot;events-district&quot; name=&quot;stadsdeel&quot;&gt;
-                &lt;Select.Option value=&quot;&quot;&gt;Alle stadsdelen&lt;/Select.Option&gt;
-                &lt;Select.Option value=&quot;Centrum&quot;&gt;Centrum&lt;/Select.Option&gt;
-                {/* … one Option per district … */}
-              &lt;/Select&gt;
-            &lt;/Field&gt;
-          &lt;/form&gt;
-        &lt;/Grid.Cell&gt;
-        &lt;Grid.Cell span=&quot;all&quot;&gt;
-          &lt;form method=&quot;get&quot;&gt;
-            {/* A Field Set spaces its own children, so the Checkboxes inside one need no margin. */}
-            &lt;FieldSet className=&quot;ams-mb-m&quot; legend=&quot;Categorie&quot;&gt;
-              &lt;Checkbox defaultChecked name=&quot;categorie&quot; value=&quot;Sport en spel&quot;&gt;
-                Sport en spel
-              &lt;/Checkbox&gt;
-              {/* … one Checkbox per category … */}
-            &lt;/FieldSet&gt;
-            {/* The design filters as soon as a box is ticked; the button keeps the form usable without that script. */}
-            &lt;Button type=&quot;submit&quot;&gt;Toon activiteiten&lt;/Button&gt;
-          &lt;/form&gt;
-        &lt;/Grid.Cell&gt;
-      &lt;/Grid.Subgrid&gt;
-      {/*
-       * A Subgrid hands the columns it spans to its own children, so the Cells inside it are placed on the
-       * columns of the page rather than on columns of their own. That is what lines the Cards up with the rest.
-       */}
-      &lt;Grid.Subgrid span={{ narrow: 4, medium: 5, wide: 9 }} start={{ narrow: 1, medium: 4, wide: 4 }}&gt;
-        {/*
-         * The result count takes the width of the results below it, capped at the 7 columns a reading measure takes.
-         */}
-        &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 7 }}&gt;
-          &lt;Heading className=&quot;ams-visually-hidden&quot; level={2}&gt;Zoekresultaten&lt;/Heading&gt;
-          {/* A polite live region, so a screen reader hears the new total when the search or the filters change. */}
-          &lt;Paragraph className=&quot;ams-mb-m&quot; role=&quot;status&quot;&gt;
-            {noResultsMessage}
-          &lt;/Paragraph&gt;
-          {/*
-           * The filters that produced the empty result, named again beside the sentence above so they can be
-           * read and cleared without going back up the filter column.
-           */}
-          &lt;Row alignVertical=&quot;center&quot; aria-label=&quot;Actieve filters&quot; as=&quot;section&quot; gap=&quot;x-small&quot; wrap&gt;
-            {selectedDistricts.map((district) =&gt; (
-              &lt;Badge key={district} label={\`Stadsdeel: \${district}\`} /&gt;
-            ))}
-            {selectedCategories.map((category) =&gt; (
-              &lt;Badge key={category} label={\`Categorie: \${category}\`} /&gt;
-            ))}
-            &lt;StandaloneLink href=&quot;#&quot; icon={CloseIcon}&gt;
-              Wis alle filters
-            &lt;/StandaloneLink&gt;
-          &lt;/Row&gt;
-        &lt;/Grid.Cell&gt;
-        &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 7 }}&gt;
-          &lt;Paragraph&gt;
-            Er zijn geen activiteiten die voldoen aan uw filters. Probeer een ruimere periode, of kies een ander
-            stadsdeel of een andere categorie.
-          &lt;/Paragraph&gt;
-        &lt;/Grid.Cell&gt;
-      &lt;/Grid.Subgrid&gt;
-    &lt;/Grid&gt;
-  &lt;/main&gt;
-&lt;/&gt;`,
-        language: &#39;tsx&#39;,
-      },
-    },
-  },
-  render: () =&gt; (
-    &lt;&gt;
-      {/* Keep the breadcrumb in its own Grid above &lt;main&gt;, so it sits outside the main content region. */}
-      &lt;Grid paddingTop=&quot;large&quot;&gt;
-        &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-          &lt;Breadcrumb&gt;
-            &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Home&lt;/Breadcrumb.Link&gt;
-            &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Activiteiten&lt;/Breadcrumb.Link&gt;
-          &lt;/Breadcrumb&gt;
-        &lt;/Grid.Cell&gt;
-      &lt;/Grid&gt;
-      &lt;main id=&quot;inhoud&quot;&gt;
-        {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
-        {/* Both this Grid and the one below it have the default background colour, so this Grid takes a paddingBottom of 2x-large. */}
-        &lt;Grid paddingBottom=&quot;2x-large&quot;&gt;
-          {/* ams-prose sets the vertical rhythm between the title, the lead, and the search below it. */}
-          &lt;Grid.Cell
-            className=&quot;ams-prose&quot;
-            span={{ narrow: 4, medium: 7, wide: 9 }}
-            start={{ narrow: 1, medium: 1, wide: 2 }}
-          &gt;
-            &lt;Heading level={1}&gt;Activiteiten in Amsterdam&lt;/Heading&gt;
-            &lt;Paragraph size=&quot;large&quot;&gt;
-              Een overzicht van gemeentelijke én maatschappelijke activiteiten voor alle Amsterdammers.
-            &lt;/Paragraph&gt;
-            {/* Search Field renders its own form with role=search, so it needs no form around it. */}
-            &lt;SearchField&gt;
-              &lt;SearchField.Input
-                label=&quot;Zoek op trefwoord&quot;
-                name=&quot;trefwoord&quot;
-                placeholder=&quot;Bijvoorbeeld: zwemles of vergadering&quot;
-              /&gt;
-              &lt;SearchField.Button&gt;Zoeken&lt;/SearchField.Button&gt;
-            &lt;/SearchField&gt;
-          &lt;/Grid.Cell&gt;
-        &lt;/Grid&gt;
-        {/*
-         * Two adjacent Grids add their touching paddings together, so this one leaves its paddingTop off.
-         * The last Grid before the Page Footer takes a paddingBottom of 2x-large.
-         */}
-        &lt;Grid paddingBottom=&quot;2x-large&quot;&gt;
-          {/*
-           * The filter column comes first in source, so it precedes the results in the reading and tab order.
-           * It only sits beside them from the medium grid up; on narrow screens it spans the full width above them.
-           */}
-          {/* A Subgrid rather than a Cell, so every control sits in a Cell of its own and the row gap spaces them. */}
-          &lt;Grid.Subgrid
-            aria-labelledby=&quot;events-filters-heading&quot;
-            as=&quot;aside&quot;
-            gapVertical=&quot;large&quot;
-            span={{ narrow: 4, medium: 3, wide: 3 }}
-          &gt;
-            &lt;Grid.Cell span=&quot;all&quot;&gt;
-              &lt;Heading className=&quot;ams-visually-hidden&quot; id=&quot;events-filters-heading&quot; level={2}&gt;
-                Filteren
-              &lt;/Heading&gt;
-              {/*
-               * The Calendar is date navigation rather than a date input: every day links to the activities on it,
-               * which suits someone asking what is on next Saturday.
-               */}
-              &lt;Calendar
-                accessibleName=&quot;Ga naar een dag met activiteiten&quot;
-                accessibleNameId=&quot;events-calendar&quot;
-                /*
-                 * The month the listing starts in. Without it a Calendar opens on the current month, which would
-                 * put the visual test on a different month every month.
-                 */
-                defaultMonth={new Date(2026, 5, 17)}
-                /*
-                 * Calendar renders plain anchors from linkTemplate; linkComponent lets you pass your router’s link.
-                 * Here a small wrapper keeps navigation inside Storybook rather than reloading the iframe – see
-                 * PreventNavigationLink.
-                 */
-                linkComponent={PreventNavigationLink}
-                linkTemplate={(date) =&gt; `?datum=${formatIsoDate(date)}`}
-              /&gt;
-            &lt;/Grid.Cell&gt;
-            &lt;Grid.Cell span=&quot;all&quot;&gt;
-              {/* A Cell of its own means a form of its own: a form element cannot span the Cells of a Subgrid. */}
-              &lt;form method=&quot;get&quot;&gt;
-                &lt;Field&gt;
-                  &lt;Label htmlFor=&quot;events-district&quot;&gt;Stadsdeel&lt;/Label&gt;
-                  &lt;Select defaultValue=&quot;Noord&quot; id=&quot;events-district&quot; name=&quot;stadsdeel&quot;&gt;
-                    &lt;Select.Option value=&quot;&quot;&gt;Alle stadsdelen&lt;/Select.Option&gt;
-                    {eventDistricts.map((district) =&gt; (
-                      &lt;Select.Option key={district} value={district}&gt;
-                        {district}
-                      &lt;/Select.Option&gt;
-                    ))}
-                  &lt;/Select&gt;
-                &lt;/Field&gt;
-              &lt;/form&gt;
-            &lt;/Grid.Cell&gt;
-            &lt;Grid.Cell span=&quot;all&quot;&gt;
-              &lt;form method=&quot;get&quot;&gt;
-                {/* A Field Set spaces its own children, so the Checkboxes inside one need no margin. */}
-                &lt;FieldSet className=&quot;ams-mb-m&quot; legend=&quot;Categorie&quot;&gt;
-                  {eventCategories.map((category) =&gt; (
-                    &lt;Checkbox
-                      defaultChecked={selectedCategories.includes(category)}
-                      key={category}
-                      name=&quot;categorie&quot;
-                      value={category}
-                    &gt;
-                      {category}
-                    &lt;/Checkbox&gt;
-                  ))}
-                &lt;/FieldSet&gt;
-                {/* The design filters as soon as a box is ticked; the button keeps the form usable without that script. */}
-                &lt;Button type=&quot;submit&quot;&gt;Toon activiteiten&lt;/Button&gt;
-              &lt;/form&gt;
-            &lt;/Grid.Cell&gt;
-          &lt;/Grid.Subgrid&gt;
-          {/*
-           * A Subgrid hands the columns it spans to its own children, so the Cells inside it are placed on the
-           * columns of the page rather than on columns of their own. That is what lines the Cards up with the rest.
-           */}
-          &lt;Grid.Subgrid span={{ narrow: 4, medium: 5, wide: 9 }} start={{ narrow: 1, medium: 4, wide: 4 }}&gt;
-            {/* The result count takes the width of the results below it, capped at the 7 columns a reading measure takes. */}
-            &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 7 }}&gt;
-              &lt;Heading className=&quot;ams-visually-hidden&quot; level={2}&gt;
-                Zoekresultaten
-              &lt;/Heading&gt;
-              {/* A polite live region, so a screen reader hears the new total when the search or the filters change. */}
-              &lt;Paragraph className=&quot;ams-mb-m&quot; role=&quot;status&quot;&gt;
-                {noResultsMessage}
-              &lt;/Paragraph&gt;
-              {/*
-               * The filters that produced the empty result, named again beside the sentence above so they can be
-               * read and cleared without going back up the filter column.
-               */}
-              &lt;Row alignVertical=&quot;center&quot; aria-label=&quot;Actieve filters&quot; as=&quot;section&quot; gap=&quot;x-small&quot; wrap&gt;
-                {selectedDistricts.map((district) =&gt; (
-                  &lt;Badge key={district} label={`Stadsdeel: ${district}`} /&gt;
-                ))}
-                {selectedCategories.map((category) =&gt; (
-                  &lt;Badge key={category} label={`Categorie: ${category}`} /&gt;
-                ))}
-                &lt;StandaloneLink href=&quot;#&quot; icon={CloseIcon}&gt;
-                  Wis alle filters
-                &lt;/StandaloneLink&gt;
-              &lt;/Row&gt;
-            &lt;/Grid.Cell&gt;
-            &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 7 }}&gt;
-              &lt;Paragraph&gt;
-                Er zijn geen activiteiten die voldoen aan uw filters. Probeer een ruimere periode, of kies een ander
-                stadsdeel of een andere categorie.
-              &lt;/Paragraph&gt;
-            &lt;/Grid.Cell&gt;
-          &lt;/Grid.Subgrid&gt;
-        &lt;/Grid&gt;
-      &lt;/main&gt;
-    &lt;/&gt;
-  ),
-}
 </code></pre></div>
     </div>
         </div>
@@ -40911,7 +40076,6 @@ export const NoResults: StoryObj = {
                   <span class="ex-name">Imports</span>
                 </div>
                 <pre><code>import {
-    Badge,
     Breadcrumb,
     Button,
     Calendar,
@@ -40926,10 +40090,8 @@ export const NoResults: StoryObj = {
     Metadata,
     Pagination,
     Paragraph,
-    Row,
     SearchField,
     Select,
-    StandaloneLink,
 } from "@amsterdam/design-system-react";</code></pre>
               </div>
           
@@ -41300,168 +40462,6 @@ export const NoResults: StoryObj = {
   &lt;/&gt;
 );</code></pre>
             </div>
-            <div class="note ok">
-              <div class="row">
-                <span class="ex-name">No Results</span>
-                <span class="badge ok">story ok</span>
-              </div>
-              
-              
-              <pre><code>const NoResults = () =&gt; (
-  &lt;&gt;
-    {/* Keep the breadcrumb in its own Grid above &lt;main&gt;, so it sits outside the main content region. */}
-    &lt;Grid paddingTop=&quot;large&quot;&gt;
-      &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-        &lt;Breadcrumb&gt;
-          &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Home&lt;/Breadcrumb.Link&gt;
-          &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Activiteiten&lt;/Breadcrumb.Link&gt;
-        &lt;/Breadcrumb&gt;
-      &lt;/Grid.Cell&gt;
-    &lt;/Grid&gt;
-    &lt;main id=&quot;inhoud&quot;&gt;
-      {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
-      {/* Both this Grid and the one below it have the default background colour, so this Grid takes a paddingBottom of 2x-large. */}
-      &lt;Grid paddingBottom=&quot;2x-large&quot;&gt;
-        {/* ams-prose sets the vertical rhythm between the title, the lead, and the search below it. */}
-        &lt;Grid.Cell
-          className=&quot;ams-prose&quot;
-          span={{ narrow: 4, medium: 7, wide: 9 }}
-          start={{ narrow: 1, medium: 1, wide: 2 }}
-        &gt;
-          &lt;Heading level={1}&gt;Activiteiten in Amsterdam&lt;/Heading&gt;
-          &lt;Paragraph size=&quot;large&quot;&gt;
-            Een overzicht van gemeentelijke én maatschappelijke activiteiten voor alle Amsterdammers.
-          &lt;/Paragraph&gt;
-          {/* Search Field renders its own form with role=search, so it needs no form around it. */}
-          &lt;SearchField&gt;
-            &lt;SearchField.Input
-              label=&quot;Zoek op trefwoord&quot;
-              name=&quot;trefwoord&quot;
-              placeholder=&quot;Bijvoorbeeld: zwemles of vergadering&quot;
-            /&gt;
-            &lt;SearchField.Button&gt;Zoeken&lt;/SearchField.Button&gt;
-          &lt;/SearchField&gt;
-        &lt;/Grid.Cell&gt;
-      &lt;/Grid&gt;
-      {/*
-       * Two adjacent Grids add their touching paddings together, so this one leaves its paddingTop off.
-       * The last Grid before the Page Footer takes a paddingBottom of 2x-large.
-       */}
-      &lt;Grid paddingBottom=&quot;2x-large&quot;&gt;
-        {/*
-         * The filter column comes first in source, so it precedes the results in the reading and tab order.
-         * It only sits beside them from the medium grid up; on narrow screens it spans the full width above them.
-         */}
-        {/* A Subgrid rather than a Cell, so every control sits in a Cell of its own and the row gap spaces them. */}
-        &lt;Grid.Subgrid
-          aria-labelledby=&quot;events-filters-heading&quot;
-          as=&quot;aside&quot;
-          gapVertical=&quot;large&quot;
-          span={{ narrow: 4, medium: 3, wide: 3 }}
-        &gt;
-          &lt;Grid.Cell span=&quot;all&quot;&gt;
-            &lt;Heading className=&quot;ams-visually-hidden&quot; id=&quot;events-filters-heading&quot; level={2}&gt;
-              Filteren
-            &lt;/Heading&gt;
-            {/*
-             * The Calendar is date navigation rather than a date input: every day links to the activities on it,
-             * which suits someone asking what is on next Saturday.
-             */}
-            &lt;Calendar
-              accessibleName=&quot;Ga naar een dag met activiteiten&quot;
-              accessibleNameId=&quot;events-calendar&quot;
-              /*
-               * The month the listing starts in. Without it a Calendar opens on the current month, which would
-               * put the visual test on a different month every month.
-               */
-              defaultMonth={new Date(2026, 5, 17)}
-              /*
-               * Calendar renders plain anchors from linkTemplate; linkComponent lets you pass your router’s link.
-               * Here a small wrapper keeps navigation inside Storybook rather than reloading the iframe – see
-               * PreventNavigationLink.
-               */
-              linkComponent={PreventNavigationLink}
-              linkTemplate={(date) =&gt; `?datum=${formatIsoDate(date)}`}
-            /&gt;
-          &lt;/Grid.Cell&gt;
-          &lt;Grid.Cell span=&quot;all&quot;&gt;
-            {/* A Cell of its own means a form of its own: a form element cannot span the Cells of a Subgrid. */}
-            &lt;form method=&quot;get&quot;&gt;
-              &lt;Field&gt;
-                &lt;Label htmlFor=&quot;events-district&quot;&gt;Stadsdeel&lt;/Label&gt;
-                &lt;Select defaultValue=&quot;Noord&quot; id=&quot;events-district&quot; name=&quot;stadsdeel&quot;&gt;
-                  &lt;Select.Option value=&quot;&quot;&gt;Alle stadsdelen&lt;/Select.Option&gt;
-                  {eventDistricts.map((district) =&gt; (
-                    &lt;Select.Option key={district} value={district}&gt;
-                      {district}
-                    &lt;/Select.Option&gt;
-                  ))}
-                &lt;/Select&gt;
-              &lt;/Field&gt;
-            &lt;/form&gt;
-          &lt;/Grid.Cell&gt;
-          &lt;Grid.Cell span=&quot;all&quot;&gt;
-            &lt;form method=&quot;get&quot;&gt;
-              {/* A Field Set spaces its own children, so the Checkboxes inside one need no margin. */}
-              &lt;FieldSet className=&quot;ams-mb-m&quot; legend=&quot;Categorie&quot;&gt;
-                {eventCategories.map((category) =&gt; (
-                  &lt;Checkbox
-                    defaultChecked={selectedCategories.includes(category)}
-                    key={category}
-                    name=&quot;categorie&quot;
-                    value={category}
-                  &gt;
-                    {category}
-                  &lt;/Checkbox&gt;
-                ))}
-              &lt;/FieldSet&gt;
-              {/* The design filters as soon as a box is ticked; the button keeps the form usable without that script. */}
-              &lt;Button type=&quot;submit&quot;&gt;Toon activiteiten&lt;/Button&gt;
-            &lt;/form&gt;
-          &lt;/Grid.Cell&gt;
-        &lt;/Grid.Subgrid&gt;
-        {/*
-         * A Subgrid hands the columns it spans to its own children, so the Cells inside it are placed on the
-         * columns of the page rather than on columns of their own. That is what lines the Cards up with the rest.
-         */}
-        &lt;Grid.Subgrid span={{ narrow: 4, medium: 5, wide: 9 }} start={{ narrow: 1, medium: 4, wide: 4 }}&gt;
-          {/* The result count takes the width of the results below it, capped at the 7 columns a reading measure takes. */}
-          &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 7 }}&gt;
-            &lt;Heading className=&quot;ams-visually-hidden&quot; level={2}&gt;
-              Zoekresultaten
-            &lt;/Heading&gt;
-            {/* A polite live region, so a screen reader hears the new total when the search or the filters change. */}
-            &lt;Paragraph className=&quot;ams-mb-m&quot; role=&quot;status&quot;&gt;
-              {noResultsMessage}
-            &lt;/Paragraph&gt;
-            {/*
-             * The filters that produced the empty result, named again beside the sentence above so they can be
-             * read and cleared without going back up the filter column.
-             */}
-            &lt;Row alignVertical=&quot;center&quot; aria-label=&quot;Actieve filters&quot; as=&quot;section&quot; gap=&quot;x-small&quot; wrap&gt;
-              {selectedDistricts.map((district) =&gt; (
-                &lt;Badge key={district} label={`Stadsdeel: ${district}`} /&gt;
-              ))}
-              {selectedCategories.map((category) =&gt; (
-                &lt;Badge key={category} label={`Categorie: ${category}`} /&gt;
-              ))}
-              &lt;StandaloneLink href=&quot;#&quot; icon={CloseIcon}&gt;
-                Wis alle filters
-              &lt;/StandaloneLink&gt;
-            &lt;/Row&gt;
-          &lt;/Grid.Cell&gt;
-          &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 7 }}&gt;
-            &lt;Paragraph&gt;
-              Er zijn geen activiteiten die voldoen aan uw filters. Probeer een ruimere periode, of kies een ander
-              stadsdeel of een andere categorie.
-            &lt;/Paragraph&gt;
-          &lt;/Grid.Cell&gt;
-        &lt;/Grid.Subgrid&gt;
-      &lt;/Grid&gt;
-    &lt;/main&gt;
-  &lt;/&gt;
-);</code></pre>
-            </div>
         </div>
     
         <div class="panel panel-docs">
@@ -41529,16 +40529,6 @@ That is below the horizontal breakpoint, so every Card stays vertical, and becau
 
 Both layouts hold the same markup.
 Only the `span` of the Cell around each Card differs, so nothing about the page changes for someone reading it in source order.
-
-### No results
-
-An empty result set is a place people leave, so give them a way on.
-
-Name the filters that produced it twice over: once in the sentence the live region announces, and once as a row of [Badges](/docs/components-feedback-badge--docs) beside a link that clears them all.
-The visitor can then see what narrowed the search without going back up the filter column.
-
-Follow that with a paragraph suggesting what to widen.
-Keep the filter column exactly as it is, with the chosen values still selected, so the visitor can adjust one facet rather than starting again.
 
 ## Structure
 
@@ -57123,7 +56113,7 @@ Faster and cheaper to build and iterate with.
     &lt;strong&gt;1300+&lt;/strong&gt; design tokens
   &lt;/InlineList.Item&gt;
   &lt;InlineList.Item&gt;
-    &lt;strong&gt;36&lt;/strong&gt; templates
+    &lt;strong&gt;35&lt;/strong&gt; templates
   &lt;/InlineList.Item&gt;
   &lt;InlineList.Item&gt;
     &lt;strong&gt;3&lt;/strong&gt; modes
