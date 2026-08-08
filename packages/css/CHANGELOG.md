@@ -3,6 +3,46 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.4.0](https://github.com/Amsterdam/design-system/compare/design-system-css-v4.3.0...design-system-css-v4.4.0) (2026-08-08)
+
+
+### Features
+
+* Add Lo-fi Mode ([#2831](https://github.com/Amsterdam/design-system/issues/2831)) ([9f6e525](https://github.com/Amsterdam/design-system/commit/9f6e525523c410cf2fa06002fbe7e248ab535524))
+* **Blockquote, Figure, Link List, Table of Contents:** Balance the line lengths of text ([#2872](https://github.com/Amsterdam/design-system/issues/2872)) ([8587e0d](https://github.com/Amsterdam/design-system/commit/8587e0d9cceb87bba30b76ac53f178fe9beb9937))
+* **Button, Checkbox, File Input, Radio:** Make the background light grey when disabled ([#2813](https://github.com/Amsterdam/design-system/issues/2813)) ([66a9c7c](https://github.com/Amsterdam/design-system/commit/66a9c7ca271018f98155d7a9aae5b66e67334f69))
+* **Card:** Allow switching to horizontal layout if space permits ([#2859](https://github.com/Amsterdam/design-system/issues/2859)) ([e580f56](https://github.com/Amsterdam/design-system/commit/e580f56d87bcf21fb965b81a28f5505e0eba4c66))
+* **css:** Give disabled form inputs a distinct background colour ([#2809](https://github.com/Amsterdam/design-system/issues/2809)) ([514e0b3](https://github.com/Amsterdam/design-system/commit/514e0b3e31cd9ab6202937155df2ef1602e2f647))
+* **css:** Keep content clear of a display cutout and the home indicator ([#2855](https://github.com/Amsterdam/design-system/issues/2855)) ([b575971](https://github.com/Amsterdam/design-system/commit/b57597104960de9cf55d5e5c6d794e832b4a2d9d))
+* **Grid:** Add a Subgrid that keeps nested Cells on the existing columns ([#2861](https://github.com/Amsterdam/design-system/issues/2861)) ([46981ea](https://github.com/Amsterdam/design-system/commit/46981ea0333c931fe00fb687b533029ad3fb3f3b))
+* **Grid:** Add an x-large vertical gap option to Subgrid ([#2878](https://github.com/Amsterdam/design-system/issues/2878)) ([79bee2b](https://github.com/Amsterdam/design-system/commit/79bee2bf8ef62598b114c854daba9e81b566426e))
+* **Grid:** Allow a Grid and a Subgrid to render a list of Cells ([#2902](https://github.com/Amsterdam/design-system/issues/2902)) ([9ca12ff](https://github.com/Amsterdam/design-system/commit/9ca12ff2ec50551c46c98a94e29458c3764df9c2))
+* **Grid:** Let a Cell and a Subgrid start at a row of your choosing ([#2886](https://github.com/Amsterdam/design-system/issues/2886)) ([c0516bf](https://github.com/Amsterdam/design-system/commit/c0516bfcaf6ad9f24a124c2bc98164fd0f1de95f))
+* **Icon Button:** Give the disabled contrast variant a grey background ([#2814](https://github.com/Amsterdam/design-system/issues/2814)) ([55442bd](https://github.com/Amsterdam/design-system/commit/55442bdba0e1642f564fdb14359faf8957ccfd41))
+* **Image:** Show a placeholder background while the image loads ([#2921](https://github.com/Amsterdam/design-system/issues/2921)) ([18a13ab](https://github.com/Amsterdam/design-system/commit/18a13abf4d956f7dda4953be76f1ded85333f0b7))
+* Improve support for right-to-left writing direction ([#2796](https://github.com/Amsterdam/design-system/issues/2796)) ([53fc45f](https://github.com/Amsterdam/design-system/commit/53fc45f130ba58951b0c05d3c9d4234871aacfbc))
+* **Metadata:** Add the Metadata component ([#2912](https://github.com/Amsterdam/design-system/issues/2912)) ([2150a74](https://github.com/Amsterdam/design-system/commit/2150a74c60c3dc22ac2e18745b6cfd3196513581))
+* **Modal Dialog:** Add Modal Dialog component and repurpose Dialog for short messages ([#2920](https://github.com/Amsterdam/design-system/issues/2920)) ([c2bef53](https://github.com/Amsterdam/design-system/commit/c2bef53af6561140d81671b2f4fb77e3ec05ce21))
+* **Prose:** Give a Description List, Image and Link List more space below a level 3 or 4 heading ([#2877](https://github.com/Amsterdam/design-system/issues/2877)) ([e55689e](https://github.com/Amsterdam/design-system/commit/e55689e97e6819a74bbd42685be48a1c0a999bf6))
+* **Prose:** Give a Standalone Link and a Table more space below a heading, and set Prose on the component examples ([#2876](https://github.com/Amsterdam/design-system/issues/2876)) ([f8bd292](https://github.com/Amsterdam/design-system/commit/f8bd292121aded35deb8e33b916e060519a6d269))
+* **Prose:** Update vertical rhythm in content header and replace hand-picked margins with Prose in every page template ([#2873](https://github.com/Amsterdam/design-system/issues/2873)) ([140ea83](https://github.com/Amsterdam/design-system/commit/140ea835773ee024b9f3a3d95988bd8ebe0e7971))
+* **Search Field:** Allow disabling the input and button ([#2810](https://github.com/Amsterdam/design-system/issues/2810)) ([b8ec625](https://github.com/Amsterdam/design-system/commit/b8ec625c82d8774f3ba64a04ae181bcbf9e04646))
+* **Tab Navigation:** Underline the link text on hover ([#2807](https://github.com/Amsterdam/design-system/issues/2807)) ([a2ed825](https://github.com/Amsterdam/design-system/commit/a2ed8257f6c0d79e7df42b0980e00ee2d6eb6fdf))
+
+
+### Bug Fixes
+
+* **Breakout:** Cancel the row gap that each vertical gap size actually sets ([#2857](https://github.com/Amsterdam/design-system/issues/2857)) ([fd6a04f](https://github.com/Amsterdam/design-system/commit/fd6a04fc6bf934b5ad59a08da564f11ea3b6364a))
+* **Button:** Apply disabled styles to aria-disabled buttons ([#2812](https://github.com/Amsterdam/design-system/issues/2812)) ([031d8c8](https://github.com/Amsterdam/design-system/commit/031d8c8e04a59bfa3d3aea56d48ef5f72a08bd32))
+* **css, tokens, assets:** Declare which files each package publishes to npm ([#2821](https://github.com/Amsterdam/design-system/issues/2821)) ([c5e6946](https://github.com/Amsterdam/design-system/commit/c5e69461d1e272812d557f530f3d926c1a912090))
+* **css:** Add defensive safeguards to grid, flex, scroll, image, and list styles ([#2804](https://github.com/Amsterdam/design-system/issues/2804)) ([bd36c96](https://github.com/Amsterdam/design-system/commit/bd36c96ee7dd30d9ce19feb449cc685599531049))
+* **css:** Apply hover styles on hover-capable devices only ([#2805](https://github.com/Amsterdam/design-system/issues/2805)) ([a12a6dd](https://github.com/Amsterdam/design-system/commit/a12a6dd04798386f967129b18a312b1dfba4d485))
+* **Description List:** Let tokenised grid tracks shrink below the minimum content size ([#2806](https://github.com/Amsterdam/design-system/issues/2806)) ([d73a8a0](https://github.com/Amsterdam/design-system/commit/d73a8a03f1138e3ddc165ae28db10dadc484b12d))
+* **Dialog:** Make the scrollable body keyboard accessible ([#2846](https://github.com/Amsterdam/design-system/issues/2846)) ([c4be5a2](https://github.com/Amsterdam/design-system/commit/c4be5a2307fa037d191d5f183b13a667ae257c77))
+* **Ordered List, Unordered List:** Only style a list that is directly nested in a list item ([#2914](https://github.com/Amsterdam/design-system/issues/2914)) ([b731428](https://github.com/Amsterdam/design-system/commit/b73142867b1d4cfaddf3e706267002bd78261176))
+* **Switch:** Guard its transitions behind prefers-reduced-motion ([#2847](https://github.com/Amsterdam/design-system/issues/2847)) ([8755dc9](https://github.com/Amsterdam/design-system/commit/8755dc9f6e8faa35ef8cd47871c776de85385e18))
+* **Table:** Make the horizontal scroll container keyboard accessible ([#2845](https://github.com/Amsterdam/design-system/issues/2845)) ([c0159b5](https://github.com/Amsterdam/design-system/commit/c0159b59955b2be4475376b2beae8c7ba754df32))
+
 ## [4.3.0](https://github.com/Amsterdam/design-system/compare/design-system-css-v4.2.0...design-system-css-v4.3.0) (2026-07-12)
 
 

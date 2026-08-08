@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.4.0](https://github.com/Amsterdam/design-system/compare/design-system-react-v4.3.0...design-system-react-v4.4.0) (2026-08-08)
+
+
+### Features
+
+* **Avatar:** Make the accessible name configurable ([#2850](https://github.com/Amsterdam/design-system/issues/2850)) ([3122576](https://github.com/Amsterdam/design-system/commit/3122576d43b44c2c2eea972157f5126e3debbacb))
+* **Card:** Allow switching to horizontal layout if space permits ([#2859](https://github.com/Amsterdam/design-system/issues/2859)) ([e580f56](https://github.com/Amsterdam/design-system/commit/e580f56d87bcf21fb965b81a28f5505e0eba4c66))
+* **Card:** Make tagline grey through new Metadata component ([#2913](https://github.com/Amsterdam/design-system/issues/2913)) ([d9b8317](https://github.com/Amsterdam/design-system/commit/d9b831754343bbf00788a28e647521b8c0558fd4))
+* **Field Set:** Accept the native disabled attribute ([#2891](https://github.com/Amsterdam/design-system/issues/2891)) ([cf65617](https://github.com/Amsterdam/design-system/commit/cf6561762e17a050207f88c299de63a04088581d))
+* **Grid:** Add a Subgrid that keeps nested Cells on the existing columns ([#2861](https://github.com/Amsterdam/design-system/issues/2861)) ([46981ea](https://github.com/Amsterdam/design-system/commit/46981ea0333c931fe00fb687b533029ad3fb3f3b))
+* **Grid:** Add an x-large vertical gap option to Subgrid ([#2878](https://github.com/Amsterdam/design-system/issues/2878)) ([79bee2b](https://github.com/Amsterdam/design-system/commit/79bee2bf8ef62598b114c854daba9e81b566426e))
+* **Grid:** Allow a Grid and a Subgrid to render a list of Cells ([#2902](https://github.com/Amsterdam/design-system/issues/2902)) ([9ca12ff](https://github.com/Amsterdam/design-system/commit/9ca12ff2ec50551c46c98a94e29458c3764df9c2))
+* **Grid:** Let a Cell and a Subgrid start at a row of your choosing ([#2886](https://github.com/Amsterdam/design-system/issues/2886)) ([c0516bf](https://github.com/Amsterdam/design-system/commit/c0516bfcaf6ad9f24a124c2bc98164fd0f1de95f))
+* Improve support for right-to-left writing direction ([#2796](https://github.com/Amsterdam/design-system/issues/2796)) ([53fc45f](https://github.com/Amsterdam/design-system/commit/53fc45f130ba58951b0c05d3c9d4234871aacfbc))
+* **Metadata:** Add the Metadata component ([#2912](https://github.com/Amsterdam/design-system/issues/2912)) ([2150a74](https://github.com/Amsterdam/design-system/commit/2150a74c60c3dc22ac2e18745b6cfd3196513581))
+* **Modal Dialog:** Add Modal Dialog component and repurpose Dialog for short messages ([#2920](https://github.com/Amsterdam/design-system/issues/2920)) ([c2bef53](https://github.com/Amsterdam/design-system/commit/c2bef53af6561140d81671b2f4fb77e3ec05ce21))
+* **Pagination:** Add accessible name props for the page links ([#2898](https://github.com/Amsterdam/design-system/issues/2898)) ([b96b077](https://github.com/Amsterdam/design-system/commit/b96b077350d76f162287e9606760d1ba14ab4252))
+* **React:** Export the types that were missing from the barrel files ([#2903](https://github.com/Amsterdam/design-system/issues/2903)) ([072a34f](https://github.com/Amsterdam/design-system/commit/072a34f978a97ca90f334aeb66a44cc120360f9b))
+* **Search Field:** Allow disabling the input and button ([#2810](https://github.com/Amsterdam/design-system/issues/2810)) ([b8ec625](https://github.com/Amsterdam/design-system/commit/b8ec625c82d8774f3ba64a04ae181bcbf9e04646))
+
+
+### Bug Fixes
+
+* **Alert:** Generate a unique heading id by default ([#2849](https://github.com/Amsterdam/design-system/issues/2849)) ([0c54333](https://github.com/Amsterdam/design-system/commit/0c5433353e2cc46682e2dd1bd14c9a8b719e9357))
+* **Dialog:** Make the scrollable body keyboard accessible ([#2846](https://github.com/Amsterdam/design-system/issues/2846)) ([c4be5a2](https://github.com/Amsterdam/design-system/commit/c4be5a2307fa037d191d5f183b13a667ae257c77))
+* **Table:** Make the horizontal scroll container keyboard accessible ([#2845](https://github.com/Amsterdam/design-system/issues/2845)) ([c0159b5](https://github.com/Amsterdam/design-system/commit/c0159b59955b2be4475376b2beae8c7ba754df32))
+
 ## [4.3.0](https://github.com/Amsterdam/design-system/compare/design-system-react-v4.2.0...design-system-react-v4.3.0) (2026-07-12)
 
 

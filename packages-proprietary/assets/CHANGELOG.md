@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.6.0](https://github.com/Amsterdam/design-system/compare/design-system-assets-v2.5.0...design-system-assets-v2.6.0) (2026-08-08)
+
+
+### Features
+
+* Add Lo-fi Mode ([#2831](https://github.com/Amsterdam/design-system/issues/2831)) ([9f6e525](https://github.com/Amsterdam/design-system/commit/9f6e525523c410cf2fa06002fbe7e248ab535524))
+
+
+### Bug Fixes
+
+* **css, tokens, assets:** Declare which files each package publishes to npm ([#2821](https://github.com/Amsterdam/design-system/issues/2821)) ([c5e6946](https://github.com/Amsterdam/design-system/commit/c5e69461d1e272812d557f530f3d926c1a912090))
+
 ## [2.5.0](https://github.com/Amsterdam/design-system/compare/design-system-assets-v2.4.0...design-system-assets-v2.5.0) (2026-07-12)
 
 
