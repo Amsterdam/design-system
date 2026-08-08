@@ -29,12 +29,11 @@ so do not apply these styles without an `open` attribute. */
   /* Let the dialog itself scroll when the header, the body at its minimum height,
   and the footer together exceed the available height. This keeps all content
   reachable in vertically short windows and with strongly enlarged text. */
+  /* stylelint-disable-next-line defensive-css/require-scrollbar-gutter -- A gutter would uncentre the content. */
   overflow-y: auto;
 
   /* stylelint-disable-next-line plugin/use-baseline -- Progressive enhancement. */
   overscroll-behavior-y: contain;
-  /* stylelint-disable-next-line plugin/use-baseline -- Progressive enhancement. */
-  scrollbar-gutter: stable both-edges;
 
   // Ensure there always is a border in forced colors mode.
   @media (forced-colors: active) {
@@ -115,13 +114,12 @@ Content elements – e.g. a heading and a subtitle – stack without needing a w
 
   /* Let wide content scroll horizontally instead of clipping it. */
   overflow-x: auto;
+  /* stylelint-disable-next-line defensive-css/require-scrollbar-gutter -- A gutter would misalign the Body with the Header and Footer. */
   overflow-y: auto;
   /* stylelint-disable-next-line plugin/use-baseline -- Progressive enhancement. */
   overscroll-behavior: contain;
   padding-block: var(--ams-modal-dialog-body-padding-block);
   padding-inline: var(--ams-modal-dialog-body-padding-inline);
-  /* stylelint-disable-next-line plugin/use-baseline -- Progressive enhancement. */
-  scrollbar-gutter: stable both-edges;
 
   @media (min-width: $ams-breakpoint-medium) {
     padding-block: var(--ams-modal-dialog-body-vi-medium-padding-block);
