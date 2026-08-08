@@ -115,9 +115,8 @@ The Modal Dialog is a [query container](/docs/utilities-css-query-container--doc
 
 Both the dialog and its Body can scroll.
 If the content of the Body is taller than the available space, the Body scrolls while the Header and Footer remain visible.
-In vertically short windows, or with strongly enlarged text, the Body keeps a minimum height and the dialog itself scrolls instead.
+In vertically short windows, or with strongly enlarged text, the Body keeps a minimum height of two lines of body text and the dialog itself scrolls instead.
 This keeps all content reachable, up to a text size of 400%.
-A scrolling Body is keyboard-focusable, so its content can always be scrolled with the arrow keys.
 
 ### Keyboard navigation
 
@@ -125,22 +124,34 @@ A scrolling Body is keyboard-focusable, so its content can always be scrolled wi
 | :---------- | :--------------------------------------------------------------------- |
 | Tab         | Moves focus to the next focusable element inside the Modal Dialog.     |
 | Shift + Tab | Moves focus to the previous focusable element inside the Modal Dialog. |
+| Arrow keys  | Scroll the Body when it has focus and its content overflows.           |
 | Escape      | Closes the Modal Dialog.                                               |
 
 ## Design
 
-The close button is pinned to the top right of the Header, next to the first line of its content.
-Its icon aligns with a level 2 heading by default.
-Pass `closeButtonSize` to match it to the Heading you use.
+The Header always renders the close button, so the dialog can be dismissed at any point.
+The button is pinned to the top right, next to the first line of the Header’s content, and its icon aligns with a level 2 heading by default.
+
+The dialog is sized against the window rather than against its content, so it opens at a predictable size, and a maximum width caps it on wide screens.
+Space for a scrollbar is reserved on both sides of the dialog and of its Body, so content does not shift or sit off-centre when one appears.
+
+The Header, Body, and Footer are told apart by their padding alone.
+In forced colours mode that is not enough, so the Header and Footer gain hairline separators marking the edges of the part that scrolls, and the dialog’s border keeps a floor of one pixel to hold its edge against the page behind.
 
 ## Accessibility
 
 The component renders a native `dialog` element and opens it with `showModal()`.
-The browser then provides the modal behaviour: the rest of the page becomes [inert](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/inert), focus is trapped inside the dialog, the Escape key closes it, and focus returns to the triggering element on close.
+The browser then provides the modal behaviour: the rest of the page becomes [inert](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/inert), Tab stays inside the dialog without a focus trap of our own, the Escape key closes it, and focus returns to the triggering element on close.
 The dialog has the `dialog` role and is marked as modal for assistive technologies automatically.
 
-You must provide the accessible name: pass `aria-labelledby` referencing the `id` of the Heading in the Header.
-The component warns in the browser console when it has no accessible name.
+The dialog does not name itself: it takes its accessible name from the element that `aria-labelledby` references, and warns in the browser console when it has none.
+[How to use](#how-to-use) covers providing that name.
+
+A scrolling Body takes keyboard focus in its own right, so someone navigating by keyboard can scroll long content with the arrow keys even when nothing inside it is focusable, as [WCAG 2.1.1](https://www.w3.org/TR/WCAG22/#keyboard) requires.
+Chromium and Firefox already make an overflowing scroll container focusable; Safari does not, so the component makes the Body focusable itself.
+
+Scrolling of the page behind the dialog is suppressed while it is open.
+Opening a modal does not lock scrolling on its own, and iOS Safari still needs JavaScript for a guarantee, so a gesture over the backdrop there can move the page underneath.
 
 Note that a modal dialog requires JavaScript: without it, the dialog stays closed and its content stays hidden.
 
