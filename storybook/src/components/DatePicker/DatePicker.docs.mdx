@@ -53,6 +53,12 @@ Try the `locale` control above to preview each language; see the [localisation d
 
 If your app uses Date Picker in multiple places with the same language, a small wrapper component avoids repeating these props; the [Localisation developer guide](/docs/docs-developer-guide-localisation--docs) shows an example.
 
+## Design
+
+The Date Picker is intentionally an inline component.
+Finding the optimal date is a focused task for the user; placing it directly on the page makes it easier to use and gives it the space and attention it deserves.
+If the layout truly has no room, placing the Date Picker inside a [Modal Dialog](/docs/components-containers-modal-dialog--docs) is an acceptable last resort.
+
 ## Examples
 
 ### Range
