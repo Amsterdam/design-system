@@ -8,7 +8,8 @@
         }
       },
       "background-color": {
-        "$value": "transparent",
+        "$value": "#e8e8e8",
+        "$description": "A neutral tint that marks the reserved space until the image has loaded. Set as a literal because the brand layer has no matching grey yet.",
         "$extensions": {
           "nl.amsterdam.type": "color"
         }
