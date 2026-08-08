@@ -137,11 +137,10 @@
           }
         },
         "min-block-size": {
-          "$value": {
-            "value": 3,
-            "unit": "rem"
-          },
-          "$type": "dimension"
+          "$value": "calc(2 * {ams.typography.body-text.font-size} * {ams.typography.body-text.line-height})",
+          "$extensions": {
+            "nl.amsterdam.type": "dimension"
+          }
         },
         "padding-block": {
           "$value": "0 {ams.space.m}",
