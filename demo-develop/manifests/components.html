@@ -594,7 +594,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>5.4s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>5.1s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -14601,8 +14601,9 @@ When a file fails to load, its description then reads as a stand-in rather than 
 The component sets a width of 600 pixels in the markup, which the stylesheet immediately overrides.
 It only takes effect when that stylesheet does not arrive, and it keeps a missing image from rendering at whatever size the file happens to be.
 
-An Image carries a background colour and a background image that are both switched off by default.
-This is what lets a mode move the picture out of view and show a placeholder in the space it reserved, without the component knowing anything about that mode.
+An Image carries a light grey background colour, so the space it reserves reads as a placeholder rather than a hole in the page until the file arrives.
+It also carries a background image that is switched off by default.
+Together they let a mode move the picture out of view and show its own placeholder in the space it reserved, without the component knowing anything about that mode.
 
 ## Accessibility
 
