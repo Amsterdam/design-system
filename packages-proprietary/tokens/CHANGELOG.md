@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.3.0](https://github.com/Amsterdam/design-system/compare/design-system-tokens-v4.2.0...design-system-tokens-v4.3.0) (2026-08-08)
+
+
+### Features
+
+* Add Lo-fi Mode ([#2831](https://github.com/Amsterdam/design-system/issues/2831)) ([9f6e525](https://github.com/Amsterdam/design-system/commit/9f6e525523c410cf2fa06002fbe7e248ab535524))
+* **Blockquote, Figure, Link List, Table of Contents:** Balance the line lengths of text ([#2872](https://github.com/Amsterdam/design-system/issues/2872)) ([8587e0d](https://github.com/Amsterdam/design-system/commit/8587e0d9cceb87bba30b76ac53f178fe9beb9937))
+* **Button, Checkbox, File Input, Radio:** Make the background light grey when disabled ([#2813](https://github.com/Amsterdam/design-system/issues/2813)) ([66a9c7c](https://github.com/Amsterdam/design-system/commit/66a9c7ca271018f98155d7a9aae5b66e67334f69))
+* **css:** Give disabled form inputs a distinct background colour ([#2809](https://github.com/Amsterdam/design-system/issues/2809)) ([514e0b3](https://github.com/Amsterdam/design-system/commit/514e0b3e31cd9ab6202937155df2ef1602e2f647))
+* **Icon Button:** Give the disabled contrast variant a grey background ([#2814](https://github.com/Amsterdam/design-system/issues/2814)) ([55442bd](https://github.com/Amsterdam/design-system/commit/55442bdba0e1642f564fdb14359faf8957ccfd41))
+* **Image:** Show a placeholder background while the image loads ([#2921](https://github.com/Amsterdam/design-system/issues/2921)) ([18a13ab](https://github.com/Amsterdam/design-system/commit/18a13abf4d956f7dda4953be76f1ded85333f0b7))
+* Improve support for right-to-left writing direction ([#2796](https://github.com/Amsterdam/design-system/issues/2796)) ([53fc45f](https://github.com/Amsterdam/design-system/commit/53fc45f130ba58951b0c05d3c9d4234871aacfbc))
+* **Metadata:** Add the Metadata component ([#2912](https://github.com/Amsterdam/design-system/issues/2912)) ([2150a74](https://github.com/Amsterdam/design-system/commit/2150a74c60c3dc22ac2e18745b6cfd3196513581))
+* **Modal Dialog:** Add Modal Dialog component and repurpose Dialog for short messages ([#2920](https://github.com/Amsterdam/design-system/issues/2920)) ([c2bef53](https://github.com/Amsterdam/design-system/commit/c2bef53af6561140d81671b2f4fb77e3ec05ce21))
+* **Search Field:** Allow disabling the input and button ([#2810](https://github.com/Amsterdam/design-system/issues/2810)) ([b8ec625](https://github.com/Amsterdam/design-system/commit/b8ec625c82d8774f3ba64a04ae181bcbf9e04646))
+* **Tab Navigation:** Underline the link text on hover ([#2807](https://github.com/Amsterdam/design-system/issues/2807)) ([a2ed825](https://github.com/Amsterdam/design-system/commit/a2ed8257f6c0d79e7df42b0980e00ee2d6eb6fdf))
+
+
+### Bug Fixes
+
+* **css, tokens, assets:** Declare which files each package publishes to npm ([#2821](https://github.com/Amsterdam/design-system/issues/2821)) ([c5e6946](https://github.com/Amsterdam/design-system/commit/c5e69461d1e272812d557f530f3d926c1a912090))
+* **deps:** Bump postcss from 8.5.25 to 8.5.26 in the patch-and-minor-dependencies group ([#2908](https://github.com/Amsterdam/design-system/issues/2908)) ([f3bd430](https://github.com/Amsterdam/design-system/commit/f3bd4307eb39580ca860274349771132c5baaae9))
+* **Description List:** Let tokenised grid tracks shrink below the minimum content size ([#2806](https://github.com/Amsterdam/design-system/issues/2806)) ([d73a8a0](https://github.com/Amsterdam/design-system/commit/d73a8a03f1138e3ddc165ae28db10dadc484b12d))
+* **Dialog:** Make the scrollable body keyboard accessible ([#2846](https://github.com/Amsterdam/design-system/issues/2846)) ([c4be5a2](https://github.com/Amsterdam/design-system/commit/c4be5a2307fa037d191d5f183b13a667ae257c77))
+* **Switch:** Use Neutral 20 for the disabled track ([#2808](https://github.com/Amsterdam/design-system/issues/2808)) ([952e857](https://github.com/Amsterdam/design-system/commit/952e857ce36a637fbcc1d071dee9b99f23890c36))
+* **Table:** Make the horizontal scroll container keyboard accessible ([#2845](https://github.com/Amsterdam/design-system/issues/2845)) ([c0159b5](https://github.com/Amsterdam/design-system/commit/c0159b59955b2be4475376b2beae8c7ba754df32))
+
 ## [4.2.0](https://github.com/Amsterdam/design-system/compare/design-system-tokens-v4.1.0...design-system-tokens-v4.2.0) (2026-07-12)
 
 
