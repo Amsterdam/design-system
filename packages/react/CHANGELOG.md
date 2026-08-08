@@ -9,6 +9,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ### Features
 
 * **Avatar:** Make the accessible name configurable ([#2850](https://github.com/Amsterdam/design-system/issues/2850)) ([3122576](https://github.com/Amsterdam/design-system/commit/3122576d43b44c2c2eea972157f5126e3debbacb))
+* **Card:** Allow switching to horizontal layout if space permits ([#2859](https://github.com/Amsterdam/design-system/issues/2859)) ([e580f56](https://github.com/Amsterdam/design-system/commit/e580f56d87bcf21fb965b81a28f5505e0eba4c66))
 * **Card:** Make tagline grey through new Metadata component ([#2913](https://github.com/Amsterdam/design-system/issues/2913)) ([d9b8317](https://github.com/Amsterdam/design-system/commit/d9b831754343bbf00788a28e647521b8c0558fd4))
 * **Field Set:** Accept the native disabled attribute ([#2891](https://github.com/Amsterdam/design-system/issues/2891)) ([cf65617](https://github.com/Amsterdam/design-system/commit/cf6561762e17a050207f88c299de63a04088581d))
 * **Grid:** Add a Subgrid that keeps nested Cells on the existing columns ([#2861](https://github.com/Amsterdam/design-system/issues/2861)) ([46981ea](https://github.com/Amsterdam/design-system/commit/46981ea0333c931fe00fb687b533029ad3fb3f3b))
