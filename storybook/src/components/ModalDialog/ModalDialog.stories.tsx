@@ -56,6 +56,11 @@ const meta = {
     },
     id: dialogIdArgType,
   },
+  subcomponents: {
+    'ModalDialog.Body': ModalDialog.Body,
+    'ModalDialog.Footer': ModalDialog.Footer,
+    'ModalDialog.Header': ModalDialog.Header,
+  },
 } satisfies Meta<typeof ModalDialog>
 
 export default meta

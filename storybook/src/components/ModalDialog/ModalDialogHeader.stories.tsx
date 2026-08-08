@@ -32,6 +32,7 @@ const meta = {
       </ModalDialog>
     ),
   ],
+  tags: ['!manifest'],
 } satisfies Meta<typeof ModalDialog.Header>
 
 export default meta

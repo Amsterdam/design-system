@@ -179,5 +179,5 @@ export const Test: Story = {
       </ModalDialog>
     </>
   ),
-  tags: ['!dev', '!autodocs'],
+  tags: ['!dev', '!autodocs', '!manifest'],
 }

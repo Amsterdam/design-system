@@ -114,5 +114,5 @@ export const Test: Story = {
       </Dialog>
     </>
   ),
-  tags: ['!dev', '!autodocs'],
+  tags: ['!dev', '!autodocs', '!manifest'],
 }
