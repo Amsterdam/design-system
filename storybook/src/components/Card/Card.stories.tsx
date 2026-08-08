@@ -6,8 +6,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import type { ComponentProps } from 'react'
 
-import { Column, Grid, Metadata, Paragraph } from '@amsterdam/design-system-react'
-import { Card } from '@amsterdam/design-system-react/src'
+import { Column, Grid, Paragraph } from '@amsterdam/design-system-react'
+import { Card, Metadata } from '@amsterdam/design-system-react/src'
 import { aspectRatioOptions } from '@amsterdam/design-system-react/src/common/types'
 
 import { maximiseInlineSize, wrapInInlineSizeQueryContainer } from '#storybook/_common/decorators'

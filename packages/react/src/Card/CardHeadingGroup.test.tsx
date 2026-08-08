@@ -88,6 +88,8 @@ describe('CardHeadingGroup', () => {
 
   describe('the deprecated tagline prop', () => {
     it('renders the tagline as a small Metadata', () => {
+      vi.spyOn(console, 'warn').mockImplementation(() => {})
+
       render(<CardHeadingGroup tagline="Nieuws" />)
 
       const tagline = screen.getByText('Nieuws')

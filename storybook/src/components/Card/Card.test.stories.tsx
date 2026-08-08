@@ -5,8 +5,7 @@
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-import { Metadata } from '@amsterdam/design-system-react'
-import { Card } from '@amsterdam/design-system-react/src'
+import { Card, Metadata } from '@amsterdam/design-system-react/src'
 
 import { default as cardMeta } from './Card.stories'
 
