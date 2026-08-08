@@ -1,0 +1,182 @@
+{/* @license CC0-1.0 */}
+
+import { Canvas, Controls, Description, Meta, Primary, Title } from "@storybook/addon-docs/blocks";
+
+import { DesignTokensTable } from "#storybook/_components/DesignTokensTable/DesignTokensTable";
+import tokens from "#tokens/components/ams/alert-dialog.tokens.json";
+
+import * as AlertDialogStories from "./AlertDialog.stories.tsx";
+import * as AlertDialogHeaderStories from "./AlertDialogHeader.stories.tsx";
+
+<Meta of={AlertDialogStories} />
+
+<Title />
+
+<Description of={AlertDialogStories} />
+
+<Primary />
+
+<Controls />
+
+## Subcomponents
+
+Compose an Alert Dialog from its Header, Body, and Footer subcomponents.
+The Body holds the main content of the dialog and has no props of its own; the examples below show it in place.
+
+### Header
+
+The Header contains the title of the dialog.
+Unlike a [Modal Dialog](/docs/components-containers-modal-dialog--docs), it has no close button: an Alert Dialog is dismissed through an action in its Footer.
+Pass `severity` to signal the significance of the message: it adds a matching icon before the title and fills the Header with the corresponding colour.
+Place a single [Heading](/docs/components-text-heading--docs) in the Header; when a severity fills it, keep the Header to that heading, as smaller text on the fill does not always meet the contrast requirement.
+
+<Canvas of={AlertDialogHeaderStories.Header} />
+
+<Controls of={AlertDialogHeaderStories.Header} />
+
+### Footer
+
+The Footer holds one Button or an [Action Group](/docs/components-layout-action-group--docs) containing more of them.
+It is required: as an Alert Dialog has no close button, the user needs at least one action here to respond and continue.
+
+## Usage guidelines
+
+### When to use
+
+Use an Alert Dialog to interrupt the user with an important message that requires a response before they can continue.
+It typically appears in reaction to a system event, such as an expiring session or a loss of data, rather than as part of the user’s own flow.
+Interaction with the rest of the page is blocked until the user responds.
+
+### When not to use
+
+Use a [Modal Dialog](/docs/components-containers-modal-dialog--docs) for a task or message the user can dismiss without consequence, such as a form or a confirmation the user opened themselves.
+The rule of thumb: if the dialog can be closed without the user making a choice, it is a Modal Dialog; if it demands a decision, it is an Alert Dialog.
+
+Use Alert Dialogs sparingly, as they interrupt the user and demand immediate attention.
+
+### How to use
+
+Compose the dialog from its Header, Body, and Footer subcomponents, in that order.
+Always provide at least one action in the Footer, so the user can respond and continue.
+
+Give the dialog an accessible name and description.
+Add an `id` to the Heading in the Header and pass it to the `aria-labelledby` prop of the dialog.
+Add an `id` to the content in the Body and pass it to the `aria-describedby` prop, so assistive technologies announce the message together with the title.
+Use heading level 1: an Alert Dialog is a new layer that covers the page, so its heading hierarchy starts over.
+
+To open the dialog, use `AlertDialog.open` from the React package.
+It takes a CSS selector, so include the `#` when referencing an id: `AlertDialog.open('#my-dialog')`.
+Alternatively, keep the dialog rendered and control it with the `open` prop and the `onClose` event – see [the ‘Controlled’ example](#controlling-the-dialog-with-state).
+
+To close it, call the `AlertDialog.close` function from a button inside the dialog, or add a `<form method="dialog">` as in [the ‘Asking to confirm’ example](#asking-to-confirm).
+
+#### Focusing a specific element
+
+When an Alert Dialog opens (and no element has `autofocus`), the browser places focus on the first focusable element inside it, which is the first action in the Footer.
+
+To give another element the initial focus instead, add the `autofocus` attribute to it, or the `autoFocus` prop in React.
+Don’t place focus on a destructive or irreversible action: a user confirming by reflex with Enter or Space could lose data.
+When asking to confirm, focus the option that keeps the user’s data safe.
+
+For more information: [MDN: the dialog element](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/dialog#accessibility).
+
+## Examples
+
+### With a severity
+
+Pass `severity` to the Header to signal the significance of the message.
+The Header shows a matching icon and takes on the severity’s colour.
+
+<Canvas of={AlertDialogStories.WithSeverity} />
+
+### Asking to confirm
+
+Use a `form` when asking the user to confirm an action, e.g. through ‘Delete’ and ‘Cancel’ buttons.
+Add `method="dialog"` to make the browser close the dialog when the form is submitted.
+Add an `id` to the form and use it in the `form` attribute of the buttons in the Footer.
+Set a `value` on each button to identify which one was clicked.
+Consult [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog#handling_the_return_value_from_the_dialog) for more information.
+
+<Canvas of={AlertDialogStories.Confirmation} />
+
+### Reminding the user
+
+Open an Alert Dialog to remind the user of something time-sensitive, such as a session that is about to expire.
+Offer a clear way to continue alongside a way to stop.
+
+<Canvas of={AlertDialogStories.SessionExpiring} />
+
+### Controlling the dialog with state
+
+Keep the dialog rendered and pass a boolean to the `open` prop to open and close it from your application’s state.
+The component calls `showModal()` and `close()` on the dialog element for you.
+Listen to the `onClose` event to synchronise your state when the dialog closes itself, e.g. through the Escape key.
+Don’t render the dialog conditionally: unmounting it while open skips the `close` event and the browser’s focus restoration.
+
+<Canvas of={AlertDialogStories.Controlled} />
+
+## Features
+
+The Alert Dialog is a [query container](/docs/utilities-css-query-container--docs) for inline size, so elements inside it can adapt their appearance to the width of the dialog.
+
+### Scrolling
+
+Both the dialog and its Body can scroll.
+If the content of the Body is taller than the available space, the Body scrolls while the Header and Footer remain visible.
+In vertically short windows, or with strongly enlarged text, the Body keeps a minimum height of two lines of body text and the dialog itself scrolls instead.
+This keeps all content reachable, up to a text size of 400%.
+
+### Keyboard navigation
+
+| Key         | Behaviour                                                              |
+| :---------- | :--------------------------------------------------------------------- |
+| Tab         | Moves focus to the next focusable element inside the Alert Dialog.     |
+| Shift + Tab | Moves focus to the previous focusable element inside the Alert Dialog. |
+| Arrow keys  | Scroll the Body when it has focus and its content overflows.           |
+| Escape      | Closes the Alert Dialog.                                               |
+
+The NL Design System describes an Alert Dialog as not dismissable, to emphasise that the user should make a deliberate choice.
+This component still lets the Escape key close it: that behaviour is built into the browser’s `dialog` element and recommended by the [WAI-ARIA Authoring Practices](https://www.w3.org/WAI/ARIA/apg/patterns/alertdialog/) for the `alertdialog` role.
+Removing it would trap keyboard users and diverge from the platform.
+Design your flow so that closing the dialog with Escape is always safe, and never rely on the dialog staying open to prevent data loss.
+
+## Design
+
+The Header has no close button: an Alert Dialog asks for a decision, so its only ways out are the actions in the Footer and the Escape key.
+When a severity fills the Header, the heading and icon keep the default dark text colour, which meets the contrast requirement on every severity colour where white text would not.
+
+The dialog is sized against the window rather than against its content, so it opens at a predictable size, and a maximum width caps it on wide screens.
+The Body reserves space for its scrollbar whether or not one appears, so its text does not shift sideways as content loads.
+
+The Header, Body, and Footer are told apart by their padding alone.
+In forced colours mode that is not enough, so the Header and Footer gain hairline separators marking the edges of the part that scrolls, and the dialog’s border keeps a floor of one pixel to hold its edge against the page behind.
+
+## Accessibility
+
+The component renders a native `dialog` element and opens it with `showModal()`.
+The browser then provides the modal behaviour: the rest of the page becomes [inert](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/inert), Tab stays inside the dialog without a focus trap of our own, the Escape key closes it, and focus returns to the triggering element on close.
+The dialog is given the `alertdialog` role, which tells assistive technologies to announce it immediately and treat it as a message that requires a response.
+
+The dialog does not name or describe itself: it takes its accessible name from the element that `aria-labelledby` references, and announces the message that `aria-describedby` points to along with it.
+It warns in the browser console when it has no accessible name.
+[How to use](#how-to-use) covers providing both.
+
+A `severity` never relies on colour alone: it is always paired with a distinct icon and the heading text, so the meaning survives when the fill drops out, for example in forced colours mode.
+
+A scrolling Body takes keyboard focus in its own right, so someone navigating by keyboard can scroll long content with the arrow keys even when nothing inside it is focusable, as [WCAG 2.1.1](https://www.w3.org/TR/WCAG22/#keyboard) requires.
+Chromium and Firefox already make an overflowing scroll container focusable; Safari does not, so the component makes the Body focusable itself.
+
+Scrolling of the page behind the dialog is suppressed while it is open.
+Opening a modal does not lock scrolling on its own, and iOS Safari still needs JavaScript for a guarantee, so a gesture over the backdrop there can move the page underneath.
+
+Note that an Alert Dialog requires JavaScript: without it, the dialog stays closed and its content stays hidden.
+
+## See also
+
+- [Modal Dialog](/docs/components-containers-modal-dialog--docs) – for a task or message the user can dismiss without consequence.
+- [Alert](/docs/components-feedback-alert--docs) – conveys a message inline, without interrupting the user.
+- [Action Group](/docs/components-layout-action-group--docs) – lays out multiple Buttons.
+
+## Design tokens
+
+<DesignTokensTable tokens={tokens} />
