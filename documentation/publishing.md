@@ -139,7 +139,8 @@ Measure with `npm pack --dry-run` on a clean build before changing a `files` fie
 
 ### Linting the package manifests
 
-`pnpm run lint:package-json` checks every `package.json` against `.npmpackagejsonlintrc.json`, which is where `require-files` is switched on.
+`pnpm run lint:package-json` checks every `package.json` against `.npmpackagejsonlintrc.json`.
+An entry in its `overrides` block switches `require-files` on for the published packages only, since the private manifests publish no tarball whose contents need allowlisting.
 
 Keep that single config file at the root.
 `npmPkgJsonLint` loads the **nearest** config file and never merges it with the ones above it, so a config in a subdirectory replaces the root rule set instead of extending it.
