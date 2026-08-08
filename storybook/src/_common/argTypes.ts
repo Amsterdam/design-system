@@ -72,7 +72,7 @@ export const derivedArgType = (description: string) =>
 
 /** The native `id` attribute of a dialog element, used to target it when opening. */
 export const dialogIdArgType = {
-  description: 'The id of the dialog element. Use it to open the dialog.',
+  description: "The id of the dialog element. Pass it as a CSS selector to open the dialog: `open('#my-dialog')`.",
 } as const
 
 /** The native `disabled` attribute of interactive elements. */
