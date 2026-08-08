@@ -23,8 +23,9 @@ import {
   Select,
 } from '@amsterdam/design-system-react'
 
+import { districts, newsArticles, newsCategories } from '#storybook/_common/exampleContent'
+
 import { commonMeta, pageParameters } from '../common/commonMeta'
-import { newsArticles, newsCategories, newsDistricts } from './data'
 
 const searchTerm = 'tramspoor'
 const selectedCategories = ['Achtergrond']
@@ -261,7 +262,7 @@ export const Default: StoryObj = {
                 ))}
               </FieldSet>
               <FieldSet className="ams-mb-l" legend="Stadsdelen">
-                {newsDistricts.map((district) => (
+                {districts.map((district) => (
                   <Checkbox
                     defaultChecked={selectedDistricts.includes(district)}
                     key={district}

@@ -25,8 +25,9 @@ import {
   Select,
 } from '@amsterdam/design-system-react'
 
+import { districts, eventCategories, eventItems } from '#storybook/_common/exampleContent'
+
 import { commonMeta, pageParameters } from '../common/commonMeta'
-import { eventCategories, eventDistricts, eventItems } from './data'
 
 /** Illustrative totals: the page shows the first batch of a much larger result set. */
 const totalResults = 132
@@ -329,7 +330,7 @@ export const Default: StoryObj = {
                   <Label htmlFor="events-district">Stadsdeel</Label>
                   <Select id="events-district" name="stadsdeel">
                     <Select.Option value="">Alle stadsdelen</Select.Option>
-                    {eventDistricts.map((district) => (
+                    {districts.map((district) => (
                       <Select.Option key={district} value={district}>
                         {district}
                       </Select.Option>
@@ -698,7 +699,7 @@ export const CardGrid: StoryObj = {
                   <Label htmlFor="events-district">Stadsdeel</Label>
                   <Select id="events-district" name="stadsdeel">
                     <Select.Option value="">Alle stadsdelen</Select.Option>
-                    {eventDistricts.map((district) => (
+                    {districts.map((district) => (
                       <Select.Option key={district} value={district}>
                         {district}
                       </Select.Option>

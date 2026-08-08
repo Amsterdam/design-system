@@ -24,8 +24,9 @@ import {
   Select,
 } from '@amsterdam/design-system-react'
 
+import { searchResults, searchTopics } from '#storybook/_common/exampleContent'
+
 import { commonMeta, pageParameters } from '../common/commonMeta'
-import { searchResults, searchTopics } from './data'
 
 const searchTerm = 'veiligheid'
 const totalResults = 62
