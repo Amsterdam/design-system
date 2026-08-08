@@ -30,7 +30,7 @@ export type ModalDialogHeaderProps = {
    * Match it to the size of the Heading in the Header.
    * @default heading-2
    */
-  readonly closeButtonSize?: IconProps['size']
+  readonly closeButtonSize?: Extract<IconProps['size'], `heading-${number}`>
 } & Readonly<PropsWithChildren<HTMLAttributes<HTMLElement>>>
 
 /**
