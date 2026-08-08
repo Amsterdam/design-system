@@ -1,5 +1,0 @@
-import{n as e,r as t}from"./rolldown-runtime-DkW27tQK.js";import{n,t as r}from"./Blockquote-Bt4oer6H.js";import{g as i,p as a}from"./exampleContent-BTNLde7_.js";import{f as o,p as s,r as c}from"./argTypes-Diu0Wtb4.js";var l=t({Default:()=>f,InverseColour:()=>p,__namedExportsOrder:()=>m,default:()=>d}),u,d,f,p,m;function h(){return(h=e((()=>{n(),o(),i(),u=a(),d={title:`Components/Text/Blockquote`,component:r,args:{children:u},argTypes:{children:c(`The text for the quote.`),color:s}},f={},p={args:{color:`inverse`}},f.parameters={...f.parameters,docs:{...f.parameters?.docs,source:{originalSource:`{}`,...f.parameters?.docs?.source}}},p.parameters={...p.parameters,docs:{...p.parameters?.docs,source:{originalSource:`{
-  args: {
-    color: 'inverse'
-  }
-}`,...p.parameters?.docs?.source}}},m=[`Default`,`InverseColour`]})))()}export{d as i,p as n,h as r,l as t};
