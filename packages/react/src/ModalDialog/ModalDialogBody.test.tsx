@@ -65,9 +65,13 @@ describe('ModalDialogBody', () => {
   describe('keyboard focusability', () => {
     let resizeCallback: () => void = () => {}
 
-    const defineSizes = (element: Element, clientHeight: number, scrollHeight: number) => {
-      Object.defineProperty(element, 'clientHeight', { configurable: true, value: clientHeight })
-      Object.defineProperty(element, 'scrollHeight', { configurable: true, value: scrollHeight })
+    const defineSizes = (
+      element: Element,
+      sizes: Partial<Record<'clientHeight' | 'clientWidth' | 'scrollHeight' | 'scrollWidth', number>>,
+    ) => {
+      for (const [property, value] of Object.entries(sizes)) {
+        Object.defineProperty(element, property, { configurable: true, value })
+      }
     }
 
     beforeEach(() => {
@@ -94,11 +98,22 @@ describe('ModalDialogBody', () => {
       expect(container.querySelector(':only-child')).not.toHaveAttribute('tabindex')
     })
 
-    it('becomes focusable when its content overflows', () => {
+    it('becomes focusable when its content overflows vertically', () => {
       const { container } = render(<ModalDialogBody />)
 
       const component = container.querySelector(':only-child') as HTMLDivElement
-      defineSizes(component, 48, 200)
+      defineSizes(component, { clientHeight: 48, scrollHeight: 200 })
+
+      act(() => resizeCallback())
+
+      expect(component).toHaveAttribute('tabindex', '0')
+    })
+
+    it('becomes focusable when its content overflows horizontally', () => {
+      const { container } = render(<ModalDialogBody />)
+
+      const component = container.querySelector(':only-child') as HTMLDivElement
+      defineSizes(component, { clientWidth: 320, scrollWidth: 640 })
 
       act(() => resizeCallback())
 
@@ -109,7 +124,7 @@ describe('ModalDialogBody', () => {
       const { container } = render(<ModalDialogBody tabIndex={-1} />)
 
       const component = container.querySelector(':only-child') as HTMLDivElement
-      defineSizes(component, 48, 200)
+      defineSizes(component, { clientHeight: 48, scrollHeight: 200 })
 
       act(() => resizeCallback())
 

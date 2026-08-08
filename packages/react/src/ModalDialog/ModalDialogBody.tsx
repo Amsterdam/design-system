@@ -32,7 +32,9 @@ export const ModalDialogBody = forwardRef(
         return undefined
       }
 
-      const observer = new ResizeObserver(() => setIsScrollable(element.scrollHeight > element.clientHeight))
+      const observer = new ResizeObserver(() =>
+        setIsScrollable(element.scrollHeight > element.clientHeight || element.scrollWidth > element.clientWidth),
+      )
 
       observer.observe(element)
 
