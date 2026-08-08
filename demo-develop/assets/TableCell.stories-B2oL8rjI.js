@@ -1,0 +1,5 @@
+import{n as e,r as t}from"./rolldown-runtime-DkW27tQK.js";import{t as n}from"./jsx-runtime-ATHzeHXA.js";import{n as r,t as i}from"./Table-QzXZ9p6Q.js";import{d as a,r as o}from"./argTypes-CTYEle7b.js";var s=t({Cell:()=>u,__namedExportsOrder:()=>d,default:()=>l}),c,l,u,d;function f(){return(f=e((()=>{r(),a(),c=n(),l={title:`Components/Containers/Table`,component:i.Cell,argTypes:{align:{control:{labels:{undefined:`start (default)`},type:`radio`},options:[void 0,`center`,`end`]},children:o(`The content of the cell.`)},decorators:[e=>(0,c.jsx)(i,{style:{minInlineSize:`16rem`},children:(0,c.jsx)(i.Body,{children:(0,c.jsx)(i.Row,{children:(0,c.jsx)(e,{})})})})],tags:[`!manifest`]},u={args:{children:`€ 77,85`}},u.parameters={...u.parameters,docs:{...u.parameters?.docs,source:{originalSource:`{
+  args: {
+    children: '€ 77,85'
+  }
+}`,...u.parameters?.docs?.source}}},d=[`Cell`]})))()}export{s as n,f as r,u as t};
