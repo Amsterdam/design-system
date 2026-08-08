@@ -1,8 +1,0 @@
-import{n as e,r as t}from"./rolldown-runtime-DkW27tQK.js";import{t as n}from"./jsx-runtime-ATHzeHXA.js";import{B as r,nt as i}from"./index.esm-BuPTsOKu.js";import{n as a,t as o}from"./ProgressList-D2R6ZKTz.js";import{f as s,g as c}from"./exampleContent-BTNLde7_.js";var l=t({Step:()=>p,__namedExportsOrder:()=>m,default:()=>f}),u,d,f,p,m;function h(){return(h=e((()=>{i(),a(),c(),u=n(),{useArgs:d}=__STORYBOOK_MODULE_PREVIEW_API__,f={title:`Components/Containers/Progress List`,component:o.Step,argTypes:{collapsed:{control:!1},defaultCollapsed:{control:!1},defaultExpanded:{control:!1},expanded:{control:{labels:{undefined:`undefined (uncontrolled)`},type:`radio`},options:[void 0,!0,!1]},onToggle:{action:`toggled`},status:{control:{labels:{undefined:`default`},type:`radio`},options:[void 0,`current`,`completed`]}},decorators:[e=>(0,u.jsx)(o,{collapsible:!0,headingLevel:3,children:(0,u.jsx)(e,{})})],render:({children:e,...t})=>{let[{expanded:n},r]=d();return(0,u.jsx)(o.Step,{...t,onToggle:e=>{n!==void 0&&r({expanded:e}),t.onToggle?.(e)},children:e},`${String(n===void 0)}-${String(t.status)}`)},tags:[`!manifest`]},p={args:{children:(0,u.jsx)(r,{children:s()}),expanded:!0,heading:`Aanpassing ontwerp fietspad Entreegebied`,status:`current`}},p.parameters={...p.parameters,docs:{...p.parameters?.docs,source:{originalSource:`{
-  args: {
-    children: <Paragraph>{exampleParagraph()}</Paragraph>,
-    expanded: true,
-    heading: 'Aanpassing ontwerp fietspad Entreegebied',
-    status: 'current'
-  }
-}`,...p.parameters?.docs?.source}}},m=[`Step`]})))()}export{p as n,h as r,l as t};
