@@ -594,7 +594,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>5.4s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>4.2s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -8499,10 +8499,7 @@ Put the results in a [Grid Subgrid](/docs/components-layout-grid--docs) rather t
 A Subgrid hands the columns it spans to its own children, so the Cells inside it sit on the columns of the page.
 Without it the results have no columns of their own, and nothing in them can line up with the rest of the page.
 
-Announce the number of results in a `role=&quot;status&quot;` paragraph, and name the filters that produced it.
-
-Compose that sentence with `Intl.ListFormat` rather than joining the values with a hard-coded `en`.
-It applies the punctuation and the conjunction of the language itself, so the sentence survives translation: Dutch writes ‘a, b en c’ where English writes ‘a, b, and c’.
+Announce the number of results in a `role=&quot;status&quot;` paragraph.
 
 Close the list with [Pagination](/docs/components-navigation-pagination--docs) in a Cell as wide as the results above it, rather than as wide as the region.
 The medium grid is where the two part company: the results leave a column spare there, and Pagination spanning the whole region would reach past the Cards it belongs to.
@@ -8542,7 +8539,7 @@ Two adjacent Grids add their touching paddings together, so the Grid holding the
 The two hidden Heading 2s are worth having: they name the two halves of the page in the heading outline, which is how a screen reader user skips the filters and reaches the results.
 The heading of the filter column is hidden visually but not from assistive technology, so it still names the landmark that `aria-labelledby` points at.
 
-The number of results is announced in a `role=&quot;status&quot;` paragraph that names the filters which produced it.
+The number of results is announced in a `role=&quot;status&quot;` paragraph.
 A visitor using a screen reader otherwise has no way to tell that ticking a checkbox changed anything.
 
 The Calendar is a set of links rather than a date input, so it is reached and operated as navigation.
@@ -40562,10 +40559,7 @@ Put the results in a [Grid Subgrid](/docs/components-layout-grid--docs) rather t
 A Subgrid hands the columns it spans to its own children, so the Cells inside it sit on the columns of the page.
 Without it the results have no columns of their own, and nothing in them can line up with the rest of the page.
 
-Announce the number of results in a `role=&quot;status&quot;` paragraph, and name the filters that produced it.
-
-Compose that sentence with `Intl.ListFormat` rather than joining the values with a hard-coded `en`.
-It applies the punctuation and the conjunction of the language itself, so the sentence survives translation: Dutch writes ‘a, b en c’ where English writes ‘a, b, and c’.
+Announce the number of results in a `role=&quot;status&quot;` paragraph.
 
 Close the list with [Pagination](/docs/components-navigation-pagination--docs) in a Cell as wide as the results above it, rather than as wide as the region.
 The medium grid is where the two part company: the results leave a column spare there, and Pagination spanning the whole region would reach past the Cards it belongs to.
@@ -40605,7 +40599,7 @@ Two adjacent Grids add their touching paddings together, so the Grid holding the
 The two hidden Heading 2s are worth having: they name the two halves of the page in the heading outline, which is how a screen reader user skips the filters and reaches the results.
 The heading of the filter column is hidden visually but not from assistive technology, so it still names the landmark that `aria-labelledby` points at.
 
-The number of results is announced in a `role=&quot;status&quot;` paragraph that names the filters which produced it.
+The number of results is announced in a `role=&quot;status&quot;` paragraph.
 A visitor using a screen reader otherwise has no way to tell that ticking a checkbox changed anything.
 
 The Calendar is a set of links rather than a date input, so it is reached and operated as navigation.
