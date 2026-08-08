@@ -48,6 +48,7 @@ DialogRoot.displayName = 'Dialog'
 /**
  * A small window over the page that asks the user to confirm an action, answer a short question, or acknowledge a brief message.
  *
+ * @deprecated Use Alert Dialog instead. Will be removed on or after 2027-08-08.
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-containers-dialog--docs Dialog docs at Amsterdam Design System}
  */
 export const Dialog = Object.assign(DialogRoot, {
