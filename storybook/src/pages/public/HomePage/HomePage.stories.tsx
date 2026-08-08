@@ -5,7 +5,16 @@
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-import { Card, Grid, Heading, Overlap, Paragraph, Spotlight, StandaloneLink } from '@amsterdam/design-system-react'
+import {
+  Card,
+  Grid,
+  Heading,
+  Metadata,
+  Overlap,
+  Paragraph,
+  Spotlight,
+  StandaloneLink,
+} from '@amsterdam/design-system-react'
 
 import { Default as OverlapStory } from '../../../components/Overlap/Overlap.stories'
 import { commonMeta, pageParameters } from '../common/commonMeta'
@@ -107,11 +116,12 @@ const meta = {
               <Card>
                 {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
                 <Card.Image alt="" src={image} />
-                {/* Card.HeadingGroup adds a short tagline above the Card’s heading. */}
-                <Card.HeadingGroup tagline="Nieuws">
+                <Card.HeadingGroup>
                   <Card.Heading level={3}>
                     <Card.Link href="#">{title}</Card.Link>
                   </Card.Heading>
+                  {/* Written after the heading and displayed above it, so the heading is read first. */}
+                  <Metadata size="small">Nieuws</Metadata>
                 </Card.HeadingGroup>
                 <Paragraph>{description}</Paragraph>
               </Card>
@@ -207,11 +217,12 @@ export const Default: StoryObj = {
           <Card>
             {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
             <Card.Image alt="" src={image} />
-            {/* Card.HeadingGroup adds a short tagline above the Card’s heading. */}
-            <Card.HeadingGroup tagline="Nieuws">
+            <Card.HeadingGroup>
               <Card.Heading level={3}>
                 <Card.Link href="#">{title}</Card.Link>
               </Card.Heading>
+              {/* Written after the heading and displayed above it, so the heading is read first. */}
+              <Metadata size="small">Nieuws</Metadata>
             </Card.HeadingGroup>
             <Paragraph>{description}</Paragraph>
           </Card>

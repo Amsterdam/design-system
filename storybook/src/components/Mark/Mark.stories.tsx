@@ -41,13 +41,14 @@ export const SearchResults = {
   decorators: [maximiseInlineSize('7-of-12-columns')],
   render: () => (
     <Card>
-      {/* The category is a label rather than text the search matched, so the word in it stays unmarked. */}
-      <Card.HeadingGroup tagline="Vergunningen">
+      <Card.HeadingGroup>
         <Heading level={2} size="level-4">
           <Card.Link href="#">
             <Mark>Vergunning</Mark> vechtsportevenementen
           </Card.Link>
         </Heading>
+        {/* The category is a label rather than text the search matched, so the word in it stays unmarked. */}
+        <Metadata size="small">Vergunningen</Metadata>
       </Card.HeadingGroup>
       <Paragraph className="ams-mb-xs">
         Voor de organisatie van grootschalige vechtsportgala’s in Amsterdam moet u een <Mark>vergunning</Mark> aanvragen

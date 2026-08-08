@@ -46,7 +46,8 @@ Set its `level` to fit the document outline.
 
 ### Heading Group
 
-Displays a `tagline` above the heading.
+Displays a [Metadata](/docs/components-text-metadata--docs) above the heading.
+Write it after the Heading; the component reverses the two, so a screen reader reaches the heading first.
 
 <Canvas of={CardHeadingGroupStories.HeadingGroup} />
 
@@ -90,17 +91,16 @@ The Card Link covers the whole Card to make it clickable, so a second link insid
 ### How to write
 
 Place the text in a regular [Paragraph](/docs/components-text-paragraph--docs).
-Use a small Paragraph for a publication date.
+Use a small [Metadata](/docs/components-text-metadata--docs) for a publication date or a category.
 
 ## Examples
 
-### With tagline
+### With metadata
 
-A Card can display metadata in a tagline above the heading, like a category or content type.
-Wrap the Heading in a Heading Group and set its `tagline` property.
-This ensures screen readers read out the heading before the metadata.
+A Card can show a category, a date, or both above its heading.
+Wrap the Heading in a Heading Group and add a [Metadata](/docs/components-text-metadata--docs) after it, at the small size.
 
-<Canvas of={CardStories.WithTagline} />
+<Canvas of={CardStories.WithMetadata} />
 
 ### Horizontal layout
 
@@ -142,8 +142,9 @@ Only the title is the link, and everything else stays plain content, so the targ
 The focus ring is drawn around the entire Card instead of around the title alone, and the link’s own ring is switched off.
 Browsers that cannot express that condition get neither rule, so they still show the ordinary ring on the title rather than nothing at all.
 
-In a Heading Group the tagline is written after the heading and displayed above it.
+In a Heading Group the Metadata is written after the heading and displayed above it.
 The reading order and the visual order differ on purpose, which is what lets the metadata sit on top while the heading is still what gets read first.
+Writing it before the heading undoes both.
 
 Whether a Card is horizontal follows the width of its container rather than the width of the window.
 The same Card is one row in a list of results and one card in a row of three, and which of the two it should be depends on the space it is given, not on the size of the screen.

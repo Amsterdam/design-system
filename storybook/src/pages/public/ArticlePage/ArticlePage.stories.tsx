@@ -185,10 +185,11 @@ const meta = {
             <Card>
               {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
               <Card.Image alt="" src={exampleImageSource(640, 360, 1)} />
-              <Card.HeadingGroup tagline="Nieuws">
+              <Card.HeadingGroup>
                 <Card.Heading level={3}>
                   <Card.Link href="#">Waarom we op zoek zijn naar vleermuizen</Card.Link>
                 </Card.Heading>
+                <Metadata size="small">Nieuws</Metadata>
               </Card.HeadingGroup>
               <Paragraph>
                 U kunt &apos;s avonds ecologen in oranje hesjes tegenkomen. Zij zijn op zoek naar vleermuizen. Dat heeft
@@ -199,10 +200,11 @@ const meta = {
           <Grid.Cell span={4}>
             <Card>
               <Card.Image alt="" src={exampleImageSource(640, 360, 2)} />
-              <Card.HeadingGroup tagline="Nieuws">
+              <Card.HeadingGroup>
                 <Card.Heading level={3}>
                   <Card.Link href="#">Meer aandacht voor voetgangers, een jaar lang</Card.Link>
                 </Card.Heading>
+                <Metadata size="small">Nieuws</Metadata>
               </Card.HeadingGroup>
               <Paragraph>
                 We gaan de veiligheid voor voetgangers verbeteren, meer ruimte maken, en lopen en wandelen stimuleren.
@@ -212,10 +214,11 @@ const meta = {
           <Grid.Cell span={4}>
             <Card>
               <Card.Image alt="" src={exampleImageSource(640, 360, 3)} />
-              <Card.HeadingGroup tagline="Nieuws">
+              <Card.HeadingGroup>
                 <Card.Heading level={3}>
                   <Card.Link href="#">Nieuwe manieren om afval op te halen</Card.Link>
                 </Card.Heading>
+                <Metadata size="small">Nieuws</Metadata>
               </Card.HeadingGroup>
               <Paragraph>
                 Afvalboten, bakfietsen en ondergrondse containers. We experimenteren met nieuwe manieren om afval op te
@@ -359,10 +362,11 @@ export const Default: StoryObj = {
         <Card>
           {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
           <Card.Image alt="" src="https://picsum.photos/640/360?random=1" />
-          <Card.HeadingGroup tagline="Nieuws">
+          <Card.HeadingGroup>
             <Card.Heading level={3}>
               <Card.Link href="#">Waarom we op zoek zijn naar vleermuizen</Card.Link>
             </Card.Heading>
+            <Metadata size="small">Nieuws</Metadata>
           </Card.HeadingGroup>
           <Paragraph>
             U kunt 's avonds ecologen in oranje hesjes tegenkomen. Zij zijn op zoek naar vleermuizen.
@@ -372,10 +376,11 @@ export const Default: StoryObj = {
       <Grid.Cell span={4}>
         <Card>
           <Card.Image alt="" src="https://picsum.photos/640/360?random=2" />
-          <Card.HeadingGroup tagline="Nieuws">
+          <Card.HeadingGroup>
             <Card.Heading level={3}>
               <Card.Link href="#">Meer aandacht voor voetgangers, een jaar lang</Card.Link>
             </Card.Heading>
+            <Metadata size="small">Nieuws</Metadata>
           </Card.HeadingGroup>
           <Paragraph>We gaan de veiligheid voor voetgangers verbeteren en meer ruimte maken.</Paragraph>
         </Card>
@@ -383,10 +388,11 @@ export const Default: StoryObj = {
       <Grid.Cell span={4}>
         <Card>
           <Card.Image alt="" src="https://picsum.photos/640/360?random=3" />
-          <Card.HeadingGroup tagline="Nieuws">
+          <Card.HeadingGroup>
             <Card.Heading level={3}>
               <Card.Link href="#">Nieuwe manieren om afval op te halen</Card.Link>
             </Card.Heading>
+            <Metadata size="small">Nieuws</Metadata>
           </Card.HeadingGroup>
           <Paragraph>Afvalboten, bakfietsen en ondergrondse containers in het centrum.</Paragraph>
         </Card>

@@ -164,10 +164,11 @@ export const Default: StoryObj = {
               <Card.Image alt="" loading="lazy" src="https://picsum.photos/id/122/640/360" />
               {/* A Card that pairs an image with a Content lays out horizontally in a cell this wide. */}
               <Card.Content>
-                <Card.HeadingGroup tagline="Algemeen, Centrum, Werkzaamheden">
+                <Card.HeadingGroup>
                   <Card.Heading level={3}>
                     <Card.Link href="#">Berlagebrug een aantal nachten dicht</Card.Link>
                   </Card.Heading>
+                  <Metadata size="small">Algemeen, Centrum, Werkzaamheden</Metadata>
                 </Card.HeadingGroup>
                 <Column gap="small">
                   <Paragraph>
@@ -312,10 +313,11 @@ export const Default: StoryObj = {
                     <Card.Image alt="" loading="lazy" src={article.imageSource} />
                     {/* A Card that pairs an image with a Content lays out horizontally in a cell this wide. */}
                     <Card.Content>
-                      <Card.HeadingGroup tagline={article.category}>
+                      <Card.HeadingGroup>
                         <Card.Heading level={3}>
                           <Card.Link href="#">{article.title}</Card.Link>
                         </Card.Heading>
+                        <Metadata size="small">{article.category}</Metadata>
                       </Card.HeadingGroup>
                       <Column gap="small">
                         <Paragraph>{article.teaser}</Paragraph>
