@@ -124,6 +124,7 @@ Content elements – e.g. a heading and a subtitle – stack without needing a w
   scrollbar-gutter: stable both-edges;
 
   @media (min-width: $ams-breakpoint-medium) {
+    padding-block: var(--ams-modal-dialog-body-vi-medium-padding-block);
     padding-inline: var(--ams-modal-dialog-body-vi-medium-padding-inline);
   }
 }

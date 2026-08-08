@@ -144,32 +144,7 @@
           "$type": "dimension"
         },
         "padding-block": {
-          "$value": "0",
-          "$type": "dimension",
-          "$extensions": {
-            "nl.amsterdam.subtype": "space"
-          }
-        },
-        "padding-inline": {
-          "$value": "{ams.space.m}",
-          "$extensions": {
-            "nl.amsterdam.subtype": "space",
-            "nl.amsterdam.type": "dimension"
-          }
-        },
-        "vi-medium": {
-          "padding-inline": {
-            "$value": "{ams.space.l}",
-            "$extensions": {
-              "nl.amsterdam.subtype": "space",
-              "nl.amsterdam.type": "dimension"
-            }
-          }
-        }
-      },
-      "footer": {
-        "padding-block": {
-          "$value": "{ams.space.m}",
+          "$value": "0 {ams.space.m}",
           "$extensions": {
             "nl.amsterdam.subtype": "space",
             "nl.amsterdam.type": "dimension"
@@ -184,7 +159,39 @@
         },
         "vi-medium": {
           "padding-block": {
+            "$value": "0 {ams.space.l}",
+            "$extensions": {
+              "nl.amsterdam.subtype": "space",
+              "nl.amsterdam.type": "dimension"
+            }
+          },
+          "padding-inline": {
             "$value": "{ams.space.l}",
+            "$extensions": {
+              "nl.amsterdam.subtype": "space",
+              "nl.amsterdam.type": "dimension"
+            }
+          }
+        }
+      },
+      "footer": {
+        "padding-block": {
+          "$value": "0 {ams.space.m}",
+          "$extensions": {
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
+          }
+        },
+        "padding-inline": {
+          "$value": "{ams.space.m}",
+          "$extensions": {
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
+          }
+        },
+        "vi-medium": {
+          "padding-block": {
+            "$value": "0 {ams.space.l}",
             "$extensions": {
               "nl.amsterdam.subtype": "space",
               "nl.amsterdam.type": "dimension"
