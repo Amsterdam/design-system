@@ -292,3 +292,278 @@ export const exampleUnorderedList = () =>
       'Als u wilt, kunt u buren die hun afval verkeerd weggooien uitleggen hoe het wel moet.',
     ],
   ])
+
+// The index pages — News Overview, Events Overview and Search Results — share a layout, so their example
+// content lives together rather than beside each story. Every one of them filters by district, and all three
+// take that list from `districts` above rather than keeping a copy of their own.
+
+export type NewsArticle = {
+  /** The facets of the article, comma separated, as one Metadata line. */
+  readonly category: string
+  /** The human-readable date, e.g. ‘20 oktober 2023’. */
+  readonly date: string
+  readonly id: string
+  /** A decorative image; its `alt` is intentionally empty as the title beside it conveys the same meaning. */
+  readonly imageSource: string
+  /** A machine-readable date for the `time` element, e.g. ‘2023-10-20’. */
+  readonly isoDate: string
+  readonly teaser: string
+  readonly title: string
+}
+
+export type EventItem = {
+  /** The activity’s category, shown in the Card Metadata and used by the category filter. */
+  readonly category: string
+  /** The human-readable date, e.g. ‘20 juni 2026’. */
+  readonly date: string
+  /** The city district (stadsdeel) the activity takes place in. */
+  readonly district: string
+  /** The link to the activity’s detail page. */
+  readonly href: string
+  readonly id: string
+  /** A decorative image; its `alt` is intentionally empty as the title beside it conveys the same meaning. */
+  readonly imageSource: string
+  /** A machine-readable date for the `time` element, e.g. ‘2026-06-20’. */
+  readonly isoDate: string
+  /** A one-line description, kept short so list rows stay a uniform height. */
+  readonly teaser: string
+  /** An optional time or time range, e.g. ‘10.00–16.00 uur’. */
+  readonly timeLabel?: string
+  readonly title: string
+  /** Where the activity takes place, named as a visitor would recognise it on the ground. */
+  readonly venue: string
+}
+
+export type SearchResult = {
+  /** The human-readable date, e.g. ‘1 juli 2023’. */
+  readonly date: string
+  readonly id: string
+  /** A machine-readable date for the `time` element, e.g. ‘2023-07-01’. */
+  readonly isoDate: string
+  /** The part of the site the result was found in, which is what a Search Results Page shows instead of a category. */
+  readonly section: string
+  readonly teaser: string
+  readonly title: string
+}
+
+export const newsCategories: ReadonlyArray<string> = ['Algemeen', 'Achtergrond', 'Live blogs']
+
+/** Alphabetical, so a visitor can find one by name; the catch-all sits at the end whatever its initial. */
+export const eventCategories: ReadonlyArray<string> = [
+  'Cursussen en trainingen',
+  'Diversiteit',
+  'Duurzaam en milieu',
+  'Informatie- en participatiebijeenkomsten',
+  'Kunst en cultuur',
+  'Ontmoeting, zorg en welzijn',
+  'Raads- en commissievergaderingen',
+  'Sport en spel',
+  'Werk en inkomen',
+  'Overig',
+]
+
+export const searchTopics: ReadonlyArray<string> = ['Nieuwsbericht', 'Beleid en regels', 'Product of dienst']
+
+export const newsArticles: ReadonlyArray<NewsArticle> = [
+  {
+    title: 'Berlagebrug een aantal nachten dicht',
+    category: 'Algemeen, Centrum, Werkzaamheden',
+    date: '20 oktober 2023',
+    id: 'berlagebrug',
+    imageSource: exampleImageSource(640, 360, 0),
+    isoDate: '2023-10-20',
+    teaser:
+      'Tussen 3 juni en 21 juli leggen we het tramspoor op de Berlagebrug aan. De brug is ongeveer 12 nachten dicht voor gemotoriseerd verkeer en in 3 nachten voor al het verkeer.',
+  },
+  {
+    title: 'Het allereerste beroepsbrandweerkorps van Nederland bestaat 150 jaar',
+    category: 'Achtergrond',
+    date: '18 oktober 2023',
+    id: 'brandweerkorps',
+    imageSource: exampleImageSource(640, 360, 1),
+    isoDate: '2023-10-18',
+    teaser:
+      'In de zomer van 1874 werd het allereerste beroepsbrandweerkorps van Nederland opgericht: de huidige Brandweer Amsterdam-Amstelland.',
+  },
+  {
+    title: 'Noorderpark wordt groener en beter toegankelijk',
+    category: 'Algemeen, Noord',
+    date: '16 oktober 2023',
+    id: 'noorderpark',
+    imageSource: exampleImageSource(640, 360, 2),
+    isoDate: '2023-10-16',
+    teaser:
+      'Het Noorderpark krijgt meer schaduw, ruimere wandelpaden en een speelveld dat ook bij regen bruikbaar blijft. De werkzaamheden beginnen na de zomer.',
+  },
+  {
+    title: 'Zuidoost viert 750 jaar Amsterdam: vraag subsidie aan voor uw initiatief',
+    category: 'Algemeen, Zuidoost',
+    date: '13 oktober 2023',
+    id: 'zuidoost-subsidie',
+    imageSource: exampleImageSource(640, 360, 3),
+    isoDate: '2023-10-13',
+    teaser:
+      'Bewoners en organisaties in Zuidoost kunnen tot 1 december subsidie aanvragen voor een buurtinitiatief dat bijdraagt aan de viering van 750 jaar Amsterdam.',
+  },
+  {
+    title: 'Live blog: werkzaamheden aan kades en bruggen',
+    category: 'Live blogs',
+    date: '11 oktober 2023',
+    id: 'kades-bruggen',
+    imageSource: exampleImageSource(640, 360, 4),
+    isoDate: '2023-10-11',
+    teaser:
+      'We vernieuwen de komende jaren honderden kilometers kade en honderden bruggen. In dit live blog houden we bij welke werkzaamheden er deze week starten.',
+  },
+  {
+    title: 'Erfgoed van de week: het wonderkind van de Amsterdamse School',
+    category: 'Achtergrond, West',
+    date: '9 oktober 2023',
+    id: 'amsterdamse-school',
+    imageSource: exampleImageSource(640, 360, 5),
+    isoDate: '2023-10-09',
+    teaser:
+      'De woningblokken in de Spaarndammerbuurt gelden als het hoogtepunt van de Amsterdamse School. Honderd jaar later wonen er nog steeds Amsterdammers.',
+  },
+]
+
+export const eventItems: ReadonlyArray<EventItem> = [
+  {
+    title: 'Open dag Stadsarchief Amsterdam',
+    category: 'Kunst en cultuur',
+    date: '20 juni 2026',
+    district: 'Centrum',
+    href: '#',
+    id: 'open-dag-stadsarchief',
+    imageSource: exampleImageSource(640, 360, 0),
+    isoDate: '2026-06-20',
+    teaser:
+      'Ontdek eeuwenoude kaarten, foto’s en films over Amsterdam en doorzoek het archief met hulp van onze medewerkers.',
+    timeLabel: '10.00–16.00 uur',
+    venue: 'Stadsarchief Amsterdam',
+  },
+  {
+    title: 'Inloopavond herinrichting Jan Evertsenstraat',
+    category: 'Informatie- en participatiebijeenkomsten',
+    date: '23 juni 2026',
+    district: 'West',
+    href: '#',
+    id: 'inloopavond-jan-evertsenstraat',
+    imageSource: exampleImageSource(640, 360, 1),
+    isoDate: '2026-06-23',
+    teaser: 'Praat mee over de nieuwe inrichting van de straat, met meer ruimte voor groen, fietsers en voetgangers.',
+    timeLabel: '19.00–21.00 uur',
+    venue: 'Huis van de Wijk De Klinker',
+  },
+  {
+    title: 'Commissievergadering Ruimtelijke Ordening',
+    category: 'Raads- en commissievergaderingen',
+    date: '24 juni 2026',
+    district: 'Centrum',
+    href: '#',
+    id: 'commissie-ruimtelijke-ordening',
+    imageSource: exampleImageSource(640, 360, 2),
+    isoDate: '2026-06-24',
+    teaser: 'Volg het debat van de raadscommissie over ruimtelijke plannen in de stad. De vergadering is openbaar.',
+    timeLabel: '13.30 uur',
+    venue: 'Stadhuis, Rooseveltzaal',
+  },
+  {
+    title: 'Gratis zwemles voor kinderen',
+    category: 'Sport en spel',
+    date: '27 juni 2026',
+    district: 'Nieuw-West',
+    href: '#',
+    id: 'gratis-zwemles-ookmeer',
+    imageSource: exampleImageSource(640, 360, 3),
+    isoDate: '2026-06-27',
+    teaser: 'Kinderen van 5 tot 10 jaar oefenen spelenderwijs met zwemmen onder begeleiding. Aanmelden is niet nodig.',
+    timeLabel: '14.00–15.30 uur',
+    venue: 'Sportcentrum Ookmeer',
+  },
+  {
+    title: 'Buurtmoestuin: samen zaaien en oogsten',
+    category: 'Duurzaam en milieu',
+    date: '28 juni 2026',
+    district: 'Noord',
+    href: '#',
+    id: 'buurtmoestuin-buikslotermeer',
+    imageSource: exampleImageSource(640, 360, 4),
+    isoDate: '2026-06-28',
+    teaser:
+      'Steek de handen uit de mouwen in de buurtmoestuin en neem aan het eind van de ochtend verse groenten mee naar huis.',
+    timeLabel: '11.00–13.00 uur',
+    venue: 'Buurtmoestuin Buikslotermeer',
+  },
+  {
+    title: 'Taalcafé voor nieuwe Amsterdammers',
+    category: 'Diversiteit',
+    date: '1 juli 2026',
+    district: 'Oost',
+    href: '#',
+    id: 'taalcafe-javaplein',
+    imageSource: exampleImageSource(640, 360, 5),
+    isoDate: '2026-07-01',
+    teaser:
+      'Oefen op een ontspannen manier Nederlands met vrijwilligers en andere bewoners, onder het genot van een kop koffie.',
+    timeLabel: '15.00–17.00 uur',
+    venue: 'OBA Javaplein',
+  },
+]
+
+export const searchResults: ReadonlyArray<SearchResult> = [
+  {
+    title: 'Top 400/600',
+    date: '1 juli 2023',
+    id: 'top400-600',
+    isoDate: '2023-07-01',
+    section: 'Actiecentrum Veiligheid en Zorg',
+    teaser:
+      'Om de stad veiliger te maken coördineert de gemeente, samen met haar maatschappelijke partners, vanuit het Actiecentrum Veiligheid en Zorg verschillende aanpakken op het snijvlak van veiligheid, zorg en het sociaal domein.',
+  },
+  {
+    title: 'Treiteraanpak bij ernstige overlast in de buurt',
+    date: '24 juni 2023',
+    id: 'treiteraanpak',
+    isoDate: '2023-06-24',
+    section: 'Actiecentrum Veiligheid en Zorg',
+    teaser:
+      'Bewoners die stelselmatig worden lastiggevallen door buurtgenoten kunnen een melding doen. De gemeente, de politie en de woningcorporatie bekijken samen welke maatregelen nodig zijn om de veiligheid te herstellen.',
+  },
+  {
+    title: 'Keurmerk Veilig Ondernemen aanvragen',
+    date: '19 juni 2023',
+    id: 'veilig-ondernemen',
+    isoDate: '2023-06-19',
+    section: 'Ondernemen',
+    teaser:
+      'Ondernemers in winkelgebieden kunnen meedoen aan het Keurmerk Veilig Ondernemen. Deelnemers maken samen met de politie en de brandweer afspraken over veiligheid op straat.',
+  },
+  {
+    title: 'Veiligheid in de straat met een buurtpreventieteam',
+    date: '12 juni 2023',
+    id: 'buurtpreventie',
+    isoDate: '2023-06-12',
+    section: 'Wonen en leefomgeving',
+    teaser:
+      'Een buurtpreventieteam bestaat uit bewoners die samen met de wijkagent letten op de veiligheid in hun straat. De gemeente ondersteunt nieuwe teams met training en materiaal.',
+  },
+  {
+    title: 'Cameratoezicht en veiligheid in de openbare ruimte',
+    date: '5 juni 2023',
+    id: 'cameratoezicht',
+    isoDate: '2023-06-05',
+    section: 'Beleid en regels',
+    teaser:
+      'Veiligheid en openbare orde staan op sommige plekken structureel onder druk. Daar kan de burgemeester cameratoezicht instellen. De beelden worden na 28 dagen verwijderd.',
+  },
+  {
+    title: 'Meldpunt Zorg en Woonoverlast',
+    date: '30 mei 2023',
+    id: 'meldpunt-zorg',
+    isoDate: '2023-05-30',
+    section: 'Zorg en ondersteuning',
+    teaser:
+      'Maakt u zich zorgen over een buurtgenoot die verward gedrag vertoont? Bij Meldpunt Zorg en Woonoverlast kunt u dat melden, ook anoniem.',
+  },
+]

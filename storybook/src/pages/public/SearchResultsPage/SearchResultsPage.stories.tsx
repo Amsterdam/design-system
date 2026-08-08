@@ -24,8 +24,10 @@ import {
   Select,
 } from '@amsterdam/design-system-react'
 
+import { searchResults, searchTopics } from '#storybook/_common/exampleContent'
+import { formatFieldValue } from '#storybook/_common/formatFieldValue'
+
 import { commonMeta, pageParameters } from '../common/commonMeta'
-import { searchResults, searchTopics } from './data'
 
 const searchTerm = 'veiligheid'
 const totalResults = 62
@@ -102,12 +104,10 @@ export const Default: StoryObj = {
             </Select>
           </Field>
           <FieldSet className="ams-mb-l" legend="Soort artikel">
-            <Column gap="x-small">
-              <Checkbox name="soort" value="nieuwsbericht">
-                Nieuwsbericht
-              </Checkbox>
-              {/* … one Checkbox per topic … */}
-            </Column>
+            <Checkbox name="soort" value="nieuwsbericht">
+              Nieuwsbericht
+            </Checkbox>
+            {/* … one Checkbox per topic … */}
           </FieldSet>
           {/* The design filters as soon as a box is ticked; the button keeps the form usable without that script. */}
           <Button type="submit">Resultaten tonen</Button>
@@ -223,13 +223,11 @@ export const Default: StoryObj = {
                 </Select>
               </Field>
               <FieldSet className="ams-mb-l" legend="Soort artikel">
-                <Column gap="x-small">
-                  {searchTopics.map((topic) => (
-                    <Checkbox key={topic} name="soort" value={topic.toLowerCase()}>
-                      {topic}
-                    </Checkbox>
-                  ))}
-                </Column>
+                {searchTopics.map((topic) => (
+                  <Checkbox key={topic} name="soort" value={formatFieldValue(topic)}>
+                    {topic}
+                  </Checkbox>
+                ))}
               </FieldSet>
               {/* The design filters as soon as a box is ticked; the button keeps the form usable without that script. */}
               <Button type="submit">Resultaten tonen</Button>

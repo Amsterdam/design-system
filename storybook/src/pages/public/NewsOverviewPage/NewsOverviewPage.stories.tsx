@@ -23,8 +23,10 @@ import {
   Select,
 } from '@amsterdam/design-system-react'
 
+import { districts, newsArticles, newsCategories } from '#storybook/_common/exampleContent'
+import { formatFieldValue } from '#storybook/_common/formatFieldValue'
+
 import { commonMeta, pageParameters } from '../common/commonMeta'
-import { newsArticles, newsCategories, newsDistricts } from './data'
 
 const searchTerm = 'tramspoor'
 const selectedCategories = ['Achtergrond']
@@ -111,25 +113,21 @@ export const Default: StoryObj = {
             </Select>
           </Field>
           <FieldSet className="ams-mb-l" legend="Soort nieuws">
-            <Column gap="x-small">
-              <Checkbox name="soort" value="algemeen">
-                Algemeen
-              </Checkbox>
-              <Checkbox defaultChecked name="soort" value="achtergrond">
-                Achtergrond
-              </Checkbox>
-              <Checkbox name="soort" value="live blogs">
-                Live blogs
-              </Checkbox>
-            </Column>
+            <Checkbox name="soort" value="algemeen">
+              Algemeen
+            </Checkbox>
+            <Checkbox defaultChecked name="soort" value="achtergrond">
+              Achtergrond
+            </Checkbox>
+            <Checkbox name="soort" value="live-blogs">
+              Live blogs
+            </Checkbox>
           </FieldSet>
           <FieldSet className="ams-mb-l" legend="Stadsdelen">
-            <Column gap="x-small">
-              <Checkbox defaultChecked name="stadsdeel" value="centrum">
-                Centrum
-              </Checkbox>
-              {/* … one Checkbox per district … */}
-            </Column>
+            <Checkbox defaultChecked name="stadsdeel" value="centrum">
+              Centrum
+            </Checkbox>
+            {/* … one Checkbox per district … */}
           </FieldSet>
           {/* The design filters as soon as a box is ticked; the button keeps the form usable without that script. */}
           <Button type="submit">Resultaten tonen</Button>
@@ -186,7 +184,8 @@ export const Default: StoryObj = {
           </Grid.Cell>
           {/* … one Cell per article … */}
         </Grid.Subgrid>
-        <Grid.Cell span="all">
+        {/* The Pagination takes the width of the results above it rather than that of the region. */}
+        <Grid.Cell span={{ narrow: 4, medium: 4, wide: 9 }}>
           <Pagination
             accessibleNameId="paginering"
             linkTemplate={(page) => \`?pagina=\${page}\`}
@@ -252,32 +251,28 @@ export const Default: StoryObj = {
                 </Select>
               </Field>
               <FieldSet className="ams-mb-l" legend="Soort nieuws">
-                <Column gap="x-small">
-                  {newsCategories.map((category) => (
-                    <Checkbox
-                      defaultChecked={selectedCategories.includes(category)}
-                      key={category}
-                      name="soort"
-                      value={category.toLowerCase()}
-                    >
-                      {category}
-                    </Checkbox>
-                  ))}
-                </Column>
+                {newsCategories.map((category) => (
+                  <Checkbox
+                    defaultChecked={selectedCategories.includes(category)}
+                    key={category}
+                    name="soort"
+                    value={formatFieldValue(category)}
+                  >
+                    {category}
+                  </Checkbox>
+                ))}
               </FieldSet>
               <FieldSet className="ams-mb-l" legend="Stadsdelen">
-                <Column gap="x-small">
-                  {newsDistricts.map((district) => (
-                    <Checkbox
-                      defaultChecked={selectedDistricts.includes(district)}
-                      key={district}
-                      name="stadsdeel"
-                      value={district.toLowerCase()}
-                    >
-                      {district}
-                    </Checkbox>
-                  ))}
-                </Column>
+                {districts.map((district) => (
+                  <Checkbox
+                    defaultChecked={selectedDistricts.includes(district)}
+                    key={district}
+                    name="stadsdeel"
+                    value={formatFieldValue(district)}
+                  >
+                    {district}
+                  </Checkbox>
+                ))}
               </FieldSet>
               {/* The design filters as soon as a box is ticked; the button keeps the form usable without that script. */}
               <Button type="submit">Resultaten tonen</Button>
@@ -332,7 +327,8 @@ export const Default: StoryObj = {
                 </Grid.Cell>
               ))}
             </Grid.Subgrid>
-            <Grid.Cell span="all">
+            {/* The Pagination takes the width of the results above it rather than that of the region. */}
+            <Grid.Cell span={{ narrow: 4, medium: 4, wide: 9 }}>
               <Pagination
                 accessibleNameId="paginering"
                 linkTemplate={(page) => `?pagina=${page}`}
