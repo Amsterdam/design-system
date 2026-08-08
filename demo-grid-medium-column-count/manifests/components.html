@@ -594,7 +594,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>5.6s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>5.4s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -57174,9 +57174,14 @@ We use linters for CSS and JavaScript to enforce this.
 These tools help us catch most usages of unsupported features early in the development process, allowing us to maintain our commitment to browser compatibility.
 
 However, there is a limitation: we use a lot of CSS custom properties (CSS variables) in our design system.
-Linters cannot check whether the combination of a CSS property that has a CSS variable as its value adheres to the Baseline standard.
-For example, a linter can verify that the `grid-template-columns` property is widely supported,
-but it cannot determine whether the value assigned to it via a CSS variable is also widely supported.
+The Baseline linter judges each declaration by the value written next to it, and does not follow a `var()` reference to the value behind it.
+It does check the declaration of a custom property itself, so the ones a component defines for its own use are covered.
+Our design tokens are generated into a stylesheet that we exclude from linting, so the values they carry are the ones that go unchecked.
+For example, `color` is widely available and `light-dark()` is not, but `color: var(--ams-alert-background-color)` gives the linter no way to tell which one it ends up with.
+
+Where the value behind a token matters, we resolve it ourselves.
+Our own Stylelint rules follow a token reference through as many aliases as it takes and judge the value it ends at, which is how we check grid tracks, font stacks, font sizes, and list markers today.
+The same approach could be applied to Baseline if we find we need it.
 
 We carefully test and review our code to minimize the risk of using unsupported values.
 If you find any issues related to browser support, please [report them](https://github.com/Amsterdam/design-system/issues) so we can address them promptly.
