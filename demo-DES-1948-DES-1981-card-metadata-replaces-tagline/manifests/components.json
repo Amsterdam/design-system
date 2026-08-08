@@ -8555,7 +8555,7 @@
           "snippet": "const TopTasks = () => <Grid paddingVertical=\"x-large\">\n    <Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }}>\n        <Card>\n            <Card.Heading level={2}>\n                <Card.Link href=\"#\">Gemeentebelastingen</Card.Link>\n            </Card.Heading>\n            <Paragraph>Bekijk welke belastingen en heffingen er zijn, hoe u bezwaar maakt of een betalingsregeling treft.\n                          </Paragraph>\n        </Card>\n    </Grid.Cell>\n    <Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }}>\n        <Card>\n            <Card.Heading level={2}>\n                <Card.Link href=\"#\">Parkeren + Reizen (P+R)</Card.Link>\n            </Card.Heading>\n            <Paragraph>U kunt met uw auto goedkoop parkeren bij een P+R-locatie aan de rand van de stad.</Paragraph>\n        </Card>\n    </Grid.Cell>\n    <Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }}>\n        <Card>\n            <Card.Heading level={2}>\n                <Card.Link href=\"#\">Paspoort, ID-kaart en rijbewijs</Card.Link>\n            </Card.Heading>\n            <Paragraph>Vraag deze bewijzen aan of verleng ze. Geef een vermissing aan.</Paragraph>\n        </Card>\n    </Grid.Cell>\n    <Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }}>\n        <Card>\n            <Card.Heading level={2}>\n                <Card.Link href=\"#\">Onderwijs</Card.Link>\n            </Card.Heading>\n            <Paragraph>Meld een kind aan voor basisschool, middelbare school of kinderopvang. Bekijk het kindtegoed op uw Stadspas.\n                          </Paragraph>\n        </Card>\n    </Grid.Cell>\n</Grid>;"
         }
       ],
-      "import": "import { Card } from \"@amsterdam/design-system-react/src\";\nimport { Column, Grid, Metadata, Paragraph } from \"@amsterdam/design-system-react\";",
+      "import": "import { Card, Metadata } from \"@amsterdam/design-system-react/src\";\nimport { Column, Grid, Paragraph } from \"@amsterdam/design-system-react\";",
       "docs": {
         "components-navigation-card--docs": {
           "id": "components-navigation-card--docs",
@@ -11810,6 +11810,6 @@
   },
   "meta": {
     "docgen": "react-component-meta",
-    "durationMs": 5273
+    "durationMs": 5052
   }
 }
