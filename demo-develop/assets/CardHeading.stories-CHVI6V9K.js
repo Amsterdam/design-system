@@ -1,6 +1,0 @@
-import{n as e,r as t}from"./rolldown-runtime-DkW27tQK.js";import{t as n}from"./jsx-runtime-ATHzeHXA.js";import{n as r,t as i}from"./Card-B2sX16RA.js";import{c as a,d as o,f as s}from"./argTypes-CTYEle7b.js";var c=t({Heading:()=>d,__namedExportsOrder:()=>f,default:()=>u}),l,u,d,f;function p(){return(p=e((()=>{r(),o(),l=n(),u={title:`Components/Navigation/Card`,component:i.Heading,argTypes:{color:s,level:a(),size:{control:{labels:{undefined:`level-3 (default)`},type:`select`},options:[void 0,`level-1`,`level-2`,`level-4`,`level-5`]}},decorators:[e=>(0,l.jsx)(i,{children:(0,l.jsx)(e,{})})],tags:[`!manifest`]},d={args:{children:(0,l.jsx)(i.Link,{href:`#`,children:`Meer plekken voor kunst en cultuur, verspreid over de stad`}),level:3}},d.parameters={...d.parameters,docs:{...d.parameters?.docs,source:{originalSource:`{
-  args: {
-    children: <Card.Link href="#">Meer plekken voor kunst en cultuur, verspreid over de stad</Card.Link>,
-    level: 3
-  }
-}`,...d.parameters?.docs?.source}}},f=[`Heading`]})))()}export{d as n,p as r,c as t};
