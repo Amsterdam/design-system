@@ -25,6 +25,7 @@ import {
 } from '@amsterdam/design-system-react'
 
 import { searchResults, searchTopics } from '#storybook/_common/exampleContent'
+import { formatFieldValue } from '#storybook/_common/formatFieldValue'
 
 import { commonMeta, pageParameters } from '../common/commonMeta'
 
@@ -223,7 +224,7 @@ export const Default: StoryObj = {
               </Field>
               <FieldSet className="ams-mb-l" legend="Soort artikel">
                 {searchTopics.map((topic) => (
-                  <Checkbox key={topic} name="soort" value={topic.toLowerCase()}>
+                  <Checkbox key={topic} name="soort" value={formatFieldValue(topic)}>
                     {topic}
                   </Checkbox>
                 ))}

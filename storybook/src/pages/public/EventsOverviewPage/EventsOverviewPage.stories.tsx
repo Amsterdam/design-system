@@ -26,6 +26,7 @@ import {
 } from '@amsterdam/design-system-react'
 
 import { districts, eventCategories, eventItems } from '#storybook/_common/exampleContent'
+import { formatFieldValue } from '#storybook/_common/formatFieldValue'
 
 import { commonMeta, pageParameters } from '../common/commonMeta'
 
@@ -152,7 +153,7 @@ export const Default: StoryObj = {
               <Label htmlFor="events-district">Stadsdeel</Label>
               <Select id="events-district" name="stadsdeel">
                 <Select.Option value="">Alle stadsdelen</Select.Option>
-                <Select.Option value="Centrum">Centrum</Select.Option>
+                <Select.Option value="centrum">Centrum</Select.Option>
                 {/* … one Option per district … */}
               </Select>
             </Field>
@@ -162,7 +163,7 @@ export const Default: StoryObj = {
           <form method="get">
             {/* A Field Set spaces its own children, so the Checkboxes inside one need no margin. */}
             <FieldSet className="ams-mb-m" legend="Categorie">
-              <Checkbox name="categorie" value="Cursussen en trainingen">
+              <Checkbox name="categorie" value="cursussen-en-trainingen">
                 Cursussen en trainingen
               </Checkbox>
               {/* … one Checkbox per category … */}
@@ -331,7 +332,7 @@ export const Default: StoryObj = {
                   <Select id="events-district" name="stadsdeel">
                     <Select.Option value="">Alle stadsdelen</Select.Option>
                     {districts.map((district) => (
-                      <Select.Option key={district} value={district}>
+                      <Select.Option key={district} value={formatFieldValue(district)}>
                         {district}
                       </Select.Option>
                     ))}
@@ -344,7 +345,7 @@ export const Default: StoryObj = {
                 {/* A Field Set spaces its own children, so the Checkboxes inside one need no margin. */}
                 <FieldSet className="ams-mb-m" legend="Categorie">
                   {eventCategories.map((category) => (
-                    <Checkbox key={category} name="categorie" value={category}>
+                    <Checkbox key={category} name="categorie" value={formatFieldValue(category)}>
                       {category}
                     </Checkbox>
                   ))}
@@ -521,7 +522,7 @@ export const CardGrid: StoryObj = {
               <Label htmlFor="events-district">Stadsdeel</Label>
               <Select id="events-district" name="stadsdeel">
                 <Select.Option value="">Alle stadsdelen</Select.Option>
-                <Select.Option value="Centrum">Centrum</Select.Option>
+                <Select.Option value="centrum">Centrum</Select.Option>
                 {/* … one Option per district … */}
               </Select>
             </Field>
@@ -531,7 +532,7 @@ export const CardGrid: StoryObj = {
           <form method="get">
             {/* A Field Set spaces its own children, so the Checkboxes inside one need no margin. */}
             <FieldSet className="ams-mb-m" legend="Categorie">
-              <Checkbox name="categorie" value="Cursussen en trainingen">
+              <Checkbox name="categorie" value="cursussen-en-trainingen">
                 Cursussen en trainingen
               </Checkbox>
               {/* … one Checkbox per category … */}
@@ -700,7 +701,7 @@ export const CardGrid: StoryObj = {
                   <Select id="events-district" name="stadsdeel">
                     <Select.Option value="">Alle stadsdelen</Select.Option>
                     {districts.map((district) => (
-                      <Select.Option key={district} value={district}>
+                      <Select.Option key={district} value={formatFieldValue(district)}>
                         {district}
                       </Select.Option>
                     ))}
@@ -713,7 +714,7 @@ export const CardGrid: StoryObj = {
                 {/* A Field Set spaces its own children, so the Checkboxes inside one need no margin. */}
                 <FieldSet className="ams-mb-m" legend="Categorie">
                   {eventCategories.map((category) => (
-                    <Checkbox key={category} name="categorie" value={category}>
+                    <Checkbox key={category} name="categorie" value={formatFieldValue(category)}>
                       {category}
                     </Checkbox>
                   ))}

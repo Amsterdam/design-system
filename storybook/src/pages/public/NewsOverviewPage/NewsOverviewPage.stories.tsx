@@ -24,6 +24,7 @@ import {
 } from '@amsterdam/design-system-react'
 
 import { districts, newsArticles, newsCategories } from '#storybook/_common/exampleContent'
+import { formatFieldValue } from '#storybook/_common/formatFieldValue'
 
 import { commonMeta, pageParameters } from '../common/commonMeta'
 
@@ -118,7 +119,7 @@ export const Default: StoryObj = {
             <Checkbox defaultChecked name="soort" value="achtergrond">
               Achtergrond
             </Checkbox>
-            <Checkbox name="soort" value="live blogs">
+            <Checkbox name="soort" value="live-blogs">
               Live blogs
             </Checkbox>
           </FieldSet>
@@ -255,7 +256,7 @@ export const Default: StoryObj = {
                     defaultChecked={selectedCategories.includes(category)}
                     key={category}
                     name="soort"
-                    value={category.toLowerCase()}
+                    value={formatFieldValue(category)}
                   >
                     {category}
                   </Checkbox>
@@ -267,7 +268,7 @@ export const Default: StoryObj = {
                     defaultChecked={selectedDistricts.includes(district)}
                     key={district}
                     name="stadsdeel"
-                    value={district.toLowerCase()}
+                    value={formatFieldValue(district)}
                   >
                     {district}
                   </Checkbox>
