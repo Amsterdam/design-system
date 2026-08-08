@@ -114,12 +114,13 @@ Content elements – e.g. a heading and a subtitle – stack without needing a w
 
   /* Let wide content scroll horizontally instead of clipping it. */
   overflow-x: auto;
-  /* stylelint-disable-next-line defensive-css/require-scrollbar-gutter -- A gutter would misalign the Body with the Header and Footer. */
   overflow-y: auto;
   /* stylelint-disable-next-line plugin/use-baseline -- Progressive enhancement. */
   overscroll-behavior: contain;
   padding-block: var(--ams-modal-dialog-body-padding-block);
   padding-inline: var(--ams-modal-dialog-body-padding-inline);
+  /* stylelint-disable-next-line plugin/use-baseline -- Progressive enhancement. */
+  scrollbar-gutter: stable;
 
   @media (min-width: $ams-breakpoint-medium) {
     padding-block: var(--ams-modal-dialog-body-vi-medium-padding-block);
