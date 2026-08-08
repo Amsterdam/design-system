@@ -434,7 +434,7 @@ export const Default: StoryObj = {
   ),
 }
 
-export const Cards: StoryObj = {
+export const CardGrid: StoryObj = {
   parameters: {
     docs: {
       source: {
