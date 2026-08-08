@@ -228,7 +228,11 @@ export const Default: StoryObj = {
                    * The visible date is prose; dateTime repeats it in the machine-readable format software parses.
                    */}
                   <time dateTime="2026-06-20">20 juni 2026</time>
-                  , 10.00–16.00 uur · Stadsarchief Amsterdam
+                  {/* The day, the time and the place are three kinds of metadata, so a Separator sits between them. */}
+                  <Metadata.Separator />
+                  10.00–16.00 uur
+                  <Metadata.Separator />
+                  Stadsarchief Amsterdam
                 </Metadata>
               </Column>
             </Card.Content>
@@ -398,7 +402,15 @@ export const Default: StoryObj = {
                       <Metadata size="small">
                         {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
                         <time dateTime={event.isoDate}>{event.date}</time>
-                        {event.timeLabel ? `, ${event.timeLabel}` : ''} · {event.venue}
+                        {/* The day, the time and the place are three kinds of metadata, so a Separator sits between them. */}
+                        {event.timeLabel && (
+                          <>
+                            <Metadata.Separator />
+                            {event.timeLabel}
+                          </>
+                        )}
+                        <Metadata.Separator />
+                        {event.venue}
                       </Metadata>
                     </Column>
                   </Card.Content>
@@ -571,7 +583,11 @@ export const Cards: StoryObj = {
                    * The visible date is prose; dateTime repeats it in the machine-readable format software parses.
                    */}
                   <time dateTime="2026-06-20">20 juni 2026</time>
-                  , 10.00–16.00 uur · Stadsarchief Amsterdam
+                  {/* The day, the time and the place are three kinds of metadata, so a Separator sits between them. */}
+                  <Metadata.Separator />
+                  10.00–16.00 uur
+                  <Metadata.Separator />
+                  Stadsarchief Amsterdam
                 </Metadata>
               </Column>
             </Card.Content>
@@ -741,7 +757,15 @@ export const Cards: StoryObj = {
                       <Metadata size="small">
                         {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
                         <time dateTime={event.isoDate}>{event.date}</time>
-                        {event.timeLabel ? `, ${event.timeLabel}` : ''} · {event.venue}
+                        {/* The day, the time and the place are three kinds of metadata, so a Separator sits between them. */}
+                        {event.timeLabel && (
+                          <>
+                            <Metadata.Separator />
+                            {event.timeLabel}
+                          </>
+                        )}
+                        <Metadata.Separator />
+                        {event.venue}
                       </Metadata>
                     </Column>
                   </Card.Content>
