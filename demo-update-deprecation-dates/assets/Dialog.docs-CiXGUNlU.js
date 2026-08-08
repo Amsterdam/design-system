@@ -1,0 +1,71 @@
+import{n as e}from"./rolldown-runtime-DkW27tQK.js";import{a as t,d as n,h as r,i,n as a,p as o,u as s}from"./blocks-zzQRermb.js";import{t as c}from"./jsx-runtime-ATHzeHXA.js";import{i as l,r as u}from"./react-Dyi61YEg.js";import{n as d,t as f}from"./DesignTokensTable-N6OTUKfu.js";import{i as p,n as m,r as h,t as g}from"./Dialog.stories-B2XFfNO7.js";var _,v;function y(){return(y=e((()=>{_={dialog:{"background-color":{$value:`{ams.color.background.default}`,$extensions:{"nl.amsterdam.type":`color`}},"border-color":{$value:`{ams.dialog.background-color}`,$extensions:{"nl.amsterdam.type":`color`}},"border-radius":{$value:`initial`,$extensions:{"nl.amsterdam.type":`borderRadius`}},"border-style":{$value:`solid`,$extensions:{"nl.amsterdam.type":`borderStyle`}},"border-width":{$value:`{ams.border.width.m}`,$extensions:{"nl.amsterdam.hint":`Must be a single value: it is used in a calculation, which two values would invalidate.`,"nl.amsterdam.type":`borderWidth`}},"box-shadow":{$value:`initial`,$extensions:{"nl.amsterdam.type":`shadow`}},"container-name":{$value:`{ams.query-containers.inline-size.container-name}`},"container-type":{$value:`inline-size`},gap:{$value:`{ams.space.m}`,$extensions:{"nl.amsterdam.subtype":`space`,"nl.amsterdam.type":`dimension`}},"inline-size":{$value:`calc(100% - 2 * {ams.space.l})`,$extensions:{"nl.amsterdam.type":`dimension`}},"max-block-size":{$value:`calc(100dvh - 2 * {ams.space.l})`,$extensions:{"nl.amsterdam.type":`dimension`}},"max-inline-size":{$value:{value:48,unit:`rem`},$type:`dimension`},medium:{"inline-size":{$deprecated:"Use `ams.dialog.vi-medium.inline-size` instead. Will be removed on or after 2026-10-20.",$value:`{ams.dialog.vi-medium.inline-size}`,$type:`dimension`},"max-block-size":{$deprecated:"Use `ams.dialog.vi-medium.max-block-size` instead. Will be removed on or after 2026-10-20.",$value:`{ams.dialog.vi-medium.max-block-size}`,$type:`dimension`}},"vi-medium":{"inline-size":{$value:`calc(100% - 2 * {ams.space.xl})`,$extensions:{"nl.amsterdam.type":`dimension`}},"max-block-size":{$value:`calc(100dvh - 2 * {ams.space.xl})`,$extensions:{"nl.amsterdam.type":`dimension`}}},backdrop:{"background-color":{$value:`rgb(24 24 24 / 62.5%)`,$type:`color`}},header:{gap:{$value:`{ams.space.m}`,$extensions:{"nl.amsterdam.subtype":`space`,"nl.amsterdam.type":`dimension`}},"padding-block":{$value:`{ams.space.l} 0`,$extensions:{"nl.amsterdam.subtype":`space`,"nl.amsterdam.type":`dimension`}},"padding-inline":{$value:`{ams.space.l}`,$extensions:{"nl.amsterdam.subtype":`space`,"nl.amsterdam.type":`dimension`}},medium:{"padding-block":{$deprecated:"Use `ams.dialog.header.vi-medium.padding-block` instead. Will be removed on or after 2026-10-20.",$value:`{ams.dialog.header.vi-medium.padding-block}`,$type:`dimension`,$extensions:{"nl.amsterdam.subtype":`space`}},"padding-inline":{$deprecated:"Use `ams.dialog.header.vi-medium.padding-inline` instead. Will be removed on or after 2026-10-20.",$value:`{ams.dialog.header.vi-medium.padding-inline}`,$type:`dimension`,$extensions:{"nl.amsterdam.subtype":`space`}}},"vi-medium":{"padding-block":{$value:`{ams.space.xl} 0`,$extensions:{"nl.amsterdam.subtype":`space`,"nl.amsterdam.type":`dimension`}},"padding-inline":{$value:`{ams.space.xl}`,$extensions:{"nl.amsterdam.subtype":`space`,"nl.amsterdam.type":`dimension`}}}},body:{"outline-offset":{$value:`{ams.focus.outline-offset}`,$extensions:{"nl.amsterdam.subtype":`space`,"nl.amsterdam.type":`dimension`}},"padding-block":{$value:`0`,$type:`dimension`,$extensions:{"nl.amsterdam.subtype":`space`}},"padding-inline":{$value:`{ams.space.l}`,$extensions:{"nl.amsterdam.subtype":`space`,"nl.amsterdam.type":`dimension`}},medium:{"padding-inline":{$deprecated:"Use `ams.dialog.body.vi-medium.padding-inline` instead. Will be removed on or after 2026-10-20.",$value:`{ams.dialog.body.vi-medium.padding-inline}`,$type:`dimension`,$extensions:{"nl.amsterdam.subtype":`space`}}},"vi-medium":{"padding-inline":{$value:`{ams.space.xl}`,$extensions:{"nl.amsterdam.subtype":`space`,"nl.amsterdam.type":`dimension`}}}},footer:{"padding-block":{$value:`0 {ams.space.l}`,$extensions:{"nl.amsterdam.subtype":`space`,"nl.amsterdam.type":`dimension`}},"padding-inline":{$value:`{ams.space.l}`,$extensions:{"nl.amsterdam.subtype":`space`,"nl.amsterdam.type":`dimension`}},medium:{"padding-block":{$deprecated:"Use `ams.dialog.footer.vi-medium.padding-block` instead. Will be removed on or after 2026-10-20.",$value:`{ams.dialog.footer.vi-medium.padding-block}`,$type:`dimension`,$extensions:{"nl.amsterdam.subtype":`space`}},"padding-inline":{$deprecated:"Use `ams.dialog.footer.vi-medium.padding-inline` instead. Will be removed on or after 2026-10-20.",$value:`{ams.dialog.footer.vi-medium.padding-inline}`,$type:`dimension`,$extensions:{"nl.amsterdam.subtype":`space`}}},"vi-medium":{"padding-block":{$value:`0 {ams.space.xl}`,$extensions:{"nl.amsterdam.subtype":`space`,"nl.amsterdam.type":`dimension`}},"padding-inline":{$value:`{ams.space.xl}`,$extensions:{"nl.amsterdam.subtype":`space`,"nl.amsterdam.type":`dimension`}}}}}},v={ams:_}})))()}function b(e){let r={a:`a`,code:`code`,h2:`h2`,h3:`h3`,h4:`h4`,li:`li`,p:`p`,table:`table`,tbody:`tbody`,td:`td`,th:`th`,thead:`thead`,tr:`tr`,ul:`ul`,...l(),...e.components};return(0,S.jsxs)(S.Fragment,{children:[`
+`,`
+`,`
+`,`
+`,(0,S.jsx)(s,{of:m}),`
+`,(0,S.jsx)(o,{}),`
+`,(0,S.jsx)(t,{of:m}),`
+`,(0,S.jsx)(n,{}),`
+`,(0,S.jsx)(i,{}),`
+`,(0,S.jsx)(r.h2,{id:`usage-guidelines`,children:`Usage guidelines`}),`
+`,(0,S.jsx)(r.h3,{id:`when-to-use`,children:`When to use`}),`
+`,(0,S.jsx)(r.p,{children:`Use a Dialog for a short, essential confirmation, a yes/no question, or a brief reminder.
+Examples are confirming a deletion, warning that unsaved changes will be lost, or reminding the user that their session is about to expire.
+A Dialog fits both public websites and applications.`}),`
+`,(0,S.jsx)(r.h3,{id:`when-not-to-use`,children:`When not to use`}),`
+`,(0,S.jsx)(r.p,{children:`Use Dialogs sparingly because they interrupt the user’s workflow.
+Consider handling regular tasks in the main flow instead.`}),`
+`,(0,S.jsxs)(r.p,{children:[`For a task that needs more room – several fields, or content the user reads and edits – use a `,(0,S.jsx)(r.a,{href:`/docs/components-containers-modal-dialog--docs`,children:`Modal Dialog`}),` in an application.
+On a public-facing website, give such a task a page of its own instead, so the user keeps the browser’s back button and a link they can share or bookmark.`]}),`
+`,(0,S.jsx)(r.h3,{id:`how-to-use`,children:`How to use`}),`
+`,(0,S.jsxs)(r.p,{children:[`To open the Dialog, use `,(0,S.jsx)(r.code,{children:`Dialog.open(dialogId)`}),` from the React package.
+To close it, either call the `,(0,S.jsx)(r.code,{children:`Dialog.close`}),` function or add a `,(0,S.jsx)(r.code,{children:`<form>`}),` as in the ‘confirmation’ example.`]}),`
+`,(0,S.jsxs)(r.p,{children:[`Wrap multiple buttons in an `,(0,S.jsx)(r.a,{href:`/docs/components-layout-action-group--docs`,children:`Action Group`}),`.`]}),`
+`,(0,S.jsx)(r.h4,{id:`focusing-a-specific-element`,children:`Focusing a specific element`}),`
+`,(0,S.jsxs)(r.p,{children:[`By default the browser focuses the close button, so the user can read the Dialog first.
+To move the initial focus, add the `,(0,S.jsx)(r.code,{children:`autofocus`}),` attribute (`,(0,S.jsx)(r.code,{children:`autoFocus`}),` in React) to the element the user should act on first, such as a text field or the primary Button.
+Do this sparingly, as focus that lands past the heading and body text makes screen reader users skip it.`]}),`
+`,(0,S.jsx)(r.h2,{id:`examples`,children:`Examples`}),`
+`,(0,S.jsx)(r.h3,{id:`asking-to-confirm`,children:`Asking to confirm`}),`
+`,(0,S.jsxs)(r.p,{children:[`Use a `,(0,S.jsx)(r.code,{children:`form`}),` when asking the user to confirm an action, e.g. through ‘OK’ and ‘Cancel’ buttons.
+Add `,(0,S.jsx)(r.code,{children:`method="dialog"`}),` to make the browser close the Dialog when the form is submitted.
+Wrap multiple Buttons in an `,(0,S.jsx)(r.a,{href:`/docs/components-layout-action-group--docs`,children:`Action Group`}),` and place it in the `,(0,S.jsx)(r.code,{children:`footer`}),`.
+Add an `,(0,S.jsx)(r.code,{children:`id`}),` to the form and use it in the `,(0,S.jsx)(r.code,{children:`form`}),` attribute of the buttons.
+Set a `,(0,S.jsx)(r.code,{children:`value`}),` on each button to identify which one was clicked.
+Consult `,(0,S.jsx)(r.a,{href:`https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog#handling_the_return_value_from_the_dialog`,rel:`nofollow`,children:`MDN`}),` for more information.`]}),`
+`,(0,S.jsx)(a,{of:g}),`
+`,(0,S.jsx)(r.h3,{id:`reminding-the-user`,children:`Reminding the user`}),`
+`,(0,S.jsx)(r.p,{children:`Open a Dialog to remind the user of something time-sensitive, such as a session that is about to expire.
+Offer a clear way to continue alongside a way to stop.`}),`
+`,(0,S.jsx)(a,{of:h}),`
+`,(0,S.jsx)(r.h2,{id:`features`,children:`Features`}),`
+`,(0,S.jsxs)(r.p,{children:[`The Dialog is a `,(0,S.jsx)(r.a,{href:`/docs/utilities-css-query-container--docs`,children:`query container`}),` for inline size, so elements inside it can adapt their appearance to the width of the Dialog.`]}),`
+`,(0,S.jsx)(r.h3,{id:`keyboard-navigation`,children:`Keyboard navigation`}),`
+`,(0,S.jsxs)(r.table,{children:[(0,S.jsx)(r.thead,{children:(0,S.jsxs)(r.tr,{children:[(0,S.jsx)(r.th,{style:{textAlign:`left`},children:`Key`}),(0,S.jsx)(r.th,{style:{textAlign:`left`},children:`Behaviour`})]})}),(0,S.jsxs)(r.tbody,{children:[(0,S.jsxs)(r.tr,{children:[(0,S.jsx)(r.td,{style:{textAlign:`left`},children:`Tab`}),(0,S.jsx)(r.td,{style:{textAlign:`left`},children:`Moves focus to the next focusable element inside the Dialog.`})]}),(0,S.jsxs)(r.tr,{children:[(0,S.jsx)(r.td,{style:{textAlign:`left`},children:`Shift + Tab`}),(0,S.jsx)(r.td,{style:{textAlign:`left`},children:`Moves focus to the previous focusable element inside the Dialog.`})]}),(0,S.jsxs)(r.tr,{children:[(0,S.jsx)(r.td,{style:{textAlign:`left`},children:`Arrow keys`}),(0,S.jsx)(r.td,{style:{textAlign:`left`},children:`Scroll the body when it has focus and its content overflows.`})]}),(0,S.jsxs)(r.tr,{children:[(0,S.jsx)(r.td,{style:{textAlign:`left`},children:`Escape`}),(0,S.jsx)(r.td,{style:{textAlign:`left`},children:`Closes the Dialog.`})]})]})]}),`
+`,(0,S.jsx)(r.h2,{id:`design`,children:`Design`}),`
+`,(0,S.jsx)(r.p,{children:`A Dialog is built from three bands: a header with the heading and the close button, a body, and an optional footer.
+Only the body scrolls.
+The heading stays readable and the actions stay reachable however long the content grows, which is what keeps a user from scrolling to find the button they were looking for.`}),`
+`,(0,S.jsx)(r.p,{children:`Scrolling inside the body does not continue into the page behind once it reaches the end.
+Space for the scrollbar is reserved whether or not one appears, so the text does not shift sideways as content loads.`}),`
+`,(0,S.jsx)(r.p,{children:`Its width and its maximum height both change at the medium breakpoint, and a maximum width caps it beyond that.
+A Dialog is sized against the window rather than against its content, so it opens at a predictable size instead of filling the screen when it happens to hold a lot.`}),`
+`,(0,S.jsx)(r.p,{children:`The three bands are told apart by their padding alone; nothing is drawn between them.
+In forced colours mode that is not enough, so the header and the footer gain hairline separators there, marking the edges of the part that scrolls.`}),`
+`,(0,S.jsx)(r.p,{children:`Forced colours also draws the border in the system colour and gives it a floor of one pixel, so a theme that sets the border token to zero cannot leave the Dialog without an edge against the page behind it.`}),`
+`,(0,S.jsx)(r.h2,{id:`accessibility`,children:`Accessibility`}),`
+`,(0,S.jsxs)(r.p,{children:[`A Dialog renders the native `,(0,S.jsx)(r.code,{children:`dialog`}),` element and is opened as a modal.
+The browser then makes the rest of the page inert, keeps Tab inside the Dialog without any focus trap of our own, closes it on Escape, and returns focus to whatever opened it.`]}),`
+`,(0,S.jsx)(r.p,{children:`The heading is a level 1 Heading shown at the size of a level 3.
+A Dialog is its own document as far as its content is concerned, so the outline inside it starts afresh rather than continuing the page underneath.`}),`
+`,(0,S.jsxs)(r.p,{children:[`The body takes keyboard focus in its own right, so someone navigating by keyboard can scroll long content with the arrow keys even when nothing inside it is focusable, as `,(0,S.jsx)(r.a,{href:`https://www.w3.org/TR/WCAG22/#keyboard`,rel:`nofollow`,children:`WCAG 2.1.1`}),` requires.
+Chromium and Firefox already make an overflowing scroll container focusable; Safari does not, so the Dialog makes the body focusable itself.`]}),`
+`,(0,S.jsx)(r.p,{children:`Scrolling of the page behind the Dialog is suppressed while it is open, but only where the browser supports the selector this relies on.
+Opening a modal does not lock scrolling on its own, and iOS Safari still needs JavaScript for a guarantee, so a gesture over the backdrop there can move the page underneath.`}),`
+`,(0,S.jsx)(r.h2,{id:`see-also`,children:`See also`}),`
+`,(0,S.jsxs)(r.ul,{children:[`
+`,(0,S.jsxs)(r.li,{children:[(0,S.jsx)(r.a,{href:`/docs/components-containers-modal-dialog--docs`,children:`Modal Dialog`}),` – for a task that needs more room, such as a form.`]}),`
+`,(0,S.jsxs)(r.li,{children:[(0,S.jsx)(r.a,{href:`/docs/components-layout-action-group--docs`,children:`Action Group`}),` – lays out multiple Buttons.`]}),`
+`]}),`
+`,(0,S.jsx)(r.h2,{id:`design-tokens`,children:`Design tokens`}),`
+`,(0,S.jsx)(f,{tokens:v})]})}function x(e={}){let{wrapper:t}={...l(),...e.components};return t?(0,S.jsx)(t,{...e,children:(0,S.jsx)(b,{...e})}):b(e)}var S;function C(){return(C=e((()=>{S=c(),u(),r(),d(),y(),p()})))()}C();export{x as default};
