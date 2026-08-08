@@ -7450,7 +7450,11 @@ export const Default: StoryObj = {
                    * The visible date is prose; dateTime repeats it in the machine-readable format software parses.
                    */}
                   &lt;time dateTime=&quot;2026-06-20&quot;&gt;20 juni 2026&lt;/time&gt;
-                  , 10.00–16.00 uur · Stadsarchief Amsterdam
+                  {/* The day, the time and the place are three kinds of metadata, so a Separator sits between them. */}
+                  &lt;Metadata.Separator /&gt;
+                  10.00–16.00 uur
+                  &lt;Metadata.Separator /&gt;
+                  Stadsarchief Amsterdam
                 &lt;/Metadata&gt;
               &lt;/Column&gt;
             &lt;/Card.Content&gt;
@@ -7620,7 +7624,15 @@ export const Default: StoryObj = {
                       &lt;Metadata size=&quot;small&quot;&gt;
                         {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
                         &lt;time dateTime={event.isoDate}&gt;{event.date}&lt;/time&gt;
-                        {event.timeLabel ? `, ${event.timeLabel}` : &#39;&#39;} · {event.venue}
+                        {/* The day, the time and the place are three kinds of metadata, so a Separator sits between them. */}
+                        {event.timeLabel &amp;&amp; (
+                          &lt;&gt;
+                            &lt;Metadata.Separator /&gt;
+                            {event.timeLabel}
+                          &lt;/&gt;
+                        )}
+                        &lt;Metadata.Separator /&gt;
+                        {event.venue}
                       &lt;/Metadata&gt;
                     &lt;/Column&gt;
                   &lt;/Card.Content&gt;
@@ -7644,7 +7656,7 @@ export const Default: StoryObj = {
   ),
 }
 
-export const Cards: StoryObj = {
+export const CardGrid: StoryObj = {
   parameters: {
     docs: {
       source: {
@@ -7793,7 +7805,11 @@ export const Cards: StoryObj = {
                    * The visible date is prose; dateTime repeats it in the machine-readable format software parses.
                    */}
                   &lt;time dateTime=&quot;2026-06-20&quot;&gt;20 juni 2026&lt;/time&gt;
-                  , 10.00–16.00 uur · Stadsarchief Amsterdam
+                  {/* The day, the time and the place are three kinds of metadata, so a Separator sits between them. */}
+                  &lt;Metadata.Separator /&gt;
+                  10.00–16.00 uur
+                  &lt;Metadata.Separator /&gt;
+                  Stadsarchief Amsterdam
                 &lt;/Metadata&gt;
               &lt;/Column&gt;
             &lt;/Card.Content&gt;
@@ -7963,7 +7979,15 @@ export const Cards: StoryObj = {
                       &lt;Metadata size=&quot;small&quot;&gt;
                         {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
                         &lt;time dateTime={event.isoDate}&gt;{event.date}&lt;/time&gt;
-                        {event.timeLabel ? `, ${event.timeLabel}` : &#39;&#39;} · {event.venue}
+                        {/* The day, the time and the place are three kinds of metadata, so a Separator sits between them. */}
+                        {event.timeLabel &amp;&amp; (
+                          &lt;&gt;
+                            &lt;Metadata.Separator /&gt;
+                            {event.timeLabel}
+                          &lt;/&gt;
+                        )}
+                        &lt;Metadata.Separator /&gt;
+                        {event.venue}
                       &lt;/Metadata&gt;
                     &lt;/Column&gt;
                   &lt;/Card.Content&gt;
@@ -8494,7 +8518,15 @@ export const NoResults: StoryObj = {
                     &lt;Metadata size=&quot;small&quot;&gt;
                       {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
                       &lt;time dateTime={event.isoDate}&gt;{event.date}&lt;/time&gt;
-                      {event.timeLabel ? `, ${event.timeLabel}` : &#39;&#39;} · {event.venue}
+                      {/* The day, the time and the place are three kinds of metadata, so a Separator sits between them. */}
+                      {event.timeLabel &amp;&amp; (
+                        &lt;&gt;
+                          &lt;Metadata.Separator /&gt;
+                          {event.timeLabel}
+                        &lt;/&gt;
+                      )}
+                      &lt;Metadata.Separator /&gt;
+                      {event.venue}
                     &lt;/Metadata&gt;
                   &lt;/Column&gt;
                 &lt;/Card.Content&gt;
@@ -8519,12 +8551,12 @@ export const NoResults: StoryObj = {
             </div>
             <div class="note ok">
               <div class="row">
-                <span class="ex-name">Cards</span>
+                <span class="ex-name">Card Grid</span>
                 <span class="badge ok">story ok</span>
               </div>
               
               
-              <pre><code>const Cards = () =&gt; (
+              <pre><code>const CardGrid = () =&gt; (
   &lt;&gt;
     {/* Keep the breadcrumb in its own Grid above &lt;main&gt;, so it sits outside the main content region. */}
     &lt;Grid paddingTop=&quot;large&quot;&gt;
@@ -8669,7 +8701,15 @@ export const NoResults: StoryObj = {
                     &lt;Metadata size=&quot;small&quot;&gt;
                       {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
                       &lt;time dateTime={event.isoDate}&gt;{event.date}&lt;/time&gt;
-                      {event.timeLabel ? `, ${event.timeLabel}` : &#39;&#39;} · {event.venue}
+                      {/* The day, the time and the place are three kinds of metadata, so a Separator sits between them. */}
+                      {event.timeLabel &amp;&amp; (
+                        &lt;&gt;
+                          &lt;Metadata.Separator /&gt;
+                          {event.timeLabel}
+                        &lt;/&gt;
+                      )}
+                      &lt;Metadata.Separator /&gt;
+                      {event.venue}
                     &lt;/Metadata&gt;
                   &lt;/Column&gt;
                 &lt;/Card.Content&gt;
@@ -8912,9 +8952,9 @@ Its image measures 4 of the 9 columns the Card spans on the wide grid.
 The medium grid leaves the results 5 columns, which is not enough for a row.
 Give each Card 4 of those 5 there and leave the last column empty: that is below the width at which a Card with an image goes horizontal, so the Cards turn into a single column of vertical ones and the image spans the full width of each.
 
-### Cards
+### Card grid
 
-The same activities as a card grid, which suits browsing by image rather than comparing by date.
+The same activities tiled three to a row, which suits browsing by image rather than comparing by date.
 
 Give each Card 3 of the 9 columns the results span, so three tile to a row on the wide grid.
 That is below the horizontal breakpoint, so every Card stays vertical, and because the Cells sit in the Subgrid the cards line up with the page columns even though the taller filter column shares the row.
@@ -8975,9 +9015,12 @@ The medium grid is where the two part company: the results leave a column spare 
 Give each activity the facets it was filtered by at the top of the Card.
 A [Metadata](/docs/components-text-metadata--docs) in the Card Heading Group carries those values comma separated: here the category and the district, which are the two facets the filter column offers.
 
-Close the Card with when and where it happens, below the description, as a second Metadata: the date, the time, and then the venue after a middot.
-Those two answer a different question from the facets above — not what kind of activity this is, but whether the visitor can be there — so they read better as a footnote to the description than beside the heading.
-A middot separates the venue from the date without implying the sentence continues, which a comma would.
+Close the Card with when and where it happens, below the description, as a second Metadata: the day, the time, and the venue.
+Those three answer a different question from the facets above — not what kind of activity this is, but whether the visitor can be there — so they read better as a footnote to the description than beside the heading.
+
+Set each of the three apart with a Metadata Separator rather than with punctuation of your own.
+They are three kinds of metadata rather than one sentence, and a comma between them would imply the sentence continues.
+Leave the Separator out where an activity has no time, so two never meet.
 
 List the categories alphabetically.
 A visitor scanning ten checkboxes for one word finds it faster than in any order the publishing system happens to hold them in.
@@ -39975,7 +40018,11 @@ export const Default: StoryObj = {
                    * The visible date is prose; dateTime repeats it in the machine-readable format software parses.
                    */}
                   &lt;time dateTime=&quot;2026-06-20&quot;&gt;20 juni 2026&lt;/time&gt;
-                  , 10.00–16.00 uur · Stadsarchief Amsterdam
+                  {/* The day, the time and the place are three kinds of metadata, so a Separator sits between them. */}
+                  &lt;Metadata.Separator /&gt;
+                  10.00–16.00 uur
+                  &lt;Metadata.Separator /&gt;
+                  Stadsarchief Amsterdam
                 &lt;/Metadata&gt;
               &lt;/Column&gt;
             &lt;/Card.Content&gt;
@@ -40145,7 +40192,15 @@ export const Default: StoryObj = {
                       &lt;Metadata size=&quot;small&quot;&gt;
                         {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
                         &lt;time dateTime={event.isoDate}&gt;{event.date}&lt;/time&gt;
-                        {event.timeLabel ? `, ${event.timeLabel}` : &#39;&#39;} · {event.venue}
+                        {/* The day, the time and the place are three kinds of metadata, so a Separator sits between them. */}
+                        {event.timeLabel &amp;&amp; (
+                          &lt;&gt;
+                            &lt;Metadata.Separator /&gt;
+                            {event.timeLabel}
+                          &lt;/&gt;
+                        )}
+                        &lt;Metadata.Separator /&gt;
+                        {event.venue}
                       &lt;/Metadata&gt;
                     &lt;/Column&gt;
                   &lt;/Card.Content&gt;
@@ -40169,7 +40224,7 @@ export const Default: StoryObj = {
   ),
 }
 
-export const Cards: StoryObj = {
+export const CardGrid: StoryObj = {
   parameters: {
     docs: {
       source: {
@@ -40318,7 +40373,11 @@ export const Cards: StoryObj = {
                    * The visible date is prose; dateTime repeats it in the machine-readable format software parses.
                    */}
                   &lt;time dateTime=&quot;2026-06-20&quot;&gt;20 juni 2026&lt;/time&gt;
-                  , 10.00–16.00 uur · Stadsarchief Amsterdam
+                  {/* The day, the time and the place are three kinds of metadata, so a Separator sits between them. */}
+                  &lt;Metadata.Separator /&gt;
+                  10.00–16.00 uur
+                  &lt;Metadata.Separator /&gt;
+                  Stadsarchief Amsterdam
                 &lt;/Metadata&gt;
               &lt;/Column&gt;
             &lt;/Card.Content&gt;
@@ -40488,7 +40547,15 @@ export const Cards: StoryObj = {
                       &lt;Metadata size=&quot;small&quot;&gt;
                         {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
                         &lt;time dateTime={event.isoDate}&gt;{event.date}&lt;/time&gt;
-                        {event.timeLabel ? `, ${event.timeLabel}` : &#39;&#39;} · {event.venue}
+                        {/* The day, the time and the place are three kinds of metadata, so a Separator sits between them. */}
+                        {event.timeLabel &amp;&amp; (
+                          &lt;&gt;
+                            &lt;Metadata.Separator /&gt;
+                            {event.timeLabel}
+                          &lt;/&gt;
+                        )}
+                        &lt;Metadata.Separator /&gt;
+                        {event.venue}
                       &lt;/Metadata&gt;
                     &lt;/Column&gt;
                   &lt;/Card.Content&gt;
@@ -41019,7 +41086,15 @@ export const NoResults: StoryObj = {
                     &lt;Metadata size=&quot;small&quot;&gt;
                       {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
                       &lt;time dateTime={event.isoDate}&gt;{event.date}&lt;/time&gt;
-                      {event.timeLabel ? `, ${event.timeLabel}` : &#39;&#39;} · {event.venue}
+                      {/* The day, the time and the place are three kinds of metadata, so a Separator sits between them. */}
+                      {event.timeLabel &amp;&amp; (
+                        &lt;&gt;
+                          &lt;Metadata.Separator /&gt;
+                          {event.timeLabel}
+                        &lt;/&gt;
+                      )}
+                      &lt;Metadata.Separator /&gt;
+                      {event.venue}
                     &lt;/Metadata&gt;
                   &lt;/Column&gt;
                 &lt;/Card.Content&gt;
@@ -41044,12 +41119,12 @@ export const NoResults: StoryObj = {
             </div>
             <div class="note ok">
               <div class="row">
-                <span class="ex-name">Cards</span>
+                <span class="ex-name">Card Grid</span>
                 <span class="badge ok">story ok</span>
               </div>
               
               
-              <pre><code>const Cards = () =&gt; (
+              <pre><code>const CardGrid = () =&gt; (
   &lt;&gt;
     {/* Keep the breadcrumb in its own Grid above &lt;main&gt;, so it sits outside the main content region. */}
     &lt;Grid paddingTop=&quot;large&quot;&gt;
@@ -41194,7 +41269,15 @@ export const NoResults: StoryObj = {
                     &lt;Metadata size=&quot;small&quot;&gt;
                       {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
                       &lt;time dateTime={event.isoDate}&gt;{event.date}&lt;/time&gt;
-                      {event.timeLabel ? `, ${event.timeLabel}` : &#39;&#39;} · {event.venue}
+                      {/* The day, the time and the place are three kinds of metadata, so a Separator sits between them. */}
+                      {event.timeLabel &amp;&amp; (
+                        &lt;&gt;
+                          &lt;Metadata.Separator /&gt;
+                          {event.timeLabel}
+                        &lt;/&gt;
+                      )}
+                      &lt;Metadata.Separator /&gt;
+                      {event.venue}
                     &lt;/Metadata&gt;
                   &lt;/Column&gt;
                 &lt;/Card.Content&gt;
@@ -41437,9 +41520,9 @@ Its image measures 4 of the 9 columns the Card spans on the wide grid.
 The medium grid leaves the results 5 columns, which is not enough for a row.
 Give each Card 4 of those 5 there and leave the last column empty: that is below the width at which a Card with an image goes horizontal, so the Cards turn into a single column of vertical ones and the image spans the full width of each.
 
-### Cards
+### Card grid
 
-The same activities as a card grid, which suits browsing by image rather than comparing by date.
+The same activities tiled three to a row, which suits browsing by image rather than comparing by date.
 
 Give each Card 3 of the 9 columns the results span, so three tile to a row on the wide grid.
 That is below the horizontal breakpoint, so every Card stays vertical, and because the Cells sit in the Subgrid the cards line up with the page columns even though the taller filter column shares the row.
@@ -41500,9 +41583,12 @@ The medium grid is where the two part company: the results leave a column spare 
 Give each activity the facets it was filtered by at the top of the Card.
 A [Metadata](/docs/components-text-metadata--docs) in the Card Heading Group carries those values comma separated: here the category and the district, which are the two facets the filter column offers.
 
-Close the Card with when and where it happens, below the description, as a second Metadata: the date, the time, and then the venue after a middot.
-Those two answer a different question from the facets above — not what kind of activity this is, but whether the visitor can be there — so they read better as a footnote to the description than beside the heading.
-A middot separates the venue from the date without implying the sentence continues, which a comma would.
+Close the Card with when and where it happens, below the description, as a second Metadata: the day, the time, and the venue.
+Those three answer a different question from the facets above — not what kind of activity this is, but whether the visitor can be there — so they read better as a footnote to the description than beside the heading.
+
+Set each of the three apart with a Metadata Separator rather than with punctuation of your own.
+They are three kinds of metadata rather than one sentence, and a comma between them would imply the sentence continues.
+Leave the Separator out where an activity has no time, so two never meet.
 
 List the categories alphabetically.
 A visitor scanning ten checkboxes for one word finds it faster than in any order the publishing system happens to hold them in.
