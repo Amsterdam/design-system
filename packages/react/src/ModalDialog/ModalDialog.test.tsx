@@ -20,6 +20,9 @@ const closeMock = vi.fn(function close(this: HTMLDialogElement) {
   this.removeAttribute('open')
 })
 
+const originalClose = HTMLDialogElement.prototype.close
+const originalShowModal = HTMLDialogElement.prototype.showModal
+
 describe('ModalDialog', () => {
   beforeEach(() => {
     HTMLDialogElement.prototype.close = closeMock
@@ -28,6 +31,8 @@ describe('ModalDialog', () => {
   })
 
   afterEach(() => {
+    HTMLDialogElement.prototype.close = originalClose
+    HTMLDialogElement.prototype.showModal = originalShowModal
     closeMock.mockClear()
     showModalMock.mockClear()
     vi.restoreAllMocks()

@@ -5,11 +5,17 @@
 
 import { fireEvent, render, screen } from '@testing-library/react'
 import { createRef } from 'react'
-import { describe, expect, it, vi } from 'vitest'
+import { afterEach, describe, expect, it, vi } from 'vitest'
 
 import { ModalDialogHeader } from './ModalDialogHeader'
 
+const originalClose = HTMLDialogElement.prototype.close
+
 describe('ModalDialogHeader', () => {
+  afterEach(() => {
+    HTMLDialogElement.prototype.close = originalClose
+  })
+
   it('renders', () => {
     render(<ModalDialogHeader>Header content</ModalDialogHeader>)
 
