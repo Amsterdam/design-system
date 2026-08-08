@@ -1,0 +1,166 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+@use "../../common/breakpoint" as *;
+@use "../../common/resets" as *;
+
+/* A dialog must have `display: none` until the `open` attribute is set,
+so do not apply these styles without an `open` attribute. */
+.ams-alert-dialog:not(dialog:not([open])) {
+  @include reset-dialog;
+
+  background-color: var(--ams-alert-dialog-background-color);
+  border-color: var(--ams-alert-dialog-border-color);
+  border-radius: var(--ams-alert-dialog-border-radius);
+  border-style: var(--ams-alert-dialog-border-style);
+  border-width: var(--ams-alert-dialog-border-width);
+  box-shadow: var(--ams-alert-dialog-box-shadow);
+  box-sizing: border-box;
+  container-name: var(--ams-alert-dialog-container-name);
+  container-type: var(--ams-alert-dialog-container-type);
+  display: flex; // We’d like to use CSS Grid here, but that doesn’t work as expected in Safari.
+  flex-direction: column;
+  inline-size: var(--ams-alert-dialog-inline-size);
+  max-block-size: var(--ams-alert-dialog-max-block-size);
+  max-inline-size: var(--ams-alert-dialog-max-inline-size);
+
+  /* Let the dialog itself scroll when the header, the body at its minimum height,
+  and the footer together exceed the available height. This keeps all content
+  reachable in vertically short windows and with strongly enlarged text. */
+  /* stylelint-disable-next-line defensive-css/require-scrollbar-gutter -- A gutter would uncentre the content. */
+  overflow-y: auto;
+
+  /* stylelint-disable-next-line plugin/use-baseline -- Progressive enhancement. */
+  overscroll-behavior-y: contain;
+
+  // Ensure there always is a border in forced colors mode.
+  @media (forced-colors: active) {
+    background-color: Canvas;
+    border-color: currentColor;
+    border-style: solid;
+
+    // Keep at least 1px so a token set to 0 can’t hide the border.
+    border-width: max(1px, var(--ams-alert-dialog-border-width));
+  }
+
+  @media (min-width: $ams-breakpoint-medium) {
+    inline-size: var(--ams-alert-dialog-vi-medium-inline-size);
+    max-block-size: var(--ams-alert-dialog-vi-medium-max-block-size);
+  }
+
+  /*
+   * The fallback value is for browsers where ::backdrop does not inherit from its originating element.
+   * @see https://caniuse.com/mdn-css_selectors_backdrop_inherit_from_originating_element
+   */
+  &::backdrop {
+    background-color: var(--ams-alert-dialog-backdrop-background-color, rgb(24 24 24 / 62.5%));
+  }
+}
+
+/*
+ * showModal() makes content inert but doesn’t lock scrolling: gestures over
+ * the ::backdrop still scroll the page. overflow: hidden on the body (not
+ * html) suppresses this because body overflow propagates to the viewport.
+ * iOS Safari still needs JS for a hard guarantee on touch.
+ */
+.ams-body:has(.ams-alert-dialog:modal) {
+  overflow: hidden;
+}
+
+/* A grid so that a heading and a subtitle stack without needing a wrapper.
+The Alert Dialog has no close button; instead it can show a leading icon. */
+.ams-alert-dialog__header {
+  align-items: start;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  padding-block: var(--ams-alert-dialog-header-padding-block);
+  padding-inline: var(--ams-alert-dialog-header-padding-inline);
+  row-gap: var(--ams-alert-dialog-header-row-gap);
+
+  /* Use a border in forced colors mode for visual hierarchy and demarcating the scrollable body */
+  @media (forced-colors: active) {
+    border-block-end-color: currentColor;
+    border-block-end-style: solid;
+    /* stylelint-disable-next-line defensive-css/no-fixed-sizes -- A hairline separator. */
+    border-block-end-width: 1px;
+  }
+
+  @media (min-width: $ams-breakpoint-medium) {
+    padding-block: var(--ams-alert-dialog-header-vi-medium-padding-block);
+    padding-inline: var(--ams-alert-dialog-header-vi-medium-padding-inline);
+  }
+}
+
+/* With a leading icon, add a first column for it; content moves to the second. */
+.ams-alert-dialog__header--with-icon {
+  column-gap: var(--ams-alert-dialog-header-column-gap);
+  grid-template-columns: auto minmax(0, 1fr);
+
+  > :not(.ams-alert-dialog__icon) {
+    grid-column: 2;
+  }
+}
+
+/* Pin the icon to the first column, next to the first line of content. */
+.ams-alert-dialog__icon {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+/* A severity fills the whole header with its colour. The heading and icon stay the default
+dark text colour: it keeps a sufficient contrast on all severity colours, where white would
+fail on warning and info. In forced colors mode the fill drops out and the icon shape
+carries the meaning. */
+.ams-alert-dialog__header--error {
+  background-color: var(--ams-alert-dialog-error-header-background-color);
+}
+
+.ams-alert-dialog__header--success {
+  background-color: var(--ams-alert-dialog-success-header-background-color);
+}
+
+.ams-alert-dialog__header--warning {
+  background-color: var(--ams-alert-dialog-warning-header-background-color);
+}
+
+.ams-alert-dialog__body {
+  /* Keep a minimum height so the header and footer can never crowd out the body entirely.
+  If less space is available, the dialog itself scrolls. */
+  min-block-size: var(--ams-alert-dialog-body-min-block-size);
+  outline-offset: var(--ams-alert-dialog-body-outline-offset);
+
+  /* Let wide content scroll horizontally instead of clipping it. */
+  overflow-x: auto;
+  overflow-y: auto;
+  /* stylelint-disable-next-line plugin/use-baseline -- Progressive enhancement. */
+  overscroll-behavior: contain;
+  padding-block: var(--ams-alert-dialog-body-padding-block);
+  padding-inline: var(--ams-alert-dialog-body-padding-inline);
+  /* stylelint-disable-next-line plugin/use-baseline -- Progressive enhancement. */
+  scrollbar-gutter: stable;
+
+  @media (min-width: $ams-breakpoint-medium) {
+    padding-block: var(--ams-alert-dialog-body-vi-medium-padding-block);
+    padding-inline: var(--ams-alert-dialog-body-vi-medium-padding-inline);
+  }
+}
+
+.ams-alert-dialog__footer {
+  padding-block: var(--ams-alert-dialog-footer-padding-block);
+  padding-inline: var(--ams-alert-dialog-footer-padding-inline);
+
+  /* Use a border in forced colors mode for visual hierarchy and demarcating the scrollable body */
+  @media (forced-colors: active) {
+    border-block-start-color: currentColor;
+    border-block-start-style: solid;
+    /* stylelint-disable-next-line defensive-css/no-fixed-sizes -- A hairline separator. */
+    border-block-start-width: 1px;
+  }
+
+  @media (min-width: $ams-breakpoint-medium) {
+    padding-block: var(--ams-alert-dialog-footer-vi-medium-padding-block);
+    padding-inline: var(--ams-alert-dialog-footer-vi-medium-padding-inline);
+  }
+}
