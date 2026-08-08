@@ -594,7 +594,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>5.4s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>5.5s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -19212,6 +19212,7 @@ The Header always renders the close button, so the dialog can be dismissed at an
 The button is pinned to the top right, next to the first line of the Header’s content, and its icon aligns with a level 2 heading by default.
 
 The dialog is sized against the window rather than against its content, so it opens at a predictable size, and a maximum width caps it on wide screens.
+The Body reserves space for its scrollbar whether or not one appears, so its text does not shift sideways as content loads.
 
 The Header, Body, and Footer are told apart by their padding alone.
 In forced colours mode that is not enough, so the Header and Footer gain hairline separators marking the edges of the part that scrolls, and the dialog’s border keeps a floor of one pixel to hold its edge against the page behind.
