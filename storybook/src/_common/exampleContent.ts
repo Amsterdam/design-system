@@ -293,11 +293,9 @@ export const exampleUnorderedList = () =>
     ],
   ])
 
-/**
- * The index pages — News Overview, Events Overview and Search Results — share a layout, so their example
- * content lives together rather than beside each story. Every one of them filters by district, and all three
- * take that list from `districts` above rather than keeping a copy of their own.
- */
+// The index pages — News Overview, Events Overview and Search Results — share a layout, so their example
+// content lives together rather than beside each story. Every one of them filters by district, and all three
+// take that list from `districts` above rather than keeping a copy of their own.
 
 export type NewsArticle = {
   /** The facets of the article, comma separated, as one Metadata line. */
