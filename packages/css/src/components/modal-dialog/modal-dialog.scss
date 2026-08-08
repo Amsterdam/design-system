@@ -33,6 +33,8 @@ so do not apply these styles without an `open` attribute. */
 
   /* stylelint-disable-next-line plugin/use-baseline -- Progressive enhancement. */
   overscroll-behavior-y: contain;
+  /* stylelint-disable-next-line plugin/use-baseline -- Progressive enhancement. */
+  scrollbar-gutter: stable both-edges;
 
   // Ensure there always is a border in forced colors mode.
   @media (forced-colors: active) {
@@ -62,13 +64,10 @@ so do not apply these styles without an `open` attribute. */
  * showModal() makes content inert but doesn’t lock scrolling: gestures over
  * the ::backdrop still scroll the page. overflow: hidden on the body (not
  * html) suppresses this because body overflow propagates to the viewport.
- * Wrapped in @supports as a progressive enhancement; iOS Safari still needs
- * JS for a hard guarantee on touch.
+ * iOS Safari still needs JS for a hard guarantee on touch.
  */
-@supports selector(:has(*)) {
-  .ams-body:has(.ams-modal-dialog:modal) {
-    overflow: hidden;
-  }
+.ams-body:has(.ams-modal-dialog:modal) {
+  overflow: hidden;
 }
 
 /* A grid of two columns: any content in the first, the close button in the second.
@@ -92,6 +91,7 @@ Content elements – e.g. a heading and a subtitle – stack without needing a w
   @media (forced-colors: active) {
     border-block-end-color: currentColor;
     border-block-end-style: solid;
+    /* stylelint-disable-next-line defensive-css/no-fixed-sizes -- A hairline separator. */
     border-block-end-width: 1px;
   }
 
@@ -120,6 +120,8 @@ Content elements – e.g. a heading and a subtitle – stack without needing a w
   overscroll-behavior: contain;
   padding-block: var(--ams-modal-dialog-body-padding-block);
   padding-inline: var(--ams-modal-dialog-body-padding-inline);
+  /* stylelint-disable-next-line plugin/use-baseline -- Progressive enhancement. */
+  scrollbar-gutter: stable both-edges;
 
   @media (min-width: $ams-breakpoint-medium) {
     padding-inline: var(--ams-modal-dialog-body-vi-medium-padding-inline);
@@ -134,6 +136,7 @@ Content elements – e.g. a heading and a subtitle – stack without needing a w
   @media (forced-colors: active) {
     border-block-start-color: currentColor;
     border-block-start-style: solid;
+    /* stylelint-disable-next-line defensive-css/no-fixed-sizes -- A hairline separator. */
     border-block-start-width: 1px;
   }
 
