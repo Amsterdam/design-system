@@ -16,7 +16,7 @@ const hasMetadataChild = (children: ReactNode) =>
 export type CardHeadingGroupProps = {
   /**
    * A short phrase of text, e.g. to categorise the card. Displayed above the card heading.
-   * @deprecated Add a Metadata as a child instead. Will be removed on or after 2027-02-10.
+   * @deprecated Add a Metadata as a child instead. Will be removed on or after 2027-02-08.
    */
   readonly tagline?: string
 } & Readonly<PropsWithChildren<HTMLAttributes<HTMLElement>>>
