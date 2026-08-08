@@ -26,7 +26,7 @@
   line-height: var(--ams-ordered-list-line-height);
   list-style-type: var(--ams-ordered-list-list-style-type);
 
-  .ams-ordered-list__item {
+  > .ams-ordered-list__item {
     margin-inline-start: var(--ams-ordered-list-item-margin-inline-start);
     padding-inline-start: var(--ams-ordered-list-item-padding-inline-start);
   }
@@ -41,19 +41,23 @@
   line-height: var(--ams-ordered-list-small-line-height);
 }
 
+/*
+ * A list is nested only when it sits directly inside a list item: one inside a card is a list of its own.
+ * The element in between is not typed, as it should be a list item but the effect is wanted regardless.
+ */
 :is(.ams-ordered-list, .ams-unordered-list) {
-  .ams-ordered-list {
+  > * > .ams-ordered-list:not(.ams-ordered-list--no-markers) {
     gap: var(--ams-ordered-list-ordered-list-gap);
     list-style-type: var(--ams-ordered-list-ordered-list-list-style-type);
     padding-block-start: var(--ams-ordered-list-ordered-list-padding-block-start);
 
-    .ams-ordered-list__item {
+    > .ams-ordered-list__item {
       margin-inline-start: var(--ams-ordered-list-ordered-list-item-margin-inline-start);
       padding-inline-start: var(--ams-ordered-list-ordered-list-item-padding-inline-start);
     }
   }
 
-  > :not(:last-child) > .ams-ordered-list {
+  > :not(:last-child) > .ams-ordered-list:not(.ams-ordered-list--no-markers) {
     padding-block-end: var(--ams-ordered-list-ordered-list-padding-block-end);
   }
 }

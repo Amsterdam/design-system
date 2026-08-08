@@ -33,6 +33,26 @@ export const Test: Story = {
       <OrderedList.Item key={5}>
         Er zijn veel mogelijkheden in de bouw, infrastructuur, haven en groenvoorziening.
       </OrderedList.Item>,
+      <OrderedList.Item key={6}>
+        Een lijst in een lijstitem is een niveau dieper.
+        <OrderedList>
+          <OrderedList.Item>Deze krijgt letters en minder inspringing.</OrderedList.Item>
+        </OrderedList>
+      </OrderedList.Item>,
+      <OrderedList.Item key={7}>
+        Een lijst achter een tussenliggend element hoort niet bij deze lijst.
+        <div>
+          <OrderedList>
+            <OrderedList.Item>Deze krijgt de opmaak van een eerste niveau.</OrderedList.Item>
+          </OrderedList>
+        </div>
+      </OrderedList.Item>,
+      <OrderedList.Item key={8}>
+        Een geneste lijst zonder opsommingstekens houdt die weg.
+        <OrderedList markers={false}>
+          <OrderedList.Item>Deze krijgt geen teken en geen inspringing.</OrderedList.Item>
+        </OrderedList>
+      </OrderedList.Item>,
     ],
   },
   render: (args, context) => renderComponentVariants(OrderedList, { args }, context),
