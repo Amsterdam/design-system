@@ -1,0 +1,144 @@
+{/* @license CC0-1.0 */}
+
+import { Description, Meta, Title } from "@storybook/addon-docs/blocks";
+
+import { PageAnatomy } from "#storybook/_components/PageAnatomy/PageAnatomy";
+
+import { anatomyLabels } from "./anatomyLabels.ts";
+import * as EventsOverviewStories from "./EventsOverviewPage.stories.tsx";
+
+<Meta of={EventsOverviewStories} />
+
+<Title />
+
+<Description of={EventsOverviewStories} />
+
+What sets this page apart is that people arrive with a date in mind, so it gives them a calendar and date facets as well as the usual subject filters.
+
+## Anatomy
+
+This schematic shows the default sections for this page type and how the grids and vertical space work.
+
+<PageAnatomy labels={anatomyLabels} of={EventsOverviewStories} />
+
+## Usage guidelines
+
+### When to use
+
+Use this page for an index of dated activities that a visitor plans around: a city events calendar, a course programme, a schedule of public meetings.
+
+### When not to use
+
+Use a [News Overview Page](/docs/pages-public-news-overview-page--docs) instead when the items are not dated, or when the date is a publication date rather than something to plan around.
+Use a [Search Results Page](/docs/pages-public-search-results-page--docs) where a result can be any kind of content.
+
+## Variants
+
+### Default
+
+A single, scannable column of full-width rows, which suits comparing dates and locations across a set of activities.
+
+A [Card](/docs/components-navigation-card--docs) that pairs an image with a Card Content lays out horizontally once its container is wide enough, which it is at every width where the filter column sits beside the results.
+Its image measures 4 of the 9 columns the Card spans on the wide grid.
+
+The medium grid leaves the results 5 columns, which is not enough for a row.
+Give each Card 4 of those 5 there and leave the last column empty: that is below the width at which a Card with an image goes horizontal, so the Cards turn into a single column of vertical ones and the image spans the full width of each.
+
+### Card grid
+
+The same activities tiled three to a row, which suits browsing by image rather than comparing by date.
+
+Give each Card 3 of the 9 columns the results span, so three tile to a row on the wide grid.
+That is below the horizontal breakpoint, so every Card stays vertical, and because the Cells sit in the Subgrid the cards line up with the page columns even though the taller filter column shares the row.
+
+Both layouts hold the same markup.
+Only the `span` of the Cell around each Card differs, so nothing about the page changes for someone reading it in source order.
+
+## Structure
+
+The breadcrumb sits in its own Grid above `main`, as on every public page.
+The Grid below it carries the Content Header, and the Grid below that carries the filter column and the results.
+
+Put the keyword search in the Content Header Cell, below the lead, as the other index pages do.
+A [Search Field](/docs/components-forms-search-field--docs) renders its own form with `role="search"`, so it needs no form around it, and Prose spaces it without a margin of its own.
+
+Write the filter column first.
+It then precedes the results in the reading and the tab order, which is the order someone filtering wants, and no `start` value has to move it back.
+Give it `as="aside"` and name it with a Heading that `aria-labelledby` points at, so it is reachable as a landmark.
+
+Make that column a Subgrid too, with every control in a Cell of its own.
+The row gap then sets the space between the controls, and each one lines up with the page columns rather than with the edge of a Cell that holds them all.
+
+A form element cannot span the Cells of a Subgrid, so each control that submits takes a form of its own.
+Where two facets have to submit together, either give them one Cell or point every control at one form with the `form` attribute.
+
+Order the column from broad to narrow: the calendar, then the facets.
+
+Offer no sort control.
+Activities have one order people want, which is the one they happen in, and a control offering the reverse of it only invites a listing nobody asked for.
+This is where an events overview parts company with the other index pages, which sort by relevance or by publication date and need to say so.
+
+Offer a [Calendar](/docs/components-navigation-calendar--docs) where the dates matter more than the subject.
+It is date navigation rather than a date input: each day links to the activities on it, which suits someone asking what is on next Saturday.
+Pass it a `defaultMonth`, or it opens on the current month and drifts away from the listing it belongs to.
+
+Put the results in a [Grid Subgrid](/docs/components-layout-grid--docs) rather than a Cell.
+A Subgrid hands the columns it spans to its own children, so the Cells inside it sit on the columns of the page.
+Without it the results have no columns of their own, and nothing in them can line up with the rest of the page.
+
+Announce the number of results in a `role="status"` paragraph.
+
+Close the list with [Pagination](/docs/components-navigation-pagination--docs) in a Cell as wide as the results above it, rather than as wide as the region.
+The medium grid is where the two part company: the results leave a column spare there, and Pagination spanning the whole region would reach past the Cards it belongs to.
+
+Give each activity the facets it was filtered by at the top of the Card.
+A [Metadata](/docs/components-text-metadata--docs) in the Card Heading Group carries those values comma separated: here the category and the district, which are the two facets the filter column offers.
+
+Close the Card with when and where it happens, below the description, as a second Metadata: the day, the time, and the venue.
+Those three answer a different question from the facets above — not what kind of activity this is, but whether the visitor can be there — so they read better as a footnote to the description than beside the heading.
+
+Set each of the three apart with a Metadata Separator rather than with punctuation of your own.
+They are three kinds of metadata rather than one sentence, and a comma between them would imply the sentence continues.
+Leave the Separator out where an activity has no time, so two never meet.
+
+List the categories alphabetically.
+A visitor scanning ten checkboxes for one word finds it faster than in any order the publishing system happens to hold them in.
+A catch-all such as ‘Overig’ is the exception: it goes last whatever its initial, because it is the option someone reaches for after the named ones have failed them.
+
+The page title is the only Heading 1.
+The filter column and the list of results each take a Heading 2, and the title of every activity is a Heading 3.
+Neither Heading 2 has a place in the design, so both are visually hidden.
+
+## Layout and spacing
+
+The filter column takes 3 of the 12 columns on the wide grid and 3 of the 8 on the medium grid.
+The results take the remaining 9 and 5.
+On the narrow grid neither fits beside the other, so both span the full 4 columns and the filter column lands above the results.
+
+Give the Cell that announces the total the width of the results below it, capped at 7 of the 12 columns.
+The cap is the line length the body of a content page takes, and a sentence naming several filters is long enough to reach it.
+On the medium grid the results stop short of the region themselves, at 4 of the 5 columns, so the sentence stops there too.
+
+Two adjacent Grids add their touching paddings together, so the Grid holding the filter column and the results leaves its `paddingTop` off.
+
+## Accessibility
+
+The two hidden Heading 2s are worth having: they name the two halves of the page in the heading outline, which is how a screen reader user skips the filters and reaches the results.
+The heading of the filter column is hidden visually but not from assistive technology, so it still names the landmark that `aria-labelledby` points at.
+
+The number of results is announced in a `role="status"` paragraph.
+A visitor using a screen reader otherwise has no way to tell that ticking a checkbox changed anything.
+
+The Calendar is a set of links rather than a date input, so it is reached and operated as navigation.
+Give it an accessible name that says where its days lead: the month alone does not.
+
+The date of an activity carries a `time` element, whose `dateTime` repeats the visible date in the format software parses.
+That is what lets a browser or an extension offer to put the activity in a calendar.
+
+## See also
+
+- [News Overview Page](/docs/pages-public-news-overview-page--docs) – the same layout for items that are not dated.
+- [Search Results Page](/docs/pages-public-search-results-page--docs) – the same layout for results of any type.
+- [Calendar](/docs/components-navigation-calendar--docs) – the date navigation this page opens its filters with.
+- [Card](/docs/components-navigation-card--docs) – the activity, and when it turns horizontal.
+- [Pagination](/docs/components-navigation-pagination--docs) – closes the list.
