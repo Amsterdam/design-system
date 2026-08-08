@@ -10,9 +10,10 @@ import { Select } from '@amsterdam/design-system-react/src'
 
 import { disabledArgType } from '#storybook/_common/argTypes'
 import { districts } from '#storybook/_common/exampleContent'
+import { formatFieldValue } from '#storybook/_common/formatFieldValue'
 
 const optionList = [...districts, 'Westpoort'].sort().map((district) => (
-  <Select.Option disabled={district === 'Westpoort'} key={district} value={district}>
+  <Select.Option disabled={district === 'Westpoort'} key={district} value={formatFieldValue(district)}>
     {district}
   </Select.Option>
 ))
