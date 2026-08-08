@@ -7211,13 +7211,13 @@ Announcing it is the job of the field that now describes it, or of an [Invalid F
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
-  50 | )
-  51 |
-&gt; 52 | const meta = {
+  52 | )
+  53 |
+&gt; 54 | const meta = {
      | ^
-  53 |   ...commonMeta,
-  54 |   title: &#39;Pages/Public/Events Overview Page&#39;,
-  55 |   parameters: pageParameters(
+  55 |   ...commonMeta,
+  56 |   title: &#39;Pages/Public/Events Overview Page&#39;,
+  57 |   parameters: pageParameters(
 
 ./src/pages/public/EventsOverviewPage/EventsOverviewPage.stories.tsx:
 /**
@@ -7247,8 +7247,10 @@ import {
   Select,
 } from &#39;@amsterdam/design-system-react&#39;
 
+import { districts, eventCategories, eventItems } from &#39;#storybook/_common/exampleContent&#39;
+import { formatFieldValue } from &#39;#storybook/_common/formatFieldValue&#39;
+
 import { commonMeta, pageParameters } from &#39;../common/commonMeta&#39;
-import { eventCategories, eventDistricts, eventItems } from &#39;./data&#39;
 
 /** Illustrative totals: the page shows the first batch of a much larger result set. */
 const totalResults = 132
@@ -7373,7 +7375,7 @@ export const Default: StoryObj = {
               &lt;Label htmlFor=&quot;events-district&quot;&gt;Stadsdeel&lt;/Label&gt;
               &lt;Select id=&quot;events-district&quot; name=&quot;stadsdeel&quot;&gt;
                 &lt;Select.Option value=&quot;&quot;&gt;Alle stadsdelen&lt;/Select.Option&gt;
-                &lt;Select.Option value=&quot;Centrum&quot;&gt;Centrum&lt;/Select.Option&gt;
+                &lt;Select.Option value=&quot;centrum&quot;&gt;Centrum&lt;/Select.Option&gt;
                 {/* … one Option per district … */}
               &lt;/Select&gt;
             &lt;/Field&gt;
@@ -7383,7 +7385,7 @@ export const Default: StoryObj = {
           &lt;form method=&quot;get&quot;&gt;
             {/* A Field Set spaces its own children, so the Checkboxes inside one need no margin. */}
             &lt;FieldSet className=&quot;ams-mb-m&quot; legend=&quot;Categorie&quot;&gt;
-              &lt;Checkbox name=&quot;categorie&quot; value=&quot;Cursussen en trainingen&quot;&gt;
+              &lt;Checkbox name=&quot;categorie&quot; value=&quot;cursussen-en-trainingen&quot;&gt;
                 Cursussen en trainingen
               &lt;/Checkbox&gt;
               {/* … one Checkbox per category … */}
@@ -7407,41 +7409,48 @@ export const Default: StoryObj = {
           &lt;Paragraph role=&quot;status&quot;&gt;{resultsMessage}&lt;/Paragraph&gt;
         &lt;/Grid.Cell&gt;
         {/*
-         * On the medium grid a Card takes 4 of the 5 columns of the results region, leaving the last one
-         * empty. That is below the width at which a Card with an image goes horizontal, so it stays vertical.
+         * The activities are a list, so they get a Subgrid of their own: a ul with every Cell in it an li.
+         * The result count above and the Pagination below stay outside it; neither is one of the activities.
+         * A Subgrid inside a Subgrid still hands down the columns of the page, and takes the same row gap.
          */}
-        &lt;Grid.Cell key=&quot;open-dag-stadsarchief&quot; span={{ narrow: 4, medium: 4, wide: 9 }}&gt;
-          &lt;Card&gt;
-            {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
-            &lt;Card.Image alt=&quot;&quot; loading=&quot;lazy&quot; src=&quot;https://picsum.photos/id/1048/640/360&quot; /&gt;
-            {/* A Card that pairs an image with a Content lays out horizontally in a cell this wide. */}
-            &lt;Card.Content&gt;
-              &lt;Card.HeadingGroup&gt;
-                &lt;Card.Heading level={3}&gt;
-                  &lt;Card.Link href=&quot;#&quot;&gt;Open dag Stadsarchief Amsterdam&lt;/Card.Link&gt;
-                &lt;/Card.Heading&gt;
-                {/* The Metadata carries the facets of the activity, comma separated. */}
-                &lt;Metadata size=&quot;small&quot;&gt;Kunst en cultuur, Centrum&lt;/Metadata&gt;
-              &lt;/Card.HeadingGroup&gt;
-              &lt;Column gap=&quot;small&quot;&gt;
-                &lt;Paragraph&gt;Ontdek eeuwenoude kaarten, foto’s en films over Amsterdam.&lt;/Paragraph&gt;
-                {/* When and where, below the description. A Card takes the small size of Metadata. */}
-                &lt;Metadata size=&quot;small&quot;&gt;
-                  {/*
-                   * The visible date is prose; dateTime repeats it in the machine-readable format software parses.
-                   */}
-                  &lt;time dateTime=&quot;2026-06-20&quot;&gt;20 juni 2026&lt;/time&gt;
-                  {/* The day, the time and the place are three kinds of metadata, so a Separator sits between them. */}
-                  &lt;Metadata.Separator /&gt;
-                  10.00–16.00 uur
-                  &lt;Metadata.Separator /&gt;
-                  Stadsarchief Amsterdam
-                &lt;/Metadata&gt;
-              &lt;/Column&gt;
-            &lt;/Card.Content&gt;
-          &lt;/Card&gt;
-        &lt;/Grid.Cell&gt;
-        {/* … one Cell per activity … */}
+        &lt;Grid.Subgrid as=&quot;ul&quot; span=&quot;all&quot;&gt;
+          {/*
+           * On the medium grid a Card takes 4 of the 5 columns of the results region, leaving the last one
+           * empty. That is below the width at which a Card with an image goes horizontal, so it stays vertical.
+           */}
+          &lt;Grid.Cell as=&quot;li&quot; span={{ narrow: 4, medium: 4, wide: 9 }}&gt;
+            &lt;Card&gt;
+              {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
+              &lt;Card.Image alt=&quot;&quot; loading=&quot;lazy&quot; src=&quot;https://picsum.photos/id/1048/640/360&quot; /&gt;
+              {/* A Card that pairs an image with a Content lays out horizontally in a cell this wide. */}
+              &lt;Card.Content&gt;
+                &lt;Card.HeadingGroup&gt;
+                  &lt;Card.Heading level={3}&gt;
+                    &lt;Card.Link href=&quot;#&quot;&gt;Open dag Stadsarchief Amsterdam&lt;/Card.Link&gt;
+                  &lt;/Card.Heading&gt;
+                  {/* The Metadata carries the facets of the activity, comma separated. */}
+                  &lt;Metadata size=&quot;small&quot;&gt;Kunst en cultuur, Centrum&lt;/Metadata&gt;
+                &lt;/Card.HeadingGroup&gt;
+                &lt;Column gap=&quot;small&quot;&gt;
+                  &lt;Paragraph&gt;Ontdek eeuwenoude kaarten, foto’s en films over Amsterdam.&lt;/Paragraph&gt;
+                  {/* When and where, below the description. A Card takes the small size of Metadata. */}
+                  &lt;Metadata size=&quot;small&quot;&gt;
+                    {/*
+                     * The visible date is prose; dateTime repeats it in the machine-readable format software parses.
+                     */}
+                    &lt;time dateTime=&quot;2026-06-20&quot;&gt;20 juni 2026&lt;/time&gt;
+                    {/* The day, the time and the place are three kinds of metadata, so a Separator sits between them. */}
+                    &lt;Metadata.Separator /&gt;
+                    10.00–16.00 uur
+                    &lt;Metadata.Separator /&gt;
+                    Stadsarchief Amsterdam
+                  &lt;/Metadata&gt;
+                &lt;/Column&gt;
+              &lt;/Card.Content&gt;
+            &lt;/Card&gt;
+          &lt;/Grid.Cell&gt;
+          {/* … one Cell per activity … */}
+        &lt;/Grid.Subgrid&gt;
         {/* The Pagination takes the width of the results above it rather than that of the region. */}
         &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 9 }}&gt;
           &lt;Pagination
@@ -7544,8 +7553,8 @@ export const Default: StoryObj = {
                   &lt;Label htmlFor=&quot;events-district&quot;&gt;Stadsdeel&lt;/Label&gt;
                   &lt;Select id=&quot;events-district&quot; name=&quot;stadsdeel&quot;&gt;
                     &lt;Select.Option value=&quot;&quot;&gt;Alle stadsdelen&lt;/Select.Option&gt;
-                    {eventDistricts.map((district) =&gt; (
-                      &lt;Select.Option key={district} value={district}&gt;
+                    {districts.map((district) =&gt; (
+                      &lt;Select.Option key={district} value={formatFieldValue(district)}&gt;
                         {district}
                       &lt;/Select.Option&gt;
                     ))}
@@ -7558,7 +7567,7 @@ export const Default: StoryObj = {
                 {/* A Field Set spaces its own children, so the Checkboxes inside one need no margin. */}
                 &lt;FieldSet className=&quot;ams-mb-m&quot; legend=&quot;Categorie&quot;&gt;
                   {eventCategories.map((category) =&gt; (
-                    &lt;Checkbox key={category} name=&quot;categorie&quot; value={category}&gt;
+                    &lt;Checkbox key={category} name=&quot;categorie&quot; value={formatFieldValue(category)}&gt;
                       {category}
                     &lt;/Checkbox&gt;
                   ))}
@@ -7582,44 +7591,51 @@ export const Default: StoryObj = {
               &lt;Paragraph role=&quot;status&quot;&gt;{resultsMessage}&lt;/Paragraph&gt;
             &lt;/Grid.Cell&gt;
             {/*
-             * On the medium grid a Card takes 4 of the 5 columns of the results region, leaving the last one
-             * empty. That is below the width at which a Card with an image goes horizontal, so it stays vertical.
+             * The activities are a list, so they get a Subgrid of their own: a ul with every Cell in it an li.
+             * The result count above and the Pagination below stay outside it; neither is one of the activities.
+             * A Subgrid inside a Subgrid still hands down the columns of the page, and takes the same row gap.
              */}
-            {eventItems.map((event) =&gt; (
-              &lt;Grid.Cell key={event.id} span={{ narrow: 4, medium: 4, wide: 9 }}&gt;
-                &lt;Card&gt;
-                  {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
-                  &lt;Card.Image alt=&quot;&quot; loading=&quot;lazy&quot; src={event.imageSource} /&gt;
-                  {/* A Card that pairs an image with a Content lays out horizontally in a cell this wide. */}
-                  &lt;Card.Content&gt;
-                    &lt;Card.HeadingGroup&gt;
-                      &lt;Card.Heading level={3}&gt;
-                        &lt;Card.Link href={event.href}&gt;{event.title}&lt;/Card.Link&gt;
-                      &lt;/Card.Heading&gt;
-                      {/* The Metadata carries the facets of the activity, comma separated. */}
-                      &lt;Metadata size=&quot;small&quot;&gt;{`${event.category}, ${event.district}`}&lt;/Metadata&gt;
-                    &lt;/Card.HeadingGroup&gt;
-                    &lt;Column gap=&quot;small&quot;&gt;
-                      &lt;Paragraph&gt;{event.teaser}&lt;/Paragraph&gt;
-                      {/* When and where, below the description. A Card takes the small size of Metadata. */}
-                      &lt;Metadata size=&quot;small&quot;&gt;
-                        {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
-                        &lt;time dateTime={event.isoDate}&gt;{event.date}&lt;/time&gt;
-                        {/* The day, the time and the place are three kinds of metadata, so a Separator sits between them. */}
-                        {event.timeLabel &amp;&amp; (
-                          &lt;&gt;
-                            &lt;Metadata.Separator /&gt;
-                            {event.timeLabel}
-                          &lt;/&gt;
-                        )}
-                        &lt;Metadata.Separator /&gt;
-                        {event.venue}
-                      &lt;/Metadata&gt;
-                    &lt;/Column&gt;
-                  &lt;/Card.Content&gt;
-                &lt;/Card&gt;
-              &lt;/Grid.Cell&gt;
-            ))}
+            &lt;Grid.Subgrid as=&quot;ul&quot; span=&quot;all&quot;&gt;
+              {/*
+               * On the medium grid a Card takes 4 of the 5 columns of the results region, leaving the last one
+               * empty. That is below the width at which a Card with an image goes horizontal, so it stays vertical.
+               */}
+              {eventItems.map((event) =&gt; (
+                &lt;Grid.Cell as=&quot;li&quot; key={event.id} span={{ narrow: 4, medium: 4, wide: 9 }}&gt;
+                  &lt;Card&gt;
+                    {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
+                    &lt;Card.Image alt=&quot;&quot; loading=&quot;lazy&quot; src={event.imageSource} /&gt;
+                    {/* A Card that pairs an image with a Content lays out horizontally in a cell this wide. */}
+                    &lt;Card.Content&gt;
+                      &lt;Card.HeadingGroup&gt;
+                        &lt;Card.Heading level={3}&gt;
+                          &lt;Card.Link href={event.href}&gt;{event.title}&lt;/Card.Link&gt;
+                        &lt;/Card.Heading&gt;
+                        {/* The Metadata carries the facets of the activity, comma separated. */}
+                        &lt;Metadata size=&quot;small&quot;&gt;{`${event.category}, ${event.district}`}&lt;/Metadata&gt;
+                      &lt;/Card.HeadingGroup&gt;
+                      &lt;Column gap=&quot;small&quot;&gt;
+                        &lt;Paragraph&gt;{event.teaser}&lt;/Paragraph&gt;
+                        {/* When and where, below the description. A Card takes the small size of Metadata. */}
+                        &lt;Metadata size=&quot;small&quot;&gt;
+                          {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
+                          &lt;time dateTime={event.isoDate}&gt;{event.date}&lt;/time&gt;
+                          {/* The day, the time and the place are three kinds of metadata, so a Separator sits between them. */}
+                          {event.timeLabel &amp;&amp; (
+                            &lt;&gt;
+                              &lt;Metadata.Separator /&gt;
+                              {event.timeLabel}
+                            &lt;/&gt;
+                          )}
+                          &lt;Metadata.Separator /&gt;
+                          {event.venue}
+                        &lt;/Metadata&gt;
+                      &lt;/Column&gt;
+                    &lt;/Card.Content&gt;
+                  &lt;/Card&gt;
+                &lt;/Grid.Cell&gt;
+              ))}
+            &lt;/Grid.Subgrid&gt;
             {/* The Pagination takes the width of the results above it rather than that of the region. */}
             &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 9 }}&gt;
               &lt;Pagination
@@ -7728,7 +7744,7 @@ export const CardGrid: StoryObj = {
               &lt;Label htmlFor=&quot;events-district&quot;&gt;Stadsdeel&lt;/Label&gt;
               &lt;Select id=&quot;events-district&quot; name=&quot;stadsdeel&quot;&gt;
                 &lt;Select.Option value=&quot;&quot;&gt;Alle stadsdelen&lt;/Select.Option&gt;
-                &lt;Select.Option value=&quot;Centrum&quot;&gt;Centrum&lt;/Select.Option&gt;
+                &lt;Select.Option value=&quot;centrum&quot;&gt;Centrum&lt;/Select.Option&gt;
                 {/* … one Option per district … */}
               &lt;/Select&gt;
             &lt;/Field&gt;
@@ -7738,7 +7754,7 @@ export const CardGrid: StoryObj = {
           &lt;form method=&quot;get&quot;&gt;
             {/* A Field Set spaces its own children, so the Checkboxes inside one need no margin. */}
             &lt;FieldSet className=&quot;ams-mb-m&quot; legend=&quot;Categorie&quot;&gt;
-              &lt;Checkbox name=&quot;categorie&quot; value=&quot;Cursussen en trainingen&quot;&gt;
+              &lt;Checkbox name=&quot;categorie&quot; value=&quot;cursussen-en-trainingen&quot;&gt;
                 Cursussen en trainingen
               &lt;/Checkbox&gt;
               {/* … one Checkbox per category … */}
@@ -7762,41 +7778,48 @@ export const CardGrid: StoryObj = {
           &lt;Paragraph role=&quot;status&quot;&gt;{resultsMessage}&lt;/Paragraph&gt;
         &lt;/Grid.Cell&gt;
         {/*
-         * Three columns of the nine the results span, so the Cards tile three to a row on the wide grid.
-         * That is narrower than the width at which a Card with an image goes horizontal, so each one stays
-         * vertical and its image spans the full width of the Card.
+         * The activities are a list, so they get a Subgrid of their own: a ul with every Cell in it an li.
+         * The result count above and the Pagination below stay outside it; neither is one of the activities.
+         * A Subgrid inside a Subgrid still hands down the columns of the page, and takes the same row gap.
          */}
-        &lt;Grid.Cell key=&quot;open-dag-stadsarchief&quot; span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
-          &lt;Card&gt;
-            {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
-            &lt;Card.Image alt=&quot;&quot; loading=&quot;lazy&quot; src=&quot;https://picsum.photos/id/1048/640/360&quot; /&gt;
-            &lt;Card.Content&gt;
-              &lt;Card.HeadingGroup&gt;
-                &lt;Card.Heading level={3}&gt;
-                  &lt;Card.Link href=&quot;#&quot;&gt;Open dag Stadsarchief Amsterdam&lt;/Card.Link&gt;
-                &lt;/Card.Heading&gt;
-                {/* The Metadata carries the facets of the activity, comma separated. */}
-                &lt;Metadata size=&quot;small&quot;&gt;Kunst en cultuur, Centrum&lt;/Metadata&gt;
-              &lt;/Card.HeadingGroup&gt;
-              &lt;Column gap=&quot;small&quot;&gt;
-                &lt;Paragraph&gt;Ontdek eeuwenoude kaarten, foto’s en films over Amsterdam.&lt;/Paragraph&gt;
-                {/* When and where, below the description. A Card takes the small size of Metadata. */}
-                &lt;Metadata size=&quot;small&quot;&gt;
-                  {/*
-                   * The visible date is prose; dateTime repeats it in the machine-readable format software parses.
-                   */}
-                  &lt;time dateTime=&quot;2026-06-20&quot;&gt;20 juni 2026&lt;/time&gt;
-                  {/* The day, the time and the place are three kinds of metadata, so a Separator sits between them. */}
-                  &lt;Metadata.Separator /&gt;
-                  10.00–16.00 uur
-                  &lt;Metadata.Separator /&gt;
-                  Stadsarchief Amsterdam
-                &lt;/Metadata&gt;
-              &lt;/Column&gt;
-            &lt;/Card.Content&gt;
-          &lt;/Card&gt;
-        &lt;/Grid.Cell&gt;
-        {/* … one Cell per activity … */}
+        &lt;Grid.Subgrid as=&quot;ul&quot; span=&quot;all&quot;&gt;
+          {/*
+           * Three columns of the nine the results span, so the Cards tile three to a row on the wide grid.
+           * That is narrower than the width at which a Card with an image goes horizontal, so each one stays
+           * vertical and its image spans the full width of the Card.
+           */}
+          &lt;Grid.Cell as=&quot;li&quot; span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
+            &lt;Card&gt;
+              {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
+              &lt;Card.Image alt=&quot;&quot; loading=&quot;lazy&quot; src=&quot;https://picsum.photos/id/1048/640/360&quot; /&gt;
+              &lt;Card.Content&gt;
+                &lt;Card.HeadingGroup&gt;
+                  &lt;Card.Heading level={3}&gt;
+                    &lt;Card.Link href=&quot;#&quot;&gt;Open dag Stadsarchief Amsterdam&lt;/Card.Link&gt;
+                  &lt;/Card.Heading&gt;
+                  {/* The Metadata carries the facets of the activity, comma separated. */}
+                  &lt;Metadata size=&quot;small&quot;&gt;Kunst en cultuur, Centrum&lt;/Metadata&gt;
+                &lt;/Card.HeadingGroup&gt;
+                &lt;Column gap=&quot;small&quot;&gt;
+                  &lt;Paragraph&gt;Ontdek eeuwenoude kaarten, foto’s en films over Amsterdam.&lt;/Paragraph&gt;
+                  {/* When and where, below the description. A Card takes the small size of Metadata. */}
+                  &lt;Metadata size=&quot;small&quot;&gt;
+                    {/*
+                     * The visible date is prose; dateTime repeats it in the machine-readable format software parses.
+                     */}
+                    &lt;time dateTime=&quot;2026-06-20&quot;&gt;20 juni 2026&lt;/time&gt;
+                    {/* The day, the time and the place are three kinds of metadata, so a Separator sits between them. */}
+                    &lt;Metadata.Separator /&gt;
+                    10.00–16.00 uur
+                    &lt;Metadata.Separator /&gt;
+                    Stadsarchief Amsterdam
+                  &lt;/Metadata&gt;
+                &lt;/Column&gt;
+              &lt;/Card.Content&gt;
+            &lt;/Card&gt;
+          &lt;/Grid.Cell&gt;
+          {/* … one Cell per activity … */}
+        &lt;/Grid.Subgrid&gt;
         {/* The Pagination takes the width of the results above it rather than that of the region. */}
         &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 9 }}&gt;
           &lt;Pagination
@@ -7899,8 +7922,8 @@ export const CardGrid: StoryObj = {
                   &lt;Label htmlFor=&quot;events-district&quot;&gt;Stadsdeel&lt;/Label&gt;
                   &lt;Select id=&quot;events-district&quot; name=&quot;stadsdeel&quot;&gt;
                     &lt;Select.Option value=&quot;&quot;&gt;Alle stadsdelen&lt;/Select.Option&gt;
-                    {eventDistricts.map((district) =&gt; (
-                      &lt;Select.Option key={district} value={district}&gt;
+                    {districts.map((district) =&gt; (
+                      &lt;Select.Option key={district} value={formatFieldValue(district)}&gt;
                         {district}
                       &lt;/Select.Option&gt;
                     ))}
@@ -7913,7 +7936,7 @@ export const CardGrid: StoryObj = {
                 {/* A Field Set spaces its own children, so the Checkboxes inside one need no margin. */}
                 &lt;FieldSet className=&quot;ams-mb-m&quot; legend=&quot;Categorie&quot;&gt;
                   {eventCategories.map((category) =&gt; (
-                    &lt;Checkbox key={category} name=&quot;categorie&quot; value={category}&gt;
+                    &lt;Checkbox key={category} name=&quot;categorie&quot; value={formatFieldValue(category)}&gt;
                       {category}
                     &lt;/Checkbox&gt;
                   ))}
@@ -7937,44 +7960,51 @@ export const CardGrid: StoryObj = {
               &lt;Paragraph role=&quot;status&quot;&gt;{resultsMessage}&lt;/Paragraph&gt;
             &lt;/Grid.Cell&gt;
             {/*
-             * Three columns of the nine the results span, so the Cards tile three to a row on the wide grid.
-             * That is narrower than the width at which a Card with an image goes horizontal, so each one stays
-             * vertical and its image spans the full width of the Card.
+             * The activities are a list, so they get a Subgrid of their own: a ul with every Cell in it an li.
+             * The result count above and the Pagination below stay outside it; neither is one of the activities.
+             * A Subgrid inside a Subgrid still hands down the columns of the page, and takes the same row gap.
              */}
-            {eventItems.map((event) =&gt; (
-              &lt;Grid.Cell key={event.id} span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
-                &lt;Card&gt;
-                  {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
-                  &lt;Card.Image alt=&quot;&quot; loading=&quot;lazy&quot; src={event.imageSource} /&gt;
-                  &lt;Card.Content&gt;
-                    &lt;Card.HeadingGroup&gt;
-                      &lt;Card.Heading level={3}&gt;
-                        &lt;Card.Link href={event.href}&gt;{event.title}&lt;/Card.Link&gt;
-                      &lt;/Card.Heading&gt;
-                      {/* The Metadata carries the facets of the activity, comma separated. */}
-                      &lt;Metadata size=&quot;small&quot;&gt;{`${event.category}, ${event.district}`}&lt;/Metadata&gt;
-                    &lt;/Card.HeadingGroup&gt;
-                    &lt;Column gap=&quot;small&quot;&gt;
-                      &lt;Paragraph&gt;{event.teaser}&lt;/Paragraph&gt;
-                      {/* When and where, below the description. A Card takes the small size of Metadata. */}
-                      &lt;Metadata size=&quot;small&quot;&gt;
-                        {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
-                        &lt;time dateTime={event.isoDate}&gt;{event.date}&lt;/time&gt;
-                        {/* The day, the time and the place are three kinds of metadata, so a Separator sits between them. */}
-                        {event.timeLabel &amp;&amp; (
-                          &lt;&gt;
-                            &lt;Metadata.Separator /&gt;
-                            {event.timeLabel}
-                          &lt;/&gt;
-                        )}
-                        &lt;Metadata.Separator /&gt;
-                        {event.venue}
-                      &lt;/Metadata&gt;
-                    &lt;/Column&gt;
-                  &lt;/Card.Content&gt;
-                &lt;/Card&gt;
-              &lt;/Grid.Cell&gt;
-            ))}
+            &lt;Grid.Subgrid as=&quot;ul&quot; span=&quot;all&quot;&gt;
+              {/*
+               * Three columns of the nine the results span, so the Cards tile three to a row on the wide grid.
+               * That is narrower than the width at which a Card with an image goes horizontal, so each one stays
+               * vertical and its image spans the full width of the Card.
+               */}
+              {eventItems.map((event) =&gt; (
+                &lt;Grid.Cell as=&quot;li&quot; key={event.id} span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
+                  &lt;Card&gt;
+                    {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
+                    &lt;Card.Image alt=&quot;&quot; loading=&quot;lazy&quot; src={event.imageSource} /&gt;
+                    &lt;Card.Content&gt;
+                      &lt;Card.HeadingGroup&gt;
+                        &lt;Card.Heading level={3}&gt;
+                          &lt;Card.Link href={event.href}&gt;{event.title}&lt;/Card.Link&gt;
+                        &lt;/Card.Heading&gt;
+                        {/* The Metadata carries the facets of the activity, comma separated. */}
+                        &lt;Metadata size=&quot;small&quot;&gt;{`${event.category}, ${event.district}`}&lt;/Metadata&gt;
+                      &lt;/Card.HeadingGroup&gt;
+                      &lt;Column gap=&quot;small&quot;&gt;
+                        &lt;Paragraph&gt;{event.teaser}&lt;/Paragraph&gt;
+                        {/* When and where, below the description. A Card takes the small size of Metadata. */}
+                        &lt;Metadata size=&quot;small&quot;&gt;
+                          {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
+                          &lt;time dateTime={event.isoDate}&gt;{event.date}&lt;/time&gt;
+                          {/* The day, the time and the place are three kinds of metadata, so a Separator sits between them. */}
+                          {event.timeLabel &amp;&amp; (
+                            &lt;&gt;
+                              &lt;Metadata.Separator /&gt;
+                              {event.timeLabel}
+                            &lt;/&gt;
+                          )}
+                          &lt;Metadata.Separator /&gt;
+                          {event.venue}
+                        &lt;/Metadata&gt;
+                      &lt;/Column&gt;
+                    &lt;/Card.Content&gt;
+                  &lt;/Card&gt;
+                &lt;/Grid.Cell&gt;
+              ))}
+            &lt;/Grid.Subgrid&gt;
             {/* The Pagination takes the width of the results above it rather than that of the region. */}
             &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 9 }}&gt;
               &lt;Pagination
@@ -8124,8 +8154,8 @@ export const CardGrid: StoryObj = {
                 &lt;Label htmlFor=&quot;events-district&quot;&gt;Stadsdeel&lt;/Label&gt;
                 &lt;Select id=&quot;events-district&quot; name=&quot;stadsdeel&quot;&gt;
                   &lt;Select.Option value=&quot;&quot;&gt;Alle stadsdelen&lt;/Select.Option&gt;
-                  {eventDistricts.map((district) =&gt; (
-                    &lt;Select.Option key={district} value={district}&gt;
+                  {districts.map((district) =&gt; (
+                    &lt;Select.Option key={district} value={formatFieldValue(district)}&gt;
                       {district}
                     &lt;/Select.Option&gt;
                   ))}
@@ -8138,7 +8168,7 @@ export const CardGrid: StoryObj = {
               {/* A Field Set spaces its own children, so the Checkboxes inside one need no margin. */}
               &lt;FieldSet className=&quot;ams-mb-m&quot; legend=&quot;Categorie&quot;&gt;
                 {eventCategories.map((category) =&gt; (
-                  &lt;Checkbox key={category} name=&quot;categorie&quot; value={category}&gt;
+                  &lt;Checkbox key={category} name=&quot;categorie&quot; value={formatFieldValue(category)}&gt;
                     {category}
                   &lt;/Checkbox&gt;
                 ))}
@@ -8162,44 +8192,51 @@ export const CardGrid: StoryObj = {
             &lt;Paragraph role=&quot;status&quot;&gt;{resultsMessage}&lt;/Paragraph&gt;
           &lt;/Grid.Cell&gt;
           {/*
-           * On the medium grid a Card takes 4 of the 5 columns of the results region, leaving the last one
-           * empty. That is below the width at which a Card with an image goes horizontal, so it stays vertical.
+           * The activities are a list, so they get a Subgrid of their own: a ul with every Cell in it an li.
+           * The result count above and the Pagination below stay outside it; neither is one of the activities.
+           * A Subgrid inside a Subgrid still hands down the columns of the page, and takes the same row gap.
            */}
-          {eventItems.map((event) =&gt; (
-            &lt;Grid.Cell key={event.id} span={{ narrow: 4, medium: 4, wide: 9 }}&gt;
-              &lt;Card&gt;
-                {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
-                &lt;Card.Image alt=&quot;&quot; loading=&quot;lazy&quot; src={event.imageSource} /&gt;
-                {/* A Card that pairs an image with a Content lays out horizontally in a cell this wide. */}
-                &lt;Card.Content&gt;
-                  &lt;Card.HeadingGroup&gt;
-                    &lt;Card.Heading level={3}&gt;
-                      &lt;Card.Link href={event.href}&gt;{event.title}&lt;/Card.Link&gt;
-                    &lt;/Card.Heading&gt;
-                    {/* The Metadata carries the facets of the activity, comma separated. */}
-                    &lt;Metadata size=&quot;small&quot;&gt;{`${event.category}, ${event.district}`}&lt;/Metadata&gt;
-                  &lt;/Card.HeadingGroup&gt;
-                  &lt;Column gap=&quot;small&quot;&gt;
-                    &lt;Paragraph&gt;{event.teaser}&lt;/Paragraph&gt;
-                    {/* When and where, below the description. A Card takes the small size of Metadata. */}
-                    &lt;Metadata size=&quot;small&quot;&gt;
-                      {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
-                      &lt;time dateTime={event.isoDate}&gt;{event.date}&lt;/time&gt;
-                      {/* The day, the time and the place are three kinds of metadata, so a Separator sits between them. */}
-                      {event.timeLabel &amp;&amp; (
-                        &lt;&gt;
-                          &lt;Metadata.Separator /&gt;
-                          {event.timeLabel}
-                        &lt;/&gt;
-                      )}
-                      &lt;Metadata.Separator /&gt;
-                      {event.venue}
-                    &lt;/Metadata&gt;
-                  &lt;/Column&gt;
-                &lt;/Card.Content&gt;
-              &lt;/Card&gt;
-            &lt;/Grid.Cell&gt;
-          ))}
+          &lt;Grid.Subgrid as=&quot;ul&quot; span=&quot;all&quot;&gt;
+            {/*
+             * On the medium grid a Card takes 4 of the 5 columns of the results region, leaving the last one
+             * empty. That is below the width at which a Card with an image goes horizontal, so it stays vertical.
+             */}
+            {eventItems.map((event) =&gt; (
+              &lt;Grid.Cell as=&quot;li&quot; key={event.id} span={{ narrow: 4, medium: 4, wide: 9 }}&gt;
+                &lt;Card&gt;
+                  {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
+                  &lt;Card.Image alt=&quot;&quot; loading=&quot;lazy&quot; src={event.imageSource} /&gt;
+                  {/* A Card that pairs an image with a Content lays out horizontally in a cell this wide. */}
+                  &lt;Card.Content&gt;
+                    &lt;Card.HeadingGroup&gt;
+                      &lt;Card.Heading level={3}&gt;
+                        &lt;Card.Link href={event.href}&gt;{event.title}&lt;/Card.Link&gt;
+                      &lt;/Card.Heading&gt;
+                      {/* The Metadata carries the facets of the activity, comma separated. */}
+                      &lt;Metadata size=&quot;small&quot;&gt;{`${event.category}, ${event.district}`}&lt;/Metadata&gt;
+                    &lt;/Card.HeadingGroup&gt;
+                    &lt;Column gap=&quot;small&quot;&gt;
+                      &lt;Paragraph&gt;{event.teaser}&lt;/Paragraph&gt;
+                      {/* When and where, below the description. A Card takes the small size of Metadata. */}
+                      &lt;Metadata size=&quot;small&quot;&gt;
+                        {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
+                        &lt;time dateTime={event.isoDate}&gt;{event.date}&lt;/time&gt;
+                        {/* The day, the time and the place are three kinds of metadata, so a Separator sits between them. */}
+                        {event.timeLabel &amp;&amp; (
+                          &lt;&gt;
+                            &lt;Metadata.Separator /&gt;
+                            {event.timeLabel}
+                          &lt;/&gt;
+                        )}
+                        &lt;Metadata.Separator /&gt;
+                        {event.venue}
+                      &lt;/Metadata&gt;
+                    &lt;/Column&gt;
+                  &lt;/Card.Content&gt;
+                &lt;/Card&gt;
+              &lt;/Grid.Cell&gt;
+            ))}
+          &lt;/Grid.Subgrid&gt;
           {/* The Pagination takes the width of the results above it rather than that of the region. */}
           &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 9 }}&gt;
             &lt;Pagination
@@ -8307,8 +8344,8 @@ export const CardGrid: StoryObj = {
                 &lt;Label htmlFor=&quot;events-district&quot;&gt;Stadsdeel&lt;/Label&gt;
                 &lt;Select id=&quot;events-district&quot; name=&quot;stadsdeel&quot;&gt;
                   &lt;Select.Option value=&quot;&quot;&gt;Alle stadsdelen&lt;/Select.Option&gt;
-                  {eventDistricts.map((district) =&gt; (
-                    &lt;Select.Option key={district} value={district}&gt;
+                  {districts.map((district) =&gt; (
+                    &lt;Select.Option key={district} value={formatFieldValue(district)}&gt;
                       {district}
                     &lt;/Select.Option&gt;
                   ))}
@@ -8321,7 +8358,7 @@ export const CardGrid: StoryObj = {
               {/* A Field Set spaces its own children, so the Checkboxes inside one need no margin. */}
               &lt;FieldSet className=&quot;ams-mb-m&quot; legend=&quot;Categorie&quot;&gt;
                 {eventCategories.map((category) =&gt; (
-                  &lt;Checkbox key={category} name=&quot;categorie&quot; value={category}&gt;
+                  &lt;Checkbox key={category} name=&quot;categorie&quot; value={formatFieldValue(category)}&gt;
                     {category}
                   &lt;/Checkbox&gt;
                 ))}
@@ -8345,44 +8382,51 @@ export const CardGrid: StoryObj = {
             &lt;Paragraph role=&quot;status&quot;&gt;{resultsMessage}&lt;/Paragraph&gt;
           &lt;/Grid.Cell&gt;
           {/*
-           * Three columns of the nine the results span, so the Cards tile three to a row on the wide grid.
-           * That is narrower than the width at which a Card with an image goes horizontal, so each one stays
-           * vertical and its image spans the full width of the Card.
+           * The activities are a list, so they get a Subgrid of their own: a ul with every Cell in it an li.
+           * The result count above and the Pagination below stay outside it; neither is one of the activities.
+           * A Subgrid inside a Subgrid still hands down the columns of the page, and takes the same row gap.
            */}
-          {eventItems.map((event) =&gt; (
-            &lt;Grid.Cell key={event.id} span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
-              &lt;Card&gt;
-                {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
-                &lt;Card.Image alt=&quot;&quot; loading=&quot;lazy&quot; src={event.imageSource} /&gt;
-                &lt;Card.Content&gt;
-                  &lt;Card.HeadingGroup&gt;
-                    &lt;Card.Heading level={3}&gt;
-                      &lt;Card.Link href={event.href}&gt;{event.title}&lt;/Card.Link&gt;
-                    &lt;/Card.Heading&gt;
-                    {/* The Metadata carries the facets of the activity, comma separated. */}
-                    &lt;Metadata size=&quot;small&quot;&gt;{`${event.category}, ${event.district}`}&lt;/Metadata&gt;
-                  &lt;/Card.HeadingGroup&gt;
-                  &lt;Column gap=&quot;small&quot;&gt;
-                    &lt;Paragraph&gt;{event.teaser}&lt;/Paragraph&gt;
-                    {/* When and where, below the description. A Card takes the small size of Metadata. */}
-                    &lt;Metadata size=&quot;small&quot;&gt;
-                      {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
-                      &lt;time dateTime={event.isoDate}&gt;{event.date}&lt;/time&gt;
-                      {/* The day, the time and the place are three kinds of metadata, so a Separator sits between them. */}
-                      {event.timeLabel &amp;&amp; (
-                        &lt;&gt;
-                          &lt;Metadata.Separator /&gt;
-                          {event.timeLabel}
-                        &lt;/&gt;
-                      )}
-                      &lt;Metadata.Separator /&gt;
-                      {event.venue}
-                    &lt;/Metadata&gt;
-                  &lt;/Column&gt;
-                &lt;/Card.Content&gt;
-              &lt;/Card&gt;
-            &lt;/Grid.Cell&gt;
-          ))}
+          &lt;Grid.Subgrid as=&quot;ul&quot; span=&quot;all&quot;&gt;
+            {/*
+             * Three columns of the nine the results span, so the Cards tile three to a row on the wide grid.
+             * That is narrower than the width at which a Card with an image goes horizontal, so each one stays
+             * vertical and its image spans the full width of the Card.
+             */}
+            {eventItems.map((event) =&gt; (
+              &lt;Grid.Cell as=&quot;li&quot; key={event.id} span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
+                &lt;Card&gt;
+                  {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
+                  &lt;Card.Image alt=&quot;&quot; loading=&quot;lazy&quot; src={event.imageSource} /&gt;
+                  &lt;Card.Content&gt;
+                    &lt;Card.HeadingGroup&gt;
+                      &lt;Card.Heading level={3}&gt;
+                        &lt;Card.Link href={event.href}&gt;{event.title}&lt;/Card.Link&gt;
+                      &lt;/Card.Heading&gt;
+                      {/* The Metadata carries the facets of the activity, comma separated. */}
+                      &lt;Metadata size=&quot;small&quot;&gt;{`${event.category}, ${event.district}`}&lt;/Metadata&gt;
+                    &lt;/Card.HeadingGroup&gt;
+                    &lt;Column gap=&quot;small&quot;&gt;
+                      &lt;Paragraph&gt;{event.teaser}&lt;/Paragraph&gt;
+                      {/* When and where, below the description. A Card takes the small size of Metadata. */}
+                      &lt;Metadata size=&quot;small&quot;&gt;
+                        {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
+                        &lt;time dateTime={event.isoDate}&gt;{event.date}&lt;/time&gt;
+                        {/* The day, the time and the place are three kinds of metadata, so a Separator sits between them. */}
+                        {event.timeLabel &amp;&amp; (
+                          &lt;&gt;
+                            &lt;Metadata.Separator /&gt;
+                            {event.timeLabel}
+                          &lt;/&gt;
+                        )}
+                        &lt;Metadata.Separator /&gt;
+                        {event.venue}
+                      &lt;/Metadata&gt;
+                    &lt;/Column&gt;
+                  &lt;/Card.Content&gt;
+                &lt;/Card&gt;
+              &lt;/Grid.Cell&gt;
+            ))}
+          &lt;/Grid.Subgrid&gt;
           {/* The Pagination takes the width of the results above it rather than that of the region. */}
           &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 9 }}&gt;
             &lt;Pagination
@@ -8499,6 +8543,9 @@ Put the results in a [Grid Subgrid](/docs/components-layout-grid--docs) rather t
 A Subgrid hands the columns it spans to its own children, so the Cells inside it sit on the columns of the page.
 Without it the results have no columns of their own, and nothing in them can line up with the rest of the page.
 
+The activities are a list, so give them a Subgrid of their own inside that one: a `ul` with every Cell in it an `li`.
+The sentence announcing the total and the Pagination are not part of that list, so they stay outside it.
+
 Announce the number of results in a `role=&quot;status&quot;` paragraph.
 
 Close the list with [Pagination](/docs/components-navigation-pagination--docs) in a Cell as wide as the results above it, rather than as wide as the region.
@@ -8541,6 +8588,9 @@ The heading of the filter column is hidden visually but not from assistive techn
 
 The number of results is announced in a `role=&quot;status&quot;` paragraph.
 A visitor using a screen reader otherwise has no way to tell that ticking a checkbox changed anything.
+
+The activities are a list in the markup as well as on screen.
+A screen reader then announces how many there are and which one it is on, and can skip past them all at once.
 
 The Calendar is a set of links rather than a date input, so it is reached and operated as navigation.
 Give it an accessible name that says where its days lead: the month alone does not.
@@ -21449,13 +21499,13 @@ That is the cost of the layout recorded above, and the part of this template sti
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
-  49 | const resultsMessage = `${totalResults} resultaten gevonden voor ‘${searchTerm}’ met soort nieuws ${quotedList(selectedCategories)} en ${districtPhrase}.`
-  50 |
-&gt; 51 | const meta = {
+  51 | const resultsMessage = `${totalResults} resultaten gevonden voor ‘${searchTerm}’ met soort nieuws ${quotedList(selectedCategories)} en ${districtPhrase}.`
+  52 |
+&gt; 53 | const meta = {
      | ^
-  52 |   ...commonMeta,
-  53 |   title: &#39;Pages/Public/News Overview Page&#39;,
-  54 |   parameters: pageParameters(
+  54 |   ...commonMeta,
+  55 |   title: &#39;Pages/Public/News Overview Page&#39;,
+  56 |   parameters: pageParameters(
 
 ./src/pages/public/NewsOverviewPage/NewsOverviewPage.stories.tsx:
 /**
@@ -21483,8 +21533,10 @@ import {
   Select,
 } from &#39;@amsterdam/design-system-react&#39;
 
+import { districts, newsArticles, newsCategories } from &#39;#storybook/_common/exampleContent&#39;
+import { formatFieldValue } from &#39;#storybook/_common/formatFieldValue&#39;
+
 import { commonMeta, pageParameters } from &#39;../common/commonMeta&#39;
-import { newsArticles, newsCategories, newsDistricts } from &#39;./data&#39;
 
 const searchTerm = &#39;tramspoor&#39;
 const selectedCategories = [&#39;Achtergrond&#39;]
@@ -21571,25 +21623,21 @@ export const Default: StoryObj = {
             &lt;/Select&gt;
           &lt;/Field&gt;
           &lt;FieldSet className=&quot;ams-mb-l&quot; legend=&quot;Soort nieuws&quot;&gt;
-            &lt;Column gap=&quot;x-small&quot;&gt;
-              &lt;Checkbox name=&quot;soort&quot; value=&quot;algemeen&quot;&gt;
-                Algemeen
-              &lt;/Checkbox&gt;
-              &lt;Checkbox defaultChecked name=&quot;soort&quot; value=&quot;achtergrond&quot;&gt;
-                Achtergrond
-              &lt;/Checkbox&gt;
-              &lt;Checkbox name=&quot;soort&quot; value=&quot;live blogs&quot;&gt;
-                Live blogs
-              &lt;/Checkbox&gt;
-            &lt;/Column&gt;
+            &lt;Checkbox name=&quot;soort&quot; value=&quot;algemeen&quot;&gt;
+              Algemeen
+            &lt;/Checkbox&gt;
+            &lt;Checkbox defaultChecked name=&quot;soort&quot; value=&quot;achtergrond&quot;&gt;
+              Achtergrond
+            &lt;/Checkbox&gt;
+            &lt;Checkbox name=&quot;soort&quot; value=&quot;live-blogs&quot;&gt;
+              Live blogs
+            &lt;/Checkbox&gt;
           &lt;/FieldSet&gt;
           &lt;FieldSet className=&quot;ams-mb-l&quot; legend=&quot;Stadsdelen&quot;&gt;
-            &lt;Column gap=&quot;x-small&quot;&gt;
-              &lt;Checkbox defaultChecked name=&quot;stadsdeel&quot; value=&quot;centrum&quot;&gt;
-                Centrum
-              &lt;/Checkbox&gt;
-              {/* … one Checkbox per district … */}
-            &lt;/Column&gt;
+            &lt;Checkbox defaultChecked name=&quot;stadsdeel&quot; value=&quot;centrum&quot;&gt;
+              Centrum
+            &lt;/Checkbox&gt;
+            {/* … one Checkbox per district … */}
           &lt;/FieldSet&gt;
           {/* The design filters as soon as a box is ticked; the button keeps the form usable without that script. */}
           &lt;Button type=&quot;submit&quot;&gt;Resultaten tonen&lt;/Button&gt;
@@ -21646,7 +21694,8 @@ export const Default: StoryObj = {
           &lt;/Grid.Cell&gt;
           {/* … one Cell per article … */}
         &lt;/Grid.Subgrid&gt;
-        &lt;Grid.Cell span=&quot;all&quot;&gt;
+        {/* The Pagination takes the width of the results above it rather than that of the region. */}
+        &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 9 }}&gt;
           &lt;Pagination
             accessibleNameId=&quot;paginering&quot;
             linkTemplate={(page) =&gt; \`?pagina=\${page}\`}
@@ -21712,32 +21761,28 @@ export const Default: StoryObj = {
                 &lt;/Select&gt;
               &lt;/Field&gt;
               &lt;FieldSet className=&quot;ams-mb-l&quot; legend=&quot;Soort nieuws&quot;&gt;
-                &lt;Column gap=&quot;x-small&quot;&gt;
-                  {newsCategories.map((category) =&gt; (
-                    &lt;Checkbox
-                      defaultChecked={selectedCategories.includes(category)}
-                      key={category}
-                      name=&quot;soort&quot;
-                      value={category.toLowerCase()}
-                    &gt;
-                      {category}
-                    &lt;/Checkbox&gt;
-                  ))}
-                &lt;/Column&gt;
+                {newsCategories.map((category) =&gt; (
+                  &lt;Checkbox
+                    defaultChecked={selectedCategories.includes(category)}
+                    key={category}
+                    name=&quot;soort&quot;
+                    value={formatFieldValue(category)}
+                  &gt;
+                    {category}
+                  &lt;/Checkbox&gt;
+                ))}
               &lt;/FieldSet&gt;
               &lt;FieldSet className=&quot;ams-mb-l&quot; legend=&quot;Stadsdelen&quot;&gt;
-                &lt;Column gap=&quot;x-small&quot;&gt;
-                  {newsDistricts.map((district) =&gt; (
-                    &lt;Checkbox
-                      defaultChecked={selectedDistricts.includes(district)}
-                      key={district}
-                      name=&quot;stadsdeel&quot;
-                      value={district.toLowerCase()}
-                    &gt;
-                      {district}
-                    &lt;/Checkbox&gt;
-                  ))}
-                &lt;/Column&gt;
+                {districts.map((district) =&gt; (
+                  &lt;Checkbox
+                    defaultChecked={selectedDistricts.includes(district)}
+                    key={district}
+                    name=&quot;stadsdeel&quot;
+                    value={formatFieldValue(district)}
+                  &gt;
+                    {district}
+                  &lt;/Checkbox&gt;
+                ))}
               &lt;/FieldSet&gt;
               {/* The design filters as soon as a box is ticked; the button keeps the form usable without that script. */}
               &lt;Button type=&quot;submit&quot;&gt;Resultaten tonen&lt;/Button&gt;
@@ -21792,7 +21837,8 @@ export const Default: StoryObj = {
                 &lt;/Grid.Cell&gt;
               ))}
             &lt;/Grid.Subgrid&gt;
-            &lt;Grid.Cell span=&quot;all&quot;&gt;
+            {/* The Pagination takes the width of the results above it rather than that of the region. */}
+            &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 9 }}&gt;
               &lt;Pagination
                 accessibleNameId=&quot;paginering&quot;
                 linkTemplate={(page) =&gt; `?pagina=${page}`}
@@ -21904,32 +21950,28 @@ export const Default: StoryObj = {
               &lt;/Select&gt;
             &lt;/Field&gt;
             &lt;FieldSet className=&quot;ams-mb-l&quot; legend=&quot;Soort nieuws&quot;&gt;
-              &lt;Column gap=&quot;x-small&quot;&gt;
-                {newsCategories.map((category) =&gt; (
-                  &lt;Checkbox
-                    defaultChecked={selectedCategories.includes(category)}
-                    key={category}
-                    name=&quot;soort&quot;
-                    value={category.toLowerCase()}
-                  &gt;
-                    {category}
-                  &lt;/Checkbox&gt;
-                ))}
-              &lt;/Column&gt;
+              {newsCategories.map((category) =&gt; (
+                &lt;Checkbox
+                  defaultChecked={selectedCategories.includes(category)}
+                  key={category}
+                  name=&quot;soort&quot;
+                  value={formatFieldValue(category)}
+                &gt;
+                  {category}
+                &lt;/Checkbox&gt;
+              ))}
             &lt;/FieldSet&gt;
             &lt;FieldSet className=&quot;ams-mb-l&quot; legend=&quot;Stadsdelen&quot;&gt;
-              &lt;Column gap=&quot;x-small&quot;&gt;
-                {newsDistricts.map((district) =&gt; (
-                  &lt;Checkbox
-                    defaultChecked={selectedDistricts.includes(district)}
-                    key={district}
-                    name=&quot;stadsdeel&quot;
-                    value={district.toLowerCase()}
-                  &gt;
-                    {district}
-                  &lt;/Checkbox&gt;
-                ))}
-              &lt;/Column&gt;
+              {districts.map((district) =&gt; (
+                &lt;Checkbox
+                  defaultChecked={selectedDistricts.includes(district)}
+                  key={district}
+                  name=&quot;stadsdeel&quot;
+                  value={formatFieldValue(district)}
+                &gt;
+                  {district}
+                &lt;/Checkbox&gt;
+              ))}
             &lt;/FieldSet&gt;
             {/* The design filters as soon as a box is ticked; the button keeps the form usable without that script. */}
             &lt;Button type=&quot;submit&quot;&gt;Resultaten tonen&lt;/Button&gt;
@@ -21984,7 +22026,8 @@ export const Default: StoryObj = {
               &lt;/Grid.Cell&gt;
             ))}
           &lt;/Grid.Subgrid&gt;
-          &lt;Grid.Cell span=&quot;all&quot;&gt;
+          {/* The Pagination takes the width of the results above it rather than that of the region. */}
+          &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 9 }}&gt;
             &lt;Pagination
               accessibleNameId=&quot;paginering&quot;
               linkTemplate={(page) =&gt; `?pagina=${page}`}
@@ -22066,7 +22109,8 @@ A visitor using a screen reader otherwise has no way to tell that ticking a chec
 Compose that sentence with `Intl.ListFormat` rather than joining the values with a hard-coded `en`.
 It applies the punctuation and the conjunction of the language itself, so the sentence survives translation: Dutch writes ‘a, b en c’ where English writes ‘a, b, and c’.
 
-Close the list with [Pagination](/docs/components-navigation-pagination--docs) in a Cell spanning all the columns of the Subgrid.
+Close the list with [Pagination](/docs/components-navigation-pagination--docs) in a Cell as wide as the results above it, rather than as wide as the region.
+The medium grid is where the two part company: the results leave a column spare there, and Pagination spanning the whole region would reach past the Cards it belongs to.
 Leave it out when everything fits on one page.
 
 The page title is the only Heading 1.
@@ -33241,13 +33285,13 @@ label?: string = &#39;Zoeken&#39;</code></pre>
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
-  40 | }
-  41 |
-&gt; 42 | const meta = {
+  42 | }
+  43 |
+&gt; 44 | const meta = {
      | ^
-  43 |   ...commonMeta,
-  44 |   title: &#39;Pages/Public/Search Results Page&#39;,
-  45 |   parameters: pageParameters(
+  45 |   ...commonMeta,
+  46 |   title: &#39;Pages/Public/Search Results Page&#39;,
+  47 |   parameters: pageParameters(
 
 ./src/pages/public/SearchResultsPage/SearchResultsPage.stories.tsx:
 /**
@@ -33276,8 +33320,10 @@ import {
   Select,
 } from &#39;@amsterdam/design-system-react&#39;
 
+import { searchResults, searchTopics } from &#39;#storybook/_common/exampleContent&#39;
+import { formatFieldValue } from &#39;#storybook/_common/formatFieldValue&#39;
+
 import { commonMeta, pageParameters } from &#39;../common/commonMeta&#39;
-import { searchResults, searchTopics } from &#39;./data&#39;
 
 const searchTerm = &#39;veiligheid&#39;
 const totalResults = 62
@@ -33354,12 +33400,10 @@ export const Default: StoryObj = {
             &lt;/Select&gt;
           &lt;/Field&gt;
           &lt;FieldSet className=&quot;ams-mb-l&quot; legend=&quot;Soort artikel&quot;&gt;
-            &lt;Column gap=&quot;x-small&quot;&gt;
-              &lt;Checkbox name=&quot;soort&quot; value=&quot;nieuwsbericht&quot;&gt;
-                Nieuwsbericht
-              &lt;/Checkbox&gt;
-              {/* … one Checkbox per topic … */}
-            &lt;/Column&gt;
+            &lt;Checkbox name=&quot;soort&quot; value=&quot;nieuwsbericht&quot;&gt;
+              Nieuwsbericht
+            &lt;/Checkbox&gt;
+            {/* … one Checkbox per topic … */}
           &lt;/FieldSet&gt;
           {/* The design filters as soon as a box is ticked; the button keeps the form usable without that script. */}
           &lt;Button type=&quot;submit&quot;&gt;Resultaten tonen&lt;/Button&gt;
@@ -33475,13 +33519,11 @@ export const Default: StoryObj = {
                 &lt;/Select&gt;
               &lt;/Field&gt;
               &lt;FieldSet className=&quot;ams-mb-l&quot; legend=&quot;Soort artikel&quot;&gt;
-                &lt;Column gap=&quot;x-small&quot;&gt;
-                  {searchTopics.map((topic) =&gt; (
-                    &lt;Checkbox key={topic} name=&quot;soort&quot; value={topic.toLowerCase()}&gt;
-                      {topic}
-                    &lt;/Checkbox&gt;
-                  ))}
-                &lt;/Column&gt;
+                {searchTopics.map((topic) =&gt; (
+                  &lt;Checkbox key={topic} name=&quot;soort&quot; value={formatFieldValue(topic)}&gt;
+                    {topic}
+                  &lt;/Checkbox&gt;
+                ))}
               &lt;/FieldSet&gt;
               {/* The design filters as soon as a box is ticked; the button keeps the form usable without that script. */}
               &lt;Button type=&quot;submit&quot;&gt;Resultaten tonen&lt;/Button&gt;
@@ -33648,13 +33690,11 @@ export const Default: StoryObj = {
               &lt;/Select&gt;
             &lt;/Field&gt;
             &lt;FieldSet className=&quot;ams-mb-l&quot; legend=&quot;Soort artikel&quot;&gt;
-              &lt;Column gap=&quot;x-small&quot;&gt;
-                {searchTopics.map((topic) =&gt; (
-                  &lt;Checkbox key={topic} name=&quot;soort&quot; value={topic.toLowerCase()}&gt;
-                    {topic}
-                  &lt;/Checkbox&gt;
-                ))}
-              &lt;/Column&gt;
+              {searchTopics.map((topic) =&gt; (
+                &lt;Checkbox key={topic} name=&quot;soort&quot; value={formatFieldValue(topic)}&gt;
+                  {topic}
+                &lt;/Checkbox&gt;
+              ))}
             &lt;/FieldSet&gt;
             {/* The design filters as soon as a box is ticked; the button keeps the form usable without that script. */}
             &lt;Button type=&quot;submit&quot;&gt;Resultaten tonen&lt;/Button&gt;
@@ -39271,13 +39311,13 @@ The hero Image and the Card images take an empty `alt`, because the text beside 
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
-  50 | )
-  51 |
-&gt; 52 | const meta = {
+  52 | )
+  53 |
+&gt; 54 | const meta = {
      | ^
-  53 |   ...commonMeta,
-  54 |   title: &#39;Pages/Public/Events Overview Page&#39;,
-  55 |   parameters: pageParameters(
+  55 |   ...commonMeta,
+  56 |   title: &#39;Pages/Public/Events Overview Page&#39;,
+  57 |   parameters: pageParameters(
 
 ./src/pages/public/EventsOverviewPage/EventsOverviewPage.stories.tsx:
 /**
@@ -39307,8 +39347,10 @@ import {
   Select,
 } from &#39;@amsterdam/design-system-react&#39;
 
+import { districts, eventCategories, eventItems } from &#39;#storybook/_common/exampleContent&#39;
+import { formatFieldValue } from &#39;#storybook/_common/formatFieldValue&#39;
+
 import { commonMeta, pageParameters } from &#39;../common/commonMeta&#39;
-import { eventCategories, eventDistricts, eventItems } from &#39;./data&#39;
 
 /** Illustrative totals: the page shows the first batch of a much larger result set. */
 const totalResults = 132
@@ -39433,7 +39475,7 @@ export const Default: StoryObj = {
               &lt;Label htmlFor=&quot;events-district&quot;&gt;Stadsdeel&lt;/Label&gt;
               &lt;Select id=&quot;events-district&quot; name=&quot;stadsdeel&quot;&gt;
                 &lt;Select.Option value=&quot;&quot;&gt;Alle stadsdelen&lt;/Select.Option&gt;
-                &lt;Select.Option value=&quot;Centrum&quot;&gt;Centrum&lt;/Select.Option&gt;
+                &lt;Select.Option value=&quot;centrum&quot;&gt;Centrum&lt;/Select.Option&gt;
                 {/* … one Option per district … */}
               &lt;/Select&gt;
             &lt;/Field&gt;
@@ -39443,7 +39485,7 @@ export const Default: StoryObj = {
           &lt;form method=&quot;get&quot;&gt;
             {/* A Field Set spaces its own children, so the Checkboxes inside one need no margin. */}
             &lt;FieldSet className=&quot;ams-mb-m&quot; legend=&quot;Categorie&quot;&gt;
-              &lt;Checkbox name=&quot;categorie&quot; value=&quot;Cursussen en trainingen&quot;&gt;
+              &lt;Checkbox name=&quot;categorie&quot; value=&quot;cursussen-en-trainingen&quot;&gt;
                 Cursussen en trainingen
               &lt;/Checkbox&gt;
               {/* … one Checkbox per category … */}
@@ -39467,41 +39509,48 @@ export const Default: StoryObj = {
           &lt;Paragraph role=&quot;status&quot;&gt;{resultsMessage}&lt;/Paragraph&gt;
         &lt;/Grid.Cell&gt;
         {/*
-         * On the medium grid a Card takes 4 of the 5 columns of the results region, leaving the last one
-         * empty. That is below the width at which a Card with an image goes horizontal, so it stays vertical.
+         * The activities are a list, so they get a Subgrid of their own: a ul with every Cell in it an li.
+         * The result count above and the Pagination below stay outside it; neither is one of the activities.
+         * A Subgrid inside a Subgrid still hands down the columns of the page, and takes the same row gap.
          */}
-        &lt;Grid.Cell key=&quot;open-dag-stadsarchief&quot; span={{ narrow: 4, medium: 4, wide: 9 }}&gt;
-          &lt;Card&gt;
-            {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
-            &lt;Card.Image alt=&quot;&quot; loading=&quot;lazy&quot; src=&quot;https://picsum.photos/id/1048/640/360&quot; /&gt;
-            {/* A Card that pairs an image with a Content lays out horizontally in a cell this wide. */}
-            &lt;Card.Content&gt;
-              &lt;Card.HeadingGroup&gt;
-                &lt;Card.Heading level={3}&gt;
-                  &lt;Card.Link href=&quot;#&quot;&gt;Open dag Stadsarchief Amsterdam&lt;/Card.Link&gt;
-                &lt;/Card.Heading&gt;
-                {/* The Metadata carries the facets of the activity, comma separated. */}
-                &lt;Metadata size=&quot;small&quot;&gt;Kunst en cultuur, Centrum&lt;/Metadata&gt;
-              &lt;/Card.HeadingGroup&gt;
-              &lt;Column gap=&quot;small&quot;&gt;
-                &lt;Paragraph&gt;Ontdek eeuwenoude kaarten, foto’s en films over Amsterdam.&lt;/Paragraph&gt;
-                {/* When and where, below the description. A Card takes the small size of Metadata. */}
-                &lt;Metadata size=&quot;small&quot;&gt;
-                  {/*
-                   * The visible date is prose; dateTime repeats it in the machine-readable format software parses.
-                   */}
-                  &lt;time dateTime=&quot;2026-06-20&quot;&gt;20 juni 2026&lt;/time&gt;
-                  {/* The day, the time and the place are three kinds of metadata, so a Separator sits between them. */}
-                  &lt;Metadata.Separator /&gt;
-                  10.00–16.00 uur
-                  &lt;Metadata.Separator /&gt;
-                  Stadsarchief Amsterdam
-                &lt;/Metadata&gt;
-              &lt;/Column&gt;
-            &lt;/Card.Content&gt;
-          &lt;/Card&gt;
-        &lt;/Grid.Cell&gt;
-        {/* … one Cell per activity … */}
+        &lt;Grid.Subgrid as=&quot;ul&quot; span=&quot;all&quot;&gt;
+          {/*
+           * On the medium grid a Card takes 4 of the 5 columns of the results region, leaving the last one
+           * empty. That is below the width at which a Card with an image goes horizontal, so it stays vertical.
+           */}
+          &lt;Grid.Cell as=&quot;li&quot; span={{ narrow: 4, medium: 4, wide: 9 }}&gt;
+            &lt;Card&gt;
+              {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
+              &lt;Card.Image alt=&quot;&quot; loading=&quot;lazy&quot; src=&quot;https://picsum.photos/id/1048/640/360&quot; /&gt;
+              {/* A Card that pairs an image with a Content lays out horizontally in a cell this wide. */}
+              &lt;Card.Content&gt;
+                &lt;Card.HeadingGroup&gt;
+                  &lt;Card.Heading level={3}&gt;
+                    &lt;Card.Link href=&quot;#&quot;&gt;Open dag Stadsarchief Amsterdam&lt;/Card.Link&gt;
+                  &lt;/Card.Heading&gt;
+                  {/* The Metadata carries the facets of the activity, comma separated. */}
+                  &lt;Metadata size=&quot;small&quot;&gt;Kunst en cultuur, Centrum&lt;/Metadata&gt;
+                &lt;/Card.HeadingGroup&gt;
+                &lt;Column gap=&quot;small&quot;&gt;
+                  &lt;Paragraph&gt;Ontdek eeuwenoude kaarten, foto’s en films over Amsterdam.&lt;/Paragraph&gt;
+                  {/* When and where, below the description. A Card takes the small size of Metadata. */}
+                  &lt;Metadata size=&quot;small&quot;&gt;
+                    {/*
+                     * The visible date is prose; dateTime repeats it in the machine-readable format software parses.
+                     */}
+                    &lt;time dateTime=&quot;2026-06-20&quot;&gt;20 juni 2026&lt;/time&gt;
+                    {/* The day, the time and the place are three kinds of metadata, so a Separator sits between them. */}
+                    &lt;Metadata.Separator /&gt;
+                    10.00–16.00 uur
+                    &lt;Metadata.Separator /&gt;
+                    Stadsarchief Amsterdam
+                  &lt;/Metadata&gt;
+                &lt;/Column&gt;
+              &lt;/Card.Content&gt;
+            &lt;/Card&gt;
+          &lt;/Grid.Cell&gt;
+          {/* … one Cell per activity … */}
+        &lt;/Grid.Subgrid&gt;
         {/* The Pagination takes the width of the results above it rather than that of the region. */}
         &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 9 }}&gt;
           &lt;Pagination
@@ -39604,8 +39653,8 @@ export const Default: StoryObj = {
                   &lt;Label htmlFor=&quot;events-district&quot;&gt;Stadsdeel&lt;/Label&gt;
                   &lt;Select id=&quot;events-district&quot; name=&quot;stadsdeel&quot;&gt;
                     &lt;Select.Option value=&quot;&quot;&gt;Alle stadsdelen&lt;/Select.Option&gt;
-                    {eventDistricts.map((district) =&gt; (
-                      &lt;Select.Option key={district} value={district}&gt;
+                    {districts.map((district) =&gt; (
+                      &lt;Select.Option key={district} value={formatFieldValue(district)}&gt;
                         {district}
                       &lt;/Select.Option&gt;
                     ))}
@@ -39618,7 +39667,7 @@ export const Default: StoryObj = {
                 {/* A Field Set spaces its own children, so the Checkboxes inside one need no margin. */}
                 &lt;FieldSet className=&quot;ams-mb-m&quot; legend=&quot;Categorie&quot;&gt;
                   {eventCategories.map((category) =&gt; (
-                    &lt;Checkbox key={category} name=&quot;categorie&quot; value={category}&gt;
+                    &lt;Checkbox key={category} name=&quot;categorie&quot; value={formatFieldValue(category)}&gt;
                       {category}
                     &lt;/Checkbox&gt;
                   ))}
@@ -39642,44 +39691,51 @@ export const Default: StoryObj = {
               &lt;Paragraph role=&quot;status&quot;&gt;{resultsMessage}&lt;/Paragraph&gt;
             &lt;/Grid.Cell&gt;
             {/*
-             * On the medium grid a Card takes 4 of the 5 columns of the results region, leaving the last one
-             * empty. That is below the width at which a Card with an image goes horizontal, so it stays vertical.
+             * The activities are a list, so they get a Subgrid of their own: a ul with every Cell in it an li.
+             * The result count above and the Pagination below stay outside it; neither is one of the activities.
+             * A Subgrid inside a Subgrid still hands down the columns of the page, and takes the same row gap.
              */}
-            {eventItems.map((event) =&gt; (
-              &lt;Grid.Cell key={event.id} span={{ narrow: 4, medium: 4, wide: 9 }}&gt;
-                &lt;Card&gt;
-                  {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
-                  &lt;Card.Image alt=&quot;&quot; loading=&quot;lazy&quot; src={event.imageSource} /&gt;
-                  {/* A Card that pairs an image with a Content lays out horizontally in a cell this wide. */}
-                  &lt;Card.Content&gt;
-                    &lt;Card.HeadingGroup&gt;
-                      &lt;Card.Heading level={3}&gt;
-                        &lt;Card.Link href={event.href}&gt;{event.title}&lt;/Card.Link&gt;
-                      &lt;/Card.Heading&gt;
-                      {/* The Metadata carries the facets of the activity, comma separated. */}
-                      &lt;Metadata size=&quot;small&quot;&gt;{`${event.category}, ${event.district}`}&lt;/Metadata&gt;
-                    &lt;/Card.HeadingGroup&gt;
-                    &lt;Column gap=&quot;small&quot;&gt;
-                      &lt;Paragraph&gt;{event.teaser}&lt;/Paragraph&gt;
-                      {/* When and where, below the description. A Card takes the small size of Metadata. */}
-                      &lt;Metadata size=&quot;small&quot;&gt;
-                        {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
-                        &lt;time dateTime={event.isoDate}&gt;{event.date}&lt;/time&gt;
-                        {/* The day, the time and the place are three kinds of metadata, so a Separator sits between them. */}
-                        {event.timeLabel &amp;&amp; (
-                          &lt;&gt;
-                            &lt;Metadata.Separator /&gt;
-                            {event.timeLabel}
-                          &lt;/&gt;
-                        )}
-                        &lt;Metadata.Separator /&gt;
-                        {event.venue}
-                      &lt;/Metadata&gt;
-                    &lt;/Column&gt;
-                  &lt;/Card.Content&gt;
-                &lt;/Card&gt;
-              &lt;/Grid.Cell&gt;
-            ))}
+            &lt;Grid.Subgrid as=&quot;ul&quot; span=&quot;all&quot;&gt;
+              {/*
+               * On the medium grid a Card takes 4 of the 5 columns of the results region, leaving the last one
+               * empty. That is below the width at which a Card with an image goes horizontal, so it stays vertical.
+               */}
+              {eventItems.map((event) =&gt; (
+                &lt;Grid.Cell as=&quot;li&quot; key={event.id} span={{ narrow: 4, medium: 4, wide: 9 }}&gt;
+                  &lt;Card&gt;
+                    {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
+                    &lt;Card.Image alt=&quot;&quot; loading=&quot;lazy&quot; src={event.imageSource} /&gt;
+                    {/* A Card that pairs an image with a Content lays out horizontally in a cell this wide. */}
+                    &lt;Card.Content&gt;
+                      &lt;Card.HeadingGroup&gt;
+                        &lt;Card.Heading level={3}&gt;
+                          &lt;Card.Link href={event.href}&gt;{event.title}&lt;/Card.Link&gt;
+                        &lt;/Card.Heading&gt;
+                        {/* The Metadata carries the facets of the activity, comma separated. */}
+                        &lt;Metadata size=&quot;small&quot;&gt;{`${event.category}, ${event.district}`}&lt;/Metadata&gt;
+                      &lt;/Card.HeadingGroup&gt;
+                      &lt;Column gap=&quot;small&quot;&gt;
+                        &lt;Paragraph&gt;{event.teaser}&lt;/Paragraph&gt;
+                        {/* When and where, below the description. A Card takes the small size of Metadata. */}
+                        &lt;Metadata size=&quot;small&quot;&gt;
+                          {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
+                          &lt;time dateTime={event.isoDate}&gt;{event.date}&lt;/time&gt;
+                          {/* The day, the time and the place are three kinds of metadata, so a Separator sits between them. */}
+                          {event.timeLabel &amp;&amp; (
+                            &lt;&gt;
+                              &lt;Metadata.Separator /&gt;
+                              {event.timeLabel}
+                            &lt;/&gt;
+                          )}
+                          &lt;Metadata.Separator /&gt;
+                          {event.venue}
+                        &lt;/Metadata&gt;
+                      &lt;/Column&gt;
+                    &lt;/Card.Content&gt;
+                  &lt;/Card&gt;
+                &lt;/Grid.Cell&gt;
+              ))}
+            &lt;/Grid.Subgrid&gt;
             {/* The Pagination takes the width of the results above it rather than that of the region. */}
             &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 9 }}&gt;
               &lt;Pagination
@@ -39788,7 +39844,7 @@ export const CardGrid: StoryObj = {
               &lt;Label htmlFor=&quot;events-district&quot;&gt;Stadsdeel&lt;/Label&gt;
               &lt;Select id=&quot;events-district&quot; name=&quot;stadsdeel&quot;&gt;
                 &lt;Select.Option value=&quot;&quot;&gt;Alle stadsdelen&lt;/Select.Option&gt;
-                &lt;Select.Option value=&quot;Centrum&quot;&gt;Centrum&lt;/Select.Option&gt;
+                &lt;Select.Option value=&quot;centrum&quot;&gt;Centrum&lt;/Select.Option&gt;
                 {/* … one Option per district … */}
               &lt;/Select&gt;
             &lt;/Field&gt;
@@ -39798,7 +39854,7 @@ export const CardGrid: StoryObj = {
           &lt;form method=&quot;get&quot;&gt;
             {/* A Field Set spaces its own children, so the Checkboxes inside one need no margin. */}
             &lt;FieldSet className=&quot;ams-mb-m&quot; legend=&quot;Categorie&quot;&gt;
-              &lt;Checkbox name=&quot;categorie&quot; value=&quot;Cursussen en trainingen&quot;&gt;
+              &lt;Checkbox name=&quot;categorie&quot; value=&quot;cursussen-en-trainingen&quot;&gt;
                 Cursussen en trainingen
               &lt;/Checkbox&gt;
               {/* … one Checkbox per category … */}
@@ -39822,41 +39878,48 @@ export const CardGrid: StoryObj = {
           &lt;Paragraph role=&quot;status&quot;&gt;{resultsMessage}&lt;/Paragraph&gt;
         &lt;/Grid.Cell&gt;
         {/*
-         * Three columns of the nine the results span, so the Cards tile three to a row on the wide grid.
-         * That is narrower than the width at which a Card with an image goes horizontal, so each one stays
-         * vertical and its image spans the full width of the Card.
+         * The activities are a list, so they get a Subgrid of their own: a ul with every Cell in it an li.
+         * The result count above and the Pagination below stay outside it; neither is one of the activities.
+         * A Subgrid inside a Subgrid still hands down the columns of the page, and takes the same row gap.
          */}
-        &lt;Grid.Cell key=&quot;open-dag-stadsarchief&quot; span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
-          &lt;Card&gt;
-            {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
-            &lt;Card.Image alt=&quot;&quot; loading=&quot;lazy&quot; src=&quot;https://picsum.photos/id/1048/640/360&quot; /&gt;
-            &lt;Card.Content&gt;
-              &lt;Card.HeadingGroup&gt;
-                &lt;Card.Heading level={3}&gt;
-                  &lt;Card.Link href=&quot;#&quot;&gt;Open dag Stadsarchief Amsterdam&lt;/Card.Link&gt;
-                &lt;/Card.Heading&gt;
-                {/* The Metadata carries the facets of the activity, comma separated. */}
-                &lt;Metadata size=&quot;small&quot;&gt;Kunst en cultuur, Centrum&lt;/Metadata&gt;
-              &lt;/Card.HeadingGroup&gt;
-              &lt;Column gap=&quot;small&quot;&gt;
-                &lt;Paragraph&gt;Ontdek eeuwenoude kaarten, foto’s en films over Amsterdam.&lt;/Paragraph&gt;
-                {/* When and where, below the description. A Card takes the small size of Metadata. */}
-                &lt;Metadata size=&quot;small&quot;&gt;
-                  {/*
-                   * The visible date is prose; dateTime repeats it in the machine-readable format software parses.
-                   */}
-                  &lt;time dateTime=&quot;2026-06-20&quot;&gt;20 juni 2026&lt;/time&gt;
-                  {/* The day, the time and the place are three kinds of metadata, so a Separator sits between them. */}
-                  &lt;Metadata.Separator /&gt;
-                  10.00–16.00 uur
-                  &lt;Metadata.Separator /&gt;
-                  Stadsarchief Amsterdam
-                &lt;/Metadata&gt;
-              &lt;/Column&gt;
-            &lt;/Card.Content&gt;
-          &lt;/Card&gt;
-        &lt;/Grid.Cell&gt;
-        {/* … one Cell per activity … */}
+        &lt;Grid.Subgrid as=&quot;ul&quot; span=&quot;all&quot;&gt;
+          {/*
+           * Three columns of the nine the results span, so the Cards tile three to a row on the wide grid.
+           * That is narrower than the width at which a Card with an image goes horizontal, so each one stays
+           * vertical and its image spans the full width of the Card.
+           */}
+          &lt;Grid.Cell as=&quot;li&quot; span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
+            &lt;Card&gt;
+              {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
+              &lt;Card.Image alt=&quot;&quot; loading=&quot;lazy&quot; src=&quot;https://picsum.photos/id/1048/640/360&quot; /&gt;
+              &lt;Card.Content&gt;
+                &lt;Card.HeadingGroup&gt;
+                  &lt;Card.Heading level={3}&gt;
+                    &lt;Card.Link href=&quot;#&quot;&gt;Open dag Stadsarchief Amsterdam&lt;/Card.Link&gt;
+                  &lt;/Card.Heading&gt;
+                  {/* The Metadata carries the facets of the activity, comma separated. */}
+                  &lt;Metadata size=&quot;small&quot;&gt;Kunst en cultuur, Centrum&lt;/Metadata&gt;
+                &lt;/Card.HeadingGroup&gt;
+                &lt;Column gap=&quot;small&quot;&gt;
+                  &lt;Paragraph&gt;Ontdek eeuwenoude kaarten, foto’s en films over Amsterdam.&lt;/Paragraph&gt;
+                  {/* When and where, below the description. A Card takes the small size of Metadata. */}
+                  &lt;Metadata size=&quot;small&quot;&gt;
+                    {/*
+                     * The visible date is prose; dateTime repeats it in the machine-readable format software parses.
+                     */}
+                    &lt;time dateTime=&quot;2026-06-20&quot;&gt;20 juni 2026&lt;/time&gt;
+                    {/* The day, the time and the place are three kinds of metadata, so a Separator sits between them. */}
+                    &lt;Metadata.Separator /&gt;
+                    10.00–16.00 uur
+                    &lt;Metadata.Separator /&gt;
+                    Stadsarchief Amsterdam
+                  &lt;/Metadata&gt;
+                &lt;/Column&gt;
+              &lt;/Card.Content&gt;
+            &lt;/Card&gt;
+          &lt;/Grid.Cell&gt;
+          {/* … one Cell per activity … */}
+        &lt;/Grid.Subgrid&gt;
         {/* The Pagination takes the width of the results above it rather than that of the region. */}
         &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 9 }}&gt;
           &lt;Pagination
@@ -39959,8 +40022,8 @@ export const CardGrid: StoryObj = {
                   &lt;Label htmlFor=&quot;events-district&quot;&gt;Stadsdeel&lt;/Label&gt;
                   &lt;Select id=&quot;events-district&quot; name=&quot;stadsdeel&quot;&gt;
                     &lt;Select.Option value=&quot;&quot;&gt;Alle stadsdelen&lt;/Select.Option&gt;
-                    {eventDistricts.map((district) =&gt; (
-                      &lt;Select.Option key={district} value={district}&gt;
+                    {districts.map((district) =&gt; (
+                      &lt;Select.Option key={district} value={formatFieldValue(district)}&gt;
                         {district}
                       &lt;/Select.Option&gt;
                     ))}
@@ -39973,7 +40036,7 @@ export const CardGrid: StoryObj = {
                 {/* A Field Set spaces its own children, so the Checkboxes inside one need no margin. */}
                 &lt;FieldSet className=&quot;ams-mb-m&quot; legend=&quot;Categorie&quot;&gt;
                   {eventCategories.map((category) =&gt; (
-                    &lt;Checkbox key={category} name=&quot;categorie&quot; value={category}&gt;
+                    &lt;Checkbox key={category} name=&quot;categorie&quot; value={formatFieldValue(category)}&gt;
                       {category}
                     &lt;/Checkbox&gt;
                   ))}
@@ -39997,44 +40060,51 @@ export const CardGrid: StoryObj = {
               &lt;Paragraph role=&quot;status&quot;&gt;{resultsMessage}&lt;/Paragraph&gt;
             &lt;/Grid.Cell&gt;
             {/*
-             * Three columns of the nine the results span, so the Cards tile three to a row on the wide grid.
-             * That is narrower than the width at which a Card with an image goes horizontal, so each one stays
-             * vertical and its image spans the full width of the Card.
+             * The activities are a list, so they get a Subgrid of their own: a ul with every Cell in it an li.
+             * The result count above and the Pagination below stay outside it; neither is one of the activities.
+             * A Subgrid inside a Subgrid still hands down the columns of the page, and takes the same row gap.
              */}
-            {eventItems.map((event) =&gt; (
-              &lt;Grid.Cell key={event.id} span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
-                &lt;Card&gt;
-                  {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
-                  &lt;Card.Image alt=&quot;&quot; loading=&quot;lazy&quot; src={event.imageSource} /&gt;
-                  &lt;Card.Content&gt;
-                    &lt;Card.HeadingGroup&gt;
-                      &lt;Card.Heading level={3}&gt;
-                        &lt;Card.Link href={event.href}&gt;{event.title}&lt;/Card.Link&gt;
-                      &lt;/Card.Heading&gt;
-                      {/* The Metadata carries the facets of the activity, comma separated. */}
-                      &lt;Metadata size=&quot;small&quot;&gt;{`${event.category}, ${event.district}`}&lt;/Metadata&gt;
-                    &lt;/Card.HeadingGroup&gt;
-                    &lt;Column gap=&quot;small&quot;&gt;
-                      &lt;Paragraph&gt;{event.teaser}&lt;/Paragraph&gt;
-                      {/* When and where, below the description. A Card takes the small size of Metadata. */}
-                      &lt;Metadata size=&quot;small&quot;&gt;
-                        {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
-                        &lt;time dateTime={event.isoDate}&gt;{event.date}&lt;/time&gt;
-                        {/* The day, the time and the place are three kinds of metadata, so a Separator sits between them. */}
-                        {event.timeLabel &amp;&amp; (
-                          &lt;&gt;
-                            &lt;Metadata.Separator /&gt;
-                            {event.timeLabel}
-                          &lt;/&gt;
-                        )}
-                        &lt;Metadata.Separator /&gt;
-                        {event.venue}
-                      &lt;/Metadata&gt;
-                    &lt;/Column&gt;
-                  &lt;/Card.Content&gt;
-                &lt;/Card&gt;
-              &lt;/Grid.Cell&gt;
-            ))}
+            &lt;Grid.Subgrid as=&quot;ul&quot; span=&quot;all&quot;&gt;
+              {/*
+               * Three columns of the nine the results span, so the Cards tile three to a row on the wide grid.
+               * That is narrower than the width at which a Card with an image goes horizontal, so each one stays
+               * vertical and its image spans the full width of the Card.
+               */}
+              {eventItems.map((event) =&gt; (
+                &lt;Grid.Cell as=&quot;li&quot; key={event.id} span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
+                  &lt;Card&gt;
+                    {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
+                    &lt;Card.Image alt=&quot;&quot; loading=&quot;lazy&quot; src={event.imageSource} /&gt;
+                    &lt;Card.Content&gt;
+                      &lt;Card.HeadingGroup&gt;
+                        &lt;Card.Heading level={3}&gt;
+                          &lt;Card.Link href={event.href}&gt;{event.title}&lt;/Card.Link&gt;
+                        &lt;/Card.Heading&gt;
+                        {/* The Metadata carries the facets of the activity, comma separated. */}
+                        &lt;Metadata size=&quot;small&quot;&gt;{`${event.category}, ${event.district}`}&lt;/Metadata&gt;
+                      &lt;/Card.HeadingGroup&gt;
+                      &lt;Column gap=&quot;small&quot;&gt;
+                        &lt;Paragraph&gt;{event.teaser}&lt;/Paragraph&gt;
+                        {/* When and where, below the description. A Card takes the small size of Metadata. */}
+                        &lt;Metadata size=&quot;small&quot;&gt;
+                          {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
+                          &lt;time dateTime={event.isoDate}&gt;{event.date}&lt;/time&gt;
+                          {/* The day, the time and the place are three kinds of metadata, so a Separator sits between them. */}
+                          {event.timeLabel &amp;&amp; (
+                            &lt;&gt;
+                              &lt;Metadata.Separator /&gt;
+                              {event.timeLabel}
+                            &lt;/&gt;
+                          )}
+                          &lt;Metadata.Separator /&gt;
+                          {event.venue}
+                        &lt;/Metadata&gt;
+                      &lt;/Column&gt;
+                    &lt;/Card.Content&gt;
+                  &lt;/Card&gt;
+                &lt;/Grid.Cell&gt;
+              ))}
+            &lt;/Grid.Subgrid&gt;
             {/* The Pagination takes the width of the results above it rather than that of the region. */}
             &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 9 }}&gt;
               &lt;Pagination
@@ -40184,8 +40254,8 @@ export const CardGrid: StoryObj = {
                 &lt;Label htmlFor=&quot;events-district&quot;&gt;Stadsdeel&lt;/Label&gt;
                 &lt;Select id=&quot;events-district&quot; name=&quot;stadsdeel&quot;&gt;
                   &lt;Select.Option value=&quot;&quot;&gt;Alle stadsdelen&lt;/Select.Option&gt;
-                  {eventDistricts.map((district) =&gt; (
-                    &lt;Select.Option key={district} value={district}&gt;
+                  {districts.map((district) =&gt; (
+                    &lt;Select.Option key={district} value={formatFieldValue(district)}&gt;
                       {district}
                     &lt;/Select.Option&gt;
                   ))}
@@ -40198,7 +40268,7 @@ export const CardGrid: StoryObj = {
               {/* A Field Set spaces its own children, so the Checkboxes inside one need no margin. */}
               &lt;FieldSet className=&quot;ams-mb-m&quot; legend=&quot;Categorie&quot;&gt;
                 {eventCategories.map((category) =&gt; (
-                  &lt;Checkbox key={category} name=&quot;categorie&quot; value={category}&gt;
+                  &lt;Checkbox key={category} name=&quot;categorie&quot; value={formatFieldValue(category)}&gt;
                     {category}
                   &lt;/Checkbox&gt;
                 ))}
@@ -40222,44 +40292,51 @@ export const CardGrid: StoryObj = {
             &lt;Paragraph role=&quot;status&quot;&gt;{resultsMessage}&lt;/Paragraph&gt;
           &lt;/Grid.Cell&gt;
           {/*
-           * On the medium grid a Card takes 4 of the 5 columns of the results region, leaving the last one
-           * empty. That is below the width at which a Card with an image goes horizontal, so it stays vertical.
+           * The activities are a list, so they get a Subgrid of their own: a ul with every Cell in it an li.
+           * The result count above and the Pagination below stay outside it; neither is one of the activities.
+           * A Subgrid inside a Subgrid still hands down the columns of the page, and takes the same row gap.
            */}
-          {eventItems.map((event) =&gt; (
-            &lt;Grid.Cell key={event.id} span={{ narrow: 4, medium: 4, wide: 9 }}&gt;
-              &lt;Card&gt;
-                {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
-                &lt;Card.Image alt=&quot;&quot; loading=&quot;lazy&quot; src={event.imageSource} /&gt;
-                {/* A Card that pairs an image with a Content lays out horizontally in a cell this wide. */}
-                &lt;Card.Content&gt;
-                  &lt;Card.HeadingGroup&gt;
-                    &lt;Card.Heading level={3}&gt;
-                      &lt;Card.Link href={event.href}&gt;{event.title}&lt;/Card.Link&gt;
-                    &lt;/Card.Heading&gt;
-                    {/* The Metadata carries the facets of the activity, comma separated. */}
-                    &lt;Metadata size=&quot;small&quot;&gt;{`${event.category}, ${event.district}`}&lt;/Metadata&gt;
-                  &lt;/Card.HeadingGroup&gt;
-                  &lt;Column gap=&quot;small&quot;&gt;
-                    &lt;Paragraph&gt;{event.teaser}&lt;/Paragraph&gt;
-                    {/* When and where, below the description. A Card takes the small size of Metadata. */}
-                    &lt;Metadata size=&quot;small&quot;&gt;
-                      {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
-                      &lt;time dateTime={event.isoDate}&gt;{event.date}&lt;/time&gt;
-                      {/* The day, the time and the place are three kinds of metadata, so a Separator sits between them. */}
-                      {event.timeLabel &amp;&amp; (
-                        &lt;&gt;
-                          &lt;Metadata.Separator /&gt;
-                          {event.timeLabel}
-                        &lt;/&gt;
-                      )}
-                      &lt;Metadata.Separator /&gt;
-                      {event.venue}
-                    &lt;/Metadata&gt;
-                  &lt;/Column&gt;
-                &lt;/Card.Content&gt;
-              &lt;/Card&gt;
-            &lt;/Grid.Cell&gt;
-          ))}
+          &lt;Grid.Subgrid as=&quot;ul&quot; span=&quot;all&quot;&gt;
+            {/*
+             * On the medium grid a Card takes 4 of the 5 columns of the results region, leaving the last one
+             * empty. That is below the width at which a Card with an image goes horizontal, so it stays vertical.
+             */}
+            {eventItems.map((event) =&gt; (
+              &lt;Grid.Cell as=&quot;li&quot; key={event.id} span={{ narrow: 4, medium: 4, wide: 9 }}&gt;
+                &lt;Card&gt;
+                  {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
+                  &lt;Card.Image alt=&quot;&quot; loading=&quot;lazy&quot; src={event.imageSource} /&gt;
+                  {/* A Card that pairs an image with a Content lays out horizontally in a cell this wide. */}
+                  &lt;Card.Content&gt;
+                    &lt;Card.HeadingGroup&gt;
+                      &lt;Card.Heading level={3}&gt;
+                        &lt;Card.Link href={event.href}&gt;{event.title}&lt;/Card.Link&gt;
+                      &lt;/Card.Heading&gt;
+                      {/* The Metadata carries the facets of the activity, comma separated. */}
+                      &lt;Metadata size=&quot;small&quot;&gt;{`${event.category}, ${event.district}`}&lt;/Metadata&gt;
+                    &lt;/Card.HeadingGroup&gt;
+                    &lt;Column gap=&quot;small&quot;&gt;
+                      &lt;Paragraph&gt;{event.teaser}&lt;/Paragraph&gt;
+                      {/* When and where, below the description. A Card takes the small size of Metadata. */}
+                      &lt;Metadata size=&quot;small&quot;&gt;
+                        {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
+                        &lt;time dateTime={event.isoDate}&gt;{event.date}&lt;/time&gt;
+                        {/* The day, the time and the place are three kinds of metadata, so a Separator sits between them. */}
+                        {event.timeLabel &amp;&amp; (
+                          &lt;&gt;
+                            &lt;Metadata.Separator /&gt;
+                            {event.timeLabel}
+                          &lt;/&gt;
+                        )}
+                        &lt;Metadata.Separator /&gt;
+                        {event.venue}
+                      &lt;/Metadata&gt;
+                    &lt;/Column&gt;
+                  &lt;/Card.Content&gt;
+                &lt;/Card&gt;
+              &lt;/Grid.Cell&gt;
+            ))}
+          &lt;/Grid.Subgrid&gt;
           {/* The Pagination takes the width of the results above it rather than that of the region. */}
           &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 9 }}&gt;
             &lt;Pagination
@@ -40367,8 +40444,8 @@ export const CardGrid: StoryObj = {
                 &lt;Label htmlFor=&quot;events-district&quot;&gt;Stadsdeel&lt;/Label&gt;
                 &lt;Select id=&quot;events-district&quot; name=&quot;stadsdeel&quot;&gt;
                   &lt;Select.Option value=&quot;&quot;&gt;Alle stadsdelen&lt;/Select.Option&gt;
-                  {eventDistricts.map((district) =&gt; (
-                    &lt;Select.Option key={district} value={district}&gt;
+                  {districts.map((district) =&gt; (
+                    &lt;Select.Option key={district} value={formatFieldValue(district)}&gt;
                       {district}
                     &lt;/Select.Option&gt;
                   ))}
@@ -40381,7 +40458,7 @@ export const CardGrid: StoryObj = {
               {/* A Field Set spaces its own children, so the Checkboxes inside one need no margin. */}
               &lt;FieldSet className=&quot;ams-mb-m&quot; legend=&quot;Categorie&quot;&gt;
                 {eventCategories.map((category) =&gt; (
-                  &lt;Checkbox key={category} name=&quot;categorie&quot; value={category}&gt;
+                  &lt;Checkbox key={category} name=&quot;categorie&quot; value={formatFieldValue(category)}&gt;
                     {category}
                   &lt;/Checkbox&gt;
                 ))}
@@ -40405,44 +40482,51 @@ export const CardGrid: StoryObj = {
             &lt;Paragraph role=&quot;status&quot;&gt;{resultsMessage}&lt;/Paragraph&gt;
           &lt;/Grid.Cell&gt;
           {/*
-           * Three columns of the nine the results span, so the Cards tile three to a row on the wide grid.
-           * That is narrower than the width at which a Card with an image goes horizontal, so each one stays
-           * vertical and its image spans the full width of the Card.
+           * The activities are a list, so they get a Subgrid of their own: a ul with every Cell in it an li.
+           * The result count above and the Pagination below stay outside it; neither is one of the activities.
+           * A Subgrid inside a Subgrid still hands down the columns of the page, and takes the same row gap.
            */}
-          {eventItems.map((event) =&gt; (
-            &lt;Grid.Cell key={event.id} span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
-              &lt;Card&gt;
-                {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
-                &lt;Card.Image alt=&quot;&quot; loading=&quot;lazy&quot; src={event.imageSource} /&gt;
-                &lt;Card.Content&gt;
-                  &lt;Card.HeadingGroup&gt;
-                    &lt;Card.Heading level={3}&gt;
-                      &lt;Card.Link href={event.href}&gt;{event.title}&lt;/Card.Link&gt;
-                    &lt;/Card.Heading&gt;
-                    {/* The Metadata carries the facets of the activity, comma separated. */}
-                    &lt;Metadata size=&quot;small&quot;&gt;{`${event.category}, ${event.district}`}&lt;/Metadata&gt;
-                  &lt;/Card.HeadingGroup&gt;
-                  &lt;Column gap=&quot;small&quot;&gt;
-                    &lt;Paragraph&gt;{event.teaser}&lt;/Paragraph&gt;
-                    {/* When and where, below the description. A Card takes the small size of Metadata. */}
-                    &lt;Metadata size=&quot;small&quot;&gt;
-                      {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
-                      &lt;time dateTime={event.isoDate}&gt;{event.date}&lt;/time&gt;
-                      {/* The day, the time and the place are three kinds of metadata, so a Separator sits between them. */}
-                      {event.timeLabel &amp;&amp; (
-                        &lt;&gt;
-                          &lt;Metadata.Separator /&gt;
-                          {event.timeLabel}
-                        &lt;/&gt;
-                      )}
-                      &lt;Metadata.Separator /&gt;
-                      {event.venue}
-                    &lt;/Metadata&gt;
-                  &lt;/Column&gt;
-                &lt;/Card.Content&gt;
-              &lt;/Card&gt;
-            &lt;/Grid.Cell&gt;
-          ))}
+          &lt;Grid.Subgrid as=&quot;ul&quot; span=&quot;all&quot;&gt;
+            {/*
+             * Three columns of the nine the results span, so the Cards tile three to a row on the wide grid.
+             * That is narrower than the width at which a Card with an image goes horizontal, so each one stays
+             * vertical and its image spans the full width of the Card.
+             */}
+            {eventItems.map((event) =&gt; (
+              &lt;Grid.Cell as=&quot;li&quot; key={event.id} span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
+                &lt;Card&gt;
+                  {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
+                  &lt;Card.Image alt=&quot;&quot; loading=&quot;lazy&quot; src={event.imageSource} /&gt;
+                  &lt;Card.Content&gt;
+                    &lt;Card.HeadingGroup&gt;
+                      &lt;Card.Heading level={3}&gt;
+                        &lt;Card.Link href={event.href}&gt;{event.title}&lt;/Card.Link&gt;
+                      &lt;/Card.Heading&gt;
+                      {/* The Metadata carries the facets of the activity, comma separated. */}
+                      &lt;Metadata size=&quot;small&quot;&gt;{`${event.category}, ${event.district}`}&lt;/Metadata&gt;
+                    &lt;/Card.HeadingGroup&gt;
+                    &lt;Column gap=&quot;small&quot;&gt;
+                      &lt;Paragraph&gt;{event.teaser}&lt;/Paragraph&gt;
+                      {/* When and where, below the description. A Card takes the small size of Metadata. */}
+                      &lt;Metadata size=&quot;small&quot;&gt;
+                        {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
+                        &lt;time dateTime={event.isoDate}&gt;{event.date}&lt;/time&gt;
+                        {/* The day, the time and the place are three kinds of metadata, so a Separator sits between them. */}
+                        {event.timeLabel &amp;&amp; (
+                          &lt;&gt;
+                            &lt;Metadata.Separator /&gt;
+                            {event.timeLabel}
+                          &lt;/&gt;
+                        )}
+                        &lt;Metadata.Separator /&gt;
+                        {event.venue}
+                      &lt;/Metadata&gt;
+                    &lt;/Column&gt;
+                  &lt;/Card.Content&gt;
+                &lt;/Card&gt;
+              &lt;/Grid.Cell&gt;
+            ))}
+          &lt;/Grid.Subgrid&gt;
           {/* The Pagination takes the width of the results above it rather than that of the region. */}
           &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 9 }}&gt;
             &lt;Pagination
@@ -40559,6 +40643,9 @@ Put the results in a [Grid Subgrid](/docs/components-layout-grid--docs) rather t
 A Subgrid hands the columns it spans to its own children, so the Cells inside it sit on the columns of the page.
 Without it the results have no columns of their own, and nothing in them can line up with the rest of the page.
 
+The activities are a list, so give them a Subgrid of their own inside that one: a `ul` with every Cell in it an `li`.
+The sentence announcing the total and the Pagination are not part of that list, so they stay outside it.
+
 Announce the number of results in a `role=&quot;status&quot;` paragraph.
 
 Close the list with [Pagination](/docs/components-navigation-pagination--docs) in a Cell as wide as the results above it, rather than as wide as the region.
@@ -40601,6 +40688,9 @@ The heading of the filter column is hidden visually but not from assistive techn
 
 The number of results is announced in a `role=&quot;status&quot;` paragraph.
 A visitor using a screen reader otherwise has no way to tell that ticking a checkbox changed anything.
+
+The activities are a list in the markup as well as on screen.
+A screen reader then announces how many there are and which one it is on, and can skip past them all at once.
 
 The Calendar is a set of links rather than a date input, so it is reached and operated as navigation.
 Give it an accessible name that says where its days lead: the month alone does not.
@@ -48036,13 +48126,13 @@ That is the cost of the layout recorded above, and the part of this template sti
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
-  49 | const resultsMessage = `${totalResults} resultaten gevonden voor ‘${searchTerm}’ met soort nieuws ${quotedList(selectedCategories)} en ${districtPhrase}.`
-  50 |
-&gt; 51 | const meta = {
+  51 | const resultsMessage = `${totalResults} resultaten gevonden voor ‘${searchTerm}’ met soort nieuws ${quotedList(selectedCategories)} en ${districtPhrase}.`
+  52 |
+&gt; 53 | const meta = {
      | ^
-  52 |   ...commonMeta,
-  53 |   title: &#39;Pages/Public/News Overview Page&#39;,
-  54 |   parameters: pageParameters(
+  54 |   ...commonMeta,
+  55 |   title: &#39;Pages/Public/News Overview Page&#39;,
+  56 |   parameters: pageParameters(
 
 ./src/pages/public/NewsOverviewPage/NewsOverviewPage.stories.tsx:
 /**
@@ -48070,8 +48160,10 @@ import {
   Select,
 } from &#39;@amsterdam/design-system-react&#39;
 
+import { districts, newsArticles, newsCategories } from &#39;#storybook/_common/exampleContent&#39;
+import { formatFieldValue } from &#39;#storybook/_common/formatFieldValue&#39;
+
 import { commonMeta, pageParameters } from &#39;../common/commonMeta&#39;
-import { newsArticles, newsCategories, newsDistricts } from &#39;./data&#39;
 
 const searchTerm = &#39;tramspoor&#39;
 const selectedCategories = [&#39;Achtergrond&#39;]
@@ -48158,25 +48250,21 @@ export const Default: StoryObj = {
             &lt;/Select&gt;
           &lt;/Field&gt;
           &lt;FieldSet className=&quot;ams-mb-l&quot; legend=&quot;Soort nieuws&quot;&gt;
-            &lt;Column gap=&quot;x-small&quot;&gt;
-              &lt;Checkbox name=&quot;soort&quot; value=&quot;algemeen&quot;&gt;
-                Algemeen
-              &lt;/Checkbox&gt;
-              &lt;Checkbox defaultChecked name=&quot;soort&quot; value=&quot;achtergrond&quot;&gt;
-                Achtergrond
-              &lt;/Checkbox&gt;
-              &lt;Checkbox name=&quot;soort&quot; value=&quot;live blogs&quot;&gt;
-                Live blogs
-              &lt;/Checkbox&gt;
-            &lt;/Column&gt;
+            &lt;Checkbox name=&quot;soort&quot; value=&quot;algemeen&quot;&gt;
+              Algemeen
+            &lt;/Checkbox&gt;
+            &lt;Checkbox defaultChecked name=&quot;soort&quot; value=&quot;achtergrond&quot;&gt;
+              Achtergrond
+            &lt;/Checkbox&gt;
+            &lt;Checkbox name=&quot;soort&quot; value=&quot;live-blogs&quot;&gt;
+              Live blogs
+            &lt;/Checkbox&gt;
           &lt;/FieldSet&gt;
           &lt;FieldSet className=&quot;ams-mb-l&quot; legend=&quot;Stadsdelen&quot;&gt;
-            &lt;Column gap=&quot;x-small&quot;&gt;
-              &lt;Checkbox defaultChecked name=&quot;stadsdeel&quot; value=&quot;centrum&quot;&gt;
-                Centrum
-              &lt;/Checkbox&gt;
-              {/* … one Checkbox per district … */}
-            &lt;/Column&gt;
+            &lt;Checkbox defaultChecked name=&quot;stadsdeel&quot; value=&quot;centrum&quot;&gt;
+              Centrum
+            &lt;/Checkbox&gt;
+            {/* … one Checkbox per district … */}
           &lt;/FieldSet&gt;
           {/* The design filters as soon as a box is ticked; the button keeps the form usable without that script. */}
           &lt;Button type=&quot;submit&quot;&gt;Resultaten tonen&lt;/Button&gt;
@@ -48233,7 +48321,8 @@ export const Default: StoryObj = {
           &lt;/Grid.Cell&gt;
           {/* … one Cell per article … */}
         &lt;/Grid.Subgrid&gt;
-        &lt;Grid.Cell span=&quot;all&quot;&gt;
+        {/* The Pagination takes the width of the results above it rather than that of the region. */}
+        &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 9 }}&gt;
           &lt;Pagination
             accessibleNameId=&quot;paginering&quot;
             linkTemplate={(page) =&gt; \`?pagina=\${page}\`}
@@ -48299,32 +48388,28 @@ export const Default: StoryObj = {
                 &lt;/Select&gt;
               &lt;/Field&gt;
               &lt;FieldSet className=&quot;ams-mb-l&quot; legend=&quot;Soort nieuws&quot;&gt;
-                &lt;Column gap=&quot;x-small&quot;&gt;
-                  {newsCategories.map((category) =&gt; (
-                    &lt;Checkbox
-                      defaultChecked={selectedCategories.includes(category)}
-                      key={category}
-                      name=&quot;soort&quot;
-                      value={category.toLowerCase()}
-                    &gt;
-                      {category}
-                    &lt;/Checkbox&gt;
-                  ))}
-                &lt;/Column&gt;
+                {newsCategories.map((category) =&gt; (
+                  &lt;Checkbox
+                    defaultChecked={selectedCategories.includes(category)}
+                    key={category}
+                    name=&quot;soort&quot;
+                    value={formatFieldValue(category)}
+                  &gt;
+                    {category}
+                  &lt;/Checkbox&gt;
+                ))}
               &lt;/FieldSet&gt;
               &lt;FieldSet className=&quot;ams-mb-l&quot; legend=&quot;Stadsdelen&quot;&gt;
-                &lt;Column gap=&quot;x-small&quot;&gt;
-                  {newsDistricts.map((district) =&gt; (
-                    &lt;Checkbox
-                      defaultChecked={selectedDistricts.includes(district)}
-                      key={district}
-                      name=&quot;stadsdeel&quot;
-                      value={district.toLowerCase()}
-                    &gt;
-                      {district}
-                    &lt;/Checkbox&gt;
-                  ))}
-                &lt;/Column&gt;
+                {districts.map((district) =&gt; (
+                  &lt;Checkbox
+                    defaultChecked={selectedDistricts.includes(district)}
+                    key={district}
+                    name=&quot;stadsdeel&quot;
+                    value={formatFieldValue(district)}
+                  &gt;
+                    {district}
+                  &lt;/Checkbox&gt;
+                ))}
               &lt;/FieldSet&gt;
               {/* The design filters as soon as a box is ticked; the button keeps the form usable without that script. */}
               &lt;Button type=&quot;submit&quot;&gt;Resultaten tonen&lt;/Button&gt;
@@ -48379,7 +48464,8 @@ export const Default: StoryObj = {
                 &lt;/Grid.Cell&gt;
               ))}
             &lt;/Grid.Subgrid&gt;
-            &lt;Grid.Cell span=&quot;all&quot;&gt;
+            {/* The Pagination takes the width of the results above it rather than that of the region. */}
+            &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 9 }}&gt;
               &lt;Pagination
                 accessibleNameId=&quot;paginering&quot;
                 linkTemplate={(page) =&gt; `?pagina=${page}`}
@@ -48491,32 +48577,28 @@ export const Default: StoryObj = {
               &lt;/Select&gt;
             &lt;/Field&gt;
             &lt;FieldSet className=&quot;ams-mb-l&quot; legend=&quot;Soort nieuws&quot;&gt;
-              &lt;Column gap=&quot;x-small&quot;&gt;
-                {newsCategories.map((category) =&gt; (
-                  &lt;Checkbox
-                    defaultChecked={selectedCategories.includes(category)}
-                    key={category}
-                    name=&quot;soort&quot;
-                    value={category.toLowerCase()}
-                  &gt;
-                    {category}
-                  &lt;/Checkbox&gt;
-                ))}
-              &lt;/Column&gt;
+              {newsCategories.map((category) =&gt; (
+                &lt;Checkbox
+                  defaultChecked={selectedCategories.includes(category)}
+                  key={category}
+                  name=&quot;soort&quot;
+                  value={formatFieldValue(category)}
+                &gt;
+                  {category}
+                &lt;/Checkbox&gt;
+              ))}
             &lt;/FieldSet&gt;
             &lt;FieldSet className=&quot;ams-mb-l&quot; legend=&quot;Stadsdelen&quot;&gt;
-              &lt;Column gap=&quot;x-small&quot;&gt;
-                {newsDistricts.map((district) =&gt; (
-                  &lt;Checkbox
-                    defaultChecked={selectedDistricts.includes(district)}
-                    key={district}
-                    name=&quot;stadsdeel&quot;
-                    value={district.toLowerCase()}
-                  &gt;
-                    {district}
-                  &lt;/Checkbox&gt;
-                ))}
-              &lt;/Column&gt;
+              {districts.map((district) =&gt; (
+                &lt;Checkbox
+                  defaultChecked={selectedDistricts.includes(district)}
+                  key={district}
+                  name=&quot;stadsdeel&quot;
+                  value={formatFieldValue(district)}
+                &gt;
+                  {district}
+                &lt;/Checkbox&gt;
+              ))}
             &lt;/FieldSet&gt;
             {/* The design filters as soon as a box is ticked; the button keeps the form usable without that script. */}
             &lt;Button type=&quot;submit&quot;&gt;Resultaten tonen&lt;/Button&gt;
@@ -48571,7 +48653,8 @@ export const Default: StoryObj = {
               &lt;/Grid.Cell&gt;
             ))}
           &lt;/Grid.Subgrid&gt;
-          &lt;Grid.Cell span=&quot;all&quot;&gt;
+          {/* The Pagination takes the width of the results above it rather than that of the region. */}
+          &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 9 }}&gt;
             &lt;Pagination
               accessibleNameId=&quot;paginering&quot;
               linkTemplate={(page) =&gt; `?pagina=${page}`}
@@ -48653,7 +48736,8 @@ A visitor using a screen reader otherwise has no way to tell that ticking a chec
 Compose that sentence with `Intl.ListFormat` rather than joining the values with a hard-coded `en`.
 It applies the punctuation and the conjunction of the language itself, so the sentence survives translation: Dutch writes ‘a, b en c’ where English writes ‘a, b, and c’.
 
-Close the list with [Pagination](/docs/components-navigation-pagination--docs) in a Cell spanning all the columns of the Subgrid.
+Close the list with [Pagination](/docs/components-navigation-pagination--docs) in a Cell as wide as the results above it, rather than as wide as the region.
+The medium grid is where the two part company: the results leave a column spare there, and Pagination spanning the whole region would reach past the Cards it belongs to.
 Leave it out when everything fits on one page.
 
 The page title is the only Heading 1.
@@ -55463,13 +55547,13 @@ Images that illustrate what the text already describes take an empty `alt`.
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
-  40 | }
-  41 |
-&gt; 42 | const meta = {
+  42 | }
+  43 |
+&gt; 44 | const meta = {
      | ^
-  43 |   ...commonMeta,
-  44 |   title: &#39;Pages/Public/Search Results Page&#39;,
-  45 |   parameters: pageParameters(
+  45 |   ...commonMeta,
+  46 |   title: &#39;Pages/Public/Search Results Page&#39;,
+  47 |   parameters: pageParameters(
 
 ./src/pages/public/SearchResultsPage/SearchResultsPage.stories.tsx:
 /**
@@ -55498,8 +55582,10 @@ import {
   Select,
 } from &#39;@amsterdam/design-system-react&#39;
 
+import { searchResults, searchTopics } from &#39;#storybook/_common/exampleContent&#39;
+import { formatFieldValue } from &#39;#storybook/_common/formatFieldValue&#39;
+
 import { commonMeta, pageParameters } from &#39;../common/commonMeta&#39;
-import { searchResults, searchTopics } from &#39;./data&#39;
 
 const searchTerm = &#39;veiligheid&#39;
 const totalResults = 62
@@ -55576,12 +55662,10 @@ export const Default: StoryObj = {
             &lt;/Select&gt;
           &lt;/Field&gt;
           &lt;FieldSet className=&quot;ams-mb-l&quot; legend=&quot;Soort artikel&quot;&gt;
-            &lt;Column gap=&quot;x-small&quot;&gt;
-              &lt;Checkbox name=&quot;soort&quot; value=&quot;nieuwsbericht&quot;&gt;
-                Nieuwsbericht
-              &lt;/Checkbox&gt;
-              {/* … one Checkbox per topic … */}
-            &lt;/Column&gt;
+            &lt;Checkbox name=&quot;soort&quot; value=&quot;nieuwsbericht&quot;&gt;
+              Nieuwsbericht
+            &lt;/Checkbox&gt;
+            {/* … one Checkbox per topic … */}
           &lt;/FieldSet&gt;
           {/* The design filters as soon as a box is ticked; the button keeps the form usable without that script. */}
           &lt;Button type=&quot;submit&quot;&gt;Resultaten tonen&lt;/Button&gt;
@@ -55697,13 +55781,11 @@ export const Default: StoryObj = {
                 &lt;/Select&gt;
               &lt;/Field&gt;
               &lt;FieldSet className=&quot;ams-mb-l&quot; legend=&quot;Soort artikel&quot;&gt;
-                &lt;Column gap=&quot;x-small&quot;&gt;
-                  {searchTopics.map((topic) =&gt; (
-                    &lt;Checkbox key={topic} name=&quot;soort&quot; value={topic.toLowerCase()}&gt;
-                      {topic}
-                    &lt;/Checkbox&gt;
-                  ))}
-                &lt;/Column&gt;
+                {searchTopics.map((topic) =&gt; (
+                  &lt;Checkbox key={topic} name=&quot;soort&quot; value={formatFieldValue(topic)}&gt;
+                    {topic}
+                  &lt;/Checkbox&gt;
+                ))}
               &lt;/FieldSet&gt;
               {/* The design filters as soon as a box is ticked; the button keeps the form usable without that script. */}
               &lt;Button type=&quot;submit&quot;&gt;Resultaten tonen&lt;/Button&gt;
@@ -55870,13 +55952,11 @@ export const Default: StoryObj = {
               &lt;/Select&gt;
             &lt;/Field&gt;
             &lt;FieldSet className=&quot;ams-mb-l&quot; legend=&quot;Soort artikel&quot;&gt;
-              &lt;Column gap=&quot;x-small&quot;&gt;
-                {searchTopics.map((topic) =&gt; (
-                  &lt;Checkbox key={topic} name=&quot;soort&quot; value={topic.toLowerCase()}&gt;
-                    {topic}
-                  &lt;/Checkbox&gt;
-                ))}
-              &lt;/Column&gt;
+              {searchTopics.map((topic) =&gt; (
+                &lt;Checkbox key={topic} name=&quot;soort&quot; value={formatFieldValue(topic)}&gt;
+                  {topic}
+                &lt;/Checkbox&gt;
+              ))}
             &lt;/FieldSet&gt;
             {/* The design filters as soon as a box is ticked; the button keeps the form usable without that script. */}
             &lt;Button type=&quot;submit&quot;&gt;Resultaten tonen&lt;/Button&gt;
