@@ -7,7 +7,10 @@
 @use "../../common/resets" as *;
 @use "mixins" as *;
 
+// The Grid has 12 columns at the wide breakpoint, and 8 at the medium one.
+// Classes that name a column beyond the count of the breakpoint they apply to have no use.
 $ams-grid-column-count: 12;
+$ams-grid-medium-column-count: 8;
 $ams-grid-row-span-max: 4;
 
 .ams-grid {
@@ -161,7 +164,7 @@ $ams-grid-row-span-max: 4;
 }
 
 @media (min-width: $ams-breakpoint-medium) {
-  @for $i from 1 through $ams-grid-column-count {
+  @for $i from 1 through $ams-grid-medium-column-count {
     .ams-grid__cell--span-#{$i}-medium,
     .ams-grid__subgrid--span-#{$i}-medium {
       @include ams-grid__cell--span-medium($i);

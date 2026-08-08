@@ -83,7 +83,7 @@ $ams-breakout-row-span-max: 4;
 }
 
 @media (min-width: $ams-breakpoint-medium) {
-  @for $i from 1 through $ams-grid-column-count {
+  @for $i from 1 through $ams-grid-medium-column-count {
     .ams-breakout__cell--col-span-#{$i}-medium {
       @include ams-grid__cell--span-medium($i);
     }
