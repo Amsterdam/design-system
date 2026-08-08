@@ -23,7 +23,8 @@ const meta = {
         aria-labelledby="ams-alert-dialog-header-heading"
         ref={(dialog) => {
           if (dialog && !dialog.open) {
-            dialog.show() // Open the dialog non-modally, in place, to display the Header.
+            // Set the open attribute instead of calling show(), which would move focus here and scroll the docs page.
+            dialog.open = true
           }
         }}
         style={{ position: 'static' }}

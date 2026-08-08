@@ -21,7 +21,8 @@ const showInlineDecorator: Decorator = (Story) => (
 
       if (dialog && !dialog.open) {
         dialog.style.position = 'static'
-        dialog.show()
+        // Set the open attribute instead of calling show(), which would move focus here and scroll the docs page.
+        dialog.open = true
       }
     }}
   >
