@@ -19,6 +19,7 @@ import {
   Grid,
   Heading,
   Label,
+  Metadata,
   Pagination,
   Paragraph,
   Row,
@@ -212,25 +213,23 @@ export const Default: StoryObj = {
             <Card.Image alt="" loading="lazy" src="https://picsum.photos/id/1048/640/360" />
             {/* A Card that pairs an image with a Content lays out horizontally in a cell this wide. */}
             <Card.Content>
-              {/*
-               * The tagline carries the metadata of the activity, comma separated, until a component of
-               * its own exists for it.
-               */}
-              <Card.HeadingGroup tagline="Kunst en cultuur, Centrum">
+              <Card.HeadingGroup>
                 <Card.Heading level={3}>
                   <Card.Link href="#">Open dag Stadsarchief Amsterdam</Card.Link>
                 </Card.Heading>
+                {/* The Metadata carries the facets of the activity, comma separated. */}
+                <Metadata size="small">Kunst en cultuur, Centrum</Metadata>
               </Card.HeadingGroup>
               <Column gap="small">
                 <Paragraph>Ontdek eeuwenoude kaarten, foto’s en films over Amsterdam.</Paragraph>
-                {/* When and where, below the description, as the smaller of the two sizes a Paragraph offers. */}
-                <Paragraph size="small">
+                {/* When and where, below the description. A Card takes the small size of Metadata. */}
+                <Metadata size="small">
                   {/*
                    * The visible date is prose; dateTime repeats it in the machine-readable format software parses.
                    */}
                   <time dateTime="2026-06-20">20 juni 2026</time>
                   , 10.00–16.00 uur · Stadsarchief Amsterdam
-                </Paragraph>
+                </Metadata>
               </Column>
             </Card.Content>
           </Card>
@@ -386,23 +385,21 @@ export const Default: StoryObj = {
                   <Card.Image alt="" loading="lazy" src={event.imageSource} />
                   {/* A Card that pairs an image with a Content lays out horizontally in a cell this wide. */}
                   <Card.Content>
-                    {/*
-                     * The tagline carries the metadata of the activity, comma separated, until a component of
-                     * its own exists for it.
-                     */}
-                    <Card.HeadingGroup tagline={`${event.category}, ${event.district}`}>
+                    <Card.HeadingGroup>
                       <Card.Heading level={3}>
                         <Card.Link href={event.href}>{event.title}</Card.Link>
                       </Card.Heading>
+                      {/* The Metadata carries the facets of the activity, comma separated. */}
+                      <Metadata size="small">{`${event.category}, ${event.district}`}</Metadata>
                     </Card.HeadingGroup>
                     <Column gap="small">
                       <Paragraph>{event.teaser}</Paragraph>
-                      {/* When and where, below the description, as the smaller of the two sizes a Paragraph offers. */}
-                      <Paragraph size="small">
+                      {/* When and where, below the description. A Card takes the small size of Metadata. */}
+                      <Metadata size="small">
                         {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
                         <time dateTime={event.isoDate}>{event.date}</time>
                         {event.timeLabel ? `, ${event.timeLabel}` : ''} · {event.venue}
-                      </Paragraph>
+                      </Metadata>
                     </Column>
                   </Card.Content>
                 </Card>
@@ -559,25 +556,23 @@ export const Cards: StoryObj = {
             {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
             <Card.Image alt="" loading="lazy" src="https://picsum.photos/id/1048/640/360" />
             <Card.Content>
-              {/*
-               * The tagline carries the metadata of the activity, comma separated, until a component of
-               * its own exists for it.
-               */}
-              <Card.HeadingGroup tagline="Kunst en cultuur, Centrum">
+              <Card.HeadingGroup>
                 <Card.Heading level={3}>
                   <Card.Link href="#">Open dag Stadsarchief Amsterdam</Card.Link>
                 </Card.Heading>
+                {/* The Metadata carries the facets of the activity, comma separated. */}
+                <Metadata size="small">Kunst en cultuur, Centrum</Metadata>
               </Card.HeadingGroup>
               <Column gap="small">
                 <Paragraph>Ontdek eeuwenoude kaarten, foto’s en films over Amsterdam.</Paragraph>
-                {/* When and where, below the description, as the smaller of the two sizes a Paragraph offers. */}
-                <Paragraph size="small">
+                {/* When and where, below the description. A Card takes the small size of Metadata. */}
+                <Metadata size="small">
                   {/*
                    * The visible date is prose; dateTime repeats it in the machine-readable format software parses.
                    */}
                   <time dateTime="2026-06-20">20 juni 2026</time>
                   , 10.00–16.00 uur · Stadsarchief Amsterdam
-                </Paragraph>
+                </Metadata>
               </Column>
             </Card.Content>
           </Card>
@@ -733,23 +728,21 @@ export const Cards: StoryObj = {
                   {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
                   <Card.Image alt="" loading="lazy" src={event.imageSource} />
                   <Card.Content>
-                    {/*
-                     * The tagline carries the metadata of the activity, comma separated, until a component of
-                     * its own exists for it.
-                     */}
-                    <Card.HeadingGroup tagline={`${event.category}, ${event.district}`}>
+                    <Card.HeadingGroup>
                       <Card.Heading level={3}>
                         <Card.Link href={event.href}>{event.title}</Card.Link>
                       </Card.Heading>
+                      {/* The Metadata carries the facets of the activity, comma separated. */}
+                      <Metadata size="small">{`${event.category}, ${event.district}`}</Metadata>
                     </Card.HeadingGroup>
                     <Column gap="small">
                       <Paragraph>{event.teaser}</Paragraph>
-                      {/* When and where, below the description, as the smaller of the two sizes a Paragraph offers. */}
-                      <Paragraph size="small">
+                      {/* When and where, below the description. A Card takes the small size of Metadata. */}
+                      <Metadata size="small">
                         {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
                         <time dateTime={event.isoDate}>{event.date}</time>
                         {event.timeLabel ? `, ${event.timeLabel}` : ''} · {event.venue}
-                      </Paragraph>
+                      </Metadata>
                     </Column>
                   </Card.Content>
                 </Card>

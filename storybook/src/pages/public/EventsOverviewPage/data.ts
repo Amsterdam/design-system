@@ -6,7 +6,7 @@
 import { exampleImageSource } from '#storybook/_common/exampleContent'
 
 export type EventItem = {
-  /** The activity’s category, shown as the Card tagline and used by the category filter. */
+  /** The activity’s category, shown in the Card Metadata and used by the category filter. */
   readonly category: string
   /** The human-readable date, e.g. ‘20 juni 2026’. */
   readonly date: string
