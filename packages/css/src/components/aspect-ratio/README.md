@@ -16,7 +16,7 @@ The class can be applied to any component or element.
 - `ams-aspect-ratio-16-9`
 - `ams-aspect-ratio-16-5`
 
-These classes apply the [design tokens for aspect ratio](/docs/brand-design-tokens-aspect-ratio--docs).
+These classes apply the [design tokens for aspect ratio](https://designsystem.amsterdam/?path=/docs/brand-design-tokens-aspect-ratio--docs).
 
 ## Guidelines
 
