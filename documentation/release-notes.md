@@ -267,7 +267,7 @@ Concretely:
   Bold is for the version numbers, and nothing else on the page.
 - Keep a list item to one or two sentences, one per line, the second indented under the first.
   An item that wants a third sentence belongs on the component page instead.
-- Link a component on its first occurrence **in each section**, to its documentation page or to the specific story that shows the change.
+- Link a component on its first occurrence in each section, to its documentation page or to the specific story that shows the change.
   Plain title case for the rest of that section.
   Readers scan one section at a time, so each should stand on its own.
 - Prefer the plain word.
