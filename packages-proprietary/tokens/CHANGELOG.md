@@ -115,7 +115,7 @@ The following tokens have been deprecated and will be removed on or after 2026-1
   `ams.dialog.header.medium.padding-block`, `ams.dialog.header.medium.padding-inline`, `ams.dialog.body.medium.padding-inline`,
   `ams.dialog.footer.medium.padding-block`, `ams.dialog.footer.medium.padding-inline`
 - `ams.grid.medium.column-count`, `ams.grid.medium.padding-inline`, `ams.grid.wide.column-count`, and `ams.grid.wide.padding-inline`
-- `ams.menu.wide.max-inline-size`, `ams.menu.wide.padding-block`, `ams.menu.wide.padding-inline`, and `ams.menu-link.wide.gap`
+- `ams.menu.wide.max-inline-size`, `ams.menu.wide.padding-block`, `ams.menu.wide.padding-inline`, and `ams.menu.link.wide.gap`
 - `ams.page-footer.menu.medium.padding-inline`, `ams.page-footer.menu.wide.padding-inline`
 - `ams.page-header.medium.padding-inline`, `ams.page-header.wide.padding-inline`
 - `ams.progress-list.step.medium.gap` and `ams.progress-list.substeps.step.indicator.medium.margin-inline-end`
