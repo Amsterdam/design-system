@@ -100,6 +100,14 @@ The following icons will be removed on or after 2026-07-09:
 
 * Add 26 new icons, update 5, and deprecate 3 ([#2201](https://github.com/Amsterdam/design-system/issues/2201)) ([1a47b0d](https://github.com/Amsterdam/design-system/commit/1a47b0d6e6ea26f9ac9cc3f6fc98b6cf731f0163))
 
+### Deprecations
+
+The following icons have been deprecated and will be removed on or after 2026-05-01:
+
+- `CheckMarkCircle` and `CheckMarkCircleFill`, use `Success` and `SuccessFill` instead.
+- `Cogwheel` and `CogwheelFill`, use `Settings` and `SettingsFill` instead.
+- `HandWithEuroCoin`, use `PersonsWithEuroCoin` instead.
+
 ## [1.0.1](https://github.com/Amsterdam/design-system/compare/design-system-assets-v1.0.0...design-system-assets-v1.0.1) (2025-09-17)
 
 
