@@ -206,8 +206,15 @@ export const Default: StoryObj = {
                   <Card.Heading level={3}>
                     <Card.Link href="#">Open dag Stadsarchief Amsterdam</Card.Link>
                   </Card.Heading>
-                  {/* The Metadata carries the facets of the activity, comma separated. */}
-                  <Metadata size="small">Kunst en cultuur, Centrum</Metadata>
+                  {/*
+                   * The Metadata carries the facets of the activity. The category and the district come from
+                   * different filter fields, so a Separator sets them apart; a comma would read as two categories.
+                   */}
+                  <Metadata size="small">
+                    Kunst en cultuur
+                    <Metadata.Separator />
+                    Centrum
+                  </Metadata>
                 </Card.HeadingGroup>
                 <Column gap="small">
                   <Paragraph>Ontdek eeuwenoude kaarten, foto’s en films over Amsterdam.</Paragraph>
@@ -217,7 +224,7 @@ export const Default: StoryObj = {
                      * The visible date is prose; dateTime repeats it in the machine-readable format software parses.
                      */}
                     <time dateTime="2026-06-20">20 juni 2026</time>
-                    {/* The day, the time and the place are three kinds of metadata, so a Separator sits between them. */}
+                    {/* The day, the time and the place are three kinds, so two Separators divide them. */}
                     <Metadata.Separator />
                     10.00–16.00 uur
                     <Metadata.Separator />
@@ -389,8 +396,16 @@ export const Default: StoryObj = {
                         <Card.Heading level={3}>
                           <Card.Link href={event.href}>{event.title}</Card.Link>
                         </Card.Heading>
-                        {/* The Metadata carries the facets of the activity, comma separated. */}
-                        <Metadata size="small">{`${event.category}, ${event.district}`}</Metadata>
+                        {/*
+                         * The Metadata carries the facets of the activity. The category and the district come from
+                         * different filter fields, so a Separator sets them apart; a comma would read as two
+                         * categories.
+                         */}
+                        <Metadata size="small">
+                          {event.category}
+                          <Metadata.Separator />
+                          {event.district}
+                        </Metadata>
                       </Card.HeadingGroup>
                       <Column gap="small">
                         <Paragraph>{event.teaser}</Paragraph>
@@ -398,7 +413,7 @@ export const Default: StoryObj = {
                         <Metadata size="small">
                           {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
                           <time dateTime={event.isoDate}>{event.date}</time>
-                          {/* The day, the time and the place are three kinds of metadata, so a Separator sits between them. */}
+                          {/* The day, the time and the place are three kinds, so two Separators divide them. */}
                           {event.timeLabel && (
                             <>
                               <Metadata.Separator />
@@ -575,8 +590,15 @@ export const CardGrid: StoryObj = {
                   <Card.Heading level={3}>
                     <Card.Link href="#">Open dag Stadsarchief Amsterdam</Card.Link>
                   </Card.Heading>
-                  {/* The Metadata carries the facets of the activity, comma separated. */}
-                  <Metadata size="small">Kunst en cultuur, Centrum</Metadata>
+                  {/*
+                   * The Metadata carries the facets of the activity. The category and the district come from
+                   * different filter fields, so a Separator sets them apart; a comma would read as two categories.
+                   */}
+                  <Metadata size="small">
+                    Kunst en cultuur
+                    <Metadata.Separator />
+                    Centrum
+                  </Metadata>
                 </Card.HeadingGroup>
                 <Column gap="small">
                   <Paragraph>Ontdek eeuwenoude kaarten, foto’s en films over Amsterdam.</Paragraph>
@@ -586,7 +608,7 @@ export const CardGrid: StoryObj = {
                      * The visible date is prose; dateTime repeats it in the machine-readable format software parses.
                      */}
                     <time dateTime="2026-06-20">20 juni 2026</time>
-                    {/* The day, the time and the place are three kinds of metadata, so a Separator sits between them. */}
+                    {/* The day, the time and the place are three kinds, so two Separators divide them. */}
                     <Metadata.Separator />
                     10.00–16.00 uur
                     <Metadata.Separator />
@@ -758,8 +780,16 @@ export const CardGrid: StoryObj = {
                         <Card.Heading level={3}>
                           <Card.Link href={event.href}>{event.title}</Card.Link>
                         </Card.Heading>
-                        {/* The Metadata carries the facets of the activity, comma separated. */}
-                        <Metadata size="small">{`${event.category}, ${event.district}`}</Metadata>
+                        {/*
+                         * The Metadata carries the facets of the activity. The category and the district come from
+                         * different filter fields, so a Separator sets them apart; a comma would read as two
+                         * categories.
+                         */}
+                        <Metadata size="small">
+                          {event.category}
+                          <Metadata.Separator />
+                          {event.district}
+                        </Metadata>
                       </Card.HeadingGroup>
                       <Column gap="small">
                         <Paragraph>{event.teaser}</Paragraph>
@@ -767,7 +797,7 @@ export const CardGrid: StoryObj = {
                         <Metadata size="small">
                           {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
                           <time dateTime={event.isoDate}>{event.date}</time>
-                          {/* The day, the time and the place are three kinds of metadata, so a Separator sits between them. */}
+                          {/* The day, the time and the place are three kinds, so two Separators divide them. */}
                           {event.timeLabel && (
                             <>
                               <Metadata.Separator />

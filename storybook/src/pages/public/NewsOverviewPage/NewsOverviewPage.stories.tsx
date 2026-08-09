@@ -166,7 +166,15 @@ export const Default: StoryObj = {
                   <Card.Heading level={3}>
                     <Card.Link href="#">Berlagebrug een aantal nachten dicht</Card.Link>
                   </Card.Heading>
-                  <Metadata size="small">Algemeen, Centrum, Werkzaamheden</Metadata>
+                  {/*
+                   * The Metadata carries the facets of the article. The kind of news and the district come from
+                   * different filter fields, so a Separator sets them apart; a comma would read as two kinds of news.
+                   */}
+                  <Metadata size="small">
+                    Algemeen
+                    <Metadata.Separator />
+                    Centrum
+                  </Metadata>
                 </Card.HeadingGroup>
                 <Column gap="small">
                   <Paragraph>
@@ -312,7 +320,21 @@ export const Default: StoryObj = {
                         <Card.Heading level={3}>
                           <Card.Link href="#">{article.title}</Card.Link>
                         </Card.Heading>
-                        <Metadata size="small">{article.category}</Metadata>
+                        {/*
+                         * The Metadata carries the facets of the article. The kind of news and the district come
+                         * from different filter fields, so a Separator sets them apart; a comma would read as two
+                         * kinds of news.
+                         */}
+                        <Metadata size="small">
+                          {article.category}
+                          {/* Leave the Separator out for news that concerns the whole city, so no line ends in one. */}
+                          {article.district && (
+                            <>
+                              <Metadata.Separator />
+                              {article.district}
+                            </>
+                          )}
+                        </Metadata>
                       </Card.HeadingGroup>
                       <Column gap="small">
                         <Paragraph>{article.teaser}</Paragraph>
