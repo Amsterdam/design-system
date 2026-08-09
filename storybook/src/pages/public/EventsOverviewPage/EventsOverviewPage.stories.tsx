@@ -413,7 +413,10 @@ export const Default: StoryObj = {
                         <Metadata size="small">
                           {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
                           <time dateTime={event.isoDate}>{event.date}</time>
-                          {/* The day, the time and the place are three kinds, so two Separators divide them. */}
+                          {/*
+                           * A Separator divides the day, the time and the place, each of which is a kind of its
+                           * own. An activity with no time leaves one out, so two Separators never meet.
+                           */}
                           {event.timeLabel && (
                             <>
                               <Metadata.Separator />
@@ -797,7 +800,10 @@ export const CardGrid: StoryObj = {
                         <Metadata size="small">
                           {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
                           <time dateTime={event.isoDate}>{event.date}</time>
-                          {/* The day, the time and the place are three kinds, so two Separators divide them. */}
+                          {/*
+                           * A Separator divides the day, the time and the place, each of which is a kind of its
+                           * own. An activity with no time leaves one out, so two Separators never meet.
+                           */}
                           {event.timeLabel && (
                             <>
                               <Metadata.Separator />
