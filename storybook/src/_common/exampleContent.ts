@@ -298,10 +298,12 @@ export const exampleUnorderedList = () =>
 // take that list from `districts` above rather than keeping a copy of their own.
 
 export type NewsArticle = {
-  /** The facets of the article, comma separated, as one Metadata line. */
+  /** The kind of news, shown in the Card Metadata and used by the ‘Soort nieuws’ filter. */
   readonly category: string
   /** The human-readable date, e.g. ‘20 oktober 2023’. */
   readonly date: string
+  /** The city district (stadsdeel) the article is about; news that concerns the whole city has none. */
+  readonly district?: string
   readonly id: string
   /** A decorative image; its `alt` is intentionally empty as the title beside it conveys the same meaning. */
   readonly imageSource: string
@@ -367,8 +369,9 @@ export const searchTopics: ReadonlyArray<string> = ['Nieuwsbericht', 'Beleid en 
 export const newsArticles: ReadonlyArray<NewsArticle> = [
   {
     title: 'Berlagebrug een aantal nachten dicht',
-    category: 'Algemeen, Centrum, Werkzaamheden',
+    category: 'Algemeen',
     date: '20 oktober 2023',
+    district: 'Centrum',
     id: 'berlagebrug',
     imageSource: exampleImageSource(640, 360, 0),
     isoDate: '2023-10-20',
@@ -387,8 +390,9 @@ export const newsArticles: ReadonlyArray<NewsArticle> = [
   },
   {
     title: 'Noorderpark wordt groener en beter toegankelijk',
-    category: 'Algemeen, Noord',
+    category: 'Algemeen',
     date: '16 oktober 2023',
+    district: 'Noord',
     id: 'noorderpark',
     imageSource: exampleImageSource(640, 360, 2),
     isoDate: '2023-10-16',
@@ -397,8 +401,9 @@ export const newsArticles: ReadonlyArray<NewsArticle> = [
   },
   {
     title: 'Zuidoost viert 750 jaar Amsterdam: vraag subsidie aan voor uw initiatief',
-    category: 'Algemeen, Zuidoost',
+    category: 'Algemeen',
     date: '13 oktober 2023',
+    district: 'Zuidoost',
     id: 'zuidoost-subsidie',
     imageSource: exampleImageSource(640, 360, 3),
     isoDate: '2023-10-13',
@@ -417,8 +422,9 @@ export const newsArticles: ReadonlyArray<NewsArticle> = [
   },
   {
     title: 'Erfgoed van de week: het wonderkind van de Amsterdamse School',
-    category: 'Achtergrond, West',
+    category: 'Achtergrond',
     date: '9 oktober 2023',
+    district: 'West',
     id: 'amsterdamse-school',
     imageSource: exampleImageSource(640, 360, 5),
     isoDate: '2023-10-09',
