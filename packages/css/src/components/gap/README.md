@@ -17,7 +17,7 @@ Five options are available for the width or height of the gap:
 These classes apply the [design tokens for space](/docs/brand-design-tokens-space--docs).
 
 Because spacing is responsive, the gaps are as well.
-They are also smaller in [Compact Mode](https://designsystem.amsterdam/docs/docs-guidelines-modes--docs).
+They are also smaller in [Compact Mode](https://designsystem.amsterdam/?path=/docs/docs-guidelines-modes--docs).
 
 ## Guidelines
 

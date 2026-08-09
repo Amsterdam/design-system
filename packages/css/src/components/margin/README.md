@@ -18,12 +18,12 @@ Six options are available for the width or height of the bottom margin:
 These classes apply the [design tokens for space](/docs/brand-design-tokens-space--docs).
 
 Because spacing is responsive, the margins are as well.
-They are also smaller in [Compact Mode](https://designsystem.amsterdam/docs/docs-guidelines-modes--docs).
+They are also smaller in [Compact Mode](https://designsystem.amsterdam/?path=/docs/docs-guidelines-modes--docs).
 
 ## Guidelines
 
 - Use this utility class to vertically separate one element from the next.
-- Consult the [vertical space](/docs/docs-guidelines-vertical-space--docs) guidelines to find the recommended length.
+- Consult the [vertical space](https://designsystem.amsterdam/?path=/docs/docs-guidelines-vertical-space--docs) guidelines to find the recommended length.
 - It can be used on any element and sets the `margin-block-end` CSS property.
   This declaration is marked with the `!important` flag to ensure it overrides any other margins.
 - Elements’ top and bottom margins are sometimes collapsed into a single margin.
