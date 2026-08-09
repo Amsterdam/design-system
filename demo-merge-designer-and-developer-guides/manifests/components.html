@@ -588,13 +588,13 @@
 <header>
   <div class="wrap">
     <h1>Manifest Debugger</h1>
-    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">15/89 prop type errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">15/89 infos</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">1/305 story errors</a><a class="filter-pill ok" data-k="docs" href="#filter-docs">126 docs ok</a></div>
+    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">15/89 prop type errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">15/89 infos</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">1/305 story errors</a><a class="filter-pill ok" data-k="docs" href="#filter-docs">125 docs ok</a></div>
   </div>
 </header>
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>5.6s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>5.5s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -57710,190 +57710,19 @@ Two deprecations can wait, both until at least 20 October 2026: [Accordion](/doc
   aria-label="Docs">
   <div class="head">
     <div class="title">
-      <h2><span class="status-dot dot-ok"></span> Docs/Guidelines/AI assistance</h2>
-      <div class="badges">
-        
-        <label for="doc-2-docs-guidelines-ai-assistance-docs-content" class="badge ok as-toggle">view content</label>
-      </div>
-    </div>
-    <div class="meta" title="./src/docs/guidelines/ai-assistance.docs.mdx">docs-guidelines-ai-assistance--docs · ./src/docs/guidelines/ai-assistance.docs.mdx</div>
-    <div># AI assistance We run an MCP server to let your assistant work with the real Amsterdam De...</div>
-  </div>
-
-  <!-- Hidden toggles must be siblings BEFORE .panels -->
-  
-  <input id="doc-2-docs-guidelines-ai-assistance-docs-content" class="tg tg-content" type="checkbox" hidden />
-
-  <div class="panels">
-    
-    
-        <div class="panel panel-content">
-          <div class="mdx-content">
-            <pre><code>{/* @license CC0-1.0 */}
-
-import { Meta } from &quot;@storybook/addon-docs/blocks&quot;;
-
-&lt;Meta title=&quot;Docs/Guidelines/AI assistance&quot; /&gt;
-
-# AI assistance
-
-We run an MCP server to let your assistant work with the real Amsterdam Design System.
-
-## Why connect your assistant
-
-This server exposes our components and their features, as well as our stories and documentation.
-Without this context, an assistant guesses: it writes generic HTML, invents property names, and misses our accessibility and language conventions.
-
-With it, the assistant builds with existing components, using the correct properties, variants, and accessibility patterns from the current release.
-This keeps what you ship consistent with the rest of the City’s services, with less review and rework.
-
-## What the server exposes
-
-The hosted server gives your assistant a small set of tools, which it calls on its own:
-
-- **list-all-documentation** lists every component and documentation page, so the assistant knows what exists.
-- **get-documentation** returns a component’s full documentation, properties, and code examples.
-- **get-documentation-for-story** returns the documentation for one specific story variant.
-
-You simply ask for what you want to build.
-
-## The endpoint
-
-Our hosted endpoint needs no setup, tracks our `main` branch, and is public, so any tool can connect:
-
-{/* prettier-ignore */}
-```sh
-https://main--68db9df886b46f139748c074.chromatic.com/mcp
-```
-
-Contributors can use the local endpoint while `pnpm run watch:storybook` is running:
-
-{/* prettier-ignore */}
-```sh
-http://localhost:6006/mcp
-```
-
-The local URL follows your Storybook port; if you run it on another port, change the number to match.
-
-## Connect your tool
-
-Any MCP-capable assistant can connect.
-Use your tool’s MCP settings to add a server over Streamable HTTP at the hosted endpoint above.
-Contributors can swap in `http://localhost:6006/mcp` to use a local Storybook.
-
-Many tools read this configuration from a JSON file, and most accept this shape:
-
-{/* prettier-ignore */}
-```json
-{
-  &quot;mcpServers&quot;: {
-    &quot;amsterdam-design-system&quot;: {
-      &quot;type&quot;: &quot;http&quot;,
-      &quot;url&quot;: &quot;https://main--68db9df886b46f139748c074.chromatic.com/mcp&quot;
-    }
-  }
-}
-```
-
-The exact key, file name, and file location differ per tool; check your tool’s MCP documentation for the specifics.
-
-## Example prompts
-
-Once connected, ask for what you want in plain language:
-
-- “Build a contact form with ADS: a name and email field and a submit button.”
-- “Show me the properties and variants of the Alert component.”
-- “Replace this hand-built card with the design system’s Card component.”
-- “Lay out this page with Grid and Column from the design system.”
-- “Should I use a Button or a Link component for this interaction?”
-
-## Good to know
-
-- The hosted endpoint tracks the `main` branch, so your assistant works with our latest released API.
-- It draws on our stories and documentation, so richer stories lead to better answers.
-- Component support starts with React; other technologies follow as the Storybook MCP server adds them.
-- This page always lists the current endpoint; if a connection stops working, check here for the latest address.
-- If a component you need does not exist yet, [request it or contribute](https://github.com/Amsterdam/design-system/blob/develop/CONTRIBUTING.md) rather than having your assistant build a one-off.
-</code></pre>
-          </div>
-        </div>
-  </div>
-</article>
-<article
-  class="card is-doc no-doc-error"
-  role="listitem"
-  aria-label="Docs">
-  <div class="head">
-    <div class="title">
-      <h2><span class="status-dot dot-ok"></span> Docs/Guidelines/Browser support</h2>
-      <div class="badges">
-        
-        <label for="doc-3-docs-guidelines-browser-support-docs-content" class="badge ok as-toggle">view content</label>
-      </div>
-    </div>
-    <div class="meta" title="./src/docs/guidelines/browser-support.docs.mdx">docs-guidelines-browser-support--docs · ./src/docs/guidelines/browser-support.docs.mdx</div>
-    <div># Browser support The Amsterdam Design System uses the [Baseline standard](https://web.dev...</div>
-  </div>
-
-  <!-- Hidden toggles must be siblings BEFORE .panels -->
-  
-  <input id="doc-3-docs-guidelines-browser-support-docs-content" class="tg tg-content" type="checkbox" hidden />
-
-  <div class="panels">
-    
-    
-        <div class="panel panel-content">
-          <div class="mdx-content">
-            <pre><code>{/* @license CC0-1.0 */}
-
-import { Meta } from &quot;@storybook/addon-docs/blocks&quot;;
-
-&lt;Meta title=&quot;Docs/Guidelines/Browser support&quot; /&gt;
-
-# Browser support
-
-The Amsterdam Design System uses the [Baseline standard](https://web.dev/baseline/) &#39;Widely available&#39; for browser support. This means we only use features that have been supported in the 4 major browsers (Chrome, Edge, Firefox, and Safari) for at least 30 months.
-This is considered a good trade-off between using modern web platform features and ensuring broad compatibility.
-
-We use linters for CSS and JavaScript to enforce this.
-These tools help us catch most usages of unsupported features early in the development process, allowing us to maintain our commitment to browser compatibility.
-
-However, there is a limitation: we use a lot of CSS custom properties (CSS variables) in our design system.
-The Baseline linter judges each declaration by the value written next to it, and does not follow a `var()` reference to the value behind it.
-It does check the declaration of a custom property itself, so the ones a component defines for its own use are covered.
-Our design tokens are generated into a stylesheet that we exclude from linting, so the values they carry are the ones that go unchecked.
-For example, `color` is widely available and `light-dark()` is not, but `color: var(--ams-alert-background-color)` gives the linter no way to tell which one it ends up with.
-
-Where the value behind a token matters, we resolve it ourselves.
-Our own Stylelint rules follow a token reference through as many aliases as it takes and judge the value it ends at, which is how we check grid tracks, font stacks, font sizes, and list markers today.
-The same approach could be applied to Baseline if we find we need it.
-
-We carefully test and review our code to minimize the risk of using unsupported values.
-If you find any issues related to browser support, please [report them](https://github.com/Amsterdam/design-system/issues) so we can address them promptly.
-</code></pre>
-          </div>
-        </div>
-  </div>
-</article>
-<article
-  class="card is-doc no-doc-error"
-  role="listitem"
-  aria-label="Docs">
-  <div class="head">
-    <div class="title">
       <h2><span class="status-dot dot-ok"></span> Docs/Guidelines/Getting started</h2>
       <div class="badges">
         
-        <label for="doc-4-docs-guidelines-getting-started-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-2-docs-guidelines-getting-started-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/docs/guidelines/getting-started.docs.mdx">docs-guidelines-getting-started--docs · ./src/docs/guidelines/getting-started.docs.mdx</div>
-    <div># Getting started ## Installing Get the packages your need from npm. These are all 5 of th...</div>
+    <div># Getting started The design system ships as five npm packages, so you install the ones yo...</div>
   </div>
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-4-docs-guidelines-getting-started-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-2-docs-guidelines-getting-started-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -57908,9 +57737,12 @@ import { Meta } from &quot;@storybook/addon-docs/blocks&quot;;
 
 # Getting started
 
+The design system ships as five npm packages, so you install the ones you need and import their stylesheets alongside the components.
+Two things in your document – a class name on the body and a viewport meta tag – make those components behave as designed.
+
 ## Installing
 
-Get the packages your need from npm.
+Get the packages you need from npm.
 These are all 5 of them:
 
 ```sh
@@ -58006,19 +57838,19 @@ Check our [Contributing guidelines](https://github.com/Amsterdam/design-system/b
   aria-label="Docs">
   <div class="head">
     <div class="title">
-      <h2><span class="status-dot dot-ok"></span> Docs/Guidelines/Interactivity</h2>
+      <h2><span class="status-dot dot-ok"></span> Docs/Guidelines/Release policy</h2>
       <div class="badges">
         
-        <label for="doc-5-docs-guidelines-interactivity-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-3-docs-guidelines-release-policy-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
-    <div class="meta" title="./src/docs/guidelines/interactivity.docs.mdx">docs-guidelines-interactivity--docs · ./src/docs/guidelines/interactivity.docs.mdx</div>
-    <div># Interactivity By this, we mean elements with which the user can interact, such as links,...</div>
+    <div class="meta" title="./src/docs/guidelines/release-policy.docs.mdx">docs-guidelines-release-policy--docs · ./src/docs/guidelines/release-policy.docs.mdx</div>
+    <div># Release policy We aim to publish new releases on a monthly basis. Breaking changes will ...</div>
   </div>
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-5-docs-guidelines-interactivity-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-3-docs-guidelines-release-policy-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -58029,88 +57861,85 @@ Check our [Contributing guidelines](https://github.com/Amsterdam/design-system/b
 
 import { Meta } from &quot;@storybook/addon-docs/blocks&quot;;
 
-&lt;Meta title=&quot;Docs/Guidelines/Interactivity&quot; /&gt;
+&lt;Meta title=&quot;Docs/Guidelines/Release policy&quot; /&gt;
 
-# Interactivity
+# Release policy
 
-By this, we mean elements with which the user can interact, such as links, buttons and form fields.
-They must be clearly recognisable and easily distinguishable from non-interactive elements.
-Users must be able to operate them in various ways, such as with a mouse, keyboard and touchscreen.
+We aim to publish new releases on a monthly basis.
+Breaking changes will occur at most once every 3 months.
 
-## Text
+## Packages
 
-The result of activating an interactive element must be predictable, even without reading the surrounding text.
+We publish the code libraries of our design system as **5 separate npm packages**:
 
-Don’t use generic text fragments like “Click here” or “Read more” for the link’s label.
-A more meaningful text helps sighted users scan the page, and screen reader users navigate between links.
-It’s also beneficial to search engines.
+1. [Assets](https://www.npmjs.com/package/@amsterdam/design-system-assets): our fonts, icons, logos and application icons.
+2. [CSS](https://www.npmjs.com/package/@amsterdam/design-system-css): applies our design to all components and utilities.
+3. [React](https://www.npmjs.com/package/@amsterdam/design-system-react): implements our component library in React.
+4. [React Icons](https://www.npmjs.com/package/@amsterdam/design-system-react-icons): all of our icons as React components.
+5. [Tokens](https://www.npmjs.com/package/@amsterdam/design-system-tokens): CSS variables that express our design choices.
 
-### Relevant WCAG requirements
+## Version numbering
 
-- [WCAG 2.4.4](https://www.w3.org/TR/WCAG22/#link-purpose-in-context): it is clear to users what it means to click on a link
-- [WCAG 2.4.6](https://www.w3.org/TR/WCAG22/#headings-and-labels): use a label to describe interactive elements
-- [WCAG 2.5.3](https://www.w3.org/TR/WCAG22/#label-in-name): the accessible name of an element must contain at least the visible text of the element
+Each package has its **own version number**.
+The design system as a whole **does not have** a single overarching version.
+Because of cross-dependencies, the CSS, React and tokens packages will often move to a new major version together.
 
-## Colour
+We follow [semantic versioning](https://semver.org) to indicate the impact of changes:
 
-To indicate that an element is interactive, we use the colour blue.
-For example, inline links and the primary button are blue.
-We use red for interactive elements that are part of an error message.
-Both colours become darker on hover.
+- Patch (x.y.z): fixes and technical improvements, safe to upgrade.
+- Minor (x.y): offers new features, check whether you can use them.
+- Major (x): breaking changes that may require updates to your code.
 
-Colour should not be the only indicator of interactivity so that people with difficulty perceiving colour differences can still see that an element is interactive.
+## Peer dependencies
 
-### Relevant WCAG requirements
+Our packages are interconnected through peer dependencies.
+The React package relies on the CSS package, while the CSS package depends on the Tokens and Assets packages.
+Upgrading one of these packages likely means you will also need to upgrade the others to satisfy the peer dependency version requirements.
 
-- [WCAG 1.4.1](https://www.w3.org/TR/WCAG22/#use-of-color): colour should not be the only way to indicate that something is interactive
-- [WCAG 1.4.3](https://www.w3.org/TR/WCAG21/#contrast-minimum): text has sufficient contrast with the background
+Without additional configuration, tools like **Dependabot by GitHub** might create separate pull requests for each package, which could fail due to unmet peer dependency constraints.
+Grouping the design system packages into a single update can prevent this issue.
+[Their documentation](https://docs.github.com/en/code-security/tutorials/secure-your-dependencies/optimizing-pr-creation-version-updates#grouping-related-dependencies-together) provides details on this.
 
-## Format
+## Release cadence
 
-Interactive elements are at least 24 by 24 pixels in size, so they are easy to use for a large group of users.
+Breaking changes are grouped into major releases, which we limit to **once every 3 months**.
+Non-breaking changes get **released as needed**, usually at the end of our 4-week sprints, but our setup allows us to publish anytime.
 
-### Relevant WCAG requirements
+We currently don’t define how long we **support older versions** and backport fixes to them.
+We recommend staying up to date with at least each major release.
 
-- [WCAG 2.5.8](https://w3c.github.io/wcag/guidelines/22/#target-size-minimum): interactive elements are at least 24 by 24 pixels in size
+## Deprecation process
 
-## Focus indicator
+We deprecate public features – React components, CSS classes, assets and design tokens – before removing them, so you have enough time to migrate.
 
-We use the standard focus indicator of the web browsers.
-We only adjust the focus outline with an offset of 2 pixels to increase contrast with dark elements.
+We keep features available until **at least six months** after their deprecation has been published.
+All deprecations and removals are noted in the changelogs.
+Find migration guidance in release notes, on this website, in JSDoc annotations, or comments in code.
 
-When setting up a page, ensure that the interactive elements are in a logical order, usually from top to bottom and from left to right.
+## Deletion process
 
-### Relevant WCAG requirements
+- Address TypeScript errors that result from changes to names, props and prop values of **React components**.
+- Read the changelog to find whether **CSS classes** that you may hook into were changed or removed.
+- Do the same for our **CSS custom properties** that you use in your components.
+  The Stylelint plugin `stylelint-value-no-unknown-custom-properties` could help here.
 
-- [WCAG 2.4.3](https://www.w3.org/TR/WCAG22/#focus-order): interactive elements have a logical focus / tabbing order
-- [WCAG 2.4.7](https://www.w3.org/TR/WCAG22/#focus-visible): the focus indicator is visible
-- [WCAG 2.4.11](https://www.w3.org/TR/WCAG22/#focus-not-obscured-minimum): the focus indicator is not completely hidden by content
-- [WCAG 2.4.12](https://www.w3.org/TR/WCAG22/#focus-not-obscured-enhanced): the focus indicator is not partially hidden by content
-- [WCAG 2.4.13](https://www.w3.org/TR/WCAG22/#focus-appearance): the focus indicator is at least 2 pixels wide and has sufficient contrast with the element that has focus
+## Communication channels
 
-## Hover
+- Packages are published to [npm](https://www.npmjs.com/).
+- Use a tool like [Dependabot](https://docs.github.com/en/code-security/getting-started/dependabot-quickstart-guide) to get notified of new versions.
+- Each package has its own **changelog file** in [the repository](https://github.com/Amsterdam/design-system).
+- **Release notes** are also shared in [Teams](https://teams.microsoft.com/l/team/19%3afYKS_RD2n1q4UhguA9jwEJk0A_VjYPO4TiLQjYlG_bo1%40thread.tacv2/conversations?groupId=381b5f11-b342-4a3a-8a78-8b371a90457d&amp;tenantId=72fca1b1-2c2e-4376-a445-294d80196804) and [Slack](https://datalab-amsterdam.slack.com/archives/CV54XSMSA).
+- Ask questions and hear about updates in our **sprint reviews**.
+- Any **issues or requests** are welcome on [GitHub](https://github.com/Amsterdam/design-system/issues) or in [Teams](https://teams.microsoft.com/l/team/19%3afYKS_RD2n1q4UhguA9jwEJk0A_VjYPO4TiLQjYlG_bo1%40thread.tacv2/conversations?groupId=381b5f11-b342-4a3a-8a78-8b371a90457d&amp;tenantId=72fca1b1-2c2e-4376-a445-294d80196804).
 
-Hover and focus have different, non-overlapping styles.
-As a keyboard user, you must know which element you are activating.
-A focus style sufficiently different from the hover visualisation helps achieve that goal.
+## Consumer responsibilities
 
-We use the cursor hand `pointer` on hover on all interactive elements without cursor style (such as text boxes).
-Originally, `pointer` was only intended for links, but we consider the association of `pointer` with interactivity to be so strong that we use this cursor more often.
+To make the most of the design system and avoid surprises:
 
-Do not use the `title` attribute.
-This attribute has inconsistent browser support, which can cause [accessibility issues](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/title#accessibility_concerns).
-Furthermore, interactive elements with the `title` attribute may show a tooltip overlaying the text, making it less readable.
-
-### References
-
-- [Utrecht documentation on focus and hover](https://nl-design-system.github.io/utrecht/storybook//docs/css-link--docs)
-- [Specification of cursor pointer.](https://www.w3.org/TR/css-ui-4/#valdef-cursor-pointer) States that you should use a pointer for links and may use it for other interactive elements
-
-## Double click
-
-[Some users tend to double-click interactive elements.](https://design-system.service.gov.uk/components/button/#stop-users-from-accidentally-sending-information-more-than-once) Make sure that this does not lead to problems, for example, by using a loading state and letting the server verify it only uses one instance of the data.
-
-We use the CSS rule `touch-action: manipulation` on all interactive elements to prevent devices from unintentionally zooming in and out when clicking or tapping twice.
+- **Review changelogs** before upgrading.
+- **Plan for major releases** roughly once every three months.
+- **Stay up to date** and upgrade to at least each major release.
+- **Join sprint reviews** for early insights or to raise questions.
 </code></pre>
           </div>
         </div>
@@ -58122,19 +57951,19 @@ We use the CSS rule `touch-action: manipulation` on all interactive elements to 
   aria-label="Docs">
   <div class="head">
     <div class="title">
-      <h2><span class="status-dot dot-ok"></span> Docs/Guidelines/Localisation</h2>
+      <h2><span class="status-dot dot-ok"></span> Docs/Guidelines/Browser support</h2>
       <div class="badges">
         
-        <label for="doc-6-docs-guidelines-localisation-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-4-docs-guidelines-browser-support-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
-    <div class="meta" title="./src/docs/guidelines/localisation.docs.mdx">docs-guidelines-localisation--docs · ./src/docs/guidelines/localisation.docs.mdx</div>
-    <div># Localisation Localisation covers two related tasks. Declare the language of your content...</div>
+    <div class="meta" title="./src/docs/guidelines/browser-support.docs.mdx">docs-guidelines-browser-support--docs · ./src/docs/guidelines/browser-support.docs.mdx</div>
+    <div># Browser support We only use web platform features that the four major browsers have supp...</div>
   </div>
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-6-docs-guidelines-localisation-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-4-docs-guidelines-browser-support-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -58145,128 +57974,20 @@ We use the CSS rule `touch-action: manipulation` on all interactive elements to 
 
 import { Meta } from &quot;@storybook/addon-docs/blocks&quot;;
 
-&lt;Meta title=&quot;Docs/Guidelines/Localisation&quot; /&gt;
+&lt;Meta title=&quot;Docs/Guidelines/Browser support&quot; /&gt;
 
-# Localisation
+# Browser support
 
-Localisation covers two related tasks.
-Declare the language of your content so browsers and assistive technologies interpret it correctly, and tell components which language and region to format their output in.
+We only use web platform features that the four major browsers have supported for at least 30 months.
+This is considered a good trade-off between using modern web platform features and ensuring broad compatibility.
 
-## Language
+That threshold is the [Baseline standard](https://web.dev/baseline/) ‘Widely available’, measured across Chrome, Edge, Firefox, and Safari.
+We use linters for CSS and JavaScript to enforce it.
+These tools help us catch most usages of unsupported features early in the development process, allowing us to maintain our commitment to browser compatibility.
 
-Declare the human language of your content with the HTML `lang` attribute.
-This helps browsers, screen readers, and search engines interpret it correctly.
-
-### Specify the language for the entire document
-
-It is mandatory to explicitly indicate in which language the content of your page is.
-With the correct language set, your website will work better.
-Screen readers will know what language to use for speech.
-It is also helpful for search engine optimization (SEO).
-
-Specify the language on your website’s `&lt;html&gt;` element.
-After all, the contents of elements in the `&lt;head&gt;`, such as `title` and `meta`, also contain content in the same language.
-That is outside the scope of the components of the design system.
-That is why you have to remember to do this properly yourself.
-
-```html
-&lt;html lang=&quot;nl&quot;&gt;
-  …
-&lt;/html&gt;
-```
-
-### Highlight elements in another language
-
-If a specific element is in another language, indicate this there.
-
-For example, for a link to an English site or page in a menu:
-
-```html
-&lt;nav&gt;
-  &lt;ul&gt;
-    &lt;li&gt;&lt;a href=&quot;https://mijn.amsterdam.nl/&quot;&gt;My Amsterdam&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;https://www.amsterdam.nl/en/&quot; lang=&quot;en&quot;&gt;English site&lt;/a&gt;&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/nav&gt;
-```
-
-### Do not specify the region
-
-The language tag `nl` is sufficient.
-Expanding it with the region subtag `nl-NL` is not necessary:
-
-&gt; The golden rule when creating language tags is to keep the tag as short as possible.
-&gt; Avoid region, script or other subtags except where they add useful distinguishing information.
-&gt; – [W3C Internationalization Activity](https://www.w3.org/International/articles/language-tags/)
-
-## Locale
-
-Some components render their own text, such as weekday and month names.
-Set the language and region they format it in with the `locale` prop.
-
-### Localise components
-
-The [Calendar](/docs/components-navigation-calendar--docs) and [Date Picker](/docs/components-forms-date-picker--docs) render weekday names, month names, and accessible date labels in the language of their `locale` prop.
-When you omit it, both default to `nl-NL`.
-
-The prop accepts a [BCP 47 language tag](https://www.w3.org/International/articles/language-tags/).
-Unlike the HTML `lang` attribute, including a region subtag is appropriate here.
-The JavaScript `Intl` API can produce different output for different regional variants of the same language.
-
-These locales have been tested:
-
-- `nl-NL` – Nederlands (Dutch), the default
-- `en-GB` – English
-- `de-DE` – Deutsch (German)
-- `fr-FR` – Français (French)
-- `tr-TR` – Türkçe (Turkish)
-- `ar-MA` – العربية (Arabic)
-
-`locale` only drives the text that `Intl` generates.
-Both components also have accessible names and navigation button labels that stay in their default language until you translate them, so set those in the same language to avoid a mix.
-For right-to-left languages like Arabic, also add `dir=&quot;rtl&quot;` to the component or to a containing element.
-
-If your app uses one of these components in multiple places with the same language, a small wrapper component avoids repeating these props:
-
-```tsx
-import type { CalendarProps } from &quot;@amsterdam/design-system-react&quot;;
-
-import { Calendar } from &quot;@amsterdam/design-system-react&quot;;
-
-const ArabicCalendar = (props: CalendarProps) =&gt; (
-  &lt;Calendar
-    accessibleName=&quot;التقويم&quot;
-    dir=&quot;rtl&quot;
-    locale=&quot;ar-MA&quot;
-    nextMonthButtonLabel=&quot;الشهر التالي&quot;
-    nextYearButtonLabel=&quot;السنة التالية&quot;
-    previousMonthButtonLabel=&quot;الشهر السابق&quot;
-    previousYearButtonLabel=&quot;السنة السابقة&quot;
-    {...props}
-  /&gt;
-);
-```
-
-The same pattern applies to the Date Picker, which also takes `rangeStartAccessibleName` and `rangeEndAccessibleName` in range mode.
-
-### Native form controls
-
-Native form controls render some of their text themselves.
-For example, `&lt;input type=&quot;time&quot;&gt;` orders and formats its hour and minute fields according to the browser’s own locale, not the page’s `lang` or `dir`.
-This is browser behaviour that pages cannot override.
-
-### Mirror directional icons
-
-Icons that imply a reading direction or depict movement that follows the reader’s natural flow flip in a right-to-left context.
-
-The design system’s own directional icons handle this automatically: each carries a `data-directional=&quot;true&quot;` attribute on its root `&lt;svg&gt;`, and the [Icon](/docs/components-media-icon--docs) styles mirror any icon with that attribute under `dir=&quot;rtl&quot;`.
-
-The [Calendar](/docs/components-navigation-calendar--docs) and [Date Picker](/docs/components-forms-date-picker--docs) navigation chevrons are one example.
-When you supply your own directional icon anywhere, give it the same attribute so it mirrors as well.
-
-## Relevant WCAG requirements
-
-- [WCAG 3.1.2](https://www.w3.org/TR/WCAG22/#language-of-parts): indicate the language of any passage or phrase that differs from the page’s default language
+They do not reach everything: the linter judges a declaration by the value written next to it, and our design tokens are generated into a stylesheet we exclude from linting, so the values they carry go unchecked.
+We carefully test and review our code to minimize the risk of using unsupported values.
+If you find any issues related to browser support, please [report them](https://github.com/Amsterdam/design-system/issues) so we can address them promptly.
 </code></pre>
           </div>
         </div>
@@ -58281,16 +58002,16 @@ When you supply your own directional icon anywhere, give it the same attribute s
       <h2><span class="status-dot dot-ok"></span> Docs/Guidelines/Modes</h2>
       <div class="badges">
         
-        <label for="doc-7-docs-guidelines-modes-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-5-docs-guidelines-modes-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/docs/guidelines/modes.docs.mdx">docs-guidelines-modes--docs · ./src/docs/guidelines/modes.docs.mdx</div>
-    <div># Modes The design system offers several modes to meet different needs. ## Density The des...</div>
+    <div># Modes The design system offers three modes, covering two different needs: how densely a ...</div>
   </div>
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-7-docs-guidelines-modes-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-5-docs-guidelines-modes-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -58313,7 +58034,8 @@ import navigationPageCompact from &quot;./modes-navigation-page-compact.png&quot
 
 # Modes
 
-The design system offers several modes to meet different needs.
+The design system offers three modes, covering two different needs: how densely a page is packed, and how finished it looks.
+Spacious Mode and Compact Mode set the density; Lo-fi Mode renders a page as a rough drawing.
 
 ## Density
 
@@ -58402,124 +58124,10 @@ The Home Page example in both fidelities:
   aria-label="Docs">
   <div class="head">
     <div class="title">
-      <h2><span class="status-dot dot-ok"></span> Docs/Guidelines/Release policy</h2>
-      <div class="badges">
-        
-        <label for="doc-8-docs-guidelines-release-policy-docs-content" class="badge ok as-toggle">view content</label>
-      </div>
-    </div>
-    <div class="meta" title="./src/docs/guidelines/release-policy.docs.mdx">docs-guidelines-release-policy--docs · ./src/docs/guidelines/release-policy.docs.mdx</div>
-    <div># Release policy We aim to publish new releases on a monthly basis. Breaking changes will ...</div>
-  </div>
-
-  <!-- Hidden toggles must be siblings BEFORE .panels -->
-  
-  <input id="doc-8-docs-guidelines-release-policy-docs-content" class="tg tg-content" type="checkbox" hidden />
-
-  <div class="panels">
-    
-    
-        <div class="panel panel-content">
-          <div class="mdx-content">
-            <pre><code>{/* @license CC0-1.0 */}
-
-import { Meta } from &quot;@storybook/addon-docs/blocks&quot;;
-
-&lt;Meta title=&quot;Docs/Guidelines/Release policy&quot; /&gt;
-
-# Release policy
-
-We aim to publish new releases on a monthly basis.
-Breaking changes will occur at most once every 3 months.
-Change logs, release notes, and our sprint reviews help you with upgrades.
-
-## Packages
-
-We publish the code libraries of our design system as **5 separate npm packages**:
-
-1. [Assets](https://www.npmjs.com/package/@amsterdam/design-system-assets): our fonts, icons, logos and application icons.
-2. [CSS](https://www.npmjs.com/package/@amsterdam/design-system-css): applies our design to all components and utilities.
-3. [React](https://www.npmjs.com/package/@amsterdam/design-system-react): implements our component library in React.
-4. [React Icons](https://www.npmjs.com/package/@amsterdam/design-system-react-icons): all of our icons as React components.
-5. [Tokens](https://www.npmjs.com/package/@amsterdam/design-system-tokens): CSS variables that express our design choices.
-
-## Version numbering
-
-Each package has its **own version number**.
-The design system as a whole **does not have** a single overarching version.
-Because of cross-dependencies, the CSS, React and tokens packages will often move to a new major version together.
-
-We follow [semantic versioning](https://semver.org) to indicate the impact of changes:
-
-- Patch (x.y.z): fixes and technical improvements, safe to upgrade.
-- Minor (x.y): offers new features, check whether you can use them.
-- Major (x): breaking changes that may require updates to your code.
-
-## Peer dependencies
-
-Our packages are interconnected through peer dependencies.
-The React package relies on the CSS package, while the CSS package depends on the Tokens and Assets packages.
-Upgrading one of these packages likely means you will also need to upgrade the others to satisfy the peer dependency version requirements.
-
-Without additional configuration, tools like **Dependabot by GitHub** might create separate pull requests for each package, which could fail due to unmet peer dependency constraints.
-Grouping the design system packages into a single update can prevent this issue.
-[Their documentation](https://docs.github.com/en/code-security/tutorials/secure-your-dependencies/optimizing-pr-creation-version-updates#grouping-related-dependencies-together) provides details on this.
-
-## Release cadence
-
-Breaking changes are grouped into major releases, which we limit to **once every 3 months**.
-Non-breaking changes get **released as needed**, usually at the end of our 4-week sprints, but our setup allows us to publish anytime.
-
-We currently don’t define how long we **support older versions** and backport fixes to them.
-We recommend staying up to date with at least each major release.
-
-## Deprecation process
-
-We deprecate public features – React components, CSS classes, assets and design tokens – before removing them, so you have enough time to migrate.
-
-We keep features available until **at least six months** after their deprecation has been published.
-All deprecations and removals are noted in the changelogs.
-Find migration guidance in release notes, on this website, in JSDoc annotations, or comments in code.
-
-## Deletion process
-
-- Address TypeScript errors that result from changes to names, props and prop values of **React components**.
-- Read the changelog to find whether **CSS classes** that you may hook into were changed or removed.
-- Do the same for our **CSS custom properties** that you use in your components.
-  The Stylelint plugin `stylelint-value-no-unknown-custom-properties` could help here.
-
-## Communication channels
-
-- Packages are published to [npm](https://www.npmjs.com/).
-- Use a tool like [Dependabot](https://docs.github.com/en/code-security/getting-started/dependabot-quickstart-guide) to get notified of new versions.
-- Each package has its own **changelog file** in [the repository](https://github.com/Amsterdam/design-system).
-- **Release notes** are also shared in [Teams](https://teams.microsoft.com/l/team/19%3afYKS_RD2n1q4UhguA9jwEJk0A_VjYPO4TiLQjYlG_bo1%40thread.tacv2/conversations?groupId=381b5f11-b342-4a3a-8a78-8b371a90457d&amp;tenantId=72fca1b1-2c2e-4376-a445-294d80196804) and [Slack](https://datalab-amsterdam.slack.com/archives/CV54XSMSA).
-- Ask questions and hear about updates in our **sprint reviews**.
-- Any **issues or requests** are welcome on [GitHub](https://github.com/Amsterdam/design-system/issues) or in [Teams](https://teams.microsoft.com/l/team/19%3afYKS_RD2n1q4UhguA9jwEJk0A_VjYPO4TiLQjYlG_bo1%40thread.tacv2/conversations?groupId=381b5f11-b342-4a3a-8a78-8b371a90457d&amp;tenantId=72fca1b1-2c2e-4376-a445-294d80196804).
-
-## Consumer responsibilities
-
-To make the most of the design system and avoid surprises:
-
-- **Review changelogs** before upgrading.
-- **Plan for major releases** roughly once every three months.
-- **Stay up to date** and upgrade to at least each major release.
-- **Join sprint reviews** for early insights or to raise questions.
-</code></pre>
-          </div>
-        </div>
-  </div>
-</article>
-<article
-  class="card is-doc no-doc-error"
-  role="listitem"
-  aria-label="Docs">
-  <div class="head">
-    <div class="title">
       <h2><span class="status-dot dot-ok"></span> Docs/Guidelines/Responsive design</h2>
       <div class="badges">
         
-        <label for="doc-9-docs-guidelines-responsive-design-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-6-docs-guidelines-responsive-design-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/docs/guidelines/responsive-design.docs.mdx">docs-guidelines-responsive-design--docs · ./src/docs/guidelines/responsive-design.docs.mdx</div>
@@ -58528,7 +58136,7 @@ To make the most of the design system and avoid surprises:
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-9-docs-guidelines-responsive-design-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-6-docs-guidelines-responsive-design-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -58544,6 +58152,7 @@ import { Meta } from &quot;@storybook/addon-docs/blocks&quot;;
 # Responsive design
 
 Components can adapt their layout or appearance to the available space.
+That space is either the width of the browser window or the width of a parent element, each measured with its own kind of CSS query.
 
 We use two techniques for this:
 
@@ -58697,121 +58306,10 @@ If your component can appear both inside and outside one of these named containe
   aria-label="Docs">
   <div class="head">
     <div class="title">
-      <h2><span class="status-dot dot-ok"></span> Docs/Guidelines/Routing libraries</h2>
-      <div class="badges">
-        
-        <label for="doc-10-docs-guidelines-routing-libraries-docs-content" class="badge ok as-toggle">view content</label>
-      </div>
-    </div>
-    <div class="meta" title="./src/docs/guidelines/routing-libraries.docs.mdx">docs-guidelines-routing-libraries--docs · ./src/docs/guidelines/routing-libraries.docs.mdx</div>
-    <div># Routing libraries Our link components render a native anchor (``) by default. To integra...</div>
-  </div>
-
-  <!-- Hidden toggles must be siblings BEFORE .panels -->
-  
-  <input id="doc-10-docs-guidelines-routing-libraries-docs-content" class="tg tg-content" type="checkbox" hidden />
-
-  <div class="panels">
-    
-    
-        <div class="panel panel-content">
-          <div class="mdx-content">
-            <pre><code>{/* @license CC0-1.0 */}
-
-import { Meta } from &quot;@storybook/addon-docs/blocks&quot;;
-
-&lt;Meta title=&quot;Docs/Guidelines/Routing libraries&quot; /&gt;
-
-# Routing libraries
-
-Our link components render a native anchor (`&lt;a&gt;`) by default.
-To integrate a routing library such as Next.js or React Router, pass its link component.
-
-## Next.js
-
-Modern Next.js link components render their own anchor and accept a `className` and children.
-You can pass `NextLink` directly as the `linkComponent` and give the `href` to the design system component, which passes it through:
-
-{/* prettier-ignore */}
-```tsx
-import { Link } from &quot;@amsterdam/design-system-react&quot;
-import NextLink from &quot;next/link&quot;
-
-&lt;Link href=&quot;/amsterdam&quot; linkComponent={NextLink}&gt;
-  Link label
-&lt;/Link&gt;
-```
-
-`NextLink` is a stable, module-level reference, so the link is not remounted on every render.
-This replaces the deprecated `legacyBehavior` and `passHref` props, which are no longer needed.
-
-## React Router
-
-For React Router, wrap [the useLinkClickHandler hook](https://reactrouter.com/en/main/hooks/use-link-click-handler) in a hook that returns a link component, like so:
-
-{/* prettier-ignore */}
-```jsx
-import { Link } from &quot;@amsterdam/design-system-react&quot;
-import { useCallback } from &quot;react&quot;
-import { useHref, useLinkClickHandler } from &quot;react-router-dom&quot;
-
-const useReactRouterLink = (to) =&gt; {
-  const href = useHref(to)
-  const handleClick = useLinkClickHandler(to)
-
-  return useCallback(
-    function ReactRouterLink({ onClick, ...props }) {
-      return (
-        &lt;a
-          {...props}
-          href={href}
-          onClick={(event) =&gt; {
-            onClick?.(event)
-            if (!event.defaultPrevented) handleClick(event)
-          }}
-        /&gt;
-      )
-    },
-    [href, handleClick],
-  )
-}
-
-const Example = () =&gt; {
-  const linkComponent = useReactRouterLink(&quot;/amsterdam&quot;)
-
-  return &lt;Link linkComponent={linkComponent}&gt;Link label&lt;/Link&gt;
-}
-```
-
-`useCallback` keeps the component reference stable across renders, so the link is not remounted.
-Composing `onClick` preserves any handler passed to the design system component, and the `defaultPrevented` check lets that handler opt out of client-side navigation when needed.
-
-## Good to know
-
-The design system components keep their own styling, class names, and structure, and only swap the underlying anchor for the component you provide.
-Any anchor attributes like `href`, `target`, and `data-*` are passed straight through to your `linkComponent`.
-So in most cases you can pass the routing library’s link component directly, without writing a wrapper.
-
-Provide a _stable_ `linkComponent`: one that is defined at module level, or one created with `useCallback`.
-Defining it inline (for example `linkComponent={(props) =&gt; &lt;NextLink {...props} /&gt;}`) would create a new component type on every render, which forces React to unmount and remount the link, losing focus and other state in the process.
-
-Refs are forwarded only to a plain anchor – the default, or `linkComponent=&quot;a&quot;` – not to any other `linkComponent`.
-If you need a ref to a custom link component, set it on that component directly.
-</code></pre>
-          </div>
-        </div>
-  </div>
-</article>
-<article
-  class="card is-doc no-doc-error"
-  role="listitem"
-  aria-label="Docs">
-  <div class="head">
-    <div class="title">
       <h2><span class="status-dot dot-ok"></span> Docs/Guidelines/Spacing</h2>
       <div class="badges">
         
-        <label for="doc-11-docs-guidelines-spacing-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-7-docs-guidelines-spacing-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/docs/guidelines/spacing.docs.mdx">docs-guidelines-spacing--docs · ./src/docs/guidelines/spacing.docs.mdx</div>
@@ -58820,7 +58318,7 @@ If you need a ref to a custom link component, set it on that component directly.
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-11-docs-guidelines-spacing-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-7-docs-guidelines-spacing-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -58837,7 +58335,6 @@ import { Meta } from &quot;@storybook/addon-docs/blocks&quot;;
 
 The design system offers various tools for adding white space around and between elements.
 They operate at different scales – from the entire page layout to individual elements – each serving a distinct purpose.
-This page explains which to use in each situation.
 
 ## Grid
 
@@ -58904,63 +58401,10 @@ Margin is the right choice for a single targeted override; Prose is the right ch
   aria-label="Docs">
   <div class="head">
     <div class="title">
-      <h2><span class="status-dot dot-ok"></span> Docs/Guidelines/Usability</h2>
-      <div class="badges">
-        
-        <label for="doc-12-docs-guidelines-usability-docs-content" class="badge ok as-toggle">view content</label>
-      </div>
-    </div>
-    <div class="meta" title="./src/docs/guidelines/usability.docs.mdx">docs-guidelines-usability--docs · ./src/docs/guidelines/usability.docs.mdx</div>
-    <div># Usability ## Focus management In traditional multipage applications (MPAs), navigating t...</div>
-  </div>
-
-  <!-- Hidden toggles must be siblings BEFORE .panels -->
-  
-  <input id="doc-12-docs-guidelines-usability-docs-content" class="tg tg-content" type="checkbox" hidden />
-
-  <div class="panels">
-    
-    
-        <div class="panel panel-content">
-          <div class="mdx-content">
-            <pre><code>{/* @license CC0-1.0 */}
-
-import { Meta } from &quot;@storybook/addon-docs/blocks&quot;;
-
-&lt;Meta title=&quot;Docs/Guidelines/Usability&quot; /&gt;
-
-# Usability
-
-## Focus management
-
-In traditional multipage applications (MPAs), navigating to another page resets the focus to the `&lt;body&gt;` element,
-or the first element with an `autofocus` attribute if there is one.
-For single-page applications (SPAs) this isn’t always done consistently.
-For example, Next.js sets the focus on a new page at roughly the same position as it was on the old page.
-This can result in an unexpected focus position, e.g. when navigating between pages of a form.
-
-Make sure to correct this focus behaviour in your website.
-The simplest and most consistent way to do this is to set focus on the `&lt;body&gt;` element after navigating to another page.
-For some websites it might make more sense to set the focus somewhere else,
-but be very careful with this.
-Your assumptions on how users use the app might not be correct.
-Only change the expected focus behaviour when user tests show it’s an improvement,
-including for users of screen readers.
-</code></pre>
-          </div>
-        </div>
-  </div>
-</article>
-<article
-  class="card is-doc no-doc-error"
-  role="listitem"
-  aria-label="Docs">
-  <div class="head">
-    <div class="title">
       <h2><span class="status-dot dot-ok"></span> Docs/Guidelines/Vertical space</h2>
       <div class="badges">
         
-        <label for="doc-13-docs-guidelines-vertical-space-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-8-docs-guidelines-vertical-space-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/docs/guidelines/vertical-space.docs.mdx">docs-guidelines-vertical-space--docs · ./src/docs/guidelines/vertical-space.docs.mdx</div>
@@ -58969,7 +58413,7 @@ including for users of screen readers.
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-13-docs-guidelines-vertical-space-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-8-docs-guidelines-vertical-space-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -58988,7 +58432,6 @@ import { VerticalSpaceFinder } from &quot;#storybook/_components/VerticalSpaceFi
 
 Components don’t add whitespace on their outside, because it depends on the combination.
 When composing patterns and pages, the vertical space between components is yours to apply.
-This page explains how much of it we recommend for the various combinations.
 
 ## Space finder
 
@@ -59180,19 +58623,417 @@ Set the [Prose](/docs/utilities-css-prose--docs) utility class (`.ams-prose`) to
   aria-label="Docs">
   <div class="head">
     <div class="title">
-      <h2><span class="status-dot dot-ok"></span> Docs/Guidelines/Web app</h2>
+      <h2><span class="status-dot dot-ok"></span> Docs/Guidelines/Interactivity</h2>
       <div class="badges">
         
-        <label for="doc-14-docs-guidelines-web-app-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-9-docs-guidelines-interactivity-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
-    <div class="meta" title="./src/docs/guidelines/web-app.docs.mdx">docs-guidelines-web-app--docs · ./src/docs/guidelines/web-app.docs.mdx</div>
-    <div># Web app Turn a website into a progressive web app (PWA) with a web app manifest (web man...</div>
+    <div class="meta" title="./src/docs/guidelines/interactivity.docs.mdx">docs-guidelines-interactivity--docs · ./src/docs/guidelines/interactivity.docs.mdx</div>
+    <div># Interactivity Elements the user can interact with, such as links, buttons and form field...</div>
   </div>
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-14-docs-guidelines-web-app-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-9-docs-guidelines-interactivity-docs-content" class="tg tg-content" type="checkbox" hidden />
+
+  <div class="panels">
+    
+    
+        <div class="panel panel-content">
+          <div class="mdx-content">
+            <pre><code>{/* @license CC0-1.0 */}
+
+import { Meta } from &quot;@storybook/addon-docs/blocks&quot;;
+
+&lt;Meta title=&quot;Docs/Guidelines/Interactivity&quot; /&gt;
+
+# Interactivity
+
+Elements the user can interact with, such as links, buttons and form fields, must be clearly recognisable and easily distinguishable from the ones they cannot.
+Users must be able to operate them in various ways, such as with a mouse, keyboard and touchscreen.
+
+## Text
+
+The result of activating an interactive element must be predictable, even without reading the surrounding text.
+
+Don’t use generic text fragments like “Click here” or “Read more” for the link’s label.
+A more meaningful text helps sighted users scan the page, and screen reader users navigate between links.
+It’s also beneficial to search engines.
+
+### Relevant WCAG requirements
+
+- [WCAG 2.4.4](https://www.w3.org/TR/WCAG22/#link-purpose-in-context): it is clear to users what it means to click on a link
+- [WCAG 2.4.6](https://www.w3.org/TR/WCAG22/#headings-and-labels): use a label to describe interactive elements
+- [WCAG 2.5.3](https://www.w3.org/TR/WCAG22/#label-in-name): the accessible name of an element must contain at least the visible text of the element
+
+## Colour
+
+To indicate that an element is interactive, we use the colour blue.
+For example, inline links and the primary button are blue.
+We use red for interactive elements that are part of an error message.
+Both colours become darker on hover.
+
+Colour should not be the only indicator of interactivity so that people with difficulty perceiving colour differences can still see that an element is interactive.
+
+### Relevant WCAG requirements
+
+- [WCAG 1.4.1](https://www.w3.org/TR/WCAG22/#use-of-color): colour should not be the only way to indicate that something is interactive
+- [WCAG 1.4.3](https://www.w3.org/TR/WCAG21/#contrast-minimum): text has sufficient contrast with the background
+
+## Format
+
+Interactive elements are at least 24 by 24 pixels in size, so they are easy to use for a large group of users.
+
+### Relevant WCAG requirements
+
+- [WCAG 2.5.8](https://w3c.github.io/wcag/guidelines/22/#target-size-minimum): interactive elements are at least 24 by 24 pixels in size
+
+## Focus indicator
+
+We use the standard focus indicator of the web browsers.
+We only adjust the focus outline with an offset of 2 pixels to increase contrast with dark elements.
+
+When setting up a page, ensure that the interactive elements are in a logical order, usually from top to bottom and from left to right.
+
+### Relevant WCAG requirements
+
+- [WCAG 2.4.3](https://www.w3.org/TR/WCAG22/#focus-order): interactive elements have a logical focus / tabbing order
+- [WCAG 2.4.7](https://www.w3.org/TR/WCAG22/#focus-visible): the focus indicator is visible
+- [WCAG 2.4.11](https://www.w3.org/TR/WCAG22/#focus-not-obscured-minimum): the focus indicator is not completely hidden by content
+- [WCAG 2.4.12](https://www.w3.org/TR/WCAG22/#focus-not-obscured-enhanced): the focus indicator is not partially hidden by content
+- [WCAG 2.4.13](https://www.w3.org/TR/WCAG22/#focus-appearance): the focus indicator is at least 2 pixels wide and has sufficient contrast with the element that has focus
+
+## Focus management
+
+In traditional multipage applications (MPAs), navigating to another page resets the focus to the `&lt;body&gt;` element,
+or the first element with an `autofocus` attribute if there is one.
+For single-page applications (SPAs) this isn’t always done consistently.
+For example, Next.js sets the focus on a new page at roughly the same position as it was on the old page.
+This can result in an unexpected focus position, e.g. when navigating between pages of a form.
+
+Make sure to correct this focus behaviour in your website.
+The simplest and most consistent way to do this is to set focus on the `&lt;body&gt;` element after navigating to another page.
+For some websites it might make more sense to set the focus somewhere else,
+but be very careful with this.
+Your assumptions on how users use the app might not be correct.
+Only change the expected focus behaviour when user tests show it’s an improvement,
+including for users of screen readers.
+
+## Hover
+
+Hover and focus have different, non-overlapping styles.
+As a keyboard user, you must know which element you are activating.
+A focus style sufficiently different from the hover visualisation helps achieve that goal.
+
+We use the cursor hand `pointer` on hover on all interactive elements without cursor style (such as text boxes).
+Originally, `pointer` was only intended for links, but we consider the association of `pointer` with interactivity to be so strong that we use this cursor more often.
+
+Do not use the `title` attribute.
+This attribute has inconsistent browser support, which can cause [accessibility issues](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/title#accessibility_concerns).
+Furthermore, interactive elements with the `title` attribute may show a tooltip overlaying the text, making it less readable.
+
+### References
+
+- [Utrecht documentation on focus and hover](https://nl-design-system.github.io/utrecht/storybook/?path=/docs/css-link--docs)
+- [Specification of cursor pointer.](https://www.w3.org/TR/css-ui-4/#valdef-cursor-pointer) States that you should use a pointer for links and may use it for other interactive elements
+
+## Double click
+
+[Some users tend to double-click interactive elements.](https://design-system.service.gov.uk/components/button/#stop-users-from-accidentally-sending-information-more-than-once) Make sure that this does not lead to problems, for example, by using a loading state and letting the server verify it only uses one instance of the data.
+
+We use the CSS rule `touch-action: manipulation` on all interactive elements to prevent devices from unintentionally zooming in and out when clicking or tapping twice.
+</code></pre>
+          </div>
+        </div>
+  </div>
+</article>
+<article
+  class="card is-doc no-doc-error"
+  role="listitem"
+  aria-label="Docs">
+  <div class="head">
+    <div class="title">
+      <h2><span class="status-dot dot-ok"></span> Docs/Guidelines/Localisation</h2>
+      <div class="badges">
+        
+        <label for="doc-10-docs-guidelines-localisation-docs-content" class="badge ok as-toggle">view content</label>
+      </div>
+    </div>
+    <div class="meta" title="./src/docs/guidelines/localisation.docs.mdx">docs-guidelines-localisation--docs · ./src/docs/guidelines/localisation.docs.mdx</div>
+    <div># Localisation Localisation covers two related tasks. Declare the language of your content...</div>
+  </div>
+
+  <!-- Hidden toggles must be siblings BEFORE .panels -->
+  
+  <input id="doc-10-docs-guidelines-localisation-docs-content" class="tg tg-content" type="checkbox" hidden />
+
+  <div class="panels">
+    
+    
+        <div class="panel panel-content">
+          <div class="mdx-content">
+            <pre><code>{/* @license CC0-1.0 */}
+
+import { Meta } from &quot;@storybook/addon-docs/blocks&quot;;
+
+&lt;Meta title=&quot;Docs/Guidelines/Localisation&quot; /&gt;
+
+# Localisation
+
+Localisation covers two related tasks.
+Declare the language of your content so browsers and assistive technologies interpret it correctly, and tell components which language and region to format their output in.
+
+## Language
+
+Declare the human language of your content with the HTML `lang` attribute.
+This helps browsers, screen readers, and search engines interpret it correctly.
+
+### Specify the language for the entire document
+
+It is mandatory to explicitly indicate in which language the content of your page is.
+With the correct language set, your website will work better.
+Screen readers will know what language to use for speech.
+It is also helpful for search engine optimization (SEO).
+
+Specify the language on your website’s `&lt;html&gt;` element.
+After all, the contents of elements in the `&lt;head&gt;`, such as `title` and `meta`, also contain content in the same language.
+That is outside the scope of the components of the design system.
+That is why you have to remember to do this properly yourself.
+
+```html
+&lt;html lang=&quot;nl&quot;&gt;
+  …
+&lt;/html&gt;
+```
+
+### Highlight elements in another language
+
+If a specific element is in another language, indicate this there.
+
+For example, for a link to an English site or page in a menu:
+
+```html
+&lt;nav&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&quot;https://mijn.amsterdam.nl/&quot;&gt;My Amsterdam&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;https://www.amsterdam.nl/en/&quot; lang=&quot;en&quot;&gt;English site&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
+```
+
+### Do not specify the region
+
+The language tag `nl` is sufficient.
+Expanding it with the region subtag `nl-NL` is not necessary:
+
+&gt; The golden rule when creating language tags is to keep the tag as short as possible.
+&gt; Avoid region, script or other subtags except where they add useful distinguishing information.
+&gt; – [W3C Internationalization Activity](https://www.w3.org/International/articles/language-tags/)
+
+## Locale
+
+Some components render their own text, such as weekday and month names.
+Set the language and region they format it in with the `locale` prop.
+
+### Localise components
+
+The [Calendar](/docs/components-navigation-calendar--docs) and [Date Picker](/docs/components-forms-date-picker--docs) render weekday names, month names, and accessible date labels in the language of their `locale` prop.
+When you omit it, both default to `nl-NL`.
+
+The prop accepts a [BCP 47 language tag](https://www.w3.org/International/articles/language-tags/).
+Unlike the HTML `lang` attribute, including a region subtag is appropriate here.
+The JavaScript `Intl` API can produce different output for different regional variants of the same language.
+
+These locales have been tested:
+
+- `nl-NL` – Nederlands (Dutch), the default
+- `en-GB` – English
+- `de-DE` – Deutsch (German)
+- `fr-FR` – Français (French)
+- `tr-TR` – Türkçe (Turkish)
+- `ar-MA` – العربية (Arabic)
+
+`locale` only drives the text that `Intl` generates.
+Both components also have accessible names and navigation button labels that stay in their default language until you translate them, so set those in the same language to avoid a mix.
+For right-to-left languages like Arabic, also add `dir=&quot;rtl&quot;` to the component or to a containing element.
+
+If your app uses one of these components in multiple places with the same language, a small wrapper component avoids repeating these props:
+
+```tsx
+import type { CalendarProps } from &quot;@amsterdam/design-system-react&quot;;
+
+import { Calendar } from &quot;@amsterdam/design-system-react&quot;;
+
+const ArabicCalendar = (props: CalendarProps) =&gt; (
+  &lt;Calendar
+    accessibleName=&quot;التقويم&quot;
+    dir=&quot;rtl&quot;
+    locale=&quot;ar-MA&quot;
+    nextMonthButtonLabel=&quot;الشهر التالي&quot;
+    nextYearButtonLabel=&quot;السنة التالية&quot;
+    previousMonthButtonLabel=&quot;الشهر السابق&quot;
+    previousYearButtonLabel=&quot;السنة السابقة&quot;
+    {...props}
+  /&gt;
+);
+```
+
+The same pattern applies to the Date Picker, which also takes `rangeStartAccessibleName` and `rangeEndAccessibleName` in range mode.
+
+### Native form controls
+
+Native form controls render some of their text themselves.
+For example, `&lt;input type=&quot;time&quot;&gt;` orders and formats its hour and minute fields according to the browser’s own locale, not the page’s `lang` or `dir`.
+This is browser behaviour that pages cannot override.
+
+### Mirror directional icons
+
+Icons that imply a reading direction or depict movement that follows the reader’s natural flow flip in a right-to-left context.
+
+The design system’s own directional icons handle this automatically: each carries a `data-directional=&quot;true&quot;` attribute on its root `&lt;svg&gt;`, and the [Icon](/docs/components-media-icon--docs) styles mirror any icon with that attribute under `dir=&quot;rtl&quot;`.
+
+The [Calendar](/docs/components-navigation-calendar--docs) and [Date Picker](/docs/components-forms-date-picker--docs) navigation chevrons are one example.
+When you supply your own directional icon anywhere, give it the same attribute so it mirrors as well.
+
+## Relevant WCAG requirements
+
+- [WCAG 3.1.2](https://www.w3.org/TR/WCAG22/#language-of-parts): indicate the language of any passage or phrase that differs from the page’s default language
+</code></pre>
+          </div>
+        </div>
+  </div>
+</article>
+<article
+  class="card is-doc no-doc-error"
+  role="listitem"
+  aria-label="Docs">
+  <div class="head">
+    <div class="title">
+      <h2><span class="status-dot dot-ok"></span> Docs/Guidelines/Routing libraries</h2>
+      <div class="badges">
+        
+        <label for="doc-11-docs-guidelines-routing-libraries-docs-content" class="badge ok as-toggle">view content</label>
+      </div>
+    </div>
+    <div class="meta" title="./src/docs/guidelines/routing-libraries.docs.mdx">docs-guidelines-routing-libraries--docs · ./src/docs/guidelines/routing-libraries.docs.mdx</div>
+    <div># Routing libraries Our link components render a native anchor (``) by default. To integra...</div>
+  </div>
+
+  <!-- Hidden toggles must be siblings BEFORE .panels -->
+  
+  <input id="doc-11-docs-guidelines-routing-libraries-docs-content" class="tg tg-content" type="checkbox" hidden />
+
+  <div class="panels">
+    
+    
+        <div class="panel panel-content">
+          <div class="mdx-content">
+            <pre><code>{/* @license CC0-1.0 */}
+
+import { Meta } from &quot;@storybook/addon-docs/blocks&quot;;
+
+&lt;Meta title=&quot;Docs/Guidelines/Routing libraries&quot; /&gt;
+
+# Routing libraries
+
+Our link components render a native anchor (`&lt;a&gt;`) by default.
+To integrate a routing library such as Next.js or React Router, pass its link component.
+
+## Next.js
+
+Modern Next.js link components render their own anchor and accept a `className` and children.
+You can pass `NextLink` directly as the `linkComponent` and give the `href` to the design system component, which passes it through:
+
+{/* prettier-ignore */}
+```tsx
+import { Link } from &quot;@amsterdam/design-system-react&quot;
+import NextLink from &quot;next/link&quot;
+
+&lt;Link href=&quot;/amsterdam&quot; linkComponent={NextLink}&gt;
+  Link label
+&lt;/Link&gt;
+```
+
+`NextLink` is a stable, module-level reference, so the link is not remounted on every render.
+This replaces the deprecated `legacyBehavior` and `passHref` props, which are no longer needed.
+
+## React Router
+
+For React Router, wrap [the useLinkClickHandler hook](https://reactrouter.com/en/main/hooks/use-link-click-handler) in a hook that returns a link component, like so:
+
+{/* prettier-ignore */}
+```jsx
+import { Link } from &quot;@amsterdam/design-system-react&quot;
+import { useCallback } from &quot;react&quot;
+import { useHref, useLinkClickHandler } from &quot;react-router-dom&quot;
+
+const useReactRouterLink = (to) =&gt; {
+  const href = useHref(to)
+  const handleClick = useLinkClickHandler(to)
+
+  return useCallback(
+    function ReactRouterLink({ onClick, ...props }) {
+      return (
+        &lt;a
+          {...props}
+          href={href}
+          onClick={(event) =&gt; {
+            onClick?.(event)
+            if (!event.defaultPrevented) handleClick(event)
+          }}
+        /&gt;
+      )
+    },
+    [href, handleClick],
+  )
+}
+
+const Example = () =&gt; {
+  const linkComponent = useReactRouterLink(&quot;/amsterdam&quot;)
+
+  return &lt;Link linkComponent={linkComponent}&gt;Link label&lt;/Link&gt;
+}
+```
+
+`useCallback` keeps the component reference stable across renders, so the link is not remounted.
+Composing `onClick` preserves any handler passed to the design system component, and the `defaultPrevented` check lets that handler opt out of client-side navigation when needed.
+
+## Good to know
+
+The design system components keep their own styling, class names, and structure, and only swap the underlying anchor for the component you provide.
+Any anchor attributes like `href`, `target`, and `data-*` are passed straight through to your `linkComponent`.
+So in most cases you can pass the routing library’s link component directly, without writing a wrapper.
+
+Provide a _stable_ `linkComponent`: one that is defined at module level, or one created with `useCallback`.
+Defining it inline (for example `linkComponent={(props) =&gt; &lt;NextLink {...props} /&gt;}`) would create a new component type on every render, which forces React to unmount and remount the link, losing focus and other state in the process.
+
+Refs are forwarded only to a plain anchor – the default, or `linkComponent=&quot;a&quot;` – not to any other `linkComponent`.
+If you need a ref to a custom link component, set it on that component directly.
+</code></pre>
+          </div>
+        </div>
+  </div>
+</article>
+<article
+  class="card is-doc no-doc-error"
+  role="listitem"
+  aria-label="Docs">
+  <div class="head">
+    <div class="title">
+      <h2><span class="status-dot dot-ok"></span> Docs/Guidelines/Web app</h2>
+      <div class="badges">
+        
+        <label for="doc-12-docs-guidelines-web-app-docs-content" class="badge ok as-toggle">view content</label>
+      </div>
+    </div>
+    <div class="meta" title="./src/docs/guidelines/web-app.docs.mdx">docs-guidelines-web-app--docs · ./src/docs/guidelines/web-app.docs.mdx</div>
+    <div># Web app Turn a website into a progressive web app (PWA) with a web app manifest and app ...</div>
+  </div>
+
+  <!-- Hidden toggles must be siblings BEFORE .panels -->
+  
+  <input id="doc-12-docs-guidelines-web-app-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -59209,14 +59050,14 @@ import { WebAppIcons } from &quot;#storybook/_components/AppIcon/WebAppIcons&quo
 
 # Web app
 
-Turn a website into a progressive web app (PWA) with a web app manifest (web manifest hereafter) and app icons.
-
-Here’s how to publish a web app with the proper app names and icons.
-This set covers all combinations of common operating systems (Android, iOS, macOS, and Windows) and browsers (Chrome, Safari, Edge, and Firefox).
-
-**Note**: There is separate documentation on [how to add a website icon (a “favicon”)](/docs/brand-assets-favicon--docs).
+Turn a website into a progressive web app (PWA) with a web app manifest and app icons.
+The instructions below cover all combinations of common operating systems (Android, iOS, macOS, and Windows) and browsers (Chrome, Safari, Edge, and Firefox).
 
 ## How to use
+
+The web app manifest is the ‘web manifest’ throughout this page.
+
+**Note**: There is separate documentation on [how to add a website icon (a “favicon”)](/docs/brand-assets-favicon--docs).
 
 ### Install assets
 
@@ -59230,9 +59071,12 @@ npm install @amsterdam/design-system-assets
 
 #### Copy or symlink assets
 
-Copy the app icons found in `node_modules/@amsterdam/design-system-assets/app-icons` and the web manifest from `node_modules/@amsterdam/design-system-assets/manifest/app.webmanifest` to your project. Typically this is the `public` folder next to your `index.html`, though the right location depends on your project structure and build process.
+Copy the app icons found in `node_modules/@amsterdam/design-system-assets/app-icons` and the web manifest from `node_modules/@amsterdam/design-system-assets/manifest/app.webmanifest` to your project.
+Typically this is the `public` folder next to your `index.html`, though the right location depends on your project structure and build process.
 
-Alternatively, on macOS and Linux you can create a [symbolic link](https://en.wikipedia.org/wiki/Symbolic_link#POSIX_and_Unix-like_operating_systems) in your project that points to the package directory. An advantage of symlinking is that it tracks changes to the assets when there are package updates. Symlinks are basically shortcuts to files or directories.
+Alternatively, on macOS and Linux you can create a [symbolic link](https://en.wikipedia.org/wiki/Symbolic_link#POSIX_and_Unix-like_operating_systems) in your project that points to the package directory.
+An advantage of symlinking is that it tracks changes to the assets when there are package updates.
+Symlinks are basically shortcuts to files or directories.
 
 Symlink the app icons and copy the [web manifest](https://github.com/Amsterdam/design-system/blob/develop/packages-proprietary/assets/manifest/app.webmanifest):
 
@@ -59247,7 +59091,8 @@ ln -s ../node_modules/@amsterdam/design-system-assets/app-icons app-icons
 cp ../node_modules/@amsterdam/design-system-assets/manifest/app.webmanifest app.webmanifest
 ```
 
-**Important**: the target path (the first argument) is resolved relative to the directory containing the symlink, not your current shell directory. The simplest way to avoid surprises is to `cd` to that directory first, as in the example above.
+**Important**: the target path (the first argument) is resolved relative to the directory containing the symlink, not your current shell directory.
+The simplest way to avoid surprises is to `cd` to that directory first, as in the example above.
 
 #### Remove symlink
 
@@ -59261,8 +59106,8 @@ rm app.webmanifest
 
 #### Edit web manifest
 
-Make sure that the web manifest, stating the app&#39;s name and referencing the PNG icons, is available in the same location.
-Edit the `app.webmanifest` file to include the app&#39;s name and the icons you want to use.
+Make sure that the web manifest, stating the app’s name and referencing the PNG icons, is available in the same location.
+Edit the `app.webmanifest` file to include the app’s name and the icons you want to use.
 For example:
 
 ```json
@@ -59288,9 +59133,11 @@ Then link all these assets in the HTML by placing the following tags in the `&lt
 &lt;/head&gt;
 ```
 
-How this is done exactly depends on your project structure and build process. Follow the documentation of your framework or build tool for the best way to link static assets in the HTML.
+How this is done exactly depends on your project structure and build process.
+Follow the documentation of your framework or build tool for the best way to link static assets in the HTML.
 
-**Note**: not all servers recognize the `.webmanifest` extension. See [Using a link element to link to a manifest on W3.org](https://www.w3.org/TR/appmanifest/#using-a-link-element-to-link-to-a-manifest) for more information.
+**Note**: not all servers recognize the `.webmanifest` extension.
+See [Using a link element to link to a manifest on W3.org](https://www.w3.org/TR/appmanifest/#using-a-link-element-to-link-to-a-manifest) for more information.
 
 ### Submit changes
 
@@ -59300,30 +59147,132 @@ The copied files or symlink(s) can be committed to the repository.
 
 &lt;WebAppIcons /&gt;
 
-Include `icons` object in `*.webmanifest` (see [How to use](#how-to-use)):
+[Edit web manifest](#edit-web-manifest) above lists these icons, and [Link in HTML](#link-in-html) links the manifest that references them.
 
-```json
-{
-  &quot;icons&quot;: [
-    { &quot;src&quot;: &quot;/icon-192.png&quot;, &quot;type&quot;: &quot;image/png&quot;, &quot;sizes&quot;: &quot;192x192&quot; },
-    { &quot;src&quot;: &quot;/icon-512.png&quot;, &quot;type&quot;: &quot;image/png&quot;, &quot;sizes&quot;: &quot;512x512&quot; }
-  ]
-}
-```
-
-Link the web manifest in the `&lt;head&gt;`:
-
-```html
-&lt;link rel=&quot;manifest&quot; href=&quot;app.webmanifest&quot; /&gt;
-```
-
-**Note**: only include a web manifest if you want the website to be installable as a progressive web app (PWA). Browsers [may prompt the user to install the app](https://web.dev/learn/pwa/installation-prompt) on their device if a manifest is found.
+**Note**: only include a web manifest if you want the website to be installable as a progressive web app (PWA).
+Browsers [may prompt the user to install the app](https://web.dev/learn/pwa/installation-prompt) on their device if a manifest is found.
 
 ## Further reading
 
 - [_Web App Manifest_ on web.dev](https://web.dev/learn/pwa/web-app-manifest)
 - [_Web app manifests: Icons_ on MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/Manifest/icons)
-- [_How to Favicon in 2024: Six files that fit most needs_ by Andrey Sitnik](https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs)
+- [_How to Favicon in 2026: Three files that fit most needs_ by Andrey Sitnik](https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs)
+</code></pre>
+          </div>
+        </div>
+  </div>
+</article>
+<article
+  class="card is-doc no-doc-error"
+  role="listitem"
+  aria-label="Docs">
+  <div class="head">
+    <div class="title">
+      <h2><span class="status-dot dot-ok"></span> Docs/Guidelines/AI assistance</h2>
+      <div class="badges">
+        
+        <label for="doc-13-docs-guidelines-ai-assistance-docs-content" class="badge ok as-toggle">view content</label>
+      </div>
+    </div>
+    <div class="meta" title="./src/docs/guidelines/ai-assistance.docs.mdx">docs-guidelines-ai-assistance--docs · ./src/docs/guidelines/ai-assistance.docs.mdx</div>
+    <div># AI assistance We run an MCP server to let your assistant work with the real Amsterdam De...</div>
+  </div>
+
+  <!-- Hidden toggles must be siblings BEFORE .panels -->
+  
+  <input id="doc-13-docs-guidelines-ai-assistance-docs-content" class="tg tg-content" type="checkbox" hidden />
+
+  <div class="panels">
+    
+    
+        <div class="panel panel-content">
+          <div class="mdx-content">
+            <pre><code>{/* @license CC0-1.0 */}
+
+import { Meta } from &quot;@storybook/addon-docs/blocks&quot;;
+
+&lt;Meta title=&quot;Docs/Guidelines/AI assistance&quot; /&gt;
+
+# AI assistance
+
+We run an MCP server to let your assistant work with the real Amsterdam Design System.
+It reads our components, their properties, and our stories and documentation, so your assistant builds with what exists rather than guessing at it.
+
+## Why connect your assistant
+
+This server exposes our components and their features, as well as our stories and documentation.
+Without this context, an assistant guesses: it writes generic HTML, invents property names, and misses our accessibility and language conventions.
+
+With it, the assistant builds with existing components, using the correct properties, variants, and accessibility patterns from the current release.
+This keeps what you ship consistent with the rest of the City’s services, with less review and rework.
+
+## What the server exposes
+
+The hosted server gives your assistant a small set of tools, which it calls on its own:
+
+- **list-all-documentation** lists every component and documentation page, so the assistant knows what exists.
+- **get-documentation** returns a component’s full documentation, properties, and code examples.
+- **get-documentation-for-story** returns the documentation for one specific story variant.
+
+You simply ask for what you want to build.
+
+## The endpoint
+
+Our hosted endpoint needs no setup, tracks our `main` branch, and is public, so any tool can connect:
+
+{/* prettier-ignore */}
+```sh
+https://main--68db9df886b46f139748c074.chromatic.com/mcp
+```
+
+Contributors can use the local endpoint while `pnpm run watch:storybook` is running:
+
+{/* prettier-ignore */}
+```sh
+http://localhost:6006/mcp
+```
+
+The local URL follows your Storybook port; if you run it on another port, change the number to match.
+
+## Connect your tool
+
+Any MCP-capable assistant can connect.
+Use your tool’s MCP settings to add a server over Streamable HTTP at the hosted endpoint above.
+Contributors can swap in `http://localhost:6006/mcp` to use a local Storybook.
+
+Many tools read this configuration from a JSON file, and most accept this shape:
+
+{/* prettier-ignore */}
+```json
+{
+  &quot;mcpServers&quot;: {
+    &quot;amsterdam-design-system&quot;: {
+      &quot;type&quot;: &quot;http&quot;,
+      &quot;url&quot;: &quot;https://main--68db9df886b46f139748c074.chromatic.com/mcp&quot;
+    }
+  }
+}
+```
+
+The exact key, file name, and file location differ per tool; check your tool’s MCP documentation for the specifics.
+
+## Example prompts
+
+Once connected, ask for what you want in plain language:
+
+- “Build a contact form with ADS: a name and email field and a submit button.”
+- “Show me the properties and variants of the Alert component.”
+- “Replace this hand-built card with the design system’s Card component.”
+- “Lay out this page with Grid and Column from the design system.”
+- “Should I use a Button or a Link component for this interaction?”
+
+## Good to know
+
+- The hosted endpoint tracks the `main` branch, so your assistant works with our latest released API.
+- It draws on our stories and documentation, so richer stories lead to better answers.
+- Component support starts with React; other technologies follow as the Storybook MCP server adds them.
+- This page always lists the current endpoint; if a connection stops working, check here for the latest address.
+- If a component you need does not exist yet, [request it or contribute](https://github.com/Amsterdam/design-system/blob/develop/CONTRIBUTING.md) rather than having your assistant build a one-off.
 </code></pre>
           </div>
         </div>
@@ -59338,7 +59287,7 @@ Link the web manifest in the `&lt;head&gt;`:
       <h2><span class="status-dot dot-ok"></span> Docs/Terms of use/Copyright</h2>
       <div class="badges">
         
-        <label for="doc-15-docs-terms-of-use-copyright-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-14-docs-terms-of-use-copyright-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/docs/terms-of-use/copyright.docs.mdx">docs-terms-of-use-copyright--docs · ./src/docs/terms-of-use/copyright.docs.mdx</div>
@@ -59347,7 +59296,7 @@ Link the web manifest in the `&lt;head&gt;`:
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-15-docs-terms-of-use-copyright-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-14-docs-terms-of-use-copyright-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -59377,7 +59326,7 @@ import NOTICE from &quot;../../../../NOTICE.md?raw&quot;;
       <h2><span class="status-dot dot-ok"></span> Docs/Terms of use/License</h2>
       <div class="badges">
         
-        <label for="doc-16-docs-terms-of-use-license-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-15-docs-terms-of-use-license-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/docs/terms-of-use/license.docs.mdx">docs-terms-of-use-license--docs · ./src/docs/terms-of-use/license.docs.mdx</div>
@@ -59386,7 +59335,7 @@ import NOTICE from &quot;../../../../NOTICE.md?raw&quot;;
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-16-docs-terms-of-use-license-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-15-docs-terms-of-use-license-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -59416,7 +59365,7 @@ import LICENSE from &quot;../../../../LICENSE.md?raw&quot;;
       <h2><span class="status-dot dot-ok"></span> Brand/Assets/Favicon</h2>
       <div class="badges">
         
-        <label for="doc-17-brand-assets-favicon-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-16-brand-assets-favicon-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/brand/assets/favicon.docs.mdx">brand-assets-favicon--docs · ./src/brand/assets/favicon.docs.mdx</div>
@@ -59425,7 +59374,7 @@ import LICENSE from &quot;../../../../LICENSE.md?raw&quot;;
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-17-brand-assets-favicon-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-16-brand-assets-favicon-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -59560,7 +59509,7 @@ An iPhone or iPad uses this image when adding the webpage as a shortcut to your 
       <h2><span class="status-dot dot-ok"></span> Brand/Assets/Font</h2>
       <div class="badges">
         
-        <label for="doc-18-brand-assets-font-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-17-brand-assets-font-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/brand/assets/font.docs.mdx">brand-assets-font--docs · ./src/brand/assets/font.docs.mdx</div>
@@ -59569,7 +59518,7 @@ An iPhone or iPad uses this image when adding the webpage as a shortcut to your 
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-18-brand-assets-font-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-17-brand-assets-font-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -59638,7 +59587,7 @@ For additional details about the font, refer to [Typography on Stijlweb](https:/
       <h2><span class="status-dot dot-ok"></span> Brand/Assets/Icons</h2>
       <div class="badges">
         
-        <label for="doc-19-brand-assets-icons-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-18-brand-assets-icons-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/brand/assets/icons.docs.mdx">brand-assets-icons--docs · ./src/brand/assets/icons.docs.mdx</div>
@@ -59647,7 +59596,7 @@ For additional details about the font, refer to [Typography on Stijlweb](https:/
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-19-brand-assets-icons-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-18-brand-assets-icons-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -59788,7 +59737,7 @@ If you need an icon that is not in our set, [check this Figma library](https://w
       <h2><span class="status-dot dot-ok"></span> Brand/Design tokens/Aspect ratio</h2>
       <div class="badges">
         
-        <label for="doc-20-brand-design-tokens-aspect-ratio-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-19-brand-design-tokens-aspect-ratio-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/brand/design-tokens/aspect-ratio.docs.mdx">brand-design-tokens-aspect-ratio--docs · ./src/brand/design-tokens/aspect-ratio.docs.mdx</div>
@@ -59797,7 +59746,7 @@ If you need an icon that is not in our set, [check this Figma library](https://w
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-20-brand-design-tokens-aspect-ratio-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-19-brand-design-tokens-aspect-ratio-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -59847,7 +59796,7 @@ Content with intrinsic dimensions that do not match an aspect ratio will be crop
       <h2><span class="status-dot dot-ok"></span> Brand/Design tokens/Border</h2>
       <div class="badges">
         
-        <label for="doc-21-brand-design-tokens-border-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-20-brand-design-tokens-border-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/brand/design-tokens/border.docs.mdx">brand-design-tokens-border--docs · ./src/brand/design-tokens/border.docs.mdx</div>
@@ -59856,7 +59805,7 @@ Content with intrinsic dimensions that do not match an aspect ratio will be crop
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-21-brand-design-tokens-border-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-20-brand-design-tokens-border-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -59911,7 +59860,7 @@ All borders are a pixel thinner in [Compact Mode](/docs/docs-guidelines-modes--d
       <h2><span class="status-dot dot-ok"></span> Brand/Design tokens/Colour</h2>
       <div class="badges">
         
-        <label for="doc-22-brand-design-tokens-colour-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-21-brand-design-tokens-colour-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/brand/design-tokens/colour.docs.mdx">brand-design-tokens-colour--docs · ./src/brand/design-tokens/colour.docs.mdx</div>
@@ -59920,7 +59869,7 @@ All borders are a pixel thinner in [Compact Mode](/docs/docs-guidelines-modes--d
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-22-brand-design-tokens-colour-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-21-brand-design-tokens-colour-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -60133,7 +60082,7 @@ On these, both text and links are white – the **‘inverse’** text and inter
       <h2><span class="status-dot dot-ok"></span> Brand/Design tokens/Cursor</h2>
       <div class="badges">
         
-        <label for="doc-23-brand-design-tokens-cursor-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-22-brand-design-tokens-cursor-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/brand/design-tokens/cursor.docs.mdx">brand-design-tokens-cursor--docs · ./src/brand/design-tokens/cursor.docs.mdx</div>
@@ -60142,7 +60091,7 @@ On these, both text and links are white – the **‘inverse’** text and inter
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-23-brand-design-tokens-cursor-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-22-brand-design-tokens-cursor-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -60177,7 +60126,7 @@ import tokens from &quot;#tokens/brand/ams/cursor.tokens.json&quot;;
       <h2><span class="status-dot dot-ok"></span> Brand/Design tokens/Focus</h2>
       <div class="badges">
         
-        <label for="doc-24-brand-design-tokens-focus-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-23-brand-design-tokens-focus-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/brand/design-tokens/focus.docs.mdx">brand-design-tokens-focus--docs · ./src/brand/design-tokens/focus.docs.mdx</div>
@@ -60186,7 +60135,7 @@ import tokens from &quot;#tokens/brand/ams/cursor.tokens.json&quot;;
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-24-brand-design-tokens-focus-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-23-brand-design-tokens-focus-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -60232,7 +60181,7 @@ When setting up a page, ensure that the interactive elements are in a logical or
       <h2><span class="status-dot dot-ok"></span> Brand/Design tokens/Inputs</h2>
       <div class="badges">
         
-        <label for="doc-25-brand-design-tokens-inputs-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-24-brand-design-tokens-inputs-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/brand/design-tokens/inputs.docs.mdx">brand-design-tokens-inputs--docs · ./src/brand/design-tokens/inputs.docs.mdx</div>
@@ -60241,7 +60190,7 @@ When setting up a page, ensure that the interactive elements are in a logical or
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-25-brand-design-tokens-inputs-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-24-brand-design-tokens-inputs-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -60322,7 +60271,7 @@ Use these tokens if you recreate our React components with different technology,
       <h2><span class="status-dot dot-ok"></span> Brand/Design tokens/Links</h2>
       <div class="badges">
         
-        <label for="doc-26-brand-design-tokens-links-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-25-brand-design-tokens-links-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/brand/design-tokens/links.docs.mdx">brand-design-tokens-links--docs · ./src/brand/design-tokens/links.docs.mdx</div>
@@ -60331,7 +60280,7 @@ Use these tokens if you recreate our React components with different technology,
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-26-brand-design-tokens-links-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-25-brand-design-tokens-links-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -60395,7 +60344,7 @@ Use these tokens if you recreate our React components with different technology,
       <h2><span class="status-dot dot-ok"></span> Brand/Design tokens/Space</h2>
       <div class="badges">
         
-        <label for="doc-27-brand-design-tokens-space-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-26-brand-design-tokens-space-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/brand/design-tokens/space.docs.mdx">brand-design-tokens-space--docs · ./src/brand/design-tokens/space.docs.mdx</div>
@@ -60404,7 +60353,7 @@ Use these tokens if you recreate our React components with different technology,
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-27-brand-design-tokens-space-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-26-brand-design-tokens-space-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -60479,7 +60428,7 @@ The responsive values above are specified using the [clamp function](https://dev
       <h2><span class="status-dot dot-ok"></span> Brand/Design tokens/Typography</h2>
       <div class="badges">
         
-        <label for="doc-28-brand-design-tokens-typography-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-27-brand-design-tokens-typography-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/brand/design-tokens/typography.docs.mdx">brand-design-tokens-typography--docs · ./src/brand/design-tokens/typography.docs.mdx</div>
@@ -60488,7 +60437,7 @@ The responsive values above are specified using the [clamp function](https://dev
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-28-brand-design-tokens-typography-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-27-brand-design-tokens-typography-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -60682,7 +60631,7 @@ They use [Compact Mode](/docs/docs-guidelines-modes--docs), where both body text
       <h2><span class="status-dot dot-ok"></span> Pages/Introduction</h2>
       <div class="badges">
         
-        <label for="doc-29-pages-introduction-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-28-pages-introduction-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/pages/Introduction.docs.mdx">pages-introduction--docs · ./src/pages/Introduction.docs.mdx</div>
@@ -60691,7 +60640,7 @@ They use [Compact Mode](/docs/docs-guidelines-modes--docs), where both body text
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-29-pages-introduction-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-28-pages-introduction-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -60754,7 +60703,7 @@ Use the ‘Go to full screen’ (or press `alt+F`) or ‘Open canvas in new tab�
       <h2><span class="status-dot dot-ok"></span> Pages/Guidelines/Choosing a page type</h2>
       <div class="badges">
         
-        <label for="doc-30-pages-guidelines-choosing-a-page-type-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-29-pages-guidelines-choosing-a-page-type-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/pages/guidelines/choosing-a-page-type.docs.mdx">pages-guidelines-choosing-a-page-type--docs · ./src/pages/guidelines/choosing-a-page-type.docs.mdx</div>
@@ -60763,7 +60712,7 @@ Use the ‘Go to full screen’ (or press `alt+F`) or ‘Open canvas in new tab�
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-30-pages-guidelines-choosing-a-page-type-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-29-pages-guidelines-choosing-a-page-type-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -60827,7 +60776,7 @@ Where your context needs something else, design it, and tell us about it: templa
       <h2><span class="status-dot dot-ok"></span> Pages/Guidelines/Page structure</h2>
       <div class="badges">
         
-        <label for="doc-31-pages-guidelines-page-structure-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-30-pages-guidelines-page-structure-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/pages/guidelines/page-structure.docs.mdx">pages-guidelines-page-structure--docs · ./src/pages/guidelines/page-structure.docs.mdx</div>
@@ -60836,7 +60785,7 @@ Where your context needs something else, design it, and tell us about it: templa
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-31-pages-guidelines-page-structure-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-30-pages-guidelines-page-structure-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -60959,7 +60908,7 @@ Compact Mode already sets the type down a step, and a second reduction would lea
       <h2><span class="status-dot dot-ok"></span> Pages/Guidelines/Layout and spacing</h2>
       <div class="badges">
         
-        <label for="doc-32-pages-guidelines-layout-and-spacing-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-31-pages-guidelines-layout-and-spacing-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/pages/guidelines/layout-and-spacing.docs.mdx">pages-guidelines-layout-and-spacing--docs · ./src/pages/guidelines/layout-and-spacing.docs.mdx</div>
@@ -60968,7 +60917,7 @@ Compact Mode already sets the type down a step, and a second reduction would lea
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-32-pages-guidelines-layout-and-spacing-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-31-pages-guidelines-layout-and-spacing-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -61180,7 +61129,7 @@ These layouts require **4 columns** for each Card, which can be achieved with a 
       <h2><span class="status-dot dot-ok"></span> Pages/Guidelines/Reading the anatomy</h2>
       <div class="badges">
         
-        <label for="doc-33-pages-guidelines-reading-the-anatomy-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-32-pages-guidelines-reading-the-anatomy-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/pages/guidelines/reading-the-anatomy.docs.mdx">pages-guidelines-reading-the-anatomy--docs · ./src/pages/guidelines/reading-the-anatomy.docs.mdx</div>
@@ -61189,7 +61138,7 @@ These layouts require **4 columns** for each Card, which can be achieved with a 
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-33-pages-guidelines-reading-the-anatomy-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-32-pages-guidelines-reading-the-anatomy-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -61238,7 +61187,7 @@ It all happens per Grid variant, because a run that fills a phone from top to bo
       <h2><span class="status-dot dot-ok"></span> Pages/Guidelines/Composing your own page</h2>
       <div class="badges">
         
-        <label for="doc-34-pages-guidelines-composing-your-own-page-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-33-pages-guidelines-composing-your-own-page-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/pages/guidelines/composing-your-own-page.docs.mdx">pages-guidelines-composing-your-own-page--docs · ./src/pages/guidelines/composing-your-own-page.docs.mdx</div>
@@ -61247,7 +61196,7 @@ It all happens per Grid variant, because a run that fills a phone from top to bo
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-34-pages-guidelines-composing-your-own-page-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-33-pages-guidelines-composing-your-own-page-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -61320,7 +61269,7 @@ Tell us what you built and what you had to invent for it, and we will look at ta
       <h2><span class="status-dot dot-ok"></span> Pages/Public/Introduction</h2>
       <div class="badges">
         
-        <label for="doc-35-pages-public-introduction-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-34-pages-public-introduction-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/pages/public/Introduction.docs.mdx">pages-public-introduction--docs · ./src/pages/public/Introduction.docs.mdx</div>
@@ -61329,7 +61278,7 @@ Tell us what you built and what you had to invent for it, and we will look at ta
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-35-pages-public-introduction-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-34-pages-public-introduction-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -61382,7 +61331,7 @@ Both differences are covered where the rules are: [Page structure](/docs/pages-g
       <h2><span class="status-dot dot-ok"></span> Pages/Internal/Introduction</h2>
       <div class="badges">
         
-        <label for="doc-36-pages-internal-introduction-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-35-pages-internal-introduction-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/pages/internal/Introduction.docs.mdx">pages-internal-introduction--docs · ./src/pages/internal/Introduction.docs.mdx</div>
@@ -61391,7 +61340,7 @@ Both differences are covered where the rules are: [Page structure](/docs/pages-g
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-36-pages-internal-introduction-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-35-pages-internal-introduction-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
