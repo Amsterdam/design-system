@@ -30,6 +30,12 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * **Dialog:** Make the scrollable body keyboard accessible ([#2846](https://github.com/Amsterdam/design-system/issues/2846)) ([c4be5a2](https://github.com/Amsterdam/design-system/commit/c4be5a2307fa037d191d5f183b13a667ae257c77))
 * **Table:** Make the horizontal scroll container keyboard accessible ([#2845](https://github.com/Amsterdam/design-system/issues/2845)) ([c0159b5](https://github.com/Amsterdam/design-system/commit/c0159b59955b2be4475376b2beae8c7ba754df32))
 
+### Deprecations
+
+The following API has been deprecated and will be removed on or after 2027-02-08:
+
+- The `tagline` prop of `Card.HeadingGroup`. Add a `Metadata` as a child instead.
+
 ## [4.3.0](https://github.com/Amsterdam/design-system/compare/design-system-react-v4.2.0...design-system-react-v4.3.0) (2026-07-12)
 
 
@@ -49,6 +55,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 * **Breakout:** Apply the `as` prop instead of leaking it to the DOM ([#2736](https://github.com/Amsterdam/design-system/issues/2736)) ([03702b6](https://github.com/Amsterdam/design-system/commit/03702b6ed3d24f5d286a6f09253c40cce97a51de))
 * **Calendar, Date Picker:** Localise day numerals and the range boundary separator ([#2729](https://github.com/Amsterdam/design-system/issues/2729)) ([82e85ba](https://github.com/Amsterdam/design-system/commit/82e85ba67514bc2a069734f3e076fa074bdf6b7a))
+
+### Deprecations
+
+The following API has been deprecated and will be removed on or after 2027-01-10:
+
+- The `collapsed` prop of `ProgressList.Step`. Use `expanded` instead, which takes the opposite value.
+- The `defaultCollapsed` prop of `ProgressList.Step`. Use `defaultExpanded` instead, which takes the opposite value.
 
 ## [4.2.0](https://github.com/Amsterdam/design-system/compare/design-system-react-v4.1.0...design-system-react-v4.2.0) (2026-06-23)
 

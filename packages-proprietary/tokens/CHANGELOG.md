@@ -31,6 +31,14 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * **Switch:** Use Neutral 20 for the disabled track ([#2808](https://github.com/Amsterdam/design-system/issues/2808)) ([952e857](https://github.com/Amsterdam/design-system/commit/952e857ce36a637fbcc1d071dee9b99f23890c36))
 * **Table:** Make the horizontal scroll container keyboard accessible ([#2845](https://github.com/Amsterdam/design-system/issues/2845)) ([c0159b5](https://github.com/Amsterdam/design-system/commit/c0159b59955b2be4475376b2beae8c7ba754df32))
 
+### Deprecations
+
+The following tokens have been deprecated and will be removed on or after 2027-02-08:
+
+- `ams.avatar.forced-colors.border-width`. The Avatar no longer draws a border in forced colours mode, so this token has no effect.
+- `ams.page-header.menu.item.font-family`. Use `ams.page-header.font-family` instead, which the menu items inherit.
+- `ams.search-field.input.cancel-button.color`. Use `ams.search-field.input.cancel-button.background-image` instead, which carries the colour, because a data URI cannot reference a token.
+
 ## [4.2.0](https://github.com/Amsterdam/design-system/compare/design-system-tokens-v4.1.0...design-system-tokens-v4.2.0) (2026-07-12)
 
 
@@ -107,12 +115,17 @@ The following tokens have been deprecated and will be removed on or after 2026-1
   `ams.dialog.header.medium.padding-block`, `ams.dialog.header.medium.padding-inline`, `ams.dialog.body.medium.padding-inline`,
   `ams.dialog.footer.medium.padding-block`, `ams.dialog.footer.medium.padding-inline`
 - `ams.grid.medium.column-count`, `ams.grid.medium.padding-inline`, `ams.grid.wide.column-count`, and `ams.grid.wide.padding-inline`
-- `ams.menu.wide.max-inline-size`, `ams.menu.wide.padding-block`, `ams.menu.wide.padding-inline`, and `ams.menu-link.wide.gap`
+- `ams.menu.wide.max-inline-size`, `ams.menu.wide.padding-block`, `ams.menu.wide.padding-inline`, and `ams.menu.link.wide.gap`
 - `ams.page-footer.menu.medium.padding-inline`, `ams.page-footer.menu.wide.padding-inline`
 - `ams.page-header.medium.padding-inline`, `ams.page-header.wide.padding-inline`
 - `ams.progress-list.step.medium.gap` and `ams.progress-list.substeps.step.indicator.medium.margin-inline-end`
 
 For tokens containing `*.medium.*` and `*.wide.*`, replace them with `*.vi-medium.*` and `*.vi-wide.*`.
+
+The following tokens have been deprecated and will be removed on or after 2026-09-13:
+
+- `ams.page-header.menu.item.color`. Use `ams.page-header.menu.link.color` instead.
+- `ams.page-header.mega-menu.button.label.open.font-weight`. The button label is no longer bold while the mega menu is open.
 
 ## [3.4.0](https://github.com/Amsterdam/design-system/compare/design-system-tokens-v3.3.0...design-system-tokens-v3.4.0) (2026-04-03)
 
