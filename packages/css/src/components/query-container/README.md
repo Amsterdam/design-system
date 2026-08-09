@@ -20,7 +20,7 @@ One option is currently available:
 ### Inline size
 
 - Generally, you won’t need this class.
-  [Grid Cell](/docs/components-layout-grid--docs), [Dialog](/docs/components-containers-dialog--docs) and [Page](/docs/components-containers-page--docs) are default query containers for inline size.
+  [Grid Cell](https://designsystem.amsterdam/?path=/docs/components-layout-grid--docs), [Dialog](https://designsystem.amsterdam/?path=/docs/components-containers-dialog--docs) and [Page](https://designsystem.amsterdam/?path=/docs/components-containers-page--docs) are default query containers for inline size.
   Since they all share the same container name, container queries refer to the closest of these ancestors.
   In practice, almost all elements sit in at least one of these containers.
 - However, if an element lacks any of them, the conditional styles will not activate.

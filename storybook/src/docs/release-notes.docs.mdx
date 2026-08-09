@@ -17,7 +17,7 @@ One release at a time, newest first.
 Each opens with the package versions.
 It sets out what changed.
 It closes with what upgrading actually asks of you.
-For the cadence and the guarantees behind it, read the [release policy](/docs/docs-developer-guide-release-policy--docs).
+For the cadence and the guarantees behind it, read the [release policy](/docs/docs-guidelines-release-policy--docs).
 
 ## 8 August 2026
 
@@ -52,7 +52,7 @@ Nothing breaks.
 - **Lo-fi Mode strips a page down to a wireframe.**
   Grey boxes, squiggles for text, crossed placeholders for images, while every dimension and distance stays exactly where it is.
   Use it to discuss the structure of a page before its content and styling enter the conversation.
-  Two extra stylesheets switch it on, and it combines freely with Compact Mode; the [Modes](/docs/docs-developer-guide-modes--docs) guide explains.
+  Two extra stylesheets switch it on, and it combines freely with Compact Mode; the [Modes](/docs/docs-guidelines-modes--docs) guide explains.
 
 ### Adjusted
 
@@ -76,7 +76,7 @@ Give these a look after upgrading.
 - **[Prose](/docs/utilities-css-prose--docs) retunes its vertical rhythm.**
   More space below a level 1 heading, none below a level 4 heading, and a step more above a [Description List](/docs/components-text-description-list--docs), Image, [Link List](/docs/components-navigation-link-list--docs), [Standalone Link](/docs/components-navigation-standalone-link--docs) or [Table](/docs/components-containers-table--docs) that follows a level 3 or 4 heading.
   A Call to Action Link takes more room above and below.
-  The [vertical space](/docs/docs-designer-guide-vertical-space--docs) guidelines carry the full tables.
+  The [vertical space](/docs/docs-guidelines-vertical-space--docs) guidelines carry the full tables.
 - **[Blockquote](/docs/components-text-blockquote--docs) localises its quotation marks.**
   The marks now follow the language of the content: Dutch keeps “ ”, Arabic gets « ».
   A page in a third language sees that language’s convention instead of the Dutch marks.
@@ -101,13 +101,13 @@ Pages in Arabic and other right-to-left languages now get the details right.
 [Calendar](/docs/components-navigation-calendar--docs) and [Date Picker](/docs/components-forms-date-picker--docs) fit Arabic weekday names in their columns.
 The [Image Slider](/docs/components-media-image-slider--docs) advances in the writing direction, [Select](/docs/components-forms-select--docs) moves its chevron to the other side, [Switch](/docs/components-forms-switch--docs) slides its thumb the other way, and an empty [Search Field](/docs/components-forms-search-field--docs) aligns its placeholder with the page.
 [Character Count](/docs/components-forms-character-count--docs) can announce its count in six languages through the new `formatText` property.
-The [Localisation](/docs/docs-developer-guide-localisation--docs) guide shows how to serve a page in Arabic.
+The [Localisation](/docs/docs-guidelines-localisation--docs) guide shows how to serve a page in Arabic.
 
 Elsewhere:
 
 - **Content keeps clear of the notch.**
   On phones with a display cutout or a home indicator, [Grid](/docs/components-layout-grid--docs), [Breakout](/docs/components-layout-breakout--docs), [Page Header](/docs/components-containers-page-header--docs), [Page Footer](/docs/components-containers-page-footer--docs) and [Menu](/docs/components-navigation-menu--docs) keep their content inside the safe area.
-  Your viewport meta tag must declare `viewport-fit=cover`; the [Getting started](/docs/docs-developer-guide-getting-started--docs) guide explains.
+  Your viewport meta tag must declare `viewport-fit=cover`; the [Getting started](/docs/docs-guidelines-getting-started--docs) guide explains.
   On screens without insets nothing changes.
 - **A [Card](/docs/components-navigation-card--docs) can go horizontal.**
   Wrap everything except the image in the new Content part.
@@ -171,7 +171,7 @@ Elsewhere:
 - **These release notes are themselves new.**
   The page arrived with the 12 July release written up, and the Introduction now shows the latest package versions.
 - **Coding assistants see the right components.**
-  The manifest behind the [AI assistance](/docs/docs-developer-guide-ai-assistance--docs) MCP server no longer lists internal helpers, exposes far more stories, and names the parts of every compound component.
+  The manifest behind the [AI assistance](/docs/docs-guidelines-ai-assistance--docs) MCP server no longer lists internal helpers, exposes far more stories, and names the parts of every compound component.
 - **A “more” link is not a list item.**
   [Link List](/docs/components-navigation-link-list--docs) guidance now says a trailing link to all items belongs outside the list, as a [Standalone Link](/docs/components-navigation-standalone-link--docs), and never alone in a list of one.
 
@@ -203,9 +203,9 @@ Four things to know:
 - Put a form or another self-contained task in front of the page with [Modal Dialog](/docs/components-containers-modal-dialog--docs).
 - Caption content with a date, category or status through [Metadata](/docs/components-text-metadata--docs).
 - Align nested content with the page columns through [Grid](/docs/components-layout-grid--docs) Subgrid, and render an overview as a real list.
-- Show a page as a wireframe with Lo-fi Mode, per the [Modes](/docs/docs-developer-guide-modes--docs) guide.
+- Show a page as a wireframe with Lo-fi Mode, per the [Modes](/docs/docs-guidelines-modes--docs) guide.
 - Let a [Card](/docs/components-navigation-card--docs) go horizontal where space permits.
-- Serve pages in right-to-left languages, with the [Localisation](/docs/docs-developer-guide-localisation--docs) guide.
+- Serve pages in right-to-left languages, with the [Localisation](/docs/docs-guidelines-localisation--docs) guide.
 - Keep content out of the notch by declaring `viewport-fit=cover`.
 - Disable a whole [Field Set](/docs/components-forms-field-set--docs) or a [Search Field](/docs/components-forms-search-field--docs).
 - Build an index page from the three new overview templates, or an explanatory page from the [Information Page](/docs/pages-public-information-page--docs).
@@ -248,7 +248,7 @@ Give these a look after upgrading.
 
 - **Compact Mode is a little tighter.**
   The `xl` and `2xl` [space tokens](/docs/brand-design-tokens-space--docs) drop by 4 and 8 pixels at every viewport width.
-  Anything spaced with them in [Compact Mode](/docs/docs-developer-guide-modes--docs) closes up.
+  Anything spaced with them in [Compact Mode](/docs/docs-guidelines-modes--docs) closes up.
   That includes [Grid](/docs/components-layout-grid--docs) gaps and vertical padding.
 - **The page behind a modal [Dialog](/docs/components-containers-dialog--docs) no longer scrolls.**
   This needs the `ams-body` class on your `<body>`.
@@ -320,15 +320,15 @@ This page is its changelog.
 - **[Handbook Page](/docs/pages-public-handbook-page--docs)** is a new template for long reference documents split across many short pages.
   Think of a personnel handbook, a policy, or a regulation.
   A collapsible [Table of Contents](/docs/components-navigation-table-of-contents--docs) sits beside the content and swaps pages in place.
-- **[AI assistance](/docs/docs-developer-guide-ai-assistance--docs)** is a new guide.
+- **[AI assistance](/docs/docs-guidelines-ai-assistance--docs)** is a new guide.
   Behind it sits a Model Context Protocol server.
   Point your coding assistant at it.
   It then builds with our real components and properties instead of guessing at them.
   It covers React for now, and republishes with every release.
-- **[Responsive design](/docs/docs-developer-guide-responsive-design--docs)** replaces the Breakpoints guide.
+- **[Responsive design](/docs/docs-guidelines-responsive-design--docs)** replaces the Breakpoints guide.
   It now covers container queries alongside media queries.
   That includes how to make an element a query container.
-- **[Localisation](/docs/docs-developer-guide-localisation--docs)** replaces the Language guide.
+- **[Localisation](/docs/docs-guidelines-localisation--docs)** replaces the Language guide.
   [Calendar](/docs/components-navigation-calendar--docs) and [Date Picker](/docs/components-forms-date-picker--docs) now document how to localise them properly.
   Native speakers checked the examples in German, French, Turkish and Arabic.
 - **Every compound component now names its parts.**
@@ -360,7 +360,7 @@ Two things to know:
    Your package manager will flag a partial upgrade.
    React Icons stands on its own.
    If Dependabot offers you a separate pull request per package, group them.
-   The [release policy](/docs/docs-developer-guide-release-policy--docs) explains how.
+   The [release policy](/docs/docs-guidelines-release-policy--docs) explains how.
 2. **Migrate `collapsed` and `defaultCollapsed` on [Progress List](/docs/components-containers-progress-list--docs) Step when it suits you.**
    You have until at least 10 January 2027.
    Each old property warns once in the console in the meantime.
@@ -374,7 +374,7 @@ Two things to know:
 - Set text in the light, extra bold or new black weight of Amsterdam Sans.
 - Offer [Calendar](/docs/components-navigation-calendar--docs) and [Date Picker](/docs/components-forms-date-picker--docs) in another language, including right-to-left ones like Arabic.
 - Publish a long reference document, with the [Handbook Page](/docs/pages-public-handbook-page--docs) template.
-- Let your coding assistant read the design system directly, through the [AI assistance](/docs/docs-developer-guide-ai-assistance--docs) guide.
+- Let your coding assistant read the design system directly, through the [AI assistance](/docs/docs-guidelines-ai-assistance--docs) guide.
 
 #### Bugs you may have run into
 
@@ -449,7 +449,7 @@ Pass your router’s link and the component renders that instead of a plain anch
 On a compound component the property sits on the link part, so `Menu.Link` and `Breadcrumb.Link` rather than `Menu` and `Breadcrumb`.
 Page Header’s logo takes `logoLinkComponent`.
 The `<NextLink legacyBehavior passHref>` wrapper is no longer needed.
-The [routing libraries](/docs/docs-developer-guide-routing-libraries--docs) guide was rewritten around the new pattern.
+The [routing libraries](/docs/docs-guidelines-routing-libraries--docs) guide was rewritten around the new pattern.
 
 - **Table of Contents can collapse.**
   Set `collapsible` on the root and every item with a nested list gets a toggle button.
@@ -487,7 +487,7 @@ The [routing libraries](/docs/docs-developer-guide-routing-libraries--docs) guid
   Every component page opens with the description, the main example and the controls, then a fixed set of headings.
   Every page has inline navigation.
   Guidance moved out of the packages’ README files and onto the pages themselves.
-- **[Spacing](/docs/docs-developer-guide-spacing--docs)** is a new guide.
+- **[Spacing](/docs/docs-guidelines-spacing--docs)** is a new guide.
   It works down from page layout to individual elements, and says which tool to reach for at each level.
 - **[Dialog](/docs/components-containers-dialog--docs) explains where to put the initial focus.**
   Focus lands on the close button by default, so people can read the Dialog before acting.
@@ -568,7 +568,7 @@ Nothing breaks.
 
 ### Fixed
 
-- **[Grid](/docs/components-layout-grid--docs) padding in [Compact Mode](/docs/docs-developer-guide-modes--docs).**
+- **[Grid](/docs/components-layout-grid--docs) padding in [Compact Mode](/docs/docs-guidelines-modes--docs).**
   Compact Mode was supposed to give the Grid narrower horizontal padding than the spacious default.
   It never did, at any width: it set only the base value, which matched the default, and left the wider windows to the default steps.
   Compact Mode now has its own steps, `m` then `l` then `xl`, one below the spacious `l`, `xl`, `2xl` at every width.
@@ -637,7 +637,7 @@ Here is what it means for you.
   The `color` property of [Menu](/docs/components-navigation-menu--docs) Link is gone with no replacement.
   The CSS classes and design tokens behind all of these went too.
   The changelogs list every name.
-- **[Compact Mode](/docs/docs-developer-guide-modes--docs) looks different.**
+- **[Compact Mode](/docs/docs-guidelines-modes--docs) looks different.**
   The page is now grey and [Grid](/docs/components-layout-grid--docs) Cells are white with their own padding, so cells stand out instead of blending in.
   Spacious Mode is unchanged, so if you do not use Compact Mode you see nothing.
   A cell that should blend back into the grey takes a new `transparent` appearance.
