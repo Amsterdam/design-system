@@ -28,7 +28,7 @@ Nothing breaks.
 ### New
 
 - [Modal Dialog](/docs/components-containers-modal-dialog--docs) carries a task that deserves the whole screen.
-  Dialog keeps the short messages.
+  [Dialog](/docs/components-containers-dialog--docs) keeps the short messages.
 - [Metadata](/docs/components-text-metadata--docs) renders grey text for a date, a category or a status.
 - [Grid](/docs/components-layout-grid--docs) gains a Subgrid, which keeps a block of cards or results aligned with the page columns.
 - [Lo-fi Mode](/docs/docs-guidelines-modes--docs) strips a page to a wireframe, for discussing structure before styling.
@@ -49,7 +49,7 @@ Nothing breaks.
 ### Also
 
 Pages now read naturally in [right-to-left languages](/docs/docs-guidelines-localisation--docs), keep clear of a phone’s display cutout, and respect a request for reduced motion.
-A Grid can render as a list, so screen readers announce a set of cards as the list it is.
+A [Grid](/docs/components-layout-grid--docs) can render as a list, so screen readers announce a set of cards as the list it is.
 [Search Field](/docs/components-forms-search-field--docs) and [Field Set](/docs/components-forms-field-set--docs) can be disabled, [Avatar](/docs/components-feedback-avatar--docs) and [Pagination](/docs/components-navigation-pagination--docs) let you set their accessible names, and fourteen missing types are exported.
 Eight bugs are fixed, among them VoiceOver announcing our lists again and [Alert](/docs/components-feedback-alert--docs) generating a unique heading id.
 
@@ -62,7 +62,7 @@ Storybook changes reach no changelog, so this is the only record of them.
 - The Designer and Developer guides became one [Guidelines](/docs/docs-guidelines-getting-started--docs) section of twelve pages.
   If you kept links into either guide, point them at their new homes.
 - The [AI assistance](/docs/docs-guidelines-ai-assistance--docs) server now shows coding assistants the right components, and names the parts of every compound component.
-- Two templates gained a variant: [Navigation Page](/docs/pages-public-navigation-page--docs) with a side navigation, [Project Page](/docs/pages-public-project-page--docs) with a Table of Contents.
+- Two templates gained a variant: [Navigation Page](/docs/pages-public-navigation-page--docs) with a side navigation, [Project Page](/docs/pages-public-project-page--docs) with a [Table of Contents](/docs/components-navigation-table-of-contents--docs).
 
 Every code change in this release is listed in the [changelogs](https://github.com/Amsterdam/design-system/pull/2926).
 
@@ -93,11 +93,11 @@ Nothing breaks.
 
 ### Also
 
-Four bugs are fixed: a [Menu](/docs/components-navigation-menu--docs) that grew past its maximum width, a shaved edge on the Page Header logo, [Breakout](/docs/components-layout-breakout--docs) leaking its `as` property into the DOM instead of applying it, and day numerals that ignored the locale.
+Four bugs are fixed: a [Menu](/docs/components-navigation-menu--docs) that grew past its maximum width, a shaved edge on the [Page Header](/docs/components-containers-page-header--docs) logo, [Breakout](/docs/components-layout-breakout--docs) leaking its `as` property into the DOM instead of applying it, and day numerals that ignored the locale.
 
 ### Documentation
 
-- [Loading Page](/docs/pages-public-loading-page--docs) shows Skeleton in place, and how to announce the wait to a screen reader.
+- [Loading Page](/docs/pages-public-loading-page--docs) shows [Skeleton](/docs/components-feedback-skeleton--docs) in place, and how to announce the wait to a screen reader.
 - [Handbook Page](/docs/pages-public-handbook-page--docs) is a new template for long reference documents split across many short pages.
 - [AI assistance](/docs/docs-guidelines-ai-assistance--docs) is a new guide, with a Model Context Protocol server your coding assistant can read so it builds with our real components.
 - [Responsive design](/docs/docs-guidelines-responsive-design--docs) replaces the Breakpoints guide, and now covers container queries alongside media queries.
@@ -163,7 +163,7 @@ Nothing breaks.
 
 ### Adjusted
 
-- Table header cells sit at the bottom, so a header that wraps onto two lines aligns with the single-line headers beside it.
+- [Table](/docs/components-containers-table--docs) header cells sit at the bottom, so a header that wraps onto two lines aligns with the single-line headers beside it.
 - [Grid](/docs/components-layout-grid--docs) padding in [Compact Mode](/docs/docs-guidelines-modes--docs) is narrower than the spacious default at every width, which it never was before.
 
 ### Also
@@ -199,16 +199,16 @@ A new component and a new utility arrive alongside it, and the Grid learns some 
 
 - [Tab Navigation](/docs/components-navigation-tab-navigation--docs) moves between the sections of a site, as a horizontal or vertical set of tabs.
 - [Prose](/docs/utilities-css-prose--docs) is a new utility class that puts vertical space between flowing text elements.
-- Grid cells can span rows, and take a flush appearance that drops their own padding while keeping the background.
+- [Grid](/docs/components-layout-grid--docs) cells can span rows, and take a flush appearance that drops their own padding while keeping the background.
 
 ### Adjusted
 
-- Grid cells align to the top of their row, so a short cell no longer stretches to match a tall neighbour.
+- [Grid](/docs/components-layout-grid--docs) cells align to the top of their row, so a short cell no longer stretches to match a tall neighbour.
 - [Table](/docs/components-containers-table--docs) captions have space beneath them.
 
 ### Documentation
 
-- [Navigation Page](/docs/pages-internal-navigation-page--docs) is a new template for a large site split into sections, built with two levels of the new Tab Navigation.
+- [Navigation Page](/docs/pages-internal-navigation-page--docs) is a new template for a large site split into sections, built with two levels of the new [Tab Navigation](/docs/components-navigation-tab-navigation--docs).
 - [Table Page](/docs/pages-internal-table-page--docs) shows a full page of sortable, filterable, paginated data, keeping its state in the URL so a view can be bookmarked and shared.
 
 Every code change in this release is listed in the [changelogs](https://github.com/Amsterdam/design-system/pull/2567).
