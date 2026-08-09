@@ -178,17 +178,8 @@ The `PackageVersions` component on the Introduction reads the live manifests, so
 That is wrong for a release note about a specific past release.
 
 Not every release moves all five packages.
-List only the ones that did, and say so in a second line: ‘Assets and React Icons did not move this time.’
-Then check the published peer dependencies of the packages that did move, because they pin exact versions and that is what a reader actually has to install.
-On 24 April only CSS, React and Tokens moved, but CSS 4.1.0 still asks for Assets 2.3.0, which had arrived four days earlier.
-
-Append the changelog link to the end of the version-numbers line, in parentheses before the full stop:
-‘…, Tokens **4.2.0** ([changelogs](…)).’
-Link the release-please ‘chore: release main’ pull request for that release: its description is the structured per-package changelog, and every release has one.
-Find it with `gh pr list --repo Amsterdam/design-system --base main --search "chore: release main"`, or from the ‘chore: release main’ commit that bounds the window.
-Do not link the ‘develop → main’ pull request: its body is empty boilerplate, and the releases before June 2026 have none.
-Keep the pull request number in the URL only, never in the link text.
-See the note under Voice.
+List only the ones that did, and say nothing about the rest.
+A package that stayed where it was is not news.
 
 ### Framing
 
@@ -196,64 +187,56 @@ Two or three sentences naming the essence of the release, before any list.
 Most releases have a theme; find it.
 State plainly whether anything breaks.
 
-### Changed, Added, Adjusted, Improved, Fixed
+### New, Adjusted, Also
 
-Use these five headings, in this order, rather than ‘Breaking’, ‘Features’ and ‘Bugfixes’.
-They describe the reader’s experience instead of our commit conventions.
-They read as a plain account of how the software grew, not a compliance record, and the friendly tone is the point.
+Three headings carry everything a release changed in code.
 
-1. **Changed**: something that was there is now different in a way you have to deal with.
-   This is the breaking bucket: name what broke and why, and leave the step-by-step to the Upgrading section.
-   It is optional and appears only when a release breaks something, which by policy means a major.
-   Keep it friendly.
-   The changelog already carries the formal ‘Breaking changes’ heading with its alert icon, and the major version number is a signal in itself, so the page does not need a scare.
-2. **Added**: did not exist before.
-3. **Adjusted**: existing markup renders or behaves differently, with no action required.
-   Visual shifts, new defaults, deprecations.
-   Some are cosmetic and some can move a consumer’s layout, so the section’s opening lines say ‘look after upgrading’ plainly.
-4. **Improved**: an existing component gained something optional.
-5. **Fixed**: a bug that is gone.
+1. **New**: something a reader can reach for that was not there before.
+   A component, a part, a property, a template, a mode.
+   This leads, because it is what people came for.
+2. **Adjusted**: existing markup looks or behaves differently.
+   Refinements to the system rather than anything the reader must act on.
+3. **Also**: what does not earn a line of its own.
+   Small improvements, and the bug fixes, as one short paragraph rather than a list.
 
-**Added** leads on a release that breaks nothing, because that is what people came for.
-On a major, **Changed** comes first, because the first question is what you have to do.
+A major release adds **Changed** at the front, for what was removed or now works differently.
+Name what changed and leave the migration to the changelogs.
 
-Omit a heading that has nothing under it rather than padding it.
-Most releases have no **Changed** section, and the 24 April release has no **Added** section either.
+Omit a heading with nothing under it.
 Never reorder the ones that remain.
 
-The line between **Adjusted** and **Improved** is whether the reader has to do anything.
-Adjusted happens to the markup they already shipped, so they look after upgrading.
-Improved is a capability they can reach for or ignore.
-When a change is both, put it in **Adjusted**, because that is what they need to notice.
-Scroll containment and a scroll lock read as improvements from our side.
-From the reader’s side they change how a page they already shipped behaves, so they are Adjusted.
+Do not write an Upgrading section, and do not write upgrade instructions anywhere else.
+Coordinating a version bump is one task for one developer, and they are not the only audience.
+The same goes for re-baselining visual snapshots, grouping Dependabot pull requests, and the technical removals a working setup cannot miss.
+Leave the deprecation notices out too: a deprecation matters when someone next touches that code, not when they read the notes.
+All of it is in the changelogs.
 
-Where several components gained the same kind of capability, write a short paragraph instead of scattering identical bullets.
-The 12 July notes do this for the collapsibles that became controllable: one paragraph on why you would want it, then one line per component.
+The one exception is a change that breaks a consumer silently.
+The June 2026 font files moved, which breaks a hand-written `@font-face` path and nothing warns you.
+State it as a fact in the framing, not as a step to follow.
 
-### Docs
+### Documentation
 
-A separate section, always.
+A separate section, always, and the last one.
 This covers new examples, new page templates and new or changed guidelines.
 It exists because these changes are in no changelog.
 This is the only place anyone will learn of them.
 
 Apply the same filter as everywhere else: guidance for people _using_ the design system, not for people maintaining it.
 
-### Upgrading
+### The changelog link
 
-Three questions, in this order, each as a `####` heading:
+Close each release with a single line:
 
-1. **Do you need to change anything?**
-   For anything short of a major release the answer is **No**, and it should be stated in one word before any qualification.
-   Say why it holds: nothing removed, every new property optional.
-   Then note anything to migrate at leisure, with its deadline.
-   For a major release, this is where the migration steps go.
-2. **What you could start using.**
-   The new capabilities, framed as an offer rather than an obligation.
-3. **Bugs you may have run into.**
-   The fixes, restated as symptoms a reader might recognise from their own work.
-   ‘A Menu that grew past its maximum width’ lands where ‘Keep the horizontal padding inside the maximum inline size’ does not.
+> Every code change in this release is listed in the [changelogs](…).
+
+It closes the release rather than opening it, because it is what a reader wants after skimming rather than before.
+‘Code change’ is deliberate, and it is why Documentation is a section of its own.
+
+Link the release-please ‘chore: release main’ pull request for that release: its description is the structured per-package changelog, and every release has one.
+Find it with `gh pr list --repo Amsterdam/design-system --base main --search "chore: release main"`, or from the ‘chore: release main’ commit that bounds the window.
+Do not link the ‘develop → main’ pull request: its body is empty boilerplate, and the releases before June 2026 have none.
+Keep the pull request number in the URL only, never in the link text.
 
 ## Voice
 
@@ -264,7 +247,7 @@ So the notes should read as confident, not defensive.
 Never bury a shift to make a release look calmer than it is.
 
 Keep that as an undercurrent.
-The structure carries it: a deprecation with a date on it, ‘every new property is optional’, an **Adjusted** section that admits what moved.
+The structure carries it: an **Adjusted** section that admits what moved, and a link to the changelogs for anyone who wants the whole list.
 It dies the moment you say it out loud.
 An opening aphorism about change being good is the one thing guaranteed not to convince anybody.
 Cut it and let the page prove the point.
@@ -279,6 +262,11 @@ Concretely:
   A full stop, a colon, or a pair of commas will do the same work.
 - Sentence case for headings.
   Title case for component names, so readers recognise them.
+- Use no bold inside a list.
+  The items are short enough to scan without it, and emphasising the opening of every one emphasises nothing.
+  Bold is for the version numbers, and nothing else on the page.
+- Keep a list item to one or two sentences, one per line, the second indented under the first.
+  An item that wants a third sentence belongs on the component page instead.
 - Link a component on its first occurrence **in each section**, to its documentation page or to the specific story that shows the change.
   Plain title case for the rest of that section.
   Readers scan one section at a time, so each should stand on its own.
