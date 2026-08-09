@@ -6,11 +6,11 @@ import { Meta } from "@storybook/addon-docs/blocks";
 
 # Browser support
 
-The Amsterdam Design System uses the [Baseline standard](https://web.dev/baseline/) ‘Widely available’ for browser support.
-This means we only use features that have been supported in the 4 major browsers (Chrome, Edge, Firefox, and Safari) for at least 30 months.
+We only use web platform features that the four major browsers have supported for at least 30 months.
 This is considered a good trade-off between using modern web platform features and ensuring broad compatibility.
 
-We use linters for CSS and JavaScript to enforce this.
+That threshold is the [Baseline standard](https://web.dev/baseline/) ‘Widely available’, measured across Chrome, Edge, Firefox, and Safari.
+We use linters for CSS and JavaScript to enforce it.
 These tools help us catch most usages of unsupported features early in the development process, allowing us to maintain our commitment to browser compatibility.
 
 They do not reach everything: the linter judges a declaration by the value written next to it, and our design tokens are generated into a stylesheet we exclude from linting, so the values they carry go unchecked.
