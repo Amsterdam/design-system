@@ -19,6 +19,207 @@ It sets out what changed.
 It closes with what upgrading actually asks of you.
 For the cadence and the guarantees behind it, read the [release policy](/docs/docs-developer-guide-release-policy--docs).
 
+## 8 August 2026
+
+Assets **2.6.0**, CSS **4.4.0**, React **4.4.0**, Tokens **4.3.0** ([changelogs](https://github.com/Amsterdam/design-system/pull/2926)).
+React Icons did not move this time.
+React 4.4.0 asks for React Icons 2.2.0, which arrived on 12 July.
+
+This release is about pages that list things.
+But even more so about the fair set of new features that they required.
+A Subgrid keeps rows of cards, filters and results aligned with the page columns.
+A Card can turn horizontal where there is room.
+Five new page templates put both to work.
+A Modal Dialog carries a task that is too big for a Dialog.
+Disabled controls now look the part.
+Lo-fi Mode strips a page down to a wireframe, for discussing structure before styling.
+Underneath, pages hold up better on touch screens, in right-to-left languages and under reduced motion.
+All components and page templates got their documentation upgraded and structured.
+Nothing breaks.
+
+### Added
+
+- **[Modal Dialog](/docs/components-containers-modal-dialog--docs)** carries a task that deserves the whole screen: a form to fill in, a step to confirm, a document to preview.
+  It covers the page until someone finishes or closes it.
+  Long content scrolls between a title and buttons that stay in place.
+  [Dialog](/docs/components-containers-dialog--docs) keeps the short messages: a confirmation, a question, a reminder.
+- **[Metadata](/docs/components-text-metadata--docs)** renders a line of grey text for data about content: a date, a category, a status.
+  Its Separator part draws a square between two pieces.
+  Without our stylesheet it degrades to a dash.
+- **[Grid](/docs/components-layout-grid--docs) gains a Subgrid.**
+  A block of cards, filters or search results can sit in its own part of the page and still line up with everything around it.
+  Overview pages stay orderly, however deeply their content nests.
+- **Lo-fi Mode strips a page down to a wireframe.**
+  Grey boxes, squiggles for text, crossed placeholders for images, while every dimension and distance stays exactly where it is.
+  Use it to discuss the structure of a page before its content and styling enter the conversation.
+  Two extra stylesheets switch it on, and it combines freely with Compact Mode; the [Modes](/docs/docs-developer-guide-modes--docs) guide explains.
+
+### Adjusted
+
+Nothing here needs a code change.
+Existing markup does render or behave differently in places.
+Give these a look after upgrading.
+
+- **[Card](/docs/components-navigation-card--docs) taglines are grey now.**
+  The Heading Group renders its `tagline` as a [Metadata](/docs/components-text-metadata--docs) instead of a small Paragraph, changing the element’s class along with its colour.
+  The `tagline` property is deprecated: pass a Metadata as a child instead.
+  It keeps working until at least 8 February 2027, with a console reminder in the meantime.
+- **Disabled controls look disabled.**
+  A disabled [Text Input](/docs/components-forms-text-input--docs), [Text Area](/docs/components-forms-text-area--docs), [Select](/docs/components-forms-select--docs), [Date Input](/docs/components-forms-date-input--docs), [Time Input](/docs/components-forms-time-input--docs) or [Password Input](/docs/components-forms-password-input--docs) now has a light grey fill instead of white.
+  So do a disabled secondary or tertiary [Button](/docs/components-buttons-button--docs), a [Checkbox](/docs/components-forms-checkbox--docs), a [Radio](/docs/components-forms-radio--docs) and the button of a [File Input](/docs/components-forms-file-input--docs).
+  The track of a disabled [Switch](/docs/components-forms-switch--docs) is now lighter than an enabled one; the two used to be identical.
+  A disabled contrast [Icon Button](/docs/components-buttons-icon-button--docs) shows a grey chip with a white icon.
+- **[Image](/docs/components-media-image--docs) reserves a grey box.**
+  While an image loads, and if it fails, its area is light grey instead of invisible.
+  A loaded photo covers the box completely, so finished pages look the same.
+  An image with transparency shows the grey through its clear parts.
+- **[Prose](/docs/utilities-css-prose--docs) retunes its vertical rhythm.**
+  More space below a level 1 heading, none below a level 4 heading, and a step more above a [Description List](/docs/components-text-description-list--docs), Image, [Link List](/docs/components-navigation-link-list--docs), [Standalone Link](/docs/components-navigation-standalone-link--docs) or [Table](/docs/components-containers-table--docs) that follows a level 3 or 4 heading.
+  A Call to Action Link takes more room above and below.
+  The [vertical space](/docs/docs-designer-guide-vertical-space--docs) guidelines carry the full tables.
+- **[Blockquote](/docs/components-text-blockquote--docs) localises its quotation marks.**
+  The marks now follow the language of the content: Dutch keeps “ ”, Arabic gets « ».
+  A page in a third language sees that language’s convention instead of the Dutch marks.
+- **[Tab Navigation](/docs/components-navigation-tab-navigation--docs) underlines on hover.**
+  A hovered link underlines its text, the same affordance every other navigation link uses, instead of drawing a stroke along its edge.
+  The current tab keeps its stroke.
+- **Four components balance their line lengths.**
+  Blockquote, [Figure](/docs/components-media-figure--docs) captions, Link List and [Table of Contents](/docs/components-navigation-table-of-contents--docs) now spread wrapped text evenly over the lines it needs.
+- **Every Table and [Dialog](/docs/components-containers-dialog--docs) body can take keyboard focus.**
+  Keyboard users can scroll an overflowing one with the arrow keys; Safari offered them no other way.
+  Each is a group in the accessibility tree, and a test that walks the focus order will meet one extra stop.
+- **Three design tokens are deprecated**, removable on or after 8 February 2027.
+  One belongs to [Avatar](/docs/components-feedback-avatar--docs), one to [Search Field](/docs/components-forms-search-field--docs) and one to [Page Header](/docs/components-containers-page-header--docs).
+  None of them still affects anything you cannot reach another way.
+  The token tables on those pages carry each notice in full.
+
+### Improved
+
+**Right-to-left languages read naturally.**
+Pages in Arabic and other right-to-left languages now get the details right.
+[Breadcrumb](/docs/components-navigation-breadcrumb--docs) separators point the way of the text.
+[Calendar](/docs/components-navigation-calendar--docs) and [Date Picker](/docs/components-forms-date-picker--docs) fit Arabic weekday names in their columns.
+The [Image Slider](/docs/components-media-image-slider--docs) advances in the writing direction, [Select](/docs/components-forms-select--docs) moves its chevron to the other side, [Switch](/docs/components-forms-switch--docs) slides its thumb the other way, and an empty [Search Field](/docs/components-forms-search-field--docs) aligns its placeholder with the page.
+[Character Count](/docs/components-forms-character-count--docs) can announce its count in six languages through the new `formatText` property.
+The [Localisation](/docs/docs-developer-guide-localisation--docs) guide shows how to serve a page in Arabic.
+
+Elsewhere:
+
+- **Content keeps clear of the notch.**
+  On phones with a display cutout or a home indicator, [Grid](/docs/components-layout-grid--docs), [Breakout](/docs/components-layout-breakout--docs), [Page Header](/docs/components-containers-page-header--docs), [Page Footer](/docs/components-containers-page-footer--docs) and [Menu](/docs/components-navigation-menu--docs) keep their content inside the safe area.
+  Your viewport meta tag must declare `viewport-fit=cover`; the [Getting started](/docs/docs-developer-guide-getting-started--docs) guide explains.
+  On screens without insets nothing changes.
+- **A [Card](/docs/components-navigation-card--docs) can go horizontal.**
+  Wrap everything except the image in the new Content part.
+  When such a Card gets more than 36rem of room, image and content sit side by side.
+  Cards without the part never change.
+- **A Grid can be a list.**
+  Grid and Subgrid render as `ol` or `ul` with Cells as `li`, so screen readers announce a set of cards or results as the list it is.
+  It looks identical.
+  A Cell or Subgrid can also start at a chosen row with `rowStart`, for an element that comes first in reading order but sits beside later content.
+- **Search Field and [Field Set](/docs/components-forms-field-set--docs) can be disabled.**
+  Search Field takes a `disabled` property that disables its input and button together.
+  Field Set accepts the native `disabled` attribute, disabling every control inside it.
+- **[Avatar](/docs/components-feedback-avatar--docs) and [Pagination](/docs/components-navigation-pagination--docs) let you set their accessible names.**
+  Pagination names its page links, Avatar its initials and its fallback icon.
+  The Dutch defaults are unchanged; the properties are there for pages in other languages.
+- **Fourteen missing types are exported.**
+  The props types of the Table parts, Label, Figure Caption and more now come from the package root, where TypeScript can find them.
+
+### Fixed
+
+- **[Ordered List](/docs/components-text-ordered-list--docs) and [Unordered List](/docs/components-text-unordered-list--docs) only style a truly nested list.**
+  A list inside a card inside a marker-less list took the second-level marker and indentation: an en dash instead of a square, and less indentation than a top-level list.
+  Only a list directly inside a list item counts as nested now.
+  The `markers={false}` setting reaches a nested list too.
+- **A tap no longer leaves hover styling behind.**
+  Hover styles apply only on devices that can hover, so a highlight does not stick to a control after a touch.
+- **Sturdy against long words.**
+  A long word or URL can no longer push a [Grid](/docs/components-layout-grid--docs), [Description List](/docs/components-text-description-list--docs) or another grid-based component out of its container.
+- **VoiceOver announces our lists again.**
+  The way we removed list markers made Safari drop the list semantics.
+  Components built on marker-less lists are announced as lists again.
+- **[Breakout](/docs/components-layout-breakout--docs) aligns its Spotlight cell at every gap size.**
+  With a `gapVertical` of `none`, `large` or `2x-large`, the cell holding a Spotlight was offset by the wrong amount, up to 53 pixels.
+  The default gap was always right.
+- **[Alert](/docs/components-feedback-alert--docs) generates a unique heading id.**
+  Two Alerts on one page no longer share `ams-alert-heading`, which made assistive technology name the second after the first.
+  Pass `headingId` if you relied on the fixed value.
+- **[Switch](/docs/components-forms-switch--docs) respects reduced motion.**
+  Its thumb no longer slides and its track no longer fades for people who ask their system for less motion.
+- **A [Button](/docs/components-buttons-button--docs) with `aria-disabled` looks disabled.**
+  The stylesheet applied the disabled appearance to the button’s descendants instead of the button itself.
+  React users were never affected.
+
+### Docs
+
+- **Every component page explains its design and its accessibility.**
+  A Design section records the visual and interaction decisions behind the component.
+  An Accessibility section describes what the markup renders and what assistive technology receives, citing WCAG where it explains a choice.
+- **The page templates follow one documentation model.**
+  Every template’s page opens with a schematic of its anatomy, then usage, variants, structure, layout and accessibility, in a fixed order.
+  A new [Guidelines](/docs/pages-guidelines-choosing-a-page-type--docs) group holds what spans templates: choosing a page type, page structure, layout and spacing, reading the anatomy, and composing your own page.
+  Component pages gained notes on the choices the templates make with them.
+- **Five new page templates.**
+  [Information Page](/docs/pages-public-information-page--docs) explains a subject, with an Accordion for detail questions.
+  [Profile Page](/docs/pages-public-profile-page--docs) presents a person, group or location, in five variants.
+  [News Overview Page](/docs/pages-public-news-overview-page--docs), [Search Results Page](/docs/pages-public-search-results-page--docs) and [Events Overview Page](/docs/pages-public-events-overview-page--docs) are three index pages: filters beside results, pagination below.
+  The Search Results Page highlights the search term with [Mark](/docs/components-text-mark--docs); the Events Overview Page navigates by date with a [Calendar](/docs/components-navigation-calendar--docs).
+- **Two templates gained a variant.**
+  The [Navigation Page](/docs/pages-public-navigation-page--docs) shows a side navigation next to a map.
+  The [Project Page](/docs/pages-public-project-page--docs) shows a Table of Contents beside the text and an image overlapping the Spotlight below it.
+- **These release notes are themselves new.**
+  The page arrived with the 12 July release written up, and the Introduction now shows the latest package versions.
+- **Coding assistants see the right components.**
+  The manifest behind the [AI assistance](/docs/docs-developer-guide-ai-assistance--docs) MCP server no longer lists internal helpers, exposes far more stories, and names the parts of every compound component.
+- **A “more” link is not a list item.**
+  [Link List](/docs/components-navigation-link-list--docs) guidance now says a trailing link to all items belongs outside the list, as a [Standalone Link](/docs/components-navigation-standalone-link--docs), and never alone in a list of one.
+
+### Upgrading
+
+#### Do you need to change anything?
+
+**No.**
+All four moving packages take a minor bump.
+Every new property is optional, and existing markup keeps rendering.
+
+Four things to know:
+
+1. **Move the packages together.**
+   React 4.4.0 asks for CSS 4.4.0, which asks for Tokens 4.3.0 and Assets 2.6.0.
+   React Icons stands still at 2.2.0, so leave it where it is.
+   If Dependabot offers separate pull requests, group them.
+2. **Re-baseline your visual snapshots.**
+   Disabled controls, Card taglines, Prose spacing, Tab Navigation hover, balanced line lengths and Image placeholders all move pixels.
+3. **Migrate Card taglines when it suits.**
+   Pass a Metadata as a child of the Heading Group instead of the `tagline` property.
+   You have until at least 8 February 2027; the console reminds you.
+4. **Two technical removals, neither of which a working setup can miss.**
+   The stylesheet drops the Grid and Breakout classes that name a column beyond 8 for the medium window; they never produced a working layout.
+   The Tokens package stops shipping its source files; the compiled `dist/` files all remain.
+
+#### What you could start using
+
+- Put a form or another self-contained task in front of the page with [Modal Dialog](/docs/components-containers-modal-dialog--docs).
+- Caption content with a date, category or status through [Metadata](/docs/components-text-metadata--docs).
+- Align nested content with the page columns through [Grid](/docs/components-layout-grid--docs) Subgrid, and render an overview as a real list.
+- Show a page as a wireframe with Lo-fi Mode, per the [Modes](/docs/docs-developer-guide-modes--docs) guide.
+- Let a [Card](/docs/components-navigation-card--docs) go horizontal where space permits.
+- Serve pages in right-to-left languages, with the [Localisation](/docs/docs-developer-guide-localisation--docs) guide.
+- Keep content out of the notch by declaring `viewport-fit=cover`.
+- Disable a whole [Field Set](/docs/components-forms-field-set--docs) or a [Search Field](/docs/components-forms-search-field--docs).
+- Build an index page from the three new overview templates, or an explanatory page from the [Information Page](/docs/pages-public-information-page--docs).
+
+#### Bugs you may have run into
+
+Have you been working around a nested list that styled itself as nested when it was not?
+Hover styling that stuck to a control after a tap?
+A disabled Switch that looked enabled?
+Two Alerts sharing a heading id?
+A Table that a keyboard user could not scroll?
+A long word pushing a Description List out of its container?
+Those are gone.
+
 ## 12 July 2026
 
 Assets **2.5.0**, CSS **4.3.0**, React **4.3.0**, React Icons **2.2.0**, Tokens **4.2.0** ([changelogs](https://github.com/Amsterdam/design-system/pull/2787)).
