@@ -134,7 +134,7 @@ Without one, a package publishes whatever happens to be tracked in git inside it
 Nothing then records what a package is meant to contain, so its contents drift silently whenever someone adds a file.
 
 We declared these explicitly in [pull request 2821](https://github.com/Amsterdam/design-system/pull/2821), which cut the Tokens tarball from 113 files to 15 by dropping the token sources, the Style Dictionary transforms and its build tooling.
-CSS deliberately keeps `src/` next to `dist/`: our developer guide documents importing breakpoint variables from `src/common/breakpoint.scss`, which have to be Sass variables because custom properties can’t be used in media queries.
+CSS deliberately keeps `src/` next to `dist/`: our guidelines document importing breakpoint variables from `src/common/breakpoint.scss`, which have to be Sass variables because custom properties can’t be used in media queries.
 Measure with `npm pack --dry-run` on a clean build before changing a `files` field, and check that every documented entry point still resolves.
 
 ### Linting the package manifests

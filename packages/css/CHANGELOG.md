@@ -126,6 +126,13 @@ The following deprecated CSS classes have been removed:
 - `.ams-standalone-link--with-icon`.
 - `.ams-image-slider--controls`, `.ams-image-slider__item`, and `.ams-image-slider__item--in-view`.
 
+The following class names have been deprecated and will be removed on or after 2026-09-13:
+
+- `.ams-page-header__mega-menu-button-label`
+- `.ams-page-header__mega-menu-button-hidden-label`
+
+Neither carries any styles. Remove them if you use them as hooks in your own stylesheet.
+
 ## [3.3.0](https://github.com/Amsterdam/design-system/compare/design-system-css-v3.2.1...design-system-css-v3.3.0) (2026-04-03)
 
 

@@ -1,0 +1,18 @@
+{/* @license CC0-1.0 */}
+
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Docs/Guidelines/Browser support" />
+
+# Browser support
+
+We only use web platform features that the four major browsers have supported for at least 30 months.
+This is considered a good trade-off between using modern web platform features and ensuring broad compatibility.
+
+That threshold is the [Baseline standard](https://web.dev/baseline/) ‘Widely available’, measured across Chrome, Edge, Firefox, and Safari.
+We use linters for CSS and JavaScript to enforce it.
+These tools help us catch most usages of unsupported features early in the development process, allowing us to maintain our commitment to browser compatibility.
+
+They do not reach everything: the linter judges a declaration by the value written next to it, and our design tokens are generated into a stylesheet we exclude from linting, so the values they carry go unchecked.
+We carefully test and review our code to minimize the risk of using unsupported values.
+If you find any issues related to browser support, please [report them](https://github.com/Amsterdam/design-system/issues) so we can address them promptly.

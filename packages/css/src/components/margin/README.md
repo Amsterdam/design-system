@@ -15,20 +15,20 @@ Six options are available for the width or height of the bottom margin:
 - `ams-mb-xl`
 - `ams-mb-2xl`
 
-These classes apply the [design tokens for space](/docs/brand-design-tokens-space--docs).
+These classes apply the [design tokens for space](https://designsystem.amsterdam/?path=/docs/brand-design-tokens-space--docs).
 
 Because spacing is responsive, the margins are as well.
-They are also smaller in [Compact Mode](https://designsystem.amsterdam/docs/docs-developer-guide-modes--docs).
+They are also smaller in [Compact Mode](https://designsystem.amsterdam/?path=/docs/docs-guidelines-modes--docs).
 
 ## Guidelines
 
 - Use this utility class to vertically separate one element from the next.
-- Consult the [vertical space](/docs/docs-designer-guide-vertical-space--docs) guidelines to find the recommended length.
+- Consult the [vertical space](https://designsystem.amsterdam/?path=/docs/docs-guidelines-vertical-space--docs) guidelines to find the recommended length.
 - It can be used on any element and sets the `margin-block-end` CSS property.
   This declaration is marked with the `!important` flag to ensure it overrides any other margins.
 - Elements’ top and bottom margins are sometimes collapsed into a single margin.
   We only offer a utility for the bottom margin to prevent issues arising from this.
   Consult [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_box_model/Mastering_margin_collapsing) for details.
-- To add equal margins between elements, either use the [Gap](/docs/utilities-css-gap--docs) utility class on their common parent or wrap them in a [Column](/docs/components-layout-column--docs) component.
+- To add equal margins between elements, either use the [Gap](https://designsystem.amsterdam/?path=/docs/utilities-css-gap--docs) utility class on their common parent or wrap them in a [Column](https://designsystem.amsterdam/?path=/docs/components-layout-column--docs) component.
   This helps in loops: it prevents having to treat the last element differently.
-- Wrap editorial content in the [Prose](/docs/utilities-css-prose--docs) utility class instead to have all spacing set automatically.
+- Wrap editorial content in the [Prose](https://designsystem.amsterdam/?path=/docs/utilities-css-prose--docs) utility class instead to have all spacing set automatically.

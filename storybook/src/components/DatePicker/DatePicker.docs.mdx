@@ -49,9 +49,9 @@ The Date Picker renders weekday names, the month caption, and the accessible dat
 It does not translate the rest: set `nextMonthButtonLabel`, `nextYearButtonLabel`, `previousMonthButtonLabel`, and `previousYearButtonLabel` in the same language, or they stay Dutch and screen readers announce a mix.
 In range mode, also localise `rangeStartAccessibleName` and `rangeEndAccessibleName`; they are appended to the start and end dates when those are announced.
 For right-to-left scripts such as Arabic, also add `dir="rtl"`; this mirrors the layout and the navigation chevrons.
-Try the `locale` control above to preview each language; see the [localisation developer guide](/docs/docs-developer-guide-localisation--docs) for the tested locales.
+Try the `locale` control above to preview each language; see the [localisation guide](/docs/docs-guidelines-localisation--docs) for the tested locales.
 
-If your app uses Date Picker in multiple places with the same language, a small wrapper component avoids repeating these props; the [Localisation developer guide](/docs/docs-developer-guide-localisation--docs) shows an example.
+If your app uses Date Picker in multiple places with the same language, a small wrapper component avoids repeating these props; the [Localisation guide](/docs/docs-guidelines-localisation--docs) shows an example.
 
 ## Design
 
@@ -110,7 +110,7 @@ Moving past the end of a month shows the adjacent month and keeps focus on the d
 
 Different navigation icons can be used through the `*ButtonIcon` props, which each take the same value as the [Icon](/docs/components-media-icon--docs) component’s `svg` prop.
 Websites for the City of Amsterdam must use the default icons.
-For right-to-left scripts, give a custom icon a `data-directional="true"` attribute so it mirrors like the default chevrons; see the [localisation developer guide](/docs/docs-developer-guide-localisation--docs).
+For right-to-left scripts, give a custom icon a `data-directional="true"` attribute so it mirrors like the default chevrons; see the [localisation guide](/docs/docs-guidelines-localisation--docs).
 
 ## Design
 

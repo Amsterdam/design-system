@@ -20,7 +20,7 @@ npm install @amsterdam/design-system-assets
 
 ### Application icons
 
-The Design System handbook helps using [a favicon](https://designsystem.amsterdam/?path=/docs/brand-assets-favicon--docs) or [a web manifest and application icons](https://designsystem.amsterdam/?path=/docs/docs-developer-guide-web-app--docs) for home screens of devices in your websites.
+The Design System handbook helps using [a favicon](https://designsystem.amsterdam/?path=/docs/brand-assets-favicon--docs) or [a web manifest and application icons](https://designsystem.amsterdam/?path=/docs/docs-guidelines-web-app--docs) for home screens of devices in your websites.
 
 ### Font files
 

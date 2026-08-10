@@ -48,6 +48,13 @@ Without it the results have no columns of their own, and nothing in them can lin
 The articles are a list, so give them a Subgrid of their own inside that one: a `ul` with every Cell in it an `li`.
 The sentence announcing the total and the Pagination are not part of that list, so they stay outside it.
 
+Give each article the facets it was filtered by at the top of the Card.
+A [Metadata](/docs/components-text-metadata--docs) in the Card Heading Group carries those values: here the kind of news and the district.
+
+Set the two apart with a Metadata Separator rather than with punctuation of your own.
+They come from different filter fields, so they are two kinds of metadata rather than two values of one kind, and that is what a comma between them would say instead.
+Leave the Separator out where an article has no district, so no line ends in one.
+
 Announce the number of results in a `role="status"` paragraph, and name the filters that produced it.
 A visitor using a screen reader otherwise has no way to tell that ticking a checkbox changed anything.
 

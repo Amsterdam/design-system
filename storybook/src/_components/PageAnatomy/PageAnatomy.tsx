@@ -335,7 +335,9 @@ export const PageAnatomy = ({
   style,
   ...restProps
 }: PageAnatomyProps) => {
-  const [selected, setSelected] = useState<Breakpoint>('narrow')
+  // Desktop is drawn first, because it shows most of the anatomy: every column of the Grid, and the Cells beside one
+  // another that the narrower variants stack.
+  const [selected, setSelected] = useState<Breakpoint>('wide')
   const { problems, sections } = readPageAnatomy(readStoryTree(of, story), labels)
   const viewports = anatomyViewports({ menu, mode })
   const widest = viewports[viewports.length - 1]?.width ?? 0
