@@ -6,22 +6,32 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import type { MouseEvent } from 'react'
 
-import { Label } from '@amsterdam/design-system-react'
 import { Switch } from '@amsterdam/design-system-react/src'
+import { switchLabelPositions } from '@amsterdam/design-system-react/src/Switch/Switch'
 import { useArgs } from 'storybook/preview-api'
 
-import { checkedArgType, disabledArgType } from '#storybook/_common/argTypes'
+import { checkedArgType, childrenArgType, disabledArgType, idArgType } from '#storybook/_common/argTypes'
 
 const meta = {
   title: 'Components/Forms/Switch',
   component: Switch,
   args: {
     checked: false,
+    children: 'Meldingen ontvangen',
     disabled: false,
   },
   argTypes: {
     checked: checkedArgType,
+    children: childrenArgType('The text for the label.'),
     disabled: disabledArgType,
+    id: idArgType,
+    labelPosition: {
+      control: {
+        labels: { undefined: 'end (default)' },
+        type: 'radio',
+      },
+      options: [undefined, ...switchLabelPositions.filter((position) => position !== 'end')],
+    },
     onChange: {
       action: 'changed',
       table: { disable: false },
@@ -44,32 +54,21 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
 
-export const Disabled: Story = {
+export const LabelBeforeTheSwitch: Story = {
   args: {
-    disabled: true,
+    labelPosition: 'start',
   },
 }
 
-export const WithLabel: Story = {
-  decorators: [
-    (Story) => (
-      <div style={{ alignItems: 'center', display: 'flex', gap: '5rem' }}>
-        <Story />
-      </div>
-    ),
-  ],
-  render: (args) => {
-    const [, setArgs] = useArgs()
+export const LongLabel: Story = {
+  args: {
+    children:
+      'Stuur mij een bericht zodra er een besluit is genomen over mijn aanvraag, ook buiten kantooruren en in het weekend.',
+  },
+}
 
-    const handleClick = (event: MouseEvent<HTMLInputElement>) => {
-      setArgs({ checked: event.currentTarget.checked })
-    }
-
-    return (
-      <>
-        <Label htmlFor="switch-with-label">Label</Label>
-        <Switch onClick={handleClick} {...args} id="switch-with-label" />
-      </>
-    )
+export const Disabled: Story = {
+  args: {
+    disabled: true,
   },
 }
