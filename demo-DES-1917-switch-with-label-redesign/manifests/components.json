@@ -5403,33 +5403,69 @@
             "{@link https://designsystem.amsterdam/?path=/docs/components-forms-switch--docs Switch docs at Amsterdam Design System}"
           ]
         },
-        "props": {}
+        "props": {
+          "labelPosition": {
+            "name": "labelPosition",
+            "required": false,
+            "type": {
+              "name": "enum",
+              "raw": "\"start\" | \"end\"",
+              "value": [
+                {
+                  "value": "\"start\""
+                },
+                {
+                  "value": "\"end\""
+                }
+              ]
+            },
+            "description": "Which side of the switch to put the label on.",
+            "defaultValue": {
+              "value": "end"
+            },
+            "parent": {
+              "name": "SwitchProps",
+              "fileName": "../packages/react/src/Switch/Switch.tsx"
+            },
+            "declarations": [
+              {
+                "name": "TypeLiteral",
+                "fileName": "../packages/react/src/Switch/Switch.tsx"
+              }
+            ]
+          }
+        }
       },
       "stories": [
         {
           "id": "components-forms-switch--default",
           "name": "Default",
-          "snippet": "const Default = () => {\n    const [, setArgs] = useArgs()\n\n    const handleClick = (event: MouseEvent<HTMLInputElement>) => {\n      setArgs({ checked: event.currentTarget.checked })\n    }\n\n    return <Switch onClick={handleClick} checked={false} disabled={false} />;\n};"
+          "snippet": "const Default = () => {\n    const [, setArgs] = useArgs()\n\n    const handleClick = (event: MouseEvent<HTMLInputElement>) => {\n      setArgs({ checked: event.currentTarget.checked })\n    }\n\n    return <Switch onClick={handleClick} checked={false} disabled={false}>Meldingen ontvangen</Switch>;\n};"
+        },
+        {
+          "id": "components-forms-switch--label-before-the-switch",
+          "name": "Label Before The Switch",
+          "snippet": "const LabelBeforeTheSwitch = () => {\n    const [, setArgs] = useArgs()\n\n    const handleClick = (event: MouseEvent<HTMLInputElement>) => {\n      setArgs({ checked: event.currentTarget.checked })\n    }\n\n    return (\n        <Switch\n            onClick={handleClick}\n            checked={false}\n            disabled={false}\n            labelPosition=\"start\">Meldingen ontvangen</Switch>\n    );\n};"
+        },
+        {
+          "id": "components-forms-switch--long-label",
+          "name": "Long Label",
+          "snippet": "const LongLabel = () => {\n    const [, setArgs] = useArgs()\n\n    const handleClick = (event: MouseEvent<HTMLInputElement>) => {\n      setArgs({ checked: event.currentTarget.checked })\n    }\n\n    return <Switch onClick={handleClick} checked={false} disabled={false}>Stuur mij een bericht zodra er een besluit is genomen over mijn aanvraag, ook buiten kantooruren en in het weekend.</Switch>;\n};"
         },
         {
           "id": "components-forms-switch--disabled",
           "name": "Disabled",
-          "snippet": "const Disabled = () => {\n    const [, setArgs] = useArgs()\n\n    const handleClick = (event: MouseEvent<HTMLInputElement>) => {\n      setArgs({ checked: event.currentTarget.checked })\n    }\n\n    return <Switch onClick={handleClick} checked={false} disabled />;\n};"
-        },
-        {
-          "id": "components-forms-switch--with-label",
-          "name": "With Label",
-          "snippet": "const WithLabel = () => {\n    const [, setArgs] = useArgs()\n\n    const handleClick = (event: MouseEvent<HTMLInputElement>) => {\n      setArgs({ checked: event.currentTarget.checked })\n    }\n\n    return (\n        <>\n            <Label htmlFor=\"switch-with-label\">Label</Label>\n            <Switch\n                onClick={handleClick}\n                checked={false}\n                disabled={false}\n                id=\"switch-with-label\" />\n        </>\n    );\n};"
+          "snippet": "const Disabled = () => {\n    const [, setArgs] = useArgs()\n\n    const handleClick = (event: MouseEvent<HTMLInputElement>) => {\n      setArgs({ checked: event.currentTarget.checked })\n    }\n\n    return <Switch onClick={handleClick} checked={false} disabled>Meldingen ontvangen</Switch>;\n};"
         }
       ],
-      "import": "import { Label } from \"@amsterdam/design-system-react\";\nimport { Switch } from \"@amsterdam/design-system-react/src\";",
+      "import": "import { Switch } from \"@amsterdam/design-system-react/src\";",
       "docs": {
         "components-forms-switch--docs": {
           "id": "components-forms-switch--docs",
           "name": "Docs",
           "path": "./src/components/Switch/Switch.docs.mdx",
           "title": "Components/Forms/Switch",
-          "content": "{/* @license CC0-1.0 */}\n\nimport { Canvas, Controls, Description, Meta, Primary, Title } from \"@storybook/addon-docs/blocks\";\n\nimport { DesignTokensTable } from \"#storybook/_components/DesignTokensTable/DesignTokensTable\";\nimport tokens from \"#tokens/components/ams/switch.tokens.json\";\n\nimport * as SwitchStories from \"./Switch.stories.tsx\";\n\n<Meta of={SwitchStories} />\n\n<Title />\n\n<Description of={SwitchStories} />\n\n<Primary />\n\n<Controls />\n\n## Usage guidelines\n\n### When to use\n\nUse a Switch to toggle between two different states.\nIt is a binary action.\nThe action takes place immediately when the user operates the switch.\n\n### How to use\n\nA Switch must have a label, and in most cases, this label should be visible.\n\n## Examples\n\n### Disabled\n\nA disabled Switch turns its track a light grey and stops responding to the pointer.\nThat grey replaces the colour of both settings, so the position of the thumb is the only thing that still distinguishes on from off.\nTurn on `checked` to compare the two.\n\n<Canvas of={SwitchStories.Disabled} />\n\n### With Label\n\n<Canvas of={SwitchStories.WithLabel} />\n\n## Design\n\nThe track and the thumb are the whole of a Switch: a rounded bar with a circle that slides from one end to the other, and a colour change behind it.\nThere is no text inside it, so it needs no room for words in either state and stays the same width whichever way it is set.\n\nThe thumb moves by exactly the width of the track minus its borders, so it comes to rest flush against the end rather than at a distance measured separately for each size.\n\nIn a right-to-left writing direction the thumb rests at the opposite end and slides the other way, so its two positions follow the reading direction.\nSee the [localisation guide](/docs/docs-guidelines-localisation--docs) for the design system’s writing-direction support.\n\nThe slide and the colour change behind the thumb are animated only for users who have not asked for reduced motion.\nEveryone else sees the new state at once, with no travel across the track.\n\nThe track carries a transparent border rather than none at all.\nIn forced colours mode a background is replaced by the system’s own, and the border is what remains to give the Switch an outline; a floor of one pixel keeps a theme from removing it by setting the token to zero.\n\nHovering puts a shadow around the thumb rather than moving or resizing it.\n\n## Accessibility\n\nA Switch renders a checkbox marked as a switch, so it is announced as on or off rather than as checked or unchecked, and it is operated with Space like any other checkbox.\n\nThe visible track is an empty `label` that supplies no name.\nA Switch therefore takes its name from a [Label](/docs/components-forms-label--docs) tied to it with `htmlFor`, which is what ‘How to use’ asks for; without one it is announced as an unnamed switch.\n\nThe input is not hidden away: it is reduced to no width, which keeps it focusable, announced, and submitted with the form.\nIts focus ring is moved onto the track so the ring surrounds the switch rather than a control with no size.\n\n## See also\n\n- [Checkbox](/docs/components-forms-checkbox--docs) – when the choice is part of a form rather than an instant setting.\n\n## Design tokens\n\n<DesignTokensTable tokens={tokens} />\n",
+          "content": "{/* @license CC0-1.0 */}\n\nimport { Canvas, Controls, Description, Meta, Primary, Title } from \"@storybook/addon-docs/blocks\";\n\nimport { DesignTokensTable } from \"#storybook/_components/DesignTokensTable/DesignTokensTable\";\nimport tokens from \"#tokens/components/ams/switch.tokens.json\";\n\nimport * as SwitchStories from \"./Switch.stories.tsx\";\n\n<Meta of={SwitchStories} />\n\n<Title />\n\n<Description of={SwitchStories} />\n\n<Primary />\n\n<Controls />\n\n## Usage guidelines\n\n### When to use\n\nUse a Switch to toggle between two different states.\nIt is a binary action.\nThe action takes place immediately when the user operates the switch.\n\n### How to use\n\nGive a Switch a label by passing it as its children.\nThe label names the setting the Switch controls, not the state it is in: the Switch announces on or off by itself.\n\n## Examples\n\n### Label before the switch\n\nPut the label on the leading side when the design calls for it, for example to line several Switches up on the same edge.\n\n<Canvas of={SwitchStories.LabelBeforeTheSwitch} />\n\n### Disabled\n\nA disabled Switch turns its track a light grey, greys out its label and stops responding to the pointer.\nThat grey replaces the colour of both settings, so the position of the thumb is the only thing that still distinguishes on from off.\nTurn on `checked` to compare the two.\n\n<Canvas of={SwitchStories.Disabled} />\n\n## Design\n\nThe track and the thumb are the whole of the control: a rounded bar with a circle that slides from one end to the other, and a colour change behind it.\nThere is no text inside it, so it needs no room for words in either state and stays the same width whichever way it is set.\n\nThe label is body text beside the track, the same as a [Checkbox](/docs/components-forms-checkbox--docs) or [Radio](/docs/components-forms-radio--docs) label, so a Switch sits among them without standing out.\nHovering underlines that text, which is how the other two announce the whole label is the target.\n\nThe track sits in a box one line of text tall, so it centres on the first line and stays there when the label wraps.\n\nThe thumb moves by exactly the width of the track minus its borders, so it comes to rest flush against the end rather than at a distance measured separately for each size.\n\nIn a right-to-left writing direction the thumb rests at the opposite end and slides the other way, so its two positions follow the reading direction.\nSee the [localisation guide](/docs/docs-guidelines-localisation--docs) for the design system’s writing-direction support.\n\nThe slide and the colour change behind the thumb are animated only for users who have not asked for reduced motion.\nEveryone else sees the new state at once, with no travel across the track.\n\nThe track carries a transparent border rather than none at all.\nIn forced colours mode a background is replaced by the system’s own, and the border is what remains to give the Switch an outline; a floor of one pixel keeps a theme from removing it by setting the token to zero.\n\nHovering puts a shadow around the thumb rather than moving or resizing it.\n\n## Accessibility\n\nA Switch renders a checkbox marked as a switch, so it is announced as on or off rather than as checked or unchecked, and it is operated with Space like any other checkbox.\n\nThe input sits inside a `label` that holds both the track and the text, so the whole label is the target and the text is the accessible name.\nPlacing the label before the switch moves it in the markup as well, so what a screen reader reads matches what the page shows.\n\nWithout children a Switch has no name of its own.\nGive it one with a [Label](/docs/components-forms-label--docs) tied to it with `htmlFor`, or it is announced as an unnamed switch.\n\nThe input is not hidden away: it is reduced to no width, which keeps it focusable, announced, and submitted with the form.\nIts focus ring is moved onto the label so the ring surrounds the track and its text rather than a control with no size.\n\n## See also\n\n- [Checkbox](/docs/components-forms-checkbox--docs) – when the choice is part of a form rather than an instant setting.\n\n## Design tokens\n\n<DesignTokensTable tokens={tokens} />\n",
           "summary": "## Usage guidelines ### When to use Use a Switch to toggle between two different states. I..."
         }
       }
@@ -12075,6 +12111,6 @@
   },
   "meta": {
     "docgen": "react-component-meta",
-    "durationMs": 5593
+    "durationMs": 5406
   }
 }
