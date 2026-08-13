@@ -2,13 +2,61 @@
   "ams": {
     "switch": {
       "background-color": {
-        "$value": "#767676",
-        "$type": "color"
+        "$deprecated": "Use `ams.switch.track.background-color` instead. Will be removed on or after 2027-02-13.",
+        "$value": "{ams.switch.track.background-color}",
+        "$extensions": {
+          "nl.amsterdam.type": "color"
+        }
+      },
+      "color": {
+        "$value": "{ams.color.text.default}",
+        "$extensions": {
+          "nl.amsterdam.type": "color"
+        }
       },
       "cursor": {
         "$value": "{ams.cursor.interactive}",
         "$extensions": {
           "nl.amsterdam.type": "cursor"
+        }
+      },
+      "font-family": {
+        "$value": "{ams.typography.font-family}",
+        "$extensions": {
+          "nl.amsterdam.type": "fontFamily"
+        }
+      },
+      "font-size": {
+        "$value": "{ams.typography.body-text.font-size}",
+        "$extensions": {
+          "nl.amsterdam.hint": "Must be a single value: it is used in a calculation, which two values would invalidate.",
+          "nl.amsterdam.type": "fontSize"
+        }
+      },
+      "font-weight": {
+        "$value": "{ams.typography.body-text.font-weight}",
+        "$extensions": {
+          "nl.amsterdam.type": "fontWeight"
+        }
+      },
+      "gap": {
+        "$value": "{ams.space.s}",
+        "$extensions": {
+          "nl.amsterdam.subtype": "space",
+          "nl.amsterdam.type": "dimension"
+        }
+      },
+      "inline-size": {
+        "$deprecated": "Use `ams.switch.track.inline-size` instead. Will be removed on or after 2027-02-13.",
+        "$value": "{ams.switch.track.inline-size}",
+        "$type": "dimension"
+      },
+      "line-height": {
+        "$value": "{ams.typography.body-text.line-height}",
+        "$extensions": {
+          "nl.amsterdam.hint": "Must be a single value: it is used in a calculation, which two values would invalidate.",
+          "nl.amsterdam.subtype": "lineHeight",
+          "nl.amsterdam.type": "number"
         }
       },
       "outline-offset": {
@@ -18,19 +66,72 @@
           "nl.amsterdam.type": "dimension"
         }
       },
-      "inline-size": {
-        "$value": {
-          "value": 3.5,
-          "unit": "rem"
-        },
-        "$type": "dimension"
+      "text-decoration-thickness": {
+        "$value": "{ams.links.text-decoration-thickness}",
+        "$extensions": {
+          "nl.amsterdam.subtype": "space",
+          "nl.amsterdam.type": "dimension"
+        }
+      },
+      "text-underline-offset": {
+        "$value": "{ams.links.text-underline-offset}",
+        "$extensions": {
+          "nl.amsterdam.subtype": "space",
+          "nl.amsterdam.type": "dimension"
+        }
       },
       "label": {
+        "border-width": {
+          "$deprecated": "Use `ams.switch.track.border-width` instead. Will be removed on or after 2027-02-13.",
+          "$value": "{ams.switch.track.border-width}",
+          "$extensions": {
+            "nl.amsterdam.type": "borderWidth"
+          }
+        }
+      },
+      "track": {
+        "background-color": {
+          "$value": "#767676",
+          "$type": "color"
+        },
         "border-width": {
           "$value": "{ams.border.width.m}",
           "$extensions": {
             "nl.amsterdam.hint": "Must be a single value: it is used in a calculation, which two values would invalidate.",
             "nl.amsterdam.type": "borderWidth"
+          }
+        },
+        "inline-size": {
+          "$value": {
+            "value": 3.5,
+            "unit": "rem"
+          },
+          "$type": "dimension"
+        },
+        "checked": {
+          "background-color": {
+            "$value": "{ams.color.interactive.default}",
+            "$extensions": {
+              "nl.amsterdam.type": "color"
+            }
+          }
+        },
+        "disabled": {
+          "background-color": {
+            "$value": "#d1d1d1",
+            "$description": "A lighter grey than the default track, so a disabled switch reads as distinct from an enabled one.",
+            "$extensions": {
+              "nl.amsterdam.type": "color"
+            }
+          }
+        }
+      },
+      "track-container": {
+        "block-size": {
+          "$value": "calc({ams.switch.font-size} * {ams.switch.line-height})",
+          "$description": "One line of label text, so the track centres on the first line when the label wraps.",
+          "$extensions": {
+            "nl.amsterdam.type": "dimension"
           }
         }
       },
@@ -88,7 +189,8 @@
       },
       "checked": {
         "background-color": {
-          "$value": "{ams.color.interactive.default}",
+          "$deprecated": "Use `ams.switch.track.checked.background-color` instead. Will be removed on or after 2027-02-13.",
+          "$value": "{ams.switch.track.checked.background-color}",
           "$extensions": {
             "nl.amsterdam.type": "color"
           }
@@ -96,8 +198,14 @@
       },
       "disabled": {
         "background-color": {
-          "$value": "#d1d1d1",
-          "$description": "A lighter grey than the default track, so a disabled switch reads as distinct from an enabled one.",
+          "$deprecated": "Use `ams.switch.track.disabled.background-color` instead. Will be removed on or after 2027-02-13.",
+          "$value": "{ams.switch.track.disabled.background-color}",
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
+        },
+        "color": {
+          "$value": "{ams.color.interactive.disabled}",
           "$extensions": {
             "nl.amsterdam.type": "color"
           }
@@ -106,6 +214,20 @@
           "$value": "{ams.cursor.disabled}",
           "$extensions": {
             "nl.amsterdam.type": "cursor"
+          }
+        }
+      },
+      "hover": {
+        "color": {
+          "$value": "{ams.color.interactive.hover}",
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
+        },
+        "text-decoration-line": {
+          "$value": "{ams.links.subtle.hover.text-decoration-line}",
+          "$extensions": {
+            "nl.amsterdam.type": "textDecorationLine"
           }
         }
       }
