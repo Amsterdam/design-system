@@ -60,13 +60,6 @@ export const LabelBeforeTheSwitch: Story = {
   },
 }
 
-export const LongLabel: Story = {
-  args: {
-    children:
-      'Stuur mij een bericht zodra er een besluit is genomen over mijn aanvraag, ook buiten kantooruren en in het weekend.',
-  },
-}
-
 export const Disabled: Story = {
   args: {
     disabled: true,
