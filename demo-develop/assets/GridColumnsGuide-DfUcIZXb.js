@@ -1,0 +1,1 @@
+import{n as e}from"./rolldown-runtime-DkW27tQK.js";import{t}from"./jsx-runtime-ATHzeHXA.js";import{i as n,t as r}from"./Grid-BCh9aG-w.js";var i,a;function o(){return(o=e((()=>{n(),i=t(),a=()=>(0,i.jsx)(r,{className:`_ams-grid-columns-guide`,children:Array.from(Array(12).keys()).map(e=>(0,i.jsx)(r.Cell,{className:`_ams-grid-columns-guide__cell`},e))})})))()}export{o as n,a as t};
