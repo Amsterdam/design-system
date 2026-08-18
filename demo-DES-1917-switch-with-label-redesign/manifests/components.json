@@ -5448,11 +5448,6 @@
           "snippet": "const LabelBeforeTheSwitch = () => {\n    const [, setArgs] = useArgs()\n\n    const handleClick = (event: MouseEvent<HTMLInputElement>) => {\n      setArgs({ checked: event.currentTarget.checked })\n    }\n\n    return (\n        <Switch\n            onClick={handleClick}\n            checked={false}\n            disabled={false}\n            labelPosition=\"start\">Meldingen ontvangen</Switch>\n    );\n};"
         },
         {
-          "id": "components-forms-switch--long-label",
-          "name": "Long Label",
-          "snippet": "const LongLabel = () => {\n    const [, setArgs] = useArgs()\n\n    const handleClick = (event: MouseEvent<HTMLInputElement>) => {\n      setArgs({ checked: event.currentTarget.checked })\n    }\n\n    return <Switch onClick={handleClick} checked={false} disabled={false}>Stuur mij een bericht zodra er een besluit is genomen over mijn aanvraag, ook buiten kantooruren en in het weekend.</Switch>;\n};"
-        },
-        {
           "id": "components-forms-switch--disabled",
           "name": "Disabled",
           "snippet": "const Disabled = () => {\n    const [, setArgs] = useArgs()\n\n    const handleClick = (event: MouseEvent<HTMLInputElement>) => {\n      setArgs({ checked: event.currentTarget.checked })\n    }\n\n    return <Switch onClick={handleClick} checked={false} disabled>Meldingen ontvangen</Switch>;\n};"
@@ -12111,6 +12106,6 @@
   },
   "meta": {
     "docgen": "react-component-meta",
-    "durationMs": 5590
+    "durationMs": 5538
   }
 }

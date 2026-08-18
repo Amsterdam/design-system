@@ -588,13 +588,13 @@
 <header>
   <div class="wrap">
     <h1>Manifest Debugger</h1>
-    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">15/89 prop type errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">15/89 infos</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">1/306 story errors</a><a class="filter-pill ok" data-k="docs" href="#filter-docs">125 docs ok</a></div>
+    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">15/89 prop type errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">15/89 infos</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">1/305 story errors</a><a class="filter-pill ok" data-k="docs" href="#filter-docs">125 docs ok</a></div>
   </div>
 </header>
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>5.6s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>5.5s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -35822,7 +35822,7 @@ This is what makes dropping the underline safe here, where an inline [Link](/doc
       <div class="badges">
         <label for="c-78-components-forms-switch-props" class="badge ok as-toggle">1 prop type</label>
         
-        <label for="c-78-components-forms-switch-stories" class="badge ok as-toggle">4 stories</label>
+        <label for="c-78-components-forms-switch-stories" class="badge ok as-toggle">3 stories</label>
         <label for="c-78-components-forms-switch-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
@@ -35910,23 +35910,6 @@ labelPosition?: &quot;start&quot; | &quot;end&quot; = end</code></pre>
             disabled={false}
             labelPosition=&quot;start&quot;&gt;Meldingen ontvangen&lt;/Switch&gt;
     );
-};</code></pre>
-            </div>
-            <div class="note ok">
-              <div class="row">
-                <span class="ex-name">Long Label</span>
-                <span class="badge ok">story ok</span>
-              </div>
-              
-              
-              <pre><code>const LongLabel = () =&gt; {
-    const [, setArgs] = useArgs()
-
-    const handleClick = (event: MouseEvent&lt;HTMLInputElement&gt;) =&gt; {
-      setArgs({ checked: event.currentTarget.checked })
-    }
-
-    return &lt;Switch onClick={handleClick} checked={false} disabled={false}&gt;Stuur mij een bericht zodra er een besluit is genomen over mijn aanvraag, ook buiten kantooruren en in het weekend.&lt;/Switch&gt;;
 };</code></pre>
             </div>
             <div class="note ok">
