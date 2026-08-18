@@ -69,6 +69,7 @@
       "text-decoration-thickness": {
         "$value": "{ams.links.text-decoration-thickness}",
         "$extensions": {
+          "nl.amsterdam.hint": "Must be a single value: it sets a longhand property, which takes only one.",
           "nl.amsterdam.subtype": "space",
           "nl.amsterdam.type": "dimension"
         }
