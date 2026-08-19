@@ -177,7 +177,17 @@ enforce_delete_cap() {
     return
   fi
 
-  local message="Selected ${#OBSOLETE_DIRS[@]} demo directories, over the cap of ${MAX_DELETES}. Re-run with i_really_mean_it=true to remove them."
+  # Lifting the cap alone would not change a dry run, which removes nothing
+  # either way, so tell that reader to turn dry-run mode off too. Both spellings
+  # are given: workflow inputs first, then the variables this script reads.
+  local rerun_with
+  if [ "$DRY_RUN" = "true" ]; then
+    rerun_with="dry_run=false and i_really_mean_it=true (DRY_RUN=false I_REALLY_MEAN_IT=true)"
+  else
+    rerun_with="i_really_mean_it=true (I_REALLY_MEAN_IT=true)"
+  fi
+
+  local message="Selected ${#OBSOLETE_DIRS[@]} demo directories, over the cap of ${MAX_DELETES}. Re-run with ${rerun_with} to remove them."
 
   # A dry run removes nothing, so the cap is a heads-up rather than a failure:
   # warn and let the listing below run. A real run still stops, because the

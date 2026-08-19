@@ -157,9 +157,16 @@ def main() -> int:
         return 0
 
     if exceeds_delete_cap(obsolete_envs, i_really_mean_it=args.i_really_mean_it):
+        # Lifting the cap alone would not change a dry run, which deletes
+        # nothing either way, so tell that reader to turn dry-run mode off too.
+        rerun_with = (
+            "dry_run=false and i_really_mean_it=true (--no-dry-run --i-really-mean-it)"
+            if args.dry_run
+            else "i_really_mean_it=true (--i-really-mean-it)"
+        )
         message = (
             f"Selected {len(obsolete_envs)} environments, over the cap of {MAX_DELETES}. "
-            "Re-run with --i-really-mean-it to remove them."
+            f"Re-run with {rerun_with} to remove them."
         )
         # A dry run deletes nothing, so the cap is a heads-up rather than a
         # failure: warn, then fall through to list the candidates. A real run
