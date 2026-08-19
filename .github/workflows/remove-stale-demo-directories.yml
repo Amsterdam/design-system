@@ -25,7 +25,8 @@
 # kept. `0` disables age filtering.
 #
 # Safety guard: if more than 25 stale demo directories are selected, the job
-# aborts unless `i_really_mean_it=true` is provided for manual runs.
+# aborts unless `i_really_mean_it=true` is provided. A dry run removes nothing,
+# so there the cap is reported as a warning annotation and the job stays green.
 
 name: Remove stale demo directories
 

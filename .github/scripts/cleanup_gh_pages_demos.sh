@@ -16,6 +16,9 @@ shopt -s nullglob
 # - STALE_DAYS (default: 0)
 # - I_REALLY_MEAN_IT (default: false)
 #
+# More than MAX_DELETES stale directories aborts a real run, but only warns
+# during a dry run, which removes nothing anyway.
+#
 # Dry run example:
 # DRY_RUN=true I_REALLY_MEAN_IT=false .github/scripts/cleanup_gh_pages_demos.sh
 # 
@@ -28,6 +31,18 @@ DRY_RUN="${DRY_RUN:-true}"
 STALE_DAYS="${STALE_DAYS:-0}"
 I_REALLY_MEAN_IT="${I_REALLY_MEAN_IT:-false}"
 readonly MAX_DELETES=25
+
+emit_warning() {
+  local title="$1"
+  local message="$2"
+  # On GitHub Actions this shows up as a yellow annotation without failing the
+  # job; elsewhere it is a plain line on stdout.
+  if [ "${GITHUB_ACTIONS:-}" = "true" ]; then
+    echo "::warning title=${title}::${message}"
+  else
+    echo "WARNING: ${message}"
+  fi
+}
 
 validate_non_negative_int() {
   local name="$1"
@@ -162,9 +177,18 @@ enforce_delete_cap() {
     return
   fi
 
+  local message="Selected ${#OBSOLETE_DIRS[@]} demo directories, over the cap of ${MAX_DELETES}. Re-run with i_really_mean_it=true to remove them."
+
+  # A dry run removes nothing, so the cap is a heads-up rather than a failure:
+  # warn and let the listing below run. A real run still stops, because the
+  # deletions the caller asked for did not happen.
+  if [ "$DRY_RUN" = "true" ]; then
+    emit_warning "Delete cap exceeded" "$message"
+    return
+  fi
+
   local dir
-  echo "ERROR: would delete ${#OBSOLETE_DIRS[@]} directories (cap is ${MAX_DELETES})." >&2
-  echo "Re-run with i_really_mean_it=true to override." >&2
+  echo "ERROR: ${message}" >&2
   for dir in "${OBSOLETE_DIRS[@]}"; do
     echo "  - ${dir}" >&2
   done
