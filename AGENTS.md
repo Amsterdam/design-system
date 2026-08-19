@@ -16,7 +16,7 @@ Follow these priorities in order:
 4. **Minimal change sets** — see the "never do" rules below.
 5. **Performance and maintainability** — simple and readable over clever.
 
-- Search for an existing pattern (component, token, story, mixin) before inventing one. In Storybook stories, use Grid, Column, and Row instead of raw `<div>` elements with inline styles.
+- Search for an existing pattern (component, token, story, mixin) before inventing one, and use Grid, Column, and Row instead of raw `<div>` elements with inline styles in Storybook stories.
 - Write Markdown one sentence per line, to keep diffs small.
 - Never invent a file, command, configuration option, or API; state the uncertainty instead of guessing.
 - When a user instruction conflicts with a rule here or in a package `AGENTS.md`, say so rather than silently following either.
