@@ -2,9 +2,11 @@
 
 # General Agent Instructions
 
-Guidance for AI code agents working for the Amsterdam Design System. This is a component **library**, not an application — components must be generic, accessible, and reusable across any Amsterdam city service. Do not add application-specific logic, domain defaults, or assumptions about how a component will be used.
+This is a component **library**, not an application: components must be generic, accessible, and reusable across any Amsterdam city service.
+Do not add application-specific logic, domain defaults, or assumptions about how a component will be used.
 
-This file is a thin agent-specific layer on top of the official documentation and the per-package `AGENTS.md` files. Prefer reading and following those sources for details; use this file for cross-cutting priorities and "never do" rules.
+This file is a thin layer over the official documentation and the per-package `AGENTS.md` files.
+Use it for cross-cutting priorities and "never do" rules; go to those sources for detail.
 
 ## Agent priorities
 
@@ -24,7 +26,7 @@ Follow these priorities in order:
 
 ## Repository structure
 
-`pnpm` workspace monorepo. The main layers are:
+`pnpm` workspace monorepo with these layers:
 
 - Tokens: [packages-proprietary/tokens](packages-proprietary/tokens/AGENTS.md)
 - CSS: [packages/css](packages/css/AGENTS.md)
@@ -33,9 +35,11 @@ Follow these priorities in order:
 
 The typical pipeline is: **Tokens → CSS → React → Storybook**.
 
-**STOP: before editing any CSS, check whether you need new or updated tokens first.** If the CSS value you need doesn't have a corresponding `var(--ams-...)` custom property, add the token in `packages-proprietary/tokens` before touching the `.scss` file.
+**STOP: before editing any CSS, check whether you need new or updated tokens first.**
+If the CSS value you need has no `var(--ams-...)` custom property, add the token in `packages-proprietary/tokens` before touching the `.scss` file.
 
-Global styles are imported in [storybook/config/preview.tsx](storybook/config/preview.tsx). Proprietary assets are served from `packages-proprietary/assets` via `staticDirs` in [storybook/config/main.ts](storybook/config/main.ts).
+Global styles are imported in [storybook/config/preview.tsx](storybook/config/preview.tsx).
+Proprietary assets are served from `packages-proprietary/assets` via `staticDirs` in [storybook/config/main.ts](storybook/config/main.ts).
 
 ### Naming conventions per package
 
@@ -62,8 +66,9 @@ These rules override common agent defaults and apply across the repository:
 - **Never use npm or yarn** — always use `pnpm` (see commands in [README.md](README.md)).
 - **Never add `import React from 'react'`** — the JSX transform handles this automatically.
 - **Never weaken TypeScript safety** — avoid `any`, do not disable strict checks, and use `import type` for type-only imports.
-- **Never hardcode design values** (colors, spacing, typography, radii, shadows) — use a CSS custom property backed by tokens; add or update tokens first if needed. This applies everywhere: SCSS files, Storybook stories (no inline `style` props with raw `px`/`rem`/hex values), and React components.
-- **Never add backwards-compatibility fallbacks** (`@supports`, polyfills, feature detection) unless the task explicitly requests them. Make the simplest change that satisfies the task.
+- **Never hardcode design values** (colors, spacing, typography, radii, shadows) — use a CSS custom property backed by tokens; add or update tokens first if needed.
+  This applies everywhere: SCSS, Storybook stories (no inline `style` props with raw `px`/`rem`/hex values), and React components.
+- **Never add backwards-compatibility fallbacks** (`@supports`, polyfills, feature detection) unless the task explicitly requests them.
 - **Never bypass accessibility** — do not use `aria-label` for screen reader-only text; use the `ams-visually-hidden` helper instead, and never remove focus outlines or rely on colour alone to convey meaning.
 - **Never add features, abstractions, or refactors beyond the scope of the task.**
 - **Never add comments** unless the logic is genuinely non-obvious and cannot be simplified — JSDoc for public APIs, props, and documentation required by package conventions is the explicit exception.
@@ -100,7 +105,9 @@ ESLint, Stylelint, and Prettier are authoritative for code style; consult [eslin
 
 ## Licensing
 
-Every new source file must start with the appropriate license header. Do not introduce alternative or file-local licensing schemes. Token `.tokens.json` files have no license header (they are plain JSON).
+Every new source file must start with the appropriate license header.
+Do not introduce alternative or file-local licensing schemes.
+Token `.tokens.json` files have no license header (they are plain JSON).
 
 **Code files** (`.ts`, `.tsx`, `.scss`, `.js`):
 
@@ -125,7 +132,7 @@ Every new source file must start with the appropriate license header. Do not int
 
 ## Common commands
 
-All commands run from the repository root. Use `pnpm --filter <package-name>` to scope to a single package.
+All commands run from the repository root; use `pnpm --filter <package-name>` to scope to one package.
 
 | Task                     | Command                      |
 | ------------------------ | ---------------------------- |
