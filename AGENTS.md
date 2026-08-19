@@ -130,6 +130,7 @@ Key agent expectations:
 ## Licensing
 
 Every new source file must start with the appropriate license header. Do not introduce alternative or file-local licensing schemes. Token `.tokens.json` files have no license header (they are plain JSON).
+A `SKILL.md` file is the one exception to "start with": its YAML front matter has to come first to parse, so the header goes directly below it.
 
 **Code files** (`.ts`, `.tsx`, `.scss`, `.js`):
 
@@ -176,10 +177,12 @@ Package filter names: `@amsterdam/design-system-tokens`, `@amsterdam/design-syst
 
 Human contributors and agents should both follow the conventions in [documentation/git.md](documentation/git.md): branch from `develop`, use branch names like `feat/DES-178-introduce-checkbox-component`, and write commit messages in English imperative mood describing the goal of the change.
 
-Read [.github/skills/pull-request/SKILL.md](.github/skills/pull-request/SKILL.md) before writing a pull request title or description. One rule agents break without noticing: `feat`, `fix` and `chore` are the only types the "Check PR title" workflow accepts — never `docs`, `refactor`, `test`, `ci`, `style`, `build`, `perf`, or `revert`.
+Read [.github/skills/pull-request/SKILL.md](.github/skills/pull-request/SKILL.md) before writing a pull request title or description.
+One rule agents break without noticing: `feat`, `fix` and `chore` are the only types the "Check PR title" workflow accepts — never `docs`, `refactor`, `test`, `ci`, `style`, `build`, `perf`, or `revert`.
 
 ## Reviewing as an agent
 
-Read [.github/skills/code-review/SKILL.md](.github/skills/code-review/SKILL.md) before commenting on a diff, alongside the `AGENTS.md` of every package it touches. Our review culture, which applies to agents too, is in [documentation/code-reviews.md](documentation/code-reviews.md).
+Read [.github/skills/code-review/SKILL.md](.github/skills/code-review/SKILL.md) before commenting on a diff, alongside the `AGENTS.md` of every package it touches.
+Our review culture, which applies to agents too, is in [documentation/code-reviews.md](documentation/code-reviews.md).
 
 Before marking work complete, cross-check the full definition-of-done checklist in [documentation/definition-of-done.md](documentation/definition-of-done.md).

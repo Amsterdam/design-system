@@ -4,6 +4,8 @@ description: Write the title and description of a pull request in the Amsterdam 
 license: CC0-1.0
 ---
 
+<!-- @license CC0-1.0 -->
+
 # Writing a pull request
 
 Our pull request titles are not throwaway text.
@@ -43,15 +45,18 @@ It becomes a bold prefix in the changelog, and changelog entries sort alphabetic
 - **A component**: its display name in Title Case, spaces and all — `fix(Avatar)`, `feat(Modal Dialog)`, `fix(Table of Contents)`, `feat(Field Set)`.
 - **Two to five components**: separate them with commas — `fix(Ordered List, Unordered List)`.
 - **More than five, or none in particular**: leave the scope out.
-- **A package or topic**: lowercase — `chore(deps)`, `chore(deps-dev)`, `chore(docs)`, `chore(ci)`, `chore(css)`, `chore(tokens)`, `chore(assets)`. `Storybook` and `React` are conventionally capitalised.
+- **A package or topic**: lowercase — `chore(deps)`, `chore(deps-dev)`, `chore(docs)`, `chore(ci)`, `chore(css)`, `chore(tokens)`, `chore(assets)`.
+  `Storybook` and `React` are conventionally capitalised.
 
 ### Subject
 
 - English, no jargon, understandable to someone who did not read the code.
 - Start with a capital letter, in the imperative mood: "Correct the aspect ratio for the image", "Only style a list that is directly nested in a list item".
 - No full stop at the end.
-- Do not repeat the scope in the subject. `fix(Avatar): Correct the Avatar aspect ratio` wastes the reader's first three words.
-- Describe the outcome, not the mechanics. "Show a placeholder background while the image loads" beats "Add a CSS background-color declaration".
+- Do not repeat the scope in the subject.
+  `fix(Avatar): Correct the Avatar aspect ratio` wastes the reader's first three words.
+- Describe the outcome, not the mechanics.
+  "Show a placeholder background while the image loads" beats "Add a CSS background-color declaration".
 - Keep it to one line; most of ours stay under 80 characters.
 
 ### Examples
@@ -71,11 +76,19 @@ Follow [.github/pull_request_template.md](../../pull_request_template.md).
 Keep every heading it defines, in its order, and keep the checklist.
 Write one sentence per line, so that later edits produce small diffs.
 
-- **Links** — documentation pages, the story in the branch deploy, related issues or discussions. Leave the section's placeholder in place rather than inventing a link you have not seen. Never fabricate a Jira identifier; take it from the branch name if it is there.
-- **What** — the changes, as a short list. The reviewer can read the diff; give them the shape of it.
-- **Why** — why the change is necessary. If the branch name carries a task ID, the backlog item holds the full context, so stay brief.
-- **How** — the approach and the key considerations. This is where alternatives you rejected, deliberate omissions, and anything unusual belong. Mention what you left out of scope, and say so plainly.
-- **Checklist** — tick only what is genuinely done or genuinely not applicable. An unticked box is a useful signal; a wrongly ticked one is a false one. In particular, do not tick the Chromatic box before `/chromatic test` has run and passed.
+- **Links** — documentation pages, the story in the branch deploy, related issues or discussions.
+  Leave the section's placeholder in place rather than inventing a link you have not seen.
+  Never fabricate a Jira identifier; take it from the branch name if it is there.
+- **What** — the changes, as a short list.
+  The reviewer can read the diff; give them the shape of it.
+- **Why** — why the change is necessary.
+  If the branch name carries a task ID, the backlog item holds the full context, so stay brief.
+- **How** — the approach and the key considerations.
+  This is where alternatives you rejected, deliberate omissions, and anything unusual belong.
+  Mention what you left out of scope, and say so plainly.
+- **Checklist** — tick only what is genuinely done or genuinely not applicable.
+  An unticked box is a useful signal; a wrongly ticked one is a false one.
+  Do not tick the Chromatic box before `/chromatic test` has run and passed, unless the diff has no visual surface at all.
 - **Additional notes** — steps to reproduce, test data, and the parts where you specifically want feedback.
 
 Where the diff is unremarkable — a dependency bump, a typo — a short description is the right description.
