@@ -19,7 +19,10 @@ type TableSortableHeaderCellAlign = (typeof tableCellAlignOptions)[number]
 export type TableSortableHeaderCellProps = {
   /** The horizontal alignment of the cell’s content. */
   readonly align?: TableSortableHeaderCellAlign
-  /** The URL of this page sorted by this column, in the direction activating the link will apply. */
+  /**
+   * The URL of this page sorted by this column, in the direction activating the link will apply.
+   * A column that is not sorted is expected to link to its ascending order, which its chevron points to.
+   */
   readonly href: string
   /** The React component or intrinsic element to use for the link. */
   readonly linkComponent?: ElementType
@@ -58,9 +61,9 @@ export const TableSortableHeaderCell = forwardRef(
     >
       <Link className="ams-table__sortable-header-cell-link" href={href} linkComponent={linkComponent}>
         {children}
-        {/* The chevron renders in every state: on a sorted column it shows the current direction, on an unsorted
-            one the direction the first activation applies. Rendering it always reserves its width, so sorting a
-            column does not change the width of the row. */}
+        {/* The chevron renders in every state: it shows the direction of the sort on the column that is sorted,
+            and marks the others as sortable. Rendering it always reserves its width, so sorting a column does
+            not change the width of the row. */}
         <Icon
           className="ams-table__sortable-header-cell-icon"
           svg={sortDirection === 'descending' ? ChevronDownIcon : ChevronUpIcon}
