@@ -3,6 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { TableSortableHeaderCellProps } from '@amsterdam/design-system-react'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import type { AnchorHTMLAttributes, ChangeEvent, FormEvent, MouseEvent } from 'react'
 
@@ -124,6 +125,138 @@ export const SortingWithSelect: StoryObj = {
             <Table.Caption className="ams-visually-hidden">Gegevens per adres</Table.Caption>
             <Table.Header>
               <AddressTableHeaderRow />
+            </Table.Header>
+            <AddressTableBody addresses={addresses} />
+          </Table>
+        </Grid.Cell>
+      </Grid>
+    )
+  },
+}
+
+// Sorting with header links
+
+/** The columns of the address table the data can be sorted by. */
+type SortableField = 'bouwjaar' | 'huisnummer' | 'oppervlakte' | 'postcode' | 'straat'
+
+/** Builds the `href` for a column header link, preserving other query parameters. */
+const sortLinkTemplate = (sortOrder: SortOrder) => {
+  const url = new URL(window.location.href)
+  url.searchParams.set('sort', sortOrder)
+  return `?${url.searchParams.toString()}`
+}
+
+/**
+ * Gives a column its current sort direction and the link to its next one.
+ * A column that is not sorted links to its ascending order; the sorted column links to its opposite.
+ */
+const sortProps = (
+  field: SortableField,
+  sortOrder: SortOrder,
+): Pick<TableSortableHeaderCellProps, 'href' | 'sortDirection'> => {
+  const separatorIndex = sortOrder.lastIndexOf('-')
+  const isSorted = sortOrder.slice(0, separatorIndex) === field
+  const isAscending = sortOrder.slice(separatorIndex + 1) === 'asc'
+
+  return {
+    href: sortLinkTemplate(`${field}-${isSorted && isAscending ? 'desc' : 'asc'}`),
+    sortDirection: isSorted ? (isAscending ? 'ascending' : 'descending') : 'none',
+  }
+}
+
+/** The header row of AddressTableBody, with links on the five columns the data can be sorted by. */
+const SortableAddressTableHeaderRow = ({ sortOrder }: { readonly sortOrder: SortOrder }) => (
+  <Table.Row>
+    <Table.HeaderCell scope="col">#</Table.HeaderCell>
+    <Table.SortableHeaderCell scope="col" {...sortProps('straat', sortOrder)}>
+      Straat
+    </Table.SortableHeaderCell>
+    <Table.SortableHeaderCell align="end" scope="col" {...sortProps('huisnummer', sortOrder)}>
+      Nr
+    </Table.SortableHeaderCell>
+    <Table.HeaderCell align="center" scope="col">
+      Letter
+    </Table.HeaderCell>
+    <Table.SortableHeaderCell scope="col" {...sortProps('postcode', sortOrder)}>
+      Postcode
+    </Table.SortableHeaderCell>
+    <Table.HeaderCell scope="col">Gebruiksdoel</Table.HeaderCell>
+    <Table.HeaderCell align="end" scope="col">
+      Kamers
+    </Table.HeaderCell>
+    <Table.SortableHeaderCell align="end" scope="col" {...sortProps('oppervlakte', sortOrder)}>
+      Oppervlakte
+    </Table.SortableHeaderCell>
+    <Table.SortableHeaderCell align="end" scope="col" {...sortProps('bouwjaar', sortOrder)}>
+      Bouwjaar
+    </Table.SortableHeaderCell>
+    <Table.HeaderCell scope="col">Status</Table.HeaderCell>
+    <Table.HeaderCell scope="col">WOZ soort object</Table.HeaderCell>
+  </Table.Row>
+)
+
+export const SortingWithHeaderLinks: StoryObj = {
+  parameters: {
+    docs: {
+      source: {
+        // Because this story’s `render` takes no argument, the Code Panel prints its source as written, sorting
+        // scaffolding and all. Provide the source by hand so the panel shows the table markup on its own, with the
+        // guidance kept short.
+        code: `<Grid paddingVertical="x-large">
+  <Grid.Cell appearance="transparent" span="all">
+    <Heading level={1}>Vergunninghouders 2026/2027</Heading>
+  </Grid.Cell>
+  <Grid.Cell span="all">
+    <Table>
+      {/* If nothing sits between the Heading and the Table, wrap the Heading in the Caption. */}
+      <Table.Caption>
+        <Heading level={2}>Gegevens per adres</Heading>
+      </Table.Caption>
+      <Table.Header>
+        <Table.Row>
+          <Table.HeaderCell scope="col">#</Table.HeaderCell>
+          {/*
+           * A Sortable Header Cell links to this page sorted by its column. Give it the direction that column is
+           * sorted in now, and an href for the direction the link applies – see sortProps.
+           */}
+          <Table.SortableHeaderCell href="?sort=straat-desc" scope="col" sortDirection="ascending">
+            Straat
+          </Table.SortableHeaderCell>
+          <Table.SortableHeaderCell align="end" href="?sort=huisnummer-asc" scope="col">
+            Nr
+          </Table.SortableHeaderCell>
+          {/* Columns the data cannot be sorted by stay plain Header Cells, without an aria-sort attribute. */}
+          <Table.HeaderCell align="center" scope="col">
+            Letter
+          </Table.HeaderCell>
+          {/* … */}
+        </Table.Row>
+      </Table.Header>
+      <AddressTableBody addresses={addresses} />
+    </Table>
+  </Grid.Cell>
+</Grid>`,
+        language: 'tsx',
+      },
+    },
+  },
+  render: () => {
+    const sortOrder = (params.get('sort') ?? 'straat-asc') as SortOrder
+    const addresses = sortAddresses(bagAddresses.slice(0, 30), sortOrder)
+
+    return (
+      <Grid paddingVertical="x-large">
+        <Grid.Cell appearance="transparent" span="all">
+          <Heading level={1}>Vergunninghouders 2026/2027</Heading>
+        </Grid.Cell>
+        <Grid.Cell span="all">
+          <Table>
+            {/* If nothing sits between the Heading and the Table, wrap the Heading in the Caption. */}
+            <Table.Caption>
+              <Heading level={2}>Gegevens per adres</Heading>
+            </Table.Caption>
+            <Table.Header>
+              <SortableAddressTableHeaderRow sortOrder={sortOrder} />
             </Table.Header>
             <AddressTableBody addresses={addresses} />
           </Table>
