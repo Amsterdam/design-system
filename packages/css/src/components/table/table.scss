@@ -77,7 +77,7 @@
 
 // The chevron of a column that is not sorted recedes, so the one of the sorted column stands out between many
 // columns. It returns to the colour of the link on hover, as part of the link it sits in.
-.ams-table__sortable-header-cell[aria-sort="none"] .ams-table__sortable-header-cell-icon {
+.ams-table__sortable-header-cell:not([aria-sort]) .ams-table__sortable-header-cell-icon {
   color: var(--ams-table-sortable-header-cell-icon-color);
 
   @media (hover: hover) {

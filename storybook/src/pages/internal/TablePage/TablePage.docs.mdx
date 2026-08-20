@@ -72,9 +72,9 @@ There are two ways to lay this out, and both keep a `<caption>` on the table for
 ### Sorting by column header
 
 Where the sort control sits in the column header itself, use `Table.SortableHeaderCell`.
-It renders the column label and a chevron inside one link, so the whole header is the target, and it sets the `aria-sort` attribute the [WAI-ARIA sortable table pattern](https://www.w3.org/WAI/ARIA/apg/patterns/table/examples/sortable-table/) expects.
+It renders the column label and a chevron inside one link, so the whole header is the target, and it marks the column the table is sorted by with the `aria-sort` attribute the [WAI-ARIA sortable table pattern](https://www.w3.org/WAI/ARIA/apg/patterns/table/examples/sortable-table/) expects.
 
-Make only the columns the data can actually be sorted by links; the rest stay plain `Table.HeaderCell`s without an `aria-sort` attribute.
+Make only the columns the data can actually be sorted by links; the rest stay plain `Table.HeaderCell`s.
 
 ## Accessibility
 
@@ -84,8 +84,9 @@ This is why the controls sit outside it.
 Where the controls share a row with a visible heading, the table keeps a visually hidden `<caption>` carrying the same text.
 The heading text is duplicated for assistive technology; this is the trade-off for placing the controls on the same line as the heading.
 
-`Table.SortableHeaderCell` puts `aria-sort` on the `<th>` and the chevron inside the link, where it is hidden from assistive technology.
-A sortable column header therefore announces as its label and the sort state of its column, not as the shape of its icon.
+`Table.SortableHeaderCell` puts `aria-sort` on the `<th>` of the column the table is sorted by, and the chevron inside the link, where it is hidden from assistive technology.
+That column therefore announces as its label and its sort state, not as the shape of its icon.
+The other column headers carry no sort state at all, so a table with many sortable columns announces one, rather than repeating that the rest are unsorted.
 
 ## See also
 

@@ -33,10 +33,19 @@ describe('TableSortableHeaderCell', () => {
     expect(component).toBeVisible()
   })
 
-  it('renders an unsorted column by default', () => {
-    renderInTable(<TableSortableHeaderCell href="?sort=stadsdeel-asc">Stadsdeel</TableSortableHeaderCell>)
+  it('renders no sort state on an unsorted column, as the sortable table pattern prescribes', () => {
+    renderInTable(
+      <>
+        <TableSortableHeaderCell href="?sort=stadsdeel-asc">Stadsdeel</TableSortableHeaderCell>
+        <TableSortableHeaderCell href="?sort=wijk-asc" sortDirection="none">
+          Wijk
+        </TableSortableHeaderCell>
+      </>,
+    )
 
-    expect(screen.getByRole('columnheader')).toHaveAttribute('aria-sort', 'none')
+    screen.getAllByRole('columnheader').forEach((columnHeader) => {
+      expect(columnHeader).not.toHaveAttribute('aria-sort')
+    })
   })
 
   it('renders the sort direction on the header cell', () => {

@@ -47,7 +47,7 @@ export const TableSortableHeaderCell = forwardRef(
   ) => (
     <th
       {...restProps}
-      aria-sort={sortDirection}
+      aria-sort={sortDirection === 'none' ? undefined : sortDirection}
       className={clsx(
         'ams-table__header-cell',
         'ams-table__sortable-header-cell',
