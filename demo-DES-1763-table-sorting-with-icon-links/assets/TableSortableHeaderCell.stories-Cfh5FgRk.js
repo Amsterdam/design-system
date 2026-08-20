@@ -1,0 +1,8 @@
+import{n as e,r as t}from"./rolldown-runtime-DkW27tQK.js";import{t as n}from"./jsx-runtime-ATHzeHXA.js";import{n as r,t as i}from"./Table-j7iURfBy.js";import{f as a,r as o}from"./argTypes-Diu0Wtb4.js";var s=t({SortableHeaderCell:()=>u,__namedExportsOrder:()=>d,default:()=>l}),c,l,u,d;function f(){return(f=e((()=>{r(),a(),c=n(),l={title:`Components/Containers/Table`,component:i.SortableHeaderCell,argTypes:{align:{control:{labels:{undefined:`start (default)`},type:`radio`},options:[void 0,`center`,`end`]},children:o(`The text for the column header.`),sortDirection:{control:{type:`radio`},options:[`ascending`,`descending`,`none`]}},decorators:[e=>(0,c.jsxs)(i,{style:{minInlineSize:`24rem`},children:[(0,c.jsx)(i.Header,{children:(0,c.jsxs)(i.Row,{children:[(0,c.jsx)(e,{}),(0,c.jsx)(i.SortableHeaderCell,{align:`end`,href:`?sort=inwoners-desc`,scope:`col`,children:`Inwoners`})]})}),(0,c.jsx)(i.Body,{children:(0,c.jsxs)(i.Row,{children:[(0,c.jsx)(i.Cell,{children:`West`}),(0,c.jsx)(i.Cell,{align:`end`,children:`149.000`})]})})]})],tags:[`!manifest`]},u={args:{children:`Stadsdeel`,href:`?sort=stadsdeel-desc`,scope:`col`,sortDirection:`ascending`}},u.parameters={...u.parameters,docs:{...u.parameters?.docs,source:{originalSource:`{
+  args: {
+    children: 'Stadsdeel',
+    href: '?sort=stadsdeel-desc',
+    scope: 'col',
+    sortDirection: 'ascending'
+  }
+}`,...u.parameters?.docs?.source}}},d=[`SortableHeaderCell`]})))()}export{s as n,f as r,u as t};
