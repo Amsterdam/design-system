@@ -30,6 +30,16 @@ export default meta
 
 const params = new URLSearchParams(window.location.search)
 
+/**
+ * Reads the sort order from the `sort` query parameter.
+ * Anyone can put anything in the URL, so a value this table does not support falls back to the default.
+ */
+const getSortOrderFromUrl = (): SortOrder => {
+  const value = params.get('sort')
+
+  return sortOptions.some((option) => option.value === value) ? (value as SortOrder) : 'straat-asc'
+}
+
 /** Submits the surrounding form whenever the sort `Select` value changes, so no extra submit button is needed. */
 const handleSortChange = (event: ChangeEvent<HTMLSelectElement>) => {
   event.target.form?.requestSubmit()
@@ -97,7 +107,7 @@ export const SortingWithSelect: StoryObj = {
     },
   },
   render: () => {
-    const sortOrder = (params.get('sort') ?? 'straat-asc') as SortOrder
+    const sortOrder = getSortOrderFromUrl()
     const addresses = sortAddresses(bagAddresses.slice(0, 30), sortOrder)
 
     return (
@@ -241,7 +251,7 @@ export const SortingWithHeaderLinks: StoryObj = {
     },
   },
   render: () => {
-    const sortOrder = (params.get('sort') ?? 'straat-asc') as SortOrder
+    const sortOrder = getSortOrderFromUrl()
     const addresses = sortAddresses(bagAddresses.slice(0, 30), sortOrder)
 
     return (
