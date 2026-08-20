@@ -54,3 +54,35 @@
 .ams-table__header-cell--align-end {
   text-align: end;
 }
+
+.ams-table__sortable-header-cell-link {
+  column-gap: var(--ams-table-sortable-header-cell-link-column-gap);
+  display: inline-flex;
+  flex-wrap: nowrap;
+  font-weight: inherit; // The header cell sets the weight of its label, which the link would reset to regular.
+  text-decoration-line: var(--ams-table-sortable-header-cell-link-text-decoration-line);
+
+  @media (hover: hover) {
+    &:hover {
+      text-decoration-line: var(--ams-table-sortable-header-cell-link-hover-text-decoration-line);
+    }
+  }
+}
+
+// The column the table is sorted by keeps its underline, which marks it among the other column headers.
+.ams-table__sortable-header-cell[aria-sort="ascending"] .ams-table__sortable-header-cell-link,
+.ams-table__sortable-header-cell[aria-sort="descending"] .ams-table__sortable-header-cell-link {
+  text-decoration-line: var(--ams-table-sortable-header-cell-link-current-text-decoration-line);
+}
+
+// The chevron of a column that is not sorted recedes, so the one of the sorted column stands out between many
+// columns. It returns to the colour of the link on hover, as part of the link it sits in.
+.ams-table__sortable-header-cell[aria-sort="none"] .ams-table__sortable-header-cell-icon {
+  color: var(--ams-table-sortable-header-cell-icon-color);
+
+  @media (hover: hover) {
+    .ams-table__sortable-header-cell-link:hover & {
+      color: inherit;
+    }
+  }
+}
