@@ -1,0 +1,105 @@
+{/* @license CC0-1.0 */}
+
+import { Canvas, Controls, Description, Meta, Primary, Title } from "@storybook/addon-docs/blocks";
+
+import { DesignTokensTable } from "#storybook/_components/DesignTokensTable/DesignTokensTable";
+import tokens from "#tokens/components/ams/date-input-group.tokens.json";
+
+import * as DateInputGroupStories from "./DateInputGroup.stories.tsx";
+
+<Meta of={DateInputGroupStories} />
+
+<Title />
+
+<Description of={DateInputGroupStories} />
+
+<Primary />
+
+<Controls />
+
+The group itself has no props to configure.
+The controls above set the legend and the description of the Field Set in this example.
+
+## Subcomponents
+
+Compose a Date Input Group from Date Input Group Fields, one for each part of the date.
+A Field pairs a [Label](/docs/components-forms-label--docs) with the [Text Input](/docs/components-forms-text-input--docs) it describes, and gives that input a width that matches the number of digits it takes.
+Set `wide` on the Field that holds a four-digit value, such as a year.
+
+## Usage guidelines
+
+### When to use
+
+Use a Date Input Group for a date the user already knows or can copy from a document in front of them: a date of birth, the expiry date of a passport, the day something happened.
+Three separate fields let someone type the date the way they would say it, without first working out which format the browser expects.
+
+This is the pattern the [NL Design System](https://nldesignsystem.nl/richtlijnen/formulieren/wanneer-welk-form-element/iedereen-kan-invullen) and [gov.uk](https://design-system.service.gov.uk/components/date-input/) recommend for these dates.
+
+### When not to use
+
+Use a [Date Input](/docs/components-forms-date-input--docs) for a date the user does not know by heart and has to look up, such as an appointment.
+Its native control opens a calendar to browse, which a group of text fields cannot offer.
+
+Use a [Calendar](/docs/components-navigation-calendar--docs) when picking a date is the task of the page rather than one answer in a form.
+
+### How to use
+
+Wrap a Date Input Group in a [Field Set](/docs/components-forms-field-set--docs) whose legend asks for the date as a question.
+The legend is what ties the fields together for a screen reader; without it, three labels read as three unrelated questions.
+
+Put a Paragraph with an example date above the group and connect it to the Field Set with `aria-describedby`.
+Write the example in the order the fields appear, so it doubles as a format hint.
+
+Give every Text Input an `inputMode` of `numeric`, so touch devices offer a numeric keyboard.
+Add an `autoComplete` value where one exists, such as `bday-day`, `bday-month`, and `bday-year` for a date of birth.
+
+Leave the `size` attribute off the Text Inputs.
+The Field sets the width, and a `size` attribute overrides it.
+
+Accept what the user types in the format they type it.
+Both `1` and `01` are a valid month, and rejecting one of the two turns a formatting preference into an error the user has to solve.
+
+## Examples
+
+### With validation
+
+To report an error, add `invalid` and an [Error Message](/docs/components-forms-error-message--docs) to the Field Set, and connect the Error Message to the Field Set with `aria-describedby`.
+Set `invalid` on the Text Inputs that are at fault, and only on those: mark the year alone if the year is what is missing.
+
+See the [gov.uk documentation on validating this pattern](https://design-system.service.gov.uk/components/date-input/#error-messages) for how to word the message.
+
+<Canvas of={DateInputGroupStories.WithValidation} />
+
+### Month and year
+
+Ask only for the parts of the date you need.
+A group holds as many fields as the question has parts.
+
+<Canvas of={DateInputGroupStories.MonthAndYear} />
+
+## Design
+
+Each field is as wide as the answer it takes: two digits for a day or a month, four for a year.
+That difference is a hint in itself, and it keeps the group from reading as three interchangeable boxes.
+
+The fields wrap onto a second line when they no longer fit beside each other, which happens at narrow widths and at large text sizes rather than at a fixed breakpoint.
+
+## Accessibility
+
+The accessible name of each input comes from its own Label, and the question they answer together comes from the legend of the surrounding Field Set.
+A screen reader announces both, so ‘Jaar’ is heard as part of ‘Wanneer ben je geboren?’ rather than on its own.
+
+Unlike a [Date Input](/docs/components-forms-date-input--docs), this pattern shows the same order of day, month, and year to everyone.
+A native date control takes its order from the browser and the operating system, so the page cannot promise which one a visitor sees; here the page decides, and the example above the fields can state it.
+
+## See also
+
+- [Date Input](/docs/components-forms-date-input--docs) – a native date control for dates the user has to look up.
+- [Field Set](/docs/components-forms-field-set--docs) – groups the fields under one question.
+- [Text Input](/docs/components-forms-text-input--docs) – the input each field holds.
+- [Calendar](/docs/components-navigation-calendar--docs) – navigate between dates using a calendar view.
+- [Date Picker](/docs/components-forms-date-picker--docs) – select a date from a calendar in a form.
+
+## Design tokens
+
+<DesignTokensTable tokens={tokens} />
