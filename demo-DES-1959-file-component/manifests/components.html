@@ -594,7 +594,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>5.4s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>3.2s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -10060,16 +10060,16 @@ Until it can, prefer a File List short enough to keep each button next to the fi
       </div>
       <div class="hint">/home/runner/work/design-system/design-system/packages/react/src/index.ts</div>
       
-      <div class="hint">Represents a single uploaded file within a File List, with its details and an optional delete action.</div>
+      <div class="hint">One file within a File List.</div>
       <div class="kv"><span class="chip">see: {@link https://designsystem.amsterdam/?path=/docs/components-forms-file-list--docs File List docs at Amsterdam Design System}</span></div>
       <pre><code>import { FileList } from &quot;@amsterdam/design-system-react/src&quot;;</code></pre>
       
       
           <pre><code>Component: ../packages/react/src/index.ts::FileList (react-component-meta)</code></pre>
           <pre><code>/**
- * The file to display. Shows its name, type, and size, and a thumbnail for images.
+ * The file to display. Shows its name, type, and size.
  */
-file: File
+file?: File
 
 /**
  * A function to run when the user removes the file. Adds a delete button.

@@ -4565,7 +4565,7 @@
         "FileList.Item": {
           "name": "FileList.Item",
           "path": "/home/runner/work/design-system/design-system/packages/react/src/index.ts",
-          "description": "Represents a single uploaded file within a File List, with its details and an optional delete action.",
+          "description": "One file within a File List.",
           "import": "import { FileList } from \"@amsterdam/design-system-react/src\";",
           "jsDocTags": {
             "see": [
@@ -4576,7 +4576,7 @@
             "displayName": "FileList.Item",
             "exportName": "FileList",
             "filePath": "/home/runner/work/design-system/design-system/packages/react/src/index.ts",
-            "description": "Represents a single uploaded file within a File List, with its details and an optional delete action.",
+            "description": "One file within a File List.",
             "jsDocTags": {
               "see": [
                 "{@link https://designsystem.amsterdam/?path=/docs/components-forms-file-list--docs File List docs at Amsterdam Design System}"
@@ -4585,11 +4585,11 @@
             "props": {
               "file": {
                 "name": "file",
-                "required": true,
+                "required": false,
                 "type": {
                   "name": "File"
                 },
-                "description": "The file to display. Shows its name, type, and size, and a thumbnail for images.",
+                "description": "The file to display. Shows its name, type, and size.",
                 "defaultValue": null,
                 "parent": {
                   "name": "FileListItemProps",
@@ -12075,6 +12075,6 @@
   },
   "meta": {
     "docgen": "react-component-meta",
-    "durationMs": 5401
+    "durationMs": 3234
   }
 }
