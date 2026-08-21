@@ -19,7 +19,6 @@
 // A Text Input without a `size` attribute fills its container; match that selector so an author
 // who does set one keeps the width the attribute gives them.
 .ams-date-input-group__field > .ams-text-input:not([size]) {
-  box-sizing: border-box;
   inline-size: var(--ams-date-input-group-field-inline-size);
 }
 
