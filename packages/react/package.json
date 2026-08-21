@@ -54,11 +54,11 @@
     "@testing-library/dom": "10.4.1",
     "@testing-library/jest-dom": "7.0.1",
     "@testing-library/react": "16.3.2",
-    "@testing-library/user-event": "14.6.4",
+    "@testing-library/user-event": "14.6.5",
     "@types/react": "18.3.31",
     "@types/react-dom": "18.3.7",
-    "@vitejs/plugin-react": "6.0.5",
-    "@vitest/coverage-v8": "4.1.10",
+    "@vitejs/plugin-react": "6.1.0",
+    "@vitest/coverage-v8": "4.1.11",
     "eslint-plugin-react": "7.37.5",
     "eslint-plugin-react-hooks": "7.1.1",
     "jsdom": "26.1.0",
@@ -70,8 +70,8 @@
     "rollup-plugin-node-polyfills": "0.2.1",
     "rollup-plugin-peer-deps-external": "2.2.4",
     "rollup-plugin-typescript2": "0.37.0",
-    "sass": "1.102.0",
-    "vitest": "4.1.10"
+    "sass": "1.103.0",
+    "vitest": "4.1.11"
   },
   "peerDependencies": {
     "@amsterdam/design-system-css": "workspace:*",
