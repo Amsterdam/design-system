@@ -594,7 +594,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>5.4s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>5.5s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -4886,6 +4886,12 @@ Or when there is a legal or technical reason that means an entry must be no more
 
 If your users keep hitting the character limit imposed by the backend of your service then try to increase the limit rather than use a Character Count.
 
+### How to use
+
+Pass a formatter to `formatText` to render the count in another language, as ‘Translated text’ below shows.
+Set `lang` on the component, or on an element containing it, when that language differs from the language of the page around it.
+Screen readers choose a pronunciation from `lang`, so without it an English count is read aloud by a Dutch voice.
+
 ## Examples
 
 ### Error
@@ -4930,9 +4936,8 @@ The wording never has to switch from characters remaining to characters too many
 A Character Count is a status region, so screen readers announce the new count without moving focus and without interrupting what is being read.
 Someone typing hears the count between words rather than after every keystroke, which is what ‘Features’ above describes.
 
-The text is Dutch by default, and the `formatText` prop replaces it with a function of your own.
-That function receives the count and the limit, so it decides the wording, the word order, and the plural rule its language needs.
-Set `lang` to the same language, on the component or on an element containing it, so screen readers pronounce the text correctly.
+The count is text the component writes itself rather than content passed in, so it inherits the page language whether or not that is the language it is written in.
+‘How to use’ above says when to override that.
 
 Going over the limit is signalled by colour alone, so the count itself has to be read for the change to register.
 The text says the same thing either way, which is what keeps the message complete without the colour.
