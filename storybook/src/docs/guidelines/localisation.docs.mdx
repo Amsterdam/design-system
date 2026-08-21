@@ -106,6 +106,33 @@ const ArabicCalendar = (props: CalendarProps) => (
 
 The same pattern applies to the Date Picker, which also takes `rangeStartAccessibleName` and `rangeEndAccessibleName` in range mode.
 
+### Supply the text yourself
+
+Not every component that writes its own text can generate it from a locale.
+A [Form Field Status](/docs/components-forms-form-field-status--docs) reports on a number, and languages differ in word order and in how they count, so it takes the sentence from you rather than a locale to build one with.
+
+Its character count has two formatter props.
+`formatText` receives the current and the maximum length, and `formatOverLimitText` receives how far the value exceeds the maximum.
+Both return the string to display, and both default to Dutch.
+
+```tsx
+<FormFieldStatus lang="en">
+  <FormFieldStatus.CharacterCount
+    formatOverLimitText={formatCharacterCountOverLimitTextEn}
+    formatText={formatCharacterCountTextEn}
+    length={15}
+    maxLength={10}
+  />
+</FormFieldStatus>
+```
+
+Formatters for each tested locale are exported, so the example above needs no function of its own.
+Write your own where a language needs something they do not do: a different word order, or a plural rule that `Intl.PluralRules` resolves.
+
+Because the text is the component's own rather than yours, it inherits the language of the page around it.
+Set `lang` to the language you formatted in whenever the two differ, as above, so screen readers pronounce it correctly.
+The count sits in a live region, so a wrong `lang` is heard on every update rather than read once.
+
 ### Native form controls
 
 Native form controls render some of their text themselves.
