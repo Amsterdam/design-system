@@ -55,7 +55,7 @@ This means:
 - screen reader users will hear the count announcement when they stop typing.
 
 This component does not restrict the user from entering information.
-The user can enter more than the character limit, but are told they’ve entered too many characters.
+The user can enter more than the character limit; the count keeps going, so it reads ‘12 van 10 tekens’.
 This lets them type or copy and paste their full answer, then edit it down.
 
 ## Design
@@ -73,8 +73,9 @@ The wording never has to switch from characters remaining to characters too many
 A Character Count is a status region, so screen readers announce the new count without moving focus and without interrupting what is being read.
 Someone typing hears the count between words rather than after every keystroke, which is what ‘Features’ above describes.
 
-The text is fixed Dutch — the count, the word ‘van’, the limit, and ‘tekens’ — and cannot be configured.
-That is worth weighing before using a Character Count on a page in another language.
+The text is Dutch by default, and the `formatText` prop replaces it with a function of your own.
+That function receives the count and the limit, so it decides the wording, the word order, and the plural rule its language needs.
+Set `lang` to the same language, on the component or on an element containing it, so screen readers pronounce the text correctly.
 
 Going over the limit is signalled by colour alone, so the count itself has to be read for the change to register.
 The text says the same thing either way, which is what keeps the message complete without the colour.
