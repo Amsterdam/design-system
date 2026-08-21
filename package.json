@@ -72,7 +72,7 @@
     "husky": "9.1.7",
     "nano-staged": "1.0.2",
     "npm-check-updates": "23.0.2",
-    "npm-package-json-lint": "10.5.1",
+    "npm-package-json-lint": "11.0.0",
     "plop": "4.0.5",
     "prettier": "3.9.6",
     "rimraf": "6.1.3",
