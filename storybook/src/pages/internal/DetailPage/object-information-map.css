@@ -1,0 +1,44 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+._ams-object-information-map {
+  block-size: min(66dvh, calc(var(--ams-space-2xl) * 12));
+  border-block: var(--ams-border-width-s) solid var(--ams-color-separator);
+  border-inline: var(--ams-border-width-s) solid var(--ams-color-separator);
+  isolation: isolate;
+  min-block-size: calc(var(--ams-space-2xl) * 6);
+  overflow: hidden;
+  position: relative;
+}
+
+._ams-object-information-map__container {
+  block-size: 100%;
+  inline-size: 100%;
+}
+
+._ams-object-information-map__controls {
+  display: inline-flex;
+  flex-direction: column;
+  gap: var(--ams-space-xs);
+  inset-block-start: var(--ams-space-m);
+  inset-inline-end: var(--ams-space-m);
+  position: absolute;
+  z-index: 1000;
+}
+
+._ams-object-information-map__geometry {
+  fill: var(--ams-color-interactive);
+  fill-opacity: 20%;
+  stroke: var(--ams-color-interactive);
+  stroke-width: var(--ams-border-width-s);
+}
+
+._ams-object-information-map__fallback {
+  align-items: center;
+  background-color: var(--ams-color-background);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
