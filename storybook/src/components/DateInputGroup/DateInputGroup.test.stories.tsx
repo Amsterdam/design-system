@@ -22,8 +22,9 @@ type Story = StoryObj<typeof meta>
 export const Test: Story = {
   /*
    * A generated matrix would be empty: the group takes only the fields composed inside it, and its one
-   * choice sits on DateInputGroup.Field. What is worth a picture is the width of each field and the
-   * invalid state of the inputs, which only show up once a group holds labelled Text Inputs.
+   * choice sits on DateInputGroup.Field. What is worth a picture is the width of each field, the invalid
+   * state of the inputs, and the wrap onto a second row — none of which show up until a group holds
+   * labelled Text Inputs.
    */
   render: () => (
     <div className="_ams-tests-stack">
@@ -71,6 +72,31 @@ export const Test: Story = {
           </DateInputGroup.Field>
         </DateInputGroup>
       </FieldSet>
+      {/* Too narrow for three fields side by side, so the year drops onto a second row. */}
+      <div style={{ maxInlineSize: '14rem' }}>
+        <FieldSet legend="Wanneer ben je geboren?">
+          <DateInputGroup>
+            <DateInputGroup.Field>
+              <Label htmlFor="test-7" inFieldSet>
+                Dag
+              </Label>
+              <TextInput defaultValue={16} id="test-7" inputMode="numeric" />
+            </DateInputGroup.Field>
+            <DateInputGroup.Field>
+              <Label htmlFor="test-8" inFieldSet>
+                Maand
+              </Label>
+              <TextInput defaultValue={8} id="test-8" inputMode="numeric" />
+            </DateInputGroup.Field>
+            <DateInputGroup.Field wide>
+              <Label htmlFor="test-9" inFieldSet>
+                Jaar
+              </Label>
+              <TextInput defaultValue={2000} id="test-9" inputMode="numeric" />
+            </DateInputGroup.Field>
+          </DateInputGroup>
+        </FieldSet>
+      </div>
     </div>
   ),
   tags: ['!dev', '!autodocs', '!manifest'],
