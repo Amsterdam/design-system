@@ -28,7 +28,11 @@ const fileTypeLabels: Record<string, string> = {
 
 // An unmapped media type falls back to its subtype, reduced to the last dot-separated segment
 // so that the long `application/vnd.…` names stay readable.
-const formatFileType = (type: string) => fileTypeLabels[type] ?? type.split('/').pop()?.split('.').pop() ?? type
+const formatFileType = (type: string) => {
+  const subtype = type.slice(type.lastIndexOf('/') + 1)
+
+  return fileTypeLabels[type] ?? subtype.slice(subtype.lastIndexOf('.') + 1)
+}
 
 const formatFileSize = (size: number, locale: string) => {
   const exponent = size >= 1 ? Math.min(Math.floor(Math.log10(size) / 3), fileSizeUnits.length - 1) : 0
