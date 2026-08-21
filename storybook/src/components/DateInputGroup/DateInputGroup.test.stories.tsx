@@ -23,8 +23,8 @@ export const Test: Story = {
   /*
    * A generated matrix would be empty: the group takes only the fields composed inside it, and its one
    * choice sits on DateInputGroup.Field. What is worth a picture is the width of each field, the invalid
-   * state of the inputs, and the wrap onto a second row — none of which show up until a group holds
-   * labelled Text Inputs.
+   * state of the inputs, the wrap onto a second row, and the author-set `size` the group leaves alone —
+   * none of which show up until a group holds labelled Text Inputs.
    */
   render: () => (
     <div className="_ams-tests-stack">
@@ -97,6 +97,29 @@ export const Test: Story = {
           </DateInputGroup>
         </FieldSet>
       </div>
+      {/* The last field sets `size` itself, which the group leaves in charge of the width. */}
+      <FieldSet legend="Wanneer ben je geboren?">
+        <DateInputGroup>
+          <DateInputGroup.Field>
+            <Label htmlFor="test-10" inFieldSet>
+              Dag
+            </Label>
+            <TextInput defaultValue={16} id="test-10" inputMode="numeric" />
+          </DateInputGroup.Field>
+          <DateInputGroup.Field>
+            <Label htmlFor="test-11" inFieldSet>
+              Maand
+            </Label>
+            <TextInput defaultValue={8} id="test-11" inputMode="numeric" />
+          </DateInputGroup.Field>
+          <DateInputGroup.Field wide>
+            <Label htmlFor="test-12" inFieldSet>
+              Jaar
+            </Label>
+            <TextInput defaultValue={2000} id="test-12" inputMode="numeric" size={12} />
+          </DateInputGroup.Field>
+        </DateInputGroup>
+      </FieldSet>
     </div>
   ),
   tags: ['!dev', '!autodocs', '!manifest'],
