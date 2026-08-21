@@ -1,0 +1,113 @@
+import{n as e}from"./rolldown-runtime-DkW27tQK.js";import{h as t,u as n}from"./blocks-msKSRvUz.js";import{t as r}from"./jsx-runtime-ATHzeHXA.js";import{i,r as a}from"./react-Dyi61YEg.js";function o(e){let t={a:`a`,blockquote:`blockquote`,code:`code`,h1:`h1`,h2:`h2`,h3:`h3`,li:`li`,p:`p`,pre:`pre`,ul:`ul`,...i(),...e.components};return(0,c.jsxs)(c.Fragment,{children:[`
+`,`
+`,(0,c.jsx)(n,{title:`Docs/Guidelines/Localisation`}),`
+`,(0,c.jsx)(t.h1,{id:`localisation`,children:`Localisation`}),`
+`,(0,c.jsx)(t.p,{children:`Localisation covers two related tasks.
+Declare the language of your content so browsers and assistive technologies interpret it correctly, and tell components which language and region to format their output in.`}),`
+`,(0,c.jsx)(t.h2,{id:`language`,children:`Language`}),`
+`,(0,c.jsxs)(t.p,{children:[`Declare the human language of your content with the HTML `,(0,c.jsx)(t.code,{children:`lang`}),` attribute.
+This helps browsers, screen readers, and search engines interpret it correctly.`]}),`
+`,(0,c.jsx)(t.h3,{id:`specify-the-language-for-the-entire-document`,children:`Specify the language for the entire document`}),`
+`,(0,c.jsx)(t.p,{children:`It is mandatory to explicitly indicate in which language the content of your page is.
+With the correct language set, your website will work better.
+Screen readers will know what language to use for speech.
+It is also helpful for search engine optimization (SEO).`}),`
+`,(0,c.jsxs)(t.p,{children:[`Specify the language on your website’s `,(0,c.jsx)(t.code,{children:`<html>`}),` element.
+After all, the contents of elements in the `,(0,c.jsx)(t.code,{children:`<head>`}),`, such as `,(0,c.jsx)(t.code,{children:`title`}),` and `,(0,c.jsx)(t.code,{children:`meta`}),`, also contain content in the same language.
+That is outside the scope of the components of the design system.
+That is why you have to remember to do this properly yourself.`]}),`
+`,(0,c.jsx)(t.pre,{children:(0,c.jsx)(t.code,{className:`language-html`,children:`<html lang="nl">
+  …
+</html>
+`})}),`
+`,(0,c.jsx)(t.h3,{id:`highlight-elements-in-another-language`,children:`Highlight elements in another language`}),`
+`,(0,c.jsx)(t.p,{children:`If a specific element is in another language, indicate this there.`}),`
+`,(0,c.jsx)(t.p,{children:`For example, for a link to an English site or page in a menu:`}),`
+`,(0,c.jsx)(t.pre,{children:(0,c.jsx)(t.code,{className:`language-html`,children:`<nav>
+  <ul>
+    <li><a href="https://mijn.amsterdam.nl/">My Amsterdam</a></li>
+    <li><a href="https://www.amsterdam.nl/en/" lang="en">English site</a></li>
+  </ul>
+</nav>
+`})}),`
+`,(0,c.jsx)(t.h3,{id:`do-not-specify-the-region`,children:`Do not specify the region`}),`
+`,(0,c.jsxs)(t.p,{children:[`The language tag `,(0,c.jsx)(t.code,{children:`nl`}),` is sufficient.
+Expanding it with the region subtag `,(0,c.jsx)(t.code,{children:`nl-NL`}),` is not necessary:`]}),`
+`,(0,c.jsxs)(t.blockquote,{children:[`
+`,(0,c.jsxs)(t.p,{children:[`The golden rule when creating language tags is to keep the tag as short as possible.
+Avoid region, script or other subtags except where they add useful distinguishing information.
+– `,(0,c.jsx)(t.a,{href:`https://www.w3.org/International/articles/language-tags/`,rel:`nofollow`,children:`W3C Internationalization Activity`})]}),`
+`]}),`
+`,(0,c.jsx)(t.h2,{id:`locale`,children:`Locale`}),`
+`,(0,c.jsxs)(t.p,{children:[`Some components render their own text, such as weekday and month names.
+Set the language and region they format it in with the `,(0,c.jsx)(t.code,{children:`locale`}),` prop.`]}),`
+`,(0,c.jsx)(t.h3,{id:`localise-components`,children:`Localise components`}),`
+`,(0,c.jsxs)(t.p,{children:[`The `,(0,c.jsx)(t.a,{href:`/docs/components-navigation-calendar--docs`,children:`Calendar`}),` and `,(0,c.jsx)(t.a,{href:`/docs/components-forms-date-picker--docs`,children:`Date Picker`}),` render weekday names, month names, and accessible date labels in the language of their `,(0,c.jsx)(t.code,{children:`locale`}),` prop.
+When you omit it, both default to `,(0,c.jsx)(t.code,{children:`nl-NL`}),`.`]}),`
+`,(0,c.jsxs)(t.p,{children:[`The prop accepts a `,(0,c.jsx)(t.a,{href:`https://www.w3.org/International/articles/language-tags/`,rel:`nofollow`,children:`BCP 47 language tag`}),`.
+Unlike the HTML `,(0,c.jsx)(t.code,{children:`lang`}),` attribute, including a region subtag is appropriate here.
+The JavaScript `,(0,c.jsx)(t.code,{children:`Intl`}),` API can produce different output for different regional variants of the same language.`]}),`
+`,(0,c.jsx)(t.p,{children:`These locales have been tested:`}),`
+`,(0,c.jsxs)(t.ul,{children:[`
+`,(0,c.jsxs)(t.li,{children:[(0,c.jsx)(t.code,{children:`nl-NL`}),` – Nederlands (Dutch), the default`]}),`
+`,(0,c.jsxs)(t.li,{children:[(0,c.jsx)(t.code,{children:`en-GB`}),` – English`]}),`
+`,(0,c.jsxs)(t.li,{children:[(0,c.jsx)(t.code,{children:`de-DE`}),` – Deutsch (German)`]}),`
+`,(0,c.jsxs)(t.li,{children:[(0,c.jsx)(t.code,{children:`fr-FR`}),` – Français (French)`]}),`
+`,(0,c.jsxs)(t.li,{children:[(0,c.jsx)(t.code,{children:`tr-TR`}),` – Türkçe (Turkish)`]}),`
+`,(0,c.jsxs)(t.li,{children:[(0,c.jsx)(t.code,{children:`ar-MA`}),` – العربية (Arabic)`]}),`
+`]}),`
+`,(0,c.jsxs)(t.p,{children:[(0,c.jsx)(t.code,{children:`locale`}),` only drives the text that `,(0,c.jsx)(t.code,{children:`Intl`}),` generates.
+Both components also have accessible names and navigation button labels that stay in their default language until you translate them, so set those in the same language to avoid a mix.
+For right-to-left languages like Arabic, also add `,(0,c.jsx)(t.code,{children:`dir="rtl"`}),` to the component or to a containing element.`]}),`
+`,(0,c.jsx)(t.p,{children:`If your app uses one of these components in multiple places with the same language, a small wrapper component avoids repeating these props:`}),`
+`,(0,c.jsx)(t.pre,{children:(0,c.jsx)(t.code,{className:`language-tsx`,children:`import type { CalendarProps } from "@amsterdam/design-system-react";
+
+import { Calendar } from "@amsterdam/design-system-react";
+
+const ArabicCalendar = (props: CalendarProps) => (
+  <Calendar
+    accessibleName="التقويم"
+    dir="rtl"
+    locale="ar-MA"
+    nextMonthButtonLabel="الشهر التالي"
+    nextYearButtonLabel="السنة التالية"
+    previousMonthButtonLabel="الشهر السابق"
+    previousYearButtonLabel="السنة السابقة"
+    {...props}
+  />
+);
+`})}),`
+`,(0,c.jsxs)(t.p,{children:[`The same pattern applies to the Date Picker, which also takes `,(0,c.jsx)(t.code,{children:`rangeStartAccessibleName`}),` and `,(0,c.jsx)(t.code,{children:`rangeEndAccessibleName`}),` in range mode.`]}),`
+`,(0,c.jsx)(t.h3,{id:`supply-the-text-yourself`,children:`Supply the text yourself`}),`
+`,(0,c.jsxs)(t.p,{children:[`Not every component that writes its own text can generate it from a locale.
+A `,(0,c.jsx)(t.a,{href:`/docs/components-forms-form-field-status--docs`,children:`Form Field Status`}),` reports on a number, and languages differ in word order and in how they count, so it takes the sentence from you rather than a locale to build one with.`]}),`
+`,(0,c.jsxs)(t.p,{children:[`Its character count has two formatter props.
+`,(0,c.jsx)(t.code,{children:`formatText`}),` receives the current and the maximum length, and `,(0,c.jsx)(t.code,{children:`formatOverLimitText`}),` receives how far the value exceeds the maximum.
+Both return the string to display, and both default to Dutch.`]}),`
+`,(0,c.jsx)(t.pre,{children:(0,c.jsx)(t.code,{className:`language-tsx`,children:`<FormFieldStatus lang="en">
+  <FormFieldStatus.CharacterCount
+    formatOverLimitText={formatCharacterCountOverLimitTextEn}
+    formatText={formatCharacterCountTextEn}
+    length={15}
+    maxLength={10}
+  />
+</FormFieldStatus>
+`})}),`
+`,(0,c.jsxs)(t.p,{children:[`Formatters for each tested locale are exported, so the example above needs no function of its own.
+Write your own where a language needs something they do not do: a different word order, or a plural rule that `,(0,c.jsx)(t.code,{children:`Intl.PluralRules`}),` resolves.`]}),`
+`,(0,c.jsxs)(t.p,{children:[`Because the text is the component's own rather than yours, it inherits the language of the page around it.
+Set `,(0,c.jsx)(t.code,{children:`lang`}),` to the language you formatted in whenever the two differ, as above, so screen readers pronounce it correctly.
+The count sits in a live region, so a wrong `,(0,c.jsx)(t.code,{children:`lang`}),` is heard on every update rather than read once.`]}),`
+`,(0,c.jsx)(t.h3,{id:`native-form-controls`,children:`Native form controls`}),`
+`,(0,c.jsxs)(t.p,{children:[`Native form controls render some of their text themselves.
+For example, `,(0,c.jsx)(t.code,{children:`<input type="time">`}),` orders and formats its hour and minute fields according to the browser’s own locale, not the page’s `,(0,c.jsx)(t.code,{children:`lang`}),` or `,(0,c.jsx)(t.code,{children:`dir`}),`.
+This is browser behaviour that pages cannot override.`]}),`
+`,(0,c.jsx)(t.h3,{id:`mirror-directional-icons`,children:`Mirror directional icons`}),`
+`,(0,c.jsx)(t.p,{children:`Icons that imply a reading direction or depict movement that follows the reader’s natural flow flip in a right-to-left context.`}),`
+`,(0,c.jsxs)(t.p,{children:[`The design system’s own directional icons handle this automatically: each carries a `,(0,c.jsx)(t.code,{children:`data-directional="true"`}),` attribute on its root `,(0,c.jsx)(t.code,{children:`<svg>`}),`, and the `,(0,c.jsx)(t.a,{href:`/docs/components-media-icon--docs`,children:`Icon`}),` styles mirror any icon with that attribute under `,(0,c.jsx)(t.code,{children:`dir="rtl"`}),`.`]}),`
+`,(0,c.jsxs)(t.p,{children:[`The `,(0,c.jsx)(t.a,{href:`/docs/components-navigation-calendar--docs`,children:`Calendar`}),` and `,(0,c.jsx)(t.a,{href:`/docs/components-forms-date-picker--docs`,children:`Date Picker`}),` navigation chevrons are one example.
+When you supply your own directional icon anywhere, give it the same attribute so it mirrors as well.`]}),`
+`,(0,c.jsx)(t.h2,{id:`relevant-wcag-requirements`,children:`Relevant WCAG requirements`}),`
+`,(0,c.jsxs)(t.ul,{children:[`
+`,(0,c.jsxs)(t.li,{children:[(0,c.jsx)(t.a,{href:`https://www.w3.org/TR/WCAG22/#language-of-parts`,rel:`nofollow`,children:`WCAG 3.1.2`}),`: indicate the language of any passage or phrase that differs from the page’s default language`]}),`
+`]})]})}function s(e={}){let{wrapper:t}={...i(),...e.components};return t?(0,c.jsx)(t,{...e,children:(0,c.jsx)(o,{...e})}):o(e)}var c;function l(){return(l=e((()=>{c=r(),a(),t()})))()}l();export{s as default};
