@@ -4478,6 +4478,205 @@
         }
       }
     },
+    "components-forms-file-card": {
+      "id": "components-forms-file-card",
+      "name": "FileCard",
+      "path": "./src/components/FileCard/FileCard.stories.tsx",
+      "jsDocTags": {
+        "see": [
+          "{@link https://designsystem.amsterdam/?path=/docs/components-forms-file-card--docs File Card docs at Amsterdam Design System}"
+        ]
+      },
+      "description": "Presents one file with its type and size, and the actions available for it.",
+      "reactComponentMeta": {
+        "displayName": "FileCard",
+        "exportName": "FileCard",
+        "filePath": "/home/runner/work/design-system/design-system/packages/react/src/index.ts",
+        "description": "Presents one file with its type and size, and the actions available for it.",
+        "jsDocTags": {
+          "see": [
+            "{@link https://designsystem.amsterdam/?path=/docs/components-forms-file-card--docs File Card docs at Amsterdam Design System}"
+          ]
+        },
+        "props": {
+          "deleteButtonLabel": {
+            "name": "deleteButtonLabel",
+            "required": false,
+            "type": {
+              "name": "string"
+            },
+            "description": "The visible label of the delete button. The name of the file is appended for screen readers.",
+            "defaultValue": {
+              "value": "'Verwijder'"
+            },
+            "parent": {
+              "name": "FileCardProps",
+              "fileName": "../packages/react/src/FileCard/FileCard.tsx"
+            },
+            "declarations": [
+              {
+                "name": "TypeLiteral",
+                "fileName": "../packages/react/src/FileCard/FileCard.tsx"
+              }
+            ]
+          },
+          "formatDetailsText": {
+            "name": "formatDetailsText",
+            "required": false,
+            "type": {
+              "name": "FormatFileDetailsText"
+            },
+            "description": "Returns the text with the type and size of the file, displayed below its name.\nFormatters for all tested locales are available as exports.",
+            "defaultValue": {
+              "value": "formatFileDetailsText('nl-NL')"
+            },
+            "parent": {
+              "name": "FileCardProps",
+              "fileName": "../packages/react/src/FileCard/FileCard.tsx"
+            },
+            "declarations": [
+              {
+                "name": "TypeLiteral",
+                "fileName": "../packages/react/src/FileCard/FileCard.tsx"
+              }
+            ]
+          },
+          "name": {
+            "name": "name",
+            "required": true,
+            "type": {
+              "name": "string"
+            },
+            "description": "The name of the file.",
+            "defaultValue": null,
+            "parent": {
+              "name": "FileCardProps",
+              "fileName": "../packages/react/src/FileCard/FileCard.tsx"
+            },
+            "declarations": [
+              {
+                "name": "TypeLiteral",
+                "fileName": "../packages/react/src/FileCard/FileCard.tsx"
+              }
+            ]
+          },
+          "onDelete": {
+            "name": "onDelete",
+            "required": false,
+            "type": {
+              "name": "() => void"
+            },
+            "description": "A function to run when the user removes the file. Adds a delete button.",
+            "defaultValue": null,
+            "parent": {
+              "name": "FileCardProps",
+              "fileName": "../packages/react/src/FileCard/FileCard.tsx"
+            },
+            "declarations": [
+              {
+                "name": "TypeLiteral",
+                "fileName": "../packages/react/src/FileCard/FileCard.tsx"
+              }
+            ]
+          },
+          "previewUrl": {
+            "name": "previewUrl",
+            "required": false,
+            "type": {
+              "name": "string"
+            },
+            "description": "The address of an image to display instead of the generic document icon.",
+            "defaultValue": null,
+            "parent": {
+              "name": "FileCardProps",
+              "fileName": "../packages/react/src/FileCard/FileCard.tsx"
+            },
+            "declarations": [
+              {
+                "name": "TypeLiteral",
+                "fileName": "../packages/react/src/FileCard/FileCard.tsx"
+              }
+            ]
+          },
+          "size": {
+            "name": "size",
+            "required": false,
+            "type": {
+              "name": "number"
+            },
+            "description": "The size of the file in bytes.",
+            "defaultValue": null,
+            "parent": {
+              "name": "FileCardProps",
+              "fileName": "../packages/react/src/FileCard/FileCard.tsx"
+            },
+            "declarations": [
+              {
+                "name": "TypeLiteral",
+                "fileName": "../packages/react/src/FileCard/FileCard.tsx"
+              }
+            ]
+          },
+          "type": {
+            "name": "type",
+            "required": false,
+            "type": {
+              "name": "string"
+            },
+            "description": "The media type of the file, e.g. `application/pdf`.",
+            "defaultValue": null,
+            "parent": {
+              "name": "FileCardProps",
+              "fileName": "../packages/react/src/FileCard/FileCard.tsx"
+            },
+            "declarations": [
+              {
+                "name": "TypeLiteral",
+                "fileName": "../packages/react/src/FileCard/FileCard.tsx"
+              }
+            ]
+          }
+        }
+      },
+      "stories": [
+        {
+          "id": "components-forms-file-card--default",
+          "name": "Default",
+          "snippet": "const Default = () => <FileCard\n    name=\"paspoort.pdf\"\n    size={1536000}\n    type=\"application/pdf\"\n    onDelete={remove} />;"
+        },
+        {
+          "id": "components-forms-file-card--with-preview",
+          "name": "With Preview",
+          "snippet": "const WithPreview = () => <FileCard\n    name=\"pasfoto.jpg\"\n    size={248000}\n    type=\"image/jpeg\"\n    onDelete={remove}\n    previewUrl=\"https://picsum.photos/id/64/128/128\" />;"
+        },
+        {
+          "id": "components-forms-file-card--without-actions",
+          "name": "Without Actions",
+          "snippet": "const WithoutActions = () => <FileCard name=\"paspoort.pdf\" size={1536000} type=\"application/pdf\" />;"
+        },
+        {
+          "id": "components-forms-file-card--in-a-file-list",
+          "name": "In A File List",
+          "snippet": "const InAFileList = () => <FileList>\n    <FileList.Item>\n        <FileCard\n            name=\"paspoort.pdf\"\n            size={1536000}\n            type=\"application/pdf\"\n            onDelete={remove} />\n    </FileList.Item>\n    <FileList.Item>\n        <FileCard\n            onDelete={remove}\n            name=\"pasfoto.jpg\"\n            previewUrl=\"https://picsum.photos/id/64/128/128\"\n            size={248000}\n            type=\"image/jpeg\" />\n    </FileList.Item>\n    <FileList.Item>\n        <FileCard\n            onDelete={remove}\n            name=\"aanvraag-2026-03-11-definitief.docx\"\n            size={72000}\n            type=\"application/msword\" />\n    </FileList.Item>\n</FileList>;"
+        },
+        {
+          "id": "components-forms-file-card--translated",
+          "name": "Translated",
+          "snippet": "const Translated = () => <Column>\n    <FileCard\n        name=\"paspoort.pdf\"\n        size={1536000}\n        type=\"application/pdf\"\n        onDelete={remove}\n        lang=\"nl\" />\n    <FileCard\n        size={1536000}\n        type=\"application/pdf\"\n        onDelete={remove}\n        deleteButtonLabel=\"Delete\"\n        formatDetailsText={formatFileDetailsTextEn}\n        lang=\"en\"\n        name=\"passport.pdf\" />\n</Column>;"
+        }
+      ],
+      "import": "import { Column } from \"@amsterdam/design-system-react\";\nimport { FileCard, FileList } from \"@amsterdam/design-system-react/src\";",
+      "docs": {
+        "components-forms-file-card--docs": {
+          "id": "components-forms-file-card--docs",
+          "name": "Docs",
+          "path": "./src/components/FileCard/FileCard.docs.mdx",
+          "title": "Components/Forms/File Card",
+          "content": "{/* @license CC0-1.0 */}\n\nimport { Canvas, Controls, Description, Meta, Primary, Title } from \"@storybook/addon-docs/blocks\";\n\nimport { DesignTokensTable } from \"#storybook/_components/DesignTokensTable/DesignTokensTable\";\nimport tokens from \"#tokens/components/ams/file-card.tokens.json\";\n\nimport * as FileCardStories from \"./FileCard.stories.tsx\";\n\n<Meta of={FileCardStories} />\n\n<Title />\n\n<Description of={FileCardStories} />\n\n<Primary />\n\n<Controls />\n\n## Usage guidelines\n\n### When to use\n\nUse a File Card wherever one file has to be recognised and acted on: among the files someone has just selected with a File Input, or as an attachment on a page that shows a case, a request or a decision.\nNL Design System calls this component [File](https://www.nldesignsystem.nl/file/).\nWe name it File Card because `File` is a global name in the browser and in TypeScript, and a component of that name would shadow the `File` constructor in every module that imports it.\n\n### When not to use\n\nDo not use a File Card for a link to a page or a document that is not a file the user owns.\nUse a [Link](/docs/components-navigation-link--docs) or a [Standalone Link](/docs/components-navigation-standalone-link--docs) for that.\n\n### How to use\n\nPass the name, and the size and type when they are known.\nA File Card takes these as separate values rather than a `File` object, so it works just as well for a file that already sits on a server and has no `File` object at all.\n\n```jsx\n<FileCard name=\"besluit.pdf\" onDelete={remove} size={1536000} type=\"application/pdf\" />\n```\n\nAdd a `previewUrl` to display a thumbnail instead of the generic document icon.\nA File Card never creates that address itself, so whoever creates an object URL is also the one who can release it.\nThe example below shows the pattern.\n\n## Examples\n\n### Within a File List\n\nA File Card sits inside a File List Item, which renders the `li` element around it.\n\n<Canvas of={FileCardStories.InAFileList} />\n\n### With a preview\n\n<Canvas of={FileCardStories.WithPreview} />\n\n### Without actions\n\nLeave out `onDelete` to display a file without offering anything to do with it.\n\n<Canvas of={FileCardStories.WithoutActions} />\n\n### Translated text\n\nThe component displays its text in Dutch by default.\nPass `formatFileDetailsTextEn` – or a function of your own – to `formatDetailsText`, and the matching label to `deleteButtonLabel`.\nSee the [Localisation guide](/docs/docs-guidelines-localisation--docs) for the tested locales.\n\n<Canvas of={FileCardStories.Translated} />\n\n`formatDetailsText` returns the whole line below the name, brackets and separator included, so the order of the parts and the punctuation are yours to change.\nIt receives the size and the type, and the default assumes the type is a media type such as `application/pdf`.\nWhen all you have is an extension, pass a function that formats it:\n\n```jsx\n<FileCard\n  formatDetailsText={({ size, type }) => `(${type}, ${Math.round(size / 1000)} kB)`}\n  name=\"besluit.pdf\"\n  size={1536000}\n  type=\"pdf\"\n/>\n```\n\nThe default leaves out the part it has no value for, so a file of unknown size shows its type alone rather than the word `undefined`.\n\n## Design\n\nA File Card is one row: a preview of fixed width, then the name with its details below it, then the actions.\nThe preview column is the same width whether it holds a thumbnail or the generic document icon, so the names line up down a list.\n\nA name too long for its row wraps onto the next line rather than being cut off with an ellipsis.\nThe name is what someone recognises the file by, and names that end in a date or a reference – `aanvraag-2026-03-11-definitief.pdf` – lose exactly the part that tells them apart when the end is dropped.\nRows are no longer all the same height as a result, which is the price of a name that stays readable.\nAutomatic hyphenation is switched off for the name, because a file name has no word boundaries to break on.\n\nThe actions are laid out as a row from the start.\nOnly deleting is implemented: viewing and downloading are not built, because we have no use for them yet.\nAdding one later takes a prop and a button, and changes neither this anatomy nor the CSS.\n\n## Accessibility\n\nThe thumbnail is decorative and carries an empty `alt`.\nThe component cannot know what the image shows, and the name is already beside it, so giving the image that name would only have it announced twice.\n\nThe delete button reads ‘Verwijder’ on screen and ‘Verwijder’ followed by the name of the file to a screen reader.\nRepeating the name on screen would put it twice in every row and make the buttons wide and untidy; leaving it out of the accessible name would leave someone reviewing the buttons of a page out of context with the same word for each of them.\nChange `deleteButtonLabel` to change both, as the visible label stays the first part of the accessible name.\n\nAfter a delete, focus moves to the delete button of the next file, or of the previous one when the last file in the list is removed.\nWithout that, focus would fall back to the start of the page as the button disappears from under it.\nA File Card outside a list cannot know where focus should go instead, and neither can it when the last file leaves and the list disappears with it: that case belongs to the page around it, as the File Input example shows.\n\nThere is no live region.\nMoving focus to a neighbouring button already makes the change noticeable, and announcing it on top of that reads as noise rather than as help.\n\n## See also\n\n- [File List](/docs/components-forms-file-list--docs) – arranges several File Cards as a list, so their number is announced.\n- [File Input](/docs/components-forms-file-input--docs) – lets the user select the files to display.\n\n## Design tokens\n\n<DesignTokensTable tokens={tokens} />\n",
+          "summary": "## Usage guidelines ### When to use Use a File Card wherever one file has to be recognised..."
+        }
+      }
+    },
     "components-forms-file-input": {
       "id": "components-forms-file-input",
       "name": "FileInput",
@@ -4629,7 +4828,7 @@
         {
           "id": "components-forms-file-list--default",
           "name": "Default",
-          "snippet": "const Default = () => <FileList>{[\n      <FileList.Item\n        file={new File(['sample1'], 'sample1.txt', { lastModified: Date.now(), type: 'text/plain' })}\n        key=\"1\"\n        onDelete={() => {}}\n      />,\n      <FileList.Item\n        file={new File(['sample2'], 'sample2.txt', { lastModified: Date.now(), type: 'text/plain' })}\n        key=\"2\"\n        onDelete={() => {}}\n      />,\n    ]}</FileList>;"
+          "snippet": "const Default = () => <FileList>{[\n      <FileList.Item key=\"1\">\n        <FileCard name=\"paspoort.pdf\" onDelete={() => {}} size={1536000} type=\"application/pdf\" />\n      </FileList.Item>,\n      <FileList.Item key=\"2\">\n        <FileCard name=\"loonstrook.pdf\" onDelete={() => {}} size={248000} type=\"application/pdf\" />\n      </FileList.Item>,\n    ]}</FileList>;"
         },
         {
           "id": "components-forms-file-list--with-input",
@@ -4637,15 +4836,15 @@
           "snippet": "const WithInput = () => <FileInputWithFileList />;"
         }
       ],
-      "import": "import { FileInputWithFileList } from \"@amsterdam/design-system-react\";\nimport { FileList } from \"@amsterdam/design-system-react/src\";",
+      "import": "import { FileCard, FileList } from \"@amsterdam/design-system-react/src\";\nimport { FileInputWithFileList } from \"@amsterdam/design-system-react\";",
       "docs": {
         "components-forms-file-list--docs": {
           "id": "components-forms-file-list--docs",
           "name": "Docs",
           "path": "./src/components/FileList/FileList.docs.mdx",
           "title": "Components/Forms/File List",
-          "content": "{/* @license CC0-1.0 */}\n\nimport { Canvas, Controls, Description, Meta, Primary, Source, Title } from \"@storybook/addon-docs/blocks\";\n\nimport { DesignTokensTable } from \"#storybook/_components/DesignTokensTable/DesignTokensTable\";\nimport tokens from \"#tokens/components/ams/file-list.tokens.json\";\n\nimport FileInputWithFileList from \"./FileInputWithFileList?raw\";\nimport * as FileListStories from \"./FileList.stories.tsx\";\nimport * as FileListItemStories from \"./FileListItem.stories.tsx\";\n\n<Meta of={FileListStories} />\n\n<Title />\n\n<Description of={FileListStories} />\n\n<Primary />\n\nThis component has no props to configure.\n\n## Subcomponents\n\n### Item\n\nRepresents a selected `file`.\nProvide an `onDelete` callback to let users remove it from the list.\n\n<Canvas of={FileListItemStories.Item} />\n\n<Controls of={FileListItemStories.Item} />\n\n## Usage guidelines\n\n### When to use\n\nUse a File List to display the files a user has selected or uploaded, showing each file’s name, type, size, and a preview.\n\n## Examples\n\n### Using a file input\n\nTo connect a File Input to a File List, use the `onChange` event to update the\nlist of files and use `onDelete` when removing a file from the list.\n\n<Canvas of={FileListStories.WithInput} />\n\n<Source code={FileInputWithFileList} language=\"jsx\" />\n\n## Design\n\nEvery item is one row: a preview of fixed width, then the name and details, then the delete button.\nThe preview column is the same width whether it holds a thumbnail or the generic document icon, so the names line up down the list.\n\nA name too long for its row is cut off with an ellipsis on a single line rather than wrapped.\nRows then stay the same height whatever has been uploaded, which keeps a list of several files scannable.\n\nThe file type and size sit below the name in their own colour, so the name stays the thing you read first.\n\n## Accessibility\n\nA File List renders `ul` and `li` elements, so screen readers announce it as a list and report how many files it holds.\n\nCutting off a long name is visual only.\nThe whole name is in the markup and is announced in full, so nothing is lost to someone who cannot see where the row ends.\n\nThe preview of an image file repeats the file name as its alternative text, so that name is announced twice: once for the thumbnail and once for the text beside it.\n\nEvery delete button is labelled ‘Verwijder’, in Dutch and without the name of the file it removes.\nSomeone reviewing the buttons of the page out of context hears the same word for each of them, and the label cannot be configured.\nUntil it can, prefer a File List short enough to keep each button next to the file it belongs to.\n\n## See also\n\n- [File Input](/docs/components-forms-file-input--docs) – lets the user select files to add to the File List.\n\n## Design tokens\n\n<DesignTokensTable tokens={tokens} />\n",
-          "summary": "This component has no props to configure. ## Subcomponents ### Item Represents a selected ..."
+          "content": "{/* @license CC0-1.0 */}\n\nimport { Canvas, Controls, Description, Meta, Primary, Source, Title } from \"@storybook/addon-docs/blocks\";\n\nimport { DesignTokensTable } from \"#storybook/_components/DesignTokensTable/DesignTokensTable\";\nimport tokens from \"#tokens/components/ams/file-list.tokens.json\";\n\nimport FileInputWithFileList from \"./FileInputWithFileList?raw\";\nimport * as FileListStories from \"./FileList.stories.tsx\";\nimport * as FileListItemStories from \"./FileListItem.stories.tsx\";\n\n<Meta of={FileListStories} />\n\n<Title />\n\n<Description of={FileListStories} />\n\n<Primary />\n\nThis component has no props to configure.\n\n## Subcomponents\n\n### Item\n\nRenders the `li` element for one file, around whatever is put inside it.\nPlace a [File Card](/docs/components-forms-file-card--docs) there, which displays the file and its actions.\n\n<Canvas of={FileListItemStories.Item} />\n\n<Controls of={FileListItemStories.Item} />\n\nThe `file` and `onDelete` props are deprecated and will be removed on or after 2027-04-01.\nThey still work, and warn in the development build, but they render a File Card without a preview: the thumbnail they used to display came from an object URL that was never released.\nPass `previewUrl` to a File Card of your own to display one again.\n\n```diff\n- <FileList.Item file={file} onDelete={remove} />\n+ <FileList.Item>\n+   <FileCard name={file.name} onDelete={remove} size={file.size} type={file.type} />\n+ </FileList.Item>\n```\n\n## Usage guidelines\n\n### When to use\n\nUse a File List to display several files as a list, so that screen readers announce how many there are.\nA single file needs no list: use a File Card on its own.\n\n## Examples\n\n### Using a file input\n\nTo connect a File Input to a File List, use the `onChange` event to update the list of files, and `onDelete` to remove one.\nThe object URL for a preview is created as the selection changes and released in an effect clean-up, so no address outlives the file it points at.\n\nRemoving the last file empties the list, which is the one case a File Card cannot handle for itself.\nThis example sends focus to a line of its own that says the files are gone.\nSending it back to the field instead is unreliable.\nThe wording beside the browse button is generated by the browser, and not every browser updates what a screen reader reads there when the selection changes in code.\nOne that does not will announce the file that has just been removed.\n\n<Canvas of={FileListStories.WithInput} />\n\n<Source code={FileInputWithFileList} language=\"jsx\" />\n\n## Design\n\nA File List is a column of File Cards with even space between them.\nEverything about how one file is displayed – the preview column, the name, the details below it – belongs to the File Card and is documented there.\n\n## Accessibility\n\nA File List renders `ul` and `li` elements, so screen readers announce it as a list and report how many files it holds.\n\nRemoving a file moves focus to the delete button of the file next to it, which is what keeps someone working through the list with a keyboard from losing their place.\nThat behaviour lives in the File Card, and its documentation covers the case this component cannot handle: the last file leaving, which takes the list with it.\n\n## See also\n\n- [File Card](/docs/components-forms-file-card--docs) – displays one file, within this list or on its own.\n- [File Input](/docs/components-forms-file-input--docs) – lets the user select files to add to the File List.\n\n## Design tokens\n\n<DesignTokensTable tokens={tokens} />\n",
+          "summary": "This component has no props to configure. ## Subcomponents ### Item Renders the `li` eleme..."
         }
       }
     },
@@ -12075,6 +12274,6 @@
   },
   "meta": {
     "docgen": "react-component-meta",
-    "durationMs": 3234
+    "durationMs": 4866
   }
 }
