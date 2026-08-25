@@ -3,13 +3,16 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Field, FileCard, FileInput, FileList, Label } from '@amsterdam/design-system-react'
+import { Field, FileCard, FileInput, FileList, Label, Paragraph } from '@amsterdam/design-system-react'
 import { useEffect, useRef, useState } from 'react'
+import { flushSync } from 'react-dom'
 
 export const FileInputWithFileList = () => {
   const inputRef = useRef<HTMLInputElement>(null)
+  const emptiedRef = useRef<HTMLParagraphElement>(null)
   const [files, setFiles] = useState<File[]>([])
   const [previewUrls, setPreviewUrls] = useState<string[]>([])
+  const [emptied, setEmptied] = useState(false)
 
   // A File Card only displays the address, so releasing it belongs to whoever creates it.
   // This runs for the previous set whenever the selection changes, and once more on unmount.
@@ -21,6 +24,7 @@ export const FileInputWithFileList = () => {
   }
 
   const changeFiles = () => {
+    setEmptied(false)
     selectFiles(Array.from(inputRef.current?.files ?? []))
   }
 
@@ -35,12 +39,19 @@ export const FileInputWithFileList = () => {
       inputRef.current.files = selection.files
     }
 
-    selectFiles(remaining)
+    // Commit the removal before moving focus, so focus does not land while the button it came from
+    // is still in the tree.
+    flushSync(() => {
+      selectFiles(remaining)
+      setEmptied(remaining.length === 0)
+    })
 
     // A File Card moves focus to the delete button beside it, but it cannot know where focus should go
-    // when the last file leaves and the list disappears with it. Here it returns to the File Input.
+    // when the last file leaves and the list disappears with it. Focus goes to this page’s own account
+    // of what happened, rather than back to the field, whose wording the browser generates and does not
+    // everywhere keep up to date for a screen reader.
     if (remaining.length === 0) {
-      inputRef.current?.focus()
+      emptiedRef.current?.focus()
     }
   }
 
@@ -64,6 +75,11 @@ export const FileInputWithFileList = () => {
             </FileList.Item>
           ))}
         </FileList>
+      )}
+      {emptied && (
+        <Paragraph ref={emptiedRef} tabIndex={-1}>
+          Alle bijlagen zijn verwijderd.
+        </Paragraph>
       )}
     </>
   )
