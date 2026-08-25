@@ -24,7 +24,7 @@ export type FileCardProps = {
   readonly deleteButtonLabel?: string
   /**
    * Returns the text with the type and size of the file, displayed below its name.
-   * Formatters for all tested locales are available as exports.
+   * Formatters for Dutch and English are available as exports.
    * @default formatFileDetailsTextNl
    */
   readonly formatDetailsText?: FormatFileDetailsText
