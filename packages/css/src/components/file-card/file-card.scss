@@ -34,6 +34,10 @@
   display: flex;
   flex: 1;
   flex-direction: column;
+
+  // `overflow-wrap: break-word` does not lower the min-content width, so without this a name
+  // without spaces keeps this column from shrinking and pushes the actions out of the card.
+  min-inline-size: 0;
 }
 
 .ams-file-card__name {
