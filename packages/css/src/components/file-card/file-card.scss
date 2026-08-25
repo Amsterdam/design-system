@@ -9,11 +9,11 @@
   display: flex;
   flex: 1;
   flex-wrap: nowrap;
-  font-family: var(--ams-file-list-file-font-family /* @deprecated */, var(--ams-file-card-font-family));
-  font-size: var(--ams-file-list-file-font-size /* @deprecated */, var(--ams-file-card-font-size));
-  font-weight: var(--ams-file-list-file-font-weight /* @deprecated */, var(--ams-file-card-font-weight));
-  gap: var(--ams-file-list-file-gap /* @deprecated */, var(--ams-file-card-gap));
-  line-height: var(--ams-file-list-file-line-height /* @deprecated */, var(--ams-file-card-line-height));
+  font-family: var(--ams-file-card-font-family);
+  font-size: var(--ams-file-card-font-size);
+  font-weight: var(--ams-file-card-font-weight);
+  gap: var(--ams-file-card-gap);
+  line-height: var(--ams-file-card-line-height);
   overflow-wrap: break-word; // A name without spaces has nowhere to break, so allow one anywhere within it.
 
   @include text-rendering;
@@ -21,7 +21,7 @@
 
 .ams-file-card__preview {
   display: grid;
-  flex: 0 0 var(--ams-file-list-file-preview-width /* @deprecated */, var(--ams-file-card-preview-width));
+  flex: 0 0 var(--ams-file-card-preview-width);
   place-items: center;
 
   img {
@@ -45,7 +45,7 @@
 }
 
 .ams-file-card__details {
-  color: var(--ams-file-list-file-details-color /* @deprecated */, var(--ams-file-card-details-color));
+  color: var(--ams-file-card-details-color);
 }
 
 .ams-file-card__actions {
