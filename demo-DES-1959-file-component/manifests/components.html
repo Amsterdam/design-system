@@ -9715,7 +9715,7 @@ deleteButtonLabel?: string = &#39;Verwijder&#39;
 
 /**
  * Returns the text with the type and size of the file, displayed below its name.
- * Formatters for all tested locales are available as exports.
+ * Formatters for Dutch and English are available as exports.
  */
 formatDetailsText?: FormatFileDetailsText = formatFileDetailsText(&#39;nl-NL&#39;)
 
@@ -10329,7 +10329,7 @@ Place a [File Card](/docs/components-forms-file-card--docs) there, which display
 &lt;Controls of={FileListItemStories.Item} /&gt;
 
 The `file` and `onDelete` props are deprecated and will be removed on or after 2027-04-01.
-They still work, and warn in the development build, but they render a File Card without a preview: the thumbnail they used to display came from an object URL that was never released.
+They still work, and warn in the console, but they render a File Card without a preview: the thumbnail they used to display came from an object URL that was never released.
 Pass `previewUrl` to a File Card of your own to display one again.
 
 ```diff

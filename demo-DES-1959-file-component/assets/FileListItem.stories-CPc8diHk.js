@@ -1,0 +1,5 @@
+import{n as e,r as t}from"./rolldown-runtime-DkW27tQK.js";import{t as n}from"./jsx-runtime-ATHzeHXA.js";import{i as r,n as i,r as a,t as o}from"./FileList-DIsE74VF.js";var s=t({Item:()=>u,__namedExportsOrder:()=>d,default:()=>l}),c,l,u,d;function f(){return(f=e((()=>{r(),i(),c=n(),l={title:`Components/Forms/File List`,component:o.Item,argTypes:{file:{control:!1},onDelete:{control:!1}},decorators:[e=>(0,c.jsx)(o,{children:(0,c.jsx)(e,{})})],tags:[`!manifest`]},u={args:{children:(0,c.jsx)(a,{name:`document.pdf`,onDelete:()=>{},size:1536e3,type:`application/pdf`})}},u.parameters={...u.parameters,docs:{...u.parameters?.docs,source:{originalSource:`{
+  args: {
+    children: <FileCard name="document.pdf" onDelete={() => {}} size={1536000} type="application/pdf" />
+  }
+}`,...u.parameters?.docs?.source}}},d=[`Item`]})))()}export{u as n,f as r,s as t};
