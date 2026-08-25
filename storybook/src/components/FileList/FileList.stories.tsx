@@ -5,7 +5,7 @@
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-import { FileList } from '@amsterdam/design-system-react/src'
+import { FileCard, FileList } from '@amsterdam/design-system-react/src'
 
 import { FileInputWithFileList } from './FileInputWithFileList'
 
@@ -14,16 +14,12 @@ const meta = {
   component: FileList,
   args: {
     children: [
-      <FileList.Item
-        file={new File(['sample1'], 'sample1.txt', { lastModified: Date.now(), type: 'text/plain' })}
-        key="1"
-        onDelete={() => {}}
-      />,
-      <FileList.Item
-        file={new File(['sample2'], 'sample2.txt', { lastModified: Date.now(), type: 'text/plain' })}
-        key="2"
-        onDelete={() => {}}
-      />,
+      <FileList.Item key="1">
+        <FileCard name="paspoort.pdf" onDelete={() => {}} size={1536000} type="application/pdf" />
+      </FileList.Item>,
+      <FileList.Item key="2">
+        <FileCard name="loonstrook.pdf" onDelete={() => {}} size={248000} type="application/pdf" />
+      </FileList.Item>,
     ],
   },
   subcomponents: {

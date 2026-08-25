@@ -5,7 +5,7 @@
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-import { FileList } from '@amsterdam/design-system-react/src'
+import { FileCard, FileList } from '@amsterdam/design-system-react/src'
 
 import { renderComponentVariants } from '#storybook/_common/renderComponentVariants'
 
@@ -22,7 +22,11 @@ type Story = StoryObj<typeof meta>
 
 export const Test: Story = {
   args: {
-    children: <FileList.Item file={new File(['sample1'], 'sample1.txt', { type: 'text/plain' })} />,
+    children: (
+      <FileList.Item>
+        <FileCard name="paspoort.pdf" size={1536000} type="application/pdf" />
+      </FileList.Item>
+    ),
   },
   render: (args, context) => renderComponentVariants(FileList, { args }, context),
   tags: ['!dev', '!autodocs', '!manifest'],
