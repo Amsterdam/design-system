@@ -7,6 +7,8 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Column } from '@amsterdam/design-system-react'
 import { FileCard, FileList } from '@amsterdam/design-system-react/src'
+import { useState } from 'react'
+import { expect } from 'storybook/test'
 
 import { default as fileCardMeta } from './FileCard.stories'
 
@@ -60,5 +62,48 @@ export const Test: Story = {
       </FileList>
     </Column>
   ),
+  tags: ['!dev', '!autodocs', '!manifest'],
+}
+
+const removableFiles = [
+  { name: 'eerste.pdf', size: 1536000, type: 'application/pdf' },
+  { name: 'tweede.pdf', size: 248000, type: 'application/pdf' },
+  { name: 'derde.pdf', size: 72000, type: 'application/pdf' },
+]
+
+const RemovableFileList = () => {
+  const [remaining, setRemaining] = useState(removableFiles)
+
+  return (
+    <FileList>
+      {remaining.map((file) => (
+        <FileList.Item key={file.name}>
+          <FileCard
+            {...file}
+            onDelete={() => setRemaining((current) => current.filter(({ name }) => name !== file.name))}
+          />
+        </FileList.Item>
+      ))}
+    </FileList>
+  )
+}
+
+/*
+ * Removing a file here really removes it, so this covers what the unit tests cannot: where focus ends up
+ * once React has taken the item away, rather than where it was put just before.
+ */
+export const FocusAfterDelete: Story = {
+  play: async ({ canvas, userEvent }) => {
+    await userEvent.click(canvas.getByRole('button', { name: 'Verwijder tweede.pdf' }))
+
+    await expect(canvas.queryByText('tweede.pdf')).not.toBeInTheDocument()
+    await expect(canvas.getByRole('button', { name: 'Verwijder derde.pdf' })).toHaveFocus()
+
+    await userEvent.click(canvas.getByRole('button', { name: 'Verwijder derde.pdf' }))
+
+    await expect(canvas.queryByText('derde.pdf')).not.toBeInTheDocument()
+    await expect(canvas.getByRole('button', { name: 'Verwijder eerste.pdf' })).toHaveFocus()
+  },
+  render: () => <RemovableFileList />,
   tags: ['!dev', '!autodocs', '!manifest'],
 }
