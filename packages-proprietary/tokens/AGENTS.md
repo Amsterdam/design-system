@@ -54,7 +54,8 @@ Two checks enforce this, so it does not have to be remembered:
 - `pnpm build` fails and names every offending token, through [style-dictionary/multiValueDimensions.js](style-dictionary/multiValueDimensions.js).
 - `ams/require-single-value-token` reports a stylesheet reading such a token where one value fits, through [the Stylelint plugin](../../stylelint/README.md).
 
-A deprecated token is exempt from both, since it is frozen at the value it shipped with until it is removed.
+The build check exempts a deprecated token, since it is frozen at the value it shipped with until it is removed.
+The Stylelint rule does not: it judges the declaration in front of it, deprecated or not, so a deprecated alias that still resolves to two values is still reported where one value fits.
 Where a value per side is wanted, use a type that takes several values, or split the token in two and set the longhands — as `ams.dialog.header.padding-block` was split into `ams.dialog.header.padding-block-start` and `ams.dialog.header.padding-block-end`.
 
 Some tokens also carry a `nl.amsterdam.hint` recording why one value is all that fits, in one of two wordings:
