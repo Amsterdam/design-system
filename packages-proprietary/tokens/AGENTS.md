@@ -44,19 +44,26 @@ Token files use the `.tokens.json` extension and follow the DTCG format:
 
 ## Tokens that must hold a single value
 
-A token read through `calc()`, `max()`, `min()` or `clamp()`, or assigned to a CSS longhand, cannot hold two values.
+A token typed as a dimension must resolve to exactly one value, whether it is typed through `nl.amsterdam.type` or the DTCG `$type`.
+
+A dimension is read through `calc()`, `max()`, `min()` or `clamp()`, or assigned to a CSS longhand, and none of those take two values.
 Given two, the declaration is invalid at computed-value time and the property falls back to its initial value rather than to the token, so the spacing disappears rather than degrading.
-Nothing enforces this yet, so every such token carries a `nl.amsterdam.hint` that says so, in one of two wordings:
+
+Two checks enforce this, so it does not have to be remembered:
+
+- `pnpm build` fails and names every offending token, through [style-dictionary/multiValueDimensions.js](style-dictionary/multiValueDimensions.js).
+- `ams/require-single-value-token` reports a stylesheet reading such a token where one value fits, through [the Stylelint plugin](../../stylelint/README.md).
+
+A deprecated token is exempt from both, since it is frozen at the value it shipped with until it is removed.
+Where a value per side is wanted, use a type that takes several values, or split the token in two and set the longhands — as `ams.dialog.header.padding-block` was split into `ams.dialog.header.padding-block-start` and `ams.dialog.header.padding-block-end`.
+
+Some tokens also carry a `nl.amsterdam.hint` recording why one value is all that fits, in one of two wordings:
 
 - `Must be a single value: it is used in a calculation, which two values would invalidate.`
 - `Must be a single value: it sets a longhand property, which takes only one.`
 
-Use the calculation wording when both reasons apply, and append the sentence to whatever hint the token already carries.
-Deprecated aliases are skipped, since they forward to the token that carries the note.
-
-Decide from the stylesheet, not from the token name, because the two do not always agree.
-`ams.skeleton.list.gap` and `ams.table-of-contents.item.gap` set the `row-gap` and `column-gap` longhands despite being named for the shorthand, so both need the note.
-A token that really does set `gap` does not need the note, since that shorthand takes two values, and the design system ships two-value tokens on purpose — `ams.dialog.header.padding-block` is one.
+The checks make that note advisory rather than load-bearing.
+It stays because it tells whoever changes the value what depends on it; there is no need to add one to a new token.
 
 ## Modes
 
