@@ -39,6 +39,7 @@ const DEFAULT_PROPERTIES = [
   'flex-basis',
   'font-size',
   'height',
+  'inline-size',
   'inset-block-end',
   'inset-block-start',
   'inset-inline-end',
@@ -78,6 +79,7 @@ const DEFAULT_PROPERTIES = [
   'text-decoration-thickness',
   'text-underline-offset',
   'top',
+  'vertical-align',
   'width',
   'word-spacing',
 ]

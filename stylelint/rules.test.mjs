@@ -282,6 +282,18 @@ describe('ams/require-single-value-token', () => {
     expect(warnings[0]).toContain('padding-block-start')
   })
 
+  it('rejects a two-value token on inline-size, which Dialog and Modal Dialog assign a token to', async () => {
+    const warnings = await lint(ruleName, '.a { inline-size: var(--ams-two-value-padding-block); }')
+
+    expect(warnings).toHaveLength(1)
+  })
+
+  it('rejects a two-value token on vertical-align, which Metadata assigns a token to', async () => {
+    const warnings = await lint(ruleName, '.a { vertical-align: var(--ams-two-value-padding-block); }')
+
+    expect(warnings).toHaveLength(1)
+  })
+
   it('rejects a two-value token read by a math function', async () => {
     const warnings = await lint(ruleName, '.a { --ams-a: max(var(--ams-two-value-padding-block), 1rem); }')
 
