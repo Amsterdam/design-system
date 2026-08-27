@@ -33,6 +33,12 @@
         "importFrom": ["packages-proprietary/tokens/dist/index.css"]
       }
     ],
+    "ams/require-single-value-token": [
+      true,
+      {
+        "importFrom": ["packages-proprietary/tokens/dist/index.css"]
+      }
+    ],
     "ams/require-system-font-fallback": [
       true,
       {

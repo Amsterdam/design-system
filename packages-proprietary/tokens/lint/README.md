@@ -10,7 +10,7 @@ Reports design tokens that the build defines but nothing consumes.
 Until this check, nothing enforced that, and review missed at least one case for over a year: `--ams-search-field-input-cancel-button-color` has never been referenced by [search-field.scss](../../../packages/css/src/components/search-field/search-field.scss) in the entire history of that file.
 
 Every other check in the repository runs from source to the token dictionary, never the other way.
-In [.stylelintrc.json](../../../.stylelintrc.json), `csstools/value-no-unknown-custom-properties` and the five `ams/*` rules all take the built token CSS as an `importFrom` dictionary and validate declarations against it.
+In [.stylelintrc.json](../../../.stylelintrc.json), `csstools/value-no-unknown-custom-properties` and the six `ams/*` rules all take the built token CSS as an `importFrom` dictionary and validate declarations against it.
 That answers "does this `var(--ams-…)` resolve to something real?", which catches typos and references to deleted tokens.
 It never asks whether every entry in the dictionary is reached, and reasonably so: the built CSS is a published API, so to a stylesheet linter an unreferenced custom property is unremarkable.
 This check supplies the missing direction.
