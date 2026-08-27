@@ -144,10 +144,25 @@
           }
         },
         "padding-block": {
-          "$value": "0 {ams.space.l}",
+          "$deprecated": "Use `ams.modal-dialog.body.padding-block-start` and `ams.modal-dialog.body.padding-block-end` instead. Will be removed on or after 2027-02-25.",
+          "$value": "{ams.modal-dialog.body.padding-block-start} {ams.modal-dialog.body.padding-block-end}",
           "$extensions": {
             "nl.amsterdam.subtype": "space",
             "nl.amsterdam.type": "dimension"
+          }
+        },
+        "padding-block-end": {
+          "$value": "{ams.space.l}",
+          "$extensions": {
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
+          }
+        },
+        "padding-block-start": {
+          "$value": "0",
+          "$type": "dimension",
+          "$extensions": {
+            "nl.amsterdam.subtype": "space"
           }
         },
         "padding-inline": {
@@ -159,10 +174,25 @@
         },
         "vi-medium": {
           "padding-block": {
-            "$value": "0 {ams.space.xl}",
+            "$deprecated": "Use `ams.modal-dialog.body.vi-medium.padding-block-start` and `ams.modal-dialog.body.vi-medium.padding-block-end` instead. Will be removed on or after 2027-02-25.",
+            "$value": "{ams.modal-dialog.body.vi-medium.padding-block-start} {ams.modal-dialog.body.vi-medium.padding-block-end}",
             "$extensions": {
               "nl.amsterdam.subtype": "space",
               "nl.amsterdam.type": "dimension"
+            }
+          },
+          "padding-block-end": {
+            "$value": "{ams.space.xl}",
+            "$extensions": {
+              "nl.amsterdam.subtype": "space",
+              "nl.amsterdam.type": "dimension"
+            }
+          },
+          "padding-block-start": {
+            "$value": "0",
+            "$type": "dimension",
+            "$extensions": {
+              "nl.amsterdam.subtype": "space"
             }
           },
           "padding-inline": {
@@ -176,10 +206,25 @@
       },
       "footer": {
         "padding-block": {
-          "$value": "0 {ams.space.l}",
+          "$deprecated": "Use `ams.modal-dialog.footer.padding-block-start` and `ams.modal-dialog.footer.padding-block-end` instead. Will be removed on or after 2027-02-25.",
+          "$value": "{ams.modal-dialog.footer.padding-block-start} {ams.modal-dialog.footer.padding-block-end}",
           "$extensions": {
             "nl.amsterdam.subtype": "space",
             "nl.amsterdam.type": "dimension"
+          }
+        },
+        "padding-block-end": {
+          "$value": "{ams.space.l}",
+          "$extensions": {
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
+          }
+        },
+        "padding-block-start": {
+          "$value": "0",
+          "$type": "dimension",
+          "$extensions": {
+            "nl.amsterdam.subtype": "space"
           }
         },
         "padding-inline": {
@@ -191,10 +236,25 @@
         },
         "vi-medium": {
           "padding-block": {
-            "$value": "0 {ams.space.xl}",
+            "$deprecated": "Use `ams.modal-dialog.footer.vi-medium.padding-block-start` and `ams.modal-dialog.footer.vi-medium.padding-block-end` instead. Will be removed on or after 2027-02-25.",
+            "$value": "{ams.modal-dialog.footer.vi-medium.padding-block-start} {ams.modal-dialog.footer.vi-medium.padding-block-end}",
             "$extensions": {
               "nl.amsterdam.subtype": "space",
               "nl.amsterdam.type": "dimension"
+            }
+          },
+          "padding-block-end": {
+            "$value": "{ams.space.xl}",
+            "$extensions": {
+              "nl.amsterdam.subtype": "space",
+              "nl.amsterdam.type": "dimension"
+            }
+          },
+          "padding-block-start": {
+            "$value": "0",
+            "$type": "dimension",
+            "$extensions": {
+              "nl.amsterdam.subtype": "space"
             }
           },
           "padding-inline": {

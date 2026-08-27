@@ -117,19 +117,22 @@ Content elements – e.g. a heading and a subtitle – stack without needing a w
   overflow-y: auto;
   /* stylelint-disable-next-line plugin/use-baseline -- Progressive enhancement. */
   overscroll-behavior: contain;
-  padding-block: var(--ams-modal-dialog-body-padding-block);
+  padding-block-end: var(--ams-modal-dialog-body-padding-block-end);
+  padding-block-start: var(--ams-modal-dialog-body-padding-block-start);
   padding-inline: var(--ams-modal-dialog-body-padding-inline);
   /* stylelint-disable-next-line plugin/use-baseline -- Progressive enhancement. */
   scrollbar-gutter: stable;
 
   @media (min-width: $ams-breakpoint-medium) {
-    padding-block: var(--ams-modal-dialog-body-vi-medium-padding-block);
+    padding-block-end: var(--ams-modal-dialog-body-vi-medium-padding-block-end);
+    padding-block-start: var(--ams-modal-dialog-body-vi-medium-padding-block-start);
     padding-inline: var(--ams-modal-dialog-body-vi-medium-padding-inline);
   }
 }
 
 .ams-modal-dialog__footer {
-  padding-block: var(--ams-modal-dialog-footer-padding-block);
+  padding-block-end: var(--ams-modal-dialog-footer-padding-block-end);
+  padding-block-start: var(--ams-modal-dialog-footer-padding-block-start);
   padding-inline: var(--ams-modal-dialog-footer-padding-inline);
 
   /* Use a border in forced colors mode for visual hierarchy and demarcating the scrollable body */
@@ -141,7 +144,8 @@ Content elements – e.g. a heading and a subtitle – stack without needing a w
   }
 
   @media (min-width: $ams-breakpoint-medium) {
-    padding-block: var(--ams-modal-dialog-footer-vi-medium-padding-block);
+    padding-block-end: var(--ams-modal-dialog-footer-vi-medium-padding-block-end);
+    padding-block-start: var(--ams-modal-dialog-footer-vi-medium-padding-block-start);
     padding-inline: var(--ams-modal-dialog-footer-vi-medium-padding-inline);
   }
 }
