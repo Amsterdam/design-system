@@ -588,13 +588,13 @@
 <header>
   <div class="wrap">
     <h1>Manifest Debugger</h1>
-    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">16/90 prop type errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">16/90 infos</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">1/307 story errors</a><a class="filter-pill ok" data-k="docs" href="#filter-docs">126 docs ok</a></div>
+    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">16/90 prop type errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">16/90 infos</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">1/308 story errors</a><a class="filter-pill ok" data-k="docs" href="#filter-docs">126 docs ok</a></div>
   </div>
 </header>
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>5.4s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>5.7s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -6731,7 +6731,7 @@ The component leaves the native elements alone rather than adding `term` and `de
       <div class="badges">
         <label for="c-21-pages-internal-detail-page-err" class="badge err as-toggle">prop type error</label>
         <label for="c-21-pages-internal-detail-page-info" class="badge info as-toggle">1 info</label>
-        <label for="c-21-pages-internal-detail-page-stories" class="badge ok as-toggle">2 stories</label>
+        <label for="c-21-pages-internal-detail-page-stories" class="badge ok as-toggle">3 stories</label>
         <label for="c-21-pages-internal-detail-page-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
@@ -6757,13 +6757,13 @@ The component leaves the native elements alone rather than adding `term` and `de
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
-  38 | type EditTabId = &#39;algemene-informatie&#39; | &#39;historie&#39; | &#39;kaart&#39;
-  39 |
-&gt; 40 | const meta = {
+  50 | }
+  51 |
+&gt; 52 | const meta = {
      | ^
-  41 |   ...commonMeta,
-  42 |   title: &#39;Pages/Internal/Detail Page&#39;,
-  43 |   parameters: pageParameters(
+  53 |   ...commonMeta,
+  54 |   title: &#39;Pages/Internal/Detail Page&#39;,
+  55 |   parameters: pageParameters(
 
 ./src/pages/internal/DetailPage/DetailPage.stories.tsx:
 /**
@@ -6778,13 +6778,17 @@ import {
   ActionGroup,
   Breadcrumb,
   Button,
+  Column,
+  Field,
   Grid,
   Heading,
+  Label,
   LinkList,
   Paragraph,
   Row,
   TableOfContents,
   TabNavigation,
+  TextArea,
 } from &#39;@amsterdam/design-system-react&#39;
 import {
   EyeOpenIcon,
@@ -6792,6 +6796,7 @@ import {
   MagnifyingGlassWithEyeIcon,
   PencilIcon,
 } from &#39;@amsterdam/design-system-react-icons&#39;
+import { Dialog } from &#39;@amsterdam/design-system-react/src&#39;
 import { useState } from &#39;react&#39;
 
 import { commonMeta, pageParameters } from &#39;../common/commonMeta&#39;
@@ -6804,6 +6809,13 @@ import { ObjectInformationMap } from &#39;./ObjectInformationMap&#39;
 import { ObjectInformationTable } from &#39;./ObjectInformationTable&#39;
 
 type EditTabId = &#39;algemene-informatie&#39; | &#39;historie&#39; | &#39;kaart&#39;
+type ReviewSectionId = &#39;algemene-informatie&#39; | &#39;geschiedenis&#39; | &#39;kaart&#39;
+
+const reviewSectionLabels: Record&lt;ReviewSectionId, string&gt; = {
+  &#39;algemene-informatie&#39;: &#39;Algemene informatie&#39;,
+  geschiedenis: &#39;Geschiedenis&#39;,
+  kaart: &#39;Kaart&#39;,
+}
 
 const meta = {
   ...commonMeta,
@@ -6816,7 +6828,7 @@ const meta = {
 
 export default meta
 
-export const ReadOnly: StoryObj = {
+export const Default: StoryObj = {
   parameters: {
     docs: {
       source: {
@@ -7100,6 +7112,254 @@ export const Edit: StoryObj = {
     )
   },
 }
+
+export const Review: StoryObj = {
+  parameters: {
+    docs: {
+      source: {
+        // Because the `render` of this story lives on the shared meta, its own source is nothing but these parameters,
+        // and that is all the Code Panel would print. Provide the source by hand so the layout reads the way a
+        // developer would write it, without the interactive state.
+        code: `
+        &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+          &lt;Grid.Cell appearance=&quot;transparent&quot; span=&quot;all&quot;&gt;
+            &lt;Breadcrumb&gt;
+              {detailPageData.breadcrumbs.map((breadcrumb) =&gt; (
+                &lt;Breadcrumb.Link href=&quot;#&quot; key={breadcrumb}&gt;
+                  {breadcrumb}
+                &lt;/Breadcrumb.Link&gt;
+              ))}
+            &lt;/Breadcrumb&gt;
+            &lt;Row align=&quot;between&quot; wrap&gt;
+              &lt;Heading level={1}&gt;{detailPageData.name}&lt;/Heading&gt;
+              &lt;ActionGroup&gt;
+                &lt;Button icon={MagnifyingGlassWithEyeIcon} variant=&quot;secondary&quot;&gt;
+                  Review
+                &lt;/Button&gt;
+                &lt;Button icon={PencilIcon}&gt;Bewerken&lt;/Button&gt;
+              &lt;/ActionGroup&gt;
+            &lt;/Row&gt;
+          &lt;/Grid.Cell&gt;
+
+          &lt;Grid.Subgrid span={{ narrow: 4, medium: 3, wide: 3 }}&gt;
+            &lt;Grid.Cell span=&quot;all&quot;&gt;
+              &lt;TableOfContents heading=&quot;Op deze pagina&quot;&gt;
+                &lt;TableOfContents.List&gt;
+                  &lt;TableOfContents.Link href=&quot;#algemene-informatie&quot; label=&quot;Algemene informatie&quot; /&gt;
+                  &lt;TableOfContents.Link href=&quot;#geschiedenis&quot; label=&quot;Geschiedenis&quot; /&gt;
+                  &lt;TableOfContents.Link href=&quot;#kaart&quot; label=&quot;Kaart&quot; /&gt;
+                &lt;/TableOfContents.List&gt;
+              &lt;/TableOfContents&gt;
+            &lt;/Grid.Cell&gt;
+            &lt;Grid.Cell span=&quot;all&quot;&gt;
+              &lt;Heading className=&quot;ams-mb-xs&quot; level={3}&gt;
+                Bronnen
+              &lt;/Heading&gt;
+              &lt;LinkList&gt;
+                {detailPageData.links.map(({ label, url }) =&gt; (
+                  &lt;LinkList.Link href={url} icon={LinkExternalIcon} key={url}&gt;
+                    {label}
+                  &lt;/LinkList.Link&gt;
+                ))}
+              &lt;/LinkList&gt;
+            &lt;/Grid.Cell&gt;
+          &lt;/Grid.Subgrid&gt;
+
+          &lt;Grid.Subgrid span={{ narrow: 4, medium: 5, wide: 9 }}&gt;
+            &lt;Grid.Cell className=&quot;ams-prose&quot; span=&quot;all&quot;&gt;
+              &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; className=&quot;ams-mb-m&quot; wrap&gt;
+                &lt;Heading id=&quot;algemene-informatie&quot; level={2}&gt;
+                  Algemene informatie
+                &lt;/Heading&gt;
+                &lt;Button icon={MagnifyingGlassWithEyeIcon} iconOnly variant=&quot;secondary&quot;&gt;
+                  Voeg een opmerking toe bij Algemene informatie
+                &lt;/Button&gt;
+              &lt;/Row&gt;
+              &lt;Paragraph&gt;{detailPageData.description}&lt;/Paragraph&gt;
+              &lt;ObjectInformationDescriptionList items={detailPageData.basicInformation} /&gt;
+            &lt;/Grid.Cell&gt;
+            &lt;Grid.Cell className=&quot;ams-prose&quot; span=&quot;all&quot;&gt;
+              &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; className=&quot;ams-mb-m&quot; wrap&gt;
+                &lt;Heading id=&quot;geschiedenis&quot; level={2}&gt;
+                  Geschiedenis
+                &lt;/Heading&gt;
+                &lt;Button icon={MagnifyingGlassWithEyeIcon} iconOnly variant=&quot;secondary&quot;&gt;
+                  Voeg een opmerking toe bij Geschiedenis
+                &lt;/Button&gt;
+              &lt;/Row&gt;
+              &lt;ObjectInformationTable events={detailPageData.history} /&gt;
+            &lt;/Grid.Cell&gt;
+            &lt;Grid.Cell span=&quot;all&quot;&gt;
+              &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; className=&quot;ams-mb-s&quot; wrap&gt;
+                &lt;Heading id=&quot;kaart&quot; level={2}&gt;
+                  Kaart
+                &lt;/Heading&gt;
+                &lt;Button icon={MagnifyingGlassWithEyeIcon} iconOnly variant=&quot;secondary&quot;&gt;
+                  Voeg een opmerking toe bij Kaart
+                &lt;/Button&gt;
+              &lt;/Row&gt;
+              &lt;ObjectInformationMap geoJson={detailPageData.geoJson} /&gt;
+            &lt;/Grid.Cell&gt;
+          &lt;/Grid.Subgrid&gt;
+
+          &lt;Dialog footer={&lt;Button&gt;Sluiten&lt;/Button&gt;} heading=&quot;Opmerking toevoegen&quot;&gt;
+            &lt;Field&gt;
+              &lt;Label htmlFor=&quot;detail-page-review-remarks&quot;&gt;Opmerkingen&lt;/Label&gt;
+              &lt;TextArea id=&quot;detail-page-review-remarks&quot; rows={4} /&gt;
+            &lt;/Field&gt;
+          &lt;/Dialog&gt;
+        &lt;/Grid&gt;
+        `,
+        language: &#39;tsx&#39;,
+      },
+    },
+  },
+  render: () =&gt; {
+    const [currentRemarkSectionId, setCurrentRemarkSectionId] = useState&lt;ReviewSectionId | null&gt;(null)
+    const [remarks, setRemarks] = useState&lt;Record&lt;ReviewSectionId, string&gt;&gt;({
+      &#39;algemene-informatie&#39;: &#39;&#39;,
+      geschiedenis: &#39;&#39;,
+      kaart: &#39;&#39;,
+    })
+
+    const dialogId = &#39;detail-page-review-remark-dialog&#39;
+    const currentRemarkSectionLabel = currentRemarkSectionId ? reviewSectionLabels[currentRemarkSectionId] : &#39;&#39;
+
+    const openRemarkDialog = (sectionId: ReviewSectionId) =&gt; {
+      setCurrentRemarkSectionId(sectionId)
+      Dialog.open(`#${dialogId}`)
+    }
+
+    return (
+      &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+        &lt;Grid.Cell appearance=&quot;transparent&quot; span=&quot;all&quot;&gt;
+          &lt;Breadcrumb&gt;
+            {detailPageData.breadcrumbs.map((breadcrumb) =&gt; (
+              &lt;Breadcrumb.Link href=&quot;#&quot; key={breadcrumb}&gt;
+                {breadcrumb}
+              &lt;/Breadcrumb.Link&gt;
+            ))}
+          &lt;/Breadcrumb&gt;
+          &lt;Row align=&quot;between&quot; wrap&gt;
+            &lt;Heading level={1}&gt;{detailPageData.name}&lt;/Heading&gt;
+            &lt;ActionGroup&gt;
+              &lt;Button icon={MagnifyingGlassWithEyeIcon} variant=&quot;secondary&quot;&gt;
+                Review
+              &lt;/Button&gt;
+              &lt;Button icon={PencilIcon}&gt;Bewerken&lt;/Button&gt;
+            &lt;/ActionGroup&gt;
+          &lt;/Row&gt;
+        &lt;/Grid.Cell&gt;
+
+        &lt;Grid.Subgrid span={{ narrow: 4, medium: 3, wide: 3 }}&gt;
+          &lt;Grid.Cell span=&quot;all&quot;&gt;
+            &lt;TableOfContents heading=&quot;Op deze pagina&quot;&gt;
+              &lt;TableOfContents.List&gt;
+                &lt;TableOfContents.Link href=&quot;#algemene-informatie&quot; label=&quot;Algemene informatie&quot; /&gt;
+                &lt;TableOfContents.Link href=&quot;#geschiedenis&quot; label=&quot;Geschiedenis&quot; /&gt;
+                &lt;TableOfContents.Link href=&quot;#kaart&quot; label=&quot;Kaart&quot; /&gt;
+              &lt;/TableOfContents.List&gt;
+            &lt;/TableOfContents&gt;
+          &lt;/Grid.Cell&gt;
+          &lt;Grid.Cell span=&quot;all&quot;&gt;
+            &lt;Heading className=&quot;ams-mb-xs&quot; level={3}&gt;
+              Bronnen
+            &lt;/Heading&gt;
+            &lt;LinkList&gt;
+              {detailPageData.links.map(({ label, url }) =&gt; (
+                &lt;LinkList.Link href={url} icon={LinkExternalIcon} key={url}&gt;
+                  {label}
+                &lt;/LinkList.Link&gt;
+              ))}
+            &lt;/LinkList&gt;
+          &lt;/Grid.Cell&gt;
+        &lt;/Grid.Subgrid&gt;
+
+        &lt;Grid.Subgrid span={{ narrow: 4, medium: 5, wide: 9 }}&gt;
+          &lt;Grid.Cell className=&quot;ams-prose&quot; span=&quot;all&quot;&gt;
+            &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; className=&quot;ams-mb-m&quot; wrap&gt;
+              &lt;Heading id=&quot;algemene-informatie&quot; level={2}&gt;
+                Algemene informatie
+              &lt;/Heading&gt;
+              &lt;Button
+                icon={MagnifyingGlassWithEyeIcon}
+                iconOnly
+                onClick={() =&gt; openRemarkDialog(&#39;algemene-informatie&#39;)}
+                variant=&quot;secondary&quot;
+              &gt;
+                Voeg een opmerking toe bij Algemene informatie
+              &lt;/Button&gt;
+            &lt;/Row&gt;
+            &lt;Paragraph&gt;{detailPageData.description}&lt;/Paragraph&gt;
+            &lt;ObjectInformationDescriptionList items={detailPageData.basicInformation} /&gt;
+          &lt;/Grid.Cell&gt;
+          &lt;Grid.Cell className=&quot;ams-prose&quot; span=&quot;all&quot;&gt;
+            &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; className=&quot;ams-mb-m&quot; wrap&gt;
+              &lt;Heading id=&quot;geschiedenis&quot; level={2}&gt;
+                Geschiedenis
+              &lt;/Heading&gt;
+              &lt;Button
+                icon={MagnifyingGlassWithEyeIcon}
+                iconOnly
+                onClick={() =&gt; openRemarkDialog(&#39;geschiedenis&#39;)}
+                variant=&quot;secondary&quot;
+              &gt;
+                Voeg een opmerking toe bij Geschiedenis
+              &lt;/Button&gt;
+            &lt;/Row&gt;
+            &lt;ObjectInformationTable events={detailPageData.history} /&gt;
+          &lt;/Grid.Cell&gt;
+          &lt;Grid.Cell span=&quot;all&quot;&gt;
+            &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; className=&quot;ams-mb-s&quot; wrap&gt;
+              &lt;Heading id=&quot;kaart&quot; level={2}&gt;
+                Kaart
+              &lt;/Heading&gt;
+              &lt;Button
+                icon={MagnifyingGlassWithEyeIcon}
+                iconOnly
+                onClick={() =&gt; openRemarkDialog(&#39;kaart&#39;)}
+                variant=&quot;secondary&quot;
+              &gt;
+                Voeg een opmerking toe bij Kaart
+              &lt;/Button&gt;
+            &lt;/Row&gt;
+            &lt;ObjectInformationMap geoJson={detailPageData.geoJson} /&gt;
+          &lt;/Grid.Cell&gt;
+        &lt;/Grid.Subgrid&gt;
+
+        &lt;Dialog
+          footer={&lt;Button onClick={Dialog.close}&gt;Sluiten&lt;/Button&gt;}
+          heading={
+            currentRemarkSectionLabel ? `Opmerking toevoegen bij ${currentRemarkSectionLabel}` : &#39;Opmerking toevoegen&#39;
+          }
+          id={dialogId}
+          onClose={() =&gt; setCurrentRemarkSectionId(null)}
+        &gt;
+          &lt;Column gap=&quot;small&quot;&gt;
+            &lt;Field&gt;
+              &lt;Label htmlFor=&quot;detail-page-review-remarks&quot;&gt;Opmerkingen&lt;/Label&gt;
+              &lt;TextArea
+                id=&quot;detail-page-review-remarks&quot;
+                onChange={(event) =&gt; {
+                  if (!currentRemarkSectionId) {
+                    return
+                  }
+
+                  setRemarks((currentRemarks) =&gt; ({
+                    ...currentRemarks,
+                    [currentRemarkSectionId]: event.currentTarget.value,
+                  }))
+                }}
+                rows={4}
+                value={currentRemarkSectionId ? remarks[currentRemarkSectionId] : &#39;&#39;}
+              /&gt;
+            &lt;/Field&gt;
+          &lt;/Column&gt;
+        &lt;/Dialog&gt;
+      &lt;/Grid&gt;
+    )
+  },
+}
 </code></pre></div>
     </div>
         </div>
@@ -7125,13 +7385,17 @@ export const Edit: StoryObj = {
     ActionGroup,
     Breadcrumb,
     Button,
+    Column,
+    Field,
     Grid,
     Heading,
+    Label,
     LinkList,
     Paragraph,
     Row,
     TableOfContents,
     TabNavigation,
+    TextArea,
 } from "@amsterdam/design-system-react";
 import {
     DetailPageEditGeneralInformationTab,
@@ -7140,18 +7404,19 @@ import {
     ObjectInformationDescriptionList,
     ObjectInformationMap,
     ObjectInformationTable,
-} from "@amsterdam/storybook";</code></pre>
+} from "@amsterdam/storybook";
+import { Dialog } from "@amsterdam/design-system-react/src";</code></pre>
               </div>
           
           
             <div class="note ok">
               <div class="row">
-                <span class="ex-name">Read Only</span>
+                <span class="ex-name">Default</span>
                 <span class="badge ok">story ok</span>
               </div>
               
               
-              <pre><code>const ReadOnly = () =&gt; {
+              <pre><code>const Default = () =&gt; {
   return (
     &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
       &lt;Grid.Cell appearance=&quot;transparent&quot; span=&quot;all&quot;&gt;
@@ -7293,6 +7558,159 @@ import {
           &lt;DetailPageEditMapTab hidden={currentTabId !== &#39;kaart&#39;} /&gt;
         &lt;/Grid.Cell&gt;
       &lt;/Grid.Subgrid&gt;
+    &lt;/Grid&gt;
+  )
+};</code></pre>
+            </div>
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Review</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const Review = () =&gt; {
+  const [currentRemarkSectionId, setCurrentRemarkSectionId] = useState&lt;ReviewSectionId | null&gt;(null)
+  const [remarks, setRemarks] = useState&lt;Record&lt;ReviewSectionId, string&gt;&gt;({
+    &#39;algemene-informatie&#39;: &#39;&#39;,
+    geschiedenis: &#39;&#39;,
+    kaart: &#39;&#39;,
+  })
+
+  const dialogId = &#39;detail-page-review-remark-dialog&#39;
+  const currentRemarkSectionLabel = currentRemarkSectionId ? reviewSectionLabels[currentRemarkSectionId] : &#39;&#39;
+
+  const openRemarkDialog = (sectionId: ReviewSectionId) =&gt; {
+    setCurrentRemarkSectionId(sectionId)
+    Dialog.open(`#${dialogId}`)
+  }
+
+  return (
+    &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+      &lt;Grid.Cell appearance=&quot;transparent&quot; span=&quot;all&quot;&gt;
+        &lt;Breadcrumb&gt;
+          {detailPageData.breadcrumbs.map((breadcrumb) =&gt; (
+            &lt;Breadcrumb.Link href=&quot;#&quot; key={breadcrumb}&gt;
+              {breadcrumb}
+            &lt;/Breadcrumb.Link&gt;
+          ))}
+        &lt;/Breadcrumb&gt;
+        &lt;Row align=&quot;between&quot; wrap&gt;
+          &lt;Heading level={1}&gt;{detailPageData.name}&lt;/Heading&gt;
+          &lt;ActionGroup&gt;
+            &lt;Button icon={MagnifyingGlassWithEyeIcon} variant=&quot;secondary&quot;&gt;
+              Review
+            &lt;/Button&gt;
+            &lt;Button icon={PencilIcon}&gt;Bewerken&lt;/Button&gt;
+          &lt;/ActionGroup&gt;
+        &lt;/Row&gt;
+      &lt;/Grid.Cell&gt;
+
+      &lt;Grid.Subgrid span={{ narrow: 4, medium: 3, wide: 3 }}&gt;
+        &lt;Grid.Cell span=&quot;all&quot;&gt;
+          &lt;TableOfContents heading=&quot;Op deze pagina&quot;&gt;
+            &lt;TableOfContents.List&gt;
+              &lt;TableOfContents.Link href=&quot;#algemene-informatie&quot; label=&quot;Algemene informatie&quot; /&gt;
+              &lt;TableOfContents.Link href=&quot;#geschiedenis&quot; label=&quot;Geschiedenis&quot; /&gt;
+              &lt;TableOfContents.Link href=&quot;#kaart&quot; label=&quot;Kaart&quot; /&gt;
+            &lt;/TableOfContents.List&gt;
+          &lt;/TableOfContents&gt;
+        &lt;/Grid.Cell&gt;
+        &lt;Grid.Cell span=&quot;all&quot;&gt;
+          &lt;Heading className=&quot;ams-mb-xs&quot; level={3}&gt;
+            Bronnen
+          &lt;/Heading&gt;
+          &lt;LinkList&gt;
+            {detailPageData.links.map(({ label, url }) =&gt; (
+              &lt;LinkList.Link href={url} icon={LinkExternalIcon} key={url}&gt;
+                {label}
+              &lt;/LinkList.Link&gt;
+            ))}
+          &lt;/LinkList&gt;
+        &lt;/Grid.Cell&gt;
+      &lt;/Grid.Subgrid&gt;
+
+      &lt;Grid.Subgrid span={{ narrow: 4, medium: 5, wide: 9 }}&gt;
+        &lt;Grid.Cell className=&quot;ams-prose&quot; span=&quot;all&quot;&gt;
+          &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; className=&quot;ams-mb-m&quot; wrap&gt;
+            &lt;Heading id=&quot;algemene-informatie&quot; level={2}&gt;
+              Algemene informatie
+            &lt;/Heading&gt;
+            &lt;Button
+              icon={MagnifyingGlassWithEyeIcon}
+              iconOnly
+              onClick={() =&gt; openRemarkDialog(&#39;algemene-informatie&#39;)}
+              variant=&quot;secondary&quot;
+            &gt;
+              Voeg een opmerking toe bij Algemene informatie
+            &lt;/Button&gt;
+          &lt;/Row&gt;
+          &lt;Paragraph&gt;{detailPageData.description}&lt;/Paragraph&gt;
+          &lt;ObjectInformationDescriptionList items={detailPageData.basicInformation} /&gt;
+        &lt;/Grid.Cell&gt;
+        &lt;Grid.Cell className=&quot;ams-prose&quot; span=&quot;all&quot;&gt;
+          &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; className=&quot;ams-mb-m&quot; wrap&gt;
+            &lt;Heading id=&quot;geschiedenis&quot; level={2}&gt;
+              Geschiedenis
+            &lt;/Heading&gt;
+            &lt;Button
+              icon={MagnifyingGlassWithEyeIcon}
+              iconOnly
+              onClick={() =&gt; openRemarkDialog(&#39;geschiedenis&#39;)}
+              variant=&quot;secondary&quot;
+            &gt;
+              Voeg een opmerking toe bij Geschiedenis
+            &lt;/Button&gt;
+          &lt;/Row&gt;
+          &lt;ObjectInformationTable events={detailPageData.history} /&gt;
+        &lt;/Grid.Cell&gt;
+        &lt;Grid.Cell span=&quot;all&quot;&gt;
+          &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; className=&quot;ams-mb-s&quot; wrap&gt;
+            &lt;Heading id=&quot;kaart&quot; level={2}&gt;
+              Kaart
+            &lt;/Heading&gt;
+            &lt;Button
+              icon={MagnifyingGlassWithEyeIcon}
+              iconOnly
+              onClick={() =&gt; openRemarkDialog(&#39;kaart&#39;)}
+              variant=&quot;secondary&quot;
+            &gt;
+              Voeg een opmerking toe bij Kaart
+            &lt;/Button&gt;
+          &lt;/Row&gt;
+          &lt;ObjectInformationMap geoJson={detailPageData.geoJson} /&gt;
+        &lt;/Grid.Cell&gt;
+      &lt;/Grid.Subgrid&gt;
+
+      &lt;Dialog
+        footer={&lt;Button onClick={Dialog.close}&gt;Sluiten&lt;/Button&gt;}
+        heading={
+          currentRemarkSectionLabel ? `Opmerking toevoegen bij ${currentRemarkSectionLabel}` : &#39;Opmerking toevoegen&#39;
+        }
+        id={dialogId}
+        onClose={() =&gt; setCurrentRemarkSectionId(null)}
+      &gt;
+        &lt;Column gap=&quot;small&quot;&gt;
+          &lt;Field&gt;
+            &lt;Label htmlFor=&quot;detail-page-review-remarks&quot;&gt;Opmerkingen&lt;/Label&gt;
+            &lt;TextArea
+              id=&quot;detail-page-review-remarks&quot;
+              onChange={(event) =&gt; {
+                if (!currentRemarkSectionId) {
+                  return
+                }
+
+                setRemarks((currentRemarks) =&gt; ({
+                  ...currentRemarks,
+                  [currentRemarkSectionId]: event.currentTarget.value,
+                }))
+              }}
+              rows={4}
+              value={currentRemarkSectionId ? remarks[currentRemarkSectionId] : &#39;&#39;}
+            /&gt;
+          &lt;/Field&gt;
+        &lt;/Column&gt;
+      &lt;/Dialog&gt;
     &lt;/Grid&gt;
   )
 };</code></pre>
@@ -40550,7 +40968,7 @@ The hero Image and the Card images take an empty `alt`, because the text beside 
       <div class="badges">
         <label for="c-error-1-pages-internal-detail-page-err" class="badge err as-toggle">prop type error</label>
         <label for="c-error-1-pages-internal-detail-page-info" class="badge info as-toggle">1 info</label>
-        <label for="c-error-1-pages-internal-detail-page-stories" class="badge ok as-toggle">2 stories</label>
+        <label for="c-error-1-pages-internal-detail-page-stories" class="badge ok as-toggle">3 stories</label>
         <label for="c-error-1-pages-internal-detail-page-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
@@ -40576,13 +40994,13 @@ The hero Image and the Card images take an empty `alt`, because the text beside 
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
-  38 | type EditTabId = &#39;algemene-informatie&#39; | &#39;historie&#39; | &#39;kaart&#39;
-  39 |
-&gt; 40 | const meta = {
+  50 | }
+  51 |
+&gt; 52 | const meta = {
      | ^
-  41 |   ...commonMeta,
-  42 |   title: &#39;Pages/Internal/Detail Page&#39;,
-  43 |   parameters: pageParameters(
+  53 |   ...commonMeta,
+  54 |   title: &#39;Pages/Internal/Detail Page&#39;,
+  55 |   parameters: pageParameters(
 
 ./src/pages/internal/DetailPage/DetailPage.stories.tsx:
 /**
@@ -40597,13 +41015,17 @@ import {
   ActionGroup,
   Breadcrumb,
   Button,
+  Column,
+  Field,
   Grid,
   Heading,
+  Label,
   LinkList,
   Paragraph,
   Row,
   TableOfContents,
   TabNavigation,
+  TextArea,
 } from &#39;@amsterdam/design-system-react&#39;
 import {
   EyeOpenIcon,
@@ -40611,6 +41033,7 @@ import {
   MagnifyingGlassWithEyeIcon,
   PencilIcon,
 } from &#39;@amsterdam/design-system-react-icons&#39;
+import { Dialog } from &#39;@amsterdam/design-system-react/src&#39;
 import { useState } from &#39;react&#39;
 
 import { commonMeta, pageParameters } from &#39;../common/commonMeta&#39;
@@ -40623,6 +41046,13 @@ import { ObjectInformationMap } from &#39;./ObjectInformationMap&#39;
 import { ObjectInformationTable } from &#39;./ObjectInformationTable&#39;
 
 type EditTabId = &#39;algemene-informatie&#39; | &#39;historie&#39; | &#39;kaart&#39;
+type ReviewSectionId = &#39;algemene-informatie&#39; | &#39;geschiedenis&#39; | &#39;kaart&#39;
+
+const reviewSectionLabels: Record&lt;ReviewSectionId, string&gt; = {
+  &#39;algemene-informatie&#39;: &#39;Algemene informatie&#39;,
+  geschiedenis: &#39;Geschiedenis&#39;,
+  kaart: &#39;Kaart&#39;,
+}
 
 const meta = {
   ...commonMeta,
@@ -40635,7 +41065,7 @@ const meta = {
 
 export default meta
 
-export const ReadOnly: StoryObj = {
+export const Default: StoryObj = {
   parameters: {
     docs: {
       source: {
@@ -40919,6 +41349,254 @@ export const Edit: StoryObj = {
     )
   },
 }
+
+export const Review: StoryObj = {
+  parameters: {
+    docs: {
+      source: {
+        // Because the `render` of this story lives on the shared meta, its own source is nothing but these parameters,
+        // and that is all the Code Panel would print. Provide the source by hand so the layout reads the way a
+        // developer would write it, without the interactive state.
+        code: `
+        &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+          &lt;Grid.Cell appearance=&quot;transparent&quot; span=&quot;all&quot;&gt;
+            &lt;Breadcrumb&gt;
+              {detailPageData.breadcrumbs.map((breadcrumb) =&gt; (
+                &lt;Breadcrumb.Link href=&quot;#&quot; key={breadcrumb}&gt;
+                  {breadcrumb}
+                &lt;/Breadcrumb.Link&gt;
+              ))}
+            &lt;/Breadcrumb&gt;
+            &lt;Row align=&quot;between&quot; wrap&gt;
+              &lt;Heading level={1}&gt;{detailPageData.name}&lt;/Heading&gt;
+              &lt;ActionGroup&gt;
+                &lt;Button icon={MagnifyingGlassWithEyeIcon} variant=&quot;secondary&quot;&gt;
+                  Review
+                &lt;/Button&gt;
+                &lt;Button icon={PencilIcon}&gt;Bewerken&lt;/Button&gt;
+              &lt;/ActionGroup&gt;
+            &lt;/Row&gt;
+          &lt;/Grid.Cell&gt;
+
+          &lt;Grid.Subgrid span={{ narrow: 4, medium: 3, wide: 3 }}&gt;
+            &lt;Grid.Cell span=&quot;all&quot;&gt;
+              &lt;TableOfContents heading=&quot;Op deze pagina&quot;&gt;
+                &lt;TableOfContents.List&gt;
+                  &lt;TableOfContents.Link href=&quot;#algemene-informatie&quot; label=&quot;Algemene informatie&quot; /&gt;
+                  &lt;TableOfContents.Link href=&quot;#geschiedenis&quot; label=&quot;Geschiedenis&quot; /&gt;
+                  &lt;TableOfContents.Link href=&quot;#kaart&quot; label=&quot;Kaart&quot; /&gt;
+                &lt;/TableOfContents.List&gt;
+              &lt;/TableOfContents&gt;
+            &lt;/Grid.Cell&gt;
+            &lt;Grid.Cell span=&quot;all&quot;&gt;
+              &lt;Heading className=&quot;ams-mb-xs&quot; level={3}&gt;
+                Bronnen
+              &lt;/Heading&gt;
+              &lt;LinkList&gt;
+                {detailPageData.links.map(({ label, url }) =&gt; (
+                  &lt;LinkList.Link href={url} icon={LinkExternalIcon} key={url}&gt;
+                    {label}
+                  &lt;/LinkList.Link&gt;
+                ))}
+              &lt;/LinkList&gt;
+            &lt;/Grid.Cell&gt;
+          &lt;/Grid.Subgrid&gt;
+
+          &lt;Grid.Subgrid span={{ narrow: 4, medium: 5, wide: 9 }}&gt;
+            &lt;Grid.Cell className=&quot;ams-prose&quot; span=&quot;all&quot;&gt;
+              &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; className=&quot;ams-mb-m&quot; wrap&gt;
+                &lt;Heading id=&quot;algemene-informatie&quot; level={2}&gt;
+                  Algemene informatie
+                &lt;/Heading&gt;
+                &lt;Button icon={MagnifyingGlassWithEyeIcon} iconOnly variant=&quot;secondary&quot;&gt;
+                  Voeg een opmerking toe bij Algemene informatie
+                &lt;/Button&gt;
+              &lt;/Row&gt;
+              &lt;Paragraph&gt;{detailPageData.description}&lt;/Paragraph&gt;
+              &lt;ObjectInformationDescriptionList items={detailPageData.basicInformation} /&gt;
+            &lt;/Grid.Cell&gt;
+            &lt;Grid.Cell className=&quot;ams-prose&quot; span=&quot;all&quot;&gt;
+              &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; className=&quot;ams-mb-m&quot; wrap&gt;
+                &lt;Heading id=&quot;geschiedenis&quot; level={2}&gt;
+                  Geschiedenis
+                &lt;/Heading&gt;
+                &lt;Button icon={MagnifyingGlassWithEyeIcon} iconOnly variant=&quot;secondary&quot;&gt;
+                  Voeg een opmerking toe bij Geschiedenis
+                &lt;/Button&gt;
+              &lt;/Row&gt;
+              &lt;ObjectInformationTable events={detailPageData.history} /&gt;
+            &lt;/Grid.Cell&gt;
+            &lt;Grid.Cell span=&quot;all&quot;&gt;
+              &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; className=&quot;ams-mb-s&quot; wrap&gt;
+                &lt;Heading id=&quot;kaart&quot; level={2}&gt;
+                  Kaart
+                &lt;/Heading&gt;
+                &lt;Button icon={MagnifyingGlassWithEyeIcon} iconOnly variant=&quot;secondary&quot;&gt;
+                  Voeg een opmerking toe bij Kaart
+                &lt;/Button&gt;
+              &lt;/Row&gt;
+              &lt;ObjectInformationMap geoJson={detailPageData.geoJson} /&gt;
+            &lt;/Grid.Cell&gt;
+          &lt;/Grid.Subgrid&gt;
+
+          &lt;Dialog footer={&lt;Button&gt;Sluiten&lt;/Button&gt;} heading=&quot;Opmerking toevoegen&quot;&gt;
+            &lt;Field&gt;
+              &lt;Label htmlFor=&quot;detail-page-review-remarks&quot;&gt;Opmerkingen&lt;/Label&gt;
+              &lt;TextArea id=&quot;detail-page-review-remarks&quot; rows={4} /&gt;
+            &lt;/Field&gt;
+          &lt;/Dialog&gt;
+        &lt;/Grid&gt;
+        `,
+        language: &#39;tsx&#39;,
+      },
+    },
+  },
+  render: () =&gt; {
+    const [currentRemarkSectionId, setCurrentRemarkSectionId] = useState&lt;ReviewSectionId | null&gt;(null)
+    const [remarks, setRemarks] = useState&lt;Record&lt;ReviewSectionId, string&gt;&gt;({
+      &#39;algemene-informatie&#39;: &#39;&#39;,
+      geschiedenis: &#39;&#39;,
+      kaart: &#39;&#39;,
+    })
+
+    const dialogId = &#39;detail-page-review-remark-dialog&#39;
+    const currentRemarkSectionLabel = currentRemarkSectionId ? reviewSectionLabels[currentRemarkSectionId] : &#39;&#39;
+
+    const openRemarkDialog = (sectionId: ReviewSectionId) =&gt; {
+      setCurrentRemarkSectionId(sectionId)
+      Dialog.open(`#${dialogId}`)
+    }
+
+    return (
+      &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+        &lt;Grid.Cell appearance=&quot;transparent&quot; span=&quot;all&quot;&gt;
+          &lt;Breadcrumb&gt;
+            {detailPageData.breadcrumbs.map((breadcrumb) =&gt; (
+              &lt;Breadcrumb.Link href=&quot;#&quot; key={breadcrumb}&gt;
+                {breadcrumb}
+              &lt;/Breadcrumb.Link&gt;
+            ))}
+          &lt;/Breadcrumb&gt;
+          &lt;Row align=&quot;between&quot; wrap&gt;
+            &lt;Heading level={1}&gt;{detailPageData.name}&lt;/Heading&gt;
+            &lt;ActionGroup&gt;
+              &lt;Button icon={MagnifyingGlassWithEyeIcon} variant=&quot;secondary&quot;&gt;
+                Review
+              &lt;/Button&gt;
+              &lt;Button icon={PencilIcon}&gt;Bewerken&lt;/Button&gt;
+            &lt;/ActionGroup&gt;
+          &lt;/Row&gt;
+        &lt;/Grid.Cell&gt;
+
+        &lt;Grid.Subgrid span={{ narrow: 4, medium: 3, wide: 3 }}&gt;
+          &lt;Grid.Cell span=&quot;all&quot;&gt;
+            &lt;TableOfContents heading=&quot;Op deze pagina&quot;&gt;
+              &lt;TableOfContents.List&gt;
+                &lt;TableOfContents.Link href=&quot;#algemene-informatie&quot; label=&quot;Algemene informatie&quot; /&gt;
+                &lt;TableOfContents.Link href=&quot;#geschiedenis&quot; label=&quot;Geschiedenis&quot; /&gt;
+                &lt;TableOfContents.Link href=&quot;#kaart&quot; label=&quot;Kaart&quot; /&gt;
+              &lt;/TableOfContents.List&gt;
+            &lt;/TableOfContents&gt;
+          &lt;/Grid.Cell&gt;
+          &lt;Grid.Cell span=&quot;all&quot;&gt;
+            &lt;Heading className=&quot;ams-mb-xs&quot; level={3}&gt;
+              Bronnen
+            &lt;/Heading&gt;
+            &lt;LinkList&gt;
+              {detailPageData.links.map(({ label, url }) =&gt; (
+                &lt;LinkList.Link href={url} icon={LinkExternalIcon} key={url}&gt;
+                  {label}
+                &lt;/LinkList.Link&gt;
+              ))}
+            &lt;/LinkList&gt;
+          &lt;/Grid.Cell&gt;
+        &lt;/Grid.Subgrid&gt;
+
+        &lt;Grid.Subgrid span={{ narrow: 4, medium: 5, wide: 9 }}&gt;
+          &lt;Grid.Cell className=&quot;ams-prose&quot; span=&quot;all&quot;&gt;
+            &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; className=&quot;ams-mb-m&quot; wrap&gt;
+              &lt;Heading id=&quot;algemene-informatie&quot; level={2}&gt;
+                Algemene informatie
+              &lt;/Heading&gt;
+              &lt;Button
+                icon={MagnifyingGlassWithEyeIcon}
+                iconOnly
+                onClick={() =&gt; openRemarkDialog(&#39;algemene-informatie&#39;)}
+                variant=&quot;secondary&quot;
+              &gt;
+                Voeg een opmerking toe bij Algemene informatie
+              &lt;/Button&gt;
+            &lt;/Row&gt;
+            &lt;Paragraph&gt;{detailPageData.description}&lt;/Paragraph&gt;
+            &lt;ObjectInformationDescriptionList items={detailPageData.basicInformation} /&gt;
+          &lt;/Grid.Cell&gt;
+          &lt;Grid.Cell className=&quot;ams-prose&quot; span=&quot;all&quot;&gt;
+            &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; className=&quot;ams-mb-m&quot; wrap&gt;
+              &lt;Heading id=&quot;geschiedenis&quot; level={2}&gt;
+                Geschiedenis
+              &lt;/Heading&gt;
+              &lt;Button
+                icon={MagnifyingGlassWithEyeIcon}
+                iconOnly
+                onClick={() =&gt; openRemarkDialog(&#39;geschiedenis&#39;)}
+                variant=&quot;secondary&quot;
+              &gt;
+                Voeg een opmerking toe bij Geschiedenis
+              &lt;/Button&gt;
+            &lt;/Row&gt;
+            &lt;ObjectInformationTable events={detailPageData.history} /&gt;
+          &lt;/Grid.Cell&gt;
+          &lt;Grid.Cell span=&quot;all&quot;&gt;
+            &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; className=&quot;ams-mb-s&quot; wrap&gt;
+              &lt;Heading id=&quot;kaart&quot; level={2}&gt;
+                Kaart
+              &lt;/Heading&gt;
+              &lt;Button
+                icon={MagnifyingGlassWithEyeIcon}
+                iconOnly
+                onClick={() =&gt; openRemarkDialog(&#39;kaart&#39;)}
+                variant=&quot;secondary&quot;
+              &gt;
+                Voeg een opmerking toe bij Kaart
+              &lt;/Button&gt;
+            &lt;/Row&gt;
+            &lt;ObjectInformationMap geoJson={detailPageData.geoJson} /&gt;
+          &lt;/Grid.Cell&gt;
+        &lt;/Grid.Subgrid&gt;
+
+        &lt;Dialog
+          footer={&lt;Button onClick={Dialog.close}&gt;Sluiten&lt;/Button&gt;}
+          heading={
+            currentRemarkSectionLabel ? `Opmerking toevoegen bij ${currentRemarkSectionLabel}` : &#39;Opmerking toevoegen&#39;
+          }
+          id={dialogId}
+          onClose={() =&gt; setCurrentRemarkSectionId(null)}
+        &gt;
+          &lt;Column gap=&quot;small&quot;&gt;
+            &lt;Field&gt;
+              &lt;Label htmlFor=&quot;detail-page-review-remarks&quot;&gt;Opmerkingen&lt;/Label&gt;
+              &lt;TextArea
+                id=&quot;detail-page-review-remarks&quot;
+                onChange={(event) =&gt; {
+                  if (!currentRemarkSectionId) {
+                    return
+                  }
+
+                  setRemarks((currentRemarks) =&gt; ({
+                    ...currentRemarks,
+                    [currentRemarkSectionId]: event.currentTarget.value,
+                  }))
+                }}
+                rows={4}
+                value={currentRemarkSectionId ? remarks[currentRemarkSectionId] : &#39;&#39;}
+              /&gt;
+            &lt;/Field&gt;
+          &lt;/Column&gt;
+        &lt;/Dialog&gt;
+      &lt;/Grid&gt;
+    )
+  },
+}
 </code></pre></div>
     </div>
         </div>
@@ -40944,13 +41622,17 @@ export const Edit: StoryObj = {
     ActionGroup,
     Breadcrumb,
     Button,
+    Column,
+    Field,
     Grid,
     Heading,
+    Label,
     LinkList,
     Paragraph,
     Row,
     TableOfContents,
     TabNavigation,
+    TextArea,
 } from "@amsterdam/design-system-react";
 import {
     DetailPageEditGeneralInformationTab,
@@ -40959,18 +41641,19 @@ import {
     ObjectInformationDescriptionList,
     ObjectInformationMap,
     ObjectInformationTable,
-} from "@amsterdam/storybook";</code></pre>
+} from "@amsterdam/storybook";
+import { Dialog } from "@amsterdam/design-system-react/src";</code></pre>
               </div>
           
           
             <div class="note ok">
               <div class="row">
-                <span class="ex-name">Read Only</span>
+                <span class="ex-name">Default</span>
                 <span class="badge ok">story ok</span>
               </div>
               
               
-              <pre><code>const ReadOnly = () =&gt; {
+              <pre><code>const Default = () =&gt; {
   return (
     &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
       &lt;Grid.Cell appearance=&quot;transparent&quot; span=&quot;all&quot;&gt;
@@ -41112,6 +41795,159 @@ import {
           &lt;DetailPageEditMapTab hidden={currentTabId !== &#39;kaart&#39;} /&gt;
         &lt;/Grid.Cell&gt;
       &lt;/Grid.Subgrid&gt;
+    &lt;/Grid&gt;
+  )
+};</code></pre>
+            </div>
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Review</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const Review = () =&gt; {
+  const [currentRemarkSectionId, setCurrentRemarkSectionId] = useState&lt;ReviewSectionId | null&gt;(null)
+  const [remarks, setRemarks] = useState&lt;Record&lt;ReviewSectionId, string&gt;&gt;({
+    &#39;algemene-informatie&#39;: &#39;&#39;,
+    geschiedenis: &#39;&#39;,
+    kaart: &#39;&#39;,
+  })
+
+  const dialogId = &#39;detail-page-review-remark-dialog&#39;
+  const currentRemarkSectionLabel = currentRemarkSectionId ? reviewSectionLabels[currentRemarkSectionId] : &#39;&#39;
+
+  const openRemarkDialog = (sectionId: ReviewSectionId) =&gt; {
+    setCurrentRemarkSectionId(sectionId)
+    Dialog.open(`#${dialogId}`)
+  }
+
+  return (
+    &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+      &lt;Grid.Cell appearance=&quot;transparent&quot; span=&quot;all&quot;&gt;
+        &lt;Breadcrumb&gt;
+          {detailPageData.breadcrumbs.map((breadcrumb) =&gt; (
+            &lt;Breadcrumb.Link href=&quot;#&quot; key={breadcrumb}&gt;
+              {breadcrumb}
+            &lt;/Breadcrumb.Link&gt;
+          ))}
+        &lt;/Breadcrumb&gt;
+        &lt;Row align=&quot;between&quot; wrap&gt;
+          &lt;Heading level={1}&gt;{detailPageData.name}&lt;/Heading&gt;
+          &lt;ActionGroup&gt;
+            &lt;Button icon={MagnifyingGlassWithEyeIcon} variant=&quot;secondary&quot;&gt;
+              Review
+            &lt;/Button&gt;
+            &lt;Button icon={PencilIcon}&gt;Bewerken&lt;/Button&gt;
+          &lt;/ActionGroup&gt;
+        &lt;/Row&gt;
+      &lt;/Grid.Cell&gt;
+
+      &lt;Grid.Subgrid span={{ narrow: 4, medium: 3, wide: 3 }}&gt;
+        &lt;Grid.Cell span=&quot;all&quot;&gt;
+          &lt;TableOfContents heading=&quot;Op deze pagina&quot;&gt;
+            &lt;TableOfContents.List&gt;
+              &lt;TableOfContents.Link href=&quot;#algemene-informatie&quot; label=&quot;Algemene informatie&quot; /&gt;
+              &lt;TableOfContents.Link href=&quot;#geschiedenis&quot; label=&quot;Geschiedenis&quot; /&gt;
+              &lt;TableOfContents.Link href=&quot;#kaart&quot; label=&quot;Kaart&quot; /&gt;
+            &lt;/TableOfContents.List&gt;
+          &lt;/TableOfContents&gt;
+        &lt;/Grid.Cell&gt;
+        &lt;Grid.Cell span=&quot;all&quot;&gt;
+          &lt;Heading className=&quot;ams-mb-xs&quot; level={3}&gt;
+            Bronnen
+          &lt;/Heading&gt;
+          &lt;LinkList&gt;
+            {detailPageData.links.map(({ label, url }) =&gt; (
+              &lt;LinkList.Link href={url} icon={LinkExternalIcon} key={url}&gt;
+                {label}
+              &lt;/LinkList.Link&gt;
+            ))}
+          &lt;/LinkList&gt;
+        &lt;/Grid.Cell&gt;
+      &lt;/Grid.Subgrid&gt;
+
+      &lt;Grid.Subgrid span={{ narrow: 4, medium: 5, wide: 9 }}&gt;
+        &lt;Grid.Cell className=&quot;ams-prose&quot; span=&quot;all&quot;&gt;
+          &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; className=&quot;ams-mb-m&quot; wrap&gt;
+            &lt;Heading id=&quot;algemene-informatie&quot; level={2}&gt;
+              Algemene informatie
+            &lt;/Heading&gt;
+            &lt;Button
+              icon={MagnifyingGlassWithEyeIcon}
+              iconOnly
+              onClick={() =&gt; openRemarkDialog(&#39;algemene-informatie&#39;)}
+              variant=&quot;secondary&quot;
+            &gt;
+              Voeg een opmerking toe bij Algemene informatie
+            &lt;/Button&gt;
+          &lt;/Row&gt;
+          &lt;Paragraph&gt;{detailPageData.description}&lt;/Paragraph&gt;
+          &lt;ObjectInformationDescriptionList items={detailPageData.basicInformation} /&gt;
+        &lt;/Grid.Cell&gt;
+        &lt;Grid.Cell className=&quot;ams-prose&quot; span=&quot;all&quot;&gt;
+          &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; className=&quot;ams-mb-m&quot; wrap&gt;
+            &lt;Heading id=&quot;geschiedenis&quot; level={2}&gt;
+              Geschiedenis
+            &lt;/Heading&gt;
+            &lt;Button
+              icon={MagnifyingGlassWithEyeIcon}
+              iconOnly
+              onClick={() =&gt; openRemarkDialog(&#39;geschiedenis&#39;)}
+              variant=&quot;secondary&quot;
+            &gt;
+              Voeg een opmerking toe bij Geschiedenis
+            &lt;/Button&gt;
+          &lt;/Row&gt;
+          &lt;ObjectInformationTable events={detailPageData.history} /&gt;
+        &lt;/Grid.Cell&gt;
+        &lt;Grid.Cell span=&quot;all&quot;&gt;
+          &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; className=&quot;ams-mb-s&quot; wrap&gt;
+            &lt;Heading id=&quot;kaart&quot; level={2}&gt;
+              Kaart
+            &lt;/Heading&gt;
+            &lt;Button
+              icon={MagnifyingGlassWithEyeIcon}
+              iconOnly
+              onClick={() =&gt; openRemarkDialog(&#39;kaart&#39;)}
+              variant=&quot;secondary&quot;
+            &gt;
+              Voeg een opmerking toe bij Kaart
+            &lt;/Button&gt;
+          &lt;/Row&gt;
+          &lt;ObjectInformationMap geoJson={detailPageData.geoJson} /&gt;
+        &lt;/Grid.Cell&gt;
+      &lt;/Grid.Subgrid&gt;
+
+      &lt;Dialog
+        footer={&lt;Button onClick={Dialog.close}&gt;Sluiten&lt;/Button&gt;}
+        heading={
+          currentRemarkSectionLabel ? `Opmerking toevoegen bij ${currentRemarkSectionLabel}` : &#39;Opmerking toevoegen&#39;
+        }
+        id={dialogId}
+        onClose={() =&gt; setCurrentRemarkSectionId(null)}
+      &gt;
+        &lt;Column gap=&quot;small&quot;&gt;
+          &lt;Field&gt;
+            &lt;Label htmlFor=&quot;detail-page-review-remarks&quot;&gt;Opmerkingen&lt;/Label&gt;
+            &lt;TextArea
+              id=&quot;detail-page-review-remarks&quot;
+              onChange={(event) =&gt; {
+                if (!currentRemarkSectionId) {
+                  return
+                }
+
+                setRemarks((currentRemarks) =&gt; ({
+                  ...currentRemarks,
+                  [currentRemarkSectionId]: event.currentTarget.value,
+                }))
+              }}
+              rows={4}
+              value={currentRemarkSectionId ? remarks[currentRemarkSectionId] : &#39;&#39;}
+            /&gt;
+          &lt;/Field&gt;
+        &lt;/Column&gt;
+      &lt;/Dialog&gt;
     &lt;/Grid&gt;
   )
 };</code></pre>
