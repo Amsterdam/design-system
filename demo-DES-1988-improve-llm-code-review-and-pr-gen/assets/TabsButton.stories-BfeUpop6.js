@@ -1,0 +1,6 @@
+import{n as e,r as t}from"./rolldown-runtime-DkW27tQK.js";import{t as n}from"./jsx-runtime-ATHzeHXA.js";import{B as r,nt as i}from"./index.esm-Cq-B_CBG.js";import{n as a,t as o}from"./Tabs-CjOhrHef.js";import{f as s,r as c}from"./argTypes-Diu0Wtb4.js";var l=t({Button:()=>f,__namedExportsOrder:()=>p,default:()=>d}),u,d,f,p;function m(){return(m=e((()=>{i(),a(),s(),u=n(),d={title:`Components/Containers/Tabs`,component:o.Button,argTypes:{children:c(`The text for the tab.`)},decorators:[e=>(0,u.jsxs)(o,{children:[(0,u.jsx)(o.List,{children:(0,u.jsx)(e,{})}),(0,u.jsx)(o.Panel,{id:`panel-1`,children:(0,u.jsx)(r,{children:`Bos en Lommerplein 250, 1055 EK Amsterdam`})})]})],render:({children:e,...t})=>(0,u.jsx)(o.Button,{...t,children:e}),tags:[`!manifest`]},f={args:{"aria-controls":`panel-1`,children:`West`}},f.parameters={...f.parameters,docs:{...f.parameters?.docs,source:{originalSource:`{
+  args: {
+    'aria-controls': 'panel-1',
+    children: 'West'
+  }
+}`,...f.parameters?.docs?.source}}},p=[`Button`]})))()}export{l as n,m as r,f as t};
