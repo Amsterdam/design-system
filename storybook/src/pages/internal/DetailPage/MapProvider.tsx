@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { Feature, Geometry } from 'geojson'
+import type { Feature, FeatureCollection, GeoJsonProperties, Geometry } from 'geojson'
 import type { Map as LeafletMap } from 'leaflet'
 import type { PropsWithChildren } from 'react'
 
@@ -14,11 +14,20 @@ import { getCrsRd } from './getCrsRd'
 import { MapContext } from './MapContext'
 
 type MapProviderProps = PropsWithChildren<{
-  readonly feature: Feature<Geometry>
+  readonly geoJson: FeatureCollection<Geometry, GeoJsonProperties>
   readonly scrollWheelZoom: boolean
 }>
 
-export const MapProvider = ({ children, feature, scrollWheelZoom }: MapProviderProps) => {
+const isLandmarkFeature = (feature?: Feature<Geometry, GeoJsonProperties> | null) =>
+  feature?.properties?.['kind'] === 'landmark'
+
+const getFeatureName = (feature?: Feature<Geometry, GeoJsonProperties> | null) => {
+  const value = feature?.properties?.['name']
+
+  return typeof value === 'string' ? value : undefined
+}
+
+export const MapProvider = ({ children, geoJson, scrollWheelZoom }: MapProviderProps) => {
   const containerRef = useRef<HTMLDivElement>(null)
   const createdMapInstance = useRef(false)
   const initialScrollWheelZoomRef = useRef(scrollWheelZoom)
@@ -85,9 +94,25 @@ export const MapProvider = ({ children, feature, scrollWheelZoom }: MapProviderP
       return undefined
     }
 
-    const layer = L.geoJSON(feature, {
-      coordsToLatLng: (coords) => mapInstance.options.crs.projection.unproject(L.point(coords[0], coords[1])),
-      style: () => ({ className: '_ams-object-information-map__geometry' }),
+    const layer = L.geoJSON(geoJson, {
+      onEachFeature: (feature, featureLayer) => {
+        const name = getFeatureName(feature)
+
+        if (name) {
+          featureLayer.bindTooltip(name)
+        }
+      },
+      pointToLayer: (feature, latLng) =>
+        L.marker(latLng, {
+          icon: L.divIcon({
+            className: '_ams-object-information-map__landmark-marker',
+            html: '<span aria-hidden="true" class="_ams-object-information-map__landmark-pin"></span>',
+          }),
+          title: getFeatureName(feature),
+        }),
+      style: (feature) => ({
+        className: isLandmarkFeature(feature) ? '' : '_ams-object-information-map__geometry',
+      }),
     })
 
     layer.addTo(mapInstance)
@@ -101,7 +126,7 @@ export const MapProvider = ({ children, feature, scrollWheelZoom }: MapProviderP
     return () => {
       layer.removeFrom(mapInstance)
     }
-  }, [feature, mapInstance])
+  }, [geoJson, mapInstance])
 
   return (
     <div className="_ams-object-information-map">

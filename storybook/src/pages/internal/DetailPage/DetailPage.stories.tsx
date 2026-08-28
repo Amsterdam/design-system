@@ -11,12 +11,12 @@ import {
   Button,
   Grid,
   Heading,
+  Paragraph,
   LinkList,
   Row,
   TableOfContents,
 } from '@amsterdam/design-system-react'
 import {
-  DownloadIcon,
   LinkExternalIcon,
   MagnifyingGlassWithEyeIcon,
   PencilIcon,
@@ -26,8 +26,7 @@ import { commonMeta, pageParameters } from '../common/commonMeta'
 import { ObjectInformationDescriptionList } from './ObjectInformationDescriptionList'
 import { ObjectInformationMap } from './ObjectInformationMap'
 import { ObjectInformationTable } from './ObjectInformationTable'
-
-const objectInformationUrl = 'https://api.data.amsterdam.nl/v1/civieleconstructies/v1/brug/651389'
+import detailPageData from './detailPageData.json'
 
 const meta = {
   ...commonMeta,
@@ -41,11 +40,14 @@ const meta = {
       <Grid paddingVertical="x-large">
         <Grid.Cell appearance="transparent" span="all">
           <Breadcrumb>
-            <Breadcrumb.Link href="#">Home</Breadcrumb.Link>
-            <Breadcrumb.Link href="#">Projecten</Breadcrumb.Link>
+            {detailPageData.breadcrumbs.map((breadcrumb) => (
+              <Breadcrumb.Link href="#" key={breadcrumb}>
+                {breadcrumb}
+              </Breadcrumb.Link>
+            ))}
           </Breadcrumb>
           <Row align="between" wrap>
-            <Heading level={1}>Naam van het project</Heading>
+            <Heading level={1}>{detailPageData.name}</Heading>
             <ActionGroup>
               <Button icon={MagnifyingGlassWithEyeIcon} variant="secondary">
                 Exporteren
@@ -59,44 +61,45 @@ const meta = {
           <Grid.Cell span="all">
             <TableOfContents heading="Op deze pagina">
               <TableOfContents.List>
-                <TableOfContents.Link href="#section-1" label="Zo werkt het" />
-                <TableOfContents.Link href="#section-2" label="Voorwaarden" />
-                <TableOfContents.Link href="#section-3" label="Aanvragen" />
-                <TableOfContents.Link href="#section-4" label="Zie ook" />
+                <TableOfContents.Link href="#algemene-informatie" label="Algemene informatie" />
+                <TableOfContents.Link href="#geschiedenis" label="Geschiedenis" />
+                <TableOfContents.Link href="#kaart" label="Kaart" />
               </TableOfContents.List>
             </TableOfContents>
           </Grid.Cell>
           <Grid.Cell span="all">
             <Heading className="ams-mb-xs" level={3}>
-              Downloads
+              Bronnen
             </Heading>
             <LinkList>
-              <LinkList.Link href="#" icon={DownloadIcon}>
-                Export PDF
-              </LinkList.Link>
-              <LinkList.Link href="#" icon={DownloadIcon}>
-                Export Excel
-              </LinkList.Link>
-              <LinkList.Link href="#" icon={LinkExternalIcon}>
-                External ref
-              </LinkList.Link>
+              {detailPageData.links.map(({ label, url }) => (
+                <LinkList.Link href={url} icon={LinkExternalIcon} key={url}>
+                  {label}
+                </LinkList.Link>
+              ))}
             </LinkList>
           </Grid.Cell>
         </Grid.Subgrid>
 
         <Grid.Subgrid span={{ narrow: 4, medium: 5, wide: 9 }}>
           <Grid.Cell className="ams-prose" span="all">
-            <Heading level={2}>Object informatie</Heading>
-            <ObjectInformationDescriptionList url={objectInformationUrl} />
+            <Heading id="algemene-informatie" level={2}>
+              Algemene informatie
+            </Heading>
+            <Paragraph>{detailPageData.description}</Paragraph>
+            <ObjectInformationDescriptionList items={detailPageData.basicInformation} />
           </Grid.Cell>
           <Grid.Cell className="ams-prose" span="all">
-            <ObjectInformationTable url={objectInformationUrl} />
+            <Heading id="geschiedenis" level={2}>
+              Geschiedenis
+            </Heading>
+            <ObjectInformationTable events={detailPageData.history} />
           </Grid.Cell>
           <Grid.Cell span="all">
-            <Heading className="ams-mb-s" level={2}>
+            <Heading className="ams-mb-s" id="kaart" level={2}>
               Kaart
             </Heading>
-            <ObjectInformationMap url={objectInformationUrl} />
+            <ObjectInformationMap geoJson={detailPageData.geoJson} />
           </Grid.Cell>
         </Grid.Subgrid>
       </Grid>
@@ -113,7 +116,22 @@ export const Default: StoryObj = {
         // Because the `render` of this story lives on the shared meta, its own source is nothing but these parameters,
         // and that is all the Code Panel would print. Provide the source by hand so the layout reads the way a
         // developer would write it, without the interactive state.
-        code: `<TODO />`,
+        code: `import detailPageData from './detailPageData.json'
+
+<Heading id="algemene-informatie" level={2}>
+  Algemene informatie
+</Heading>
+<ObjectInformationDescriptionList items={detailPageData.basicInformation} />
+
+<Heading id="geschiedenis" level={2}>
+  Geschiedenis
+</Heading>
+<ObjectInformationTable events={detailPageData.history} />
+
+<Heading id="kaart" level={2}>
+  Kaart
+</Heading>
+<ObjectInformationMap geoJson={detailPageData.geoJson} />`,
         language: 'tsx',
       },
     },

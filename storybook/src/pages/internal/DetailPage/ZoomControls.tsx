@@ -3,18 +3,18 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { Feature, Geometry } from 'geojson'
+import type { FeatureCollection, GeoJsonProperties, Geometry } from 'geojson'
 
 import { Controls } from './Controls'
 import { MapProvider } from './MapProvider'
 
 type ZoomControlsProps = {
-  readonly feature: Feature<Geometry>
+  readonly geoJson: FeatureCollection<Geometry, GeoJsonProperties>
   readonly scrollWheelZoom?: boolean
 }
 
-export const ZoomControls = ({ feature, scrollWheelZoom = true }: ZoomControlsProps) => (
-  <MapProvider feature={feature} scrollWheelZoom={scrollWheelZoom}>
+export const ZoomControls = ({ geoJson, scrollWheelZoom = true }: ZoomControlsProps) => (
+  <MapProvider geoJson={geoJson} scrollWheelZoom={scrollWheelZoom}>
     <Controls />
   </MapProvider>
 )

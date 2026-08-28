@@ -35,10 +35,18 @@
   stroke-width: var(--ams-border-width-s);
 }
 
-._ams-object-information-map__fallback {
-  align-items: center;
-  background-color: var(--ams-color-background);
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+._ams-object-information-map__landmark-marker {
+  background: none;
+  border: 0;
+  margin: 0;
+  transform: translate(-50%, -50%);
+}
+
+._ams-object-information-map__landmark-pin {
+  background-color: var(--ams-color-interactive);
+  block-size: var(--ams-space-m);
+  border: var(--ams-border-width-s) solid var(--ams-color-background);
+  border-radius: 50%;
+  display: block;
+  inline-size: var(--ams-space-m);
 }
