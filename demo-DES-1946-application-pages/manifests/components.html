@@ -588,13 +588,13 @@
 <header>
   <div class="wrap">
     <h1>Manifest Debugger</h1>
-    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">16/90 prop type errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">16/90 infos</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">1/306 story errors</a><a class="filter-pill ok" data-k="docs" href="#filter-docs">126 docs ok</a></div>
+    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">16/90 prop type errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">16/90 infos</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">1/307 story errors</a><a class="filter-pill ok" data-k="docs" href="#filter-docs">126 docs ok</a></div>
   </div>
 </header>
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>5.3s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>5.4s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -6731,7 +6731,7 @@ The component leaves the native elements alone rather than adding `term` and `de
       <div class="badges">
         <label for="c-21-pages-internal-detail-page-err" class="badge err as-toggle">prop type error</label>
         <label for="c-21-pages-internal-detail-page-info" class="badge info as-toggle">1 info</label>
-        <label for="c-21-pages-internal-detail-page-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-21-pages-internal-detail-page-stories" class="badge ok as-toggle">2 stories</label>
         <label for="c-21-pages-internal-detail-page-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
@@ -6757,13 +6757,13 @@ The component leaves the native elements alone rather than adding `term` and `de
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
-  25 | import { ObjectInformationTable } from &#39;./ObjectInformationTable&#39;
-  26 |
-&gt; 27 | const meta = {
+  38 | type EditTabId = &#39;algemene-informatie&#39; | &#39;historie&#39; | &#39;kaart&#39;
+  39 |
+&gt; 40 | const meta = {
      | ^
-  28 |   ...commonMeta,
-  29 |   title: &#39;Pages/Internal/Detail Page&#39;,
-  30 |   parameters: pageParameters(
+  41 |   ...commonMeta,
+  42 |   title: &#39;Pages/Internal/Detail Page&#39;,
+  43 |   parameters: pageParameters(
 
 ./src/pages/internal/DetailPage/DetailPage.stories.tsx:
 /**
@@ -6772,6 +6772,7 @@ The component leaves the native elements alone rather than adding `term` and `de
  */
 
 import type { Meta, StoryObj } from &#39;@storybook/react-vite&#39;
+import type { MouseEvent } from &#39;react&#39;
 
 import {
   ActionGroup,
@@ -6783,14 +6784,26 @@ import {
   Paragraph,
   Row,
   TableOfContents,
+  TabNavigation,
 } from &#39;@amsterdam/design-system-react&#39;
-import { LinkExternalIcon, MagnifyingGlassWithEyeIcon, PencilIcon } from &#39;@amsterdam/design-system-react-icons&#39;
+import {
+  EyeOpenIcon,
+  LinkExternalIcon,
+  MagnifyingGlassWithEyeIcon,
+  PencilIcon,
+} from &#39;@amsterdam/design-system-react-icons&#39;
+import { useState } from &#39;react&#39;
 
 import { commonMeta, pageParameters } from &#39;../common/commonMeta&#39;
 import detailPageData from &#39;./detailPageData.json&#39;
+import { DetailPageEditGeneralInformationTab } from &#39;./DetailPageEditGeneralInformationTab&#39;
+import { DetailPageEditHistoryTab } from &#39;./DetailPageEditHistoryTab&#39;
+import { DetailPageEditMapTab } from &#39;./DetailPageEditMapTab&#39;
 import { ObjectInformationDescriptionList } from &#39;./ObjectInformationDescriptionList&#39;
 import { ObjectInformationMap } from &#39;./ObjectInformationMap&#39;
 import { ObjectInformationTable } from &#39;./ObjectInformationTable&#39;
+
+type EditTabId = &#39;algemene-informatie&#39; | &#39;historie&#39; | &#39;kaart&#39;
 
 const meta = {
   ...commonMeta,
@@ -6799,81 +6812,11 @@ const meta = {
     &#39;Suits websites whose content is organised into a handful of main sections &#39; +
       &#39;that each have their own subsections.&#39;,
   ),
-  render: () =&gt; {
-    return (
-      &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
-        &lt;Grid.Cell appearance=&quot;transparent&quot; span=&quot;all&quot;&gt;
-          &lt;Breadcrumb&gt;
-            {detailPageData.breadcrumbs.map((breadcrumb) =&gt; (
-              &lt;Breadcrumb.Link href=&quot;#&quot; key={breadcrumb}&gt;
-                {breadcrumb}
-              &lt;/Breadcrumb.Link&gt;
-            ))}
-          &lt;/Breadcrumb&gt;
-          &lt;Row align=&quot;between&quot; wrap&gt;
-            &lt;Heading level={1}&gt;{detailPageData.name}&lt;/Heading&gt;
-            &lt;ActionGroup&gt;
-              &lt;Button icon={MagnifyingGlassWithEyeIcon} variant=&quot;secondary&quot;&gt;
-                Exporteren
-              &lt;/Button&gt;
-              &lt;Button icon={PencilIcon}&gt;Bewerken&lt;/Button&gt;
-            &lt;/ActionGroup&gt;
-          &lt;/Row&gt;
-        &lt;/Grid.Cell&gt;
-
-        &lt;Grid.Subgrid span={{ narrow: 4, medium: 3, wide: 3 }}&gt;
-          &lt;Grid.Cell span=&quot;all&quot;&gt;
-            &lt;TableOfContents heading=&quot;Op deze pagina&quot;&gt;
-              &lt;TableOfContents.List&gt;
-                &lt;TableOfContents.Link href=&quot;#algemene-informatie&quot; label=&quot;Algemene informatie&quot; /&gt;
-                &lt;TableOfContents.Link href=&quot;#geschiedenis&quot; label=&quot;Geschiedenis&quot; /&gt;
-                &lt;TableOfContents.Link href=&quot;#kaart&quot; label=&quot;Kaart&quot; /&gt;
-              &lt;/TableOfContents.List&gt;
-            &lt;/TableOfContents&gt;
-          &lt;/Grid.Cell&gt;
-          &lt;Grid.Cell span=&quot;all&quot;&gt;
-            &lt;Heading className=&quot;ams-mb-xs&quot; level={3}&gt;
-              Bronnen
-            &lt;/Heading&gt;
-            &lt;LinkList&gt;
-              {detailPageData.links.map(({ label, url }) =&gt; (
-                &lt;LinkList.Link href={url} icon={LinkExternalIcon} key={url}&gt;
-                  {label}
-                &lt;/LinkList.Link&gt;
-              ))}
-            &lt;/LinkList&gt;
-          &lt;/Grid.Cell&gt;
-        &lt;/Grid.Subgrid&gt;
-
-        &lt;Grid.Subgrid span={{ narrow: 4, medium: 5, wide: 9 }}&gt;
-          &lt;Grid.Cell className=&quot;ams-prose&quot; span=&quot;all&quot;&gt;
-            &lt;Heading id=&quot;algemene-informatie&quot; level={2}&gt;
-              Algemene informatie
-            &lt;/Heading&gt;
-            &lt;Paragraph&gt;{detailPageData.description}&lt;/Paragraph&gt;
-            &lt;ObjectInformationDescriptionList items={detailPageData.basicInformation} /&gt;
-          &lt;/Grid.Cell&gt;
-          &lt;Grid.Cell className=&quot;ams-prose&quot; span=&quot;all&quot;&gt;
-            &lt;Heading id=&quot;geschiedenis&quot; level={2}&gt;
-              Geschiedenis
-            &lt;/Heading&gt;
-            &lt;ObjectInformationTable events={detailPageData.history} /&gt;
-          &lt;/Grid.Cell&gt;
-          &lt;Grid.Cell span=&quot;all&quot;&gt;
-            &lt;Heading className=&quot;ams-mb-s&quot; id=&quot;kaart&quot; level={2}&gt;
-              Kaart
-            &lt;/Heading&gt;
-            &lt;ObjectInformationMap geoJson={detailPageData.geoJson} /&gt;
-          &lt;/Grid.Cell&gt;
-        &lt;/Grid.Subgrid&gt;
-      &lt;/Grid&gt;
-    )
-  },
 } satisfies Meta
 
 export default meta
 
-export const Default: StoryObj = {
+export const ReadOnly: StoryObj = {
   parameters: {
     docs: {
       source: {
@@ -6952,6 +6895,210 @@ export const Default: StoryObj = {
       },
     },
   },
+  render: () =&gt; {
+    return (
+      &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+        &lt;Grid.Cell appearance=&quot;transparent&quot; span=&quot;all&quot;&gt;
+          &lt;Breadcrumb&gt;
+            {detailPageData.breadcrumbs.map((breadcrumb) =&gt; (
+              &lt;Breadcrumb.Link href=&quot;#&quot; key={breadcrumb}&gt;
+                {breadcrumb}
+              &lt;/Breadcrumb.Link&gt;
+            ))}
+          &lt;/Breadcrumb&gt;
+          &lt;Row align=&quot;between&quot; wrap&gt;
+            &lt;Heading level={1}&gt;{detailPageData.name}&lt;/Heading&gt;
+            &lt;ActionGroup&gt;
+              &lt;Button icon={MagnifyingGlassWithEyeIcon} variant=&quot;secondary&quot;&gt;
+                Review
+              &lt;/Button&gt;
+              &lt;Button icon={PencilIcon}&gt;Bewerken&lt;/Button&gt;
+            &lt;/ActionGroup&gt;
+          &lt;/Row&gt;
+        &lt;/Grid.Cell&gt;
+
+        &lt;Grid.Subgrid span={{ narrow: 4, medium: 3, wide: 3 }}&gt;
+          &lt;Grid.Cell span=&quot;all&quot;&gt;
+            &lt;TableOfContents heading=&quot;Op deze pagina&quot;&gt;
+              &lt;TableOfContents.List&gt;
+                &lt;TableOfContents.Link href=&quot;#algemene-informatie&quot; label=&quot;Algemene informatie&quot; /&gt;
+                &lt;TableOfContents.Link href=&quot;#geschiedenis&quot; label=&quot;Geschiedenis&quot; /&gt;
+                &lt;TableOfContents.Link href=&quot;#kaart&quot; label=&quot;Kaart&quot; /&gt;
+              &lt;/TableOfContents.List&gt;
+            &lt;/TableOfContents&gt;
+          &lt;/Grid.Cell&gt;
+          &lt;Grid.Cell span=&quot;all&quot;&gt;
+            &lt;Heading className=&quot;ams-mb-xs&quot; level={3}&gt;
+              Bronnen
+            &lt;/Heading&gt;
+            &lt;LinkList&gt;
+              {detailPageData.links.map(({ label, url }) =&gt; (
+                &lt;LinkList.Link href={url} icon={LinkExternalIcon} key={url}&gt;
+                  {label}
+                &lt;/LinkList.Link&gt;
+              ))}
+            &lt;/LinkList&gt;
+          &lt;/Grid.Cell&gt;
+        &lt;/Grid.Subgrid&gt;
+
+        &lt;Grid.Subgrid span={{ narrow: 4, medium: 5, wide: 9 }}&gt;
+          &lt;Grid.Cell className=&quot;ams-prose&quot; span=&quot;all&quot;&gt;
+            &lt;Heading id=&quot;algemene-informatie&quot; level={2}&gt;
+              Algemene informatie
+            &lt;/Heading&gt;
+            &lt;Paragraph&gt;{detailPageData.description}&lt;/Paragraph&gt;
+            &lt;ObjectInformationDescriptionList items={detailPageData.basicInformation} /&gt;
+          &lt;/Grid.Cell&gt;
+          &lt;Grid.Cell className=&quot;ams-prose&quot; span=&quot;all&quot;&gt;
+            &lt;Heading id=&quot;geschiedenis&quot; level={2}&gt;
+              Geschiedenis
+            &lt;/Heading&gt;
+            &lt;ObjectInformationTable events={detailPageData.history} /&gt;
+          &lt;/Grid.Cell&gt;
+          &lt;Grid.Cell span=&quot;all&quot;&gt;
+            &lt;Heading className=&quot;ams-mb-s&quot; id=&quot;kaart&quot; level={2}&gt;
+              Kaart
+            &lt;/Heading&gt;
+            &lt;ObjectInformationMap geoJson={detailPageData.geoJson} /&gt;
+          &lt;/Grid.Cell&gt;
+        &lt;/Grid.Subgrid&gt;
+      &lt;/Grid&gt;
+    )
+  },
+}
+
+export const Edit: StoryObj = {
+  parameters: {
+    docs: {
+      source: {
+        // Because the `render` of this story lives on the shared meta, its own source is nothing but these parameters,
+        // and that is all the Code Panel would print. Provide the source by hand so the layout reads the way a
+        // developer would write it, without the interactive state.
+        code: `&lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+  &lt;Grid.Cell appearance=&quot;transparent&quot; span=&quot;all&quot;&gt;
+    &lt;Breadcrumb&gt;
+      {detailPageData.breadcrumbs.map((breadcrumb) =&gt; (
+        &lt;Breadcrumb.Link href=&quot;#&quot; key={breadcrumb}&gt;
+          {breadcrumb}
+        &lt;/Breadcrumb.Link&gt;
+      ))}
+    &lt;/Breadcrumb&gt;
+    &lt;Row align=&quot;between&quot; wrap&gt;
+      &lt;Heading level={1}&gt;{detailPageData.name}&lt;/Heading&gt;
+      &lt;ActionGroup&gt;
+        &lt;Button icon={MagnifyingGlassWithEyeIcon} variant=&quot;secondary&quot;&gt;
+          Exporteren
+        &lt;/Button&gt;
+        &lt;Button icon={EyeOpenIcon}&gt;Toon Object&lt;/Button&gt;
+      &lt;/ActionGroup&gt;
+    &lt;/Row&gt;
+  &lt;/Grid.Cell&gt;
+  &lt;Grid.Cell appearance=&quot;flush&quot; span=&quot;all&quot;&gt;
+    &lt;TabNavigation accessibleName=&quot;Subnavigatie voor dit project&quot;&gt;
+      &lt;TabNavigation.List&gt;
+        &lt;TabNavigation.Link
+          aria-current={currentTabId === &#39;algemene-informatie&#39; ? &#39;page&#39; : undefined}
+          href=&quot;#algemene-informatie&quot;
+          onClick={(event) =&gt; handleTabClick(event, &#39;algemene-informatie&#39;)}
+        &gt;
+          Algemene informatie
+        &lt;/TabNavigation.Link&gt;
+        &lt;TabNavigation.Link
+          aria-current={currentTabId === &#39;historie&#39; ? &#39;page&#39; : undefined}
+          href=&quot;#historie&quot;
+          onClick={(event) =&gt; handleTabClick(event, &#39;historie&#39;)}
+        &gt;
+          Historie
+        &lt;/TabNavigation.Link&gt;
+        &lt;TabNavigation.Link
+          aria-current={currentTabId === &#39;kaart&#39; ? &#39;page&#39; : undefined}
+          href=&quot;#kaart&quot;
+          onClick={(event) =&gt; handleTabClick(event, &#39;kaart&#39;)}
+        &gt;
+          Kaart
+        &lt;/TabNavigation.Link&gt;
+      &lt;/TabNavigation.List&gt;
+    &lt;/TabNavigation&gt;
+  &lt;/Grid.Cell&gt;
+  &lt;Grid.Subgrid span=&quot;all&quot;&gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 8 }}&gt;
+      &lt;DetailPageEditGeneralInformationTab hidden={currentTabId !== &#39;algemene-informatie&#39;} /&gt;
+      &lt;DetailPageEditHistoryTab hidden={currentTabId !== &#39;historie&#39;} /&gt;
+      &lt;DetailPageEditMapTab hidden={currentTabId !== &#39;kaart&#39;} /&gt;
+    &lt;/Grid.Cell&gt;
+  &lt;/Grid.Subgrid&gt;
+&lt;/Grid&gt;`,
+        language: &#39;tsx&#39;,
+      },
+    },
+  },
+  render: () =&gt; {
+    const [currentTabId, setCurrentTabId] = useState&lt;EditTabId&gt;(&#39;algemene-informatie&#39;)
+
+    const handleTabClick = (event: MouseEvent&lt;HTMLAnchorElement&gt;, tabId: EditTabId) =&gt; {
+      event.preventDefault()
+      setCurrentTabId(tabId)
+    }
+
+    return (
+      &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+        &lt;Grid.Cell appearance=&quot;transparent&quot; span=&quot;all&quot;&gt;
+          &lt;Breadcrumb&gt;
+            {detailPageData.breadcrumbs.map((breadcrumb) =&gt; (
+              &lt;Breadcrumb.Link href=&quot;#&quot; key={breadcrumb}&gt;
+                {breadcrumb}
+              &lt;/Breadcrumb.Link&gt;
+            ))}
+          &lt;/Breadcrumb&gt;
+          &lt;Row align=&quot;between&quot; wrap&gt;
+            &lt;Heading level={1}&gt;{detailPageData.name}&lt;/Heading&gt;
+            &lt;ActionGroup&gt;
+              &lt;Button icon={MagnifyingGlassWithEyeIcon} variant=&quot;secondary&quot;&gt;
+                Exporteren
+              &lt;/Button&gt;
+              &lt;Button icon={EyeOpenIcon}&gt;Toon Object&lt;/Button&gt;
+            &lt;/ActionGroup&gt;
+          &lt;/Row&gt;
+        &lt;/Grid.Cell&gt;
+
+        &lt;Grid.Cell appearance=&quot;flush&quot; span=&quot;all&quot;&gt;
+          &lt;TabNavigation accessibleName=&quot;Subnavigatie voor dit project&quot;&gt;
+            &lt;TabNavigation.List&gt;
+              &lt;TabNavigation.Link
+                aria-current={currentTabId === &#39;algemene-informatie&#39; ? &#39;page&#39; : undefined}
+                href=&quot;#algemene-informatie&quot;
+                onClick={(event) =&gt; handleTabClick(event, &#39;algemene-informatie&#39;)}
+              &gt;
+                Algemene informatie
+              &lt;/TabNavigation.Link&gt;
+              &lt;TabNavigation.Link
+                aria-current={currentTabId === &#39;historie&#39; ? &#39;page&#39; : undefined}
+                href=&quot;#historie&quot;
+                onClick={(event) =&gt; handleTabClick(event, &#39;historie&#39;)}
+              &gt;
+                Historie
+              &lt;/TabNavigation.Link&gt;
+              &lt;TabNavigation.Link
+                aria-current={currentTabId === &#39;kaart&#39; ? &#39;page&#39; : undefined}
+                href=&quot;#kaart&quot;
+                onClick={(event) =&gt; handleTabClick(event, &#39;kaart&#39;)}
+              &gt;
+                Kaart
+              &lt;/TabNavigation.Link&gt;
+            &lt;/TabNavigation.List&gt;
+          &lt;/TabNavigation&gt;
+        &lt;/Grid.Cell&gt;
+
+        &lt;Grid.Subgrid span=&quot;all&quot;&gt;
+          &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 8 }}&gt;
+            &lt;DetailPageEditGeneralInformationTab hidden={currentTabId !== &#39;algemene-informatie&#39;} /&gt;
+            &lt;DetailPageEditHistoryTab hidden={currentTabId !== &#39;historie&#39;} /&gt;
+            &lt;DetailPageEditMapTab hidden={currentTabId !== &#39;kaart&#39;} /&gt;
+          &lt;/Grid.Cell&gt;
+        &lt;/Grid.Subgrid&gt;
+      &lt;/Grid&gt;
+    )
+  },
 }
 </code></pre></div>
     </div>
@@ -6984,8 +7131,12 @@ export const Default: StoryObj = {
     Paragraph,
     Row,
     TableOfContents,
+    TabNavigation,
 } from "@amsterdam/design-system-react";
 import {
+    DetailPageEditGeneralInformationTab,
+    DetailPageEditHistoryTab,
+    DetailPageEditMapTab,
     ObjectInformationDescriptionList,
     ObjectInformationMap,
     ObjectInformationTable,
@@ -6995,12 +7146,12 @@ import {
           
             <div class="note ok">
               <div class="row">
-                <span class="ex-name">Default</span>
+                <span class="ex-name">Read Only</span>
                 <span class="badge ok">story ok</span>
               </div>
               
               
-              <pre><code>const Default = () =&gt; {
+              <pre><code>const ReadOnly = () =&gt; {
   return (
     &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
       &lt;Grid.Cell appearance=&quot;transparent&quot; span=&quot;all&quot;&gt;
@@ -7015,7 +7166,7 @@ import {
           &lt;Heading level={1}&gt;{detailPageData.name}&lt;/Heading&gt;
           &lt;ActionGroup&gt;
             &lt;Button icon={MagnifyingGlassWithEyeIcon} variant=&quot;secondary&quot;&gt;
-              Exporteren
+              Review
             &lt;/Button&gt;
             &lt;Button icon={PencilIcon}&gt;Bewerken&lt;/Button&gt;
           &lt;/ActionGroup&gt;
@@ -7065,6 +7216,81 @@ import {
             Kaart
           &lt;/Heading&gt;
           &lt;ObjectInformationMap geoJson={detailPageData.geoJson} /&gt;
+        &lt;/Grid.Cell&gt;
+      &lt;/Grid.Subgrid&gt;
+    &lt;/Grid&gt;
+  )
+};</code></pre>
+            </div>
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Edit</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const Edit = () =&gt; {
+  const [currentTabId, setCurrentTabId] = useState&lt;EditTabId&gt;(&#39;algemene-informatie&#39;)
+
+  const handleTabClick = (event: MouseEvent&lt;HTMLAnchorElement&gt;, tabId: EditTabId) =&gt; {
+    event.preventDefault()
+    setCurrentTabId(tabId)
+  }
+
+  return (
+    &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+      &lt;Grid.Cell appearance=&quot;transparent&quot; span=&quot;all&quot;&gt;
+        &lt;Breadcrumb&gt;
+          {detailPageData.breadcrumbs.map((breadcrumb) =&gt; (
+            &lt;Breadcrumb.Link href=&quot;#&quot; key={breadcrumb}&gt;
+              {breadcrumb}
+            &lt;/Breadcrumb.Link&gt;
+          ))}
+        &lt;/Breadcrumb&gt;
+        &lt;Row align=&quot;between&quot; wrap&gt;
+          &lt;Heading level={1}&gt;{detailPageData.name}&lt;/Heading&gt;
+          &lt;ActionGroup&gt;
+            &lt;Button icon={MagnifyingGlassWithEyeIcon} variant=&quot;secondary&quot;&gt;
+              Exporteren
+            &lt;/Button&gt;
+            &lt;Button icon={EyeOpenIcon}&gt;Toon Object&lt;/Button&gt;
+          &lt;/ActionGroup&gt;
+        &lt;/Row&gt;
+      &lt;/Grid.Cell&gt;
+
+      &lt;Grid.Cell appearance=&quot;flush&quot; span=&quot;all&quot;&gt;
+        &lt;TabNavigation accessibleName=&quot;Subnavigatie voor dit project&quot;&gt;
+          &lt;TabNavigation.List&gt;
+            &lt;TabNavigation.Link
+              aria-current={currentTabId === &#39;algemene-informatie&#39; ? &#39;page&#39; : undefined}
+              href=&quot;#algemene-informatie&quot;
+              onClick={(event) =&gt; handleTabClick(event, &#39;algemene-informatie&#39;)}
+            &gt;
+              Algemene informatie
+            &lt;/TabNavigation.Link&gt;
+            &lt;TabNavigation.Link
+              aria-current={currentTabId === &#39;historie&#39; ? &#39;page&#39; : undefined}
+              href=&quot;#historie&quot;
+              onClick={(event) =&gt; handleTabClick(event, &#39;historie&#39;)}
+            &gt;
+              Historie
+            &lt;/TabNavigation.Link&gt;
+            &lt;TabNavigation.Link
+              aria-current={currentTabId === &#39;kaart&#39; ? &#39;page&#39; : undefined}
+              href=&quot;#kaart&quot;
+              onClick={(event) =&gt; handleTabClick(event, &#39;kaart&#39;)}
+            &gt;
+              Kaart
+            &lt;/TabNavigation.Link&gt;
+          &lt;/TabNavigation.List&gt;
+        &lt;/TabNavigation&gt;
+      &lt;/Grid.Cell&gt;
+
+      &lt;Grid.Subgrid span=&quot;all&quot;&gt;
+        &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 8 }}&gt;
+          &lt;DetailPageEditGeneralInformationTab hidden={currentTabId !== &#39;algemene-informatie&#39;} /&gt;
+          &lt;DetailPageEditHistoryTab hidden={currentTabId !== &#39;historie&#39;} /&gt;
+          &lt;DetailPageEditMapTab hidden={currentTabId !== &#39;kaart&#39;} /&gt;
         &lt;/Grid.Cell&gt;
       &lt;/Grid.Subgrid&gt;
     &lt;/Grid&gt;
@@ -40324,7 +40550,7 @@ The hero Image and the Card images take an empty `alt`, because the text beside 
       <div class="badges">
         <label for="c-error-1-pages-internal-detail-page-err" class="badge err as-toggle">prop type error</label>
         <label for="c-error-1-pages-internal-detail-page-info" class="badge info as-toggle">1 info</label>
-        <label for="c-error-1-pages-internal-detail-page-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-1-pages-internal-detail-page-stories" class="badge ok as-toggle">2 stories</label>
         <label for="c-error-1-pages-internal-detail-page-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
@@ -40350,13 +40576,13 @@ The hero Image and the Card images take an empty `alt`, because the text beside 
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
-  25 | import { ObjectInformationTable } from &#39;./ObjectInformationTable&#39;
-  26 |
-&gt; 27 | const meta = {
+  38 | type EditTabId = &#39;algemene-informatie&#39; | &#39;historie&#39; | &#39;kaart&#39;
+  39 |
+&gt; 40 | const meta = {
      | ^
-  28 |   ...commonMeta,
-  29 |   title: &#39;Pages/Internal/Detail Page&#39;,
-  30 |   parameters: pageParameters(
+  41 |   ...commonMeta,
+  42 |   title: &#39;Pages/Internal/Detail Page&#39;,
+  43 |   parameters: pageParameters(
 
 ./src/pages/internal/DetailPage/DetailPage.stories.tsx:
 /**
@@ -40365,6 +40591,7 @@ The hero Image and the Card images take an empty `alt`, because the text beside 
  */
 
 import type { Meta, StoryObj } from &#39;@storybook/react-vite&#39;
+import type { MouseEvent } from &#39;react&#39;
 
 import {
   ActionGroup,
@@ -40376,14 +40603,26 @@ import {
   Paragraph,
   Row,
   TableOfContents,
+  TabNavigation,
 } from &#39;@amsterdam/design-system-react&#39;
-import { LinkExternalIcon, MagnifyingGlassWithEyeIcon, PencilIcon } from &#39;@amsterdam/design-system-react-icons&#39;
+import {
+  EyeOpenIcon,
+  LinkExternalIcon,
+  MagnifyingGlassWithEyeIcon,
+  PencilIcon,
+} from &#39;@amsterdam/design-system-react-icons&#39;
+import { useState } from &#39;react&#39;
 
 import { commonMeta, pageParameters } from &#39;../common/commonMeta&#39;
 import detailPageData from &#39;./detailPageData.json&#39;
+import { DetailPageEditGeneralInformationTab } from &#39;./DetailPageEditGeneralInformationTab&#39;
+import { DetailPageEditHistoryTab } from &#39;./DetailPageEditHistoryTab&#39;
+import { DetailPageEditMapTab } from &#39;./DetailPageEditMapTab&#39;
 import { ObjectInformationDescriptionList } from &#39;./ObjectInformationDescriptionList&#39;
 import { ObjectInformationMap } from &#39;./ObjectInformationMap&#39;
 import { ObjectInformationTable } from &#39;./ObjectInformationTable&#39;
+
+type EditTabId = &#39;algemene-informatie&#39; | &#39;historie&#39; | &#39;kaart&#39;
 
 const meta = {
   ...commonMeta,
@@ -40392,81 +40631,11 @@ const meta = {
     &#39;Suits websites whose content is organised into a handful of main sections &#39; +
       &#39;that each have their own subsections.&#39;,
   ),
-  render: () =&gt; {
-    return (
-      &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
-        &lt;Grid.Cell appearance=&quot;transparent&quot; span=&quot;all&quot;&gt;
-          &lt;Breadcrumb&gt;
-            {detailPageData.breadcrumbs.map((breadcrumb) =&gt; (
-              &lt;Breadcrumb.Link href=&quot;#&quot; key={breadcrumb}&gt;
-                {breadcrumb}
-              &lt;/Breadcrumb.Link&gt;
-            ))}
-          &lt;/Breadcrumb&gt;
-          &lt;Row align=&quot;between&quot; wrap&gt;
-            &lt;Heading level={1}&gt;{detailPageData.name}&lt;/Heading&gt;
-            &lt;ActionGroup&gt;
-              &lt;Button icon={MagnifyingGlassWithEyeIcon} variant=&quot;secondary&quot;&gt;
-                Exporteren
-              &lt;/Button&gt;
-              &lt;Button icon={PencilIcon}&gt;Bewerken&lt;/Button&gt;
-            &lt;/ActionGroup&gt;
-          &lt;/Row&gt;
-        &lt;/Grid.Cell&gt;
-
-        &lt;Grid.Subgrid span={{ narrow: 4, medium: 3, wide: 3 }}&gt;
-          &lt;Grid.Cell span=&quot;all&quot;&gt;
-            &lt;TableOfContents heading=&quot;Op deze pagina&quot;&gt;
-              &lt;TableOfContents.List&gt;
-                &lt;TableOfContents.Link href=&quot;#algemene-informatie&quot; label=&quot;Algemene informatie&quot; /&gt;
-                &lt;TableOfContents.Link href=&quot;#geschiedenis&quot; label=&quot;Geschiedenis&quot; /&gt;
-                &lt;TableOfContents.Link href=&quot;#kaart&quot; label=&quot;Kaart&quot; /&gt;
-              &lt;/TableOfContents.List&gt;
-            &lt;/TableOfContents&gt;
-          &lt;/Grid.Cell&gt;
-          &lt;Grid.Cell span=&quot;all&quot;&gt;
-            &lt;Heading className=&quot;ams-mb-xs&quot; level={3}&gt;
-              Bronnen
-            &lt;/Heading&gt;
-            &lt;LinkList&gt;
-              {detailPageData.links.map(({ label, url }) =&gt; (
-                &lt;LinkList.Link href={url} icon={LinkExternalIcon} key={url}&gt;
-                  {label}
-                &lt;/LinkList.Link&gt;
-              ))}
-            &lt;/LinkList&gt;
-          &lt;/Grid.Cell&gt;
-        &lt;/Grid.Subgrid&gt;
-
-        &lt;Grid.Subgrid span={{ narrow: 4, medium: 5, wide: 9 }}&gt;
-          &lt;Grid.Cell className=&quot;ams-prose&quot; span=&quot;all&quot;&gt;
-            &lt;Heading id=&quot;algemene-informatie&quot; level={2}&gt;
-              Algemene informatie
-            &lt;/Heading&gt;
-            &lt;Paragraph&gt;{detailPageData.description}&lt;/Paragraph&gt;
-            &lt;ObjectInformationDescriptionList items={detailPageData.basicInformation} /&gt;
-          &lt;/Grid.Cell&gt;
-          &lt;Grid.Cell className=&quot;ams-prose&quot; span=&quot;all&quot;&gt;
-            &lt;Heading id=&quot;geschiedenis&quot; level={2}&gt;
-              Geschiedenis
-            &lt;/Heading&gt;
-            &lt;ObjectInformationTable events={detailPageData.history} /&gt;
-          &lt;/Grid.Cell&gt;
-          &lt;Grid.Cell span=&quot;all&quot;&gt;
-            &lt;Heading className=&quot;ams-mb-s&quot; id=&quot;kaart&quot; level={2}&gt;
-              Kaart
-            &lt;/Heading&gt;
-            &lt;ObjectInformationMap geoJson={detailPageData.geoJson} /&gt;
-          &lt;/Grid.Cell&gt;
-        &lt;/Grid.Subgrid&gt;
-      &lt;/Grid&gt;
-    )
-  },
 } satisfies Meta
 
 export default meta
 
-export const Default: StoryObj = {
+export const ReadOnly: StoryObj = {
   parameters: {
     docs: {
       source: {
@@ -40545,6 +40714,210 @@ export const Default: StoryObj = {
       },
     },
   },
+  render: () =&gt; {
+    return (
+      &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+        &lt;Grid.Cell appearance=&quot;transparent&quot; span=&quot;all&quot;&gt;
+          &lt;Breadcrumb&gt;
+            {detailPageData.breadcrumbs.map((breadcrumb) =&gt; (
+              &lt;Breadcrumb.Link href=&quot;#&quot; key={breadcrumb}&gt;
+                {breadcrumb}
+              &lt;/Breadcrumb.Link&gt;
+            ))}
+          &lt;/Breadcrumb&gt;
+          &lt;Row align=&quot;between&quot; wrap&gt;
+            &lt;Heading level={1}&gt;{detailPageData.name}&lt;/Heading&gt;
+            &lt;ActionGroup&gt;
+              &lt;Button icon={MagnifyingGlassWithEyeIcon} variant=&quot;secondary&quot;&gt;
+                Review
+              &lt;/Button&gt;
+              &lt;Button icon={PencilIcon}&gt;Bewerken&lt;/Button&gt;
+            &lt;/ActionGroup&gt;
+          &lt;/Row&gt;
+        &lt;/Grid.Cell&gt;
+
+        &lt;Grid.Subgrid span={{ narrow: 4, medium: 3, wide: 3 }}&gt;
+          &lt;Grid.Cell span=&quot;all&quot;&gt;
+            &lt;TableOfContents heading=&quot;Op deze pagina&quot;&gt;
+              &lt;TableOfContents.List&gt;
+                &lt;TableOfContents.Link href=&quot;#algemene-informatie&quot; label=&quot;Algemene informatie&quot; /&gt;
+                &lt;TableOfContents.Link href=&quot;#geschiedenis&quot; label=&quot;Geschiedenis&quot; /&gt;
+                &lt;TableOfContents.Link href=&quot;#kaart&quot; label=&quot;Kaart&quot; /&gt;
+              &lt;/TableOfContents.List&gt;
+            &lt;/TableOfContents&gt;
+          &lt;/Grid.Cell&gt;
+          &lt;Grid.Cell span=&quot;all&quot;&gt;
+            &lt;Heading className=&quot;ams-mb-xs&quot; level={3}&gt;
+              Bronnen
+            &lt;/Heading&gt;
+            &lt;LinkList&gt;
+              {detailPageData.links.map(({ label, url }) =&gt; (
+                &lt;LinkList.Link href={url} icon={LinkExternalIcon} key={url}&gt;
+                  {label}
+                &lt;/LinkList.Link&gt;
+              ))}
+            &lt;/LinkList&gt;
+          &lt;/Grid.Cell&gt;
+        &lt;/Grid.Subgrid&gt;
+
+        &lt;Grid.Subgrid span={{ narrow: 4, medium: 5, wide: 9 }}&gt;
+          &lt;Grid.Cell className=&quot;ams-prose&quot; span=&quot;all&quot;&gt;
+            &lt;Heading id=&quot;algemene-informatie&quot; level={2}&gt;
+              Algemene informatie
+            &lt;/Heading&gt;
+            &lt;Paragraph&gt;{detailPageData.description}&lt;/Paragraph&gt;
+            &lt;ObjectInformationDescriptionList items={detailPageData.basicInformation} /&gt;
+          &lt;/Grid.Cell&gt;
+          &lt;Grid.Cell className=&quot;ams-prose&quot; span=&quot;all&quot;&gt;
+            &lt;Heading id=&quot;geschiedenis&quot; level={2}&gt;
+              Geschiedenis
+            &lt;/Heading&gt;
+            &lt;ObjectInformationTable events={detailPageData.history} /&gt;
+          &lt;/Grid.Cell&gt;
+          &lt;Grid.Cell span=&quot;all&quot;&gt;
+            &lt;Heading className=&quot;ams-mb-s&quot; id=&quot;kaart&quot; level={2}&gt;
+              Kaart
+            &lt;/Heading&gt;
+            &lt;ObjectInformationMap geoJson={detailPageData.geoJson} /&gt;
+          &lt;/Grid.Cell&gt;
+        &lt;/Grid.Subgrid&gt;
+      &lt;/Grid&gt;
+    )
+  },
+}
+
+export const Edit: StoryObj = {
+  parameters: {
+    docs: {
+      source: {
+        // Because the `render` of this story lives on the shared meta, its own source is nothing but these parameters,
+        // and that is all the Code Panel would print. Provide the source by hand so the layout reads the way a
+        // developer would write it, without the interactive state.
+        code: `&lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+  &lt;Grid.Cell appearance=&quot;transparent&quot; span=&quot;all&quot;&gt;
+    &lt;Breadcrumb&gt;
+      {detailPageData.breadcrumbs.map((breadcrumb) =&gt; (
+        &lt;Breadcrumb.Link href=&quot;#&quot; key={breadcrumb}&gt;
+          {breadcrumb}
+        &lt;/Breadcrumb.Link&gt;
+      ))}
+    &lt;/Breadcrumb&gt;
+    &lt;Row align=&quot;between&quot; wrap&gt;
+      &lt;Heading level={1}&gt;{detailPageData.name}&lt;/Heading&gt;
+      &lt;ActionGroup&gt;
+        &lt;Button icon={MagnifyingGlassWithEyeIcon} variant=&quot;secondary&quot;&gt;
+          Exporteren
+        &lt;/Button&gt;
+        &lt;Button icon={EyeOpenIcon}&gt;Toon Object&lt;/Button&gt;
+      &lt;/ActionGroup&gt;
+    &lt;/Row&gt;
+  &lt;/Grid.Cell&gt;
+  &lt;Grid.Cell appearance=&quot;flush&quot; span=&quot;all&quot;&gt;
+    &lt;TabNavigation accessibleName=&quot;Subnavigatie voor dit project&quot;&gt;
+      &lt;TabNavigation.List&gt;
+        &lt;TabNavigation.Link
+          aria-current={currentTabId === &#39;algemene-informatie&#39; ? &#39;page&#39; : undefined}
+          href=&quot;#algemene-informatie&quot;
+          onClick={(event) =&gt; handleTabClick(event, &#39;algemene-informatie&#39;)}
+        &gt;
+          Algemene informatie
+        &lt;/TabNavigation.Link&gt;
+        &lt;TabNavigation.Link
+          aria-current={currentTabId === &#39;historie&#39; ? &#39;page&#39; : undefined}
+          href=&quot;#historie&quot;
+          onClick={(event) =&gt; handleTabClick(event, &#39;historie&#39;)}
+        &gt;
+          Historie
+        &lt;/TabNavigation.Link&gt;
+        &lt;TabNavigation.Link
+          aria-current={currentTabId === &#39;kaart&#39; ? &#39;page&#39; : undefined}
+          href=&quot;#kaart&quot;
+          onClick={(event) =&gt; handleTabClick(event, &#39;kaart&#39;)}
+        &gt;
+          Kaart
+        &lt;/TabNavigation.Link&gt;
+      &lt;/TabNavigation.List&gt;
+    &lt;/TabNavigation&gt;
+  &lt;/Grid.Cell&gt;
+  &lt;Grid.Subgrid span=&quot;all&quot;&gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 8 }}&gt;
+      &lt;DetailPageEditGeneralInformationTab hidden={currentTabId !== &#39;algemene-informatie&#39;} /&gt;
+      &lt;DetailPageEditHistoryTab hidden={currentTabId !== &#39;historie&#39;} /&gt;
+      &lt;DetailPageEditMapTab hidden={currentTabId !== &#39;kaart&#39;} /&gt;
+    &lt;/Grid.Cell&gt;
+  &lt;/Grid.Subgrid&gt;
+&lt;/Grid&gt;`,
+        language: &#39;tsx&#39;,
+      },
+    },
+  },
+  render: () =&gt; {
+    const [currentTabId, setCurrentTabId] = useState&lt;EditTabId&gt;(&#39;algemene-informatie&#39;)
+
+    const handleTabClick = (event: MouseEvent&lt;HTMLAnchorElement&gt;, tabId: EditTabId) =&gt; {
+      event.preventDefault()
+      setCurrentTabId(tabId)
+    }
+
+    return (
+      &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+        &lt;Grid.Cell appearance=&quot;transparent&quot; span=&quot;all&quot;&gt;
+          &lt;Breadcrumb&gt;
+            {detailPageData.breadcrumbs.map((breadcrumb) =&gt; (
+              &lt;Breadcrumb.Link href=&quot;#&quot; key={breadcrumb}&gt;
+                {breadcrumb}
+              &lt;/Breadcrumb.Link&gt;
+            ))}
+          &lt;/Breadcrumb&gt;
+          &lt;Row align=&quot;between&quot; wrap&gt;
+            &lt;Heading level={1}&gt;{detailPageData.name}&lt;/Heading&gt;
+            &lt;ActionGroup&gt;
+              &lt;Button icon={MagnifyingGlassWithEyeIcon} variant=&quot;secondary&quot;&gt;
+                Exporteren
+              &lt;/Button&gt;
+              &lt;Button icon={EyeOpenIcon}&gt;Toon Object&lt;/Button&gt;
+            &lt;/ActionGroup&gt;
+          &lt;/Row&gt;
+        &lt;/Grid.Cell&gt;
+
+        &lt;Grid.Cell appearance=&quot;flush&quot; span=&quot;all&quot;&gt;
+          &lt;TabNavigation accessibleName=&quot;Subnavigatie voor dit project&quot;&gt;
+            &lt;TabNavigation.List&gt;
+              &lt;TabNavigation.Link
+                aria-current={currentTabId === &#39;algemene-informatie&#39; ? &#39;page&#39; : undefined}
+                href=&quot;#algemene-informatie&quot;
+                onClick={(event) =&gt; handleTabClick(event, &#39;algemene-informatie&#39;)}
+              &gt;
+                Algemene informatie
+              &lt;/TabNavigation.Link&gt;
+              &lt;TabNavigation.Link
+                aria-current={currentTabId === &#39;historie&#39; ? &#39;page&#39; : undefined}
+                href=&quot;#historie&quot;
+                onClick={(event) =&gt; handleTabClick(event, &#39;historie&#39;)}
+              &gt;
+                Historie
+              &lt;/TabNavigation.Link&gt;
+              &lt;TabNavigation.Link
+                aria-current={currentTabId === &#39;kaart&#39; ? &#39;page&#39; : undefined}
+                href=&quot;#kaart&quot;
+                onClick={(event) =&gt; handleTabClick(event, &#39;kaart&#39;)}
+              &gt;
+                Kaart
+              &lt;/TabNavigation.Link&gt;
+            &lt;/TabNavigation.List&gt;
+          &lt;/TabNavigation&gt;
+        &lt;/Grid.Cell&gt;
+
+        &lt;Grid.Subgrid span=&quot;all&quot;&gt;
+          &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 8 }}&gt;
+            &lt;DetailPageEditGeneralInformationTab hidden={currentTabId !== &#39;algemene-informatie&#39;} /&gt;
+            &lt;DetailPageEditHistoryTab hidden={currentTabId !== &#39;historie&#39;} /&gt;
+            &lt;DetailPageEditMapTab hidden={currentTabId !== &#39;kaart&#39;} /&gt;
+          &lt;/Grid.Cell&gt;
+        &lt;/Grid.Subgrid&gt;
+      &lt;/Grid&gt;
+    )
+  },
 }
 </code></pre></div>
     </div>
@@ -40577,8 +40950,12 @@ export const Default: StoryObj = {
     Paragraph,
     Row,
     TableOfContents,
+    TabNavigation,
 } from "@amsterdam/design-system-react";
 import {
+    DetailPageEditGeneralInformationTab,
+    DetailPageEditHistoryTab,
+    DetailPageEditMapTab,
     ObjectInformationDescriptionList,
     ObjectInformationMap,
     ObjectInformationTable,
@@ -40588,12 +40965,12 @@ import {
           
             <div class="note ok">
               <div class="row">
-                <span class="ex-name">Default</span>
+                <span class="ex-name">Read Only</span>
                 <span class="badge ok">story ok</span>
               </div>
               
               
-              <pre><code>const Default = () =&gt; {
+              <pre><code>const ReadOnly = () =&gt; {
   return (
     &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
       &lt;Grid.Cell appearance=&quot;transparent&quot; span=&quot;all&quot;&gt;
@@ -40608,7 +40985,7 @@ import {
           &lt;Heading level={1}&gt;{detailPageData.name}&lt;/Heading&gt;
           &lt;ActionGroup&gt;
             &lt;Button icon={MagnifyingGlassWithEyeIcon} variant=&quot;secondary&quot;&gt;
-              Exporteren
+              Review
             &lt;/Button&gt;
             &lt;Button icon={PencilIcon}&gt;Bewerken&lt;/Button&gt;
           &lt;/ActionGroup&gt;
@@ -40658,6 +41035,81 @@ import {
             Kaart
           &lt;/Heading&gt;
           &lt;ObjectInformationMap geoJson={detailPageData.geoJson} /&gt;
+        &lt;/Grid.Cell&gt;
+      &lt;/Grid.Subgrid&gt;
+    &lt;/Grid&gt;
+  )
+};</code></pre>
+            </div>
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Edit</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const Edit = () =&gt; {
+  const [currentTabId, setCurrentTabId] = useState&lt;EditTabId&gt;(&#39;algemene-informatie&#39;)
+
+  const handleTabClick = (event: MouseEvent&lt;HTMLAnchorElement&gt;, tabId: EditTabId) =&gt; {
+    event.preventDefault()
+    setCurrentTabId(tabId)
+  }
+
+  return (
+    &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+      &lt;Grid.Cell appearance=&quot;transparent&quot; span=&quot;all&quot;&gt;
+        &lt;Breadcrumb&gt;
+          {detailPageData.breadcrumbs.map((breadcrumb) =&gt; (
+            &lt;Breadcrumb.Link href=&quot;#&quot; key={breadcrumb}&gt;
+              {breadcrumb}
+            &lt;/Breadcrumb.Link&gt;
+          ))}
+        &lt;/Breadcrumb&gt;
+        &lt;Row align=&quot;between&quot; wrap&gt;
+          &lt;Heading level={1}&gt;{detailPageData.name}&lt;/Heading&gt;
+          &lt;ActionGroup&gt;
+            &lt;Button icon={MagnifyingGlassWithEyeIcon} variant=&quot;secondary&quot;&gt;
+              Exporteren
+            &lt;/Button&gt;
+            &lt;Button icon={EyeOpenIcon}&gt;Toon Object&lt;/Button&gt;
+          &lt;/ActionGroup&gt;
+        &lt;/Row&gt;
+      &lt;/Grid.Cell&gt;
+
+      &lt;Grid.Cell appearance=&quot;flush&quot; span=&quot;all&quot;&gt;
+        &lt;TabNavigation accessibleName=&quot;Subnavigatie voor dit project&quot;&gt;
+          &lt;TabNavigation.List&gt;
+            &lt;TabNavigation.Link
+              aria-current={currentTabId === &#39;algemene-informatie&#39; ? &#39;page&#39; : undefined}
+              href=&quot;#algemene-informatie&quot;
+              onClick={(event) =&gt; handleTabClick(event, &#39;algemene-informatie&#39;)}
+            &gt;
+              Algemene informatie
+            &lt;/TabNavigation.Link&gt;
+            &lt;TabNavigation.Link
+              aria-current={currentTabId === &#39;historie&#39; ? &#39;page&#39; : undefined}
+              href=&quot;#historie&quot;
+              onClick={(event) =&gt; handleTabClick(event, &#39;historie&#39;)}
+            &gt;
+              Historie
+            &lt;/TabNavigation.Link&gt;
+            &lt;TabNavigation.Link
+              aria-current={currentTabId === &#39;kaart&#39; ? &#39;page&#39; : undefined}
+              href=&quot;#kaart&quot;
+              onClick={(event) =&gt; handleTabClick(event, &#39;kaart&#39;)}
+            &gt;
+              Kaart
+            &lt;/TabNavigation.Link&gt;
+          &lt;/TabNavigation.List&gt;
+        &lt;/TabNavigation&gt;
+      &lt;/Grid.Cell&gt;
+
+      &lt;Grid.Subgrid span=&quot;all&quot;&gt;
+        &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 8 }}&gt;
+          &lt;DetailPageEditGeneralInformationTab hidden={currentTabId !== &#39;algemene-informatie&#39;} /&gt;
+          &lt;DetailPageEditHistoryTab hidden={currentTabId !== &#39;historie&#39;} /&gt;
+          &lt;DetailPageEditMapTab hidden={currentTabId !== &#39;kaart&#39;} /&gt;
         &lt;/Grid.Cell&gt;
       &lt;/Grid.Subgrid&gt;
     &lt;/Grid&gt;
