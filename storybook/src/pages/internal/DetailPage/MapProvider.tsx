@@ -104,11 +104,11 @@ export const MapProvider = ({ children, geoJson, scrollWheelZoom }: MapProviderP
       },
       pointToLayer: (feature, latLng) =>
         L.marker(latLng, {
+          title: getFeatureName(feature),
           icon: L.divIcon({
             className: '_ams-object-information-map__landmark-marker',
             html: '<span aria-hidden="true" class="_ams-object-information-map__landmark-pin"></span>',
           }),
-          title: getFeatureName(feature),
         }),
       style: (feature) => ({
         className: isLandmarkFeature(feature) ? '' : '_ams-object-information-map__geometry',
