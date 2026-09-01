@@ -2,46 +2,33 @@
 
 # General Agent Instructions
 
-Guidance for AI code agents working for the Amsterdam Design System. This is a component **library**, not an application — components must be generic, accessible, and reusable across any Amsterdam city service. Do not add application-specific logic, domain defaults, or assumptions about how a component will be used.
+This is a component **library**, not an application: components must be generic, accessible, and reusable across any Amsterdam city service.
+Do not add application-specific logic, domain defaults, or assumptions about how a component will be used.
 
-This file is a thin agent-specific layer on top of the official documentation and the per-package `AGENTS.md` files. Prefer reading and following those sources for details; use this file for cross-cutting priorities and "never do" rules.
+This file is a thin layer over the official documentation and the per-package `AGENTS.md` files.
+Use it for cross-cutting priorities and "never do" rules; go to those sources for detail.
 
 Reviewing a diff and writing a pull request each have their own instructions in [.github/skills](.github/skills); read the matching `SKILL.md` in full before you start.
 
-## How to use these instructions
-
-1. Identify which package(s) your change touches (tokens, CSS, React, Storybook).
-2. Read this file and then the relevant package `AGENTS.md` file(s) before editing or reviewing any code.
-3. Skim any linked documentation (coding conventions, tests, Storybook docs) that applies to your change.
-4. Make the smallest possible change in the narrowest relevant package or component.
-
 ## Agent priorities
 
-When you make or review changes in this repository, follow these priorities in order:
+Follow these priorities in order:
 
-1. **Correctness and accessibility** — code must work, be robust, and comply with WCAG 2.2 Level AA and our accessibility checklist.
-2. **API and contract stability** — avoid breaking existing public APIs (components, props, CSS class names, tokens) unless explicitly requested.
-3. **Consistency with existing patterns** — match the established conventions in the relevant package (tokens → CSS → React → Storybook).
-4. **Minimal, focused change sets** — only change what is required to satisfy the task; do not refactor unrelated code.
-5. **Performance and maintainability** — prefer simple, readable solutions that are fast enough and easy to maintain.
+1. **Correctness and accessibility** — WCAG 2.2 Level AA and our accessibility checklist.
+2. **API and contract stability** — do not break public components, props, CSS class names, or tokens unless asked.
+3. **Consistency** — match the established patterns of the package you are in (tokens → CSS → React → Storybook).
+4. **Minimal change sets** — see the "never do" rules below.
+5. **Performance and maintainability** — simple and readable over clever.
 
-If these priorities conflict, choose the option that best preserves accessibility and correctness while keeping changes as small and consistent as possible.
-
-When a task is ambiguous (for example, "improve performance" or "add validation" without further detail), prefer asking a small number of clarifying questions over introducing new behaviour, UX, or assumptions.
-
-## LLM agent behaviour
-
-These additional rules are specific to language-model agents working in this repository:
-
-- Always search for existing patterns (components, tokens, stories, mixins) before inventing new ones. In Storybook stories, use existing design system layout components (Grid, Column, Row) instead of raw `<div>` elements with inline styles.
-- When writing or editing Markdown, put one sentence per line to keep diffs small.
-- Never invent files, commands, configuration options, or APIs that are not present in the workspace or documented; if you are unsure, state the uncertainty instead of guessing.
-- Prefer editing the smallest possible surface area (a single component, token file, or package) instead of broad refactors across multiple layers.
-- When user instructions conflict with the rules in this file or the per-package `AGENTS.md` files, call out the conflict explicitly and do not silently ignore the repository rules.
+- Search for an existing pattern (component, token, story, mixin) before inventing one, and use Grid, Column, and Row instead of raw `<div>` elements with inline styles in Storybook stories.
+- Write Markdown one sentence per line, to keep diffs small.
+- Never invent a file, command, configuration option, or API; state the uncertainty instead of guessing.
+- When a user instruction conflicts with a rule here or in a package `AGENTS.md`, say so rather than silently following either.
+- On an ambiguous task ("improve performance", "add validation"), ask rather than assume new behaviour, UX, or scope.
 
 ## Repository structure
 
-`pnpm` workspace monorepo. The main layers are:
+`pnpm` workspace monorepo with these layers:
 
 - Tokens: [packages-proprietary/tokens](packages-proprietary/tokens/AGENTS.md)
 - CSS: [packages/css](packages/css/AGENTS.md)
@@ -50,9 +37,11 @@ These additional rules are specific to language-model agents working in this rep
 
 The typical pipeline is: **Tokens → CSS → React → Storybook**.
 
-**STOP: before editing any CSS, check whether you need new or updated tokens first.** If the CSS value you need doesn't have a corresponding `var(--ams-...)` custom property, add the token in `packages-proprietary/tokens` before touching the `.scss` file.
+**STOP: before editing any CSS, check whether you need new or updated tokens first.**
+If the CSS value you need has no `var(--ams-...)` custom property, add the token in `packages-proprietary/tokens` before touching the `.scss` file.
 
-Global styles are imported in [storybook/config/preview.tsx](storybook/config/preview.tsx). Proprietary assets are served from `packages-proprietary/assets` via `staticDirs` in [storybook/config/main.ts](storybook/config/main.ts).
+Global styles are imported in [storybook/config/preview.tsx](storybook/config/preview.tsx).
+Proprietary assets are served from `packages-proprietary/assets` via `staticDirs` in [storybook/config/main.ts](storybook/config/main.ts).
 
 ### Naming conventions per package
 
@@ -79,8 +68,9 @@ These rules override common agent defaults and apply across the repository:
 - **Never use npm or yarn** — always use `pnpm` (see commands in [README.md](README.md)).
 - **Never add `import React from 'react'`** — the JSX transform handles this automatically.
 - **Never weaken TypeScript safety** — avoid `any`, do not disable strict checks, and use `import type` for type-only imports.
-- **Never hardcode design values** (colors, spacing, typography, radii, shadows) — use a CSS custom property backed by tokens; add or update tokens first if needed. This applies everywhere: SCSS files, Storybook stories (no inline `style` props with raw `px`/`rem`/hex values), and React components.
-- **Never add backwards-compatibility fallbacks** (`@supports`, polyfills, feature detection) unless the task explicitly requests them. Make the simplest change that satisfies the task.
+- **Never hardcode design values** (colors, spacing, typography, radii, shadows) — use a CSS custom property backed by tokens; add or update tokens first if needed.
+  This applies everywhere: SCSS, Storybook stories (no inline `style` props with raw `px`/`rem`/hex values), and React components.
+- **Never add backwards-compatibility fallbacks** (`@supports`, polyfills, feature detection) unless the task explicitly requests them.
 - **Never bypass accessibility** — do not use `aria-label` for screen reader-only text; use the `ams-visually-hidden` helper instead, and never remove focus outlines or rely on colour alone to convey meaning.
 - **Never add features, abstractions, or refactors beyond the scope of the task.**
 - **Never add comments** unless the logic is genuinely non-obvious and cannot be simplified — JSDoc for public APIs, props, and documentation required by package conventions is the explicit exception.
@@ -92,44 +82,34 @@ Agents scoped to a single directory may only load the local file, so the reinfor
 
 ## Where to change what
 
-When deciding where to implement a change, follow this order:
+- **A reusable design value** — a token in `packages-proprietary/tokens`.
+- **Any other visual-only adjustment** — component CSS in `packages/css`, using existing tokens.
+- **Behaviour or markup that keeps the visual contract** — React only, reusing existing CSS classes.
+- **A new visual variant or structural markup** — CSS and React together, so the class contract stays aligned, plus stories covering the variants.
+- **A new component** — `pnpm run plop`, which scaffolds every package with the right naming, license headers, and boilerplate; see [plopfile.mjs](plopfile.mjs) and [plop-templates/](plop-templates/).
 
-1. **Visual-only adjustments** (spacing, colors, typography, borders):
-	- Prefer updating design tokens in `packages-proprietary/tokens` when the change is about a reusable design value.
-	- Otherwise, adjust component CSS in `packages/css` using existing tokens.
-2. **Behaviour or markup changes that keep the visual contract**:
-	- Update React components in `packages/react` only; reuse existing CSS classes where possible.
-3. **New visual variants or structural markup changes**:
-	- Update CSS and React together so that the class contract stays aligned, and add or update Storybook stories to cover new variants.
-4. **New components or major patterns**:
-	- Only create a new component when explicitly requested or when reuse of an existing component clearly conflicts with its documented intent.
-	- Scaffold with `pnpm run plop` when possible — it generates all required files across packages with the correct naming, license headers, and boilerplate. See [plopfile.mjs](plopfile.mjs) and [plop-templates/](plop-templates/) for what it creates.
-	- If creating files manually, follow the naming conventions table above and the file location tables in each package `AGENTS.md`. Register the new component in each package's index file (`packages/css/src/components/index.scss`, `packages/react/src/index.ts`).
-
-When in doubt, prefer the smallest change that satisfies the task and matches existing patterns.
+Only create a new component when asked, or when reuse of an existing one clearly conflicts with its documented intent.
+Creating files by hand means following the naming table above and each package's file location table, then registering the component in `packages/css/src/components/index.scss` and `packages/react/src/index.ts`.
 
 ## Documentation, tests, and accessibility
 
-For details, rely on the official documentation and per-package instructions:
+- Quality checklist, including WCAG 2.2 Level AA: [definition-of-done.md](documentation/definition-of-done.md) — cross-check it before submitting work.
+- Testing: [tests.md](documentation/tests.md)
+- Component docs: [component-docs.md](documentation/component-docs.md) and [storybook.md](documentation/storybook.md)
+- Page templates: [page-anatomy.md](documentation/page-anatomy.md)
+- Git, reviews, releases: [git.md](documentation/git.md), [code-reviews.md](documentation/code-reviews.md), [publishing.md](documentation/publishing.md)
+- Release notes: [release-notes.md](documentation/release-notes.md)
+- Storybook home page figures: [introduction-statistics.md](documentation/introduction-statistics.md)
 
-- Testing: [documentation/tests.md](documentation/tests.md), plus [packages/react/AGENTS.md](packages/react/AGENTS.md) and [storybook/AGENTS.md](storybook/AGENTS.md) for unit, interaction, visual, and accessibility tests.
-- Accessibility and quality: [documentation/definition-of-done.md](documentation/definition-of-done.md) (full quality checklist including WCAG 2.2 Level AA).
-- Component docs and Storybook: [documentation/component-docs.md](documentation/component-docs.md) and [documentation/storybook.md](documentation/storybook.md).
-- Page templates: [documentation/page-anatomy.md](documentation/page-anatomy.md) — how a page template documents its own layout with a schematic read from its story.
-- Git and contribution workflow: [documentation/git.md](documentation/git.md), [documentation/code-reviews.md](documentation/code-reviews.md), and [documentation/publishing.md](documentation/publishing.md).
-- Release notes: [documentation/release-notes.md](documentation/release-notes.md) — how to summarise a release for the people who use the design system, and why the changelogs alone are not enough.
-- Introduction statistics: [documentation/introduction-statistics.md](documentation/introduction-statistics.md) — how the six figures on the Storybook home page are counted, and when to recount them.
-
-Key agent expectations:
-
-- Before submitting work, cross-check the full definition-of-done checklist in [documentation/definition-of-done.md](documentation/definition-of-done.md).
-- Run the most specific relevant lint/test commands for the package you touched before relying on full `pnpm run lint` / `pnpm run test`.
-- Update relevant README, Storybook docs, and tests whenever behaviour, APIs, or visual contracts change.
-- Linting and formatting rules (ESLint, Stylelint, Prettier) are authoritative for code style — consult the configs ([eslint.config.mjs](eslint.config.mjs), [.stylelintrc.json](.stylelintrc.json), [.prettierrc.json](.prettierrc.json)) and use them as guidance when writing or reviewing code.
+Run the most specific relevant lint and test commands for the package you touched before falling back to the full `pnpm run lint` and `pnpm run test`.
+Update the README, Storybook docs, and tests whenever behaviour, APIs, or visual contracts change.
+ESLint, Stylelint, and Prettier are authoritative for code style; consult [eslint.config.mjs](eslint.config.mjs), [.stylelintrc.json](.stylelintrc.json), and [.prettierrc.json](.prettierrc.json) rather than restating their rules.
 
 ## Licensing
 
-Every new source file must start with the appropriate license header. Do not introduce alternative or file-local licensing schemes. Token `.tokens.json` files have no license header (they are plain JSON).
+Every new source file must start with the appropriate license header.
+Do not introduce alternative or file-local licensing schemes.
+Token `.tokens.json` files have no license header (they are plain JSON).
 A `SKILL.md` file is the one exception to "start with": its YAML front matter has to come first to parse, so the header goes directly below it.
 
 **Code files** (`.ts`, `.tsx`, `.scss`, `.js`):
@@ -155,7 +135,7 @@ A `SKILL.md` file is the one exception to "start with": its YAML front matter ha
 
 ## Common commands
 
-All commands run from the repository root. Use `pnpm --filter <package-name>` to scope to a single package.
+All commands run from the repository root; use `pnpm --filter <package-name>` to scope to one package.
 
 | Task                     | Command                      |
 | ------------------------ | ---------------------------- |
