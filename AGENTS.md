@@ -8,6 +8,8 @@ Do not add application-specific logic, domain defaults, or assumptions about how
 This file is a thin layer over the official documentation and the per-package `AGENTS.md` files.
 Use it for cross-cutting priorities and "never do" rules; go to those sources for detail.
 
+Reviewing a diff and writing a pull request each have their own instructions in [.github/skills](.github/skills); read the matching `SKILL.md` in full before you start.
+
 ## Agent priorities
 
 Follow these priorities in order:
@@ -75,7 +77,7 @@ These rules override common agent defaults and apply across the repository:
 
 Package-specific "never do" rules (for example, avoiding barrel imports within the React package, or Storybook testing practices) live in the per-package `AGENTS.md` files.
 
-A few critical rules — token usage, `ams-visually-hidden` for screen reader text, Conventional Commits — are intentionally repeated in per-package `AGENTS.md` files.
+Two critical rules are deliberately restated in the package where they bite: token usage in [packages/css/AGENTS.md](packages/css/AGENTS.md), and `ams-visually-hidden` for screen reader text in [packages/react/AGENTS.md](packages/react/AGENTS.md).
 Agents scoped to a single directory may only load the local file, so the reinforcement is deliberate; do not DRY these rules out.
 
 ## Where to change what
@@ -108,6 +110,7 @@ ESLint, Stylelint, and Prettier are authoritative for code style; consult [eslin
 Every new source file must start with the appropriate license header.
 Do not introduce alternative or file-local licensing schemes.
 Token `.tokens.json` files have no license header (they are plain JSON).
+A `SKILL.md` file is the one exception to "start with": its YAML front matter has to come first to parse, so the header goes directly below it.
 
 **Code files** (`.ts`, `.tsx`, `.scss`, `.js`):
 
@@ -154,12 +157,12 @@ Package filter names: `@amsterdam/design-system-tokens`, `@amsterdam/design-syst
 
 Human contributors and agents should both follow the conventions in [documentation/git.md](documentation/git.md): branch from `develop`, use branch names like `feat/DES-178-introduce-checkbox-component`, and write commit messages in English imperative mood describing the goal of the change.
 
-PR titles use [Conventional Commits](documentation/publishing.md#conventional-commits): `feat`, `fix`, `chore` (append `!` for breaking changes). Include the component name as scope when applicable, e.g. `fix(Avatar): Correct the aspect ratio for the image`. These titles become squash-merge commit messages and drive changelog generation.
-
-See also [documentation/code-reviews.md](documentation/code-reviews.md).
+Read [.github/skills/pull-request/SKILL.md](.github/skills/pull-request/SKILL.md) before writing a pull request title or description.
+One rule agents break without noticing: `feat`, `fix` and `chore` are the only types the "Check PR title" workflow accepts — never `docs`, `refactor`, `test`, `ci`, `style`, `build`, `perf`, or `revert`.
 
 ## Reviewing as an agent
 
-When reviewing code, prioritise accessibility/correctness regressions and public API breakage. Check changes against the coding conventions, linting rules, token usage rules, and the "never do" lists in this file and the per-package `AGENTS.md` files. Verify that tests and docs are updated when behaviour or APIs change.
+Read [.github/skills/code-review/SKILL.md](.github/skills/code-review/SKILL.md) before commenting on a diff, alongside the `AGENTS.md` of every package it touches.
+Our review culture, which applies to agents too, is in [documentation/code-reviews.md](documentation/code-reviews.md).
 
 Before marking work complete, cross-check the full definition-of-done checklist in [documentation/definition-of-done.md](documentation/definition-of-done.md).
