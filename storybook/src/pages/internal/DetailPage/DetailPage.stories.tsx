@@ -28,7 +28,7 @@ import {
   MagnifyingGlassWithEyeIcon,
   PencilIcon,
 } from '@amsterdam/design-system-react-icons'
-import { Dialog } from '@amsterdam/design-system-react/src'
+import { ModalDialog } from '@amsterdam/design-system-react/src'
 import { useState } from 'react'
 
 import { commonMeta, pageParameters } from '../common/commonMeta'
@@ -434,12 +434,25 @@ export const Review: StoryObj = {
             </Grid.Cell>
           </Grid.Subgrid>
 
-          <Dialog footer={<Button>Sluiten</Button>} heading="Opmerking toevoegen">
-            <Field>
-              <Label htmlFor="detail-page-review-remarks">Opmerkingen</Label>
-              <TextArea id="detail-page-review-remarks" rows={4} />
-            </Field>
-          </Dialog>
+          <ModalDialog
+            aria-labelledby="detail-page-review-remark-dialog-heading"
+            id="detail-page-review-remark-dialog"
+          >
+            <ModalDialog.Header>
+              <Heading id="detail-page-review-remark-dialog-heading" level={1} size="level-2">
+                Opmerking toevoegen
+              </Heading>
+            </ModalDialog.Header>
+            <ModalDialog.Body>
+              <Field>
+                <Label htmlFor="detail-page-review-remarks">Opmerkingen</Label>
+                <TextArea id="detail-page-review-remarks" rows={4} />
+              </Field>
+            </ModalDialog.Body>
+            <ModalDialog.Footer>
+              <Button>Sluiten</Button>
+            </ModalDialog.Footer>
+          </ModalDialog>
         </Grid>
         `,
         language: 'tsx',
@@ -459,7 +472,7 @@ export const Review: StoryObj = {
 
     const openRemarkDialog = (sectionId: ReviewSectionId) => {
       setCurrentRemarkSectionId(sectionId)
-      Dialog.open(`#${dialogId}`)
+      ModalDialog.open(`#${dialogId}`)
     }
 
     return (
@@ -559,35 +572,44 @@ export const Review: StoryObj = {
           </Grid.Cell>
         </Grid.Subgrid>
 
-        <Dialog
-          footer={<Button onClick={Dialog.close}>Sluiten</Button>}
-          heading={
-            currentRemarkSectionLabel ? `Opmerking toevoegen bij ${currentRemarkSectionLabel}` : 'Opmerking toevoegen'
-          }
+        <ModalDialog
+          aria-labelledby={`${dialogId}-heading`}
           id={dialogId}
           onClose={() => setCurrentRemarkSectionId(null)}
         >
-          <Column gap="small">
-            <Field>
-              <Label htmlFor="detail-page-review-remarks">Opmerkingen</Label>
-              <TextArea
-                id="detail-page-review-remarks"
-                onChange={(event) => {
-                  if (!currentRemarkSectionId) {
-                    return
-                  }
+          <ModalDialog.Header>
+            <Heading id={`${dialogId}-heading`} level={1} size="level-2">
+              {currentRemarkSectionLabel
+                ? `Opmerking toevoegen bij ${currentRemarkSectionLabel}`
+                : 'Opmerking toevoegen'}
+            </Heading>
+          </ModalDialog.Header>
+          <ModalDialog.Body>
+            <Column gap="small">
+              <Field>
+                <Label htmlFor="detail-page-review-remarks">Opmerkingen</Label>
+                <TextArea
+                  id="detail-page-review-remarks"
+                  onChange={(event) => {
+                    if (!currentRemarkSectionId) {
+                      return
+                    }
 
-                  setRemarks((currentRemarks) => ({
-                    ...currentRemarks,
-                    [currentRemarkSectionId]: event.currentTarget.value,
-                  }))
-                }}
-                rows={4}
-                value={currentRemarkSectionId ? remarks[currentRemarkSectionId] : ''}
-              />
-            </Field>
-          </Column>
-        </Dialog>
+                    setRemarks((currentRemarks) => ({
+                      ...currentRemarks,
+                      [currentRemarkSectionId]: event.currentTarget.value,
+                    }))
+                  }}
+                  rows={4}
+                  value={currentRemarkSectionId ? remarks[currentRemarkSectionId] : ''}
+                />
+              </Field>
+            </Column>
+          </ModalDialog.Body>
+          <ModalDialog.Footer>
+            <Button onClick={ModalDialog.close}>Sluiten</Button>
+          </ModalDialog.Footer>
+        </ModalDialog>
       </Grid>
     )
   },

@@ -17,7 +17,7 @@ import {
   TextInput,
 } from '@amsterdam/design-system-react'
 import { CrossHairIcon } from '@amsterdam/design-system-react-icons'
-import { Dialog } from '@amsterdam/design-system-react/src'
+import { ModalDialog } from '@amsterdam/design-system-react/src'
 import { useRef, useState } from 'react'
 
 import detailPageData from './detailPageData.json'
@@ -171,7 +171,7 @@ export const DetailPageEditMapTab = ({ hidden }: DetailPageEditMapTabProps) => {
           ? (polygonPoints[index] ?? emptyMapPoint)
           : (mapPoints[index] ?? emptyMapPoint),
     )
-    Dialog.open(`#${dialogId}`)
+    ModalDialog.open(`#${dialogId}`)
   }
 
   const handleDialogClose = () => {
@@ -293,70 +293,70 @@ export const DetailPageEditMapTab = ({ hidden }: DetailPageEditMapTabProps) => {
           onEdit={(index) => openDialog('map-point', index)}
           rows={mapPoints}
         />
-        <Dialog
-          footer={
+        <ModalDialog aria-labelledby={`${dialogId}-heading`} id={dialogId} onClose={handleDialogClose} ref={dialogRef}>
+          <ModalDialog.Header>
+            <Heading id={`${dialogId}-heading`} level={1} size="level-2">
+              {isPolygonPointDialog
+                ? isEditing
+                  ? 'Contourpunt bewerken'
+                  : 'Contourpunt toevoegen'
+                : isEditing
+                  ? 'Kaartpunt bewerken'
+                  : 'Kaartpunt toevoegen'}
+            </Heading>
+          </ModalDialog.Header>
+          <ModalDialog.Body>
+            <form id={dialogFormId} onSubmit={handleDialogSubmit}>
+              <Column gap="small">
+                <Paragraph>Vul de naam en coördinaten van het kaartpunt in.</Paragraph>
+                <Button icon={CrossHairIcon} onClick={handleUseCurrentPosition} type="button" variant="secondary">
+                  Gebruik uw huidige positie
+                </Button>
+                {positionMessage && (
+                  <Paragraph aria-live="polite" role="status">
+                    {positionMessage}
+                  </Paragraph>
+                )}
+                <Field>
+                  <Label htmlFor="map-point-name">{isPolygonPointDialog ? 'Puntnaam' : 'Naam'}</Label>
+                  <TextInput
+                    id="map-point-name"
+                    onChange={(event) => setFormState({ ...formState, name: event.currentTarget.value })}
+                    value={formState.name}
+                  />
+                </Field>
+                <Field>
+                  <Label htmlFor="map-point-longitude">Lengtegraad</Label>
+                  <TextInput
+                    id="map-point-longitude"
+                    inputMode="decimal"
+                    onChange={(event) => setFormState({ ...formState, longitude: event.currentTarget.value })}
+                    value={formState.longitude}
+                  />
+                </Field>
+                <Field>
+                  <Label htmlFor="map-point-latitude">Breedtegraad</Label>
+                  <TextInput
+                    id="map-point-latitude"
+                    inputMode="decimal"
+                    onChange={(event) => setFormState({ ...formState, latitude: event.currentTarget.value })}
+                    value={formState.latitude}
+                  />
+                </Field>
+              </Column>
+            </form>
+          </ModalDialog.Body>
+          <ModalDialog.Footer>
             <ActionGroup>
               <Button form={dialogFormId} type="submit">
                 {isEditing ? 'Opslaan' : isPolygonPointDialog ? 'Contourpunt toevoegen' : 'Punt toevoegen'}
               </Button>
-              <Button onClick={Dialog.close} variant="secondary">
+              <Button onClick={ModalDialog.close} variant="secondary">
                 Annuleren
               </Button>
             </ActionGroup>
-          }
-          heading={
-            isPolygonPointDialog
-              ? isEditing
-                ? 'Contourpunt bewerken'
-                : 'Contourpunt toevoegen'
-              : isEditing
-                ? 'Kaartpunt bewerken'
-                : 'Kaartpunt toevoegen'
-          }
-          id={dialogId}
-          onClose={handleDialogClose}
-          ref={dialogRef}
-        >
-          <form id={dialogFormId} onSubmit={handleDialogSubmit}>
-            <Column gap="small">
-              <Paragraph>Vul de naam en coördinaten van het kaartpunt in.</Paragraph>
-              <Button icon={CrossHairIcon} onClick={handleUseCurrentPosition} type="button" variant="secondary">
-                Gebruik uw huidige positie
-              </Button>
-              {positionMessage && (
-                <Paragraph aria-live="polite" role="status">
-                  {positionMessage}
-                </Paragraph>
-              )}
-              <Field>
-                <Label htmlFor="map-point-name">{isPolygonPointDialog ? 'Puntnaam' : 'Naam'}</Label>
-                <TextInput
-                  id="map-point-name"
-                  onChange={(event) => setFormState({ ...formState, name: event.currentTarget.value })}
-                  value={formState.name}
-                />
-              </Field>
-              <Field>
-                <Label htmlFor="map-point-longitude">Lengtegraad</Label>
-                <TextInput
-                  id="map-point-longitude"
-                  inputMode="decimal"
-                  onChange={(event) => setFormState({ ...formState, longitude: event.currentTarget.value })}
-                  value={formState.longitude}
-                />
-              </Field>
-              <Field>
-                <Label htmlFor="map-point-latitude">Breedtegraad</Label>
-                <TextInput
-                  id="map-point-latitude"
-                  inputMode="decimal"
-                  onChange={(event) => setFormState({ ...formState, latitude: event.currentTarget.value })}
-                  value={formState.latitude}
-                />
-              </Field>
-            </Column>
-          </form>
-        </Dialog>
+          </ModalDialog.Footer>
+        </ModalDialog>
       </Column>
     </section>
   )
