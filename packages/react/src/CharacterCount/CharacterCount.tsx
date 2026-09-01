@@ -8,9 +8,9 @@ import type { ForwardedRef, HTMLAttributes } from 'react'
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
 
-import type { FormatCharacterCountText } from './formatCharacterCountText'
+import type { FormatCharacterCountText } from '../FormFieldStatus/formatCharacterCountText'
 
-import { formatCharacterCountTextNl } from './formatCharacterCountText'
+import { formatCharacterCountTextNl } from '../FormFieldStatus/formatCharacterCountText'
 
 export type CharacterCountProps = {
   /**
@@ -28,7 +28,9 @@ export type CharacterCountProps = {
 /**
  * Shows how many characters remain within a specified limit as the user types.
  *
- * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-character-count--docs Character Count docs at Amsterdam Design System}
+ * @deprecated Compose a `FormFieldStatus.CharacterCount` inside a `FormFieldStatus` instead.
+ * The ‘CharacterCount’ component will be removed on or after 2027-03-01.
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-form-field-status--docs Form Field Status docs at Amsterdam Design System}
  */
 export const CharacterCount = forwardRef(
   (
