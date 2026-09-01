@@ -46,8 +46,11 @@ Each runs on a schedule as a dry-run.
 To perform real deletions, dispatch from the Actions UI with `dry_run=false`.
 Common inputs: `stale_days`, `i_really_mean_it`, and (deployments only) `include_production`.
 
-Two gotchas:
+Three gotchas:
 
+- Each script refuses to remove more than 25 items in one run; pass `i_really_mean_it=true` alongside `dry_run=false` to lift that cap and delete. On its own, `i_really_mean_it=true` still deletes nothing, because the run stays a dry run.
+  A scheduled dry-run over the cap reports a warning annotation and still succeeds, because it deletes nothing.
+  A real run over the cap fails, because the deletions you asked for did not happen.
 - Environment cleanup needs an `ENV_ADMIN_TOKEN` secret with repository Administration read/write for real deletions; without it, dry-runs work but deletions return `403`.
 - `include_production=true` extends deployment cleanup to `github-pages` and `demo-develop`. The newest two deployments per environment are always protected as live + rollback target.
 

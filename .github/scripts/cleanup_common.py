@@ -69,3 +69,16 @@ def get_required_env(name: str) -> str:
     if not value:
         raise ValueError(f"required environment variable is missing: {name}")
     return value
+
+
+def emit_warning(message: str, *, title: str) -> None:
+    """Report a warning without failing the job.
+
+    On GitHub Actions this is a `::warning::` workflow command, which shows up as
+    a yellow annotation on the run. Elsewhere it is a plain line on stdout.
+    """
+    if os.getenv("GITHUB_ACTIONS") == "true":
+        escaped = message.replace("%", "%25").replace("\r", "%0D").replace("\n", "%0A")
+        print(f"::warning title={title}::{escaped}")
+    else:
+        print(f"WARNING: {message}")
