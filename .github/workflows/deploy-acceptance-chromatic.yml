@@ -53,7 +53,7 @@ jobs:
         run: pnpm --filter=!storybook -r run build
 
       - name: Run Chromatic
-        uses: chromaui/action@534eebfc19023579541d106f7b61d5ad70ed65c7 # v18.5.0
+        uses: chromaui/action@69be7d88fc9479eedbe5b2861f847eb48f97cabc # v18.6.1
         with:
           # Every change reaching develop was reviewed on its pull request, so accept
           # it as the new baseline rather than leaving the build unreviewed.
