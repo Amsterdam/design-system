@@ -33,6 +33,10 @@ const TOKENS = `
   --ams-safe-inline-size: 1rem;
   --ams-marker-list-style-type: '\\2022';
   --ams-none-list-style-type: none;
+  --ams-alias-two-value-padding-block: var(--ams-two-value-padding-block);
+  --ams-deprecated-padding-block: var(--ams-single-padding-block);
+  --ams-single-padding-block: 1rem;
+  --ams-two-value-padding-block: 1rem 0;
 }
 `
 
@@ -264,5 +268,123 @@ describe('ams/no-list-style-none', () => {
 
   it('accepts a token it cannot resolve rather than guessing', async () => {
     expect(await lint(ruleName, 'ul { list-style-type: var(--ams-absent); }')).toHaveLength(0)
+  })
+})
+
+describe('ams/require-single-value-token', () => {
+  const ruleName = 'ams/require-single-value-token'
+
+  it('rejects a two-value token in a longhand, which is what a plain value check misses', async () => {
+    const warnings = await lint(ruleName, '.a { padding-block-start: var(--ams-two-value-padding-block); }')
+
+    expect(warnings).toHaveLength(1)
+    expect(warnings[0]).toContain('--ams-two-value-padding-block')
+    expect(warnings[0]).toContain('padding-block-start')
+  })
+
+  it('rejects a two-value token on inline-size, which Dialog and Modal Dialog assign a token to', async () => {
+    const warnings = await lint(ruleName, '.a { inline-size: var(--ams-two-value-padding-block); }')
+
+    expect(warnings).toHaveLength(1)
+  })
+
+  it('rejects a two-value token on vertical-align, which Metadata assigns a token to', async () => {
+    const warnings = await lint(ruleName, '.a { vertical-align: var(--ams-two-value-padding-block); }')
+
+    expect(warnings).toHaveLength(1)
+  })
+
+  it('rejects a two-value token read by a math function', async () => {
+    const warnings = await lint(ruleName, '.a { --ams-a: max(var(--ams-two-value-padding-block), 1rem); }')
+
+    expect(warnings).toHaveLength(1)
+    expect(warnings[0]).toContain('max()')
+  })
+
+  it('rejects a two-value token reached through a chain of tokens', async () => {
+    const code = '.a { padding-inline-end: var(--ams-alias-two-value-padding-block); }'
+
+    expect(await lint(ruleName, code)).toHaveLength(1)
+  })
+
+  it('rejects a two-value token used as an operand of a calculation', async () => {
+    const code = '.a { --ams-a: calc(2 * var(--ams-two-value-padding-block) + 1em); }'
+
+    expect(await lint(ruleName, code)).toHaveLength(1)
+  })
+
+  it('rejects a two-value token once when math functions nest', async () => {
+    const code = '.a { --ams-a: calc(max(var(--ams-two-value-padding-block), 1rem) * 2); }'
+
+    expect(await lint(ruleName, code)).toHaveLength(1)
+  })
+
+  it('judges each operand on its own, so an unresolvable neighbour hides nothing', async () => {
+    const code = '.a { --ams-a: max(var(--ams-two-value-padding-block), var(--ams-declared-elsewhere)); }'
+
+    expect(await lint(ruleName, code)).toHaveLength(1)
+  })
+
+  it('accepts a two-value token in a shorthand, which takes a value per side on purpose', async () => {
+    expect(await lint(ruleName, '.a { padding-block: var(--ams-two-value-padding-block); }')).toHaveLength(0)
+  })
+
+  it('accepts a single-value token in a longhand', async () => {
+    expect(await lint(ruleName, '.a { padding-block-start: var(--ams-single-padding-block); }')).toHaveLength(0)
+  })
+
+  it('accepts a single-value token in a math function', async () => {
+    const code = '.a { --ams-a: max(var(--ams-single-padding-block), var(--ams-safe-inline-size)); }'
+
+    expect(await lint(ruleName, code)).toHaveLength(0)
+  })
+
+  it('accepts a token declared in another file rather than guessing what it holds', async () => {
+    expect(await lint(ruleName, '.a { padding-block-start: var(--ams-declared-elsewhere); }')).toHaveLength(0)
+  })
+
+  it('accepts a token the stylesheet declares twice with different values, since the cascade decides', async () => {
+    const code = `
+      .a { --ams-twice: 1rem 0; }
+      .b { --ams-twice: 2rem 0; }
+      .c { padding-block-start: var(--ams-twice); }
+    `
+
+    expect(await lint(ruleName, code)).toHaveLength(0)
+  })
+
+  it('resolves a deprecated alias through the token it forwards to, as the browser does', async () => {
+    const code = '.a { padding-block-start: var(--ams-deprecated-padding-block /* @deprecated */, 2rem); }'
+
+    expect(await lint(ruleName, code)).toHaveLength(0)
+  })
+
+  it('rejects a deprecated alias that forwards to two values, which the fallback never covers', async () => {
+    const code =
+      '.a { padding-block-start: var(--ams-alias-two-value-padding-block /* @deprecated */, var(--ams-single-padding-block)); }'
+
+    expect(await lint(ruleName, code)).toHaveLength(1)
+  })
+
+  it('takes the fallback of an undefined token, and accepts it when it holds one value', async () => {
+    const code = '.a { padding-block-start: var(--ams-absent /* @deprecated */, var(--ams-single-padding-block)); }'
+
+    expect(await lint(ruleName, code)).toHaveLength(0)
+  })
+
+  it('leaves a fallback alone while the token before it is defined and holds one value', async () => {
+    const code = '.a { --ams-a: max(var(--ams-single-padding-block, var(--ams-two-value-padding-block)), 1rem); }'
+
+    expect(await lint(ruleName, code)).toHaveLength(0)
+  })
+
+  it('accepts a literal value, which needs no token resolution to read', async () => {
+    expect(await lint(ruleName, '.a { padding-block-start: 1rem 0; }')).toHaveLength(0)
+  })
+
+  it('honours an explicit property list', async () => {
+    const code = '.a { padding-block-start: var(--ams-two-value-padding-block); }'
+
+    expect(await lint(ruleName, code, { properties: ['margin-block-start'] })).toHaveLength(0)
   })
 })
