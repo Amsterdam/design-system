@@ -577,9 +577,12 @@ export const Review: StoryObj = {
                     return
                   }
 
+                  const sectionId = currentRemarkSectionId
+                  const value = event.currentTarget.value
+
                   setRemarks((currentRemarks) => ({
                     ...currentRemarks,
-                    [currentRemarkSectionId]: event.currentTarget.value,
+                    [sectionId]: value,
                   }))
                 }}
                 rows={4}

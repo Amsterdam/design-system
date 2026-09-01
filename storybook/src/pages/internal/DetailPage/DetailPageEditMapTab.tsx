@@ -247,7 +247,7 @@ export const DetailPageEditMapTab = ({ hidden }: DetailPageEditMapTabProps) => {
               <Label htmlFor={`map-feature-name-${featureIndex}`} inFieldSet>
                 Naam
               </Label>
-              <TextInput defaultValue={feature.properties.name} id={`map-feature-name-${featureIndex}`} />
+              <TextInput defaultValue={feature.properties.name} id={`map-feature-name-${featureIndex}`} size={42} />
             </Field>
             {featureIndex === 0 && (
               <Column gap="large">
