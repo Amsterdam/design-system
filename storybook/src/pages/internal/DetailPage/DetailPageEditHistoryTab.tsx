@@ -16,7 +16,7 @@ import {
   TextArea,
   TextInput,
 } from '@amsterdam/design-system-react'
-import { Dialog } from '@amsterdam/design-system-react/src'
+import { ModalDialog } from '@amsterdam/design-system-react/src'
 import { useRef, useState } from 'react'
 
 import detailPageData from './detailPageData.json'
@@ -58,7 +58,7 @@ export const DetailPageEditHistoryTab = ({ hidden }: DetailPageEditHistoryTabPro
   const openDialog = (index: number | null) => {
     setDialogIndex(index)
     setFormState(index === null ? emptyHistoryEvent : (historyEvents[index] ?? emptyHistoryEvent))
-    Dialog.open(`#${dialogId}`)
+    ModalDialog.open(`#${dialogId}`)
   }
 
   const handleDialogClose = () => {
@@ -109,53 +109,55 @@ export const DetailPageEditHistoryTab = ({ hidden }: DetailPageEditHistoryTabPro
           onEdit={openDialog}
           rows={historyEvents}
         />
-        <Dialog
-          footer={
+        <ModalDialog aria-labelledby={`${dialogId}-heading`} id={dialogId} onClose={handleDialogClose} ref={dialogRef}>
+          <ModalDialog.Header>
+            <Heading id={`${dialogId}-heading`} level={1} size="level-2">
+              {isEditing ? 'Gebeurtenis bewerken' : 'Gebeurtenis toevoegen'}
+            </Heading>
+          </ModalDialog.Header>
+          <ModalDialog.Body>
+            <form id={dialogFormId} onSubmit={handleDialogSubmit}>
+              <Column gap="small">
+                <Paragraph>Vul het jaar, de gebeurtenis en de toelichting in.</Paragraph>
+                <Field>
+                  <Label htmlFor="history-dialog-year">Jaar</Label>
+                  <TextInput
+                    id="history-dialog-year"
+                    onChange={(event) => setFormState({ ...formState, year: event.currentTarget.value })}
+                    value={formState.year}
+                  />
+                </Field>
+                <Field>
+                  <Label htmlFor="history-dialog-event">Gebeurtenis</Label>
+                  <TextInput
+                    id="history-dialog-event"
+                    onChange={(event) => setFormState({ ...formState, event: event.currentTarget.value })}
+                    value={formState.event}
+                  />
+                </Field>
+                <Field>
+                  <Label htmlFor="history-dialog-details">Toelichting</Label>
+                  <TextArea
+                    id="history-dialog-details"
+                    onChange={(event) => setFormState({ ...formState, details: event.currentTarget.value })}
+                    rows={4}
+                    value={formState.details}
+                  />
+                </Field>
+              </Column>
+            </form>
+          </ModalDialog.Body>
+          <ModalDialog.Footer>
             <ActionGroup>
               <Button form={dialogFormId} type="submit">
                 {isEditing ? 'Opslaan' : 'Gebeurtenis toevoegen'}
               </Button>
-              <Button onClick={Dialog.close} variant="secondary">
+              <Button onClick={ModalDialog.close} variant="secondary">
                 Annuleren
               </Button>
             </ActionGroup>
-          }
-          heading={isEditing ? 'Gebeurtenis bewerken' : 'Gebeurtenis toevoegen'}
-          id={dialogId}
-          onClose={handleDialogClose}
-          ref={dialogRef}
-        >
-          <form id={dialogFormId} onSubmit={handleDialogSubmit}>
-            <Column gap="small">
-              <Paragraph>Vul het jaar, de gebeurtenis en de toelichting in.</Paragraph>
-              <Field>
-                <Label htmlFor="history-dialog-year">Jaar</Label>
-                <TextInput
-                  id="history-dialog-year"
-                  onChange={(event) => setFormState({ ...formState, year: event.currentTarget.value })}
-                  value={formState.year}
-                />
-              </Field>
-              <Field>
-                <Label htmlFor="history-dialog-event">Gebeurtenis</Label>
-                <TextInput
-                  id="history-dialog-event"
-                  onChange={(event) => setFormState({ ...formState, event: event.currentTarget.value })}
-                  value={formState.event}
-                />
-              </Field>
-              <Field>
-                <Label htmlFor="history-dialog-details">Toelichting</Label>
-                <TextArea
-                  id="history-dialog-details"
-                  onChange={(event) => setFormState({ ...formState, details: event.currentTarget.value })}
-                  rows={4}
-                  value={formState.details}
-                />
-              </Field>
-            </Column>
-          </form>
-        </Dialog>
+          </ModalDialog.Footer>
+        </ModalDialog>
       </Column>
     </section>
   )

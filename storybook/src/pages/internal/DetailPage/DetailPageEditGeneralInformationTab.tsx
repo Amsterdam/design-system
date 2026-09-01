@@ -16,7 +16,7 @@ import {
   TextArea,
   TextInput,
 } from '@amsterdam/design-system-react'
-import { Dialog } from '@amsterdam/design-system-react/src'
+import { ModalDialog } from '@amsterdam/design-system-react/src'
 import { useRef, useState } from 'react'
 
 import detailPageData from './detailPageData.json'
@@ -55,7 +55,7 @@ export const DetailPageEditGeneralInformationTab = ({ hidden }: DetailPageEditGe
   const openDialog = (index: number | null) => {
     setDialogIndex(index)
     setFormState(index === null ? emptyBasicInformation : (basicInformation[index] ?? emptyBasicInformation))
-    Dialog.open(`#${dialogId}`)
+    ModalDialog.open(`#${dialogId}`)
   }
 
   const handleDialogClose = () => {
@@ -106,45 +106,47 @@ export const DetailPageEditGeneralInformationTab = ({ hidden }: DetailPageEditGe
           onEdit={openDialog}
           rows={basicInformation}
         />
-        <Dialog
-          footer={
+        <ModalDialog aria-labelledby={`${dialogId}-heading`} id={dialogId} onClose={handleDialogClose} ref={dialogRef}>
+          <ModalDialog.Header>
+            <Heading id={`${dialogId}-heading`} level={1} size="level-2">
+              {isEditing ? 'Kenmerk bewerken' : 'Kenmerk toevoegen'}
+            </Heading>
+          </ModalDialog.Header>
+          <ModalDialog.Body>
+            <form id={dialogFormId} onSubmit={handleDialogSubmit}>
+              <Column gap="small">
+                <Paragraph>Vul het kenmerk en de bijbehorende waarde in.</Paragraph>
+                <Field>
+                  <Label htmlFor="basic-information-dialog-term">Kenmerk</Label>
+                  <TextInput
+                    id="basic-information-dialog-term"
+                    onChange={(event) => setFormState({ ...formState, term: event.currentTarget.value })}
+                    value={formState.term}
+                  />
+                </Field>
+                <Field>
+                  <Label htmlFor="basic-information-dialog-description">Waarde</Label>
+                  <TextArea
+                    id="basic-information-dialog-description"
+                    onChange={(event) => setFormState({ ...formState, description: event.currentTarget.value })}
+                    rows={4}
+                    value={formState.description}
+                  />
+                </Field>
+              </Column>
+            </form>
+          </ModalDialog.Body>
+          <ModalDialog.Footer>
             <ActionGroup>
               <Button form={dialogFormId} type="submit">
                 {isEditing ? 'Opslaan' : 'Kenmerk toevoegen'}
               </Button>
-              <Button onClick={Dialog.close} variant="secondary">
+              <Button onClick={ModalDialog.close} variant="secondary">
                 Annuleren
               </Button>
             </ActionGroup>
-          }
-          heading={isEditing ? 'Kenmerk bewerken' : 'Kenmerk toevoegen'}
-          id={dialogId}
-          onClose={handleDialogClose}
-          ref={dialogRef}
-        >
-          <form id={dialogFormId} onSubmit={handleDialogSubmit}>
-            <Column gap="small">
-              <Paragraph>Vul het kenmerk en de bijbehorende waarde in.</Paragraph>
-              <Field>
-                <Label htmlFor="basic-information-dialog-term">Kenmerk</Label>
-                <TextInput
-                  id="basic-information-dialog-term"
-                  onChange={(event) => setFormState({ ...formState, term: event.currentTarget.value })}
-                  value={formState.term}
-                />
-              </Field>
-              <Field>
-                <Label htmlFor="basic-information-dialog-description">Waarde</Label>
-                <TextArea
-                  id="basic-information-dialog-description"
-                  onChange={(event) => setFormState({ ...formState, description: event.currentTarget.value })}
-                  rows={4}
-                  value={formState.description}
-                />
-              </Field>
-            </Column>
-          </form>
-        </Dialog>
+          </ModalDialog.Footer>
+        </ModalDialog>
       </Column>
     </section>
   )
