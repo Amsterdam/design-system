@@ -194,14 +194,12 @@ export const SingleQuestion: StoryObj = {
   <Grid as="main" paddingBottom="2x-large" paddingTop="x-large">
     <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
       {/*
-       * The aria-hidden heading stays out of the heading hierarchy, and aria-labelledby re-exposes its text as the
-       * header’s accessible name. That is not a labelled section, though: a header inside main is no landmark –
-       * Chromium and WebKit expose the non-landmark sectionheader role, Firefox generic, where a name is prohibited
-       * and dropped. Label a landmark instead when a named section is what you need.
+       * The task name is a caption, not a heading: the question below is the level 1 heading. A heading here
+       * would either sit above that h1 in the hierarchy, or need aria-hidden to stay out of it, which takes the
+       * name away from screen reader users. A paragraph keeps it available to everyone. The b tag only offsets it
+       * visually – it carries no emphasis, so nothing changes for a screen reader.
        */}
-      <header aria-labelledby="form-header" className="ams-mb-m">
-        <Heading aria-hidden id="form-header" level={2} size="level-4">Afspraak maken</Heading>
-      </header>
+      <Paragraph className="ams-mb-m"><b>Afspraak maken</b></Paragraph>
       {/*
        * Do not rely on HTML5 form validation: in many browsers not every user is told that a field is
        * required, and nothing explains why a pattern is not met, so errors are not identified accessibly
@@ -263,16 +261,14 @@ export const SingleQuestion: StoryObj = {
       <Grid as="main" paddingBottom="2x-large" paddingTop="x-large">
         <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
           {/*
-           * The aria-hidden heading stays out of the heading hierarchy, and aria-labelledby re-exposes its text as
-           * the header’s accessible name. That is not a labelled section, though: a header inside main is no landmark
-           * – Chromium and WebKit expose the non-landmark sectionheader role, Firefox generic, where a name is
-           * prohibited and dropped. Label a landmark instead when a named section is what you need.
+           * The task name is a caption, not a heading: the question below is the level 1 heading. A heading here
+           * would either sit above that h1 in the hierarchy, or need aria-hidden to stay out of it, which takes the
+           * name away from screen reader users. A paragraph keeps it available to everyone. The b tag only offsets it
+           * visually – it carries no emphasis, so nothing changes for a screen reader.
            */}
-          <header aria-labelledby="form-header" className="ams-mb-m">
-            <Heading aria-hidden id="form-header" level={2} size="level-4">
-              Afspraak maken
-            </Heading>
-          </header>
+          <Paragraph className="ams-mb-m">
+            <b>Afspraak maken</b>
+          </Paragraph>
           {/*
            * Do not rely on HTML5 form validation: in many browsers not every user is told that a field is
            * required, and nothing explains why a pattern is not met, so errors are not identified accessibly
@@ -344,14 +340,12 @@ export const SingleQuestionWithSubquestions: StoryObj = {
   <Grid as="main" paddingBottom="2x-large" paddingTop="x-large">
     <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
       {/*
-       * The aria-hidden heading stays out of the heading hierarchy, and aria-labelledby re-exposes its text as the
-       * header’s accessible name. That is not a labelled section, though: a header inside main is no landmark –
-       * Chromium and WebKit expose the non-landmark sectionheader role, Firefox generic, where a name is prohibited
-       * and dropped. Label a landmark instead when a named section is what you need.
+       * The task name is a caption, not a heading: the question below is the level 1 heading. A heading here
+       * would either sit above that h1 in the hierarchy, or need aria-hidden to stay out of it, which takes the
+       * name away from screen reader users. A paragraph keeps it available to everyone. The b tag only offsets it
+       * visually – it carries no emphasis, so nothing changes for a screen reader.
        */}
-      <header aria-labelledby="form-header" className="ams-mb-m">
-        <Heading aria-hidden id="form-header" level={2} size="level-4">Afspraak maken</Heading>
-      </header>
+      <Paragraph className="ams-mb-m"><b>Afspraak maken</b></Paragraph>
       {/*
        * Do not rely on HTML5 form validation: in many browsers not every user is told that a field is
        * required, and nothing explains why a pattern is not met, so errors are not identified accessibly
@@ -427,16 +421,14 @@ export const SingleQuestionWithSubquestions: StoryObj = {
       <Grid as="main" paddingBottom="2x-large" paddingTop="x-large">
         <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
           {/*
-           * The aria-hidden heading stays out of the heading hierarchy, and aria-labelledby re-exposes its text as
-           * the header’s accessible name. That is not a labelled section, though: a header inside main is no landmark
-           * – Chromium and WebKit expose the non-landmark sectionheader role, Firefox generic, where a name is
-           * prohibited and dropped. Label a landmark instead when a named section is what you need.
+           * The task name is a caption, not a heading: the question below is the level 1 heading. A heading here
+           * would either sit above that h1 in the hierarchy, or need aria-hidden to stay out of it, which takes the
+           * name away from screen reader users. A paragraph keeps it available to everyone. The b tag only offsets it
+           * visually – it carries no emphasis, so nothing changes for a screen reader.
            */}
-          <header aria-labelledby="form-header" className="ams-mb-m">
-            <Heading aria-hidden id="form-header" level={2} size="level-4">
-              Afspraak maken
-            </Heading>
-          </header>
+          <Paragraph className="ams-mb-m">
+            <b>Afspraak maken</b>
+          </Paragraph>
           {/*
            * Do not rely on HTML5 form validation: in many browsers not every user is told that a field is
            * required, and nothing explains why a pattern is not met, so errors are not identified accessibly
@@ -701,14 +693,12 @@ export const WithValidationError: StoryObj = {
         headingLevel={2}
       />
       {/*
-       * The aria-hidden heading stays out of the heading hierarchy, and aria-labelledby re-exposes its text as the
-       * header’s accessible name. That is not a labelled section, though: a header inside main is no landmark –
-       * Chromium and WebKit expose the non-landmark sectionheader role, Firefox generic, where a name is prohibited
-       * and dropped. Label a landmark instead when a named section is what you need.
+       * The task name is a caption, not a heading: the question below is the level 1 heading. A heading here
+       * would either sit above that h1 in the hierarchy, or need aria-hidden to stay out of it, which takes the
+       * name away from screen reader users. A paragraph keeps it available to everyone. The b tag only offsets it
+       * visually – it carries no emphasis, so nothing changes for a screen reader.
        */}
-      <header aria-labelledby="form-header" className="ams-mb-m">
-        <Heading aria-hidden id="form-header" level={2} size="level-4">Afspraak maken</Heading>
-      </header>
+      <Paragraph className="ams-mb-m"><b>Afspraak maken</b></Paragraph>
       {/*
        * Do not rely on HTML5 form validation: in many browsers not every user is told that a field is
        * required, and nothing explains why a pattern is not met, so errors are not identified accessibly
@@ -794,16 +784,14 @@ export const WithValidationError: StoryObj = {
             headingLevel={2}
           />
           {/*
-           * The aria-hidden heading stays out of the heading hierarchy, and aria-labelledby re-exposes its text as
-           * the header’s accessible name. That is not a labelled section, though: a header inside main is no landmark
-           * – Chromium and WebKit expose the non-landmark sectionheader role, Firefox generic, where a name is
-           * prohibited and dropped. Label a landmark instead when a named section is what you need.
+           * The task name is a caption, not a heading: the question below is the level 1 heading. A heading here
+           * would either sit above that h1 in the hierarchy, or need aria-hidden to stay out of it, which takes the
+           * name away from screen reader users. A paragraph keeps it available to everyone. The b tag only offsets it
+           * visually – it carries no emphasis, so nothing changes for a screen reader.
            */}
-          <header aria-labelledby="form-header" className="ams-mb-m">
-            <Heading aria-hidden id="form-header" level={2} size="level-4">
-              Afspraak maken
-            </Heading>
-          </header>
+          <Paragraph className="ams-mb-m">
+            <b>Afspraak maken</b>
+          </Paragraph>
           {/*
            * Do not rely on HTML5 form validation: in many browsers not every user is told that a field is
            * required, and nothing explains why a pattern is not met, so errors are not identified accessibly
