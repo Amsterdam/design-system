@@ -18,7 +18,9 @@ import { Image } from '../Image'
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-navigation-card--docs Card docs at Amsterdam Design System}
  */
 export const CardImage = forwardRef(({ className, ...restProps }: ImageProps, ref: ForwardedRef<HTMLImageElement>) => (
-  <Image {...restProps} className={clsx('ams-card__image', className)} ref={ref} />
+  <div className={clsx('ams-card__image', className)}>
+    <Image {...restProps} ref={ref} />
+  </div>
 ))
 
 CardImage.displayName = 'Card.Image'

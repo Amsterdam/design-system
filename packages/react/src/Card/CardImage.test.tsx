@@ -35,23 +35,31 @@ describe('CardImage', () => {
     expect(component).toHaveClass('ams-card__image extra')
   })
 
+  it('renders an Image, in the aspect ratio it is given', () => {
+    const { container } = render(<CardImage alt="" aspectRatio="3:4" />)
+
+    const image = container.querySelector('img')
+
+    expect(image).toHaveClass('ams-image ams-aspect-ratio-3-4')
+  })
+
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLImageElement>()
 
     const { container } = render(<CardImage alt="" ref={ref} />)
 
-    const component = container.querySelector(':only-child')
+    const image = container.querySelector('img')
 
-    expect(ref.current).toBe(component)
+    expect(ref.current).toBe(image)
   })
 
   it('passes additional props', () => {
     const { container } = render(<CardImage alt="" aria-hidden={false} data-test="data-test" id="id" />)
 
-    const component = container.querySelector(':only-child')
+    const image = container.querySelector('img')
 
-    expect(component).toHaveAttribute('aria-hidden', 'false')
-    expect(component).toHaveAttribute('id', 'id')
-    expect(component).toHaveAttribute('data-test', 'data-test')
+    expect(image).toHaveAttribute('aria-hidden', 'false')
+    expect(image).toHaveAttribute('id', 'id')
+    expect(image).toHaveAttribute('data-test', 'data-test')
   })
 })

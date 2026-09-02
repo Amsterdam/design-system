@@ -27,6 +27,7 @@ This component has no props to configure.
 
 The image of the Card.
 It accepts all props of a regular [Image](/docs/components-media-image--docs), such as `aspectRatio` or a set of image sources.
+A Card caps the height of the image, so a portrait aspect ratio is cropped rather than drawn at full height.
 Only use decorative images with `alt=""` here.
 The heading provides screen reader users with enough context.
 
@@ -148,6 +149,11 @@ Writing it before the heading undoes both.
 
 Whether a Card is horizontal follows the width of its container rather than the width of the window.
 The same Card is one row in a list of results and one card in a row of three, and which of the two it should be depends on the space it is given, not on the size of the screen.
+
+A Card draws its image in an area of a fixed shape instead of letting the image decide its own height.
+An image in a portrait aspect ratio is otherwise taller than the Card is wide, which leaves the text of one Card in a grid far below that of the next.
+An image taller than that area is cropped to it, and one that is shorter is centred in it, against the same background colour it shows while it loads.
+Override `--ams-card-image-aspect-ratio` to give the area another shape.
 
 The image of a horizontal Card measures 4 of the 9 columns it spans, which is the width of a vertical Card beside it, and it keeps its aspect ratio rather than stretching to the height of the text beside it.
 Both choices exist so that the image is the same size in either direction: an index page that opens with a row of vertical Cards above a list of horizontal ones then has one left edge and one image width running down it.

@@ -27,8 +27,20 @@ $ams-card-horizontal-breakpoint: 36rem;
     outline-width: 0.0625rem;
   }
 
-  > .ams-card__image:not(:last-child) {
-    margin-block-end: var(--ams-card-image-margin-block-end);
+  /*
+   * Caps the height of the image: one that is taller than this area is cropped to it, one that is
+   * shorter is centred in it, against the same background colour the Image uses while it loads.
+   */
+  > .ams-card__image {
+    align-items: center;
+    aspect-ratio: var(--ams-card-image-aspect-ratio);
+    background-color: var(--ams-image-background-color);
+    display: grid;
+    overflow: hidden;
+
+    &:not(:last-child) {
+      margin-block-end: var(--ams-card-image-margin-block-end);
+    }
   }
 }
 

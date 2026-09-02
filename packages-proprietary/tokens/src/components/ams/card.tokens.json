@@ -45,6 +45,13 @@
         }
       },
       "image": {
+        "aspect-ratio": {
+          "$value": "{ams.aspect-ratio.16-9}",
+          "$description": "The shape of the area an image is displayed in. Caps the height of an image of any other aspect ratio, which is then cropped to fit.",
+          "$extensions": {
+            "nl.amsterdam.type": "aspectRatio"
+          }
+        },
         "margin-block-end": {
           "$value": "{ams.space.s}",
           "$extensions": {
