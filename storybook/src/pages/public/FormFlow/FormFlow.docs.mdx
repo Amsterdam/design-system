@@ -36,6 +36,11 @@ Use a [Product Page](/docs/pages-public-product-page--docs) to explain the task 
 
 Ask one thing per page, and write each question as the label or legend rather than as a separate sentence above it.
 
+### Showing progress
+
+Do not put a step counter such as ‘Stap 2 van 5’ on form pages by default.
+List the steps on the landing page instead, and read [With a Progress Indicator](#with-a-progress-indicator) before adding one anyway.
+
 ## Variants
 
 ### Landing Page
@@ -92,6 +97,25 @@ For more information:
 
 - [Recover from validation errors](https://design-system.service.gov.uk/patterns/validation/)
 - [Error summary](https://design-system.service.gov.uk/components/error-summary/)
+
+### With a Progress Indicator
+
+Form pages carry no step counter of their own.
+A form that branches cannot state a total it keeps to, so the count drifts from the number of pages a user actually sees.
+A counter also takes up the space right above the question, and it tells users how much is left to give up on.
+Setting expectations is the job of the step list on the landing page: it is written once, on the page where users decide whether to start.
+
+Test the form without an indicator first, and improve the order, type or number of questions before reaching for one.
+Only if users still lose track of where they are, and research on your own form shows an indicator helps, add plain text above the heading:
+
+```tsx
+<Paragraph className="ams-mb-m">Stap 2 van 5: Uw gegevens</Paragraph>
+```
+
+Keep it plain, and state a total only for a form that asks every user the same questions in the same order.
+Leave the total out when the route varies: ‘Stap 2’ on its own stays true.
+
+For more information, see [Question pages - Using progress indicators](https://design-system.service.gov.uk/patterns/question-pages/#using-progress-indicators).
 
 ## Accessibility
 

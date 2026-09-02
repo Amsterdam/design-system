@@ -199,15 +199,8 @@ export const SingleQuestion: StoryObj = {
        * Chromium and WebKit expose the non-landmark sectionheader role, Firefox generic, where a name is prohibited
        * and dropped. Label a landmark instead when a named section is what you need.
        */}
-      <header aria-labelledby="form-header" className="ams-mb-m ams-gap-xs">
+      <header aria-labelledby="form-header" className="ams-mb-m">
         <Heading aria-hidden id="form-header" level={2} size="level-4">Afspraak maken</Heading>
-        {/*
-         * First test the form without a progress indicator to see whether it is simple enough to go without
-         * one, and try improving the order, type or number of questions first. Only if people still have
-         * difficulty, add a plain indicator like this, and state a total only if you can do so reliably.
-         * See https://design-system.service.gov.uk/patterns/question-pages/#using-progress-indicators
-         */}
-        <Paragraph>Stap 1 van 3: Afspraak</Paragraph>
       </header>
       {/*
        * Do not rely on HTML5 form validation: in many browsers not every user is told that a field is
@@ -275,17 +268,10 @@ export const SingleQuestion: StoryObj = {
            * – Chromium and WebKit expose the non-landmark sectionheader role, Firefox generic, where a name is
            * prohibited and dropped. Label a landmark instead when a named section is what you need.
            */}
-          <header aria-labelledby="form-header" className="ams-mb-m ams-gap-xs">
+          <header aria-labelledby="form-header" className="ams-mb-m">
             <Heading aria-hidden id="form-header" level={2} size="level-4">
               Afspraak maken
             </Heading>
-            {/*
-             * First test the form without a progress indicator to see whether it is simple enough to go without
-             * one, and try improving the order, type or number of questions first. Only if people still have
-             * difficulty, add a plain indicator like this, and state a total only if you can do so reliably.
-             * See https://design-system.service.gov.uk/patterns/question-pages/#using-progress-indicators
-             */}
-            <Paragraph>Stap 1 van 3: Afspraak</Paragraph>
           </header>
           {/*
            * Do not rely on HTML5 form validation: in many browsers not every user is told that a field is
@@ -363,15 +349,8 @@ export const SingleQuestionWithSubquestions: StoryObj = {
        * Chromium and WebKit expose the non-landmark sectionheader role, Firefox generic, where a name is prohibited
        * and dropped. Label a landmark instead when a named section is what you need.
        */}
-      <header aria-labelledby="form-header" className="ams-mb-m ams-gap-xs">
+      <header aria-labelledby="form-header" className="ams-mb-m">
         <Heading aria-hidden id="form-header" level={2} size="level-4">Afspraak maken</Heading>
-        {/*
-         * First test the form without a progress indicator to see whether it is simple enough to go without
-         * one, and try improving the order, type or number of questions first. Only if people still have
-         * difficulty, add a plain indicator like this, and state a total only if you can do so reliably.
-         * See https://design-system.service.gov.uk/patterns/question-pages/#using-progress-indicators
-         */}
-        <Paragraph>Stap 2 van 3: Uw gegevens</Paragraph>
       </header>
       {/*
        * Do not rely on HTML5 form validation: in many browsers not every user is told that a field is
@@ -453,17 +432,10 @@ export const SingleQuestionWithSubquestions: StoryObj = {
            * – Chromium and WebKit expose the non-landmark sectionheader role, Firefox generic, where a name is
            * prohibited and dropped. Label a landmark instead when a named section is what you need.
            */}
-          <header aria-labelledby="form-header" className="ams-mb-m ams-gap-xs">
+          <header aria-labelledby="form-header" className="ams-mb-m">
             <Heading aria-hidden id="form-header" level={2} size="level-4">
               Afspraak maken
             </Heading>
-            {/*
-             * First test the form without a progress indicator to see whether it is simple enough to go without
-             * one, and try improving the order, type or number of questions first. Only if people still have
-             * difficulty, add a plain indicator like this, and state a total only if you can do so reliably.
-             * See https://design-system.service.gov.uk/patterns/question-pages/#using-progress-indicators
-             */}
-            <Paragraph>Stap 2 van 3: Uw gegevens</Paragraph>
           </header>
           {/*
            * Do not rely on HTML5 form validation: in many browsers not every user is told that a field is
@@ -734,15 +706,8 @@ export const WithValidationError: StoryObj = {
        * Chromium and WebKit expose the non-landmark sectionheader role, Firefox generic, where a name is prohibited
        * and dropped. Label a landmark instead when a named section is what you need.
        */}
-      <header aria-labelledby="form-header" className="ams-mb-m ams-gap-xs">
+      <header aria-labelledby="form-header" className="ams-mb-m">
         <Heading aria-hidden id="form-header" level={2} size="level-4">Afspraak maken</Heading>
-        {/*
-         * First test the form without a progress indicator to see whether it is simple enough to go without
-         * one, and try improving the order, type or number of questions first. Only if people still have
-         * difficulty, add a plain indicator like this, and state a total only if you can do so reliably.
-         * See https://design-system.service.gov.uk/patterns/question-pages/#using-progress-indicators
-         */}
-        <Paragraph>Stap 1 van 3: Afspraak</Paragraph>
       </header>
       {/*
        * Do not rely on HTML5 form validation: in many browsers not every user is told that a field is
@@ -834,17 +799,10 @@ export const WithValidationError: StoryObj = {
            * – Chromium and WebKit expose the non-landmark sectionheader role, Firefox generic, where a name is
            * prohibited and dropped. Label a landmark instead when a named section is what you need.
            */}
-          <header aria-labelledby="form-header" className="ams-mb-m ams-gap-xs">
+          <header aria-labelledby="form-header" className="ams-mb-m">
             <Heading aria-hidden id="form-header" level={2} size="level-4">
               Afspraak maken
             </Heading>
-            {/*
-             * First test the form without a progress indicator to see whether it is simple enough to go without
-             * one, and try improving the order, type or number of questions first. Only if people still have
-             * difficulty, add a plain indicator like this, and state a total only if you can do so reliably.
-             * See https://design-system.service.gov.uk/patterns/question-pages/#using-progress-indicators
-             */}
-            <Paragraph>Stap 1 van 3: Afspraak</Paragraph>
           </header>
           {/*
            * Do not rely on HTML5 form validation: in many browsers not every user is told that a field is
