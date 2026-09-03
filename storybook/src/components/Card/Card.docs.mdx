@@ -121,7 +121,7 @@ The example below is vertical in a narrow window.
 ### Fitting the image
 
 An image whose aspect ratio differs from the area a Card gives it fits inside that area by default, so all of it stays in view.
-Set `objectFit` to `cover` to fill the area instead, which crops the image.
+Set `objectFit` to `cover` to fill the area instead, which zooms and crops the image.
 Give the Cards in one set the same treatment, so the set reads as a whole.
 
 <Canvas of={CardStories.ImageFit} />
@@ -165,8 +165,7 @@ An image in a portrait aspect ratio is otherwise taller than the Card is wide, w
 The area is 16 by 9 to begin with, the same shape an Image has, so a Card that is left alone needs no thought about it.
 
 The image fits inside that area by default and keeps all of it in view, against the same background colour it shows while it loads.
-Cropping an image is a decision, so it is asked for rather than assumed.
-A set of Cards whose images should reach the edges is what `objectFit` is for.
+Cropping an image is an artistic decision, so it requires a conscious choice.
 
 The image of a horizontal Card measures 4 of the 9 columns it spans, which is the width of a vertical Card beside it, and it keeps its aspect ratio rather than stretching to the height of the text beside it.
 Both choices exist so that the image is the same size in either direction: an index page that opens with a row of vertical Cards above a list of horizontal ones then has one left edge and one image width running down it.
