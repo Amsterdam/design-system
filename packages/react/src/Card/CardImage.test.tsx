@@ -35,12 +35,36 @@ describe('CardImage', () => {
     expect(component).toHaveClass('ams-card__image extra')
   })
 
-  it('renders an Image, in the aspect ratio it is given', () => {
-    const { container } = render(<CardImage alt="" aspectRatio="3:4" />)
+  it('renders an Image inside', () => {
+    const { container } = render(<CardImage alt="" />)
 
     const image = container.querySelector('img')
 
-    expect(image).toHaveClass('ams-image ams-aspect-ratio-3-4')
+    expect(image).toHaveClass('ams-image')
+  })
+
+  it('renders the class name for the aspect ratio of the area', () => {
+    const { container } = render(<CardImage alt="" aspectRatio="3:4" />)
+
+    const component = container.querySelector(':only-child')
+
+    expect(component).toHaveClass('ams-card__image ams-aspect-ratio-3-4')
+  })
+
+  it('renders a class name to crop the image to the area', () => {
+    const { container } = render(<CardImage alt="" objectFit="cover" />)
+
+    const component = container.querySelector(':only-child')
+
+    expect(component).toHaveClass('ams-card__image--cover')
+  })
+
+  it('renders no class name to crop the image by default', () => {
+    const { container } = render(<CardImage alt="" />)
+
+    const component = container.querySelector(':only-child')
+
+    expect(component).not.toHaveClass('ams-card__image--cover')
   })
 
   it('supports ForwardRef in React', () => {

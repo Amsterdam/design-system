@@ -28,19 +28,29 @@ $ams-card-horizontal-breakpoint: 36rem;
   }
 
   /*
-   * Caps the height of the image: one that is taller than this area is cropped to it, one that is
-   * shorter is centred in it, against the same background colour the Image uses while it loads.
+   * Gives the image an area of its own, so every Card in a set is the same size whatever the
+   * shape of the file.
    */
   > .ams-card__image {
-    align-items: center;
     aspect-ratio: var(--ams-card-image-aspect-ratio);
-    background-color: var(--ams-image-background-color);
     display: grid;
-    overflow: hidden;
 
     &:not(:last-child) {
       margin-block-end: var(--ams-card-image-margin-block-end);
     }
+
+    /*
+     * Fills the area rather than the width alone, which is what limits the height of the image.
+     * Its own background then covers the area too, wherever the file does not reach the edges.
+     */
+    > .ams-image {
+      block-size: 100%;
+      object-fit: contain;
+    }
+  }
+
+  > .ams-card__image--cover > .ams-image {
+    object-fit: cover;
   }
 }
 
