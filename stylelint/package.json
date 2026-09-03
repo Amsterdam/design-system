@@ -15,6 +15,6 @@
   },
   "devDependencies": {
     "stylelint": "17.14.1",
-    "vitest": "4.1.10"
+    "vitest": "4.1.11"
   }
 }
