@@ -20,7 +20,7 @@ type Story = StoryObj<typeof meta>
 
 const NewsCard = () => (
   <Card>
-    <Card.Image alt="" aspectRatio="4:3" src="https://picsum.photos/id/122/1280/720" />
+    <Card.Image alt="" src="https://picsum.photos/id/122/1280/720" />
     <Card.Content>
       <Card.HeadingGroup>
         <Card.Heading level={3}>

@@ -26,8 +26,10 @@ This component has no props to configure.
 ### Image
 
 The image of the Card.
-It accepts all props of a regular [Image](/docs/components-media-image--docs), such as `aspectRatio` or a set of image sources.
-A Card caps the height of the image, so a portrait aspect ratio is cropped rather than drawn at full height.
+It accepts all props of a regular [Image](/docs/components-media-image--docs), such as a set of image sources.
+Its `aspectRatio` gives the area the image is displayed in, rather than the image itself.
+Give every Card in the same set the same value, so they all end up the same size.
+Set `objectFit` to `cover` to have the image fill that area and be cropped to it, instead of fitting inside it.
 Only use decorative images with `alt=""` here.
 The heading provides screen reader users with enough context.
 
@@ -116,6 +118,14 @@ The example below is vertical in a narrow window.
 
 <Canvas of={CardStories.HorizontalLayout} />
 
+### Fitting the image
+
+An image whose aspect ratio differs from the area a Card gives it fits inside that area by default, so all of it stays in view.
+Set `objectFit` to `cover` to fill the area instead, which crops the image.
+Give the Cards in one set the same treatment, so the set reads as a whole.
+
+<Canvas of={CardStories.ImageFit} />
+
 ### Top tasks
 
 A set of cards without images can present links to frequently accessed interactions.
@@ -150,10 +160,13 @@ Writing it before the heading undoes both.
 Whether a Card is horizontal follows the width of its container rather than the width of the window.
 The same Card is one row in a list of results and one card in a row of three, and which of the two it should be depends on the space it is given, not on the size of the screen.
 
-A Card draws its image in an area of a fixed shape instead of letting the image decide its own height.
+A Card gives its image an area of a fixed shape instead of letting the image decide its own height.
 An image in a portrait aspect ratio is otherwise taller than the Card is wide, which leaves the text of one Card in a grid far below that of the next.
-An image taller than that area is cropped to it, and one that is shorter is centred in it, against the same background colour it shows while it loads.
-Override `--ams-card-image-aspect-ratio` to give the area another shape.
+The area is 16 by 9 to begin with, the same shape an Image has, so a Card that is left alone needs no thought about it.
+
+The image fits inside that area by default and keeps all of it in view, against the same background colour it shows while it loads.
+Cropping an image is a decision, so it is asked for rather than assumed.
+A set of Cards whose images should reach the edges is what `objectFit` is for.
 
 The image of a horizontal Card measures 4 of the 9 columns it spans, which is the width of a vertical Card beside it, and it keeps its aspect ratio rather than stretching to the height of the text beside it.
 Both choices exist so that the image is the same size in either direction: an index page that opens with a row of vertical Cards above a list of horizontal ones then has one left edge and one image width running down it.
