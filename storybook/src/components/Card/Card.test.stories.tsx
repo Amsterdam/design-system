@@ -18,9 +18,9 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-const NewsCard = () => (
+const NewsCard = ({ objectFit }: { readonly objectFit?: 'contain' | 'cover' }) => (
   <Card>
-    <Card.Image alt="" aspectRatio="4:3" src="https://picsum.photos/id/122/1280/720" />
+    <Card.Image alt="" objectFit={objectFit} src="https://picsum.photos/id/122/800/1200" />
     <Card.Content>
       <Card.HeadingGroup>
         <Card.Heading level={3}>
@@ -41,6 +41,8 @@ const NewsCard = () => (
 /*
  * Both sides of the 36rem container width at which a Card with an image and a Content switches to a
  * horizontal layout. Each Card sits in its own query container, so one snapshot covers both layouts.
+ * The source is portrait, so the two objectFit modes are visibly different: the horizontal Card
+ * covers its narrower image column, the other 2 use the default, which contains the whole image.
  */
 export const Test: Story = {
   render: () => (
@@ -52,7 +54,7 @@ export const Test: Story = {
         <NewsCard />
       </div>
       <div className="ams-query-container-inline-size" style={{ inlineSize: '48rem' }}>
-        <NewsCard />
+        <NewsCard objectFit="cover" />
       </div>
     </div>
   ),

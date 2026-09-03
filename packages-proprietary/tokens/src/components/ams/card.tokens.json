@@ -45,6 +45,13 @@
         }
       },
       "image": {
+        "aspect-ratio": {
+          "$value": "{ams.aspect-ratio.16-9}",
+          "$description": "The shape of the area an image is displayed in. An image of any other aspect ratio fits inside it by default, or fills and crops to it when Card Image's objectFit is set to cover.",
+          "$extensions": {
+            "nl.amsterdam.type": "aspectRatio"
+          }
+        },
         "margin-block-end": {
           "$value": "{ams.space.s}",
           "$extensions": {
