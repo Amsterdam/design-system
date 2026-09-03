@@ -588,13 +588,13 @@
 <header>
   <div class="wrap">
     <h1>Manifest Debugger</h1>
-    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">15/89 prop type errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">15/89 infos</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">1/305 story errors</a><a class="filter-pill ok" data-k="docs" href="#filter-docs">125 docs ok</a></div>
+    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">15/89 prop type errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">15/89 infos</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">1/306 story errors</a><a class="filter-pill ok" data-k="docs" href="#filter-docs">125 docs ok</a></div>
   </div>
 </header>
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>5.0s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>5.7s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -4263,7 +4263,7 @@ That is the distinction the underline makes visually and the element makes for e
       <div class="badges">
         
         
-        <label for="c-14-components-navigation-card-stories" class="badge err as-toggle">1/4 story errors</label>
+        <label for="c-14-components-navigation-card-stories" class="badge err as-toggle">1/5 story errors</label>
         <label for="c-14-components-navigation-card-docs" class="badge ok as-toggle">1 doc</label>
         <label for="c-14-components-navigation-card-subcomponents" class="badge ok as-toggle">4 subcomponents</label>
       </div>
@@ -4298,13 +4298,13 @@ That is the distinction the underline makes visually and the element makes for e
               
               
               <pre><code>Expected render to be an arrow function or function expression
-  108 |   argTypes: Default.argTypes,
-  109 |   decorators: [wrapInInlineSizeQueryContainer(undefined, { inlineSize: &#39;56rem&#39;, maxInlineSize: &#39;100%&#39; })],
-&gt; 110 |   render: Default.render,
+  114 |   argTypes: Default.argTypes,
+  115 |   decorators: [wrapInInlineSizeQueryContainer(undefined, { inlineSize: &#39;56rem&#39;, maxInlineSize: &#39;100%&#39; })],
+&gt; 116 |   render: Default.render,
       |           ^^^^^^^^^^^^^^
-  111 | }
-  112 |
-  113 | export const TopTasks: Story = {</code></pre>
+  117 | }
+  118 |
+  119 | /**</code></pre>
             </div>
           
           
@@ -4329,9 +4329,10 @@ import { Column, Grid, Paragraph } from "@amsterdam/design-system-react";</code>
     category=&quot;Nieuws&quot;
     date={formatDate(Date.now())}
     heading=&quot;Nederlands eerste houten woonwijk komt in Zuidoost&quot;
-    imageSrc=&quot;https://picsum.photos/480/360&quot;
+    imageSrc=&quot;https://picsum.photos/800/450&quot;
+    objectFit=&quot;contain&quot;
     text=&quot;We bouwen een levendige, groene en duurzame woonbuurt tussen de Gooiseweg en het Nelson Mandelapark.&quot;&gt;
-    &lt;Card.Image alt=&quot;&quot; aspectRatio={aspectRatio} src={imageSrc} /&gt;
+    &lt;Card.Image alt=&quot;&quot; aspectRatio={aspectRatio} objectFit={objectFit} src={imageSrc} /&gt;
     &lt;Card.Content&gt;
         &lt;Card.HeadingGroup&gt;
             &lt;Card.Heading level={3}&gt;
@@ -4365,6 +4366,37 @@ import { Column, Grid, Paragraph } from "@amsterdam/design-system-react";</code>
         Ontwikkeling van het aantal attracties en bezoekers in de metropoolregio Amsterdam.
       &lt;/Paragraph&gt;,
     ]}&lt;/Card&gt;;</code></pre>
+            </div>
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Image Fit</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              <div class="hint">Both Cards show the same portrait photograph in the same area, which is 16 by 9 as usual.
+The first fits the image inside that area and keeps all of it in view; the second fills the area and crops it.</div>
+              <pre><code>const ImageFit = () =&gt; (
+  &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}&gt;
+      &lt;Card&gt;
+        &lt;Card.Image alt=&quot;&quot; src=&quot;https://picsum.photos/id/122/800/1200&quot; /&gt;
+        &lt;Card.Heading level={2}&gt;
+          &lt;Card.Link href=&quot;#&quot;&gt;Volledig in beeld&lt;/Card.Link&gt;
+        &lt;/Card.Heading&gt;
+        &lt;Paragraph&gt;De afbeelding past in het vlak, met de achtergrond ernaast.&lt;/Paragraph&gt;
+      &lt;/Card&gt;
+    &lt;/Grid.Cell&gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}&gt;
+      &lt;Card&gt;
+        &lt;Card.Image alt=&quot;&quot; objectFit=&quot;cover&quot; src=&quot;https://picsum.photos/id/122/800/1200&quot; /&gt;
+        &lt;Card.Heading level={2}&gt;
+          &lt;Card.Link href=&quot;#&quot;&gt;Bijgesneden&lt;/Card.Link&gt;
+        &lt;/Card.Heading&gt;
+        &lt;Paragraph&gt;De afbeelding vult het vlak, waarbij de boven- en onderkant wegvallen.&lt;/Paragraph&gt;
+      &lt;/Card&gt;
+    &lt;/Grid.Cell&gt;
+  &lt;/Grid&gt;
+);</code></pre>
             </div>
             <div class="note ok">
               <div class="row">
@@ -4450,8 +4482,10 @@ This component has no props to configure.
 ### Image
 
 The image of the Card.
-It accepts all props of a regular [Image](/docs/components-media-image--docs), such as `aspectRatio` or a set of image sources.
-A Card caps the height of the image, so a portrait aspect ratio is cropped rather than drawn at full height.
+It accepts all props of a regular [Image](/docs/components-media-image--docs), such as a set of image sources.
+Its `aspectRatio` gives the area the image is displayed in, rather than the image itself.
+Give every Card in the same set the same value, so they all end up the same size.
+Set `objectFit` to `cover` to have the image fill that area and be cropped to it, instead of fitting inside it.
 Only use decorative images with `alt=&quot;&quot;` here.
 The heading provides screen reader users with enough context.
 
@@ -4540,6 +4574,14 @@ The example below is vertical in a narrow window.
 
 &lt;Canvas of={CardStories.HorizontalLayout} /&gt;
 
+### Fitting the image
+
+An image whose aspect ratio differs from the area a Card gives it fits inside that area by default, so all of it stays in view.
+Set `objectFit` to `cover` to fill the area instead, which crops the image.
+Give the Cards in one set the same treatment, so the set reads as a whole.
+
+&lt;Canvas of={CardStories.ImageFit} /&gt;
+
 ### Top tasks
 
 A set of cards without images can present links to frequently accessed interactions.
@@ -4574,10 +4616,13 @@ Writing it before the heading undoes both.
 Whether a Card is horizontal follows the width of its container rather than the width of the window.
 The same Card is one row in a list of results and one card in a row of three, and which of the two it should be depends on the space it is given, not on the size of the screen.
 
-A Card draws its image in an area of a fixed shape instead of letting the image decide its own height.
+A Card gives its image an area of a fixed shape instead of letting the image decide its own height.
 An image in a portrait aspect ratio is otherwise taller than the Card is wide, which leaves the text of one Card in a grid far below that of the next.
-An image taller than that area is cropped to it, and one that is shorter is centred in it, against the same background colour it shows while it loads.
-Override `--ams-card-image-aspect-ratio` to give the area another shape.
+The area is 16 by 9 to begin with, the same shape an Image has, so a Card that is left alone needs no thought about it.
+
+The image fits inside that area by default and keeps all of it in view, against the same background colour it shows while it loads.
+Cropping an image is a decision, so it is asked for rather than assumed.
+A set of Cards whose images should reach the edges is what `objectFit` is for.
 
 The image of a horizontal Card measures 4 of the 9 columns it spans, which is the width of a vertical Card beside it, and it keeps its aspect ratio rather than stretching to the height of the text beside it.
 Both choices exist so that the image is the same size in either direction: an index page that opens with a row of vertical Cards above a list of horizontal ones then has one left edge and one image width running down it.
@@ -4666,7 +4711,7 @@ tagline?: string</code></pre>
       <div class="row">
         <span class="ex-name">Card.Image</span>
         <span class="badge ok">
-          2 prop types
+          3 prop types
         </span>
       </div>
       <div class="hint">/home/runner/work/design-system/design-system/packages/react/src/index.ts</div>
@@ -4685,7 +4730,12 @@ alt: string
 /**
  * The aspect ratio to display media content in.
  */
-aspectRatio?: &quot;9:16&quot; | &quot;3:4&quot; | &quot;1:1&quot; | &quot;4:3&quot; | &quot;16:9&quot; | &quot;16:5&quot;</code></pre>
+aspectRatio?: &quot;9:16&quot; | &quot;3:4&quot; | &quot;1:1&quot; | &quot;4:3&quot; | &quot;16:9&quot; | &quot;16:5&quot;
+
+/**
+ * How the image fills the area. Contain shows all of it, cover crops it to the edges.
+ */
+objectFit?: &quot;contain&quot; | &quot;cover&quot;</code></pre>
     </div>
   
     <div class="note ok">
