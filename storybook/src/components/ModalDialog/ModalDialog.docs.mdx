@@ -1,0 +1,166 @@
+{/* @license CC0-1.0 */}
+
+import { Canvas, Controls, Description, Meta, Primary, Title } from "@storybook/addon-docs/blocks";
+
+import { DesignTokensTable } from "#storybook/_components/DesignTokensTable/DesignTokensTable";
+import tokens from "#tokens/components/ams/modal-dialog.tokens.json";
+
+import * as ModalDialogStories from "./ModalDialog.stories.tsx";
+import * as ModalDialogHeaderStories from "./ModalDialogHeader.stories.tsx";
+
+<Meta of={ModalDialogStories} />
+
+<Title />
+
+<Description of={ModalDialogStories} />
+
+<Primary />
+
+<Controls />
+
+## Subcomponents
+
+Compose a Modal Dialog from its Header, Body, and Footer subcomponents.
+The Body holds the main content of the dialog and has no props of its own; the examples below show it in place.
+
+### Header
+
+The Header contains the title of the dialog and always renders a button to dismiss it.
+Pass `closeButtonAccessibleName` to translate the name of that button for screen readers, and `closeButtonSize` to match the button to the size of your Heading.
+Any content you add to the Header – a [Heading](/docs/components-text-heading--docs), a subtitle, or both – stacks to the left of the close button.
+
+<Canvas of={ModalDialogHeaderStories.Header} />
+
+<Controls of={ModalDialogHeaderStories.Header} />
+
+### Footer
+
+The Footer holds one Button or an [Action Group](/docs/components-layout-action-group--docs) containing more of them.
+It is optional: a dialog can rely on the close button in the Header alone.
+
+## Usage guidelines
+
+### When to use
+
+Use a Modal Dialog for a self-contained task or message that needs the user’s full attention.
+It can hold anything from a short message to a form for creating or editing content.
+Interaction with the rest of the page is blocked until the dialog is closed.
+Modal Dialogs suit applications best, where people carry out focused tasks as part of their work.
+
+### When not to use
+
+Use Modal Dialogs sparingly because they interrupt the user’s workflow.
+Consider handling regular tasks in the main flow instead.
+A Modal Dialog can always be dismissed without completing its task, so don’t use it for a message the user must act on.
+
+On a public-facing website, keep a whole task out of a dialog.
+Let people complete it inline or on a page of its own, so they keep the browser’s back button, a link they can share or bookmark, and their work if the page reloads.
+When a website only needs a short confirmation or a yes/no question, use a [Dialog](/docs/components-containers-dialog--docs) instead.
+
+### How to use
+
+Compose the dialog from its Header, Body, and Footer subcomponents, in that order.
+
+Give the dialog an accessible name.
+Add an `id` to the Heading in the Header and pass it to the `aria-labelledby` prop of the dialog.
+Use heading level 1: a Modal Dialog is a new layer that covers the page, so its heading hierarchy starts over.
+
+To open the dialog, use `ModalDialog.open` from the React package.
+It takes a CSS selector, so include the `#` when referencing an id: `ModalDialog.open('#my-dialog')`.
+Alternatively, keep the dialog rendered and control it with the `open` prop and the `onClose` event – see [the ‘Controlled’ example](#controlling-the-dialog-with-state).
+
+To close it, call the `ModalDialog.close` function from a button inside the dialog, or submit a `<form method="dialog">` inside it, as the form at the top of this page does.
+Give each submit Button a `value` to identify which one closed the dialog; see [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog#handling_the_return_value_from_the_dialog) for handling the return value.
+The Escape key always closes the dialog as well.
+
+Wrap multiple buttons in an [Action Group](/docs/components-layout-action-group--docs) and place it in the Footer.
+
+#### Focusing a specific element
+
+By default the browser focuses the close button, so the user can read the dialog first.
+To move the initial focus, add the `autofocus` attribute (`autoFocus` in React) to the element the user should act on first, such as a text field or the primary Button.
+Do this sparingly, as focus that lands past the heading and body text makes screen reader users skip it.
+
+## Examples
+
+### With a subtitle
+
+Add a subtitle by placing a Paragraph after the Heading in the Header.
+Both stack to the left of the close button.
+
+<Canvas of={ModalDialogStories.WithSubtitle} />
+
+### A longer body that scrolls
+
+When the content is taller than the available space, the Body scrolls while the Header and Footer stay in view.
+This keeps a longer task within reach – a form with many fields, or a text the user reads before deciding.
+
+<Canvas of={ModalDialogStories.WithScrollingBody} />
+
+### Controlling the dialog with state
+
+Keep the dialog rendered and pass a boolean to the `open` prop to open and close it from your application’s state.
+The component calls `showModal()` and `close()` on the dialog element for you.
+It never renders the `open` attribute, which would make the dialog non-modal.
+Listen to the `onClose` event to synchronise your state when the dialog closes itself, e.g. through the Escape key.
+Don’t render the dialog conditionally: unmounting it while open skips the `close` event and the browser’s focus restoration.
+
+<Canvas of={ModalDialogStories.Controlled} />
+
+## Features
+
+The Modal Dialog is a [query container](/docs/utilities-css-query-container--docs) for inline size, so elements inside it can adapt their appearance to the width of the dialog.
+
+### Scrolling
+
+Both the dialog and its Body can scroll.
+If the content of the Body is taller than the available space, the Body scrolls while the Header and Footer remain visible.
+In vertically short windows, or with strongly enlarged text, the Body keeps a minimum height of two lines of body text and the dialog itself scrolls instead.
+This keeps all content reachable, up to a text size of 400%.
+
+### Keyboard navigation
+
+| Key         | Behaviour                                                              |
+| :---------- | :--------------------------------------------------------------------- |
+| Tab         | Moves focus to the next focusable element inside the Modal Dialog.     |
+| Shift + Tab | Moves focus to the previous focusable element inside the Modal Dialog. |
+| Arrow keys  | Scroll the Body when it has focus and its content overflows.           |
+| Escape      | Closes the Modal Dialog.                                               |
+
+## Design
+
+The Header always renders the close button, so the dialog can be dismissed at any point.
+The button is pinned to the top right, next to the first line of the Header’s content, and its icon aligns with a level 2 heading by default.
+
+The dialog is sized against the window rather than against its content, so it opens at a predictable size, and a maximum width caps it on wide screens.
+The Body reserves space for its scrollbar whether or not one appears, so its text does not shift sideways as content loads.
+
+The Header, Body, and Footer are told apart by their padding alone.
+In forced colours mode that is not enough, so the Header and Footer gain hairline separators marking the edges of the part that scrolls, and the dialog’s border keeps a floor of one pixel to hold its edge against the page behind.
+
+## Accessibility
+
+The component renders a native `dialog` element and opens it with `showModal()`.
+The browser then provides the modal behaviour: the rest of the page becomes [inert](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/inert), Tab stays inside the dialog without a focus trap of our own, the Escape key closes it, and focus returns to the triggering element on close.
+The dialog has the `dialog` role and is marked as modal for assistive technologies automatically.
+
+The dialog does not name itself: it takes its accessible name from the element that `aria-labelledby` references, and warns in the browser console when it has none.
+[How to use](#how-to-use) covers providing that name.
+
+A scrolling Body takes keyboard focus in its own right, so someone navigating by keyboard can scroll long content with the arrow keys even when nothing inside it is focusable, as [WCAG 2.1.1](https://www.w3.org/TR/WCAG22/#keyboard) requires.
+Chromium and Firefox already make an overflowing scroll container focusable; Safari does not, so the component makes the Body focusable itself.
+
+Scrolling of the page behind the dialog is suppressed while it is open.
+Opening a modal does not lock scrolling on its own, and iOS Safari still needs JavaScript for a guarantee, so a gesture over the backdrop there can move the page underneath.
+
+Note that a modal dialog requires JavaScript: without it, the dialog stays closed and its content stays hidden.
+
+## See also
+
+- [Dialog](/docs/components-containers-dialog--docs) – a smaller dialog for a short confirmation, question, or reminder.
+- [Alert](/docs/components-feedback-alert--docs) – a message shown in place, without interrupting the user.
+- [Action Group](/docs/components-layout-action-group--docs) – lays out multiple Buttons.
+
+## Design tokens
+
+<DesignTokensTable tokens={tokens} />

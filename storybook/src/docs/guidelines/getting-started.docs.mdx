@@ -2,13 +2,16 @@
 
 import { Meta } from "@storybook/addon-docs/blocks";
 
-<Meta title="Docs/Developer guide/Getting started" />
+<Meta title="Docs/Guidelines/Getting started" />
 
 # Getting started
 
+The design system ships as five npm packages, so you install the ones you need and import their stylesheets alongside the components.
+Two things in your document – a class name on the body and a viewport meta tag – make those components behave as designed.
+
 ## Installing
 
-Get the packages your need from npm.
+Get the packages you need from npm.
 These are all 5 of them:
 
 ```sh
@@ -54,7 +57,7 @@ They use whichever is larger: the space they already use, or the inset the devic
 A device without a cutout reports no inset, so nothing about your layout changes there.
 
 Nothing reserves space at the top yet.
-A browser reports no inset there, because its own toolbar already occupies that space, but a web app that sets `display: standalone` in its [web manifest](/docs/docs-developer-guide-web-app--docs) does.
+A browser reports no inset there, because its own toolbar already occupies that space, but a web app that sets `display: standalone` in its [web manifest](/docs/docs-guidelines-web-app--docs) does.
 Such an app has to hold its own header clear of the cutout until the design system does.
 
 Don’t add `maximum-scale` or `user-scalable=no` to the viewport.
@@ -68,7 +71,7 @@ You shouldn’t need a reset stylesheet.
 
 ## Compact Mode
 
-If you use [Compact Mode](/docs/docs-developer-guide-modes--docs#density),
+If you use [Compact Mode](/docs/docs-guidelines-modes--docs#density),
 import the stylesheets in this order – the compact tokens override the spacious ones.
 
 {/* prettier-ignore */}
@@ -79,7 +82,7 @@ import "@amsterdam/design-system-tokens/dist/compact.css"
 
 ## Lo-fi Mode
 
-If you use [Lo-fi Mode](/docs/docs-developer-guide-modes--docs#fidelity),
+If you use [Lo-fi Mode](/docs/docs-guidelines-modes--docs#fidelity),
 import its token overrides after the main stylesheet as well, together with its font.
 
 {/* prettier-ignore */}

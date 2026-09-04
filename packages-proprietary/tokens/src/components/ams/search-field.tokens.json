@@ -148,7 +148,7 @@
             }
           },
           "color": {
-            "$deprecated": "Use `ams.search-field.input.cancel-button.background-image` instead, which carries the colour, because a data URI cannot reference a token. Will be removed on or after 2027-01-21.",
+            "$deprecated": "Use `ams.search-field.input.cancel-button.background-image` instead, which carries the colour, because a data URI cannot reference a token. Will be removed on or after 2027-02-08.",
             "$value": "{ams.color.interactive.default}",
             "$extensions": {
               "nl.amsterdam.type": "color"

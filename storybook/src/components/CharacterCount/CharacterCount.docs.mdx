@@ -42,7 +42,7 @@ When the length exceeds the maximum length, the colour of the text changes to re
 The component displays its text in Dutch by default.
 Pass one of the exported formatters – or a custom function – to `formatText` to display the count in another language.
 The Arabic formatter applies Arabic number–noun agreement.
-See the [Localisation developer guide](/docs/docs-developer-guide-localisation--docs) for the tested locales.
+See the [Localisation guide](/docs/docs-guidelines-localisation--docs) for the tested locales.
 
 <Canvas of={CharacterCountStories.Translated} />
 
@@ -55,7 +55,7 @@ This means:
 - screen reader users will hear the count announcement when they stop typing.
 
 This component does not restrict the user from entering information.
-The user can enter more than the character limit, but are told they’ve entered too many characters.
+The user can enter more than the character limit; the count keeps going, so it reads ‘12 van 10 tekens’.
 This lets them type or copy and paste their full answer, then edit it down.
 
 ## Design
@@ -73,8 +73,6 @@ The wording never has to switch from characters remaining to characters too many
 A Character Count is a status region, so screen readers announce the new count without moving focus and without interrupting what is being read.
 Someone typing hears the count between words rather than after every keystroke, which is what ‘Features’ above describes.
 
-The text is fixed Dutch — the count, the word ‘van’, the limit, and ‘tekens’ — and cannot be configured.
-That is worth weighing before using a Character Count on a page in another language.
 
 Going over the limit is signalled by colour alone, so the count itself has to be read for the change to register.
 The text says the same thing either way, which is what keeps the message complete without the colour.

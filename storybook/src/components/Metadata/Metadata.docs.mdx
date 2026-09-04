@@ -1,0 +1,107 @@
+{/* @license CC0-1.0 */}
+
+import { Canvas, Controls, Description, Meta, Primary, Title } from "@storybook/addon-docs/blocks";
+
+import { DesignTokensTable } from "#storybook/_components/DesignTokensTable/DesignTokensTable";
+import tokens from "#tokens/components/ams/metadata.tokens.json";
+
+import * as MetadataStories from "./Metadata.stories.tsx";
+
+<Meta of={MetadataStories} />
+
+<Title />
+
+<Description of={MetadataStories} />
+
+<Primary />
+
+<Controls />
+
+## Subcomponents
+
+Metadata has one subcomponent: Separator.
+Put one between two kinds of metadata; a Metadata that holds a single kind needs none.
+
+## Usage guidelines
+
+### When to use
+
+Use Metadata for the supporting facts about a piece of content: the date it was published, the categories it belongs to, or both.
+
+### When not to use
+
+Do not use Metadata for running text, or for a standalone fragment that says something in its own right.
+That is a [Paragraph](/docs/components-text-paragraph--docs).
+
+Do not use it to draw attention to a status or a count, which is what a [Badge](/docs/components-feedback-badge--docs) is for.
+
+### How to use
+
+Place a Metadata directly below the [Heading](/docs/components-text-heading--docs) of a content page, above the lead paragraph.
+
+Use the regular size there, and the small size inside a [Card](/docs/components-navigation-card--docs), where the metadata sits among smaller text.
+
+Wrap a date in a `time` element with a `dateTime` attribute.
+The visible date is prose, and `dateTime` repeats it in the machine-readable format software parses.
+
+### How to write
+
+Separate two kinds of metadata with a Separator, and the values within one kind with a comma.
+In ‘1 januari 2026’ and ‘Belastingen, Wonen, WOZ’ there are two kinds, the second of which holds three categories.
+
+Keep every value short enough to read at a glance.
+The line is scanned rather than read, and a long value in the middle of it hides the ones on either side.
+
+## Examples
+
+### One kind of metadata
+
+A Metadata that holds only a date, or only categories, needs no Separator.
+
+<Canvas of={MetadataStories.OneKindOfMetadata} />
+
+### Small text
+
+Use the small size in a Card, where the metadata sits beside a teaser rather than under the title of a page.
+
+<Canvas of={MetadataStories.SmallText} />
+
+### Inverse colour
+
+Use the inverse colour if the Metadata sits on a dark background.
+This ensures the colour of the text provides enough contrast.
+
+<Canvas of={MetadataStories.InverseColour} />
+
+## Design
+
+Metadata is set in the secondary text colour, a grey against the near-black of body text.
+It sits directly under a title, where it has to be legible without competing with the words it supports.
+
+The Separator holds an en dash, which CSS hides behind a square.
+Writing the dash into the page rather than drawing it entirely in CSS is what lets the line survive: it reaches a screen reader, it comes along when the line is copied, and it still reads correctly on a page whose stylesheet failed to load.
+
+The square is a smaller form of the bullet that Amsterdam Sans draws for an [Unordered List](/docs/components-text-unordered-list--docs).
+
+The square takes its colour from the text rather than carrying one of its own, so the inverse colour needs no second value to keep in step.
+
+A Metadata has no vertical margins of its own.
+This makes vertical rhythm a property of the layout rather than of the component, which is why [Prose](/docs/utilities-css-prose--docs) provides it.
+
+## Accessibility
+
+A Metadata renders a `p` element, so a screen reader moves through it as one paragraph.
+That lets it sit in the heading group of a [Card](/docs/components-navigation-card--docs), where HTML allows only a heading and paragraphs.
+
+Each Separator renders a `span` holding an en dash, hidden behind a square by CSS but left in the accessibility tree.
+Someone who does not see the line therefore hears the same division as someone who does.
+That is what [WCAG 1.3.1](https://www.w3.org/TR/WCAG22/#info-and-relationships) asks of a grouping that would otherwise exist only in the styling.
+
+## See also
+
+- [Paragraph](/docs/components-text-paragraph--docs) – for running text and other standalone text fragments.
+- [Prose](/docs/utilities-css-prose--docs) – applies the recommended vertical spacing for editorial content.
+
+## Design tokens
+
+<DesignTokensTable tokens={tokens} />

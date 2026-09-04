@@ -42,9 +42,15 @@
   },
   "overrides": [
     {
-      "patterns": ["packages/*/package.json"],
+      "patterns": ["packages/*/package.json", "packages-proprietary/*/package.json"],
       "rules": {
         "require-files": "error"
+      }
+    },
+    {
+      "patterns": ["packages-proprietary/*/package.json"],
+      "rules": {
+        "valid-values-license": ["error", ["SEE LICENSE IN LICENSE.md"]]
       }
     }
   ]

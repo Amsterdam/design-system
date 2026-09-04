@@ -7,7 +7,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import type { ComponentProps } from 'react'
 
 import { Column, Grid, Paragraph } from '@amsterdam/design-system-react'
-import { Card } from '@amsterdam/design-system-react/src'
+import { Card, Metadata } from '@amsterdam/design-system-react/src'
 import { aspectRatioOptions } from '@amsterdam/design-system-react/src/common/types'
 
 import { maximiseInlineSize, wrapInInlineSizeQueryContainer } from '#storybook/_common/decorators'
@@ -30,10 +30,10 @@ type Story = StoryObj<typeof meta>
 
 type DefaultProps = {
   aspectRatio: (typeof aspectRatioOptions)[number]
+  category: string
   date: string
   heading: string
   imageSrc: string
-  tagline: string
   text: string
 } & Readonly<ComponentProps<typeof Card>>
 
@@ -42,10 +42,10 @@ type DefaultStory = StoryObj<DefaultProps>
 export const Default: DefaultStory = {
   args: {
     aspectRatio: '16:9',
+    category: 'Nieuws',
     date: formatDate(Date.now()),
     heading: 'Nederlands eerste houten woonwijk komt in Zuidoost',
     imageSrc: 'https://picsum.photos/480/360',
-    tagline: 'Nieuws',
     text: 'We bouwen een levendige, groene en duurzame woonbuurt tussen de Gooiseweg en het Nelson Mandelapark.',
   },
   // These argTypes describe flattened args specific to this composed story; the meta cannot provide them.
@@ -54,39 +54,42 @@ export const Default: DefaultStory = {
       control: { type: 'select' },
       options: aspectRatioOptions,
     },
+    category: { control: 'text' },
     date: { control: 'text' },
     heading: { control: 'text' },
     imageSrc: { control: 'text' },
-    tagline: { control: 'text' },
     text: { control: 'text' },
   },
   // The query container keeps this Card below the width at which it would switch to a horizontal layout.
   decorators: [wrapInInlineSizeQueryContainer(), maximiseInlineSize('24rem')],
-  render: ({ aspectRatio, date, heading, imageSrc, tagline, text, ...args }) => (
+  render: ({ aspectRatio, category, date, heading, imageSrc, text, ...args }) => (
     <Card {...args}>
       <Card.Image alt="" aspectRatio={aspectRatio} src={imageSrc} />
       <Card.Content>
-        <Card.HeadingGroup tagline={tagline}>
+        <Card.HeadingGroup>
           <Card.Heading level={3}>
             <Card.Link href="/">{heading}</Card.Link>
           </Card.Heading>
+          {/* The Metadata is written after the heading and displayed above it, so the heading is read first. */}
+          <Metadata size="small">{category}</Metadata>
         </Card.HeadingGroup>
         <Column gap="small">
           <Paragraph>{text}</Paragraph>
-          <Paragraph size="small">{date}</Paragraph>
+          <Metadata size="small">{date}</Metadata>
         </Column>
       </Card.Content>
     </Card>
   ),
 }
 
-export const WithTagline: Story = {
+export const WithMetadata: Story = {
   args: {
     children: [
-      <Card.HeadingGroup key={1} tagline="Dossier">
+      <Card.HeadingGroup key={1}>
         <Card.Heading level={2}>
           <Card.Link href="/">Monitor Attracties MRA</Card.Link>
         </Card.Heading>
+        <Metadata size="small">Dossier</Metadata>
       </Card.HeadingGroup>,
       <Paragraph key={2}>
         Ontwikkeling van het aantal attracties en bezoekers in de metropoolregio Amsterdam.

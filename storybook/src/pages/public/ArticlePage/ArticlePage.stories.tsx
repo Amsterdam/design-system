@@ -13,6 +13,7 @@ import {
   Image,
   Link,
   LinkList,
+  Metadata,
   Paragraph,
   Spotlight,
   StandaloneLink,
@@ -53,10 +54,10 @@ const meta = {
             start={{ narrow: 1, medium: 1, wide: 2 }}
           >
             <Heading level={1}>Met korting van A naar B op de deelscooter of -bakfiets</Heading>
-            <Paragraph>
+            <Metadata>
               {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
               <time dateTime="2025-07-29">29 juli 2025</time>
-            </Paragraph>
+            </Metadata>
             <Paragraph size="large">
               Woont of werkt u in Amsterdam? Dan maakt u tot en met oktober met korting gebruik van deelscooters en
               -bakfietsen. Zo kunt u de auto laten staan en de werkzaamheden in en rond de stad vermijden.
@@ -184,10 +185,11 @@ const meta = {
             <Card>
               {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
               <Card.Image alt="" src={exampleImageSource(640, 360, 1)} />
-              <Card.HeadingGroup tagline="Nieuws">
+              <Card.HeadingGroup>
                 <Card.Heading level={3}>
                   <Card.Link href="#">Waarom we op zoek zijn naar vleermuizen</Card.Link>
                 </Card.Heading>
+                <Metadata size="small">Nieuws</Metadata>
               </Card.HeadingGroup>
               <Paragraph>
                 U kunt &apos;s avonds ecologen in oranje hesjes tegenkomen. Zij zijn op zoek naar vleermuizen. Dat heeft
@@ -198,10 +200,11 @@ const meta = {
           <Grid.Cell span={4}>
             <Card>
               <Card.Image alt="" src={exampleImageSource(640, 360, 2)} />
-              <Card.HeadingGroup tagline="Nieuws">
+              <Card.HeadingGroup>
                 <Card.Heading level={3}>
                   <Card.Link href="#">Meer aandacht voor voetgangers, een jaar lang</Card.Link>
                 </Card.Heading>
+                <Metadata size="small">Nieuws</Metadata>
               </Card.HeadingGroup>
               <Paragraph>
                 We gaan de veiligheid voor voetgangers verbeteren, meer ruimte maken, en lopen en wandelen stimuleren.
@@ -211,10 +214,11 @@ const meta = {
           <Grid.Cell span={4}>
             <Card>
               <Card.Image alt="" src={exampleImageSource(640, 360, 3)} />
-              <Card.HeadingGroup tagline="Nieuws">
+              <Card.HeadingGroup>
                 <Card.Heading level={3}>
                   <Card.Link href="#">Nieuwe manieren om afval op te halen</Card.Link>
                 </Card.Heading>
+                <Metadata size="small">Nieuws</Metadata>
               </Card.HeadingGroup>
               <Paragraph>
                 Afvalboten, bakfietsen en ondergrondse containers. We experimenteren met nieuwe manieren om afval op te
@@ -255,10 +259,10 @@ export const Default: StoryObj = {
       {/* ams-prose sets the vertical rhythm between the title, the date, and the lead of this Content Header. */}
       <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <Heading level={1}>Met korting van A naar B op de deelscooter of -bakfiets</Heading>
-        <Paragraph>
+        <Metadata>
           {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
           <time dateTime="2025-07-29">29 juli 2025</time>
-        </Paragraph>
+        </Metadata>
         <Paragraph size="large">
           Woont of werkt u in Amsterdam? Dan maakt u tot en met oktober met korting gebruik van deelscooters
           en -bakfietsen.
@@ -358,10 +362,11 @@ export const Default: StoryObj = {
         <Card>
           {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
           <Card.Image alt="" src="https://picsum.photos/640/360?random=1" />
-          <Card.HeadingGroup tagline="Nieuws">
+          <Card.HeadingGroup>
             <Card.Heading level={3}>
               <Card.Link href="#">Waarom we op zoek zijn naar vleermuizen</Card.Link>
             </Card.Heading>
+            <Metadata size="small">Nieuws</Metadata>
           </Card.HeadingGroup>
           <Paragraph>
             U kunt 's avonds ecologen in oranje hesjes tegenkomen. Zij zijn op zoek naar vleermuizen.
@@ -371,10 +376,11 @@ export const Default: StoryObj = {
       <Grid.Cell span={4}>
         <Card>
           <Card.Image alt="" src="https://picsum.photos/640/360?random=2" />
-          <Card.HeadingGroup tagline="Nieuws">
+          <Card.HeadingGroup>
             <Card.Heading level={3}>
               <Card.Link href="#">Meer aandacht voor voetgangers, een jaar lang</Card.Link>
             </Card.Heading>
+            <Metadata size="small">Nieuws</Metadata>
           </Card.HeadingGroup>
           <Paragraph>We gaan de veiligheid voor voetgangers verbeteren en meer ruimte maken.</Paragraph>
         </Card>
@@ -382,10 +388,11 @@ export const Default: StoryObj = {
       <Grid.Cell span={4}>
         <Card>
           <Card.Image alt="" src="https://picsum.photos/640/360?random=3" />
-          <Card.HeadingGroup tagline="Nieuws">
+          <Card.HeadingGroup>
             <Card.Heading level={3}>
               <Card.Link href="#">Nieuwe manieren om afval op te halen</Card.Link>
             </Card.Heading>
+            <Metadata size="small">Nieuws</Metadata>
           </Card.HeadingGroup>
           <Paragraph>Afvalboten, bakfietsen en ondergrondse containers in het centrum.</Paragraph>
         </Card>

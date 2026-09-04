@@ -1,0 +1,147 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+@use "../../common/breakpoint" as *;
+@use "../../common/resets" as *;
+
+/* A dialog must have `display: none` until the `open` attribute is set,
+so do not apply these styles without an `open` attribute. */
+.ams-modal-dialog:not(dialog:not([open])) {
+  @include reset-dialog;
+
+  background-color: var(--ams-modal-dialog-background-color);
+  border-color: var(--ams-modal-dialog-border-color);
+  border-radius: var(--ams-modal-dialog-border-radius);
+  border-style: var(--ams-modal-dialog-border-style);
+  border-width: var(--ams-modal-dialog-border-width);
+  box-shadow: var(--ams-modal-dialog-box-shadow);
+  box-sizing: border-box;
+  container-name: var(--ams-modal-dialog-container-name);
+  container-type: var(--ams-modal-dialog-container-type);
+  display: flex;
+  flex-direction: column;
+  inline-size: var(--ams-modal-dialog-inline-size);
+  max-block-size: var(--ams-modal-dialog-max-block-size);
+  max-inline-size: var(--ams-modal-dialog-max-inline-size);
+
+  /* Let the dialog itself scroll when the header, the body at its minimum height,
+  and the footer together exceed the available height. This keeps all content
+  reachable in vertically short windows and with strongly enlarged text. */
+  /* stylelint-disable-next-line defensive-css/require-scrollbar-gutter -- A gutter would uncentre the content. */
+  overflow-y: auto;
+
+  /* stylelint-disable-next-line plugin/use-baseline -- Progressive enhancement. */
+  overscroll-behavior-y: contain;
+
+  // Ensure there always is a border in forced colors mode.
+  @media (forced-colors: active) {
+    background-color: Canvas;
+    border-color: currentColor;
+    border-style: solid;
+
+    // Keep at least 1px so a token set to 0 can’t hide the border.
+    border-width: max(1px, var(--ams-modal-dialog-border-width));
+  }
+
+  @media (min-width: $ams-breakpoint-medium) {
+    inline-size: var(--ams-modal-dialog-vi-medium-inline-size);
+    max-block-size: var(--ams-modal-dialog-vi-medium-max-block-size);
+  }
+
+  /*
+   * The fallback value is for browsers where ::backdrop does not inherit from its originating element.
+   * @see https://caniuse.com/mdn-css_selectors_backdrop_inherit_from_originating_element
+   */
+  &::backdrop {
+    background-color: var(--ams-modal-dialog-backdrop-background-color, rgb(24 24 24 / 62.5%));
+  }
+}
+
+/*
+ * showModal() makes content inert but doesn’t lock scrolling: gestures over
+ * the ::backdrop still scroll the page. overflow: hidden on the body (not
+ * html) suppresses this because body overflow propagates to the viewport.
+ * iOS Safari still needs JS for a hard guarantee on touch.
+ */
+.ams-body:has(.ams-modal-dialog:modal) {
+  overflow: hidden;
+}
+
+/* A grid of two columns: any content in the first, the close button in the second.
+Content elements – e.g. a heading and a subtitle – stack without needing a wrapper. */
+.ams-modal-dialog__header {
+  align-items: start;
+  column-gap: var(--ams-modal-dialog-header-column-gap);
+  display: grid;
+
+  /* minmax(0, 1fr) lets long content wrap instead of pushing the close button out of view. */
+  grid-template-columns: minmax(0, 1fr) auto;
+  padding-block: var(--ams-modal-dialog-header-padding-block);
+  padding-inline: var(--ams-modal-dialog-header-padding-inline);
+  row-gap: var(--ams-modal-dialog-header-row-gap);
+
+  > :not(.ams-modal-dialog__close-button) {
+    grid-column: 1;
+  }
+
+  /* Use a border in forced colors mode for visual hierarchy and demarcating the scrollable body */
+  @media (forced-colors: active) {
+    border-block-end-color: currentColor;
+    border-block-end-style: solid;
+    /* stylelint-disable-next-line defensive-css/no-fixed-sizes -- A hairline separator. */
+    border-block-end-width: 1px;
+  }
+
+  @media (min-width: $ams-breakpoint-medium) {
+    padding-block: var(--ams-modal-dialog-header-vi-medium-padding-block);
+    padding-inline: var(--ams-modal-dialog-header-vi-medium-padding-inline);
+  }
+}
+
+/* Pin the close button to the top right, next to the first line of content. */
+.ams-modal-dialog__close-button {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.ams-modal-dialog__body {
+  /* Keep a minimum height so the header and footer can never crowd out the body entirely.
+  If less space is available, the dialog itself scrolls. */
+  min-block-size: var(--ams-modal-dialog-body-min-block-size);
+  outline-offset: var(--ams-modal-dialog-body-outline-offset);
+
+  /* Let wide content scroll horizontally instead of clipping it. */
+  overflow-x: auto;
+  overflow-y: auto;
+  /* stylelint-disable-next-line plugin/use-baseline -- Progressive enhancement. */
+  overscroll-behavior: contain;
+  padding-block: var(--ams-modal-dialog-body-padding-block);
+  padding-inline: var(--ams-modal-dialog-body-padding-inline);
+  /* stylelint-disable-next-line plugin/use-baseline -- Progressive enhancement. */
+  scrollbar-gutter: stable;
+
+  @media (min-width: $ams-breakpoint-medium) {
+    padding-block: var(--ams-modal-dialog-body-vi-medium-padding-block);
+    padding-inline: var(--ams-modal-dialog-body-vi-medium-padding-inline);
+  }
+}
+
+.ams-modal-dialog__footer {
+  padding-block: var(--ams-modal-dialog-footer-padding-block);
+  padding-inline: var(--ams-modal-dialog-footer-padding-inline);
+
+  /* Use a border in forced colors mode for visual hierarchy and demarcating the scrollable body */
+  @media (forced-colors: active) {
+    border-block-start-color: currentColor;
+    border-block-start-style: solid;
+    /* stylelint-disable-next-line defensive-css/no-fixed-sizes -- A hairline separator. */
+    border-block-start-width: 1px;
+  }
+
+  @media (min-width: $ams-breakpoint-medium) {
+    padding-block: var(--ams-modal-dialog-footer-vi-medium-padding-block);
+    padding-inline: var(--ams-modal-dialog-footer-vi-medium-padding-inline);
+  }
+}

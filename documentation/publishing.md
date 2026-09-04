@@ -127,6 +127,29 @@ To fix this, check whether any closed PRs still have the `autorelease: pending` 
 
 [See the Release Please docs for more information](https://github.com/googleapis/release-please?tab=readme-ov-file#release-please-bot-does-not-create-a-release-pr-why).
 
+## What each package publishes
+
+Every published package declares a `files` field, the allowlist of what npm puts in the tarball.
+Without one, a package publishes whatever happens to be tracked in git inside its directory, plus the gitignored `dist/` that CI builds.
+Nothing then records what a package is meant to contain, so its contents drift silently whenever someone adds a file.
+
+We declared these explicitly in [pull request 2821](https://github.com/Amsterdam/design-system/pull/2821), which cut the Tokens tarball from 113 files to 15 by dropping the token sources, the Style Dictionary transforms and its build tooling.
+CSS deliberately keeps `src/` next to `dist/`: our guidelines document importing breakpoint variables from `src/common/breakpoint.scss`, which have to be Sass variables because custom properties can’t be used in media queries.
+Measure with `npm pack --dry-run` on a clean build before changing a `files` field, and check that every documented entry point still resolves.
+
+### Linting the package manifests
+
+`pnpm run lint:package-json` checks every `package.json` against `.npmpackagejsonlintrc.json`.
+An entry in its `overrides` block switches `require-files` on for the published packages only, since the private manifests publish no tarball whose contents need allowlisting.
+
+Keep that single config file at the root.
+`npmPkgJsonLint` loads the **nearest** config file and never merges it with the ones above it, so a config in a subdirectory replaces the root rule set instead of extending it.
+A second config in `packages-proprietary` did precisely that, from the first commit of this repository until July 2026: Tokens, Assets and React Icons were checked against only the rules it listed, never the root ones, and the build stayed green the whole time.
+Rules that apply to only some packages belong in the `overrides` block of the root config, where a path pattern selects them.
+
+Verify any change to these rules by deleting a required field from a `package.json` and confirming that the rule fires.
+A lint that passes proves nothing on its own, because a shadowed rule is silently absent rather than failing.
+
 ## Dependencies between packages
 
 We’ve established dependencies between our packages to avoid version mismatches.

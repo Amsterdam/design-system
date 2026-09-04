@@ -10,6 +10,6 @@ Applies the recommended vertical spacing between the direct children of a contai
 
 ## Guidelines
 
-- Wrap this utility class around editorial content to space its content according to the [vertical space](/docs/docs-designer-guide-vertical-space--docs) recommendations.
-- To add a single ad-hoc gap between two elements, prefer the [Margin Bottom](/docs/utilities-css-margin--docs) utility class on the first one.
-- To add even spacing between a set of siblings, prefer the [Gap](/docs/utilities-css-gap--docs) utility class on their parent.
+- Wrap this utility class around editorial content to space its content according to the [vertical space](https://designsystem.amsterdam/?path=/docs/docs-guidelines-vertical-space--docs) recommendations.
+- To add a single ad-hoc gap between two elements, prefer the [Margin Bottom](https://designsystem.amsterdam/?path=/docs/utilities-css-margin--docs) utility class on the first one.
+- To add even spacing between a set of siblings, prefer the [Gap](https://designsystem.amsterdam/?path=/docs/utilities-css-gap--docs) utility class on their parent.

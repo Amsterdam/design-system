@@ -40,9 +40,9 @@ The back link keeps the regular `x-large` between itself and the section that fo
 
 ### The Content Header Grid
 
-The Grid that follows the Breadcrumb holds the Content Header: the page title, an optional Metadata Paragraph, and the lead paragraph.
+The Grid that follows the Breadcrumb holds the Content Header: the page title, an optional [Metadata](/docs/components-text-metadata--docs), and the lead paragraph.
 It has no `paddingTop`, so that the breadcrumb and the page title read as a single block.
-Its Cell carries the [Prose](/docs/utilities-css-prose--docs) utility class, which spaces those three as [vertical space](/docs/docs-designer-guide-vertical-space--docs) recommends.
+Its Cell carries the [Prose](/docs/utilities-css-prose--docs) utility class, which spaces those three as [vertical space](/docs/docs-guidelines-vertical-space--docs) recommends.
 The body Cells of these templates use it too, so a page template sets no bottom margins of its own within a Cell.
 
 Its `paddingBottom` depends on what meets the boundary on either side of it.
@@ -81,7 +81,7 @@ Usually, leave `gapVertical` at its default of `x-large`.
 
 ## Space inside a Grid Cell
 
-The [Prose](/docs/utilities-css-prose--docs) utility class sets the space between most types of elements of a Cell, following the [vertical space](/docs/docs-designer-guide-vertical-space--docs) recommendations.
+The [Prose](/docs/utilities-css-prose--docs) utility class sets the space between most types of elements of a Cell, following the [vertical space](/docs/docs-guidelines-vertical-space--docs) recommendations.
 A Cell that carries it needs little bottom margins of its own.
 
 Where Prose has no rule for an element, every element but the last sets its own bottom margin with an [`ams-mb-*`](/docs/utilities-css-margin--docs) utility class, in the amount the vertical space guide gives.
@@ -103,7 +103,7 @@ Some typical page sections always use the same values:
 
 ### Content Header
 
-The Content Header contains the page title, an optional Metadata Paragraph with the publication date or the taxonomy tags, and the lead paragraph.
+The Content Header contains the page title, an optional Metadata with the publication date or the taxonomy tags, and the lead paragraph.
 It is a bit **wider** than the body section and is positioned slightly further **to the left**.
 
 ```tsx
@@ -185,7 +185,7 @@ These layouts require **4 columns** for each Card, which can be achieved with a 
 
 ## See also
 
-- [Vertical space](/docs/docs-designer-guide-vertical-space--docs) – the space between any two components.
+- [Vertical space](/docs/docs-guidelines-vertical-space--docs) – the space between any two components.
 - [Grid](/docs/components-layout-grid--docs) – the component that carries all of this.
 - [Prose](/docs/utilities-css-prose--docs) – the utility that spaces the contents of a Cell.
 - [Margin](/docs/utilities-css-margin--docs) – the utility classes for everything Prose does not cover.

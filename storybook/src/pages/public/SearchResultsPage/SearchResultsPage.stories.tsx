@@ -17,14 +17,17 @@ import {
   Heading,
   Label,
   Mark,
+  Metadata,
   Pagination,
   Paragraph,
   SearchField,
   Select,
 } from '@amsterdam/design-system-react'
 
+import { searchResults, searchTopics } from '#storybook/_common/exampleContent'
+import { formatFieldValue } from '#storybook/_common/formatFieldValue'
+
 import { commonMeta, pageParameters } from '../common/commonMeta'
-import { searchResults, searchTopics } from './data'
 
 const searchTerm = 'veiligheid'
 const totalResults = 62
@@ -101,12 +104,10 @@ export const Default: StoryObj = {
             </Select>
           </Field>
           <FieldSet className="ams-mb-l" legend="Soort artikel">
-            <Column gap="x-small">
-              <Checkbox name="soort" value="nieuwsbericht">
-                Nieuwsbericht
-              </Checkbox>
-              {/* … one Checkbox per topic … */}
-            </Column>
+            <Checkbox name="soort" value="nieuwsbericht">
+              Nieuwsbericht
+            </Checkbox>
+            {/* … one Checkbox per topic … */}
           </FieldSet>
           {/* The design filters as soon as a box is ticked; the button keeps the form usable without that script. */}
           <Button type="submit">Resultaten tonen</Button>
@@ -136,12 +137,13 @@ export const Default: StoryObj = {
             <Card>
               {/*
                * Every match is marked, in the title of a result as well as in its teaser; this title holds none.
-               * The tagline names the category rather than text the search matched, so nothing in it is marked.
+               * The Metadata names the category rather than text the search matched, so nothing in it is marked.
                */}
-              <Card.HeadingGroup tagline="Actiecentrum Veiligheid en Zorg">
+              <Card.HeadingGroup>
                 <Card.Heading level={3}>
                   <Card.Link href="#">Top 400/600</Card.Link>
                 </Card.Heading>
+                <Metadata size="small">Actiecentrum Veiligheid en Zorg</Metadata>
               </Card.HeadingGroup>
               <Column gap="small">
                 <Paragraph>
@@ -149,10 +151,11 @@ export const Default: StoryObj = {
                   vanuit het Actiecentrum <Mark>Veiligheid</Mark> en Zorg verschillende aanpakken op het snijvlak
                   van <Mark>veiligheid</Mark>, zorg en het sociaal domein.
                 </Paragraph>
-                <Paragraph size="small">
+                {/* A Card takes the small size of Metadata. */}
+                <Metadata size="small">
                   {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
                   <time dateTime="2023-07-01">1 juli 2023</time>
-                </Paragraph>
+                </Metadata>
               </Column>
             </Card>
           </Grid.Cell>
@@ -220,13 +223,11 @@ export const Default: StoryObj = {
                 </Select>
               </Field>
               <FieldSet className="ams-mb-l" legend="Soort artikel">
-                <Column gap="x-small">
-                  {searchTopics.map((topic) => (
-                    <Checkbox key={topic} name="soort" value={topic.toLowerCase()}>
-                      {topic}
-                    </Checkbox>
-                  ))}
-                </Column>
+                {searchTopics.map((topic) => (
+                  <Checkbox key={topic} name="soort" value={formatFieldValue(topic)}>
+                    {topic}
+                  </Checkbox>
+                ))}
               </FieldSet>
               {/* The design filters as soon as a box is ticked; the button keeps the form usable without that script. */}
               <Button type="submit">Resultaten tonen</Button>
@@ -259,19 +260,21 @@ export const Default: StoryObj = {
                   <Card>
                     {/*
                      * Every match is marked, in the title of a result as well as in its teaser.
-                     * The tagline names the category rather than text the search matched, so nothing in it is marked.
+                     * The Metadata names the category rather than text the search matched, so nothing in it is marked.
                      */}
-                    <Card.HeadingGroup tagline={result.section}>
+                    <Card.HeadingGroup>
                       <Card.Heading level={3}>
                         <Card.Link href="#">{markSearchTerm(result.title)}</Card.Link>
                       </Card.Heading>
+                      <Metadata size="small">{result.section}</Metadata>
                     </Card.HeadingGroup>
                     <Column gap="small">
                       <Paragraph>{markSearchTerm(result.teaser)}</Paragraph>
-                      <Paragraph size="small">
+                      {/* A Card takes the small size of Metadata. */}
+                      <Metadata size="small">
                         {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
                         <time dateTime={result.isoDate}>{result.date}</time>
-                      </Paragraph>
+                      </Metadata>
                     </Column>
                   </Card>
                 </Grid.Cell>

@@ -19,13 +19,13 @@ Meta title format: `Components/<Category>/<Component Name>`
 Valid categories (use exactly these):
 
 - `Buttons` — Button, Icon Button
-- `Containers` — Accordion, Dialog, Page, Page Footer, Page Header, Progress List, Spotlight, Table, Tabs
-- `Feedback` — Alert, Avatar, Badge
+- `Containers` — Accordion, Dialog, Modal Dialog, Page, Page Footer, Page Header, Progress List, Spotlight, Table, Tabs
+- `Feedback` — Alert, Avatar, Badge, Skeleton
 - `Forms` — all form-related components (Checkbox, Field, Label, Select, Text Input, etc.)
 - `Layout` — Action Group, Breakout, Column, Grid, Overlap, Row
 - `Media` — Figure, Icon, Image, Image Slider, Logo
-- `Navigation` — Breadcrumb, Card, Link, Link List, Menu, Pagination, Skip Link, Standalone Link, Table of Contents, Call to Action Link
-- `Text` — Blockquote, Description List, Heading, Mark, Ordered List, Page Heading, Paragraph, Unordered List
+- `Navigation` — Breadcrumb, Calendar, Call to Action Link, Card, Link, Link List, Menu, Pagination, Skip Link, Standalone Link, Tab Navigation, Table of Contents
+- `Text` — Blockquote, Description List, Heading, Mark, Metadata, Ordered List, Paragraph, Unordered List
 
 When adding a new component, choose the most fitting existing category. Agents must not introduce new categories; creation of new categories requires explicit human approval.
 
@@ -89,4 +89,4 @@ Utility functions in `src/_common/` have unit tests (`*.test.ts`) run by Vitest 
 
 The `@storybook/addon-mcp` addon (registered in `config/main.ts`) serves a Model Context Protocol endpoint at `http://localhost:6006/mcp` while `pnpm run watch:storybook` is running; the URL follows the dev-server port.
 It exposes the components, props, stories, and docs of the design system to MCP-capable AI agents such as GitHub Copilot, so agents reuse existing components instead of inventing markup.
-No single MCP config file works across editors, so we do not commit editor-specific config; connection guidance lives in the AI assistance developer-guide page (`src/docs/developer-guide/ai-assistance.docs.mdx`).
+No single MCP config file works across editors, so we do not commit editor-specific config; connection guidance lives in the AI assistance guidelines page (`src/docs/guidelines/ai-assistance.docs.mdx`).

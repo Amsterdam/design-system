@@ -44,6 +44,8 @@ p {
 - All content displays correctly in a right-to-left (RTL) language when translated.
 - The print preview displays like the website on a medium-size screen, except for print-specific styles.
 - The component is usable when CSS fails to load: unnecessary elements are not rendered, and visual elements like images are not shown overly large.
+- Text copied from the component pastes as readable text.
+  Generated content, such as a separator drawn with `::before` or `::after`, is left out of the clipboard, so anything a reader needs to make sense of the text has to be in the DOM.
 - The component degrades gracefully when JavaScript is unavailable or fails to load:
   - Static content is visible and readable.
   - Any functionality that can be implemented in HTML/CSS alone still works (e.g., a `<details>` element for disclosure, native `<select>` for dropdowns).

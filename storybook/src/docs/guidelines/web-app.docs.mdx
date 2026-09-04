@@ -1,0 +1,117 @@
+{/* @license CC0-1.0 */}
+
+import { Meta } from "@storybook/addon-docs/blocks";
+
+import { WebAppIcons } from "#storybook/_components/AppIcon/WebAppIcons";
+
+<Meta title="Docs/Guidelines/Web app" />
+
+# Web app
+
+Turn a website into a progressive web app (PWA) with a web app manifest and app icons.
+The instructions below cover all combinations of common operating systems (Android, iOS, macOS, and Windows) and browsers (Chrome, Safari, Edge, and Firefox).
+
+## How to use
+
+The web app manifest is the ‘web manifest’ throughout this page.
+
+**Note**: There is separate documentation on [how to add a website icon (a “favicon”)](/docs/brand-assets-favicon--docs).
+
+### Install assets
+
+First, ensure that you have the [Amsterdam Design System Assets](https://www.npmjs.com/package/@amsterdam/design-system-assets) installed:
+
+```sh
+npm install @amsterdam/design-system-assets
+```
+
+### Link assets
+
+#### Copy or symlink assets
+
+Copy the app icons found in `node_modules/@amsterdam/design-system-assets/app-icons` and the web manifest from `node_modules/@amsterdam/design-system-assets/manifest/app.webmanifest` to your project.
+Typically this is the `public` folder next to your `index.html`, though the right location depends on your project structure and build process.
+
+Alternatively, on macOS and Linux you can create a [symbolic link](https://en.wikipedia.org/wiki/Symbolic_link#POSIX_and_Unix-like_operating_systems) in your project that points to the package directory.
+An advantage of symlinking is that it tracks changes to the assets when there are package updates.
+Symlinks are basically shortcuts to files or directories.
+
+Symlink the app icons and copy the [web manifest](https://github.com/Amsterdam/design-system/blob/develop/packages-proprietary/assets/manifest/app.webmanifest):
+
+```sh
+# Change to the directory where you want to make the symlink. For example:
+cd public
+
+# Symlink the app icons. The symlink file (the last argument) can be named anything you like.
+ln -s ../node_modules/@amsterdam/design-system-assets/app-icons app-icons
+
+# Copy the web manifest. Don't forget to edit it with the app's name.
+cp ../node_modules/@amsterdam/design-system-assets/manifest/app.webmanifest app.webmanifest
+```
+
+**Important**: the target path (the first argument) is resolved relative to the directory containing the symlink, not your current shell directory.
+The simplest way to avoid surprises is to `cd` to that directory first, as in the example above.
+
+#### Remove symlink
+
+Remove the symlink and the web manifest without affecting the original files:
+
+```sh
+# Note: do not include a trailing slash – that follows the symlink and unlink will refuse to remove a directory.
+unlink app-icons
+rm app.webmanifest
+```
+
+#### Edit web manifest
+
+Make sure that the web manifest, stating the app’s name and referencing the PNG icons, is available in the same location.
+Edit the `app.webmanifest` file to include the app’s name and the icons you want to use.
+For example:
+
+```json
+{
+  "name": "A maximum of thirty characters",
+  "short_name": "Max 12 chars",
+  "icons": [
+    { "src": "app-icons/icon-192.png", "type": "image/png", "sizes": "192x192" },
+    { "src": "app-icons/icon-512.png", "type": "image/png", "sizes": "512x512" }
+  ]
+}
+```
+
+#### Link in HTML
+
+Then link all these assets in the HTML by placing the following tags in the `<head>`:
+
+```html
+<head>
+  ...
+  <link rel="manifest" href="app.webmanifest" />
+  ...
+</head>
+```
+
+How this is done exactly depends on your project structure and build process.
+Follow the documentation of your framework or build tool for the best way to link static assets in the HTML.
+
+**Note**: not all servers recognize the `.webmanifest` extension.
+See [Using a link element to link to a manifest on W3.org](https://www.w3.org/TR/appmanifest/#using-a-link-element-to-link-to-a-manifest) for more information.
+
+### Submit changes
+
+The copied files or symlink(s) can be committed to the repository.
+
+## Web app icons
+
+<WebAppIcons />
+
+[Edit web manifest](#edit-web-manifest) above lists these icons, and [Link in HTML](#link-in-html) links the manifest that references them.
+
+**Note**: only include a web manifest if you want the website to be installable as a progressive web app (PWA).
+Browsers [may prompt the user to install the app](https://web.dev/learn/pwa/installation-prompt) on their device if a manifest is found.
+
+## Further reading
+
+- [_Web App Manifest_ on web.dev](https://web.dev/learn/pwa/web-app-manifest)
+- [_Web app manifests: Icons_ on MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/Manifest/icons)
+- [_How to Favicon in 2026: Three files that fit most needs_ by Andrey Sitnik](https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs)

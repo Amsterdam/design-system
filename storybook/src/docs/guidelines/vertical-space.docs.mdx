@@ -4,13 +4,12 @@ import { Meta } from "@storybook/addon-docs/blocks";
 
 import { VerticalSpaceFinder } from "#storybook/_components/VerticalSpaceFinder/VerticalSpaceFinder";
 
-<Meta title="Docs/Designer guide/Vertical space" />
+<Meta title="Docs/Guidelines/Vertical space" />
 
 # Vertical space
 
 Components don’t add whitespace on their outside, because it depends on the combination.
 When composing patterns and pages, the vertical space between components is yours to apply.
-This page explains how much of it we recommend for the various combinations.
 
 ## Space finder
 
@@ -49,12 +48,12 @@ They inherit the Grid’s spacing and do not appear in the tables below.
 
 A content page for a public website usually starts with a Breadcrumb and a Content Header.
 That header holds a level 1 Heading and a lead Paragraph.
-A Metadata Paragraph may sit between the two, holding the publication date, the taxonomy tags, or both.
+A [Metadata](/docs/components-text-metadata--docs) may sit between the two, holding the publication date, the taxonomy tags, or both.
 The space between them is as follows:
 
 - Breadcrumb → Heading 1: **zero**
-- Heading 1 → Metadata Paragraph: **medium**
-- Metadata Paragraph → Lead Paragraph: **medium**
+- Heading 1 → Metadata: **medium**
+- Metadata → Lead Paragraph: **medium**
 - Heading 1 → Lead Paragraph: **medium**
 - Lead Paragraph → Heading 2: **x-large**
 
@@ -165,7 +164,7 @@ Add one of the [Margin](/docs/utilities-css-margin--docs) utility classes (`ams-
   <Heading className="ams-mb-m" level={1}>
     Met korting van A naar B op de deelscooter of -bakfiets
   </Heading>
-  <Paragraph className="ams-mb-m">29 juli 2025</Paragraph>
+  <Metadata className="ams-mb-m">29 juli 2025</Metadata>
   <Paragraph size="large">
     Woont of werkt u in Amsterdam? Dan maakt u tot en met oktober met korting gebruik van deelscooters en -bakfietsen.
     Zo kunt u de auto laten staan en de werkzaamheden in en rond de stad vermijden.
@@ -180,7 +179,7 @@ Set the [Prose](/docs/utilities-css-prose--docs) utility class (`.ams-prose`) to
 ```tsx
 <article className="ams-prose">
   <Heading level={1}>Met korting van A naar B op de deelscooter of -bakfiets</Heading>
-  <Paragraph>29 juli 2025</Paragraph>
+  <Metadata>29 juli 2025</Metadata>
   <Paragraph size="large">
     Woont of werkt u in Amsterdam? Dan maakt u tot en met oktober met korting gebruik van deelscooters en -bakfietsen.
     Zo kunt u de auto laten staan en de werkzaamheden in en rond de stad vermijden.
