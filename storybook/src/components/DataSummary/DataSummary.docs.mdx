@@ -1,0 +1,123 @@
+{/* @license CC0-1.0 */}
+
+import { Canvas, Controls, Description, Meta, Primary, Title } from "@storybook/addon-docs/blocks";
+
+import { DesignTokensTable } from "#storybook/_components/DesignTokensTable/DesignTokensTable";
+import tokens from "#tokens/components/ams/data-summary.tokens.json";
+
+import * as DataSummaryStories from "./DataSummary.stories.tsx";
+
+<Meta of={DataSummaryStories} />
+
+<Title />
+
+<Description of={DataSummaryStories} />
+
+<Primary />
+
+<Controls />
+
+## Subcomponents
+
+The Item, Label, Value, and Action subcomponents make up a Data Summary.
+An Item groups one label with its value, Label and Value render the `<dt>` and `<dd>` elements, and an Action holds the link or button that changes that value.
+None of them has props of its own; the examples on this page show them in place.
+
+## Usage guidelines
+
+### When to use
+
+- To show a set of data that a reader checks or scans, such as the details of an object, a case, or a person.
+- To let a reader review the answers they gave in a form before they submit it.
+
+### When not to use
+
+- For data that is compared across rows or columns: use a [Table](/docs/components-containers-table--docs).
+- For terms and their meanings, such as a glossary: use a [Description List](/docs/components-text-description-list--docs).
+
+### How to use
+
+Give every item a Label and a Value.
+Add an Action only when the reader can change that value on the spot.
+
+### How to write
+
+Keep labels short and write them without a colon.
+Write an action as the change it makes, such as ‘Wijzigen’, and add the label of its item as visually hidden text so the accessible name stays unique.
+
+## Examples
+
+### Orientation
+
+A label and its value sit side by side, and stack as soon as the container gets too narrow for both.
+Resize the following example to see the Data Summary adapt its layout to the available width.
+
+<Canvas of={DataSummaryStories.Orientation} />
+
+### Stacked
+
+Set the orientation to ‘vertical’ to place every value below its label, however wide the container is.
+Use this when the values are long, or when the summary sits in a narrow column of a wider page.
+
+<Canvas of={DataSummaryStories.Stacked} />
+
+### Action
+
+An item can offer an action on its value, such as a link to the step of a form where that value is entered.
+The text, the icon, and the type of the action are yours to choose: pass a Standalone Link, a Link, or a Button.
+
+Repeated actions read as a list of identical links to anyone who navigates by links alone.
+Add the label of the item as visually hidden text to tell them apart.
+
+<Canvas of={DataSummaryStories.Action} />
+
+### Composite value
+
+A value takes rich content: several lines of text, an address, a paragraph, a link, or an image.
+Its parts are spaced evenly, so an address or a set of photos needs no markup of its own.
+
+<Canvas of={DataSummaryStories.CompositeValue} />
+
+### Form summary
+
+A summary of the answers in a form is an application of Data Summary rather than a component of its own.
+Combine it with a heading, an action per item that returns to the matching question, and a button that submits the form.
+
+Group data about several people or subjects by placing a heading above each Data Summary.
+
+<Canvas of={DataSummaryStories.FormSummary} />
+
+## Features
+
+Labels and values wrap and hyphenate, so long content stays inside the column instead of overflowing it.
+Below the breakpoint every value moves under its label, which keeps a Data Summary free of horizontal scroll on narrow screens.
+
+## Design
+
+Items are separated by a line, which runs the full width of the summary.
+The whitespace above and below that line is the same, so the line sits between two items rather than belonging to one.
+
+Labels use heading typography and values use body text, which gives the two different line heights.
+Side by side, a label therefore gets half of that difference as extra space above it, so its first line sits level with the first line of its value.
+
+The column for the labels is at most `15rem` wide.
+Labels and values sit next to each other when their [query container](/docs/utilities-css-query-container--docs) is wide enough (at least `32rem`).
+
+## Accessibility
+
+A Data Summary renders `dl`, `dt`, and `dd` elements.
+These tie each label to its value in the markup instead of only through the layout, which is the kind of relationship [WCAG 1.3.1](https://www.w3.org/TR/WCAG22/#info-and-relationships) asks to be made available.
+An Item renders a `div` around one pair, which HTML permits inside a `dl`.
+
+An Action renders a second `dd`, so its link or button is announced in the context of the label it acts on.
+Give repeated actions a unique accessible name with the `ams-visually-hidden` helper, as [WCAG 2.4.4](https://www.w3.org/TR/WCAG22/#link-purpose-in-context) asks.
+Use visually hidden text rather than `aria-label`, because browsers do not reliably translate that attribute.
+
+## See also
+
+- [Description List](/docs/components-text-description-list--docs) – pairs terms with their meanings, without separators or actions.
+- [Table](/docs/components-containers-table--docs) – presents data that is compared across rows and columns.
+
+## Design tokens
+
+<DesignTokensTable tokens={tokens} />
