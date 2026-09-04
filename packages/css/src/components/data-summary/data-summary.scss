@@ -1,0 +1,97 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+@use "../../common/hyphenation" as *;
+@use "../../common/resets" as *;
+@use "../../common/text-rendering" as *;
+
+/**
+ * CSS Custom properties cannot be used in container queries.
+ * We resort to Sass variables for our breakpoint values.
+ */
+
+/** The container width at which a horizontal Data Summary places labels and values side by side. */
+$ams-data-summary-breakpoint: 32rem;
+
+.ams-data-summary {
+  @include reset-dl;
+
+  color: var(--ams-data-summary-color);
+  display: grid;
+  font-family: var(--ams-data-summary-font-family);
+  font-size: var(--ams-data-summary-font-size);
+  line-height: var(--ams-data-summary-line-height);
+  row-gap: var(--ams-data-summary-row-gap);
+
+  @include hyphenation;
+  @include text-rendering;
+}
+
+.ams-data-summary__item {
+  border-block-end: var(--ams-data-summary-item-border-block-end);
+  padding-block-end: var(--ams-data-summary-item-padding-block-end);
+}
+
+.ams-data-summary__label {
+  font-size: var(--ams-data-summary-label-font-size);
+  font-weight: var(--ams-data-summary-label-font-weight);
+  line-height: var(--ams-data-summary-label-line-height);
+  margin-block-end: var(--ams-data-summary-label-margin-block-end);
+}
+
+.ams-data-summary__value {
+  @include reset-dd;
+
+  display: grid;
+  font-weight: var(--ams-data-summary-value-font-weight);
+  row-gap: var(--ams-data-summary-value-row-gap);
+}
+
+.ams-data-summary__action {
+  @include reset-dd;
+
+  margin-block-start: var(--ams-data-summary-action-margin-block-start);
+}
+
+// Below this width every item stacks, so a Data Summary never forces horizontal scroll.
+@container ams-query-container-inline-size (inline-size >= #{$ams-data-summary-breakpoint}) {
+  .ams-data-summary--horizontal .ams-data-summary__item {
+    align-items: start;
+    column-gap: var(--ams-data-summary-item-vi-medium-column-gap);
+    display: grid;
+    grid-template-columns: var(--ams-data-summary-item-vi-medium-grid-template-columns);
+  }
+
+  .ams-data-summary--horizontal .ams-data-summary__label {
+    grid-column-start: 1;
+    margin-block-end: 0;
+
+    // Add half of the difference in computed line heights to align labels with values.
+    // Labels use heading line heights; values use body text.
+    padding-block-start: calc(
+      (
+          var(--ams-data-summary-font-size) *
+            var(--ams-data-summary-line-height) - var(--ams-data-summary-label-font-size) *
+            var(--ams-data-summary-label-line-height)
+        ) /
+        2
+    );
+  }
+
+  .ams-data-summary--horizontal .ams-data-summary__value {
+    grid-column-start: 2;
+
+    // Make sure the first value starts at the top row
+    &:first-of-type {
+      grid-row-start: 1;
+    }
+  }
+
+  .ams-data-summary--horizontal .ams-data-summary__action {
+    grid-column-start: 3;
+    grid-row-start: 1;
+    margin-block-start: 0;
+  }
+}

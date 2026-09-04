@@ -1,0 +1,131 @@
+{
+  "ams": {
+    "data-summary": {
+      "color": {
+        "$value": "{ams.color.text.default}",
+        "$extensions": {
+          "nl.amsterdam.type": "color"
+        }
+      },
+      "font-family": {
+        "$value": "{ams.typography.font-family}",
+        "$extensions": {
+          "nl.amsterdam.type": "fontFamily"
+        }
+      },
+      "font-size": {
+        "$value": "{ams.typography.body-text.font-size}",
+        "$extensions": {
+          "nl.amsterdam.hint": "Applies to values only; labels set their own font size. Must be a single value: it is used in a calculation, which two values would invalidate.",
+          "nl.amsterdam.type": "fontSize"
+        }
+      },
+      "line-height": {
+        "$value": "{ams.typography.body-text.line-height}",
+        "$extensions": {
+          "nl.amsterdam.hint": "Applies to values only; labels set their own line height. Must be a single value: it is used in a calculation, which two values would invalidate.",
+          "nl.amsterdam.subtype": "lineHeight",
+          "nl.amsterdam.type": "number"
+        }
+      },
+      "row-gap": {
+        "$value": "{ams.space.s}",
+        "$extensions": {
+          "nl.amsterdam.hint": "The whitespace between the separator of an item and the label of the next one. Must be a single value: it sets a longhand property, which takes only one.",
+          "nl.amsterdam.subtype": "space",
+          "nl.amsterdam.type": "dimension"
+        }
+      },
+      "item": {
+        "border-block-end": {
+          "$value": "{ams.border.width.s} solid {ams.color.separator}",
+          "$extensions": {
+            "nl.amsterdam.type": "border"
+          }
+        },
+        "padding-block-end": {
+          "$value": "{ams.space.s}",
+          "$extensions": {
+            "nl.amsterdam.hint": "The whitespace between the content of an item and its separator. Must be a single value: it sets a longhand property, which takes only one.",
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
+          }
+        },
+        "vi-medium": {
+          "column-gap": {
+            "$value": "{ams.space.l}",
+            "$extensions": {
+              "nl.amsterdam.hint": "Must be a single value: it sets a longhand property, which takes only one.",
+              "nl.amsterdam.subtype": "space",
+              "nl.amsterdam.type": "dimension"
+            }
+          },
+          "grid-template-columns": {
+            "$value": "minmax(0, 15rem) minmax(0, 1fr) auto",
+            "$description": "Three columns: the label, the value, and the optional action. The action column collapses when an item has no action.",
+            "$extensions": {
+              "nl.amsterdam.type": "gridTemplateColumns"
+            }
+          }
+        }
+      },
+      "label": {
+        "font-size": {
+          "$value": "{ams.typography.heading.4.font-size}",
+          "$extensions": {
+            "nl.amsterdam.hint": "Must be a single value: it is used in a calculation, which two values would invalidate.",
+            "nl.amsterdam.type": "fontSize"
+          }
+        },
+        "font-weight": {
+          "$value": "{ams.typography.heading.font-weight}",
+          "$extensions": {
+            "nl.amsterdam.type": "fontWeight"
+          }
+        },
+        "line-height": {
+          "$value": "{ams.typography.heading.4.line-height}",
+          "$extensions": {
+            "nl.amsterdam.hint": "Must be a single value: it is used in a calculation, which two values would invalidate.",
+            "nl.amsterdam.subtype": "lineHeight",
+            "nl.amsterdam.type": "number"
+          }
+        },
+        "margin-block-end": {
+          "$value": "{ams.space.xs}",
+          "$extensions": {
+            "nl.amsterdam.hint": "Only applies when the label sits above its value. Must be a single value: it sets a longhand property, which takes only one.",
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
+          }
+        }
+      },
+      "value": {
+        "font-weight": {
+          "$value": "{ams.typography.body-text.font-weight}",
+          "$extensions": {
+            "nl.amsterdam.type": "fontWeight"
+          }
+        },
+        "row-gap": {
+          "$value": "{ams.space.s}",
+          "$extensions": {
+            "nl.amsterdam.hint": "The whitespace between the parts of a composite value. Must be a single value: it sets a longhand property, which takes only one.",
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
+          }
+        }
+      },
+      "action": {
+        "margin-block-start": {
+          "$value": "{ams.space.s}",
+          "$extensions": {
+            "nl.amsterdam.hint": "Only applies when the action sits below its value. Must be a single value: it sets a longhand property, which takes only one.",
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
+          }
+        }
+      }
+    }
+  }
+}
