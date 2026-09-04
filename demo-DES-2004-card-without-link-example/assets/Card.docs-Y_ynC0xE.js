@@ -1,0 +1,117 @@
+import{n as e}from"./rolldown-runtime-DkW27tQK.js";import{a as t,d as n,h as r,i,n as a,p as o,u as s}from"./blocks-BQKRe05W.js";import{t as c}from"./jsx-runtime-ATHzeHXA.js";import{i as l,r as u}from"./react-Dyi61YEg.js";import{n as d,t as f}from"./DesignTokensTable-jRKFVVw7.js";import{a as p,i as m,n as h,o as g,r as _,t as v}from"./Card.stories-CJ8HYjgL.js";import{n as y,r as b}from"./CardHeading.stories-Cwlhe7cN.js";import{n as x,r as S}from"./CardHeadingGroup.stories-Ddm5932k.js";import{n as C,r as w}from"./CardImage.stories-BHZeEz_R.js";import{n as T,r as E}from"./CardLink.stories-DZcnweOM.js";var D,O;function k(){return(k=e((()=>{D={card:{heading:{"margin-block-end":{$value:`{ams.space.xs}`,$extensions:{"nl.amsterdam.hint":`Must be a single value: it sets a longhand property, which takes only one.`,"nl.amsterdam.subtype":`space`,"nl.amsterdam.type":`dimension`}}},"heading-group":{gap:{$value:`{ams.space.xs}`,$extensions:{"nl.amsterdam.subtype":`space`,"nl.amsterdam.type":`dimension`}},"margin-block-end":{$value:`{ams.space.xs}`,$extensions:{"nl.amsterdam.hint":`Must be a single value: it sets a longhand property, which takes only one.`,"nl.amsterdam.subtype":`space`,"nl.amsterdam.type":`dimension`}}},horizontal:{"column-gap":{$value:`{ams.space.l}`,$extensions:{"nl.amsterdam.subtype":`space`,"nl.amsterdam.type":`dimension`}},"grid-template-columns":{$value:`calc((4 * 100% - 5 * {ams.grid.column-gap}) / 9) minmax(0, 1fr)`,$description:`The image covers the first 4 columns if the Card spans exactly 9. That seems to be a common layout for horizontal Cards, and it allows them to visually align with vertical ones. In other contexts, the image scales proportionally.`,$extensions:{"nl.amsterdam.type":`gridTemplateColumns`}}},image:{"margin-block-end":{$value:`{ams.space.s}`,$extensions:{"nl.amsterdam.hint":`Must be a single value: it sets a longhand property, which takes only one.`,"nl.amsterdam.subtype":`space`,"nl.amsterdam.type":`dimension`}}},link:{color:{$value:`{ams.links.color}`,$extensions:{"nl.amsterdam.type":`color`}},"text-decoration-line":{$value:`{ams.links.subtle.text-decoration-line}`,$extensions:{"nl.amsterdam.type":`textDecorationLine`}},"text-decoration-thickness":{$value:`{ams.links.text-decoration-thickness}`,$extensions:{"nl.amsterdam.subtype":`space`,"nl.amsterdam.type":`dimension`}},"text-underline-offset":{$value:`{ams.links.text-underline-offset}`,$extensions:{"nl.amsterdam.subtype":`space`,"nl.amsterdam.type":`dimension`}},hover:{color:{$value:`{ams.links.hover.color}`,$extensions:{"nl.amsterdam.type":`color`}},"text-decoration-line":{$value:`{ams.links.subtle.hover.text-decoration-line}`,$extensions:{"nl.amsterdam.type":`textDecorationLine`}}}},"outline-offset":{$value:`{ams.focus.outline-offset}`,$extensions:{"nl.amsterdam.subtype":`space`,"nl.amsterdam.type":`dimension`}}}},O={ams:D}})))()}function A(e){let r={a:`a`,code:`code`,h2:`h2`,h3:`h3`,li:`li`,p:`p`,ul:`ul`,...l(),...e.components};return(0,M.jsxs)(M.Fragment,{children:[`
+`,`
+`,`
+`,`
+`,(0,M.jsx)(s,{of:v}),`
+`,(0,M.jsx)(o,{}),`
+`,(0,M.jsx)(t,{of:v}),`
+`,(0,M.jsx)(n,{}),`
+`,(0,M.jsx)(r.p,{children:`This component has no props to configure.`}),`
+`,(0,M.jsx)(r.h2,{id:`subcomponents`,children:`Subcomponents`}),`
+`,(0,M.jsx)(r.h3,{id:`image`,children:`Image`}),`
+`,(0,M.jsxs)(r.p,{children:[`The image of the Card.
+It accepts all props of a regular `,(0,M.jsx)(r.a,{href:`/docs/components-media-image--docs`,children:`Image`}),`, such as `,(0,M.jsx)(r.code,{children:`aspectRatio`}),` or a set of image sources.
+Only use decorative images with `,(0,M.jsx)(r.code,{children:`alt=""`}),` here.
+The heading provides screen reader users with enough context.`]}),`
+`,(0,M.jsx)(a,{of:C}),`
+`,(0,M.jsx)(i,{of:C}),`
+`,(0,M.jsx)(r.h3,{id:`heading`,children:`Heading`}),`
+`,(0,M.jsxs)(r.p,{children:[`Contains the name of the Card, and its link where the Card has one.
+Accepts all props of a regular `,(0,M.jsx)(r.a,{href:`/docs/components-text-heading--docs`,children:`Heading`}),`.
+Set its `,(0,M.jsx)(r.code,{children:`level`}),` to fit the document outline.`]}),`
+`,(0,M.jsx)(a,{of:y}),`
+`,(0,M.jsx)(i,{of:y}),`
+`,(0,M.jsx)(r.h3,{id:`heading-group`,children:`Heading Group`}),`
+`,(0,M.jsxs)(r.p,{children:[`Displays a `,(0,M.jsx)(r.a,{href:`/docs/components-text-metadata--docs`,children:`Metadata`}),` above the heading.
+Write it after the Heading; the component reverses the two, so a screen reader reaches the heading first.`]}),`
+`,(0,M.jsx)(a,{of:x}),`
+`,(0,M.jsx)(i,{of:x}),`
+`,(0,M.jsx)(r.h3,{id:`content`,children:`Content`}),`
+`,(0,M.jsxs)(r.p,{children:[`Groups everything in a Card that is not its image.
+Add it whenever you want to allow switching to a `,(0,M.jsx)(r.a,{href:`#horizontal-layout`,children:`horizontal layout`}),`.`]}),`
+`,(0,M.jsx)(r.h3,{id:`link`,children:`Link`}),`
+`,(0,M.jsxs)(r.p,{children:[`Makes the entire Card clickable.
+Place it inside the Heading.
+Set `,(0,M.jsx)(r.code,{children:`linkComponent`}),` to integrate with a routing library.`]}),`
+`,(0,M.jsx)(a,{of:T}),`
+`,(0,M.jsx)(i,{of:T}),`
+`,(0,M.jsx)(r.h2,{id:`usage-guidelines`,children:`Usage guidelines`}),`
+`,(0,M.jsx)(r.h3,{id:`when-to-use`,children:`When to use`}),`
+`,(0,M.jsx)(r.p,{children:`A Card needs more content than just a title.
+Add a short text and optionally an image and metadata.`}),`
+`,(0,M.jsx)(r.p,{children:`A Card does not need a link.
+Use one without a link for a set of blocks that carry the same kind of content and line up in a row, where each names something that has no page of its own.`}),`
+`,(0,M.jsx)(r.h3,{id:`when-not-to-use`,children:`When not to use`}),`
+`,(0,M.jsxs)(r.p,{children:[`This component is not the best option if the target content does not represent an article-like page.
+In that case, use a Heading, a Paragraph and a `,(0,M.jsx)(r.a,{href:`/docs/components-navigation-standalone-link--docs`,children:`Standalone Link`}),` instead.`]}),`
+`,(0,M.jsxs)(r.p,{children:[`Do not use a Card for a block of a heading and a set of links, such as the ones a `,(0,M.jsx)(r.a,{href:`/docs/pages-public-navigation-page--docs`,children:`Navigation Page`}),` is built from.
+`,(0,M.jsx)(r.a,{href:`/docs/utilities-css-prose--docs`,children:`Prose`}),` spaces the parts of such a block, and the `,(0,M.jsx)(r.code,{children:`article`}),` element of a Card would announce it as a composition of its own.`]}),`
+`,(0,M.jsx)(r.h3,{id:`how-to-use`,children:`How to use`}),`
+`,(0,M.jsxs)(r.p,{children:[`Card Heading requires a `,(0,M.jsx)(r.code,{children:`level`}),`, because there is no sensible default.
+The guidelines for regular `,(0,M.jsx)(r.a,{href:`/docs/components-navigation-link--docs`,children:`links`}),` and `,(0,M.jsx)(r.a,{href:`/docs/components-text-heading--docs`,children:`headings`}),` apply.`]}),`
+`,(0,M.jsx)(r.p,{children:`Give a Card that leads to a page one link and no more.
+The Card Link covers the whole Card to make it clickable, so a second link inside it would sit underneath and be impossible to click.`}),`
+`,(0,M.jsx)(r.p,{children:`Leave a Card without a link plain.
+Nothing about it should suggest that it can be clicked: no hover effect, no pointer cursor, and no arrow beside its title.`}),`
+`,(0,M.jsx)(r.h3,{id:`how-to-write`,children:`How to write`}),`
+`,(0,M.jsxs)(r.p,{children:[`Place the text in a regular `,(0,M.jsx)(r.a,{href:`/docs/components-text-paragraph--docs`,children:`Paragraph`}),`.
+Use a small `,(0,M.jsx)(r.a,{href:`/docs/components-text-metadata--docs`,children:`Metadata`}),` for a publication date or a category.`]}),`
+`,(0,M.jsx)(r.h2,{id:`examples`,children:`Examples`}),`
+`,(0,M.jsx)(r.h3,{id:`with-metadata`,children:`With metadata`}),`
+`,(0,M.jsxs)(r.p,{children:[`A Card can show a category, a date, or both above its heading.
+Wrap the Heading in a Heading Group and add a `,(0,M.jsx)(r.a,{href:`/docs/components-text-metadata--docs`,children:`Metadata`}),` after it, at the small size.`]}),`
+`,(0,M.jsx)(a,{of:m}),`
+`,(0,M.jsx)(r.h3,{id:`horizontal-layout`,children:`Horizontal layout`}),`
+`,(0,M.jsxs)(r.p,{children:[`A Card can place content beside the image once there is room for it.
+This follows the width of the nearest `,(0,M.jsx)(r.a,{href:`/docs/utilities-css-query-container--docs`,children:`query container`}),`, so the same Card is horizontal in a wide Grid Cell and vertical in a narrow one, without any change to the markup.
+A Card that has an image but no Content subcomponent stays vertical.`]}),`
+`,(0,M.jsx)(r.p,{children:`If the Card spans 9 columns of the Grid, the image covers 4 of them.
+In other contexts, the image scales proportionally.`}),`
+`,(0,M.jsx)(r.p,{children:`The example below is vertical in a narrow window.`}),`
+`,(0,M.jsx)(a,{of:h}),`
+`,(0,M.jsx)(r.h3,{id:`top-tasks`,children:`Top tasks`}),`
+`,(0,M.jsxs)(r.p,{children:[`A set of cards without images can present links to frequently accessed interactions.
+A short title and description are enough to guide the user to the page they need.
+Position 4 to 8 tasks on a `,(0,M.jsx)(r.a,{href:`/docs/components-layout-grid--docs`,children:`Grid`}),`; left-align them and do not skip cells.
+For a group of links without a description, use a `,(0,M.jsx)(r.a,{href:`/docs/components-navigation-link-list--docs`,children:`Link List`}),` instead.`]}),`
+`,(0,M.jsx)(a,{of:_}),`
+`,(0,M.jsx)(r.h3,{id:`without-a-link`,children:`Without a link`}),`
+`,(0,M.jsx)(r.p,{children:`A Card can present something that has no page of its own, such as the phases of a project.
+Leave the Card Link out; nothing in the Card is then interactive, and the Heading Group still places the Metadata above the heading.`}),`
+`,(0,M.jsx)(a,{of:p}),`
+`,(0,M.jsx)(r.h2,{id:`features`,children:`Features`}),`
+`,(0,M.jsx)(r.p,{children:`The title of a Card is mandatory and takes a Heading.
+Where the Card leads to a page, that link sits within the Heading and is made active across the entire area of the Card.`}),`
+`,(0,M.jsx)(r.p,{children:`A Card that pairs an image with a Content lays out horizontally once its container is wide enough, and vertically below that.`}),`
+`,(0,M.jsx)(r.h2,{id:`design`,children:`Design`}),`
+`,(0,M.jsx)(r.p,{children:`A Card has no border, no background, and no padding.
+It is a stack of parts with white space between them, so a row of Cards reads as a set of articles rather than as a row of boxes.`}),`
+`,(0,M.jsx)(r.p,{children:`Where a Card has a link, the whole Card is made clickable by stretching an invisible layer from the link across it.
+Only the title is the link, and everything else stays plain content, so the target grows without the accessible name growing with it.`}),`
+`,(0,M.jsx)(r.p,{children:`In that case the focus ring is drawn around the entire Card instead of around the title alone, and the link’s own ring is switched off.
+Browsers that cannot express that condition get neither rule, so they still show the ordinary ring on the title rather than nothing at all.
+A Card without any interactive element has neither: no invisible layer, and no focus ring, because nothing inside it can receive focus.`}),`
+`,(0,M.jsx)(r.p,{children:`In a Heading Group the Metadata is written after the heading and displayed above it.
+The reading order and the visual order differ on purpose, which is what lets the metadata sit on top while the heading is still what gets read first.
+Writing it before the heading undoes both.`}),`
+`,(0,M.jsx)(r.p,{children:`Whether a Card is horizontal follows the width of its container rather than the width of the window.
+The same Card is one row in a list of results and one card in a row of three, and which of the two it should be depends on the space it is given, not on the size of the screen.`}),`
+`,(0,M.jsx)(r.p,{children:`The image of a horizontal Card measures 4 of the 9 columns it spans, which is the width of a vertical Card beside it, and it keeps its aspect ratio rather than stretching to the height of the text beside it.
+Both choices exist so that the image is the same size in either direction: an index page that opens with a row of vertical Cards above a list of horizontal ones then has one left edge and one image width running down it.
+Stretching the image instead would crop each one differently, according to how far its heading happened to wrap.`}),`
+`,(0,M.jsx)(r.h2,{id:`accessibility`,children:`Accessibility`}),`
+`,(0,M.jsx)(r.p,{children:`Visually, Card Heading has the size of a level 3 Heading by default.
+Screen reader users can navigate by heading or by link; a Card with a link supports both, because its title is a heading that contains one.
+A screen reader reads the title first, then the rest of the content.`}),`
+`,(0,M.jsx)(r.p,{children:`The layer that makes the Card clickable is empty and carries no text, so it adds nothing to the name of the link and is not announced.
+The rest of the Card stays ordinary content: a paragraph inside it is read as a paragraph, not as part of the link.`}),`
+`,(0,M.jsxs)(r.p,{children:[`An image in a Card is decoration, which is why the examples pass an empty `,(0,M.jsx)(r.code,{children:`alt`}),`.
+A description there would be read when browsing the page but skipped when moving between links, so it would reach some readers and not others.`]}),`
+`,(0,M.jsx)(r.h2,{id:`see-also`,children:`See also`}),`
+`,(0,M.jsxs)(r.ul,{children:[`
+`,(0,M.jsxs)(r.li,{children:[(0,M.jsx)(r.a,{href:`/docs/components-navigation-standalone-link--docs`,children:`Standalone Link`}),` – for a single link to a follow-up page when a Card is too much.`]}),`
+`,(0,M.jsxs)(r.li,{children:[(0,M.jsx)(r.a,{href:`/docs/components-feedback-skeleton--docs`,children:`Skeleton`}),` – can increase the perceived performance of loading the Card’s content.`]}),`
+`,(0,M.jsxs)(r.li,{children:[(0,M.jsx)(r.a,{href:`/docs/docs-guidelines-routing-libraries--docs`,children:`Routing libraries`}),` – how to integrate links with external routing libraries.`]}),`
+`]}),`
+`,(0,M.jsx)(r.h2,{id:`design-tokens`,children:`Design tokens`}),`
+`,(0,M.jsx)(f,{tokens:O})]})}function j(e={}){let{wrapper:t}={...l(),...e.components};return t?(0,M.jsx)(t,{...e,children:(0,M.jsx)(A,{...e})}):A(e)}var M;function N(){return(N=e((()=>{M=c(),u(),r(),d(),k(),g(),b(),S(),w(),E()})))()}N();export{j as default};
