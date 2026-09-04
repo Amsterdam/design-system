@@ -161,8 +161,9 @@ export const WithoutLink: Story = {
     layout: 'fullscreen',
   },
   render: (args) => (
-    <Grid paddingVertical="x-large">
-      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 4 }}>
+    // The phases run in order, so the Grid is an ordered list and every Cell in it a list item.
+    <Grid as="ol" paddingVertical="x-large">
+      <Grid.Cell as="li" span={{ narrow: 4, medium: 4, wide: 4 }}>
         <Card {...args}>
           <Card.HeadingGroup>
             <Card.Heading level={2}>Ontwerp</Card.Heading>
@@ -174,7 +175,7 @@ export const WithoutLink: Story = {
           </Paragraph>
         </Card>
       </Grid.Cell>
-      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 4 }}>
+      <Grid.Cell as="li" span={{ narrow: 4, medium: 4, wide: 4 }}>
         <Card>
           <Card.HeadingGroup>
             <Card.Heading level={2}>Voorbereiding</Card.Heading>
@@ -185,7 +186,7 @@ export const WithoutLink: Story = {
           </Paragraph>
         </Card>
       </Grid.Cell>
-      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 4 }}>
+      <Grid.Cell as="li" span={{ narrow: 4, medium: 4, wide: 4 }}>
         <Card>
           <Card.HeadingGroup>
             <Card.Heading level={2}>Uitvoering</Card.Heading>
