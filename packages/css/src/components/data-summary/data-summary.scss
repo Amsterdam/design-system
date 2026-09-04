@@ -3,17 +3,11 @@
  * Copyright Gemeente Amsterdam
  */
 
+@use "../../common/align-first-line" as *;
+@use "../../common/breakpoint" as *;
 @use "../../common/hyphenation" as *;
 @use "../../common/resets" as *;
 @use "../../common/text-rendering" as *;
-
-/**
- * CSS Custom properties cannot be used in container queries.
- * We resort to Sass variables for our breakpoint values.
- */
-
-/** The container width at which a horizontal Data Summary places labels and values side by side. */
-$ams-data-summary-breakpoint: 32rem;
 
 .ams-data-summary {
   @include reset-dl;
@@ -56,7 +50,7 @@ $ams-data-summary-breakpoint: 32rem;
 }
 
 // Below this width every item stacks, so a Data Summary never forces horizontal scroll.
-@container ams-query-container-inline-size (inline-size >= #{$ams-data-summary-breakpoint}) {
+@container ams-query-container-inline-size (inline-size >= #{$ams-container-breakpoint-term-and-value}) {
   .ams-data-summary--horizontal .ams-data-summary__item {
     align-items: start;
     column-gap: var(--ams-data-summary-item-vi-medium-column-gap);
@@ -68,15 +62,12 @@ $ams-data-summary-breakpoint: 32rem;
     grid-column-start: 1;
     margin-block-end: 0;
 
-    // Add half of the difference in computed line heights to align labels with values.
-    // Labels use heading line heights; values use body text.
-    padding-block-start: calc(
-      (
-          var(--ams-data-summary-font-size) *
-            var(--ams-data-summary-line-height) - var(--ams-data-summary-label-font-size) *
-            var(--ams-data-summary-label-line-height)
-        ) /
-        2
+    // Align labels with values, which use body text line heights rather than heading ones.
+    @include align-first-line(
+      $font-size: var(--ams-data-summary-label-font-size),
+      $line-height: var(--ams-data-summary-label-line-height),
+      $reference-font-size: var(--ams-data-summary-font-size),
+      $reference-line-height: var(--ams-data-summary-line-height)
     );
   }
 
