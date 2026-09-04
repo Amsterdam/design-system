@@ -36,7 +36,7 @@ The heading provides screen reader users with enough context.
 
 ### Heading
 
-Contains the name and link of the Card.
+Contains the name of the Card, and its link where the Card has one.
 Accepts all props of a regular [Heading](/docs/components-text-heading--docs).
 Set its `level` to fit the document outline.
 
@@ -152,11 +152,12 @@ A Card that pairs an image with a Content lays out horizontally once its contain
 A Card has no border, no background, and no padding.
 It is a stack of parts with white space between them, so a row of Cards reads as a set of articles rather than as a row of boxes.
 
-The whole Card is made clickable by stretching an invisible layer from the link across it.
+Where a Card has a link, the whole Card is made clickable by stretching an invisible layer from the link across it.
 Only the title is the link, and everything else stays plain content, so the target grows without the accessible name growing with it.
 
-The focus ring is drawn around the entire Card instead of around the title alone, and the link’s own ring is switched off.
+In that case the focus ring is drawn around the entire Card instead of around the title alone, and the link’s own ring is switched off.
 Browsers that cannot express that condition get neither rule, so they still show the ordinary ring on the title rather than nothing at all.
+A Card without any interactive element has neither: no invisible layer, and no focus ring, because nothing inside it can receive focus.
 
 In a Heading Group the Metadata is written after the heading and displayed above it.
 The reading order and the visual order differ on purpose, which is what lets the metadata sit on top while the heading is still what gets read first.
