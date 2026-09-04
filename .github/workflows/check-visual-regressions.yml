@@ -76,7 +76,7 @@ jobs:
         run: pnpm --filter=!storybook -r run build
 
       - name: Run Chromatic
-        uses: chromaui/action@69be7d88fc9479eedbe5b2861f847eb48f97cabc # v18.6.1
+        uses: chromaui/action@2a0b63f30233c48591844a46d451b9cf68128186 # v18.7.2
         with:
           branchName: ${{ steps.pr-info.outputs.branch }}
           chromaticSha: ${{ steps.pr-info.outputs.sha }}
