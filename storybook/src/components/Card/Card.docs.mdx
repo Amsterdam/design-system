@@ -36,7 +36,7 @@ The heading provides screen reader users with enough context.
 
 ### Heading
 
-Contains the name and link of the Card.
+Contains the name of the Card, and its link where the Card has one.
 Accepts all props of a regular [Heading](/docs/components-text-heading--docs).
 Set its `level` to fit the document outline.
 
@@ -75,18 +75,27 @@ Set `linkComponent` to integrate with a routing library.
 A Card needs more content than just a title.
 Add a short text and optionally an image and metadata.
 
+A Card does not need a link.
+Use one without a link for a set of blocks that carry the same kind of content and line up in a row, where each names something that has no page of its own.
+
 ### When not to use
 
 This component is not the best option if the target content does not represent an article-like page.
 In that case, use a Heading, a Paragraph and a [Standalone Link](/docs/components-navigation-standalone-link--docs) instead.
+
+Do not use a Card for a block of a heading and a set of links, such as the ones a [Navigation Page](/docs/pages-public-navigation-page--docs) is built from.
+[Prose](/docs/utilities-css-prose--docs) spaces the parts of such a block, and the `article` element of a Card would announce it as a composition of its own.
 
 ### How to use
 
 Card Heading requires a `level`, because there is no sensible default.
 The guidelines for regular [links](/docs/components-navigation-link--docs) and [headings](/docs/components-text-heading--docs) apply.
 
-Give a Card one link and no more.
+Give a Card that leads to a page one link and no more.
 The Card Link covers the whole Card to make it clickable, so a second link inside it would sit underneath and be impossible to click.
+
+Leave a Card without a link plain.
+Nothing about it should suggest that it can be clicked: no hover effect, no pointer cursor, and no arrow beside its title.
 
 ### How to write
 
@@ -124,10 +133,17 @@ For a group of links without a description, use a [Link List](/docs/components-n
 
 <Canvas of={CardStories.TopTasks} />
 
+### Without a link
+
+A Card can present something that has no page of its own, such as the phases of a project.
+Leave the Card Link out; nothing in the Card is then interactive, and the Heading Group still places the Metadata above the heading.
+
+<Canvas of={CardStories.WithoutLink} />
+
 ## Features
 
-The mandatory title of a Card is a link within a Heading.
-The link is made active across the entire area of the Card.
+The title of a Card is mandatory and takes a Heading.
+Where the Card leads to a page, that link sits within the Heading and is made active across the entire area of the Card.
 
 A Card that pairs an image with a Content lays out horizontally once its container is wide enough, and vertically below that.
 
@@ -136,11 +152,12 @@ A Card that pairs an image with a Content lays out horizontally once its contain
 A Card has no border, no background, and no padding.
 It is a stack of parts with white space between them, so a row of Cards reads as a set of articles rather than as a row of boxes.
 
-The whole Card is made clickable by stretching an invisible layer from the link across it.
+Where a Card has a link, the whole Card is made clickable by stretching an invisible layer from the link across it.
 Only the title is the link, and everything else stays plain content, so the target grows without the accessible name growing with it.
 
-The focus ring is drawn around the entire Card instead of around the title alone, and the link’s own ring is switched off.
+In that case the focus ring is drawn around the entire Card instead of around the title alone, and the link’s own ring is switched off.
 Browsers that cannot express that condition get neither rule, so they still show the ordinary ring on the title rather than nothing at all.
+A Card without any interactive element has neither: no invisible layer, and no focus ring, because nothing inside it can receive focus.
 
 In a Heading Group the Metadata is written after the heading and displayed above it.
 The reading order and the visual order differ on purpose, which is what lets the metadata sit on top while the heading is still what gets read first.
@@ -156,7 +173,7 @@ Stretching the image instead would crop each one differently, according to how f
 ## Accessibility
 
 Visually, Card Heading has the size of a level 3 Heading by default.
-Screen reader users can navigate by heading or by link; a Card supports both because its title is a heading that contains a link.
+Screen reader users can navigate by heading or by link; a Card with a link supports both, because its title is a heading that contains one.
 A screen reader reads the title first, then the rest of the content.
 
 The layer that makes the Card clickable is empty and carries no text, so it adds nothing to the name of the link and is not announced.
