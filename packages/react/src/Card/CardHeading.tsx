@@ -13,7 +13,7 @@ import type { HeadingProps } from '../Heading'
 import { Heading } from '../Heading'
 
 /**
- * The heading within a Card, containing the link to the associated page.
+ * The heading within a Card, containing the link to the associated page if the Card has one.
  *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-navigation-card--docs Card docs at Amsterdam Design System}
  */
