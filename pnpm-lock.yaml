@@ -326,8 +326,8 @@ importers:
         specifier: 10.5.8
         version: 10.5.8(@types/react@18.3.31)(react@18.3.1)(storybook@10.5.8(@types/react@18.3.31)(prettier@3.9.6)(react@18.3.1))
       '@storybook/addon-mcp':
-        specifier: 0.7.0
-        version: 0.7.0(storybook@10.5.8(@types/react@18.3.31)(prettier@3.9.6)(react@18.3.1))(typescript@6.0.3)
+        specifier: 10.6.0
+        version: 10.6.0(storybook@10.5.8(@types/react@18.3.31)(prettier@3.9.6)(react@18.3.1))(typescript@6.0.3)
       '@storybook/mdx2-csf':
         specifier: 1.1.0
         version: 1.1.0
@@ -1772,11 +1772,11 @@ packages:
       react:
         optional: true
 
-  '@storybook/addon-mcp@0.7.0':
-    resolution: {integrity: sha512-f/IWGRMzWynBg5kDJ3DYvvnafuSX88kykGNFzzLOlkLVpfxEZoAmQF6AS47tw25GuH6EFIqSo6ZDBLHLVyZ/IQ==}
+  '@storybook/addon-mcp@10.6.0':
+    resolution: {integrity: sha512-aQza4iMVgB3OXPMJvcnA193xMdt0sG/0+otGCQu8il6LIuFDP60jD5BXWlQiaVog+swqHrjJCFzuUPE+azz7Kg==}
     peerDependencies:
-      '@storybook/addon-vitest': ^0.0.0-0 || ^9.1.16 || ^10.0.0 || ^10.1.0-0 || ^10.2.0-0 || ^10.3.0-0 || ^10.4.0-0 || ^10.5.0-0
-      storybook: ^0.0.0-0 || ^9.1.16 || ^10.0.0 || ^10.1.0-0 || ^10.2.0-0 || ^10.3.0-0 || ^10.4.0-0 || ^10.5.0-0
+      '@storybook/addon-vitest': ^10.6.0
+      storybook: ^10.6.0
     peerDependenciesMeta:
       '@storybook/addon-vitest':
         optional: true
@@ -1812,9 +1812,6 @@ packages:
     resolution: {integrity: sha512-Fxh9vYpX9bQqFeHRiY8h2ApeRGDzRSMLwJwNZ/AIRqnyOKHxRKL+yFe+ctEkVJmuptRE9u1Hrn8ZZNHyfDKKNg==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
-
-  '@storybook/mcp@0.8.0':
-    resolution: {integrity: sha512-G+XDgoWGrE98moXqKSee8fQyMQxoIWxRAbPG8r/HQ95pKodratevDqNyOgW+t6ZigM6AAVN1WHiFc5MI+hc8sg==}
 
   '@storybook/mdx2-csf@1.1.0':
     resolution: {integrity: sha512-TXJJd5RAKakWx4BtpwvSNdgTDkKM6RkXU8GK34S/LhidQ5Pjz3wcnqb0TxEkfhK/ztbP8nKHqXFwLfa2CYkvQw==}
@@ -4797,9 +4794,6 @@ packages:
     resolution: {integrity: sha512-RvwwcruNjI1ncT5xRakeyS9Lf8lcItv34KD+aif+VH9kduAyfYBipGh12274xtenIPZ119/R9BdTBa8gAwSh0A==}
     engines: {node: '>=12'}
 
-  picoquery@2.5.0:
-    resolution: {integrity: sha512-j1kgOFxtaCyoFCkpoYG2Oj3OdGakadO7HZ7o5CqyRazlmBekKhbDoUnNnXASE07xSY4nDImWZkrZv7toSxMi/g==}
-
   pkg-dir@4.2.0:
     resolution: {integrity: sha512-HRDzbaKjC+AOWVXxAU/x54COGeIv9eb+6CkDSQoNTt4XyWoIJvuPsXizxu/Fr23EiekbtZwmh1IcIG/l/a10GQ==}
     engines: {node: '>=8'}
@@ -7226,12 +7220,10 @@ snapshots:
       '@types/react': 18.3.31
       react: 18.3.1
 
-  '@storybook/addon-mcp@0.7.0(storybook@10.5.8(@types/react@18.3.31)(prettier@3.9.6)(react@18.3.1))(typescript@6.0.3)':
+  '@storybook/addon-mcp@10.6.0(storybook@10.5.8(@types/react@18.3.31)(prettier@3.9.6)(react@18.3.1))(typescript@6.0.3)':
     dependencies:
-      '@storybook/mcp': 0.8.0(typescript@6.0.3)
       '@tmcp/adapter-valibot': 0.1.6(tmcp@1.19.4(typescript@6.0.3))(valibot@1.4.2(typescript@6.0.3))
       '@tmcp/transport-http': 0.8.6(tmcp@1.19.4(typescript@6.0.3))
-      picoquery: 2.5.0
       storybook: 10.5.8(@types/react@18.3.31)(prettier@3.9.6)(react@18.3.1)
       tmcp: 1.19.4(typescript@6.0.3)
       valibot: 1.4.2(typescript@6.0.3)
@@ -7264,16 +7256,6 @@ snapshots:
   '@storybook/icons@2.1.0(react@18.3.1)':
     dependencies:
       react: 18.3.1
-
-  '@storybook/mcp@0.8.0(typescript@6.0.3)':
-    dependencies:
-      '@tmcp/adapter-valibot': 0.1.6(tmcp@1.19.4(typescript@6.0.3))(valibot@1.4.2(typescript@6.0.3))
-      '@tmcp/transport-http': 0.8.6(tmcp@1.19.4(typescript@6.0.3))
-      tmcp: 1.19.4(typescript@6.0.3)
-      valibot: 1.4.2(typescript@6.0.3)
-    transitivePeerDependencies:
-      - '@tmcp/auth'
-      - typescript
 
   '@storybook/mdx2-csf@1.1.0': {}
 
@@ -10800,8 +10782,6 @@ snapshots:
   picomatch@4.0.4: {}
 
   picomatch@4.0.5: {}
-
-  picoquery@2.5.0: {}
 
   pkg-dir@4.2.0:
     dependencies:
