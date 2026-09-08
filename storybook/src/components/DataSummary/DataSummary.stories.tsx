@@ -54,6 +54,12 @@ const meta = {
     },
   },
   decorators: [wrapInInlineSizeQueryContainer()],
+  subcomponents: {
+    'DataSummary.Action': DataSummary.Action,
+    'DataSummary.Item': DataSummary.Item,
+    'DataSummary.Label': DataSummary.Label,
+    'DataSummary.Value': DataSummary.Value,
+  },
 } satisfies Meta<typeof DataSummary>
 
 export default meta
