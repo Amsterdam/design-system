@@ -10349,6 +10349,100 @@
           }
         }
       },
+      "subcomponents": {
+        "DataSummary.Action": {
+          "name": "DataSummary.Action",
+          "path": "/home/runner/work/design-system/design-system/packages/react/src/index.ts",
+          "description": "The slot for the link or button that acts on the value of an item of a Data Summary.",
+          "import": "import { DataSummary } from \"@amsterdam/design-system-react/src\";",
+          "jsDocTags": {
+            "see": [
+              "{@link https://designsystem.amsterdam/?path=/docs/components-text-data-summary--docs Data Summary docs at Amsterdam Design System}"
+            ]
+          },
+          "reactComponentMeta": {
+            "displayName": "DataSummary.Action",
+            "exportName": "DataSummary",
+            "filePath": "/home/runner/work/design-system/design-system/packages/react/src/index.ts",
+            "description": "The slot for the link or button that acts on the value of an item of a Data Summary.",
+            "jsDocTags": {
+              "see": [
+                "{@link https://designsystem.amsterdam/?path=/docs/components-text-data-summary--docs Data Summary docs at Amsterdam Design System}"
+              ]
+            },
+            "props": {}
+          }
+        },
+        "DataSummary.Item": {
+          "name": "DataSummary.Item",
+          "path": "/home/runner/work/design-system/design-system/packages/react/src/index.ts",
+          "description": "Groups a label with its value, and optionally an action, within a Data Summary.",
+          "import": "import { DataSummary } from \"@amsterdam/design-system-react/src\";",
+          "jsDocTags": {
+            "see": [
+              "{@link https://designsystem.amsterdam/?path=/docs/components-text-data-summary--docs Data Summary docs at Amsterdam Design System}"
+            ]
+          },
+          "reactComponentMeta": {
+            "displayName": "DataSummary.Item",
+            "exportName": "DataSummary",
+            "filePath": "/home/runner/work/design-system/design-system/packages/react/src/index.ts",
+            "description": "Groups a label with its value, and optionally an action, within a Data Summary.",
+            "jsDocTags": {
+              "see": [
+                "{@link https://designsystem.amsterdam/?path=/docs/components-text-data-summary--docs Data Summary docs at Amsterdam Design System}"
+              ]
+            },
+            "props": {}
+          }
+        },
+        "DataSummary.Label": {
+          "name": "DataSummary.Label",
+          "path": "/home/runner/work/design-system/design-system/packages/react/src/index.ts",
+          "description": "The name of the data an item of a Data Summary presents.",
+          "import": "import { DataSummary } from \"@amsterdam/design-system-react/src\";",
+          "jsDocTags": {
+            "see": [
+              "{@link https://designsystem.amsterdam/?path=/docs/components-text-data-summary--docs Data Summary docs at Amsterdam Design System}"
+            ]
+          },
+          "reactComponentMeta": {
+            "displayName": "DataSummary.Label",
+            "exportName": "DataSummary",
+            "filePath": "/home/runner/work/design-system/design-system/packages/react/src/index.ts",
+            "description": "The name of the data an item of a Data Summary presents.",
+            "jsDocTags": {
+              "see": [
+                "{@link https://designsystem.amsterdam/?path=/docs/components-text-data-summary--docs Data Summary docs at Amsterdam Design System}"
+              ]
+            },
+            "props": {}
+          }
+        },
+        "DataSummary.Value": {
+          "name": "DataSummary.Value",
+          "path": "/home/runner/work/design-system/design-system/packages/react/src/index.ts",
+          "description": "The data itself, paired with its label in an item of a Data Summary.",
+          "import": "import { DataSummary } from \"@amsterdam/design-system-react/src\";",
+          "jsDocTags": {
+            "see": [
+              "{@link https://designsystem.amsterdam/?path=/docs/components-text-data-summary--docs Data Summary docs at Amsterdam Design System}"
+            ]
+          },
+          "reactComponentMeta": {
+            "displayName": "DataSummary.Value",
+            "exportName": "DataSummary",
+            "filePath": "/home/runner/work/design-system/design-system/packages/react/src/index.ts",
+            "description": "The data itself, paired with its label in an item of a Data Summary.",
+            "jsDocTags": {
+              "see": [
+                "{@link https://designsystem.amsterdam/?path=/docs/components-text-data-summary--docs Data Summary docs at Amsterdam Design System}"
+              ]
+            },
+            "props": {}
+          }
+        }
+      },
       "stories": [
         {
           "id": "components-text-data-summary--default",
@@ -12172,6 +12266,6 @@
   },
   "meta": {
     "docgen": "react-component-meta",
-    "durationMs": 4749
+    "durationMs": 5743
   }
 }
