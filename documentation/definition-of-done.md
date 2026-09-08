@@ -113,7 +113,8 @@ New components are created using our Plop templates. Extensions of existing comp
 ## Documentation
 
 - Props are typed with JSDoc descriptions.
-- A component README has been written (documentation in English, example content in Dutch).
+- A CSS-only utility has a README (documentation in English, example content in Dutch).
+  For a component with a React counterpart its TSDoc and Storybook page carry that documentation.
 - Storybook stories exist for all component variants that are relevant to our users.
 - Documentation follows Storybook conventions (Sentence case headings, Title Case component names).
 - Relevant `AGENTS.md` files are updated if conventions, file locations, or tooling changed.

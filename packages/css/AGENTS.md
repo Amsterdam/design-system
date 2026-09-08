@@ -28,6 +28,9 @@ The full coding conventions are in [documentation/coding-conventions.md](documen
 
 ## README
 
+Only a CSS-only utility has one: it has no React component, so its README is the prose its docs page renders through `<Markdown>` in place of a TSDoc.
+A component with a React counterpart is documented in that TSDoc and on its Storybook page, so do not write a README for it.
+
 - Location: `src/components/<name>/README.md`
 - Content: guidelines, usage intent, relevant WCAG requirements.
 - Do **not** enumerate every token or list technical variants exhaustively.
@@ -37,7 +40,7 @@ The full coding conventions are in [documentation/coding-conventions.md](documen
 All CSS directories and file names use `kebab-case` (unlike React's `PascalCase`).
 
 - Component SCSS: `src/components/<name>/<name>.scss`
-- Component README: `src/components/<name>/README.md`
+- Utility README: `src/components/<name>/README.md` (CSS-only utilities only, see above)
 - Shared mixins: `src/common/<name>.scss`
 - Register new components in: `src/components/index.scss` (add `@use "<name>/<name>";`)
 
