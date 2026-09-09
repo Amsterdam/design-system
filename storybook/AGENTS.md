@@ -8,11 +8,11 @@ These instructions are additive to the root [AGENTS.md](../AGENTS.md). Read that
 
 Most components have three story files in `src/components/<Name>/` (some may also have subcomponent story files):
 
-| File                      | Purpose                                      |
-| ------------------------- | -------------------------------------------- |
-| `<Name>.docs.mdx`         | Documentation page; imports the CSS README   |
-| `<Name>.stories.tsx`      | Usage examples for all relevant variants     |
-| `<Name>.test.stories.tsx` | Visual, interaction, and accessibility tests |
+| File                      | Purpose                                         |
+| ------------------------- | ----------------------------------------------- |
+| `<Name>.docs.mdx`         | Documentation page; renders the TSDoc rationale |
+| `<Name>.stories.tsx`      | Usage examples for all relevant variants        |
+| `<Name>.test.stories.tsx` | Visual, interaction, and accessibility tests    |
 
 Meta title format: `Components/<Category>/<Component Name>`
 
@@ -44,6 +44,9 @@ See [documentation/component-docs.md](../documentation/component-docs.md) for th
 
 A page template under `src/pages/` opens its docs page with an Anatomy section instead: a schematic of the page, read from the story itself.
 See [documentation/page-anatomy.md](../documentation/page-anatomy.md) for how to add one.
+
+A CSS-only utility under `src/utilities/` has no TSDoc to read from.
+Its docs page imports the README from the CSS package and renders it with `<Markdown>{README}</Markdown>` in place of `<Title />` and `<Description />`.
 
 ## Visual tests (Chromatic)
 
