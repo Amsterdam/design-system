@@ -71,10 +71,7 @@ Sections are optional: omit any section that has no meaningful content for the c
    Pair with a Canvas where the feature is visual.
 7. **Design** – notable visual or interaction decisions worth explaining.
    Pair with a Canvas where the decision is visual.
-8. **Accessibility** – what the component does to meet accessibility requirements: the ARIA roles and patterns it implements, how it handles keyboard interaction, and which WCAG criteria it addresses.
-   Link each success criterion to the WCAG 2.2 Recommendation, `https://www.w3.org/TR/WCAG22/#…`, so every reference points at the version we target – see the [Accessibility guideline](https://designsystem.amsterdam/?path=/docs/docs-guidelines-accessibility--docs).
-   Mention the level of a criterion above Level AA, so readers can tell it apart from what conformance requires.
-   Omit the section if there is nothing meaningful to say.
+8. **Accessibility** – what the component does to meet accessibility requirements: the ARIA roles and patterns it implements, and how it handles keyboard interaction.
 9. **See also** – a short bullet list of links to alternatives or companions.
    Each bullet ends with a one-line reason.
 10. **Design tokens** – the auto-generated table via `<DesignTokensTable tokens={tokens} />`.

@@ -29,7 +29,7 @@ The full coding conventions are in [documentation/coding-conventions.md](documen
 ## README
 
 - Location: `src/components/<name>/README.md`
-- Content: guidelines, usage intent, relevant WCAG requirements.
+- Content: guidelines, usage intent, what the component does for accessibility.
 - Do **not** enumerate every token or list technical variants exhaustively.
 
 ## File locations
