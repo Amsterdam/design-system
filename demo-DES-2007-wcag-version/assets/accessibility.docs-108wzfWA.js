@@ -1,0 +1,12 @@
+import{n as e}from"./rolldown-runtime-DkW27tQK.js";import{h as t,u as n}from"./blocks-BQKRe05W.js";import{t as r}from"./jsx-runtime-ATHzeHXA.js";import{i,r as a}from"./react-Dyi61YEg.js";function o(e){let t={a:`a`,h1:`h1`,p:`p`,...i(),...e.components};return(0,c.jsxs)(c.Fragment,{children:[`
+`,`
+`,(0,c.jsx)(n,{title:`Docs/Guidelines/Accessibility`}),`
+`,(0,c.jsx)(t.h1,{id:`accessibility`,children:`Accessibility`}),`
+`,(0,c.jsx)(t.p,{children:`We build and test every component against WCAG 2.2 Level AA.
+Target that same version when building with the design system: our components carry part of the work, the rest depends on how you compose and fill them.`}),`
+`,(0,c.jsxs)(t.p,{children:[`The `,(0,c.jsx)(t.a,{href:`https://www.digitaleoverheid.nl/overzicht-van-alle-onderwerpen/wetgeving/wet-digitale-overheid-wdo/#v4`,rel:`nofollow`,children:`Wet Digitale Overheid`}),` obliges government websites to meet WCAG 2.1 Level AA, and `,(0,c.jsx)(t.a,{href:`https://developers.amsterdam/docs/frontend/accessibility`,rel:`nofollow`,children:`the City’s standard for developers`}),` names that version as well.
+`,(0,c.jsx)(t.a,{href:`https://www.w3.org/TR/WCAG22/`,rel:`nofollow`,children:`WCAG 2.2`}),` adds a few success criteria to 2.1 and drops only one, 4.1.1 Parsing, that browsers made obsolete.
+Because our components use valid HTML we meet the legal obligation of 2.1.`]}),`
+`,(0,c.jsxs)(t.p,{children:[`Accessibility tests run on every component in `,(0,c.jsx)(t.a,{href:`https://chromatic.com`,rel:`nofollow`,children:`Chromatic`}),` with each pull request.
+They catch only part of what the standard asks, so the `,(0,c.jsx)(t.a,{href:`https://github.com/Amsterdam/design-system/blob/develop/documentation/definition-of-done.md`,rel:`nofollow`,children:`definition of done`}),` adds checks we do by hand: screen readers, zoom, and forced colours.
+`,(0,c.jsx)(t.a,{href:`https://github.com/Amsterdam/design-system/issues`,rel:`nofollow`,children:`Report a component that falls short`}),` so we can fix it.`]})]})}function s(e={}){let{wrapper:t}={...i(),...e.components};return t?(0,c.jsx)(t,{...e,children:(0,c.jsx)(o,{...e})}):o(e)}var c;function l(){return(l=e((()=>{c=r(),a(),t()})))()}l();export{s as default};

@@ -594,7 +594,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>4.3s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>3.9s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -57535,14 +57535,12 @@ We build and test every component against WCAG 2.2 Level AA.
 Target that same version when building with the design system: our components carry part of the work, the rest depends on how you compose and fill them.
 
 The [Wet Digitale Overheid](https://www.digitaleoverheid.nl/overzicht-van-alle-onderwerpen/wetgeving/wet-digitale-overheid-wdo/#v4) obliges government websites to meet WCAG 2.1 Level AA, and [the City’s standard for developers](https://developers.amsterdam/docs/frontend/accessibility) names that version as well.
-[WCAG 2.2](https://www.w3.org/TR/WCAG22/) contains every success criterion of 2.1 and adds a few more.
+[WCAG 2.2](https://www.w3.org/TR/WCAG22/) adds a few success criteria to 2.1 and drops only one, 4.1.1 Parsing, that browsers made obsolete.
+Because our components use valid HTML we meet the legal obligation of 2.1.
 
-**Note**: Version 2.2 does drop one criterion that 2.1 lists: 4.1.1 Parsing, removed because browsers and assistive technology recover from the markup errors it described.
-Our components use valid, semantic HTML regardless, so that removal changes nothing about what we build.
-
-Accessibility tests run on every component in [Chromatic](https://chromatic.com) with each pull request, and the [definition of done](https://github.com/Amsterdam/design-system/blob/develop/documentation/definition-of-done.md) lists the checks we do by hand, such as screen readers, zoom, and forced colours.
-Automated rules only catch a fraction of what the standard asks of you, so the manual checks are where most of the conformance is won.
-If a component of ours falls short, please [report it](https://github.com/Amsterdam/design-system/issues) so we can address it.
+Accessibility tests run on every component in [Chromatic](https://chromatic.com) with each pull request.
+They catch only part of what the standard asks, so the [definition of done](https://github.com/Amsterdam/design-system/blob/develop/documentation/definition-of-done.md) adds checks we do by hand: screen readers, zoom, and forced colours.
+[Report a component that falls short](https://github.com/Amsterdam/design-system/issues) so we can fix it.
 </code></pre>
           </div>
         </div>
@@ -58216,12 +58214,6 @@ Don’t use generic text fragments like “Click here” or “Read more” for 
 A more meaningful text helps sighted users scan the page, and screen reader users navigate between links.
 It’s also beneficial to search engines.
 
-### Relevant WCAG requirements
-
-- [WCAG 2.4.4](https://www.w3.org/TR/WCAG22/#link-purpose-in-context): it is clear to users what it means to click on a link
-- [WCAG 2.4.6](https://www.w3.org/TR/WCAG22/#headings-and-labels): use a label to describe interactive elements
-- [WCAG 2.5.3](https://www.w3.org/TR/WCAG22/#label-in-name): the accessible name of an element must contain at least the visible text of the element
-
 ## Colour
 
 To indicate that an element is interactive, we use the colour blue.
@@ -58231,18 +58223,9 @@ Both colours become darker on hover.
 
 Colour should not be the only indicator of interactivity so that people with difficulty perceiving colour differences can still see that an element is interactive.
 
-### Relevant WCAG requirements
-
-- [WCAG 1.4.1](https://www.w3.org/TR/WCAG22/#use-of-color): colour should not be the only way to indicate that something is interactive
-- [WCAG 1.4.3](https://www.w3.org/TR/WCAG22/#contrast-minimum): text has sufficient contrast with the background
-
 ## Format
 
 Interactive elements are at least 24 by 24 pixels in size, so they are easy to use for a large group of users.
-
-### Relevant WCAG requirements
-
-- [WCAG 2.5.8](https://www.w3.org/TR/WCAG22/#target-size-minimum): interactive elements are at least 24 by 24 pixels in size
 
 ## Focus indicator
 
@@ -58250,14 +58233,6 @@ We use the standard focus indicator of the web browsers.
 We only adjust the focus outline with an offset of 2 pixels to increase contrast with dark elements.
 
 When setting up a page, ensure that the interactive elements are in a logical order, usually from top to bottom and from left to right.
-
-### Relevant WCAG requirements
-
-- [WCAG 2.4.3](https://www.w3.org/TR/WCAG22/#focus-order): interactive elements have a logical focus / tabbing order
-- [WCAG 2.4.7](https://www.w3.org/TR/WCAG22/#focus-visible): the focus indicator is visible
-- [WCAG 2.4.11](https://www.w3.org/TR/WCAG22/#focus-not-obscured-minimum): the focus indicator is not completely hidden by content
-- [WCAG 2.4.12](https://www.w3.org/TR/WCAG22/#focus-not-obscured-enhanced): the focus indicator is not partially hidden by content – Level AAA, beyond the Level AA we target
-- [WCAG 2.4.13](https://www.w3.org/TR/WCAG22/#focus-appearance): the focus indicator is at least 2 pixels wide and has sufficient contrast with the element that has focus – Level AAA, beyond the Level AA we target
 
 ## Focus management
 
@@ -58450,10 +58425,6 @@ The design system’s own directional icons handle this automatically: each carr
 
 The [Calendar](/docs/components-navigation-calendar--docs) and [Date Picker](/docs/components-forms-date-picker--docs) navigation chevrons are one example.
 When you supply your own directional icon anywhere, give it the same attribute so it mirrors as well.
-
-## Relevant WCAG requirements
-
-- [WCAG 3.1.2](https://www.w3.org/TR/WCAG22/#language-of-parts): indicate the language of any passage or phrase that differs from the page’s default language
 </code></pre>
           </div>
         </div>
