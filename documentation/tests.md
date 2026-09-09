@@ -51,7 +51,7 @@ The visual tests can be found in the test story `component.test.stories.tsx`, wh
 Accessibility tests are not configured on a component basis.
 The accessibility rules that the component should follow are the default ones from Storybook.
 These automated rules cover part of [WCAG 2.2 Level AA](https://designsystem.amsterdam/?path=/docs/docs-guidelines-accessibility--docs).
-The manual checks in [the definition of done](definition-of-done.md) cover the rest.
+[The definition of done](definition-of-done.md) adds manual checks for more of it.
 
 ## How we test
 
