@@ -10,11 +10,9 @@ We build and test every component against WCAG 2.2 Level AA.
 Target that same version when building with the design system: our components carry part of the work, the rest depends on how you compose and fill them.
 
 The [Wet Digitale Overheid](https://www.digitaleoverheid.nl/overzicht-van-alle-onderwerpen/wetgeving/wet-digitale-overheid-wdo/#v4) obliges government websites to meet WCAG 2.1 Level AA, and [the City’s standard for developers](https://developers.amsterdam/docs/frontend/accessibility) names that version as well.
-[WCAG 2.2](https://www.w3.org/TR/WCAG22/) contains every success criterion of 2.1 and adds a few more.
+[WCAG 2.2](https://www.w3.org/TR/WCAG22/) adds a few success criteria to 2.1 and drops only one, 4.1.1 Parsing, that browsers made obsolete.
+Because our components use valid HTML we meet the legal obligation of 2.1.
 
-**Note**: Version 2.2 does drop one criterion that 2.1 lists: 4.1.1 Parsing, removed because browsers and assistive technology recover from the markup errors it described.
-Our components use valid, semantic HTML regardless, so that removal changes nothing about what we build.
-
-Accessibility tests run on every component in [Chromatic](https://chromatic.com) with each pull request, and the [definition of done](https://github.com/Amsterdam/design-system/blob/develop/documentation/definition-of-done.md) lists the checks we do by hand, such as screen readers, zoom, and forced colours.
-Automated rules only catch a fraction of what the standard asks of you, so the manual checks are where most of the conformance is won.
-If a component of ours falls short, please [report it](https://github.com/Amsterdam/design-system/issues) so we can address it.
+Accessibility tests run on every component in [Chromatic](https://chromatic.com) with each pull request.
+They catch only part of what the standard asks, so the [definition of done](https://github.com/Amsterdam/design-system/blob/develop/documentation/definition-of-done.md) adds checks we do by hand: screen readers, zoom, and forced colours.
+[Report a component that falls short](https://github.com/Amsterdam/design-system/issues) so we can fix it.
