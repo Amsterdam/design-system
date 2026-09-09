@@ -50,6 +50,6 @@
     "storybook": "10.5.8",
     "storybook-addon-pseudo-states": "10.5.8",
     "vite": "8.2.2",
-    "vitest": "4.1.11"
+    "vitest": "5.0.0"
   }
 }
