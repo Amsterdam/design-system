@@ -1,0 +1,124 @@
+{/* @license CC0-1.0 */}
+
+import { Canvas, Controls, Description, Meta, Primary, Title } from "@storybook/addon-docs/blocks";
+
+import { DesignTokensTable } from "#storybook/_components/DesignTokensTable/DesignTokensTable";
+import tokens from "#tokens/components/ams/file-card.tokens.json";
+
+import * as FileCardStories from "./FileCard.stories.tsx";
+
+<Meta of={FileCardStories} />
+
+<Title />
+
+<Description of={FileCardStories} />
+
+<Primary />
+
+<Controls />
+
+## Usage guidelines
+
+### When to use
+
+Use a File Card wherever one file has to be recognised and acted on: among the files someone has just selected with a File Input, or as an attachment on a page that shows a case, a request or a decision.
+NL Design System calls this component [File](https://www.nldesignsystem.nl/file/).
+We name it File Card because `File` is a global name in the browser and in TypeScript, and a component of that name would shadow the `File` constructor in every module that imports it.
+
+### When not to use
+
+Do not use a File Card for a link to a page or a document that is not a file the user owns.
+Use a [Link](/docs/components-navigation-link--docs) or a [Standalone Link](/docs/components-navigation-standalone-link--docs) for that.
+
+### How to use
+
+Pass the name, and the size and type when they are known.
+A File Card takes these as separate values rather than a `File` object, so it works just as well for a file that already sits on a server and has no `File` object at all.
+
+```jsx
+<FileCard name="besluit.pdf" onDelete={remove} size={1536000} type="application/pdf" />
+```
+
+Add a `previewUrl` to display a thumbnail instead of the generic document icon.
+A File Card never creates that address itself, so whoever creates an object URL is also the one who can release it.
+The example below shows the pattern.
+
+## Examples
+
+### Within a File List
+
+A File Card sits inside a File List Item, which renders the `li` element around it.
+
+<Canvas of={FileCardStories.InAFileList} />
+
+### With a preview
+
+<Canvas of={FileCardStories.WithPreview} />
+
+### Without actions
+
+Leave out `onDelete` to display a file without offering anything to do with it.
+
+<Canvas of={FileCardStories.WithoutActions} />
+
+### Translated text
+
+The component displays its text in Dutch by default.
+Pass `formatFileDetailsTextEn` – or a function of your own – to `formatDetailsText`, and the matching label to `deleteButtonLabel`.
+See the [Localisation guide](/docs/docs-guidelines-localisation--docs) for the tested locales.
+
+<Canvas of={FileCardStories.Translated} />
+
+`formatDetailsText` returns the whole line below the name, brackets and separator included, so the order of the parts and the punctuation are yours to change.
+It receives the size and the type, and the default assumes the type is a media type such as `application/pdf`.
+When all you have is an extension, pass a function that formats it:
+
+```jsx
+<FileCard
+  formatDetailsText={({ size, type }) => `(${type}, ${Math.round(size / 1000)} kB)`}
+  name="besluit.pdf"
+  size={1536000}
+  type="pdf"
+/>
+```
+
+The default leaves out the part it has no value for, so a file of unknown size shows its type alone rather than the word `undefined`.
+
+## Design
+
+A File Card is one row: a preview of fixed width, then the name with its details below it, then the actions.
+The preview column is the same width whether it holds a thumbnail or the generic document icon, so the names line up down a list.
+
+A name too long for its row wraps onto the next line rather than being cut off with an ellipsis.
+The name is what someone recognises the file by, and names that end in a date or a reference – `aanvraag-2026-03-11-definitief.pdf` – lose exactly the part that tells them apart when the end is dropped.
+Rows are no longer all the same height as a result, which is the price of a name that stays readable.
+Automatic hyphenation is switched off for the name, because a file name has no word boundaries to break on.
+
+The actions are laid out as a row from the start.
+Only deleting is implemented: viewing and downloading are not built, because we have no use for them yet.
+Adding one later takes a prop and a button, and changes neither this anatomy nor the CSS.
+
+## Accessibility
+
+The thumbnail is decorative and carries an empty `alt`.
+The component cannot know what the image shows, and the name is already beside it, so giving the image that name would only have it announced twice.
+
+The delete button reads ‘Verwijder’ on screen and ‘Verwijder’ followed by the name of the file to a screen reader.
+Repeating the name on screen would put it twice in every row and make the buttons wide and untidy; leaving it out of the accessible name would leave someone reviewing the buttons of a page out of context with the same word for each of them.
+Change `deleteButtonLabel` to change both, as the visible label stays the first part of the accessible name.
+
+After a delete, focus moves to the delete button of the next file, or of the previous one when the last file in the list is removed.
+Without that, focus would fall back to the start of the page as the button disappears from under it.
+A File Card outside a list cannot know where focus should go instead, and neither can it when the last file leaves and the list disappears with it: that case belongs to the page around it, as the File Input example shows.
+
+There is no live region.
+Moving focus to a neighbouring button already makes the change noticeable, and announcing it on top of that reads as noise rather than as help.
+
+## See also
+
+- [File List](/docs/components-forms-file-list--docs) – arranges several File Cards as a list, so their number is announced.
+- [File Input](/docs/components-forms-file-input--docs) – lets the user select the files to display.
+
+## Design tokens
+
+<DesignTokensTable tokens={tokens} />
