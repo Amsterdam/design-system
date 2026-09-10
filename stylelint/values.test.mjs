@@ -8,10 +8,12 @@ import { describe, expect, it } from 'vitest'
 import {
   calculateRatio,
   findFunction,
+  findFunctions,
   hasInterpolation,
   hasViewportUnit,
   parseLength,
   splitTopLevelParts,
+  splitTopLevelValues,
 } from './values.mjs'
 
 describe('splitTopLevelParts', () => {
@@ -29,6 +31,64 @@ describe('splitTopLevelParts', () => {
 
   it('returns the whole value when there is no top level comma', () => {
     expect(splitTopLevelParts('1rem')).toEqual(['1rem'])
+  })
+})
+
+describe('splitTopLevelValues', () => {
+  it('splits on the whitespace between two values', () => {
+    expect(splitTopLevelValues('0 1rem')).toEqual(['0', '1rem'])
+  })
+
+  it('keeps the arguments of a function together, since they make up one value', () => {
+    expect(splitTopLevelValues('clamp(1rem, 5vw, 2rem)')).toEqual(['clamp(1rem, 5vw, 2rem)'])
+  })
+
+  it('keeps a nested function together', () => {
+    expect(splitTopLevelValues('calc(clamp(1rem, 2vw, 2rem) + 2 * 1rem)')).toEqual([
+      'calc(clamp(1rem, 2vw, 2rem) + 2 * 1rem)',
+    ])
+  })
+
+  it('splits a value that follows a function', () => {
+    expect(splitTopLevelValues('calc(1rem + 2rem) 3rem')).toEqual(['calc(1rem + 2rem)', '3rem'])
+  })
+
+  it('keeps whitespace inside a quoted string together', () => {
+    expect(splitTopLevelValues(`'Amsterdam Sans'`)).toEqual([`'Amsterdam Sans'`])
+  })
+
+  it('ignores repeated and surrounding whitespace', () => {
+    expect(splitTopLevelValues('  0   1rem  ')).toEqual(['0', '1rem'])
+  })
+
+  it('returns the whole value when there is no top level whitespace', () => {
+    expect(splitTopLevelValues('1rem')).toEqual(['1rem'])
+  })
+})
+
+describe('findFunctions', () => {
+  it('finds every call in a value', () => {
+    expect(findFunctions('max(1rem, 2rem) min(3rem, 4rem)', 'max')).toHaveLength(1)
+    expect(findFunctions('var(--a) var(--b)', 'var').map(({ args }) => args)).toEqual([['--a'], ['--b']])
+  })
+
+  it('finds a call nested in another call of the same function', () => {
+    expect(findFunctions('max(1rem, max(2rem, 3rem))', 'max').map(({ start }) => start)).toEqual([0, 10])
+  })
+
+  it('finds a reference nested in the fallback of another', () => {
+    expect(findFunctions('var(--a, var(--b))', 'var').map(({ start }) => start)).toEqual([0, 9])
+  })
+
+  it('reports positions that address the call in the original value', () => {
+    const value = 'calc(2 * var(--a))'
+    const [call] = findFunctions(value, 'var')
+
+    expect(value.slice(call.start, call.end)).toBe('var(--a)')
+  })
+
+  it('returns an empty array when the function is absent', () => {
+    expect(findFunctions('1rem', 'var')).toEqual([])
   })
 })
 

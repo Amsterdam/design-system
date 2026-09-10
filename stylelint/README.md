@@ -24,10 +24,11 @@ A problem is reported at the declaration that uses the token, so the warning poi
 
 ## Rules
 
-Two kinds of rule live here.
+Three kinds of rule live here.
 The two font rules _replace_ their upstream counterparts, which are turned off: they check literal values as well as tokens.
-The other three _complement_ upstream rules that stay on: the upstream rule judges literal values, the rule here only reports a problem that arrives through token resolution.
+Three more _complement_ upstream rules that stay on: the upstream rule judges literal values, the rule here only reports a problem that arrives through token resolution.
 A declaration that already violates literally is left to the upstream rule, so no declaration is ever reported twice.
+`ams/require-single-value-token` stands on its own, since no upstream rule asks how many values a token holds.
 
 ### `ams/no-fixed-sizes`
 
@@ -73,6 +74,25 @@ Its first finds were three Description List tokens holding bare `fr` tracks, fix
 Options:
 
 - `importFrom` — paths to the CSS files to read tokens from, relative to the working directory.
+
+### `ams/require-single-value-token`
+
+Reports a `var()` whose token resolves to more than one value where only one fits: read by `calc()`, `clamp()`, `max()` or `min()`, or assigned to a longhand that takes a single value.
+
+Two values there make the declaration invalid at computed-value time.
+The property then falls back to its initial value rather than to the token, so the padding disappears rather than degrading — a failure that is silent and total.
+A shorthand is not reported: `padding-block` and `gap` take a value per side on purpose.
+
+Each operand of a math function is judged on its own, so an operand that cannot be resolved does not hide a problem in the one beside it.
+A reference nested in another is a fallback, which only applies while the custom property before it is undefined; resolution already weighs that up, so it is not judged a second time on its own.
+
+The [token build](../packages-proprietary/tokens/README.md#tokens-that-hold-a-single-value) enforces the same constraint from the other end, by failing when a token typed as a dimension resolves to more than one value.
+This rule covers what that check cannot see: a value a stylesheet composes itself, and a private `--_ams-…` property that never reaches the token dictionary.
+
+Options:
+
+- `importFrom` — paths to the CSS files to read tokens from, relative to the working directory.
+- `properties` — the longhands to check. Defaults to the properties that take exactly one value.
 
 ### `ams/require-system-font-fallback`
 
