@@ -36,17 +36,20 @@
 }
 
 ._ams-object-information-map__landmark-marker {
-  background: none;
-  border: 0;
-  margin: 0;
+  background-color: transparent;
+  border-width: 0;
+  margin-block: 0;
+  margin-inline: 0;
   transform: translate(-50%, -50%);
 }
 
 ._ams-object-information-map__landmark-pin {
   background-color: var(--ams-color-interactive);
   block-size: var(--ams-space-m);
-  border: var(--ams-border-width-s) solid var(--ams-color-background);
+  border-color: var(--ams-color-background);
   border-radius: 50%;
+  border-style: solid;
+  border-width: var(--ams-border-width-s);
   display: block;
   inline-size: var(--ams-space-m);
 }
