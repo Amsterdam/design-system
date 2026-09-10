@@ -35,6 +35,11 @@ Use a [Table](/docs/components-containers-table--docs) inside another page type 
 
 The recommended layout: a visible heading and the sort and filter controls on one row above the table.
 
+### Sorting with column header links
+
+Sorting by clicking a column header, which needs no controls above the table at all.
+Every sortable column header is a link to the table sorted by that column; the sorted one links to its opposite direction.
+
 ### With Pagination
 
 The same table split over pages, with the current page in the URL.
@@ -64,6 +69,13 @@ There are two ways to lay this out, and both keep a `<caption>` on the table for
 - **Controls inline after the heading (recommended).** Place a visible heading and the controls on one row above the table – the heading on the start, the controls on the end – and give the table a visually hidden `<caption>` carrying the same text.
   The heading text is duplicated for assistive technology; this is the trade-off for placing the controls on the same line as the heading.
 
+### Sorting by column header
+
+Where the sort control sits in the column header itself, use `Table.SortableHeaderCell`.
+It renders the column label and a chevron inside one link, so the whole header is the target, and it marks the column the table is sorted by with the `aria-sort` attribute the [WAI-ARIA sortable table pattern](https://www.w3.org/WAI/ARIA/apg/patterns/table/examples/sortable-table/) expects.
+
+Make only the columns the data can actually be sorted by links; the rest stay plain `Table.HeaderCell`s.
+
 ## Accessibility
 
 The `<caption>` provides the table’s accessible name, and its full subtree is part of that name: a `<select>` placed there would have its current value concatenated into the name on every announcement.
@@ -71,6 +83,10 @@ This is why the controls sit outside it.
 
 Where the controls share a row with a visible heading, the table keeps a visually hidden `<caption>` carrying the same text.
 The heading text is duplicated for assistive technology; this is the trade-off for placing the controls on the same line as the heading.
+
+`Table.SortableHeaderCell` puts `aria-sort` on the `<th>` of the column the table is sorted by, and the chevron inside the link, where it is hidden from assistive technology.
+That column therefore announces as its label and its sort state, not as the shape of its icon.
+The other column headers carry no sort state at all, so a table with many sortable columns announces one, rather than repeating that the rest are unsorted.
 
 ## See also
 

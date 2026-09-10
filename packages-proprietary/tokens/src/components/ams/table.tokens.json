@@ -82,6 +82,47 @@
             "nl.amsterdam.type": "fontWeight"
           }
         }
+      },
+      "sortable-header-cell": {
+        "icon": {
+          "color": {
+            "$value": "{ams.color.text.secondary}",
+            "$extensions": {
+              "nl.amsterdam.type": "color"
+            }
+          }
+        },
+        "link": {
+          "column-gap": {
+            "$value": "{ams.space.xs}",
+            "$extensions": {
+              "nl.amsterdam.subtype": "space",
+              "nl.amsterdam.type": "dimension"
+            }
+          },
+          "text-decoration-line": {
+            "$value": "{ams.links.subtle.text-decoration-line}",
+            "$extensions": {
+              "nl.amsterdam.type": "textDecorationLine"
+            }
+          },
+          "current": {
+            "text-decoration-line": {
+              "$value": "{ams.links.subtle.hover.text-decoration-line}",
+              "$extensions": {
+                "nl.amsterdam.type": "textDecorationLine"
+              }
+            }
+          },
+          "hover": {
+            "text-decoration-line": {
+              "$value": "{ams.links.subtle.hover.text-decoration-line}",
+              "$extensions": {
+                "nl.amsterdam.type": "textDecorationLine"
+              }
+            }
+          }
+        }
       }
     }
   }
