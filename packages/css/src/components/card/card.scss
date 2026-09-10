@@ -27,8 +27,30 @@ $ams-card-horizontal-breakpoint: 36rem;
     outline-width: 0.0625rem;
   }
 
-  > .ams-card__image:not(:last-child) {
-    margin-block-end: var(--ams-card-image-margin-block-end);
+  /*
+   * Gives the image an area of its own, so every Card in a set is the same size whatever the
+   * shape of the file.
+   */
+  > .ams-card__image {
+    aspect-ratio: var(--ams-card-image-aspect-ratio);
+    display: grid;
+
+    &:not(:last-child) {
+      margin-block-end: var(--ams-card-image-margin-block-end);
+    }
+
+    /*
+     * Fills the area rather than the width alone, which is what limits the height of the image.
+     * Its own background then covers the area too, wherever the file does not reach the edges.
+     */
+    > .ams-image {
+      block-size: 100%;
+      object-fit: contain;
+    }
+  }
+
+  > .ams-card__image--cover > .ams-image {
+    object-fit: cover;
   }
 }
 

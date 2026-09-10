@@ -34,6 +34,7 @@ type DefaultProps = {
   date: string
   heading: string
   imageSrc: string
+  objectFit: ComponentProps<typeof Card.Image>['objectFit']
   text: string
 } & Readonly<ComponentProps<typeof Card>>
 
@@ -45,7 +46,8 @@ export const Default: DefaultStory = {
     category: 'Nieuws',
     date: formatDate(Date.now()),
     heading: 'Nederlands eerste houten woonwijk komt in Zuidoost',
-    imageSrc: 'https://picsum.photos/480/360',
+    imageSrc: 'https://picsum.photos/800/450',
+    objectFit: 'contain',
     text: 'We bouwen een levendige, groene en duurzame woonbuurt tussen de Gooiseweg en het Nelson Mandelapark.',
   },
   // These argTypes describe flattened args specific to this composed story; the meta cannot provide them.
@@ -58,13 +60,17 @@ export const Default: DefaultStory = {
     date: { control: 'text' },
     heading: { control: 'text' },
     imageSrc: { control: 'text' },
+    objectFit: {
+      control: { type: 'radio' },
+      options: ['contain', 'cover'],
+    },
     text: { control: 'text' },
   },
   // The query container keeps this Card below the width at which it would switch to a horizontal layout.
   decorators: [wrapInInlineSizeQueryContainer(), maximiseInlineSize('24rem')],
-  render: ({ aspectRatio, category, date, heading, imageSrc, text, ...args }) => (
+  render: ({ aspectRatio, category, date, heading, imageSrc, objectFit, text, ...args }) => (
     <Card {...args}>
-      <Card.Image alt="" aspectRatio={aspectRatio} src={imageSrc} />
+      <Card.Image alt="" aspectRatio={aspectRatio} objectFit={objectFit} src={imageSrc} />
       <Card.Content>
         <Card.HeadingGroup>
           <Card.Heading level={3}>
@@ -108,6 +114,38 @@ export const HorizontalLayout: DefaultStory = {
   argTypes: Default.argTypes,
   decorators: [wrapInInlineSizeQueryContainer(undefined, { inlineSize: '56rem', maxInlineSize: '100%' })],
   render: Default.render,
+}
+
+/**
+ * Both Cards show the same portrait photograph in the same area, which is 16 by 9 as usual.
+ * The first fits the image inside that area and keeps all of it in view; the second fills the area and crops it.
+ */
+export const ImageFit: Story = {
+  parameters: {
+    layout: 'fullscreen',
+  },
+  render: () => (
+    <Grid paddingVertical="x-large">
+      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
+        <Card>
+          <Card.Image alt="" src="https://picsum.photos/id/122/800/1200" />
+          <Card.Heading level={2}>
+            <Card.Link href="#">Volledig in beeld</Card.Link>
+          </Card.Heading>
+          <Paragraph>De afbeelding past in het vlak, met de achtergrond ernaast.</Paragraph>
+        </Card>
+      </Grid.Cell>
+      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
+        <Card>
+          <Card.Image alt="" objectFit="cover" src="https://picsum.photos/id/122/800/1200" />
+          <Card.Heading level={2}>
+            <Card.Link href="#">Bijgesneden</Card.Link>
+          </Card.Heading>
+          <Paragraph>De afbeelding vult het vlak, waarbij de boven- en onderkant wegvallen.</Paragraph>
+        </Card>
+      </Grid.Cell>
+    </Grid>
+  ),
 }
 
 export const TopTasks: Story = {
