@@ -594,7 +594,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>4.6s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>5.4s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -6755,13 +6755,13 @@ The component leaves the native elements alone rather than adding `term` and `de
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
-  50 | }
-  51 |
-&gt; 52 | const meta = {
+  54 | }
+  55 |
+&gt; 56 | const meta = {
      | ^
-  53 |   ...commonMeta,
-  54 |   title: &#39;Pages/Internal/Detail Page&#39;,
-  55 |   parameters: pageParameters(
+  57 |   ...commonMeta,
+  58 |   title: &#39;Pages/Internal/Detail Page&#39;,
+  59 |   parameters: pageParameters(
 
 ./src/pages/internal/DetailPage/DetailPage.stories.tsx:
 /**
@@ -6770,6 +6770,7 @@ The component leaves the native elements alone rather than adding `term` and `de
  */
 
 import type { Meta, StoryObj } from &#39;@storybook/react-vite&#39;
+import type { FeatureCollection } from &#39;geojson&#39;
 import type { MouseEvent } from &#39;react&#39;
 
 import {
@@ -6805,6 +6806,9 @@ import { DetailPageEditMapTab } from &#39;./DetailPageEditMapTab&#39;
 import { ObjectInformationDescriptionList } from &#39;./ObjectInformationDescriptionList&#39;
 import { ObjectInformationMap } from &#39;./ObjectInformationMap&#39;
 import { ObjectInformationTable } from &#39;./ObjectInformationTable&#39;
+
+// A JSON import widens the literal type names GeoJSON relies on to string.
+const geoJson = detailPageData.geoJson as FeatureCollection
 
 type EditTabId = &#39;algemene-informatie&#39; | &#39;historie&#39; | &#39;kaart&#39;
 type ReviewSectionId = &#39;algemene-informatie&#39; | &#39;geschiedenis&#39; | &#39;kaart&#39;
@@ -6896,7 +6900,7 @@ export const Default: StoryObj = {
               &lt;Heading className=&quot;ams-mb-s&quot; id=&quot;kaart&quot; level={2}&gt;
                 Kaart
               &lt;/Heading&gt;
-              &lt;ObjectInformationMap geoJson={detailPageData.geoJson} /&gt;
+              &lt;ObjectInformationMap geoJson={geoJson} /&gt;
             &lt;/Grid.Cell&gt;
           &lt;/Grid.Subgrid&gt;
         &lt;/Grid&gt;
@@ -6969,7 +6973,7 @@ export const Default: StoryObj = {
             &lt;Heading className=&quot;ams-mb-s&quot; id=&quot;kaart&quot; level={2}&gt;
               Kaart
             &lt;/Heading&gt;
-            &lt;ObjectInformationMap geoJson={detailPageData.geoJson} /&gt;
+            &lt;ObjectInformationMap geoJson={geoJson} /&gt;
           &lt;/Grid.Cell&gt;
         &lt;/Grid.Subgrid&gt;
       &lt;/Grid&gt;
@@ -7196,7 +7200,7 @@ export const Review: StoryObj = {
                   Voeg een opmerking toe bij Kaart
                 &lt;/Button&gt;
               &lt;/Row&gt;
-              &lt;ObjectInformationMap geoJson={detailPageData.geoJson} /&gt;
+              &lt;ObjectInformationMap geoJson={geoJson} /&gt;
             &lt;/Grid.Cell&gt;
           &lt;/Grid.Subgrid&gt;
 
@@ -7334,7 +7338,7 @@ export const Review: StoryObj = {
                 Voeg een opmerking toe bij Kaart
               &lt;/Button&gt;
             &lt;/Row&gt;
-            &lt;ObjectInformationMap geoJson={detailPageData.geoJson} /&gt;
+            &lt;ObjectInformationMap geoJson={geoJson} /&gt;
           &lt;/Grid.Cell&gt;
         &lt;/Grid.Subgrid&gt;
 
@@ -7503,7 +7507,7 @@ import { ModalDialog } from "@amsterdam/design-system-react/src";</code></pre>
           &lt;Heading className=&quot;ams-mb-s&quot; id=&quot;kaart&quot; level={2}&gt;
             Kaart
           &lt;/Heading&gt;
-          &lt;ObjectInformationMap geoJson={detailPageData.geoJson} /&gt;
+          &lt;ObjectInformationMap geoJson={geoJson} /&gt;
         &lt;/Grid.Cell&gt;
       &lt;/Grid.Subgrid&gt;
     &lt;/Grid&gt;
@@ -7701,7 +7705,7 @@ import { ModalDialog } from "@amsterdam/design-system-react/src";</code></pre>
               Voeg een opmerking toe bij Kaart
             &lt;/Button&gt;
           &lt;/Row&gt;
-          &lt;ObjectInformationMap geoJson={detailPageData.geoJson} /&gt;
+          &lt;ObjectInformationMap geoJson={geoJson} /&gt;
         &lt;/Grid.Cell&gt;
       &lt;/Grid.Subgrid&gt;
 
@@ -41029,13 +41033,13 @@ The hero Image and the Card images take an empty `alt`, because the text beside 
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
-  50 | }
-  51 |
-&gt; 52 | const meta = {
+  54 | }
+  55 |
+&gt; 56 | const meta = {
      | ^
-  53 |   ...commonMeta,
-  54 |   title: &#39;Pages/Internal/Detail Page&#39;,
-  55 |   parameters: pageParameters(
+  57 |   ...commonMeta,
+  58 |   title: &#39;Pages/Internal/Detail Page&#39;,
+  59 |   parameters: pageParameters(
 
 ./src/pages/internal/DetailPage/DetailPage.stories.tsx:
 /**
@@ -41044,6 +41048,7 @@ The hero Image and the Card images take an empty `alt`, because the text beside 
  */
 
 import type { Meta, StoryObj } from &#39;@storybook/react-vite&#39;
+import type { FeatureCollection } from &#39;geojson&#39;
 import type { MouseEvent } from &#39;react&#39;
 
 import {
@@ -41079,6 +41084,9 @@ import { DetailPageEditMapTab } from &#39;./DetailPageEditMapTab&#39;
 import { ObjectInformationDescriptionList } from &#39;./ObjectInformationDescriptionList&#39;
 import { ObjectInformationMap } from &#39;./ObjectInformationMap&#39;
 import { ObjectInformationTable } from &#39;./ObjectInformationTable&#39;
+
+// A JSON import widens the literal type names GeoJSON relies on to string.
+const geoJson = detailPageData.geoJson as FeatureCollection
 
 type EditTabId = &#39;algemene-informatie&#39; | &#39;historie&#39; | &#39;kaart&#39;
 type ReviewSectionId = &#39;algemene-informatie&#39; | &#39;geschiedenis&#39; | &#39;kaart&#39;
@@ -41170,7 +41178,7 @@ export const Default: StoryObj = {
               &lt;Heading className=&quot;ams-mb-s&quot; id=&quot;kaart&quot; level={2}&gt;
                 Kaart
               &lt;/Heading&gt;
-              &lt;ObjectInformationMap geoJson={detailPageData.geoJson} /&gt;
+              &lt;ObjectInformationMap geoJson={geoJson} /&gt;
             &lt;/Grid.Cell&gt;
           &lt;/Grid.Subgrid&gt;
         &lt;/Grid&gt;
@@ -41243,7 +41251,7 @@ export const Default: StoryObj = {
             &lt;Heading className=&quot;ams-mb-s&quot; id=&quot;kaart&quot; level={2}&gt;
               Kaart
             &lt;/Heading&gt;
-            &lt;ObjectInformationMap geoJson={detailPageData.geoJson} /&gt;
+            &lt;ObjectInformationMap geoJson={geoJson} /&gt;
           &lt;/Grid.Cell&gt;
         &lt;/Grid.Subgrid&gt;
       &lt;/Grid&gt;
@@ -41470,7 +41478,7 @@ export const Review: StoryObj = {
                   Voeg een opmerking toe bij Kaart
                 &lt;/Button&gt;
               &lt;/Row&gt;
-              &lt;ObjectInformationMap geoJson={detailPageData.geoJson} /&gt;
+              &lt;ObjectInformationMap geoJson={geoJson} /&gt;
             &lt;/Grid.Cell&gt;
           &lt;/Grid.Subgrid&gt;
 
@@ -41608,7 +41616,7 @@ export const Review: StoryObj = {
                 Voeg een opmerking toe bij Kaart
               &lt;/Button&gt;
             &lt;/Row&gt;
-            &lt;ObjectInformationMap geoJson={detailPageData.geoJson} /&gt;
+            &lt;ObjectInformationMap geoJson={geoJson} /&gt;
           &lt;/Grid.Cell&gt;
         &lt;/Grid.Subgrid&gt;
 
@@ -41777,7 +41785,7 @@ import { ModalDialog } from "@amsterdam/design-system-react/src";</code></pre>
           &lt;Heading className=&quot;ams-mb-s&quot; id=&quot;kaart&quot; level={2}&gt;
             Kaart
           &lt;/Heading&gt;
-          &lt;ObjectInformationMap geoJson={detailPageData.geoJson} /&gt;
+          &lt;ObjectInformationMap geoJson={geoJson} /&gt;
         &lt;/Grid.Cell&gt;
       &lt;/Grid.Subgrid&gt;
     &lt;/Grid&gt;
@@ -41975,7 +41983,7 @@ import { ModalDialog } from "@amsterdam/design-system-react/src";</code></pre>
               Voeg een opmerking toe bij Kaart
             &lt;/Button&gt;
           &lt;/Row&gt;
-          &lt;ObjectInformationMap geoJson={detailPageData.geoJson} /&gt;
+          &lt;ObjectInformationMap geoJson={geoJson} /&gt;
         &lt;/Grid.Cell&gt;
       &lt;/Grid.Subgrid&gt;
 
