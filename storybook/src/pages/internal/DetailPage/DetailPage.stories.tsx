@@ -4,6 +4,7 @@
  */
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
+import type { FeatureCollection } from 'geojson'
 import type { MouseEvent } from 'react'
 
 import {
@@ -39,6 +40,9 @@ import { DetailPageEditMapTab } from './DetailPageEditMapTab'
 import { ObjectInformationDescriptionList } from './ObjectInformationDescriptionList'
 import { ObjectInformationMap } from './ObjectInformationMap'
 import { ObjectInformationTable } from './ObjectInformationTable'
+
+// A JSON import widens the literal type names GeoJSON relies on to string.
+const geoJson = detailPageData.geoJson as FeatureCollection
 
 type EditTabId = 'algemene-informatie' | 'historie' | 'kaart'
 type ReviewSectionId = 'algemene-informatie' | 'geschiedenis' | 'kaart'
@@ -130,7 +134,7 @@ export const Default: StoryObj = {
               <Heading className="ams-mb-s" id="kaart" level={2}>
                 Kaart
               </Heading>
-              <ObjectInformationMap geoJson={detailPageData.geoJson} />
+              <ObjectInformationMap geoJson={geoJson} />
             </Grid.Cell>
           </Grid.Subgrid>
         </Grid>
@@ -203,7 +207,7 @@ export const Default: StoryObj = {
             <Heading className="ams-mb-s" id="kaart" level={2}>
               Kaart
             </Heading>
-            <ObjectInformationMap geoJson={detailPageData.geoJson} />
+            <ObjectInformationMap geoJson={geoJson} />
           </Grid.Cell>
         </Grid.Subgrid>
       </Grid>
@@ -430,7 +434,7 @@ export const Review: StoryObj = {
                   Voeg een opmerking toe bij Kaart
                 </Button>
               </Row>
-              <ObjectInformationMap geoJson={detailPageData.geoJson} />
+              <ObjectInformationMap geoJson={geoJson} />
             </Grid.Cell>
           </Grid.Subgrid>
 
@@ -568,7 +572,7 @@ export const Review: StoryObj = {
                 Voeg een opmerking toe bij Kaart
               </Button>
             </Row>
-            <ObjectInformationMap geoJson={detailPageData.geoJson} />
+            <ObjectInformationMap geoJson={geoJson} />
           </Grid.Cell>
         </Grid.Subgrid>
 

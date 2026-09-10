@@ -334,12 +334,12 @@ importers:
       '@storybook/react-vite':
         specifier: 10.5.8
         version: 10.5.8(@types/react-dom@18.3.7(@types/react@18.3.31))(@types/react@18.3.31)(esbuild@0.28.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rollup@4.63.1)(storybook@10.5.8(@types/react@18.3.31)(prettier@3.9.6)(react@18.3.1))(supports-color@10.2.2)(typescript@6.0.3)(vite@8.2.2(@types/node@26.2.0)(esbuild@0.28.1)(sass@1.103.1)(terser@5.47.1)(yaml@2.9.0))
+      '@types/geojson':
+        specifier: 7946.0.16
+        version: 7946.0.16
       '@types/leaflet':
         specifier: 1.9.22
         version: 1.9.22
-      '@types/proj4':
-        specifier: 2.19.0
-        version: 2.19.0
       '@types/react':
         specifier: 18.3.31
         version: 18.3.31
@@ -2107,10 +2107,6 @@ packages:
 
   '@types/picomatch@4.0.3':
     resolution: {integrity: sha512-iG0T6+nYJ9FAPmx9SsUlnwcq1ZVRuCXcVEvWnntoPlrOpwtSTKNDC9uVAxTsC3PUvJ+99n4RpAcNgBbHX3JSnQ==}
-
-  '@types/proj4@2.19.0':
-    resolution: {integrity: sha512-mirdnXu5sW9+IphQ4r+ZVii2JVLDbXgMp1lxqbiCppdgL22EwMwL4Dy/cyHVaJ2y/mi7LUQHghpILd3w3j2bnA==}
-    deprecated: This is a stub types definition. proj4 provides its own type definitions, so you do not need this installed.
 
   '@types/prop-types@15.7.15':
     resolution: {integrity: sha512-F6bEyamV9jKGAFBEmlQnesRPGOQqS2+Uwi0Em15xenOxHaf2hv6L8YCVn3rPdPJOiJfPiCnLIRyvwVaqMY3MIw==}
@@ -7634,12 +7630,6 @@ snapshots:
   '@types/normalize-package-data@2.4.4': {}
 
   '@types/picomatch@4.0.3': {}
-
-  '@types/proj4@2.19.0':
-    dependencies:
-      proj4: 2.21.0
-    transitivePeerDependencies:
-      - geotiff
 
   '@types/prop-types@15.7.15': {}
 

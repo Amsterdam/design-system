@@ -4,7 +4,7 @@
  */
 
 import type * as Leaflet from 'leaflet'
-import type { CRS, LatLng, Point, PointExpression } from 'leaflet'
+import type { CRS, LatLng, Point, PointExpression, Projection, Transformation } from 'leaflet'
 
 import proj4 from 'proj4'
 
@@ -30,7 +30,13 @@ const crsConfig = {
 
 const proj4Rd = proj4(crsConfig.wgs84.code, crsConfig.rd.projection)
 
-export const getCrsRd = (L: typeof Leaflet, maxZoom = 16, zeroScale = 3440.64, scales: number[] = []): CRS => {
+// Leaflet’s CRS type omits three members its own CRS objects carry and its methods read.
+export const getCrsRd = (
+  L: typeof Leaflet,
+  maxZoom = 16,
+  zeroScale = 3440.64,
+  scales: number[] = [],
+): { projection: Projection; R: number; transformation: Transformation } & CRS => {
   for (let index = 0; index <= maxZoom; index += 1) {
     scales.push(1 / (zeroScale * 0.5 ** index))
   }
