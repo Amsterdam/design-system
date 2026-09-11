@@ -12,7 +12,7 @@ import { describe, expect, it } from 'vitest'
 import type { VariantState } from './renderComponentVariantTypes'
 
 import { buildComponentProps } from './buildComponentProps'
-import { ARIA_ONLY_PROP_NAMES, buildVariantMatrix, SIZE_PROP_NAME, UNVARIED_PROP_NAMES } from './buildVariantMatrix'
+import { buildVariantMatrix, NON_VISUAL_PROP_NAMES, SIZE_PROP_NAME, UNVARIED_PROP_NAMES } from './buildVariantMatrix'
 import { HEADING_SAMPLE } from './variantFixtures'
 
 const argType = (overrides: { name: string } & Partial<StrictInputType>): StrictInputType => ({ ...overrides })
@@ -136,6 +136,15 @@ describe('buildVariantMatrix', () => {
     expect(matrix.map(({ propName }) => propName)).toEqual([undefined, 'invalid'])
   })
 
+  it('keeps the tag-swapping `as` prop off the prop axis', () => {
+    const matrix = buildVariantMatrix(
+      argTypes([enumProp('as', ['article', 'div', 'section', 'ul'], 'div'), booleanProp('invalid')]),
+    )
+
+    // Alphabetically `as` comes first, so its three non-default tags would have opened the axis.
+    expect(matrix.map(({ propName }) => propName)).toEqual([undefined, 'invalid'])
+  })
+
   it('keeps a prop that is also a state off the prop axis', () => {
     const matrix = buildVariantMatrix(argTypes([booleanProp('checked'), booleanProp('disabled')]), {
       variants: ['disabled'],
@@ -212,11 +221,11 @@ describe('a prop offering options the matrix found no values for', () => {
 
   it('names every one of them, so a whole component is fixed in one go', () => {
     const types = argTypes([
-      untypedPropWithOptions('as', ['article', 'section']),
+      untypedPropWithOptions('gapVertical', ['small', 'large']),
       untypedPropWithOptions('paddingVertical', ['small', 'large']),
     ])
 
-    expect(() => buildVariantMatrix(types)).toThrowError(/no values for as, paddingVertical/)
+    expect(() => buildVariantMatrix(types)).toThrowError(/no values for gapVertical, paddingVertical/)
   })
 
   it('stops the story for the size axis as well, which has no row of its own', () => {
@@ -246,8 +255,16 @@ describe('a prop offering options the matrix found no values for', () => {
     expect(() => buildVariantMatrix(types)).not.toThrow()
   })
 
-  it('says nothing for an aria-only prop, which never reaches an axis', () => {
-    const types = argTypes([untypedPropWithOptions(ARIA_ONLY_PROP_NAMES[0]!, ['Sluiten', 'Openen'])])
+  it('says nothing for a non-visual prop, which never reaches an axis', () => {
+    const types = argTypes([untypedPropWithOptions(NON_VISUAL_PROP_NAMES[0]!, ['Sluiten', 'Openen'])])
+
+    expect(() => buildVariantMatrix(types)).not.toThrow()
+  })
+
+  // `as` is the non-visual prop whose control does offer a choice, so it is the one that would
+  // trip this check if it ever reached an axis.
+  it('says nothing for `as`, whose tags it leaves alone', () => {
+    const types = argTypes([untypedPropWithOptions('as', ['article', 'section'])])
 
     expect(() => buildVariantMatrix(types)).not.toThrow()
   })
