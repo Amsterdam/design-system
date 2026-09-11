@@ -153,7 +153,7 @@ export const CompositeValue: Story = {
   },
 }
 
-export const FormSummary: Story = {
+export const FormReview: Story = {
   args: {
     children: [
       <DataSummary.Item key={1}>
