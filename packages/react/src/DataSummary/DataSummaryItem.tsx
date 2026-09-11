@@ -13,7 +13,7 @@ export type DataSummaryItemProps = PropsWithChildren<HTMLAttributes<HTMLDivEleme
 /**
  * Groups a label with its value, and optionally an action, within a Data Summary.
  *
- * @see {@link https://designsystem.amsterdam/?path=/docs/components-text-data-summary--docs Data Summary docs at Amsterdam Design System}
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-containers-data-summary--docs Data Summary docs at Amsterdam Design System}
  */
 export const DataSummaryItem = forwardRef(
   ({ children, className, ...restProps }: DataSummaryItemProps, ref: ForwardedRef<HTMLDivElement>) => (

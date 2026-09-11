@@ -53,7 +53,7 @@ DataSummaryRoot.displayName = 'DataSummary'
 /**
  * An overview of data, presenting each label with its value on a line of its own.
  *
- * @see {@link https://designsystem.amsterdam/?path=/docs/components-text-data-summary--docs Data Summary docs at Amsterdam Design System}
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-containers-data-summary--docs Data Summary docs at Amsterdam Design System}
  */
 export const DataSummary = Object.assign(DataSummaryRoot, {
   Action: DataSummaryAction,

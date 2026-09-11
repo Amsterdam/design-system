@@ -13,7 +13,7 @@ export type DataSummaryActionProps = PropsWithChildren<HTMLAttributes<HTMLElemen
 /**
  * The slot for the link or button that acts on the value of an item of a Data Summary.
  *
- * @see {@link https://designsystem.amsterdam/?path=/docs/components-text-data-summary--docs Data Summary docs at Amsterdam Design System}
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-containers-data-summary--docs Data Summary docs at Amsterdam Design System}
  */
 export const DataSummaryAction = forwardRef(
   ({ children, className, ...restProps }: DataSummaryActionProps, ref: ForwardedRef<HTMLElement>) => (

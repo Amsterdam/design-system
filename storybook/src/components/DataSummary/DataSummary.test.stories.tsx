@@ -16,7 +16,7 @@ import { default as dataSummaryMeta } from './DataSummary.stories'
 
 const meta = {
   ...dataSummaryMeta,
-  title: 'Components/Text/Data Summary',
+  title: 'Components/Containers/Data Summary',
 } satisfies Meta<typeof DataSummary>
 
 export default meta

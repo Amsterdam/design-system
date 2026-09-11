@@ -26,7 +26,7 @@ import {
 import { wrapInInlineSizeQueryContainer } from '#storybook/_common/decorators'
 
 const meta = {
-  title: 'Components/Text/Data Summary',
+  title: 'Components/Containers/Data Summary',
   component: DataSummary,
   args: {
     children: [
