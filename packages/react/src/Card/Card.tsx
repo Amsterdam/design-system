@@ -25,7 +25,7 @@ const CardRoot = forwardRef(({ children, className, ...restProps }: CardProps, r
 CardRoot.displayName = 'Card'
 
 /**
- * A brief section of a heading, some text, and optionally an image, that leads to a related page.
+ * A brief section of a heading, some text, and optionally an image, usually leading to a related page.
  *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-navigation-card--docs Card docs at Amsterdam Design System}
  */
