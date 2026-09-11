@@ -4,7 +4,7 @@
  */
 
 /**
- * CSS Custom properties cannot be used in media queries.
+ * CSS Custom properties cannot be used in media or container queries.
  * We resort to Sass variables for our breakpoint values.
  */
 
@@ -13,3 +13,9 @@ $ams-breakpoint-medium: 37.5rem;
 
 /** The breakpoint at which wide screens start. */
 $ams-breakpoint-wide: 72.5rem;
+
+/**
+ * The container width at which a term or label fits beside its description or value.
+ * Description List and Data Summary share it, so sibling lists on a page switch orientation together.
+ */
+$ams-container-breakpoint-term-and-value: 32rem;
