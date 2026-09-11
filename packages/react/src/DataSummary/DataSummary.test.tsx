@@ -7,7 +7,7 @@ import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 import { describe, expect, it } from 'vitest'
 
-import { DataSummary, dataSummaryOrientations } from './DataSummary'
+import { DataSummary, dataSummaryOrientations, dataSummaryTermsWidths } from './DataSummary'
 
 describe('DataSummary', () => {
   it('renders', () => {
@@ -58,6 +58,16 @@ describe('DataSummary', () => {
       const component = container.querySelector(':only-child')
 
       expect(component).toHaveClass(`ams-data-summary--${orientation}`)
+    }),
+  )
+
+  dataSummaryTermsWidths.map((width) =>
+    it(`renders the class name for the ‘${width}’ terms column width`, () => {
+      const { container } = render(<DataSummary termsWidth={width} />)
+
+      const component = container.querySelector(':only-child')
+
+      expect(component).toHaveClass(`ams-data-summary--${width}`)
     }),
   )
 

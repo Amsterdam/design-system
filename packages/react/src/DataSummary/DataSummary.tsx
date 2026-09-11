@@ -15,6 +15,8 @@ import { DataSummaryValue } from './DataSummaryValue'
 
 export const dataSummaryOrientations = ['horizontal', 'vertical'] as const
 type DataSummaryOrientation = (typeof dataSummaryOrientations)[number]
+export const dataSummaryTermsWidths = ['narrow', 'medium', 'wide'] as const
+type DataSummaryTermsWidth = (typeof dataSummaryTermsWidths)[number]
 
 export type DataSummaryProps = {
   /**
@@ -22,14 +24,25 @@ export type DataSummaryProps = {
    * @default horizontal
    */
   readonly orientation?: DataSummaryOrientation
+  /** The width of the column containing the labels. */
+  readonly termsWidth?: DataSummaryTermsWidth
 } & Readonly<PropsWithChildren<HTMLAttributes<HTMLDListElement>>>
 
 const DataSummaryRoot = forwardRef(
   (
-    { children, className, orientation = 'horizontal', ...restProps }: DataSummaryProps,
+    { children, className, orientation = 'horizontal', termsWidth, ...restProps }: DataSummaryProps,
     ref: ForwardedRef<HTMLDListElement>,
   ) => (
-    <dl {...restProps} className={clsx('ams-data-summary', `ams-data-summary--${orientation}`, className)} ref={ref}>
+    <dl
+      {...restProps}
+      className={clsx(
+        'ams-data-summary',
+        `ams-data-summary--${orientation}`,
+        termsWidth && `ams-data-summary--${termsWidth}`,
+        className,
+      )}
+      ref={ref}
+    >
       {children}
     </dl>
   ),

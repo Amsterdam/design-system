@@ -66,6 +66,30 @@
             "$extensions": {
               "nl.amsterdam.type": "gridTemplateColumns"
             }
+          },
+          "narrow": {
+            "grid-template-columns": {
+              "$value": "minmax(0, 1fr) minmax(0, 4fr) auto",
+              "$extensions": {
+                "nl.amsterdam.type": "gridTemplateColumns"
+              }
+            }
+          },
+          "medium": {
+            "grid-template-columns": {
+              "$value": "minmax(0, 1fr) minmax(0, 2fr) auto",
+              "$extensions": {
+                "nl.amsterdam.type": "gridTemplateColumns"
+              }
+            }
+          },
+          "wide": {
+            "grid-template-columns": {
+              "$value": "minmax(0, 1fr) minmax(0, 1fr) auto",
+              "$extensions": {
+                "nl.amsterdam.type": "gridTemplateColumns"
+              }
+            }
           }
         }
       },

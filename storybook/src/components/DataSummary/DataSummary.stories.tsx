@@ -18,7 +18,10 @@ import {
 } from '@amsterdam/design-system-react'
 import { PencilIcon } from '@amsterdam/design-system-react-icons'
 import { DataSummary } from '@amsterdam/design-system-react/src'
-import { dataSummaryOrientations } from '@amsterdam/design-system-react/src/DataSummary/DataSummary'
+import {
+  dataSummaryOrientations,
+  dataSummaryTermsWidths,
+} from '@amsterdam/design-system-react/src/DataSummary/DataSummary'
 
 import { wrapInInlineSizeQueryContainer } from '#storybook/_common/decorators'
 
@@ -52,6 +55,13 @@ const meta = {
         type: 'radio',
       },
       options: [undefined, ...dataSummaryOrientations.filter((orientation) => orientation !== 'horizontal')],
+    },
+    termsWidth: {
+      control: {
+        labels: { undefined: 'default' },
+        type: 'radio',
+      },
+      options: [undefined, ...dataSummaryTermsWidths],
     },
   },
   decorators: [wrapInInlineSizeQueryContainer()],
