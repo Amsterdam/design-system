@@ -594,7 +594,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>5.7s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>4.5s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -5659,26 +5659,26 @@ The `as` prop can render an `article` or a `section` instead, which does reach a
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> DataSummary</h2>
       <div class="badges">
-        <label for="c-18-components-text-data-summary-props" class="badge ok as-toggle">1 prop type</label>
+        <label for="c-18-components-containers-data-summary-props" class="badge ok as-toggle">2 prop types</label>
         
-        <label for="c-18-components-text-data-summary-stories" class="badge ok as-toggle">6 stories</label>
-        <label for="c-18-components-text-data-summary-docs" class="badge ok as-toggle">1 doc</label>
-        <label for="c-18-components-text-data-summary-subcomponents" class="badge ok as-toggle">4 subcomponents</label>
+        <label for="c-18-components-containers-data-summary-stories" class="badge ok as-toggle">6 stories</label>
+        <label for="c-18-components-containers-data-summary-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-18-components-containers-data-summary-subcomponents" class="badge ok as-toggle">4 subcomponents</label>
       </div>
     </div>
-    <div class="meta" title="./src/components/DataSummary/DataSummary.stories.tsx">components-text-data-summary · ./src/components/DataSummary/DataSummary.stories.tsx</div>
+    <div class="meta" title="./src/components/DataSummary/DataSummary.stories.tsx">components-containers-data-summary · ./src/components/DataSummary/DataSummary.stories.tsx</div>
     
     <div class="hint">An overview of data, presenting each label with its value on a line of its own.</div>
-    <div class="kv"><span class="chip">see: {@link https://designsystem.amsterdam/?path=/docs/components-text-data-summary--docs Data Summary docs at Amsterdam Design System}</span></div>
+    <div class="kv"><span class="chip">see: {@link https://designsystem.amsterdam/?path=/docs/components-containers-data-summary--docs Data Summary docs at Amsterdam Design System}</span></div>
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-18-components-text-data-summary-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-18-components-text-data-summary-docs" class="tg tg-docs" type="checkbox" hidden />
-  <input id="c-18-components-text-data-summary-subcomponents" class="tg tg-subcomponents" type="checkbox" hidden />
-  <input id="c-18-components-text-data-summary-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-18-components-containers-data-summary-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-18-components-containers-data-summary-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-18-components-containers-data-summary-subcomponents" class="tg tg-subcomponents" type="checkbox" hidden />
+  <input id="c-18-components-containers-data-summary-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -5688,14 +5688,19 @@ The `as` prop can render an `article` or a `section` instead, which does reach a
           <div class="note ok">
             <div class="row">
               <span class="ex-name">Prop types <small>(react-component-meta)</small></span>
-              <span class="badge ok">1 prop type</span>
+              <span class="badge ok">2 prop types</span>
             </div>
             <pre><code>Component: ../packages/react/src/index.ts::DataSummary</code></pre>
             <pre><code>Props:</code></pre>
             <pre><code>/**
  * Whether a label and its value sit side by side in a wide enough container, or always below each other.
  */
-orientation?: &quot;horizontal&quot; | &quot;vertical&quot; = &#39;horizontal&#39;</code></pre>
+orientation?: &quot;horizontal&quot; | &quot;vertical&quot; = &#39;horizontal&#39;
+
+/**
+ * The width of the column containing the labels.
+ */
+termsWidth?: &quot;narrow&quot; | &quot;medium&quot; | &quot;wide&quot;</code></pre>
           </div>
         </div>
     
@@ -5715,6 +5720,7 @@ orientation?: &quot;horizontal&quot; | &quot;vertical&quot; = &#39;horizontal&#3
     Image,
     Link,
     Paragraph,
+    Row,
     StandaloneLink,
 } from "@amsterdam/design-system-react";
 import { DataSummary } from "@amsterdam/design-system-react/src";</code></pre>
@@ -5862,12 +5868,12 @@ import { DataSummary } from "@amsterdam/design-system-react/src";</code></pre>
             </div>
             <div class="note ok">
               <div class="row">
-                <span class="ex-name">Form Summary</span>
+                <span class="ex-name">Form Review</span>
                 <span class="badge ok">story ok</span>
               </div>
               
               
-              <pre><code>const FormSummary = () =&gt; &lt;Column&gt;
+              <pre><code>const FormReview = () =&gt; &lt;Column&gt;
     &lt;Heading level={2}&gt;Controleer uw gegevens&lt;/Heading&gt;
     &lt;DataSummary&gt;{[
           &lt;DataSummary.Item key={1}&gt;
@@ -5898,9 +5904,11 @@ import { DataSummary } from "@amsterdam/design-system-react/src";</code></pre>
             &lt;/DataSummary.Action&gt;
           &lt;/DataSummary.Item&gt;,
         ]}&lt;/DataSummary&gt;
-    &lt;ActionGroup&gt;
-        &lt;Button&gt;Verzenden&lt;/Button&gt;
-    &lt;/ActionGroup&gt;
+    &lt;Row&gt;
+        &lt;ActionGroup&gt;
+            &lt;Button&gt;Verzenden&lt;/Button&gt;
+        &lt;/ActionGroup&gt;
+    &lt;/Row&gt;
 &lt;/Column&gt;;</code></pre>
             </div>
         </div>
@@ -5995,14 +6003,14 @@ Its parts are spaced evenly, so an address or a set of photos needs no markup of
 
 &lt;Canvas of={DataSummaryStories.CompositeValue} /&gt;
 
-### Form summary
+### Form review
 
 A summary of the answers in a form is an application of Data Summary rather than a component of its own.
 Combine it with a heading, an action per item that returns to the matching question, and a button that submits the form.
 
 Group data about several people or subjects by placing a heading above each Data Summary.
 
-&lt;Canvas of={DataSummaryStories.FormSummary} /&gt;
+&lt;Canvas of={DataSummaryStories.FormReview} /&gt;
 
 ## Features
 
@@ -6017,7 +6025,8 @@ The whitespace above and below that line is the same, so the line sits between t
 Labels use heading typography and values use body text, which gives the two different line heights.
 Side by side, a label therefore gets half of that difference as extra space above it, so its first line sits level with the first line of its value.
 
-The column for the labels is at most `15rem` wide.
+By default the column for the labels is at most `15rem` wide.
+Set `termsWidth` to `narrow`, `medium`, or `wide` when a ratio between labels and values serves the content better.
 Labels and values sit next to each other when their [query container](/docs/utilities-css-query-container--docs) is wide enough (at least `32rem`).
 
 ## Accessibility
@@ -6054,7 +6063,7 @@ Use visually hidden text rather than `aria-label`, because browsers do not relia
       <div class="hint">/home/runner/work/design-system/design-system/packages/react/src/index.ts</div>
       
       <div class="hint">The slot for the link or button that acts on the value of an item of a Data Summary.</div>
-      <div class="kv"><span class="chip">see: {@link https://designsystem.amsterdam/?path=/docs/components-text-data-summary--docs Data Summary docs at Amsterdam Design System}</span></div>
+      <div class="kv"><span class="chip">see: {@link https://designsystem.amsterdam/?path=/docs/components-containers-data-summary--docs Data Summary docs at Amsterdam Design System}</span></div>
       <pre><code>import { DataSummary } from &quot;@amsterdam/design-system-react/src&quot;;</code></pre>
       
       
@@ -6070,7 +6079,7 @@ Use visually hidden text rather than `aria-label`, because browsers do not relia
       <div class="hint">/home/runner/work/design-system/design-system/packages/react/src/index.ts</div>
       
       <div class="hint">Groups a label with its value, and optionally an action, within a Data Summary.</div>
-      <div class="kv"><span class="chip">see: {@link https://designsystem.amsterdam/?path=/docs/components-text-data-summary--docs Data Summary docs at Amsterdam Design System}</span></div>
+      <div class="kv"><span class="chip">see: {@link https://designsystem.amsterdam/?path=/docs/components-containers-data-summary--docs Data Summary docs at Amsterdam Design System}</span></div>
       <pre><code>import { DataSummary } from &quot;@amsterdam/design-system-react/src&quot;;</code></pre>
       
       
@@ -6086,7 +6095,7 @@ Use visually hidden text rather than `aria-label`, because browsers do not relia
       <div class="hint">/home/runner/work/design-system/design-system/packages/react/src/index.ts</div>
       
       <div class="hint">The name of the data an item of a Data Summary presents.</div>
-      <div class="kv"><span class="chip">see: {@link https://designsystem.amsterdam/?path=/docs/components-text-data-summary--docs Data Summary docs at Amsterdam Design System}</span></div>
+      <div class="kv"><span class="chip">see: {@link https://designsystem.amsterdam/?path=/docs/components-containers-data-summary--docs Data Summary docs at Amsterdam Design System}</span></div>
       <pre><code>import { DataSummary } from &quot;@amsterdam/design-system-react/src&quot;;</code></pre>
       
       
@@ -6102,7 +6111,7 @@ Use visually hidden text rather than `aria-label`, because browsers do not relia
       <div class="hint">/home/runner/work/design-system/design-system/packages/react/src/index.ts</div>
       
       <div class="hint">The data itself, paired with its label in an item of a Data Summary.</div>
-      <div class="kv"><span class="chip">see: {@link https://designsystem.amsterdam/?path=/docs/components-text-data-summary--docs Data Summary docs at Amsterdam Design System}</span></div>
+      <div class="kv"><span class="chip">see: {@link https://designsystem.amsterdam/?path=/docs/components-containers-data-summary--docs Data Summary docs at Amsterdam Design System}</span></div>
       <pre><code>import { DataSummary } from &quot;@amsterdam/design-system-react/src&quot;;</code></pre>
       
       
@@ -7168,7 +7177,7 @@ The component leaves the native elements alone rather than adding `term` and `de
 
 ## See also
 
-- [Data Summary](/docs/components-text-data-summary--docs) – pairs labels with values instead of terms with meanings, and separates them by a line.
+- [Data Summary](/docs/components-containers-data-summary--docs) – pairs labels with values instead of terms with meanings, and separates them by a line.
 - [Prose](/docs/utilities-css-prose--docs) – applies the recommended vertical spacing for editorial content.
 
 ## Design tokens
@@ -36804,7 +36813,7 @@ The container that scrolls is a focusable group, which keeps the columns past it
 
 ## See also
 
-- [Data Summary](/docs/components-text-data-summary--docs) – presents the data of one subject, which needs no comparison across rows.
+- [Data Summary](/docs/components-containers-data-summary--docs) – presents the data of one subject, which needs no comparison across rows.
 - [Prose](/docs/utilities-css-prose--docs) – applies the recommended vertical spacing for editorial content.
 - [Table Page](/docs/pages-internal-table-page--docs) – various templates for large data tables in internal websites.
 
