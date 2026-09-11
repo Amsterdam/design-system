@@ -14,7 +14,7 @@
     "postcss": "8.5.27"
   },
   "devDependencies": {
-    "stylelint": "17.14.1",
+    "stylelint": "17.15.0",
     "vitest": "4.1.11"
   }
 }
