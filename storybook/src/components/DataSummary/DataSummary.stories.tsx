@@ -13,6 +13,7 @@ import {
   Image,
   Link,
   Paragraph,
+  Row,
   StandaloneLink,
 } from '@amsterdam/design-system-react'
 import { PencilIcon } from '@amsterdam/design-system-react-icons'
@@ -189,9 +190,11 @@ export const FormReview: Story = {
     <Column>
       <Heading level={2}>Controleer uw gegevens</Heading>
       <DataSummary {...args} />
-      <ActionGroup>
-        <Button>Verzenden</Button>
-      </ActionGroup>
+      <Row>
+        <ActionGroup>
+          <Button>Verzenden</Button>
+        </ActionGroup>
+      </Row>
     </Column>
   ),
 }
