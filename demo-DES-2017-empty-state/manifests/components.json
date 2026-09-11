@@ -3015,6 +3015,277 @@
         }
       }
     },
+    "components-feedback-empty-state": {
+      "id": "components-feedback-empty-state",
+      "name": "EmptyState",
+      "path": "./src/components/EmptyState/EmptyState.stories.tsx",
+      "jsDocTags": {},
+      "reactComponentMeta": {
+        "displayName": "EmptyState",
+        "exportName": "EmptyState",
+        "filePath": "/home/runner/work/design-system/design-system/packages/react/src/index.ts",
+        "description": "",
+        "props": {}
+      },
+      "subcomponents": {
+        "EmptyState.Heading": {
+          "name": "EmptyState.Heading",
+          "path": "/home/runner/work/design-system/design-system/packages/react/src/index.ts",
+          "import": "import { EmptyState } from \"@amsterdam/design-system-react/src\";",
+          "jsDocTags": {},
+          "reactComponentMeta": {
+            "displayName": "EmptyState.Heading",
+            "exportName": "EmptyState",
+            "filePath": "/home/runner/work/design-system/design-system/packages/react/src/index.ts",
+            "description": "",
+            "props": {
+              "color": {
+                "name": "color",
+                "required": false,
+                "type": {
+                  "name": "enum",
+                  "raw": "\"inverse\"",
+                  "value": [
+                    {
+                      "value": "\"inverse\""
+                    }
+                  ]
+                },
+                "description": "Changes the text colour for readability on a dark background.",
+                "defaultValue": null,
+                "parent": {
+                  "name": "HeadingProps",
+                  "fileName": "../packages/react/src/Heading/Heading.tsx"
+                },
+                "declarations": [
+                  {
+                    "name": "TypeLiteral",
+                    "fileName": "../packages/react/src/Heading/Heading.tsx"
+                  },
+                  {
+                    "name": "HTMLAttributes",
+                    "fileName": "../node_modules/.pnpm/@types+react@18.3.31/node_modules/@types/react/index.d.ts"
+                  }
+                ]
+              },
+              "level": {
+                "name": "level",
+                "required": true,
+                "type": {
+                  "name": "enum",
+                  "raw": "3 | 1 | 2 | 4",
+                  "value": [
+                    {
+                      "value": "3"
+                    },
+                    {
+                      "value": "1"
+                    },
+                    {
+                      "value": "2"
+                    },
+                    {
+                      "value": "4"
+                    }
+                  ]
+                },
+                "description": "The hierarchical level within the document.",
+                "defaultValue": null,
+                "parent": {
+                  "name": "HeadingProps",
+                  "fileName": "../packages/react/src/Heading/Heading.tsx"
+                },
+                "declarations": [
+                  {
+                    "name": "TypeLiteral",
+                    "fileName": "../packages/react/src/Heading/Heading.tsx"
+                  }
+                ]
+              },
+              "size": {
+                "name": "size",
+                "required": false,
+                "type": {
+                  "name": "enum",
+                  "raw": "\"level-1\" | \"level-2\" | \"level-3\" | \"level-4\" | \"level-5\"",
+                  "value": [
+                    {
+                      "value": "\"level-1\""
+                    },
+                    {
+                      "value": "\"level-2\""
+                    },
+                    {
+                      "value": "\"level-3\""
+                    },
+                    {
+                      "value": "\"level-4\""
+                    },
+                    {
+                      "value": "\"level-5\""
+                    }
+                  ]
+                },
+                "description": "Uses larger or smaller text without changing its position in the heading hierarchy.",
+                "defaultValue": null,
+                "parent": {
+                  "name": "HeadingProps",
+                  "fileName": "../packages/react/src/Heading/Heading.tsx"
+                },
+                "declarations": [
+                  {
+                    "name": "TypeLiteral",
+                    "fileName": "../packages/react/src/Heading/Heading.tsx"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "EmptyState.Icon": {
+          "name": "EmptyState.Icon",
+          "path": "/home/runner/work/design-system/design-system/packages/react/src/index.ts",
+          "import": "import { EmptyState } from \"@amsterdam/design-system-react/src\";",
+          "jsDocTags": {},
+          "reactComponentMeta": {
+            "displayName": "EmptyState.Icon",
+            "exportName": "EmptyState",
+            "filePath": "/home/runner/work/design-system/design-system/packages/react/src/index.ts",
+            "description": "",
+            "props": {
+              "color": {
+                "name": "color",
+                "required": false,
+                "type": {
+                  "name": "enum",
+                  "raw": "\"inverse\"",
+                  "value": [
+                    {
+                      "value": "\"inverse\""
+                    }
+                  ]
+                },
+                "description": "Changes the icon colour for readability on a dark background.",
+                "defaultValue": null,
+                "parent": {
+                  "name": "IconProps",
+                  "fileName": "../packages/react/src/Icon/Icon.tsx"
+                },
+                "declarations": [
+                  {
+                    "name": "TypeLiteral",
+                    "fileName": "../packages/react/src/Icon/Icon.tsx"
+                  },
+                  {
+                    "name": "HTMLAttributes",
+                    "fileName": "../node_modules/.pnpm/@types+react@18.3.31/node_modules/@types/react/index.d.ts"
+                  }
+                ]
+              },
+              "size": {
+                "name": "size",
+                "required": false,
+                "type": {
+                  "name": "enum",
+                  "raw": "\"small\" | \"large\" | \"heading-1\" | \"heading-2\" | \"heading-3\" | \"heading-4\" | \"heading-5\"",
+                  "value": [
+                    {
+                      "value": "\"small\""
+                    },
+                    {
+                      "value": "\"large\""
+                    },
+                    {
+                      "value": "\"heading-1\""
+                    },
+                    {
+                      "value": "\"heading-2\""
+                    },
+                    {
+                      "value": "\"heading-3\""
+                    },
+                    {
+                      "value": "\"heading-4\""
+                    },
+                    {
+                      "value": "\"heading-5\""
+                    }
+                  ]
+                },
+                "description": "The size of the icon. Choose the size of the corresponding body text or heading.",
+                "defaultValue": null,
+                "parent": {
+                  "name": "IconProps",
+                  "fileName": "../packages/react/src/Icon/Icon.tsx"
+                },
+                "declarations": [
+                  {
+                    "name": "TypeLiteral",
+                    "fileName": "../packages/react/src/Icon/Icon.tsx"
+                  }
+                ]
+              },
+              "square": {
+                "name": "square",
+                "required": false,
+                "type": {
+                  "name": "boolean"
+                },
+                "description": "Whether the icon container should be made square.",
+                "defaultValue": null,
+                "parent": {
+                  "name": "IconProps",
+                  "fileName": "../packages/react/src/Icon/Icon.tsx"
+                },
+                "declarations": [
+                  {
+                    "name": "TypeLiteral",
+                    "fileName": "../packages/react/src/Icon/Icon.tsx"
+                  }
+                ]
+              },
+              "svg": {
+                "name": "svg",
+                "required": true,
+                "type": {
+                  "name": "IconSvg"
+                },
+                "description": "The component rendering the icon’s markup.",
+                "defaultValue": null,
+                "parent": {
+                  "name": "IconProps",
+                  "fileName": "../packages/react/src/Icon/Icon.tsx"
+                },
+                "declarations": [
+                  {
+                    "name": "TypeLiteral",
+                    "fileName": "../packages/react/src/Icon/Icon.tsx"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      "stories": [
+        {
+          "id": "components-feedback-empty-state--default",
+          "name": "Default",
+          "snippet": "const Default = () => <EmptyState\n    description=\"Er zijn geen resultaten gevonden voor uw zoekopdracht. Probeer alstublieft een andere zin.\"\n    heading=\"Er zijn geen resultaten gevonden\">\n    <EmptyState.Icon size=\"heading-1\" svg={WarningIcon} />\n    <EmptyState.Heading level={2}>{heading}</EmptyState.Heading>\n    <Paragraph>{description}</Paragraph>\n</EmptyState>;"
+        }
+      ],
+      "import": "import { EmptyState } from \"@amsterdam/design-system-react/src\";\nimport { Paragraph } from \"@amsterdam/design-system-react\";",
+      "docs": {
+        "components-feedback-empty-state--docs": {
+          "id": "components-feedback-empty-state--docs",
+          "name": "Docs",
+          "path": "./src/components/EmptyState/EmptyState.docs.mdx",
+          "title": "Components/Feedback/Empty State",
+          "content": "{/* @license CC0-1.0 */}\n\nimport { Controls, Description, Meta, Primary, Title } from \"@storybook/addon-docs/blocks\";\n\nimport { DesignTokensTable } from \"#storybook/_components/DesignTokensTable/DesignTokensTable\";\nimport tokens from \"#tokens/components/ams/empty-state.tokens.json\";\n\nimport * as EmptyStateStories from \"./EmptyState.stories.tsx\";\n\n<Meta of={EmptyStateStories} />\n\n<Title />\n\n<Description of={EmptyStateStories} />\n\n<Primary />\n\n<Controls />\n\n## Subcomponents\n\n### SubcomponentName\n\n## Usage guidelines\n\n### When to use\n\n### When not to use\n\n### How to use\n\n### How to write\n\n## Examples\n\n## Features\n\n## Design\n\n## Accessibility\n\n## See also\n\n## Design tokens\n\n<DesignTokensTable tokens={tokens} />\n",
+          "summary": "## Subcomponents ### SubcomponentName ## Usage guidelines ### When to use ### When not to ..."
+        }
+      }
+    },
     "components-feedback-skeleton": {
       "id": "components-feedback-skeleton",
       "name": "Skeleton",
@@ -12075,6 +12346,6 @@
   },
   "meta": {
     "docgen": "react-component-meta",
-    "durationMs": 3834
+    "durationMs": 5514
   }
 }
