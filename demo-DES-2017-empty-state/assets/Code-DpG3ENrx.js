@@ -1,0 +1,1 @@
+import{n as e}from"./rolldown-runtime-DkW27tQK.js";import{t}from"./jsx-runtime-ATHzeHXA.js";var n,r;function i(){return(i=e((()=>{n=t(),r=({children:e})=>(0,n.jsx)(`code`,{className:`_ams-code sb-unstyled`,children:e})})))()}export{i as n,r as t};
