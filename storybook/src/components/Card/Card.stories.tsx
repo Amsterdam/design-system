@@ -155,3 +155,49 @@ export const TopTasks: Story = {
     </Grid>
   ),
 }
+
+export const WithoutLink: Story = {
+  parameters: {
+    layout: 'fullscreen',
+  },
+  render: (args) => (
+    // The phases run in order, so the Grid is an ordered list and every Cell in it a list item.
+    <Grid as="ol" paddingVertical="x-large">
+      <Grid.Cell as="li" span={{ narrow: 4, medium: 4, wide: 4 }}>
+        <Card {...args}>
+          <Card.HeadingGroup>
+            <Card.Heading level={2}>Ontwerp</Card.Heading>
+            <Metadata size="small">2023-2025</Metadata>
+          </Card.HeadingGroup>
+          <Paragraph>
+            Bewoners en ondernemers dachten mee over de inrichting van de straat. Eind 2025 stelde de gemeenteraad het
+            ontwerp vast.
+          </Paragraph>
+        </Card>
+      </Grid.Cell>
+      <Grid.Cell as="li" span={{ narrow: 4, medium: 4, wide: 4 }}>
+        <Card>
+          <Card.HeadingGroup>
+            <Card.Heading level={2}>Voorbereiding</Card.Heading>
+            <Metadata size="small">2025-2027</Metadata>
+          </Card.HeadingGroup>
+          <Paragraph>
+            We verleggen kabels en leidingen en vragen de vergunningen aan. De straat blijft in deze periode bereikbaar.
+          </Paragraph>
+        </Card>
+      </Grid.Cell>
+      <Grid.Cell as="li" span={{ narrow: 4, medium: 4, wide: 4 }}>
+        <Card>
+          <Card.HeadingGroup>
+            <Card.Heading level={2}>Uitvoering</Card.Heading>
+            <Metadata size="small">2027-2029</Metadata>
+          </Card.HeadingGroup>
+          <Paragraph>
+            De straat gaat open voor de nieuwe riolering en de herinrichting. We werken in vakken van ongeveer 100
+            meter.
+          </Paragraph>
+        </Card>
+      </Grid.Cell>
+    </Grid>
+  ),
+}
