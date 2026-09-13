@@ -46,9 +46,7 @@ const LOGICAL_BORDER_SHORTHANDS = [
   'border-inline-start',
 ]
 
-const DEFAULT_PROPERTIES = strictProperties
-  ? [...Object.keys(strictProperties), ...LOGICAL_BORDER_SHORTHANDS]
-  : null
+const DEFAULT_PROPERTIES = strictProperties ? [...Object.keys(strictProperties), ...LOGICAL_BORDER_SHORTHANDS] : null
 
 const messages = utils.ruleMessages(ruleName, {
   missingFile: (filePath) =>
