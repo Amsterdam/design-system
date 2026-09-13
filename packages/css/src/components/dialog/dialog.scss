@@ -70,7 +70,8 @@ so do not apply these styles without an `open` attribute. */
   flex-wrap: nowrap;
   gap: var(--ams-dialog-header-gap);
   justify-content: space-between;
-  padding-block: var(--ams-dialog-header-padding-block);
+  padding-block-end: var(--ams-dialog-header-padding-block-end);
+  padding-block-start: var(--ams-dialog-header-padding-block-start);
   padding-inline: var(--ams-dialog-header-padding-inline);
 
   /* Use a border in forced colors mode for visual hierarchy and demarkating the scrollable body */
@@ -82,10 +83,8 @@ so do not apply these styles without an `open` attribute. */
   }
 
   @media (min-width: $ams-breakpoint-medium) {
-    padding-block: var(
-      --ams-dialog-header-medium-padding-block /* @deprecated */,
-      var(--ams-dialog-header-vi-medium-padding-block)
-    );
+    padding-block-end: var(--ams-dialog-header-vi-medium-padding-block-end);
+    padding-block-start: var(--ams-dialog-header-vi-medium-padding-block-start);
     padding-inline: var(
       --ams-dialog-header-medium-padding-inline /* @deprecated */,
       var(--ams-dialog-header-vi-medium-padding-inline)
@@ -113,7 +112,8 @@ so do not apply these styles without an `open` attribute. */
 }
 
 .ams-dialog__footer {
-  padding-block: var(--ams-dialog-footer-padding-block);
+  padding-block-end: var(--ams-dialog-footer-padding-block-end);
+  padding-block-start: var(--ams-dialog-footer-padding-block-start);
   padding-inline: var(--ams-dialog-footer-padding-inline);
 
   /* Use a border in forced colors mode for visual hierarchy and demarkating the scrollable body */
@@ -125,10 +125,8 @@ so do not apply these styles without an `open` attribute. */
   }
 
   @media (min-width: $ams-breakpoint-medium) {
-    padding-block: var(
-      --ams-dialog-footer-medium-padding-block /* @deprecated */,
-      var(--ams-dialog-footer-vi-medium-padding-block)
-    );
+    padding-block-end: var(--ams-dialog-footer-vi-medium-padding-block-end);
+    padding-block-start: var(--ams-dialog-footer-vi-medium-padding-block-start);
     padding-inline: var(
       --ams-dialog-footer-medium-padding-inline /* @deprecated */,
       var(--ams-dialog-footer-vi-medium-padding-inline)
