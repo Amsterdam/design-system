@@ -29,6 +29,8 @@
   line-height: var(--ams-file-list-file-line-height);
 }
 
+/* @deprecated The following class names are replaced by the `ams-file-card` block. Will be removed on or after 2027-04-01. */
+
 .ams-file-list__item-preview {
   display: grid;
   flex: 0 0 var(--ams-file-list-file-preview-width);

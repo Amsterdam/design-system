@@ -1,0 +1,55 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+@use "../../common/text-rendering" as *;
+
+.ams-file-card {
+  display: flex;
+  flex: 1;
+  flex-wrap: nowrap;
+  font-family: var(--ams-file-card-font-family);
+  font-size: var(--ams-file-card-font-size);
+  font-weight: var(--ams-file-card-font-weight);
+  gap: var(--ams-file-card-gap);
+  line-height: var(--ams-file-card-line-height);
+  overflow-wrap: break-word; // A name without spaces has nowhere to break, so allow one anywhere within it.
+
+  @include text-rendering;
+}
+
+.ams-file-card__preview {
+  display: grid;
+  flex: 0 0 var(--ams-file-card-preview-width);
+  place-items: center;
+
+  img {
+    inline-size: 100%;
+    min-block-size: auto;
+  }
+}
+
+.ams-file-card__info {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+
+  // `overflow-wrap: break-word` does not lower the min-content width, so without this a name
+  // without spaces keeps this column from shrinking and pushes the actions out of the card.
+  min-inline-size: 0;
+}
+
+.ams-file-card__name {
+  hyphens: manual; // A File List hyphenates its contents, which would break a file name in places it does not belong.
+}
+
+.ams-file-card__details {
+  color: var(--ams-file-card-details-color);
+}
+
+.ams-file-card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ams-file-card-actions-gap);
+}
