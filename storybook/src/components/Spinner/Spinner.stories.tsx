@@ -5,19 +5,13 @@
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-import { Spinner } from '@amsterdam/design-system-react/src'
-
-import { childrenArgType } from '#storybook/_common/argTypes'
+import { Spinner, spinnerSizeOptions } from '@amsterdam/design-system-react/src'
 
 const meta = {
-  title: 'Components/TODO-ADD-GROUP/Spinner',
+  title: 'Components/Feedback/Spinner',
   component: Spinner,
-  args: {
-    children: 'Nieuw component',
-  },
-  // Configure controls following documentation/storybook.md.
   argTypes: {
-    children: childrenArgType('Any content for this component.'),
+    size: { control: 'select', options: spinnerSizeOptions },
   },
 } satisfies Meta<typeof Spinner>
 
@@ -25,4 +19,8 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = {}
+export const Default: Story = {
+  args: {
+    size: 'medium',
+  },
+}
