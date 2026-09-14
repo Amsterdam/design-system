@@ -3323,6 +3323,81 @@
         }
       }
     },
+    "components-feedback-spinner": {
+      "id": "components-feedback-spinner",
+      "name": "Spinner",
+      "path": "./src/components/Spinner/Spinner.stories.tsx",
+      "jsDocTags": {
+        "see": [
+          "{@link https://designsystem.amsterdam/?path=/docs/components-feedback-spinner--docs Spinner docs at Amsterdam Design System}"
+        ]
+      },
+      "description": "A spinning circle that is used for a short or unknown amount of time when something on the page is loading.",
+      "reactComponentMeta": {
+        "displayName": "Spinner",
+        "exportName": "Spinner",
+        "filePath": "/home/runner/work/design-system/design-system/packages/react/src/index.ts",
+        "description": "A spinning circle that is used for a short or unknown amount of time when something on the page is loading.",
+        "jsDocTags": {
+          "see": [
+            "{@link https://designsystem.amsterdam/?path=/docs/components-feedback-spinner--docs Spinner docs at Amsterdam Design System}"
+          ]
+        },
+        "props": {
+          "size": {
+            "name": "size",
+            "required": false,
+            "type": {
+              "name": "enum",
+              "raw": "\"small\" | \"large\" | \"medium\"",
+              "value": [
+                {
+                  "value": "\"small\""
+                },
+                {
+                  "value": "\"large\""
+                },
+                {
+                  "value": "\"medium\""
+                }
+              ]
+            },
+            "description": "The size of the spinner.",
+            "defaultValue": {
+              "value": "'medium'"
+            },
+            "parent": {
+              "name": "SpinnerProps",
+              "fileName": "../packages/react/src/Spinner/Spinner.tsx"
+            },
+            "declarations": [
+              {
+                "name": "TypeLiteral",
+                "fileName": "../packages/react/src/Spinner/Spinner.tsx"
+              }
+            ]
+          }
+        }
+      },
+      "stories": [
+        {
+          "id": "components-feedback-spinner--default",
+          "name": "Default",
+          "snippet": "const Default = () => <Spinner size=\"medium\" />;"
+        }
+      ],
+      "import": "import { Spinner } from \"@amsterdam/design-system-react/src\";",
+      "docs": {
+        "components-feedback-spinner--docs": {
+          "id": "components-feedback-spinner--docs",
+          "name": "Docs",
+          "path": "./src/components/Spinner/Spinner.docs.mdx",
+          "title": "Components/Feedback/Spinner",
+          "content": "{/* @license CC0-1.0 */}\n\nimport { Canvas, Controls, Description, Meta, Primary, Title } from \"@storybook/addon-docs/blocks\";\n\nimport { DesignTokensTable } from \"#storybook/_components/DesignTokensTable/DesignTokensTable\";\nimport tokens from \"#tokens/components/ams/spinner.tokens.json\";\n\nimport * as SpinnerStories from \"./Spinner.stories.tsx\";\n\n<Meta of={SpinnerStories} />\n\n<Title />\n\n<Description of={SpinnerStories} />\n\n<Primary />\n\n<Controls />\n\n## Subcomponents\n\n### SubcomponentName\n\n## Usage guidelines\n\n### When to use\n\n### When not to use\n\n### How to use\n\n### How to write\n\n## Examples\n\n## Features\n\n## Design\n\n## Accessibility\n\n## See also\n\n## Design tokens\n\n<DesignTokensTable tokens={tokens} />\n",
+          "summary": "## Subcomponents ### SubcomponentName ## Usage guidelines ### When to use ### When not to ..."
+        }
+      }
+    },
     "components-forms-character-count": {
       "id": "components-forms-character-count",
       "name": "CharacterCount",
@@ -10351,13 +10426,13 @@
             "required": false,
             "type": {
               "name": "enum",
-              "raw": "\"narrow\" | \"medium\" | \"wide\"",
+              "raw": "\"medium\" | \"narrow\" | \"wide\"",
               "value": [
                 {
-                  "value": "\"narrow\""
+                  "value": "\"medium\""
                 },
                 {
-                  "value": "\"medium\""
+                  "value": "\"narrow\""
                 },
                 {
                   "value": "\"wide\""
@@ -11172,81 +11247,6 @@
           "title": "Components/Text/Unordered List",
           "content": "{/* @license CC0-1.0 */}\n\nimport { Canvas, Controls, Description, Meta, Primary, Title } from \"@storybook/addon-docs/blocks\";\n\nimport { DesignTokensTable } from \"#storybook/_components/DesignTokensTable/DesignTokensTable\";\nimport tokens from \"#tokens/components/ams/unordered-list.tokens.json\";\n\nimport * as UnorderedListStories from \"./UnorderedList.stories.tsx\";\n\n<Meta of={UnorderedListStories} />\n\n<Title />\n\n<Description of={UnorderedListStories} />\n\n<Primary />\n\n<Controls />\n\n## Subcomponents\n\nThe `Item` subcomponent renders an item in the list.\nIt has no props of its own; the examples on this page show it in place.\n\n## Usage guidelines\n\n### When to use\n\nUse [Margin](/docs/utilities-css-margin--docs) or [Prose](/docs/utilities-css-prose--docs) to add vertical whitespace.\n\n## Examples\n\n### Two levels\n\nA list can have one deeper level.\nIn this case, an en dash is used as the list item marker.\nIt is left-aligned with the text of the higher-level item.\n\n<Canvas of={UnorderedListStories.TwoLevels} />\n\n### Without markers\n\nSet `markers` to false where a group of items reads as a list but should not look like one.\nThe list keeps its `ul` and `li` elements, so a screen reader still announces it as a list and reports how many items it holds, while the markers stay out of the way.\nIts items then hold blocks rather than sentences, so the list defines no typography and the `color` prop has no effect.\n\nFor a set of Cards laid out across the page, make the [Grid](/docs/components-layout-grid--docs) or a Grid Subgrid the list instead.\n\n### Inverse colour\n\nUse the inverse colour if the List sits on a dark background.\nThis ensures the colour of the text provides enough contrast.\nWhen nesting lists, set the prop on all lists.\n\n<Canvas of={UnorderedListStories.InverseColor} />\n\n### Small text\n\nWe use a smaller font size for text in a Figure Caption and for metadata like dates or categories.\nWhen using a list in small text, set the prop for each item in the list.\n\n<Canvas of={UnorderedListStories.SmallText} />\n\n## Design\n\nItems of an unordered list have square markers.\nThe marker is the bullet character, which Amsterdam Sans draws as a square.\nThere is extra white space between the items.\nThis provides better distinction between the items, especially when they consist of multiple lines of text.\n\nMarkers sit outside the text column.\nThe second and following lines of an item line up with its first line instead of running back underneath the marker, which keeps the left edge of the text straight.\n\nA nested list is indented less than the top level, which keeps a two-level list from drifting far to the right.\nOnly a list that sits directly in a list item counts as nested.\nA list inside a container, such as a card, starts at the first level again.\n\n## Accessibility\n\nAn Unordered List renders `ul` and `li` elements.\nScreen readers announce it as a list, report how many items it holds, and offer commands to move from one item to the next.\n\nHiding the markers keeps those semantics intact, so screen readers still announce the items as a list and report how many there are.\nThat is the point of the variant: the grouping still reaches assistive technology as [WCAG 1.3.1](https://www.w3.org/TR/WCAG22/#info-and-relationships) requires, while the markers stay out of the way visually.\n\n## See also\n\n- [Prose](/docs/utilities-css-prose--docs) – applies the recommended vertical spacing for editorial content.\n\n## Design tokens\n\n<DesignTokensTable tokens={tokens} />\n",
           "summary": "## Subcomponents The `Item` subcomponent renders an item in the list. It has no props of i..."
-        }
-      }
-    },
-    "components-todo-add-group-spinner": {
-      "id": "components-todo-add-group-spinner",
-      "name": "Spinner",
-      "path": "./src/components/Spinner/Spinner.stories.tsx",
-      "jsDocTags": {
-        "see": [
-          "{@link https://designsystem.amsterdam/?path=/docs/components-feedback-spinner--docs Spinner docs at Amsterdam Design System}"
-        ]
-      },
-      "description": "A spinning circle that is used for a short or unknown amount of time when something on the page is loading.",
-      "reactComponentMeta": {
-        "displayName": "Spinner",
-        "exportName": "Spinner",
-        "filePath": "/home/runner/work/design-system/design-system/packages/react/src/index.ts",
-        "description": "A spinning circle that is used for a short or unknown amount of time when something on the page is loading.",
-        "jsDocTags": {
-          "see": [
-            "{@link https://designsystem.amsterdam/?path=/docs/components-feedback-spinner--docs Spinner docs at Amsterdam Design System}"
-          ]
-        },
-        "props": {
-          "size": {
-            "name": "size",
-            "required": false,
-            "type": {
-              "name": "enum",
-              "raw": "\"small\" | \"large\" | \"medium\"",
-              "value": [
-                {
-                  "value": "\"small\""
-                },
-                {
-                  "value": "\"large\""
-                },
-                {
-                  "value": "\"medium\""
-                }
-              ]
-            },
-            "description": "The size of the spinner.",
-            "defaultValue": {
-              "value": "'medium'"
-            },
-            "parent": {
-              "name": "SpinnerProps",
-              "fileName": "../packages/react/src/Spinner/Spinner.tsx"
-            },
-            "declarations": [
-              {
-                "name": "TypeLiteral",
-                "fileName": "../packages/react/src/Spinner/Spinner.tsx"
-              }
-            ]
-          }
-        }
-      },
-      "stories": [
-        {
-          "id": "components-todo-add-group-spinner--default",
-          "name": "Default",
-          "snippet": "const Default = () => <Spinner>Nieuw component</Spinner>;"
-        }
-      ],
-      "import": "import { Spinner } from \"@amsterdam/design-system-react/src\";",
-      "docs": {
-        "components-todo-add-group-spinner--docs": {
-          "id": "components-todo-add-group-spinner--docs",
-          "name": "Docs",
-          "path": "./src/components/Spinner/Spinner.docs.mdx",
-          "title": "Components/TODO-ADD-GROUP/Spinner",
-          "content": "{/* @license CC0-1.0 */}\n\nimport { Canvas, Controls, Description, Meta, Primary, Title } from \"@storybook/addon-docs/blocks\";\n\nimport { DesignTokensTable } from \"#storybook/_components/DesignTokensTable/DesignTokensTable\";\nimport tokens from \"#tokens/components/ams/spinner.tokens.json\";\n\nimport * as SpinnerStories from \"./Spinner.stories.tsx\";\n\n<Meta of={SpinnerStories} />\n\n<Title />\n\n<Description of={SpinnerStories} />\n\n<Primary />\n\n<Controls />\n\n## Subcomponents\n\n### SubcomponentName\n\n## Usage guidelines\n\n### When to use\n\n### When not to use\n\n### How to use\n\n### How to write\n\n## Examples\n\n## Features\n\n## Design\n\n## Accessibility\n\n## See also\n\n## Design tokens\n\n<DesignTokensTable tokens={tokens} />\n",
-          "summary": "## Subcomponents ### SubcomponentName ## Usage guidelines ### When to use ### When not to ..."
         }
       }
     },
@@ -12150,6 +12150,6 @@
   },
   "meta": {
     "docgen": "react-component-meta",
-    "durationMs": 5611
+    "durationMs": 5510
   }
 }
