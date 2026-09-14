@@ -1,0 +1,1 @@
+import{t as e}from"./iframe-EGnHqt_1.js";e();
