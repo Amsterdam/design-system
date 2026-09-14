@@ -11181,21 +11181,55 @@
       "path": "./src/components/Spinner/Spinner.stories.tsx",
       "jsDocTags": {
         "see": [
-          "{@link https://designsystem.amsterdam/?path=/docs/components-TODO-ADD-GROUP-spinner--docs Spinner docs at Amsterdam Design System}"
+          "{@link https://designsystem.amsterdam/?path=/docs/components-feedback-spinner--docs Spinner docs at Amsterdam Design System}"
         ]
       },
-      "description": "The spinner is a component that is used when a page or a part of the page is loading",
+      "description": "A spinning circle that is used for a short or unknown amount of time when something on the page is loading.",
       "reactComponentMeta": {
         "displayName": "Spinner",
         "exportName": "Spinner",
         "filePath": "/home/runner/work/design-system/design-system/packages/react/src/index.ts",
-        "description": "The spinner is a component that is used when a page or a part of the page is loading",
+        "description": "A spinning circle that is used for a short or unknown amount of time when something on the page is loading.",
         "jsDocTags": {
           "see": [
-            "{@link https://designsystem.amsterdam/?path=/docs/components-TODO-ADD-GROUP-spinner--docs Spinner docs at Amsterdam Design System}"
+            "{@link https://designsystem.amsterdam/?path=/docs/components-feedback-spinner--docs Spinner docs at Amsterdam Design System}"
           ]
         },
-        "props": {}
+        "props": {
+          "size": {
+            "name": "size",
+            "required": false,
+            "type": {
+              "name": "enum",
+              "raw": "\"small\" | \"large\" | \"medium\"",
+              "value": [
+                {
+                  "value": "\"small\""
+                },
+                {
+                  "value": "\"large\""
+                },
+                {
+                  "value": "\"medium\""
+                }
+              ]
+            },
+            "description": "The size of the spinner.",
+            "defaultValue": {
+              "value": "'medium'"
+            },
+            "parent": {
+              "name": "SpinnerProps",
+              "fileName": "../packages/react/src/Spinner/Spinner.tsx"
+            },
+            "declarations": [
+              {
+                "name": "TypeLiteral",
+                "fileName": "../packages/react/src/Spinner/Spinner.tsx"
+              }
+            ]
+          }
+        }
       },
       "stories": [
         {
@@ -12116,6 +12150,6 @@
   },
   "meta": {
     "docgen": "react-component-meta",
-    "durationMs": 5297
+    "durationMs": 5611
   }
 }
