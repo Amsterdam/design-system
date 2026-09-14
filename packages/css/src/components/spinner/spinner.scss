@@ -6,8 +6,10 @@
 @use "animation";
 
 .ams-spinner {
+  border-block-end-color: #bebebe;
   border-block-start-color: var(--ams-color-progress-current);
-  border-color: #bebebe;
+  border-inline-end-color: #bebebe;
+  border-inline-start-color: #bebebe;
   border-radius: 50%;
   border-style: solid;
   border-width: var(--ams-border-width-m);
