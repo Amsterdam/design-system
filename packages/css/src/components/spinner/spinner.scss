@@ -3,6 +3,30 @@
  * Copyright Gemeente Amsterdam
  */
 
+@use "animation";
+
 .ams-spinner {
-  /* Add styles here */
+  border-block-start-color: var(--ams-color-progress-current);
+  border-color: #bebebe;
+  border-radius: 50%;
+  border-style: solid;
+  border-width: var(--ams-border-width-m);
+}
+
+.ams-spinner--small {
+  block-size: 2rem;
+  border-width: var(--ams-border-width-m);
+  inline-size: 2rem;
+}
+
+.ams-spinner--medium {
+  block-size: 4rem;
+  border-width: var(--ams-border-width-l);
+  inline-size: 4rem;
+}
+
+.ams-spinner--large {
+  block-size: 6rem;
+  border-width: var(--ams-border-width-xl);
+  inline-size: 6rem;
 }

@@ -3,22 +3,31 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { HTMLAttributes, PropsWithChildren } from 'react'
+import type { ForwardedRef, HTMLAttributes } from 'react'
 
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
 
-export type SpinnerProps = Readonly<PropsWithChildren<HTMLAttributes<HTMLElement>>>
+export const spinnerSizeOptions = ['small', 'medium', 'large'] as const
+
+export type SpinnerProps = {
+  /**
+   * The size of the spinner.
+   * @default 'medium'
+   */
+  readonly size?: (typeof spinnerSizeOptions)[number]
+} & Readonly<HTMLAttributes<HTMLDivElement>> &
+  Readonly<HTMLAttributes<HTMLDivElement>>
 
 /**
- * The spinner is a component that is used when a page or a part of the page is loading
+ * A spinning circle that is used for a short or unknown amount of time when something on the page is loading.
  *
- * @see {@link https://designsystem.amsterdam/?path=/docs/components-TODO-ADD-GROUP-spinner--docs Spinner docs at Amsterdam Design System}
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-feedback-spinner--docs Spinner docs at Amsterdam Design System}
  */
-export const Spinner = forwardRef<HTMLElement, SpinnerProps>(({ children, className, ...restProps }, ref) => (
-  <span {...restProps} className={clsx('ams-spinner', className)} ref={ref}>
-    {children}
-  </span>
-))
+export const Spinner = forwardRef(
+  ({ className, size = 'medium', ...restProps }: SpinnerProps, ref: ForwardedRef<HTMLDivElement>) => (
+    <div {...restProps} aria-hidden className={clsx('ams-spinner', `ams-spinner--${size}`, className)} ref={ref} />
+  ),
+)
 
 Spinner.displayName = 'Spinner'
