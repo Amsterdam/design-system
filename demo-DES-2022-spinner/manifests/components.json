@@ -11175,6 +11175,47 @@
         }
       }
     },
+    "components-todo-add-group-spinner": {
+      "id": "components-todo-add-group-spinner",
+      "name": "Spinner",
+      "path": "./src/components/Spinner/Spinner.stories.tsx",
+      "jsDocTags": {
+        "see": [
+          "{@link https://designsystem.amsterdam/?path=/docs/components-TODO-ADD-GROUP-spinner--docs Spinner docs at Amsterdam Design System}"
+        ]
+      },
+      "description": "The spinner is a component that is used when a page or a part of the page is loading",
+      "reactComponentMeta": {
+        "displayName": "Spinner",
+        "exportName": "Spinner",
+        "filePath": "/home/runner/work/design-system/design-system/packages/react/src/index.ts",
+        "description": "The spinner is a component that is used when a page or a part of the page is loading",
+        "jsDocTags": {
+          "see": [
+            "{@link https://designsystem.amsterdam/?path=/docs/components-TODO-ADD-GROUP-spinner--docs Spinner docs at Amsterdam Design System}"
+          ]
+        },
+        "props": {}
+      },
+      "stories": [
+        {
+          "id": "components-todo-add-group-spinner--default",
+          "name": "Default",
+          "snippet": "const Default = () => <Spinner>Nieuw component</Spinner>;"
+        }
+      ],
+      "import": "import { Spinner } from \"@amsterdam/design-system-react/src\";",
+      "docs": {
+        "components-todo-add-group-spinner--docs": {
+          "id": "components-todo-add-group-spinner--docs",
+          "name": "Docs",
+          "path": "./src/components/Spinner/Spinner.docs.mdx",
+          "title": "Components/TODO-ADD-GROUP/Spinner",
+          "content": "{/* @license CC0-1.0 */}\n\nimport { Canvas, Controls, Description, Meta, Primary, Title } from \"@storybook/addon-docs/blocks\";\n\nimport { DesignTokensTable } from \"#storybook/_components/DesignTokensTable/DesignTokensTable\";\nimport tokens from \"#tokens/components/ams/spinner.tokens.json\";\n\nimport * as SpinnerStories from \"./Spinner.stories.tsx\";\n\n<Meta of={SpinnerStories} />\n\n<Title />\n\n<Description of={SpinnerStories} />\n\n<Primary />\n\n<Controls />\n\n## Subcomponents\n\n### SubcomponentName\n\n## Usage guidelines\n\n### When to use\n\n### When not to use\n\n### How to use\n\n### How to write\n\n## Examples\n\n## Features\n\n## Design\n\n## Accessibility\n\n## See also\n\n## Design tokens\n\n<DesignTokensTable tokens={tokens} />\n",
+          "summary": "## Subcomponents ### SubcomponentName ## Usage guidelines ### When to use ### When not to ..."
+        }
+      }
+    },
     "utilities-css-aspect-ratio": {
       "id": "utilities-css-aspect-ratio",
       "name": "AspectRatio",
@@ -12075,6 +12116,6 @@
   },
   "meta": {
     "docgen": "react-component-meta",
-    "durationMs": 5405
+    "durationMs": 5297
   }
 }
