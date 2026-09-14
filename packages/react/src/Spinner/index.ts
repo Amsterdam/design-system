@@ -3,5 +3,5 @@
  * Copyright Gemeente Amsterdam
  */
 
-export { Spinner } from './Spinner'
+export { Spinner, spinnerSizeOptions } from './Spinner'
 export type { SpinnerProps } from './Spinner'
