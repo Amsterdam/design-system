@@ -13,7 +13,7 @@ import { default as spinnerMeta } from './Spinner.stories'
 
 const meta = {
   ...spinnerMeta,
-  title: 'Components/TODO-ADD-GROUP/Spinner',
+  title: 'Components/Feedback/Spinner',
 } satisfies Meta<typeof Spinner>
 
 export default meta

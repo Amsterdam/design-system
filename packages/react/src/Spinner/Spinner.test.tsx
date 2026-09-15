@@ -27,6 +27,30 @@ describe('Spinner', () => {
     expect(component).toHaveClass('ams-spinner')
   })
 
+  it('renders the medium size by default', () => {
+    const { container } = render(<Spinner />)
+
+    const component = container.querySelector(':only-child')
+
+    expect(component).toHaveClass('ams-spinner--medium')
+  })
+
+  it('renders the small size', () => {
+    const { container } = render(<Spinner size="small" />)
+
+    const component = container.querySelector(':only-child')
+
+    expect(component).toHaveClass('ams-spinner--small')
+  })
+
+  it('renders the large size', () => {
+    const { container } = render(<Spinner size="large" />)
+
+    const component = container.querySelector(':only-child')
+
+    expect(component).toHaveClass('ams-spinner--large')
+  })
+
   it('renders an extra class name', () => {
     const { container } = render(<Spinner className="extra" />)
 
@@ -43,5 +67,13 @@ describe('Spinner', () => {
     const component = container.querySelector(':only-child')
 
     expect(ref.current).toBe(component)
+  })
+
+  it('is hidden from assistive technologies', () => {
+    const { container } = render(<Spinner />)
+
+    const component = container.querySelector(':only-child')
+
+    expect(component).toHaveAttribute('aria-hidden', 'true')
   })
 })
