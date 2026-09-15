@@ -16,8 +16,7 @@ export type SpinnerProps = {
    * @default 'medium'
    */
   readonly size?: (typeof spinnerSizeOptions)[number]
-} & Readonly<HTMLAttributes<HTMLDivElement>> &
-  Readonly<HTMLAttributes<HTMLDivElement>>
+} & Readonly<HTMLAttributes<HTMLDivElement>>
 
 /**
  * A spinning circle that is used for a short or unknown amount of time when something on the page is loading.
