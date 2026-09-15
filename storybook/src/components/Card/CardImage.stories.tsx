@@ -21,6 +21,10 @@ const meta = {
       },
       options: [undefined, ...aspectRatioOptions],
     },
+    objectFit: {
+      control: { type: 'radio' },
+      options: ['contain', 'cover'],
+    },
   },
   decorators: [
     (Story) => (
@@ -36,10 +40,15 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
+/**
+ * This file is 16 by 9, like the area it sits in, so `objectFit` has nothing to do here.
+ * Set another `aspectRatio` to see the two modes differ.
+ */
 export const Image: Story = {
   args: {
     alt: '',
     aspectRatio: '16:9',
+    objectFit: 'contain',
     src: 'https://picsum.photos/800/450',
   },
   argTypes: {
