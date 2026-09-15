@@ -1,5 +1,71 @@
 {
   "ams": {
-    "spinner": {}
+    "spinner": {
+      "animation": {
+        "$value": "ams-spinner-rotate 0.8s linear infinite",
+        "$description": "The loading animation."
+      },
+      "track-color": {
+        "$value": "#d1d1d1",
+        "$description": "The colour of the ring's resting track.",
+        "$extensions": {
+          "nl.amsterdam.type": "color"
+        }
+      },
+      "small": {
+        "size": {
+          "$value": {
+            "value": 2,
+            "unit": "rem"
+          },
+          "$type": "dimension",
+          "$description": "The diameter of a small Spinner."
+        },
+        "border-width": {
+          "$value": {
+            "value": 0.25,
+            "unit": "rem"
+          },
+          "$type": "dimension",
+          "$description": "The border width of a small Spinner."
+        }
+      },
+      "medium": {
+        "size": {
+          "$value": {
+            "value": 4,
+            "unit": "rem"
+          },
+          "$type": "dimension",
+          "$description": "The diameter of a medium Spinner."
+        },
+        "border-width": {
+          "$value": {
+            "value": 0.375,
+            "unit": "rem"
+          },
+          "$type": "dimension",
+          "$description": "The border width of a medium Spinner."
+        }
+      },
+      "large": {
+        "size": {
+          "$value": {
+            "value": 6,
+            "unit": "rem"
+          },
+          "$type": "dimension",
+          "$description": "The diameter of a large Spinner."
+        },
+        "border-width": {
+          "$value": {
+            "value": 0.5,
+            "unit": "rem"
+          },
+          "$type": "dimension",
+          "$description": "The border width of a large Spinner."
+        }
+      }
+    }
   }
 }

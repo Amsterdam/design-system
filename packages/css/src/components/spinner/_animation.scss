@@ -6,7 +6,7 @@
 // A steady rotation signals that loading is under way. Users who prefer reduced motion keep a static ring.
 @media (prefers-reduced-motion: no-preference) {
   .ams-spinner {
-    animation: ams-spinner-rotate 0.8s linear infinite;
+    animation: var(--ams-spinner-animation);
   }
 }
 

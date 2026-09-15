@@ -6,29 +6,29 @@
 @use "animation";
 
 .ams-spinner {
-  border-block-end-color: #bebebe;
+  aspect-ratio: 1;
+  border-block-end-color: var(--ams-spinner-track-color);
   border-block-start-color: var(--ams-color-progress-current);
-  border-inline-end-color: #bebebe;
-  border-inline-start-color: #bebebe;
+  border-inline-end-color: var(--ams-spinner-track-color);
+  border-inline-start-color: var(--ams-spinner-track-color);
   border-radius: 50%;
   border-style: solid;
-  border-width: var(--ams-border-width-m);
 }
 
 .ams-spinner--small {
-  block-size: 2rem;
-  border-width: var(--ams-border-width-m);
-  inline-size: 2rem;
+  block-size: var(--ams-spinner-small-size);
+  border-width: var(--ams-spinner-small-border-width);
+  inline-size: var(--ams-spinner-small-size);
 }
 
 .ams-spinner--medium {
-  block-size: 4rem;
-  border-width: var(--ams-border-width-l);
-  inline-size: 4rem;
+  block-size: var(--ams-spinner-medium-size);
+  border-width: var(--ams-spinner-medium-border-width);
+  inline-size: var(--ams-spinner-medium-size);
 }
 
 .ams-spinner--large {
-  block-size: 6rem;
-  border-width: var(--ams-border-width-xl);
-  inline-size: 6rem;
+  block-size: var(--ams-spinner-large-size);
+  border-width: var(--ams-spinner-large-border-width);
+  inline-size: var(--ams-spinner-large-size);
 }
