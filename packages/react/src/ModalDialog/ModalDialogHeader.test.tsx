@@ -3,6 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { ButtonHTMLAttributes } from 'react'
+
 import { fireEvent, render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 import { afterEach, describe, expect, it, vi } from 'vitest'
@@ -10,6 +12,17 @@ import { afterEach, describe, expect, it, vi } from 'vitest'
 import { ModalDialogHeader } from './ModalDialogHeader'
 
 const originalClose = HTMLDialogElement.prototype.close
+
+const CustomCloseButton = ({
+  className,
+  label,
+  onClick,
+  type,
+}: { readonly label?: string } & ButtonHTMLAttributes<HTMLButtonElement>) => (
+  <button className={className} data-custom="true" onClick={onClick} type={type}>
+    {label}
+  </button>
+)
 
 describe('ModalDialogHeader', () => {
   afterEach(() => {
@@ -120,6 +133,31 @@ describe('ModalDialogHeader', () => {
       render(
         <dialog open>
           <ModalDialogHeader />
+        </dialog>,
+      )
+
+      fireEvent.click(screen.getByRole('button', { name: 'Sluiten' }))
+
+      expect(closeMock).toHaveBeenCalledOnce()
+    })
+
+    it('renders a custom close button component', () => {
+      render(<ModalDialogHeader closeButtonComponent={CustomCloseButton} />)
+
+      const button = screen.getByRole('button', { name: 'Sluiten' })
+
+      expect(button).toHaveAttribute('data-custom', 'true')
+      expect(button).toHaveAttribute('type', 'button')
+      expect(button).toHaveClass('ams-modal-dialog__close-button')
+    })
+
+    it('closes the dialog containing the header with a custom close button component', () => {
+      const closeMock = vi.fn()
+      HTMLDialogElement.prototype.close = closeMock
+
+      render(
+        <dialog open>
+          <ModalDialogHeader closeButtonComponent={CustomCloseButton} />
         </dialog>,
       )
 

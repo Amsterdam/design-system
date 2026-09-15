@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
+import type { ElementType, ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
@@ -20,6 +20,13 @@ export type ModalDialogHeaderProps = {
    * @default Sluiten
    */
   readonly closeButtonAccessibleName?: string
+  /**
+   * The React component to use for the button that dismisses the Modal Dialog.
+   * It receives the same props as the default Icon Button.
+   * Pass `className` and `onClick` on to the button it renders.
+   * Websites for the City of Amsterdam must use the default button.
+   */
+  readonly closeButtonComponent?: ElementType
   /**
    * An icon for the button that dismisses the Modal Dialog, to display instead of the default cross.
    * Websites for the City of Amsterdam must use the default icon.
@@ -44,24 +51,29 @@ export const ModalDialogHeader = forwardRef(
       children,
       className,
       closeButtonAccessibleName = 'Sluiten',
+      closeButtonComponent,
       closeButtonIcon,
       closeButtonSize = 'heading-2',
       ...restProps
     }: ModalDialogHeaderProps,
     ref: ForwardedRef<HTMLElement>,
-  ) => (
-    <header {...restProps} className={clsx('ams-modal-dialog__header', className)} ref={ref}>
-      {children}
-      <IconButton
-        className="ams-modal-dialog__close-button"
-        label={closeButtonAccessibleName}
-        onClick={closeModalDialog}
-        size={closeButtonSize}
-        svg={closeButtonIcon}
-        type="button"
-      />
-    </header>
-  ),
+  ) => {
+    const CloseButton = closeButtonComponent || IconButton
+
+    return (
+      <header {...restProps} className={clsx('ams-modal-dialog__header', className)} ref={ref}>
+        {children}
+        <CloseButton
+          className="ams-modal-dialog__close-button"
+          label={closeButtonAccessibleName}
+          onClick={closeModalDialog}
+          size={closeButtonSize}
+          svg={closeButtonIcon}
+          type="button"
+        />
+      </header>
+    )
+  },
 )
 
 ModalDialogHeader.displayName = 'ModalDialog.Header'
