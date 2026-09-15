@@ -43,7 +43,7 @@ Choose a size that fits the situation:
 
 - <b>Small:</b> for use next to text or inside a button.
 - <b>Medium:</b> for a standalone element, such as a card or panel.
-- <b>large:</b> for a loading state that covers a page or a large part of a page.
+- <b>Large:</b> for a loading state that covers a page or a large part of a page.
 
 A Spinner is decorative and hidden from screen readers, so it does not announce anything itself.
 The region containing the Spinner announces the loading state instead. This prevents multiple Spinners on the same page from making separate announcements.
@@ -61,7 +61,7 @@ When the content has loaded, replace the Spinner with it, set `aria-busy` to `fa
 
 #### Customising the animation
 
-The spinner component uses it's own custom animation. This animation can be found in it's own separate \_\_animation.scss file.
+The animation is set through one custom property, `--ams-spinner-animation`, which holds a CSS `animation` shorthand.
 
 You can change it to fit your theme. For example, you can:
 
