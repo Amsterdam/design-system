@@ -594,7 +594,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>4.8s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>5.5s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -35470,7 +35470,7 @@ Choose a size that fits the situation:
 
 - &lt;b&gt;Small:&lt;/b&gt; for use next to text or inside a button.
 - &lt;b&gt;Medium:&lt;/b&gt; for a standalone element, such as a card or panel.
-- &lt;b&gt;large:&lt;/b&gt; for a loading state that covers a page or a large part of a page.
+- &lt;b&gt;Large:&lt;/b&gt; for a loading state that covers a page or a large part of a page.
 
 A Spinner is decorative and hidden from screen readers, so it does not announce anything itself.
 The region containing the Spinner announces the loading state instead. This prevents multiple Spinners on the same page from making separate announcements.
@@ -35488,7 +35488,7 @@ When the content has loaded, replace the Spinner with it, set `aria-busy` to `fa
 
 #### Customising the animation
 
-The spinner component uses it&#39;s own custom animation. This animation can be found in it&#39;s own separate \_\_animation.scss file.
+The animation is set through one custom property, `--ams-spinner-animation`, which holds a CSS `animation` shorthand.
 
 You can change it to fit your theme. For example, you can:
 
