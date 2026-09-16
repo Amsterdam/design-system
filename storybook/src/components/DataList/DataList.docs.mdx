@@ -3,9 +3,12 @@
 import { Canvas, Controls, Description, Meta, Primary, Title } from "@storybook/addon-docs/blocks";
 
 import { DesignTokensTable } from "#storybook/_components/DesignTokensTable/DesignTokensTable";
-import tokens from "#tokens/components/ams/data-list.tokens.json";
+import dataListHeaderTokens from "#tokens/components/ams/data-list-header.tokens.json";
+import dataListTokens from "#tokens/components/ams/data-list.tokens.json";
 
 import * as DataListStories from "./DataList.stories.tsx";
+
+const tokens = { ams: { ...dataListTokens.ams, ...dataListHeaderTokens.ams } };
 
 <Meta of={DataListStories} />
 
