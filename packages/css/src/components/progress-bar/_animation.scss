@@ -1,0 +1,15 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+// The bar grows toward its new value. Users who prefer reduced motion see the
+// change without animation. The bar does not animate on page load
+// only when the value is changed.
+@media (prefers-reduced-motion: no-preference) {
+  .ams-progress-bar-progress {
+    &::-webkit-progress-value {
+      transition: var(--ams-progress-bar-animation);
+    }
+  }
+}

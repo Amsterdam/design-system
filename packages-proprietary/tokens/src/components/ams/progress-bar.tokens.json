@@ -1,5 +1,42 @@
 {
   "ams": {
-    "progress-bar": {}
+    "progress-bar": {
+      "animation": {
+        "$value": "width 0.3s ease-out",
+        "$description": "The transition used to animate the bar toward its new value."
+      },
+      "height": {
+        "$value": {
+          "value": 0.5,
+          "unit": "rem"
+        },
+        "$type": "dimension",
+        "$description": "The block size of the ProgressBar. (needs to be discussed)"
+      },
+      "border-width": {
+        "$value": {
+          "value": 0.0625,
+          "unit": "rem"
+        },
+        "$type": "dimension",
+        "$description": "The border width of the ProgressBar. (needs to be discussed)"
+      },
+      "text-font-size": {
+        "$value": {
+          "value": 0.875,
+          "unit": "rem"
+        },
+        "$type": "dimension",
+        "$description": "The font size of the ProgressBar's text. (needs to be discussed)"
+      },
+      "text-gap": {
+        "$value": {
+          "value": 0.25,
+          "unit": "rem"
+        },
+        "$type": "dimension",
+        "$description": "The space between the ProgressBar's text and its bar. (needs to be discussed)"
+      }
+    }
   }
 }

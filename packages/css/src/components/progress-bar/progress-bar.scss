@@ -3,6 +3,40 @@
  * Copyright Gemeente Amsterdam
  */
 
+@use "animation";
+
 .ams-progress-bar {
-  /* Add styles here */
+  block-size: auto;
+  display: flex;
+  flex-direction: column;
+  inline-size: 100%;
+}
+
+.ams-progress-bar-text {
+  color: var(--ams-color-text);
+  font-size: var(--ams-progress-bar-text-font-size);
+  margin-block: var(--ams-progress-bar-text-gap);
+}
+
+.ams-progress-bar-progress {
+  appearance: none;
+  block-size: var(--ams-progress-bar-height);
+  border-color: var(--ams-color-progress-upcoming);
+  border-radius: var(--ams-progress-bar-height);
+  border-style: solid;
+  border-width: var(--ams-progress-bar-border-width);
+  box-sizing: border-box;
+  display: block;
+  inline-size: 100%;
+  overflow: hidden;
+
+  &::-webkit-progress-bar {
+    background-color: var(--ams-color-background);
+    border-radius: var(--ams-progress-bar-height);
+  }
+
+  &::-webkit-progress-value {
+    background-color: var(--ams-color-progress-completed);
+    border-radius: var(--ams-progress-bar-height);
+  }
 }
