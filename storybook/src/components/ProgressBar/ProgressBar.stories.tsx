@@ -7,22 +7,19 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { ProgressBar } from '@amsterdam/design-system-react/src'
 
-import { childrenArgType } from '#storybook/_common/argTypes'
-
 const meta = {
   title: 'Components/Feedback/ProgressBar',
   component: ProgressBar,
-  args: {
-    children: 'Nieuw component',
-  },
-  // Configure controls following documentation/storybook.md.
-  argTypes: {
-    children: childrenArgType('Any content for this component.'),
-  },
 } satisfies Meta<typeof ProgressBar>
 
 export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = {}
+export const Default: Story = {
+  args: {
+    max: 10,
+    text: '4 van de 10 stappen',
+    value: 4,
+  },
+}
