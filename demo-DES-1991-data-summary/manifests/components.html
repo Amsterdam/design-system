@@ -594,7 +594,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>4.5s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>5.8s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -5654,31 +5654,31 @@ The `as` prop can render an `article` or a `section` instead, which does reach a
   no-story-error
   no-doc-error"
   role="listitem"
-  aria-label="DataSummary">
+  aria-label="DataList">
   <div class="head">
     <div class="title">
-      <h2><span class="status-dot dot-ok"></span> DataSummary</h2>
+      <h2><span class="status-dot dot-ok"></span> DataList</h2>
       <div class="badges">
-        <label for="c-18-components-containers-data-summary-props" class="badge ok as-toggle">2 prop types</label>
+        <label for="c-18-components-containers-data-list-props" class="badge ok as-toggle">2 prop types</label>
         
-        <label for="c-18-components-containers-data-summary-stories" class="badge ok as-toggle">6 stories</label>
-        <label for="c-18-components-containers-data-summary-docs" class="badge ok as-toggle">1 doc</label>
-        <label for="c-18-components-containers-data-summary-subcomponents" class="badge ok as-toggle">4 subcomponents</label>
+        <label for="c-18-components-containers-data-list-stories" class="badge ok as-toggle">6 stories</label>
+        <label for="c-18-components-containers-data-list-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-18-components-containers-data-list-subcomponents" class="badge ok as-toggle">4 subcomponents</label>
       </div>
     </div>
-    <div class="meta" title="./src/components/DataSummary/DataSummary.stories.tsx">components-containers-data-summary · ./src/components/DataSummary/DataSummary.stories.tsx</div>
+    <div class="meta" title="./src/components/DataList/DataList.stories.tsx">components-containers-data-list · ./src/components/DataList/DataList.stories.tsx</div>
     
     <div class="hint">An overview of data, presenting each label with its value on a line of its own.</div>
-    <div class="kv"><span class="chip">see: {@link https://designsystem.amsterdam/?path=/docs/components-containers-data-summary--docs Data Summary docs at Amsterdam Design System}</span></div>
+    <div class="kv"><span class="chip">see: {@link https://designsystem.amsterdam/?path=/docs/components-containers-data-list--docs Data List docs at Amsterdam Design System}</span></div>
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-18-components-containers-data-summary-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-18-components-containers-data-summary-docs" class="tg tg-docs" type="checkbox" hidden />
-  <input id="c-18-components-containers-data-summary-subcomponents" class="tg tg-subcomponents" type="checkbox" hidden />
-  <input id="c-18-components-containers-data-summary-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-18-components-containers-data-list-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-18-components-containers-data-list-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-18-components-containers-data-list-subcomponents" class="tg tg-subcomponents" type="checkbox" hidden />
+  <input id="c-18-components-containers-data-list-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -5690,7 +5690,7 @@ The `as` prop can render an `article` or a `section` instead, which does reach a
               <span class="ex-name">Prop types <small>(react-component-meta)</small></span>
               <span class="badge ok">2 prop types</span>
             </div>
-            <pre><code>Component: ../packages/react/src/index.ts::DataSummary</code></pre>
+            <pre><code>Component: ../packages/react/src/index.ts::DataList</code></pre>
             <pre><code>Props:</code></pre>
             <pre><code>/**
  * Whether a label and its value sit side by side in a wide enough container, or always below each other.
@@ -5723,7 +5723,7 @@ termsWidth?: &quot;narrow&quot; | &quot;medium&quot; | &quot;wide&quot;</code></
     Row,
     StandaloneLink,
 } from "@amsterdam/design-system-react";
-import { DataSummary } from "@amsterdam/design-system-react/src";</code></pre>
+import { DataList } from "@amsterdam/design-system-react/src";</code></pre>
               </div>
           
           
@@ -5734,24 +5734,24 @@ import { DataSummary } from "@amsterdam/design-system-react/src";</code></pre>
               </div>
               
               
-              <pre><code>const Default = () =&gt; &lt;DataSummary&gt;{[
-      &lt;DataSummary.Item key={1}&gt;
-        &lt;DataSummary.Label&gt;Naam&lt;/DataSummary.Label&gt;
-        &lt;DataSummary.Value&gt;Magere Brug&lt;/DataSummary.Value&gt;
-      &lt;/DataSummary.Item&gt;,
-      &lt;DataSummary.Item key={2}&gt;
-        &lt;DataSummary.Label&gt;Type&lt;/DataSummary.Label&gt;
-        &lt;DataSummary.Value&gt;Ophaalbrug&lt;/DataSummary.Value&gt;
-      &lt;/DataSummary.Item&gt;,
-      &lt;DataSummary.Item key={3}&gt;
-        &lt;DataSummary.Label&gt;Bouwjaar&lt;/DataSummary.Label&gt;
-        &lt;DataSummary.Value&gt;1934&lt;/DataSummary.Value&gt;
-      &lt;/DataSummary.Item&gt;,
-      &lt;DataSummary.Item key={4}&gt;
-        &lt;DataSummary.Label&gt;Ligging&lt;/DataSummary.Label&gt;
-        &lt;DataSummary.Value&gt;Over de Amstel, tussen de Kerkstraat en de Nieuwe Kerkstraat&lt;/DataSummary.Value&gt;
-      &lt;/DataSummary.Item&gt;,
-    ]}&lt;/DataSummary&gt;;</code></pre>
+              <pre><code>const Default = () =&gt; &lt;DataList&gt;{[
+      &lt;DataList.Item key={1}&gt;
+        &lt;DataList.Label&gt;Naam&lt;/DataList.Label&gt;
+        &lt;DataList.Value&gt;Magere Brug&lt;/DataList.Value&gt;
+      &lt;/DataList.Item&gt;,
+      &lt;DataList.Item key={2}&gt;
+        &lt;DataList.Label&gt;Type&lt;/DataList.Label&gt;
+        &lt;DataList.Value&gt;Ophaalbrug&lt;/DataList.Value&gt;
+      &lt;/DataList.Item&gt;,
+      &lt;DataList.Item key={3}&gt;
+        &lt;DataList.Label&gt;Bouwjaar&lt;/DataList.Label&gt;
+        &lt;DataList.Value&gt;1934&lt;/DataList.Value&gt;
+      &lt;/DataList.Item&gt;,
+      &lt;DataList.Item key={4}&gt;
+        &lt;DataList.Label&gt;Ligging&lt;/DataList.Label&gt;
+        &lt;DataList.Value&gt;Over de Amstel, tussen de Kerkstraat en de Nieuwe Kerkstraat&lt;/DataList.Value&gt;
+      &lt;/DataList.Item&gt;,
+    ]}&lt;/DataList&gt;;</code></pre>
             </div>
             <div class="note ok">
               <div class="row">
@@ -5760,20 +5760,20 @@ import { DataSummary } from "@amsterdam/design-system-react/src";</code></pre>
               </div>
               
               
-              <pre><code>const Orientation = () =&gt; &lt;DataSummary&gt;{[
-      &lt;DataSummary.Item key={1}&gt;
-        &lt;DataSummary.Label&gt;Naam&lt;/DataSummary.Label&gt;
-        &lt;DataSummary.Value&gt;Magere Brug&lt;/DataSummary.Value&gt;
-      &lt;/DataSummary.Item&gt;,
-      &lt;DataSummary.Item key={2}&gt;
-        &lt;DataSummary.Label&gt;Type&lt;/DataSummary.Label&gt;
-        &lt;DataSummary.Value&gt;Ophaalbrug&lt;/DataSummary.Value&gt;
-      &lt;/DataSummary.Item&gt;,
-      &lt;DataSummary.Item key={3}&gt;
-        &lt;DataSummary.Label&gt;Bouwjaar&lt;/DataSummary.Label&gt;
-        &lt;DataSummary.Value&gt;1934&lt;/DataSummary.Value&gt;
-      &lt;/DataSummary.Item&gt;,
-    ]}&lt;/DataSummary&gt;;</code></pre>
+              <pre><code>const Orientation = () =&gt; &lt;DataList&gt;{[
+      &lt;DataList.Item key={1}&gt;
+        &lt;DataList.Label&gt;Naam&lt;/DataList.Label&gt;
+        &lt;DataList.Value&gt;Magere Brug&lt;/DataList.Value&gt;
+      &lt;/DataList.Item&gt;,
+      &lt;DataList.Item key={2}&gt;
+        &lt;DataList.Label&gt;Type&lt;/DataList.Label&gt;
+        &lt;DataList.Value&gt;Ophaalbrug&lt;/DataList.Value&gt;
+      &lt;/DataList.Item&gt;,
+      &lt;DataList.Item key={3}&gt;
+        &lt;DataList.Label&gt;Bouwjaar&lt;/DataList.Label&gt;
+        &lt;DataList.Value&gt;1934&lt;/DataList.Value&gt;
+      &lt;/DataList.Item&gt;,
+    ]}&lt;/DataList&gt;;</code></pre>
             </div>
             <div class="note ok">
               <div class="row">
@@ -5782,24 +5782,24 @@ import { DataSummary } from "@amsterdam/design-system-react/src";</code></pre>
               </div>
               
               
-              <pre><code>const Stacked = () =&gt; &lt;DataSummary orientation=&quot;vertical&quot;&gt;{[
-      &lt;DataSummary.Item key={1}&gt;
-        &lt;DataSummary.Label&gt;Naam&lt;/DataSummary.Label&gt;
-        &lt;DataSummary.Value&gt;Magere Brug&lt;/DataSummary.Value&gt;
-      &lt;/DataSummary.Item&gt;,
-      &lt;DataSummary.Item key={2}&gt;
-        &lt;DataSummary.Label&gt;Type&lt;/DataSummary.Label&gt;
-        &lt;DataSummary.Value&gt;Ophaalbrug&lt;/DataSummary.Value&gt;
-      &lt;/DataSummary.Item&gt;,
-      &lt;DataSummary.Item key={3}&gt;
-        &lt;DataSummary.Label&gt;Bouwjaar&lt;/DataSummary.Label&gt;
-        &lt;DataSummary.Value&gt;1934&lt;/DataSummary.Value&gt;
-      &lt;/DataSummary.Item&gt;,
-      &lt;DataSummary.Item key={4}&gt;
-        &lt;DataSummary.Label&gt;Ligging&lt;/DataSummary.Label&gt;
-        &lt;DataSummary.Value&gt;Over de Amstel, tussen de Kerkstraat en de Nieuwe Kerkstraat&lt;/DataSummary.Value&gt;
-      &lt;/DataSummary.Item&gt;,
-    ]}&lt;/DataSummary&gt;;</code></pre>
+              <pre><code>const Stacked = () =&gt; &lt;DataList orientation=&quot;vertical&quot;&gt;{[
+      &lt;DataList.Item key={1}&gt;
+        &lt;DataList.Label&gt;Naam&lt;/DataList.Label&gt;
+        &lt;DataList.Value&gt;Magere Brug&lt;/DataList.Value&gt;
+      &lt;/DataList.Item&gt;,
+      &lt;DataList.Item key={2}&gt;
+        &lt;DataList.Label&gt;Type&lt;/DataList.Label&gt;
+        &lt;DataList.Value&gt;Ophaalbrug&lt;/DataList.Value&gt;
+      &lt;/DataList.Item&gt;,
+      &lt;DataList.Item key={3}&gt;
+        &lt;DataList.Label&gt;Bouwjaar&lt;/DataList.Label&gt;
+        &lt;DataList.Value&gt;1934&lt;/DataList.Value&gt;
+      &lt;/DataList.Item&gt;,
+      &lt;DataList.Item key={4}&gt;
+        &lt;DataList.Label&gt;Ligging&lt;/DataList.Label&gt;
+        &lt;DataList.Value&gt;Over de Amstel, tussen de Kerkstraat en de Nieuwe Kerkstraat&lt;/DataList.Value&gt;
+      &lt;/DataList.Item&gt;,
+    ]}&lt;/DataList&gt;;</code></pre>
             </div>
             <div class="note ok">
               <div class="row">
@@ -5808,30 +5808,30 @@ import { DataSummary } from "@amsterdam/design-system-react/src";</code></pre>
               </div>
               
               
-              <pre><code>const Action = () =&gt; &lt;DataSummary&gt;{[
-      &lt;DataSummary.Item key={1}&gt;
-        &lt;DataSummary.Label&gt;Voornaam&lt;/DataSummary.Label&gt;
-        &lt;DataSummary.Value&gt;Johan&lt;/DataSummary.Value&gt;
-        &lt;DataSummary.Action&gt;
+              <pre><code>const Action = () =&gt; &lt;DataList&gt;{[
+      &lt;DataList.Item key={1}&gt;
+        &lt;DataList.Label&gt;Voornaam&lt;/DataList.Label&gt;
+        &lt;DataList.Value&gt;Johan&lt;/DataList.Value&gt;
+        &lt;DataList.Actions&gt;
           &lt;StandaloneLink href=&quot;#&quot; icon={PencilIcon}&gt;
             Wijzigen&lt;span className=&quot;ams-visually-hidden&quot;&gt; voornaam&lt;/span&gt;
           &lt;/StandaloneLink&gt;
-        &lt;/DataSummary.Action&gt;
-      &lt;/DataSummary.Item&gt;,
-      &lt;DataSummary.Item key={2}&gt;
-        &lt;DataSummary.Label&gt;Achternaam&lt;/DataSummary.Label&gt;
-        &lt;DataSummary.Value&gt;Cruijff&lt;/DataSummary.Value&gt;
-        &lt;DataSummary.Action&gt;
+        &lt;/DataList.Actions&gt;
+      &lt;/DataList.Item&gt;,
+      &lt;DataList.Item key={2}&gt;
+        &lt;DataList.Label&gt;Achternaam&lt;/DataList.Label&gt;
+        &lt;DataList.Value&gt;Cruijff&lt;/DataList.Value&gt;
+        &lt;DataList.Actions&gt;
           &lt;StandaloneLink href=&quot;#&quot; icon={PencilIcon}&gt;
             Wijzigen&lt;span className=&quot;ams-visually-hidden&quot;&gt; achternaam&lt;/span&gt;
           &lt;/StandaloneLink&gt;
-        &lt;/DataSummary.Action&gt;
-      &lt;/DataSummary.Item&gt;,
-      &lt;DataSummary.Item key={3}&gt;
-        &lt;DataSummary.Label&gt;Burgerservicenummer&lt;/DataSummary.Label&gt;
-        &lt;DataSummary.Value&gt;123456782&lt;/DataSummary.Value&gt;
-      &lt;/DataSummary.Item&gt;,
-    ]}&lt;/DataSummary&gt;;</code></pre>
+        &lt;/DataList.Actions&gt;
+      &lt;/DataList.Item&gt;,
+      &lt;DataList.Item key={3}&gt;
+        &lt;DataList.Label&gt;Burgerservicenummer&lt;/DataList.Label&gt;
+        &lt;DataList.Value&gt;123456782&lt;/DataList.Value&gt;
+      &lt;/DataList.Item&gt;,
+    ]}&lt;/DataList&gt;;</code></pre>
             </div>
             <div class="note ok">
               <div class="row">
@@ -5840,31 +5840,31 @@ import { DataSummary } from "@amsterdam/design-system-react/src";</code></pre>
               </div>
               
               
-              <pre><code>const CompositeValue = () =&gt; &lt;DataSummary&gt;{[
-      &lt;DataSummary.Item key={1}&gt;
-        &lt;DataSummary.Label&gt;Adres&lt;/DataSummary.Label&gt;
-        &lt;DataSummary.Value&gt;
+              <pre><code>const CompositeValue = () =&gt; &lt;DataList&gt;{[
+      &lt;DataList.Item key={1}&gt;
+        &lt;DataList.Label&gt;Adres&lt;/DataList.Label&gt;
+        &lt;DataList.Value&gt;
           &lt;span&gt;Amstel 1&lt;/span&gt;
           &lt;span&gt;1011 PN Amsterdam&lt;/span&gt;
-        &lt;/DataSummary.Value&gt;
-      &lt;/DataSummary.Item&gt;,
-      &lt;DataSummary.Item key={2}&gt;
-        &lt;DataSummary.Label&gt;Toelichting&lt;/DataSummary.Label&gt;
-        &lt;DataSummary.Value&gt;
+        &lt;/DataList.Value&gt;
+      &lt;/DataList.Item&gt;,
+      &lt;DataList.Item key={2}&gt;
+        &lt;DataList.Label&gt;Toelichting&lt;/DataList.Label&gt;
+        &lt;DataList.Value&gt;
           &lt;Paragraph&gt;
             De brug is afgesloten voor gemotoriseerd verkeer. Fietsers en voetgangers kunnen er wel overheen.
           &lt;/Paragraph&gt;
           &lt;Link href=&quot;#&quot;&gt;Bekijk de omleidingsroute&lt;/Link&gt;
-        &lt;/DataSummary.Value&gt;
-      &lt;/DataSummary.Item&gt;,
-      &lt;DataSummary.Item key={3}&gt;
-        &lt;DataSummary.Label&gt;Foto’s&lt;/DataSummary.Label&gt;
-        &lt;DataSummary.Value&gt;
+        &lt;/DataList.Value&gt;
+      &lt;/DataList.Item&gt;,
+      &lt;DataList.Item key={3}&gt;
+        &lt;DataList.Label&gt;Foto’s&lt;/DataList.Label&gt;
+        &lt;DataList.Value&gt;
           &lt;Image alt=&quot;De Magere Brug over de Amstel&quot; aspectRatio=&quot;4:3&quot; src=&quot;https://picsum.photos/id/164/1280/960&quot; /&gt;
           &lt;Image alt=&quot;De leuning van de Magere Brug&quot; aspectRatio=&quot;4:3&quot; src=&quot;https://picsum.photos/id/122/1280/960&quot; /&gt;
-        &lt;/DataSummary.Value&gt;
-      &lt;/DataSummary.Item&gt;,
-    ]}&lt;/DataSummary&gt;;</code></pre>
+        &lt;/DataList.Value&gt;
+      &lt;/DataList.Item&gt;,
+    ]}&lt;/DataList&gt;;</code></pre>
             </div>
             <div class="note ok">
               <div class="row">
@@ -5875,35 +5875,35 @@ import { DataSummary } from "@amsterdam/design-system-react/src";</code></pre>
               
               <pre><code>const FormReview = () =&gt; &lt;Column&gt;
     &lt;Heading level={2}&gt;Controleer uw gegevens&lt;/Heading&gt;
-    &lt;DataSummary&gt;{[
-          &lt;DataSummary.Item key={1}&gt;
-            &lt;DataSummary.Label&gt;Naam&lt;/DataSummary.Label&gt;
-            &lt;DataSummary.Value&gt;Johan Cruijff&lt;/DataSummary.Value&gt;
-            &lt;DataSummary.Action&gt;
+    &lt;DataList&gt;{[
+          &lt;DataList.Item key={1}&gt;
+            &lt;DataList.Label&gt;Naam&lt;/DataList.Label&gt;
+            &lt;DataList.Value&gt;Johan Cruijff&lt;/DataList.Value&gt;
+            &lt;DataList.Actions&gt;
               &lt;StandaloneLink href=&quot;#&quot; icon={PencilIcon}&gt;
                 Wijzigen&lt;span className=&quot;ams-visually-hidden&quot;&gt; naam&lt;/span&gt;
               &lt;/StandaloneLink&gt;
-            &lt;/DataSummary.Action&gt;
-          &lt;/DataSummary.Item&gt;,
-          &lt;DataSummary.Item key={2}&gt;
-            &lt;DataSummary.Label&gt;E-mailadres&lt;/DataSummary.Label&gt;
-            &lt;DataSummary.Value&gt;j.cruijff@voorbeeld.nl&lt;/DataSummary.Value&gt;
-            &lt;DataSummary.Action&gt;
+            &lt;/DataList.Actions&gt;
+          &lt;/DataList.Item&gt;,
+          &lt;DataList.Item key={2}&gt;
+            &lt;DataList.Label&gt;E-mailadres&lt;/DataList.Label&gt;
+            &lt;DataList.Value&gt;j.cruijff@voorbeeld.nl&lt;/DataList.Value&gt;
+            &lt;DataList.Actions&gt;
               &lt;StandaloneLink href=&quot;#&quot; icon={PencilIcon}&gt;
                 Wijzigen&lt;span className=&quot;ams-visually-hidden&quot;&gt; e-mailadres&lt;/span&gt;
               &lt;/StandaloneLink&gt;
-            &lt;/DataSummary.Action&gt;
-          &lt;/DataSummary.Item&gt;,
-          &lt;DataSummary.Item key={3}&gt;
-            &lt;DataSummary.Label&gt;Onderwerp&lt;/DataSummary.Label&gt;
-            &lt;DataSummary.Value&gt;Melding over de openbare ruimte&lt;/DataSummary.Value&gt;
-            &lt;DataSummary.Action&gt;
+            &lt;/DataList.Actions&gt;
+          &lt;/DataList.Item&gt;,
+          &lt;DataList.Item key={3}&gt;
+            &lt;DataList.Label&gt;Onderwerp&lt;/DataList.Label&gt;
+            &lt;DataList.Value&gt;Melding over de openbare ruimte&lt;/DataList.Value&gt;
+            &lt;DataList.Actions&gt;
               &lt;StandaloneLink href=&quot;#&quot; icon={PencilIcon}&gt;
                 Wijzigen&lt;span className=&quot;ams-visually-hidden&quot;&gt; onderwerp&lt;/span&gt;
               &lt;/StandaloneLink&gt;
-            &lt;/DataSummary.Action&gt;
-          &lt;/DataSummary.Item&gt;,
-        ]}&lt;/DataSummary&gt;
+            &lt;/DataList.Actions&gt;
+          &lt;/DataList.Item&gt;,
+        ]}&lt;/DataList&gt;
     &lt;Row&gt;
         &lt;ActionGroup&gt;
             &lt;Button&gt;Verzenden&lt;/Button&gt;
@@ -5921,22 +5921,22 @@ import { DataSummary } from "@amsterdam/design-system-react/src";</code></pre>
                 <span class="ex-name">Docs</span>
                 <span class="badge ok">doc ok</span>
               </div>
-              <div class="hint">./src/components/DataSummary/DataSummary.docs.mdx</div>
-              <div>## Subcomponents The Item, Label, Value, and Action subcomponents make up a Data Summary. ...</div>
+              <div class="hint">./src/components/DataList/DataList.docs.mdx</div>
+              <div>## Subcomponents The Item, Label, Value, and Actions subcomponents make up a Data List. An...</div>
               <div class="mdx-content"><pre><code>{/* @license CC0-1.0 */}
 
 import { Canvas, Controls, Description, Meta, Primary, Title } from &quot;@storybook/addon-docs/blocks&quot;;
 
 import { DesignTokensTable } from &quot;#storybook/_components/DesignTokensTable/DesignTokensTable&quot;;
-import tokens from &quot;#tokens/components/ams/data-summary.tokens.json&quot;;
+import tokens from &quot;#tokens/components/ams/data-list.tokens.json&quot;;
 
-import * as DataSummaryStories from &quot;./DataSummary.stories.tsx&quot;;
+import * as DataListStories from &quot;./DataList.stories.tsx&quot;;
 
-&lt;Meta of={DataSummaryStories} /&gt;
+&lt;Meta of={DataListStories} /&gt;
 
 &lt;Title /&gt;
 
-&lt;Description of={DataSummaryStories} /&gt;
+&lt;Description of={DataListStories} /&gt;
 
 &lt;Primary /&gt;
 
@@ -5944,7 +5944,7 @@ import * as DataSummaryStories from &quot;./DataSummary.stories.tsx&quot;;
 
 ## Subcomponents
 
-The Item, Label, Value, and Action subcomponents make up a Data Summary.
+The Item, Label, Value, and Actions subcomponents make up a Data List.
 An Item groups one label with its value, Label and Value render the `&lt;dt&gt;` and `&lt;dd&gt;` elements, and an Action holds the link or button that changes that value.
 None of them has props of its own; the examples on this page show them in place.
 
@@ -5975,47 +5975,47 @@ Write an action as the change it makes, such as ‘Wijzigen’, and add the labe
 ### Orientation
 
 A label and its value sit side by side, and stack as soon as the container gets too narrow for both.
-Resize the following example to see the Data Summary adapt its layout to the available width.
+Resize the following example to see the Data List adapt its layout to the available width.
 
-&lt;Canvas of={DataSummaryStories.Orientation} /&gt;
+&lt;Canvas of={DataListStories.Orientation} /&gt;
 
 ### Stacked
 
 Set the orientation to ‘vertical’ to place every value below its label, however wide the container is.
 Use this when the values are long, or when the summary sits in a narrow column of a wider page.
 
-&lt;Canvas of={DataSummaryStories.Stacked} /&gt;
+&lt;Canvas of={DataListStories.Stacked} /&gt;
 
-### Action
+### Actions
 
-An item can offer an action on its value, such as a link to the step of a form where that value is entered.
+An item can offer one or more actions on its value, such as a link to the step of a form where that value is entered or a button that opens a dialog to edit the value directly.
 The text, the icon, and the type of the action are yours to choose: pass a Standalone Link, a Link, or a Button.
 
 Repeated actions read as a list of identical links to anyone who navigates by links alone.
 Add the label of the item as visually hidden text to tell them apart.
 
-&lt;Canvas of={DataSummaryStories.Action} /&gt;
+&lt;Canvas of={DataListStories.Actions} /&gt;
 
 ### Composite value
 
 A value takes rich content: several lines of text, an address, a paragraph, a link, or an image.
 Its parts are spaced evenly, so an address or a set of photos needs no markup of its own.
 
-&lt;Canvas of={DataSummaryStories.CompositeValue} /&gt;
+&lt;Canvas of={DataListStories.CompositeValue} /&gt;
 
 ### Form review
 
-A summary of the answers in a form is an application of Data Summary rather than a component of its own.
+A summary of the answers in a form is an application of Data List rather than a component of its own.
 Combine it with a heading, an action per item that returns to the matching question, and a button that submits the form.
 
-Group data about several people or subjects by placing a heading above each Data Summary.
+Group data about several people or subjects by placing a heading above each Data List.
 
-&lt;Canvas of={DataSummaryStories.FormReview} /&gt;
+&lt;Canvas of={DataListStories.FormReview} /&gt;
 
 ## Features
 
 Labels and values wrap and hyphenate, so long content stays inside the column instead of overflowing it.
-Below the breakpoint every value moves under its label, which keeps a Data Summary free of horizontal scroll on narrow screens.
+Below the breakpoint every value moves under its label, which keeps a Data List free of horizontal scroll on narrow screens.
 
 ## Design
 
@@ -6031,7 +6031,7 @@ Labels and values sit next to each other when their [query container](/docs/util
 
 ## Accessibility
 
-A Data Summary renders `dl`, `dt`, and `dd` elements.
+A Data List renders `dl`, `dt`, and `dd` elements.
 These tie each label to its value in the markup instead of only through the layout, which is the kind of relationship [WCAG 1.3.1](https://www.w3.org/TR/WCAG22/#info-and-relationships) asks to be made available.
 An Item renders a `div` around one pair, which HTML permits inside a `dl`.
 
@@ -6055,64 +6055,64 @@ Use visually hidden text rather than `aria-label`, because browsers do not relia
           
     <div class="note ok">
       <div class="row">
-        <span class="ex-name">DataSummary.Action</span>
+        <span class="ex-name">DataList.Actions</span>
         <span class="badge ok">
           no prop types
         </span>
       </div>
       <div class="hint">/home/runner/work/design-system/design-system/packages/react/src/index.ts</div>
       
-      <div class="hint">The slot for the link or button that acts on the value of an item of a Data Summary.</div>
-      <div class="kv"><span class="chip">see: {@link https://designsystem.amsterdam/?path=/docs/components-containers-data-summary--docs Data Summary docs at Amsterdam Design System}</span></div>
-      <pre><code>import { DataSummary } from &quot;@amsterdam/design-system-react/src&quot;;</code></pre>
+      <div class="hint">The slot for the link or button that acts on the value of an item of a Data List.</div>
+      <div class="kv"><span class="chip">see: {@link https://designsystem.amsterdam/?path=/docs/components-containers-data-list--docs Data List docs at Amsterdam Design System}</span></div>
+      <pre><code>import { DataList } from &quot;@amsterdam/design-system-react/src&quot;;</code></pre>
       
       
     </div>
   
     <div class="note ok">
       <div class="row">
-        <span class="ex-name">DataSummary.Item</span>
+        <span class="ex-name">DataList.Item</span>
         <span class="badge ok">
           no prop types
         </span>
       </div>
       <div class="hint">/home/runner/work/design-system/design-system/packages/react/src/index.ts</div>
       
-      <div class="hint">Groups a label with its value, and optionally an action, within a Data Summary.</div>
-      <div class="kv"><span class="chip">see: {@link https://designsystem.amsterdam/?path=/docs/components-containers-data-summary--docs Data Summary docs at Amsterdam Design System}</span></div>
-      <pre><code>import { DataSummary } from &quot;@amsterdam/design-system-react/src&quot;;</code></pre>
+      <div class="hint">Groups a label with its value, and optionally an action, within a Data List.</div>
+      <div class="kv"><span class="chip">see: {@link https://designsystem.amsterdam/?path=/docs/components-containers-data-list--docs Data List docs at Amsterdam Design System}</span></div>
+      <pre><code>import { DataList } from &quot;@amsterdam/design-system-react/src&quot;;</code></pre>
       
       
     </div>
   
     <div class="note ok">
       <div class="row">
-        <span class="ex-name">DataSummary.Label</span>
+        <span class="ex-name">DataList.Label</span>
         <span class="badge ok">
           no prop types
         </span>
       </div>
       <div class="hint">/home/runner/work/design-system/design-system/packages/react/src/index.ts</div>
       
-      <div class="hint">The name of the data an item of a Data Summary presents.</div>
-      <div class="kv"><span class="chip">see: {@link https://designsystem.amsterdam/?path=/docs/components-containers-data-summary--docs Data Summary docs at Amsterdam Design System}</span></div>
-      <pre><code>import { DataSummary } from &quot;@amsterdam/design-system-react/src&quot;;</code></pre>
+      <div class="hint">The name of the data an item of a Data List presents.</div>
+      <div class="kv"><span class="chip">see: {@link https://designsystem.amsterdam/?path=/docs/components-containers-data-list--docs Data List docs at Amsterdam Design System}</span></div>
+      <pre><code>import { DataList } from &quot;@amsterdam/design-system-react/src&quot;;</code></pre>
       
       
     </div>
   
     <div class="note ok">
       <div class="row">
-        <span class="ex-name">DataSummary.Value</span>
+        <span class="ex-name">DataList.Value</span>
         <span class="badge ok">
           no prop types
         </span>
       </div>
       <div class="hint">/home/runner/work/design-system/design-system/packages/react/src/index.ts</div>
       
-      <div class="hint">The data itself, paired with its label in an item of a Data Summary.</div>
-      <div class="kv"><span class="chip">see: {@link https://designsystem.amsterdam/?path=/docs/components-containers-data-summary--docs Data Summary docs at Amsterdam Design System}</span></div>
-      <pre><code>import { DataSummary } from &quot;@amsterdam/design-system-react/src&quot;;</code></pre>
+      <div class="hint">The data itself, paired with its label in an item of a Data List.</div>
+      <div class="kv"><span class="chip">see: {@link https://designsystem.amsterdam/?path=/docs/components-containers-data-list--docs Data List docs at Amsterdam Design System}</span></div>
+      <pre><code>import { DataList } from &quot;@amsterdam/design-system-react/src&quot;;</code></pre>
       
       
     </div>
@@ -7177,7 +7177,7 @@ The component leaves the native elements alone rather than adding `term` and `de
 
 ## See also
 
-- [Data Summary](/docs/components-containers-data-summary--docs) – pairs labels with values instead of terms with meanings, and separates them by a line.
+- [Data List](/docs/components-containers-data-list--docs) – pairs labels with values instead of terms with meanings, and separates them by a line.
 - [Prose](/docs/utilities-css-prose--docs) – applies the recommended vertical spacing for editorial content.
 
 ## Design tokens
@@ -36813,7 +36813,7 @@ The container that scrolls is a focusable group, which keeps the columns past it
 
 ## See also
 
-- [Data Summary](/docs/components-containers-data-summary--docs) – presents the data of one subject, which needs no comparison across rows.
+- [Data List](/docs/components-containers-data-list--docs) – presents the data of one subject, which needs no comparison across rows.
 - [Prose](/docs/utilities-css-prose--docs) – applies the recommended vertical spacing for editorial content.
 - [Table Page](/docs/pages-internal-table-page--docs) – various templates for large data tables in internal websites.
 
