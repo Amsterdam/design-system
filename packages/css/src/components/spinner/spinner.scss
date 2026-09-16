@@ -13,6 +13,13 @@
   border-inline-start-color: var(--ams-spinner-track-color);
   border-radius: 50%;
   border-style: solid;
+  box-sizing: border-box;
+  @media (forced-colors: active) {
+    border-block-end-color: GrayText;
+    border-block-start-color: Highlight;
+    border-inline-end-color: GrayText;
+    border-inline-start-color: GrayText;
+  }
 }
 
 .ams-spinner--small {

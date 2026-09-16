@@ -6,7 +6,7 @@
         "$description": "The loading animation."
       },
       "track-color": {
-        "$value": "#d1d1d1",
+        "$value": "#D4D4D4",
         "$description": "The colour of the ring's resting track.",
         "$extensions": {
           "nl.amsterdam.type": "color"
