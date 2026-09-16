@@ -35,6 +35,6 @@
     "optimize-logos": "svgo -f logo --config svgo.logos.config.js"
   },
   "devDependencies": {
-    "svgo": "4.0.2"
+    "svgo": "4.1.0"
   }
 }

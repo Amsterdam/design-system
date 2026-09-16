@@ -36,8 +36,8 @@
   "devDependencies": {
     "change-case": "5.4.4",
     "chokidar-cli": "3.0.0",
-    "postcss": "8.5.26",
-    "style-dictionary": "5.5.2",
+    "postcss": "8.5.28",
+    "style-dictionary": "5.5.3",
     "vitest": "4.1.11"
   }
 }
