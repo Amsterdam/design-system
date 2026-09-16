@@ -3,15 +3,15 @@
 import { Canvas, Controls, Description, Meta, Primary, Title } from "@storybook/addon-docs/blocks";
 
 import { DesignTokensTable } from "#storybook/_components/DesignTokensTable/DesignTokensTable";
-import tokens from "#tokens/components/ams/date-input-group.tokens.json";
+import tokens from "#tokens/components/ams/known-date-input.tokens.json";
 
-import * as DateInputGroupStories from "./DateInputGroup.stories.tsx";
+import * as KnownDateInputStories from "./KnownDateInput.stories.tsx";
 
-<Meta of={DateInputGroupStories} />
+<Meta of={KnownDateInputStories} />
 
 <Title />
 
-<Description of={DateInputGroupStories} />
+<Description of={KnownDateInputStories} />
 
 <Primary />
 
@@ -22,7 +22,7 @@ The controls above set the legend and the description of the Field Set in this e
 
 ## Subcomponents
 
-Compose a Date Input Group from Date Input Group Fields, one for each part of the date.
+Compose a Known Date Input from Known Date Input Fields, one for each part of the date.
 A Field pairs a [Label](/docs/components-forms-label--docs) with the [Text Input](/docs/components-forms-text-input--docs) it describes, and gives that input a width that matches the number of digits it takes.
 Set `wide` on the Field that holds a four-digit value, such as a year.
 
@@ -30,7 +30,7 @@ Set `wide` on the Field that holds a four-digit value, such as a year.
 
 ### When to use
 
-Use a Date Input Group for a date the user already knows or can copy from a document in front of them: a date of birth, the expiry date of a passport, the day something happened.
+Use a Known Date Input for a date the user already knows or can copy from a document in front of them: a date of birth, the expiry date of a passport, the day something happened.
 Three separate fields let someone type the date the way they would say it, without first working out which format the browser expects.
 
 This is the pattern the [NL Design System](https://nldesignsystem.nl/richtlijnen/formulieren/wanneer-welk-form-element/iedereen-kan-invullen) and [gov.uk](https://design-system.service.gov.uk/components/date-input/) recommend for these dates.
@@ -44,7 +44,7 @@ Use a [Date Picker](/docs/components-forms-date-picker--docs) when the user has 
 
 ### How to use
 
-Wrap a Date Input Group in a [Field Set](/docs/components-forms-field-set--docs) whose legend asks for the date as a question.
+Wrap a Known Date Input in a [Field Set](/docs/components-forms-field-set--docs) whose legend asks for the date as a question.
 The legend is what ties the fields together for a screen reader; without it, three labels read as three unrelated questions.
 
 Put a Paragraph with an example date above the group and connect it to the Field Set with `aria-describedby`.
@@ -68,14 +68,14 @@ Set `invalid` on the Text Inputs that are at fault, and only on those: mark the 
 
 See the [gov.uk documentation on validating this pattern](https://design-system.service.gov.uk/components/date-input/#error-messages) for how to word the message.
 
-<Canvas of={DateInputGroupStories.WithValidation} />
+<Canvas of={KnownDateInputStories.WithValidation} />
 
 ### Month and year
 
 Ask only for the parts of the date you need.
 A group holds as many fields as the question has parts.
 
-<Canvas of={DateInputGroupStories.MonthAndYear} />
+<Canvas of={KnownDateInputStories.MonthAndYear} />
 
 ## Design
 

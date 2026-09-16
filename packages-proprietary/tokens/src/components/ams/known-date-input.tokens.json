@@ -1,6 +1,6 @@
 {
   "ams": {
-    "date-input-group": {
+    "known-date-input": {
       "column-gap": {
         "$value": "{ams.space.m}",
         "$description": "The space between the fields of the group.",

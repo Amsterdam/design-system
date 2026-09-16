@@ -7,11 +7,11 @@ import { render } from '@testing-library/react'
 import { createRef } from 'react'
 import { describe, expect, it } from 'vitest'
 
-import { DateInputGroupField } from './DateInputGroupField'
+import { KnownDateInputField } from './KnownDateInputField'
 
-describe('DateInputGroup.Field', () => {
+describe('KnownDateInput.Field', () => {
   it('renders', () => {
-    const { container } = render(<DateInputGroupField />)
+    const { container } = render(<KnownDateInputField />)
 
     const component = container.querySelector(':only-child')
 
@@ -20,25 +20,25 @@ describe('DateInputGroup.Field', () => {
   })
 
   it('renders a design system BEM class name', () => {
-    const { container } = render(<DateInputGroupField />)
+    const { container } = render(<KnownDateInputField />)
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('ams-date-input-group__field')
+    expect(component).toHaveClass('ams-known-date-input__field')
   })
 
   it('renders an extra class name', () => {
-    const { container } = render(<DateInputGroupField className="extra" />)
+    const { container } = render(<KnownDateInputField className="extra" />)
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('ams-date-input-group__field extra')
+    expect(component).toHaveClass('ams-known-date-input__field extra')
   })
 
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLDivElement>()
 
-    const { container } = render(<DateInputGroupField ref={ref} />)
+    const { container } = render(<KnownDateInputField ref={ref} />)
 
     const component = container.querySelector(':only-child')
 
@@ -46,18 +46,18 @@ describe('DateInputGroup.Field', () => {
   })
 
   it('renders no wide class name by default', () => {
-    const { container } = render(<DateInputGroupField />)
+    const { container } = render(<KnownDateInputField />)
 
     const component = container.querySelector(':only-child')
 
-    expect(component).not.toHaveClass('ams-date-input-group__field--wide')
+    expect(component).not.toHaveClass('ams-known-date-input__field--wide')
   })
 
   it('renders a wide class name', () => {
-    const { container } = render(<DateInputGroupField wide />)
+    const { container } = render(<KnownDateInputField wide />)
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('ams-date-input-group__field ams-date-input-group__field--wide')
+    expect(component).toHaveClass('ams-known-date-input__field ams-known-date-input__field--wide')
   })
 })

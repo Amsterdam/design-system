@@ -7,11 +7,11 @@ import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 import { describe, expect, it } from 'vitest'
 
-import { DateInputGroup } from './DateInputGroup'
+import { KnownDateInput } from './KnownDateInput'
 
-describe('DateInputGroup', () => {
+describe('KnownDateInput', () => {
   it('renders', () => {
-    const { container } = render(<DateInputGroup />)
+    const { container } = render(<KnownDateInput />)
 
     const component = container.querySelector(':only-child')
 
@@ -20,25 +20,25 @@ describe('DateInputGroup', () => {
   })
 
   it('renders a design system BEM class name', () => {
-    const { container } = render(<DateInputGroup />)
+    const { container } = render(<KnownDateInput />)
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('ams-date-input-group')
+    expect(component).toHaveClass('ams-known-date-input')
   })
 
   it('renders an extra class name', () => {
-    const { container } = render(<DateInputGroup className="extra" />)
+    const { container } = render(<KnownDateInput className="extra" />)
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('ams-date-input-group extra')
+    expect(component).toHaveClass('ams-known-date-input extra')
   })
 
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLDivElement>()
 
-    const { container } = render(<DateInputGroup ref={ref} />)
+    const { container } = render(<KnownDateInput ref={ref} />)
 
     const component = container.querySelector(':only-child')
 
@@ -47,12 +47,12 @@ describe('DateInputGroup', () => {
 
   it('renders its fields', () => {
     render(
-      <DateInputGroup>
-        <DateInputGroup.Field>
+      <KnownDateInput>
+        <KnownDateInput.Field>
           <label htmlFor="day">Dag</label>
           <input className="ams-text-input" id="day" />
-        </DateInputGroup.Field>
-      </DateInputGroup>,
+        </KnownDateInput.Field>
+      </KnownDateInput>,
     )
 
     expect(screen.getByLabelText('Dag')).toBeInTheDocument()

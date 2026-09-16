@@ -1,0 +1,27 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+.ams-known-date-input {
+  column-gap: var(--ams-known-date-input-column-gap);
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: var(--ams-known-date-input-row-gap);
+}
+
+.ams-known-date-input__field {
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--ams-known-date-input-field-row-gap);
+}
+
+// A Text Input without a `size` attribute fills its container; match that selector so an author
+// who does set one keeps the width the attribute gives them.
+.ams-known-date-input__field > .ams-text-input:not([size]) {
+  inline-size: var(--ams-known-date-input-field-inline-size);
+}
+
+.ams-known-date-input__field--wide > .ams-text-input:not([size]) {
+  inline-size: var(--ams-known-date-input-field-wide-inline-size);
+}
