@@ -7,7 +7,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import type { ComponentProps } from 'react'
 
 import { Link, Paragraph, StandaloneLink } from '@amsterdam/design-system-react'
-import { PencilIcon } from '@amsterdam/design-system-react-icons'
+import { PencilIcon, TrashBinIcon } from '@amsterdam/design-system-react-icons'
 import { DataList } from '@amsterdam/design-system-react/src'
 
 import { renderComponentVariants } from '#storybook/_common/renderComponentVariants'
@@ -50,7 +50,7 @@ export const Test: Story = {
         <DataList.Value>Magere Brug</DataList.Value>
       </DataList.Item>,
 
-      // Label, value and action
+      // Label, value and one action
       <DataList.Item key={2}>
         <DataList.Label>Bouwjaar</DataList.Label>
         <DataList.Value>1934</DataList.Value>
@@ -80,6 +80,20 @@ export const Test: Story = {
         <DataList.Actions>
           <StandaloneLink href="#" icon={PencilIcon}>
             Wijzigen<span className="ams-visually-hidden"> toelichting</span>
+          </StandaloneLink>
+        </DataList.Actions>
+      </DataList.Item>,
+
+      // Two actions, separated by a line
+      <DataList.Item key={5}>
+        <DataList.Label>Foto</DataList.Label>
+        <DataList.Value>brug-voorzijde.jpg</DataList.Value>
+        <DataList.Actions>
+          <StandaloneLink href="#" icon={PencilIcon}>
+            Wijzigen<span className="ams-visually-hidden"> foto</span>
+          </StandaloneLink>
+          <StandaloneLink href="#" icon={TrashBinIcon}>
+            Verwijderen<span className="ams-visually-hidden"> foto</span>
           </StandaloneLink>
         </DataList.Actions>
       </DataList.Item>,

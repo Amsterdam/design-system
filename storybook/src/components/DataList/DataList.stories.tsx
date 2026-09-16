@@ -16,12 +16,9 @@ import {
   Row,
   StandaloneLink,
 } from '@amsterdam/design-system-react'
-import { PencilIcon } from '@amsterdam/design-system-react-icons'
+import { PencilIcon, TrashBinIcon } from '@amsterdam/design-system-react-icons'
 import { DataList } from '@amsterdam/design-system-react/src'
-import {
-  dataListOrientations,
-  dataListTermsWidths,
-} from '@amsterdam/design-system-react/src/DataList/DataList'
+import { dataListOrientations, dataListTermsWidths } from '@amsterdam/design-system-react/src/DataList/DataList'
 
 import { wrapInInlineSizeQueryContainer } from '#storybook/_common/decorators'
 
@@ -105,7 +102,7 @@ export const Stacked: Story = {
   },
 }
 
-export const Action: Story = {
+export const Actions: Story = {
   args: {
     children: [
       <DataList.Item key={1}>
@@ -127,6 +124,18 @@ export const Action: Story = {
         </DataList.Actions>
       </DataList.Item>,
       <DataList.Item key={3}>
+        <DataList.Label>Telefoonnummer</DataList.Label>
+        <DataList.Value>06 12345678</DataList.Value>
+        <DataList.Actions>
+          <StandaloneLink href="#" icon={PencilIcon}>
+            Wijzigen<span className="ams-visually-hidden"> telefoonnummer</span>
+          </StandaloneLink>
+          <StandaloneLink href="#" icon={TrashBinIcon}>
+            Verwijderen<span className="ams-visually-hidden"> telefoonnummer</span>
+          </StandaloneLink>
+        </DataList.Actions>
+      </DataList.Item>,
+      <DataList.Item key={4}>
         <DataList.Label>Burgerservicenummer</DataList.Label>
         <DataList.Value>123456782</DataList.Value>
       </DataList.Item>,
