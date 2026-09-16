@@ -3099,7 +3099,7 @@
         {
           "id": "components-feedback-progressbar--default",
           "name": "Default",
-          "snippet": "const Default = () => <ProgressBar>Nieuw component</ProgressBar>;"
+          "snippet": "const Default = () => <ProgressBar max={10} text=\"4 van de 10 stappen\" value={4} />;"
         }
       ],
       "import": "import { ProgressBar } from \"@amsterdam/design-system-react/src\";",
@@ -12174,6 +12174,6 @@
   },
   "meta": {
     "docgen": "react-component-meta",
-    "durationMs": 4088
+    "durationMs": 5532
   }
 }
