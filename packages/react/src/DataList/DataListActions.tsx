@@ -11,7 +11,7 @@ import { forwardRef } from 'react'
 export type DataListActionsProps = PropsWithChildren<HTMLAttributes<HTMLElement>>
 
 /**
- * The slot for the link or button that acts on the value of an item of a Data List.
+ * Holds the links or buttons that act on the value of an item of a Data List.
  *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-containers-data-list--docs Data List docs at Amsterdam Design System}
  */

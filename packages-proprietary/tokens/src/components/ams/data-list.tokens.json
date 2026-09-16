@@ -62,7 +62,7 @@
           },
           "grid-template-columns": {
             "$value": "minmax(0, 15rem) minmax(0, 1fr) auto",
-            "$description": "Three columns: the label, the value, and the optional action. The action column collapses when an item has no action.",
+            "$description": "Three columns: the label, the value, and the optional actions. The actions column collapses when an item has none.",
             "$extensions": {
               "nl.amsterdam.type": "gridTemplateColumns"
             }
@@ -141,12 +141,28 @@
         }
       },
       "actions": {
+        "column-gap": {
+          "$value": "{ams.space.s}",
+          "$extensions": {
+            "nl.amsterdam.hint": "The whitespace on either side of the separator between two actions. Must be a single value: it is used for both a gap and a padding.",
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
+          }
+        },
         "margin-block-start": {
           "$value": "{ams.space.s}",
           "$extensions": {
-            "nl.amsterdam.hint": "Only applies when the action sits below its value. Must be a single value: it sets a longhand property, which takes only one.",
+            "nl.amsterdam.hint": "Only applies when the actions sit below their value. Must be a single value: it sets a longhand property, which takes only one.",
             "nl.amsterdam.subtype": "space",
             "nl.amsterdam.type": "dimension"
+          }
+        },
+        "separator": {
+          "border-inline-start": {
+            "$value": "{ams.border.width.s} solid {ams.color.separator}",
+            "$extensions": {
+              "nl.amsterdam.type": "border"
+            }
           }
         }
       }

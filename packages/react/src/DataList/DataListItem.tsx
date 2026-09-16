@@ -11,7 +11,7 @@ import { forwardRef } from 'react'
 export type DataListItemProps = PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
 /**
- * Groups a label with its value, and optionally an action, within a Data List.
+ * Groups a label with its value, and optionally one or more actions, within a Data List.
  *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-containers-data-list--docs Data List docs at Amsterdam Design System}
  */
