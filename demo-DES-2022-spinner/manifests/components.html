@@ -35477,9 +35477,11 @@ The region containing the Spinner announces the loading state instead. This prev
 
 Set `aria-busy=&quot;true&quot;` on the region while it is loading. Give the region one status message that stays available and changes from a loading message to the result when loading is finished.
 
-```html
+```tsx
 &lt;section aria-busy=&quot;true&quot;&gt;
-  &lt;p class=&quot;ams-visually-hidden&quot; role=&quot;status&quot;&gt;Zoekresultaten worden geladen&lt;/p&gt;
+  &lt;p className=&quot;ams-visually-hidden&quot; role=&quot;status&quot;&gt;
+    Zoekresultaten worden geladen
+  &lt;/p&gt;
   &lt;Spinner size=&quot;medium&quot; /&gt;
 &lt;/section&gt;
 ```
