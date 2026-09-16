@@ -17,7 +17,7 @@ import {
   StandaloneLink,
 } from '@amsterdam/design-system-react'
 import { PencilIcon, TrashBinIcon } from '@amsterdam/design-system-react-icons'
-import { DataList } from '@amsterdam/design-system-react/src'
+import { DataList, DataListHeader } from '@amsterdam/design-system-react/src'
 import { dataListOrientations, dataListTermsWidths } from '@amsterdam/design-system-react/src/DataList/DataList'
 
 import { wrapInInlineSizeQueryContainer } from '#storybook/_common/decorators'
@@ -67,6 +67,7 @@ const meta = {
     'DataList.Item': DataList.Item,
     'DataList.Label': DataList.Label,
     'DataList.Value': DataList.Value,
+    DataListHeader,
   },
 } satisfies Meta<typeof DataList>
 
@@ -173,42 +174,80 @@ export const CompositeValue: Story = {
   },
 }
 
-export const FormReview: Story = {
-  args: {
-    children: [
-      <DataList.Item key={1}>
-        <DataList.Label>Naam</DataList.Label>
-        <DataList.Value>Johan Cruijff</DataList.Value>
-        <DataList.Actions>
-          <StandaloneLink href="#" icon={PencilIcon}>
-            Wijzigen<span className="ams-visually-hidden"> naam</span>
-          </StandaloneLink>
-        </DataList.Actions>
-      </DataList.Item>,
-      <DataList.Item key={2}>
-        <DataList.Label>E-mailadres</DataList.Label>
-        <DataList.Value>j.cruijff@voorbeeld.nl</DataList.Value>
-        <DataList.Actions>
-          <StandaloneLink href="#" icon={PencilIcon}>
-            Wijzigen<span className="ams-visually-hidden"> e-mailadres</span>
-          </StandaloneLink>
-        </DataList.Actions>
-      </DataList.Item>,
-      <DataList.Item key={3}>
-        <DataList.Label>Onderwerp</DataList.Label>
-        <DataList.Value>Melding over de openbare ruimte</DataList.Value>
-        <DataList.Actions>
-          <StandaloneLink href="#" icon={PencilIcon}>
-            Wijzigen<span className="ams-visually-hidden"> onderwerp</span>
-          </StandaloneLink>
-        </DataList.Actions>
-      </DataList.Item>,
-    ],
-  },
+export const Header: Story = {
   render: (args) => (
-    <Column>
-      <Heading level={2}>Controleer uw gegevens</Heading>
+    <>
+      <DataListHeader>
+        <Row align="between" alignVertical="end" wrap>
+          <Heading level={2}>Magere Brug</Heading>
+          <StandaloneLink href="#" icon={PencilIcon}>
+            Wijzigen<span className="ams-visually-hidden"> Magere Brug</span>
+          </StandaloneLink>
+        </Row>
+      </DataListHeader>
       <DataList {...args} />
+    </>
+  ),
+}
+
+const people = [
+  { address: ['Amstel 1', '1011 PN Amsterdam'], birthDate: '5 januari 1978', name: 'Sara Philipsen' },
+  { address: ['Weesperplein 8', '1018 XA Amsterdam'], birthDate: '12 maart 1981', name: 'Kees de Vries' },
+]
+
+export const FormReview: Story = {
+  render: (args) => (
+    <Column gap="x-large">
+      {people.map(({ address, birthDate, name }, index) => {
+        const person = `persoon ${index + 1}`
+
+        // Wrap each header and its list, so the gap of the Column falls between groups rather than inside them.
+        return (
+          <div key={name}>
+            <DataListHeader>
+              <Row align="between" alignVertical="end" wrap>
+                <Heading level={2}>Persoon {index + 1}</Heading>
+                <Button icon={TrashBinIcon} iconBefore variant="secondary">
+                  Verwijderen<span className="ams-visually-hidden"> {person}</span>
+                </Button>
+              </Row>
+            </DataListHeader>
+            <DataList {...args}>
+              <DataList.Item>
+                <DataList.Label>Naam</DataList.Label>
+                <DataList.Value>{name}</DataList.Value>
+                <DataList.Actions>
+                  <StandaloneLink href="#" icon={PencilIcon}>
+                    Wijzigen<span className="ams-visually-hidden"> naam van {person}</span>
+                  </StandaloneLink>
+                </DataList.Actions>
+              </DataList.Item>
+              <DataList.Item>
+                <DataList.Label>Geboortedatum</DataList.Label>
+                <DataList.Value>{birthDate}</DataList.Value>
+                <DataList.Actions>
+                  <StandaloneLink href="#" icon={PencilIcon}>
+                    Wijzigen<span className="ams-visually-hidden"> geboortedatum van {person}</span>
+                  </StandaloneLink>
+                </DataList.Actions>
+              </DataList.Item>
+              <DataList.Item>
+                <DataList.Label>Adres</DataList.Label>
+                <DataList.Value>
+                  {address.map((line) => (
+                    <span key={line}>{line}</span>
+                  ))}
+                </DataList.Value>
+                <DataList.Actions>
+                  <StandaloneLink href="#" icon={PencilIcon}>
+                    Wijzigen<span className="ams-visually-hidden"> adres van {person}</span>
+                  </StandaloneLink>
+                </DataList.Actions>
+              </DataList.Item>
+            </DataList>
+          </div>
+        )
+      })}
       <Row>
         <ActionGroup>
           <Button>Verzenden</Button>

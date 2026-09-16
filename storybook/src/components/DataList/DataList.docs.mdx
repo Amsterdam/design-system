@@ -80,12 +80,21 @@ Its parts are spaced evenly, so an address or a set of photos needs no markup of
 
 <Canvas of={DataListStories.CompositeValue} />
 
+### Header
+
+Introduce a Data List with a Data List Header, which draws a line below its content and sets the space to the list.
+Place a [Heading](/docs/components-text-heading--docs) in it, at the level that fits the document outline.
+Add at most one action next to it, and use a [Row](/docs/components-layout-row--docs) to place the two side by side.
+
+<Canvas of={DataListStories.Header} />
+
 ### Form review
 
 A summary of the answers in a form is an application of Data List rather than a component of its own.
-Combine it with a heading, an action per item that returns to the matching question, and a button that submits the form.
+Combine it with an action per item that returns to the matching question, and a button that submits the form.
 
-Group data about several people or subjects by placing a heading above each Data List.
+Group data about several people or subjects by placing a Data List Header above each Data List.
+Its action then applies to the whole group, such as removing a person.
 
 <Canvas of={DataListStories.FormReview} />
 
@@ -101,6 +110,8 @@ The whitespace above and below that line is the same, so the line sits between t
 
 Several actions sit next to each other, with a thin line between each pair.
 They do not wrap onto a new line, so a line never starts a row; in a narrow column their labels wrap instead.
+
+A Data List Header draws a thicker, darker line below its content, and adds space below itself when a Data List follows.
 
 Labels use heading typography and values use body text, which gives the two different line heights.
 Side by side, a label therefore gets half of that difference as extra space above it, so its first line sits level with the first line of its value.
@@ -118,6 +129,9 @@ An Item renders a `div` around one pair, which HTML permits inside a `dl`.
 Actions renders a second `dd`, so its links and buttons are announced in the context of the label they act on.
 Give repeated actions a unique accessible name with the `ams-visually-hidden` helper, as [WCAG 2.4.4](https://www.w3.org/TR/WCAG22/#link-purpose-in-context) asks.
 Use visually hidden text rather than `aria-label`, because browsers do not reliably translate that attribute.
+
+A Data List Header renders a `div`, so it adds no landmark and its Heading stays part of the page outline.
+The action in a header applies to the whole group, so give it the name of that group as visually hidden text, such as ‘Verwijderen persoon 1’.
 
 ## See also
 
