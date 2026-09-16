@@ -21,8 +21,8 @@ const ruleName = 'ams/require-single-value-token'
 const MATH_FUNCTIONS = ['calc', 'clamp', 'max', 'min']
 
 /* The properties that take exactly one value. Shorthands are deliberately absent: `padding-block`
- * and `gap` take two on purpose, and the design system ships tokens that hold two for them.
- * So are `border-block-width` and the corner radii, which take a second value of their own.
+ * and `gap` take two on purpose. So are `border-block-width` and the corner radii, which take a
+ * second value of their own.
  */
 const DEFAULT_PROPERTIES = [
   'block-size',
