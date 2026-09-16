@@ -588,13 +588,13 @@
 <header>
   <div class="wrap">
     <h1>Manifest Debugger</h1>
-    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">15/90 prop type errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">15/90 infos</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">1/311 story errors</a><a class="filter-pill ok" data-k="docs" href="#filter-docs">126 docs ok</a></div>
+    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">15/90 prop type errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">15/90 infos</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">1/312 story errors</a><a class="filter-pill ok" data-k="docs" href="#filter-docs">126 docs ok</a></div>
   </div>
 </header>
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>5.6s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>4.3s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -5661,9 +5661,9 @@ The `as` prop can render an `article` or a `section` instead, which does reach a
       <div class="badges">
         <label for="c-18-components-containers-data-list-props" class="badge ok as-toggle">2 prop types</label>
         
-        <label for="c-18-components-containers-data-list-stories" class="badge ok as-toggle">6 stories</label>
+        <label for="c-18-components-containers-data-list-stories" class="badge ok as-toggle">7 stories</label>
         <label for="c-18-components-containers-data-list-docs" class="badge ok as-toggle">1 doc</label>
-        <label for="c-18-components-containers-data-list-subcomponents" class="badge ok as-toggle">4 subcomponents</label>
+        <label for="c-18-components-containers-data-list-subcomponents" class="badge ok as-toggle">5 subcomponents</label>
       </div>
     </div>
     <div class="meta" title="./src/components/DataList/DataList.stories.tsx">components-containers-data-list · ./src/components/DataList/DataList.stories.tsx</div>
@@ -5723,7 +5723,7 @@ termsWidth?: &quot;narrow&quot; | &quot;medium&quot; | &quot;wide&quot;</code></
     Row,
     StandaloneLink,
 } from "@amsterdam/design-system-react";
-import { DataList } from "@amsterdam/design-system-react/src";</code></pre>
+import { DataList, DataListHeader } from "@amsterdam/design-system-react/src";</code></pre>
               </div>
           
           
@@ -5803,12 +5803,12 @@ import { DataList } from "@amsterdam/design-system-react/src";</code></pre>
             </div>
             <div class="note ok">
               <div class="row">
-                <span class="ex-name">Action</span>
+                <span class="ex-name">Actions</span>
                 <span class="badge ok">story ok</span>
               </div>
               
               
-              <pre><code>const Action = () =&gt; &lt;DataList&gt;{[
+              <pre><code>const Actions = () =&gt; &lt;DataList&gt;{[
       &lt;DataList.Item key={1}&gt;
         &lt;DataList.Label&gt;Voornaam&lt;/DataList.Label&gt;
         &lt;DataList.Value&gt;Johan&lt;/DataList.Value&gt;
@@ -5828,6 +5828,18 @@ import { DataList } from "@amsterdam/design-system-react/src";</code></pre>
         &lt;/DataList.Actions&gt;
       &lt;/DataList.Item&gt;,
       &lt;DataList.Item key={3}&gt;
+        &lt;DataList.Label&gt;Telefoonnummer&lt;/DataList.Label&gt;
+        &lt;DataList.Value&gt;06 12345678&lt;/DataList.Value&gt;
+        &lt;DataList.Actions&gt;
+          &lt;StandaloneLink href=&quot;#&quot; icon={PencilIcon}&gt;
+            Wijzigen&lt;span className=&quot;ams-visually-hidden&quot;&gt; telefoonnummer&lt;/span&gt;
+          &lt;/StandaloneLink&gt;
+          &lt;StandaloneLink href=&quot;#&quot; icon={TrashBinIcon}&gt;
+            Verwijderen&lt;span className=&quot;ams-visually-hidden&quot;&gt; telefoonnummer&lt;/span&gt;
+          &lt;/StandaloneLink&gt;
+        &lt;/DataList.Actions&gt;
+      &lt;/DataList.Item&gt;,
+      &lt;DataList.Item key={4}&gt;
         &lt;DataList.Label&gt;Burgerservicenummer&lt;/DataList.Label&gt;
         &lt;DataList.Value&gt;123456782&lt;/DataList.Value&gt;
       &lt;/DataList.Item&gt;,
@@ -5868,48 +5880,105 @@ import { DataList } from "@amsterdam/design-system-react/src";</code></pre>
             </div>
             <div class="note ok">
               <div class="row">
+                <span class="ex-name">Header</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const Header = () =&gt; &lt;&gt;
+    &lt;DataListHeader&gt;
+        &lt;Row align=&quot;between&quot; alignVertical=&quot;end&quot; wrap&gt;
+            &lt;Heading level={2}&gt;Magere Brug&lt;/Heading&gt;
+            &lt;StandaloneLink href=&quot;#&quot; icon={PencilIcon}&gt;Wijzigen&lt;span className=&quot;ams-visually-hidden&quot;&gt;Magere Brug&lt;/span&gt;
+            &lt;/StandaloneLink&gt;
+        &lt;/Row&gt;
+    &lt;/DataListHeader&gt;
+    &lt;DataList&gt;{[
+          &lt;DataList.Item key={1}&gt;
+            &lt;DataList.Label&gt;Naam&lt;/DataList.Label&gt;
+            &lt;DataList.Value&gt;Magere Brug&lt;/DataList.Value&gt;
+          &lt;/DataList.Item&gt;,
+          &lt;DataList.Item key={2}&gt;
+            &lt;DataList.Label&gt;Type&lt;/DataList.Label&gt;
+            &lt;DataList.Value&gt;Ophaalbrug&lt;/DataList.Value&gt;
+          &lt;/DataList.Item&gt;,
+          &lt;DataList.Item key={3}&gt;
+            &lt;DataList.Label&gt;Bouwjaar&lt;/DataList.Label&gt;
+            &lt;DataList.Value&gt;1934&lt;/DataList.Value&gt;
+          &lt;/DataList.Item&gt;,
+          &lt;DataList.Item key={4}&gt;
+            &lt;DataList.Label&gt;Ligging&lt;/DataList.Label&gt;
+            &lt;DataList.Value&gt;Over de Amstel, tussen de Kerkstraat en de Nieuwe Kerkstraat&lt;/DataList.Value&gt;
+          &lt;/DataList.Item&gt;,
+        ]}&lt;/DataList&gt;
+&lt;/&gt;;</code></pre>
+            </div>
+            <div class="note ok">
+              <div class="row">
                 <span class="ex-name">Form Review</span>
                 <span class="badge ok">story ok</span>
               </div>
               
               
-              <pre><code>const FormReview = () =&gt; &lt;Column&gt;
-    &lt;Heading level={2}&gt;Controleer uw gegevens&lt;/Heading&gt;
-    &lt;DataList&gt;{[
-          &lt;DataList.Item key={1}&gt;
-            &lt;DataList.Label&gt;Naam&lt;/DataList.Label&gt;
-            &lt;DataList.Value&gt;Johan Cruijff&lt;/DataList.Value&gt;
-            &lt;DataList.Actions&gt;
-              &lt;StandaloneLink href=&quot;#&quot; icon={PencilIcon}&gt;
-                Wijzigen&lt;span className=&quot;ams-visually-hidden&quot;&gt; naam&lt;/span&gt;
-              &lt;/StandaloneLink&gt;
-            &lt;/DataList.Actions&gt;
-          &lt;/DataList.Item&gt;,
-          &lt;DataList.Item key={2}&gt;
-            &lt;DataList.Label&gt;E-mailadres&lt;/DataList.Label&gt;
-            &lt;DataList.Value&gt;j.cruijff@voorbeeld.nl&lt;/DataList.Value&gt;
-            &lt;DataList.Actions&gt;
-              &lt;StandaloneLink href=&quot;#&quot; icon={PencilIcon}&gt;
-                Wijzigen&lt;span className=&quot;ams-visually-hidden&quot;&gt; e-mailadres&lt;/span&gt;
-              &lt;/StandaloneLink&gt;
-            &lt;/DataList.Actions&gt;
-          &lt;/DataList.Item&gt;,
-          &lt;DataList.Item key={3}&gt;
-            &lt;DataList.Label&gt;Onderwerp&lt;/DataList.Label&gt;
-            &lt;DataList.Value&gt;Melding over de openbare ruimte&lt;/DataList.Value&gt;
-            &lt;DataList.Actions&gt;
-              &lt;StandaloneLink href=&quot;#&quot; icon={PencilIcon}&gt;
-                Wijzigen&lt;span className=&quot;ams-visually-hidden&quot;&gt; onderwerp&lt;/span&gt;
-              &lt;/StandaloneLink&gt;
-            &lt;/DataList.Actions&gt;
-          &lt;/DataList.Item&gt;,
-        ]}&lt;/DataList&gt;
+              <pre><code>const FormReview = (args) =&gt; (
+  &lt;Column gap=&quot;x-large&quot;&gt;
+    {people.map(({ address, birthDate, name }, index) =&gt; {
+      const person = `persoon ${index + 1}`
+
+      // Wrap each header and its list, so the gap of the Column falls between groups rather than inside them.
+      return (
+        &lt;div key={name}&gt;
+          &lt;DataListHeader&gt;
+            &lt;Row align=&quot;between&quot; alignVertical=&quot;end&quot; wrap&gt;
+              &lt;Heading level={2}&gt;Persoon {index + 1}&lt;/Heading&gt;
+              &lt;Button icon={TrashBinIcon} iconBefore variant=&quot;secondary&quot;&gt;
+                Verwijderen&lt;span className=&quot;ams-visually-hidden&quot;&gt; {person}&lt;/span&gt;
+              &lt;/Button&gt;
+            &lt;/Row&gt;
+          &lt;/DataListHeader&gt;
+          &lt;DataList {...args}&gt;
+            &lt;DataList.Item&gt;
+              &lt;DataList.Label&gt;Naam&lt;/DataList.Label&gt;
+              &lt;DataList.Value&gt;{name}&lt;/DataList.Value&gt;
+              &lt;DataList.Actions&gt;
+                &lt;StandaloneLink href=&quot;#&quot; icon={PencilIcon}&gt;
+                  Wijzigen&lt;span className=&quot;ams-visually-hidden&quot;&gt; naam van {person}&lt;/span&gt;
+                &lt;/StandaloneLink&gt;
+              &lt;/DataList.Actions&gt;
+            &lt;/DataList.Item&gt;
+            &lt;DataList.Item&gt;
+              &lt;DataList.Label&gt;Geboortedatum&lt;/DataList.Label&gt;
+              &lt;DataList.Value&gt;{birthDate}&lt;/DataList.Value&gt;
+              &lt;DataList.Actions&gt;
+                &lt;StandaloneLink href=&quot;#&quot; icon={PencilIcon}&gt;
+                  Wijzigen&lt;span className=&quot;ams-visually-hidden&quot;&gt; geboortedatum van {person}&lt;/span&gt;
+                &lt;/StandaloneLink&gt;
+              &lt;/DataList.Actions&gt;
+            &lt;/DataList.Item&gt;
+            &lt;DataList.Item&gt;
+              &lt;DataList.Label&gt;Adres&lt;/DataList.Label&gt;
+              &lt;DataList.Value&gt;
+                {address.map((line) =&gt; (
+                  &lt;span key={line}&gt;{line}&lt;/span&gt;
+                ))}
+              &lt;/DataList.Value&gt;
+              &lt;DataList.Actions&gt;
+                &lt;StandaloneLink href=&quot;#&quot; icon={PencilIcon}&gt;
+                  Wijzigen&lt;span className=&quot;ams-visually-hidden&quot;&gt; adres van {person}&lt;/span&gt;
+                &lt;/StandaloneLink&gt;
+              &lt;/DataList.Actions&gt;
+            &lt;/DataList.Item&gt;
+          &lt;/DataList&gt;
+        &lt;/div&gt;
+      )
+    })}
     &lt;Row&gt;
-        &lt;ActionGroup&gt;
-            &lt;Button&gt;Verzenden&lt;/Button&gt;
-        &lt;/ActionGroup&gt;
+      &lt;ActionGroup&gt;
+        &lt;Button&gt;Verzenden&lt;/Button&gt;
+      &lt;/ActionGroup&gt;
     &lt;/Row&gt;
-&lt;/Column&gt;;</code></pre>
+  &lt;/Column&gt;
+);</code></pre>
             </div>
         </div>
     
@@ -5945,7 +6014,7 @@ import * as DataListStories from &quot;./DataList.stories.tsx&quot;;
 ## Subcomponents
 
 The Item, Label, Value, and Actions subcomponents make up a Data List.
-An Item groups one label with its value, Label and Value render the `&lt;dt&gt;` and `&lt;dd&gt;` elements, and an Action holds the link or button that changes that value.
+An Item groups one label with its value, Label and Value render the `&lt;dt&gt;` and `&lt;dd&gt;` elements, and Actions holds the links or buttons that act on that value.
 None of them has props of its own; the examples on this page show them in place.
 
 ## Usage guidelines
@@ -5959,11 +6028,12 @@ None of them has props of its own; the examples on this page show them in place.
 
 - For data that is compared across rows or columns: use a [Table](/docs/components-containers-table--docs).
 - For terms and their meanings, such as a glossary: use a [Description List](/docs/components-text-description-list--docs).
+- For values to suggest while someone types in a field: despite the name, a Data List is unrelated to the HTML [`datalist` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/datalist).
 
 ### How to use
 
 Give every item a Label and a Value.
-Add an Action only when the reader can change that value on the spot.
+Add Actions only when the reader can change or remove that value, whether that takes them elsewhere or happens in place.
 
 ### How to write
 
@@ -5982,19 +6052,20 @@ Resize the following example to see the Data List adapt its layout to the availa
 ### Stacked
 
 Set the orientation to ‘vertical’ to place every value below its label, however wide the container is.
-Use this when the values are long, or when the summary sits in a narrow column of a wider page.
+Use this when the values are long, or when the list sits in a narrow column of a wider page.
 
 &lt;Canvas of={DataListStories.Stacked} /&gt;
 
 ### Actions
 
 An item can offer one or more actions on its value, such as a link to the step of a form where that value is entered or a button that opens a dialog to edit the value directly.
-The text, the icon, and the type of the action are yours to choose: pass a Standalone Link, a Link, or a Button.
+The text, the icon, and the type of each action are yours to choose: pass Standalone Links, Links, or Buttons.
+A line separates each action from the one before it.
 
 Repeated actions read as a list of identical links to anyone who navigates by links alone.
 Add the label of the item as visually hidden text to tell them apart.
 
-&lt;Canvas of={DataListStories.Action} /&gt;
+&lt;Canvas of={DataListStories.Actions} /&gt;
 
 ### Composite value
 
@@ -6003,12 +6074,21 @@ Its parts are spaced evenly, so an address or a set of photos needs no markup of
 
 &lt;Canvas of={DataListStories.CompositeValue} /&gt;
 
+### Header
+
+Introduce a Data List with a Data List Header, which draws a line below its content and sets the space to the list.
+Place a [Heading](/docs/components-text-heading--docs) in it, at the level that fits the document outline.
+Add at most one action next to it, and use a [Row](/docs/components-layout-row--docs) to place the two side by side.
+
+&lt;Canvas of={DataListStories.Header} /&gt;
+
 ### Form review
 
 A summary of the answers in a form is an application of Data List rather than a component of its own.
-Combine it with a heading, an action per item that returns to the matching question, and a button that submits the form.
+Combine it with an action per item that returns to the matching question, and a button that submits the form.
 
-Group data about several people or subjects by placing a heading above each Data List.
+Group data about several people or subjects by placing a Data List Header above each Data List.
+Its action then applies to the whole group, such as removing a person.
 
 &lt;Canvas of={DataListStories.FormReview} /&gt;
 
@@ -6019,8 +6099,13 @@ Below the breakpoint every value moves under its label, which keeps a Data List 
 
 ## Design
 
-Items are separated by a line, which runs the full width of the summary.
+Items are separated by a line, which runs the full width of the list.
 The whitespace above and below that line is the same, so the line sits between two items rather than belonging to one.
+
+Several actions sit next to each other, with a thin line between each pair.
+They do not wrap onto a new line, so a line never starts a row; in a narrow column their labels wrap instead.
+
+A Data List Header draws a thicker, darker line below its content, and adds space below itself when a Data List follows.
 
 Labels use heading typography and values use body text, which gives the two different line heights.
 Side by side, a label therefore gets half of that difference as extra space above it, so its first line sits level with the first line of its value.
@@ -6035,9 +6120,12 @@ A Data List renders `dl`, `dt`, and `dd` elements.
 These tie each label to its value in the markup instead of only through the layout, which is the kind of relationship [WCAG 1.3.1](https://www.w3.org/TR/WCAG22/#info-and-relationships) asks to be made available.
 An Item renders a `div` around one pair, which HTML permits inside a `dl`.
 
-An Action renders a second `dd`, so its link or button is announced in the context of the label it acts on.
+Actions renders a second `dd`, so its links and buttons are announced in the context of the label they act on.
 Give repeated actions a unique accessible name with the `ams-visually-hidden` helper, as [WCAG 2.4.4](https://www.w3.org/TR/WCAG22/#link-purpose-in-context) asks.
 Use visually hidden text rather than `aria-label`, because browsers do not reliably translate that attribute.
+
+A Data List Header renders a `div`, so it adds no landmark and its Heading stays part of the page outline.
+The action in a header applies to the whole group, so give it the name of that group as visually hidden text, such as ‘Verwijderen persoon 1’.
 
 ## See also
 
@@ -6062,7 +6150,7 @@ Use visually hidden text rather than `aria-label`, because browsers do not relia
       </div>
       <div class="hint">/home/runner/work/design-system/design-system/packages/react/src/index.ts</div>
       
-      <div class="hint">The slot for the link or button that acts on the value of an item of a Data List.</div>
+      <div class="hint">Holds the links or buttons that act on the value of an item of a Data List.</div>
       <div class="kv"><span class="chip">see: {@link https://designsystem.amsterdam/?path=/docs/components-containers-data-list--docs Data List docs at Amsterdam Design System}</span></div>
       <pre><code>import { DataList } from &quot;@amsterdam/design-system-react/src&quot;;</code></pre>
       
@@ -6078,7 +6166,7 @@ Use visually hidden text rather than `aria-label`, because browsers do not relia
       </div>
       <div class="hint">/home/runner/work/design-system/design-system/packages/react/src/index.ts</div>
       
-      <div class="hint">Groups a label with its value, and optionally an action, within a Data List.</div>
+      <div class="hint">Groups a label with its value, and optionally one or more actions, within a Data List.</div>
       <div class="kv"><span class="chip">see: {@link https://designsystem.amsterdam/?path=/docs/components-containers-data-list--docs Data List docs at Amsterdam Design System}</span></div>
       <pre><code>import { DataList } from &quot;@amsterdam/design-system-react/src&quot;;</code></pre>
       
@@ -6113,6 +6201,22 @@ Use visually hidden text rather than `aria-label`, because browsers do not relia
       <div class="hint">The data itself, paired with its label in an item of a Data List.</div>
       <div class="kv"><span class="chip">see: {@link https://designsystem.amsterdam/?path=/docs/components-containers-data-list--docs Data List docs at Amsterdam Design System}</span></div>
       <pre><code>import { DataList } from &quot;@amsterdam/design-system-react/src&quot;;</code></pre>
+      
+      
+    </div>
+  
+    <div class="note ok">
+      <div class="row">
+        <span class="ex-name">DataListHeader</span>
+        <span class="badge ok">
+          no prop types
+        </span>
+      </div>
+      <div class="hint">/home/runner/work/design-system/design-system/packages/react/src/index.ts</div>
+      
+      <div class="hint">Introduces a Data List with a heading and, optionally, one action, and separates it from the list with a line.</div>
+      <div class="kv"><span class="chip">see: {@link https://designsystem.amsterdam/?path=/docs/components-containers-data-list--docs Data List docs at Amsterdam Design System}</span></div>
+      <pre><code>import { DataListHeader } from &quot;@amsterdam/design-system-react/src&quot;;</code></pre>
       
       
     </div>
