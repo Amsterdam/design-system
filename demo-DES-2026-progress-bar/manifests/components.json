@@ -3015,6 +3015,47 @@
         }
       }
     },
+    "components-feedback-progressbar": {
+      "id": "components-feedback-progressbar",
+      "name": "ProgressBar",
+      "path": "./src/components/ProgressBar/ProgressBar.stories.tsx",
+      "jsDocTags": {
+        "see": [
+          "{@link https://designsystem.amsterdam/?path=/docs/components-feedback-progress-bar--docs ProgressBar docs at Amsterdam Design System}"
+        ]
+      },
+      "description": "A bar that shows how far a user has progressed through a process, such as a form.",
+      "reactComponentMeta": {
+        "displayName": "ProgressBar",
+        "exportName": "ProgressBar",
+        "filePath": "/home/runner/work/design-system/design-system/packages/react/src/index.ts",
+        "description": "A bar that shows how far a user has progressed through a process, such as a form.",
+        "jsDocTags": {
+          "see": [
+            "{@link https://designsystem.amsterdam/?path=/docs/components-feedback-progress-bar--docs ProgressBar docs at Amsterdam Design System}"
+          ]
+        },
+        "props": {}
+      },
+      "stories": [
+        {
+          "id": "components-feedback-progressbar--default",
+          "name": "Default",
+          "snippet": "const Default = () => <ProgressBar>Nieuw component</ProgressBar>;"
+        }
+      ],
+      "import": "import { ProgressBar } from \"@amsterdam/design-system-react/src\";",
+      "docs": {
+        "components-feedback-progressbar--docs": {
+          "id": "components-feedback-progressbar--docs",
+          "name": "Docs",
+          "path": "./src/components/ProgressBar/ProgressBar.docs.mdx",
+          "title": "Components/Feedback/ProgressBar",
+          "content": "{/* @license CC0-1.0 */}\n\nimport { Canvas, Controls, Description, Meta, Primary, Title } from \"@storybook/addon-docs/blocks\";\n\nimport { DesignTokensTable } from \"#storybook/_components/DesignTokensTable/DesignTokensTable\";\nimport tokens from \"#tokens/components/ams/progress-bar.tokens.json\";\n\nimport * as ProgressBarStories from \"./ProgressBar.stories.tsx\";\n\n<Meta of={ProgressBarStories} />\n\n<Title />\n\n<Description of={ProgressBarStories} />\n\n<Primary />\n\n<Controls />\n\n## Subcomponents\n\n### SubcomponentName\n\n## Usage guidelines\n\n### When to use\n\n### When not to use\n\n### How to use\n\n### How to write\n\n## Examples\n\n## Features\n\n## Design\n\n## Accessibility\n\n## See also\n\n## Design tokens\n\n<DesignTokensTable tokens={tokens} />\n",
+          "summary": "## Subcomponents ### SubcomponentName ## Usage guidelines ### When to use ### When not to ..."
+        }
+      }
+    },
     "components-feedback-skeleton": {
       "id": "components-feedback-skeleton",
       "name": "Skeleton",
@@ -12075,6 +12116,6 @@
   },
   "meta": {
     "docgen": "react-component-meta",
-    "durationMs": 5540
+    "durationMs": 5560
   }
 }
