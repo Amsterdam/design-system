@@ -8,8 +8,6 @@ import dataListTokens from "#tokens/components/ams/data-list.tokens.json";
 
 import * as DataListStories from "./DataList.stories.tsx";
 
-const tokens = { ams: { ...dataListTokens.ams, ...dataListHeaderTokens.ams } };
-
 <Meta of={DataListStories} />
 
 <Title />
@@ -143,4 +141,6 @@ The action in a header applies to the whole group, so give it the name of that g
 
 ## Design tokens
 
-<DesignTokensTable tokens={tokens} />
+{/* Data List Header has no docs page of its own, so its tokens join this table. */}
+
+<DesignTokensTable tokens={{ ams: { ...dataListTokens.ams, ...dataListHeaderTokens.ams } }} />
