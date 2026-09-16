@@ -7,11 +7,11 @@ import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 import { describe, expect, it } from 'vitest'
 
-import { DataSummary, dataSummaryOrientations, dataSummaryTermsWidths } from './DataSummary'
+import { DataList, dataListOrientations, dataListTermsWidths } from './DataList'
 
-describe('DataSummary', () => {
+describe('DataList', () => {
   it('renders', () => {
-    const { container } = render(<DataSummary />)
+    const { container } = render(<DataList />)
 
     const component = container.querySelector(':only-child')
 
@@ -20,23 +20,23 @@ describe('DataSummary', () => {
   })
 
   it('renders a design system BEM class name', () => {
-    const { container } = render(<DataSummary />)
+    const { container } = render(<DataList />)
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('ams-data-summary')
+    expect(component).toHaveClass('ams-data-list')
   })
 
   it('renders an extra class name', () => {
-    const { container } = render(<DataSummary className="extra" />)
+    const { container } = render(<DataList className="extra" />)
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('ams-data-summary ams-data-summary--horizontal extra')
+    expect(component).toHaveClass('ams-data-list ams-data-list--horizontal extra')
   })
 
   it('renders a description list element', () => {
-    const { container } = render(<DataSummary />)
+    const { container } = render(<DataList />)
 
     const component = container.querySelector(':only-child')
 
@@ -44,44 +44,44 @@ describe('DataSummary', () => {
   })
 
   it('renders the class name for the horizontal orientation by default', () => {
-    const { container } = render(<DataSummary />)
+    const { container } = render(<DataList />)
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('ams-data-summary--horizontal')
+    expect(component).toHaveClass('ams-data-list--horizontal')
   })
 
-  dataSummaryOrientations.map((orientation) =>
+  dataListOrientations.map((orientation) =>
     it(`renders the class name for the ‘${orientation}’ orientation`, () => {
-      const { container } = render(<DataSummary orientation={orientation} />)
+      const { container } = render(<DataList orientation={orientation} />)
 
       const component = container.querySelector(':only-child')
 
-      expect(component).toHaveClass(`ams-data-summary--${orientation}`)
+      expect(component).toHaveClass(`ams-data-list--${orientation}`)
     }),
   )
 
-  dataSummaryTermsWidths.map((width) =>
+  dataListTermsWidths.map((width) =>
     it(`renders the class name for the ‘${width}’ terms column width`, () => {
-      const { container } = render(<DataSummary termsWidth={width} />)
+      const { container } = render(<DataList termsWidth={width} />)
 
       const component = container.querySelector(':only-child')
 
-      expect(component).toHaveClass(`ams-data-summary--${width}`)
+      expect(component).toHaveClass(`ams-data-list--${width}`)
     }),
   )
 
   it('renders its items, labels, values and actions', () => {
     render(
-      <DataSummary>
-        <DataSummary.Item>
-          <DataSummary.Label>Geboortedatum</DataSummary.Label>
-          <DataSummary.Value>1 januari 1990</DataSummary.Value>
-          <DataSummary.Action>
+      <DataList>
+        <DataList.Item>
+          <DataList.Label>Geboortedatum</DataList.Label>
+          <DataList.Value>1 januari 1990</DataList.Value>
+          <DataList.Actions>
             <a href="#">Wijzigen</a>
-          </DataSummary.Action>
-        </DataSummary.Item>
-      </DataSummary>,
+          </DataList.Actions>
+        </DataList.Item>
+      </DataList>,
     )
 
     expect(screen.getByRole('term')).toHaveTextContent('Geboortedatum')
@@ -92,7 +92,7 @@ describe('DataSummary', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLDListElement>()
 
-    const { container } = render(<DataSummary ref={ref} />)
+    const { container } = render(<DataList ref={ref} />)
 
     const component = container.querySelector(':only-child')
 
@@ -100,7 +100,7 @@ describe('DataSummary', () => {
   })
 
   it('passes additional props', () => {
-    const { container } = render(<DataSummary aria-hidden="false" data-test="data-test" id="id" />)
+    const { container } = render(<DataList aria-hidden="false" data-test="data-test" id="id" />)
 
     const component = container.querySelector(':only-child')
 

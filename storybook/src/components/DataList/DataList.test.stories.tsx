@@ -8,35 +8,35 @@ import type { ComponentProps } from 'react'
 
 import { Link, Paragraph, StandaloneLink } from '@amsterdam/design-system-react'
 import { PencilIcon } from '@amsterdam/design-system-react-icons'
-import { DataSummary } from '@amsterdam/design-system-react/src'
+import { DataList } from '@amsterdam/design-system-react/src'
 
 import { renderComponentVariants } from '#storybook/_common/renderComponentVariants'
 
-import { default as dataSummaryMeta } from './DataSummary.stories'
+import { default as dataListMeta } from './DataList.stories'
 
 const meta = {
-  ...dataSummaryMeta,
-  title: 'Components/Containers/Data Summary',
-} satisfies Meta<typeof DataSummary>
+  ...dataListMeta,
+  title: 'Components/Containers/Data List',
+} satisfies Meta<typeof DataList>
 
 export default meta
 
 type Story = StoryObj<typeof meta>
 
-type DataSummaryProps = ComponentProps<typeof DataSummary>
+type DataListProps = ComponentProps<typeof DataList>
 
 /**
  * Wrapper used by the single Chromatic ‘Test’ story:
  * - first render example is identical to the original Test story (container context will fallback to Page or none)
  * - then render example in a narrow container-query context
  */
-const DataSummaryWithContainerQueryExamples = (props: DataSummaryProps) => (
+const DataListWithContainerQueryExamples = (props: DataListProps) => (
   <>
-    <DataSummary {...props} />
+    <DataList {...props} />
 
-    {/* Data Summary in a narrow container */}
+    {/* Data List in a narrow container */}
     <div className="ams-query-container-inline-size" style={{ inlineSize: '31.99rem' }}>
-      <DataSummary {...props} />
+      <DataList {...props} />
     </div>
   </>
 )
@@ -45,46 +45,46 @@ export const Test: Story = {
   args: {
     children: [
       // Label and value only
-      <DataSummary.Item key={1}>
-        <DataSummary.Label>Naam</DataSummary.Label>
-        <DataSummary.Value>Magere Brug</DataSummary.Value>
-      </DataSummary.Item>,
+      <DataList.Item key={1}>
+        <DataList.Label>Naam</DataList.Label>
+        <DataList.Value>Magere Brug</DataList.Value>
+      </DataList.Item>,
 
       // Label, value and action
-      <DataSummary.Item key={2}>
-        <DataSummary.Label>Bouwjaar</DataSummary.Label>
-        <DataSummary.Value>1934</DataSummary.Value>
-        <DataSummary.Action>
+      <DataList.Item key={2}>
+        <DataList.Label>Bouwjaar</DataList.Label>
+        <DataList.Value>1934</DataList.Value>
+        <DataList.Actions>
           <StandaloneLink href="#" icon={PencilIcon}>
             Wijzigen<span className="ams-visually-hidden"> bouwjaar</span>
           </StandaloneLink>
-        </DataSummary.Action>
-      </DataSummary.Item>,
+        </DataList.Actions>
+      </DataList.Item>,
 
       // Long label and value, which both wrap
-      <DataSummary.Item key={3}>
-        <DataSummary.Label>Bijzonderheden aan de constructie van de brug</DataSummary.Label>
-        <DataSummary.Value>
+      <DataList.Item key={3}>
+        <DataList.Label>Bijzonderheden aan de constructie van de brug</DataList.Label>
+        <DataList.Value>
           De brug is een dubbele ophaalbrug van Azobé-hout, met twee doorvaartopeningen en een middenpijler in de
           Amstel.
-        </DataSummary.Value>
-      </DataSummary.Item>,
+        </DataList.Value>
+      </DataList.Item>,
 
       // Composite value
-      <DataSummary.Item key={4}>
-        <DataSummary.Label>Toelichting</DataSummary.Label>
-        <DataSummary.Value>
+      <DataList.Item key={4}>
+        <DataList.Label>Toelichting</DataList.Label>
+        <DataList.Value>
           <Paragraph>De brug is afgesloten voor gemotoriseerd verkeer.</Paragraph>
           <Link href="#">Bekijk de omleidingsroute</Link>
-        </DataSummary.Value>
-        <DataSummary.Action>
+        </DataList.Value>
+        <DataList.Actions>
           <StandaloneLink href="#" icon={PencilIcon}>
             Wijzigen<span className="ams-visually-hidden"> toelichting</span>
           </StandaloneLink>
-        </DataSummary.Action>
-      </DataSummary.Item>,
+        </DataList.Actions>
+      </DataList.Item>,
     ],
   },
-  render: (args, context) => renderComponentVariants(DataSummaryWithContainerQueryExamples, { args }, context),
+  render: (args, context) => renderComponentVariants(DataListWithContainerQueryExamples, { args }, context),
   tags: ['!dev', '!autodocs', '!manifest'],
 }

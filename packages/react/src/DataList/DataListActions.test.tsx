@@ -7,11 +7,11 @@ import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 import { describe, expect, it } from 'vitest'
 
-import { DataSummary } from './DataSummary'
+import { DataList } from './DataList'
 
-describe('DataSummaryAction', () => {
+describe('DataListActions', () => {
   it('renders', () => {
-    render(<DataSummary.Action>Test</DataSummary.Action>)
+    render(<DataList.Actions>Test</DataList.Actions>)
 
     const component = screen.getByRole('definition')
 
@@ -20,30 +20,30 @@ describe('DataSummaryAction', () => {
   })
 
   it('renders a design system BEM class name', () => {
-    render(<DataSummary.Action>Test</DataSummary.Action>)
+    render(<DataList.Actions>Test</DataList.Actions>)
 
     const component = screen.getByRole('definition')
 
-    expect(component).toHaveClass('ams-data-summary__action')
+    expect(component).toHaveClass('ams-data-list__actions')
   })
 
   it('renders an extra class name', () => {
-    render(<DataSummary.Action className="extra">Test</DataSummary.Action>)
+    render(<DataList.Actions className="extra">Test</DataList.Actions>)
 
     const component = screen.getByRole('definition')
 
-    expect(component).toHaveClass('ams-data-summary__action extra')
+    expect(component).toHaveClass('ams-data-list__actions extra')
   })
 
   it('renders any type of action', () => {
     render(
       <>
-        <DataSummary.Action>
+        <DataList.Actions>
           <a href="#">Wijzigen</a>
-        </DataSummary.Action>
-        <DataSummary.Action>
+        </DataList.Actions>
+        <DataList.Actions>
           <button type="button">Verwijderen</button>
-        </DataSummary.Action>
+        </DataList.Actions>
       </>,
     )
 
@@ -54,16 +54,16 @@ describe('DataSummaryAction', () => {
   it('distinguishes repeated actions with visually hidden text', () => {
     render(
       <>
-        <DataSummary.Action>
+        <DataList.Actions>
           <a href="#">
             Wijzigen<span className="ams-visually-hidden"> geboortedatum</span>
           </a>
-        </DataSummary.Action>
-        <DataSummary.Action>
+        </DataList.Actions>
+        <DataList.Actions>
           <a href="#">
             Wijzigen<span className="ams-visually-hidden"> woonplaats</span>
           </a>
-        </DataSummary.Action>
+        </DataList.Actions>
       </>,
     )
 
@@ -74,7 +74,7 @@ describe('DataSummaryAction', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLElement>()
 
-    render(<DataSummary.Action ref={ref}>Test</DataSummary.Action>)
+    render(<DataList.Actions ref={ref}>Test</DataList.Actions>)
 
     const component = screen.getByRole('definition')
 
@@ -82,7 +82,7 @@ describe('DataSummaryAction', () => {
   })
 
   it('passes additional props', () => {
-    render(<DataSummary.Action aria-hidden="false" data-test="data-test" id="id" />)
+    render(<DataList.Actions aria-hidden="false" data-test="data-test" id="id" />)
 
     const component = screen.getByRole('definition')
 

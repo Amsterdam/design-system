@@ -7,11 +7,11 @@ import { render } from '@testing-library/react'
 import { createRef } from 'react'
 import { describe, expect, it } from 'vitest'
 
-import { DataSummary } from './DataSummary'
+import { DataList } from './DataList'
 
-describe('DataSummaryItem', () => {
+describe('DataListItem', () => {
   it('renders', () => {
-    const { container } = render(<DataSummary.Item />)
+    const { container } = render(<DataList.Item />)
 
     const component = container.querySelector(':only-child')
 
@@ -20,25 +20,25 @@ describe('DataSummaryItem', () => {
   })
 
   it('renders a design system BEM class name', () => {
-    const { container } = render(<DataSummary.Item />)
+    const { container } = render(<DataList.Item />)
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('ams-data-summary__item')
+    expect(component).toHaveClass('ams-data-list__item')
   })
 
   it('renders an extra class name', () => {
-    const { container } = render(<DataSummary.Item className="extra" />)
+    const { container } = render(<DataList.Item className="extra" />)
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('ams-data-summary__item extra')
+    expect(component).toHaveClass('ams-data-list__item extra')
   })
 
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLDivElement>()
 
-    const { container } = render(<DataSummary.Item ref={ref} />)
+    const { container } = render(<DataList.Item ref={ref} />)
 
     const component = container.querySelector(':only-child')
 
@@ -46,7 +46,7 @@ describe('DataSummaryItem', () => {
   })
 
   it('passes additional props', () => {
-    const { container } = render(<DataSummary.Item aria-hidden="false" data-test="data-test" id="id" />)
+    const { container } = render(<DataList.Item aria-hidden="false" data-test="data-test" id="id" />)
 
     const component = container.querySelector(':only-child')
 

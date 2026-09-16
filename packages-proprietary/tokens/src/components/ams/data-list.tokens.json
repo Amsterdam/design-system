@@ -1,6 +1,6 @@
 {
   "ams": {
-    "data-summary": {
+    "data-list": {
       "color": {
         "$value": "{ams.color.text.default}",
         "$extensions": {
@@ -140,7 +140,7 @@
           }
         }
       },
-      "action": {
+      "actions": {
         "margin-block-start": {
           "$value": "{ams.space.s}",
           "$extensions": {

@@ -7,11 +7,11 @@ import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 import { describe, expect, it } from 'vitest'
 
-import { DataSummary } from './DataSummary'
+import { DataList } from './DataList'
 
-describe('DataSummaryLabel', () => {
+describe('DataListLabel', () => {
   it('renders', () => {
-    render(<DataSummary.Label>Test</DataSummary.Label>)
+    render(<DataList.Label>Test</DataList.Label>)
 
     const component = screen.getByRole('term')
 
@@ -20,25 +20,25 @@ describe('DataSummaryLabel', () => {
   })
 
   it('renders a design system BEM class name', () => {
-    render(<DataSummary.Label>Test</DataSummary.Label>)
+    render(<DataList.Label>Test</DataList.Label>)
 
     const component = screen.getByRole('term')
 
-    expect(component).toHaveClass('ams-data-summary__label')
+    expect(component).toHaveClass('ams-data-list__label')
   })
 
   it('renders an extra class name', () => {
-    render(<DataSummary.Label className="extra">Test</DataSummary.Label>)
+    render(<DataList.Label className="extra">Test</DataList.Label>)
 
     const component = screen.getByRole('term')
 
-    expect(component).toHaveClass('ams-data-summary__label extra')
+    expect(component).toHaveClass('ams-data-list__label extra')
   })
 
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLElement>()
 
-    render(<DataSummary.Label ref={ref}>Test</DataSummary.Label>)
+    render(<DataList.Label ref={ref}>Test</DataList.Label>)
 
     const component = screen.getByRole('term')
 
@@ -46,7 +46,7 @@ describe('DataSummaryLabel', () => {
   })
 
   it('passes additional props', () => {
-    render(<DataSummary.Label aria-hidden="false" data-test="data-test" id="id" />)
+    render(<DataList.Label aria-hidden="false" data-test="data-test" id="id" />)
 
     const component = screen.getByRole('term')
 

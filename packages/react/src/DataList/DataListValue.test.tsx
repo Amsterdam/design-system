@@ -7,11 +7,11 @@ import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 import { describe, expect, it } from 'vitest'
 
-import { DataSummary } from './DataSummary'
+import { DataList } from './DataList'
 
-describe('DataSummaryValue', () => {
+describe('DataListValue', () => {
   it('renders', () => {
-    render(<DataSummary.Value>Test</DataSummary.Value>)
+    render(<DataList.Value>Test</DataList.Value>)
 
     const component = screen.getByRole('definition')
 
@@ -20,27 +20,27 @@ describe('DataSummaryValue', () => {
   })
 
   it('renders a design system BEM class name', () => {
-    render(<DataSummary.Value>Test</DataSummary.Value>)
+    render(<DataList.Value>Test</DataList.Value>)
 
     const component = screen.getByRole('definition')
 
-    expect(component).toHaveClass('ams-data-summary__value')
+    expect(component).toHaveClass('ams-data-list__value')
   })
 
   it('renders an extra class name', () => {
-    render(<DataSummary.Value className="extra">Test</DataSummary.Value>)
+    render(<DataList.Value className="extra">Test</DataList.Value>)
 
     const component = screen.getByRole('definition')
 
-    expect(component).toHaveClass('ams-data-summary__value extra')
+    expect(component).toHaveClass('ams-data-list__value extra')
   })
 
   it('renders composite content', () => {
     render(
-      <DataSummary.Value>
+      <DataList.Value>
         <img alt="Een gemeentelijke brug" src="brug.jpg" />
         <a href="#">Meer over deze brug</a>
-      </DataSummary.Value>,
+      </DataList.Value>,
     )
 
     expect(screen.getByRole('img', { name: 'Een gemeentelijke brug' })).toBeInTheDocument()
@@ -50,7 +50,7 @@ describe('DataSummaryValue', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLElement>()
 
-    render(<DataSummary.Value ref={ref}>Test</DataSummary.Value>)
+    render(<DataList.Value ref={ref}>Test</DataList.Value>)
 
     const component = screen.getByRole('definition')
 
@@ -58,7 +58,7 @@ describe('DataSummaryValue', () => {
   })
 
   it('passes additional props', () => {
-    render(<DataSummary.Value aria-hidden="false" data-test="data-test" id="id" />)
+    render(<DataList.Value aria-hidden="false" data-test="data-test" id="id" />)
 
     const component = screen.getByRole('definition')
 
