@@ -3035,7 +3035,65 @@
             "{@link https://designsystem.amsterdam/?path=/docs/components-feedback-progress-bar--docs ProgressBar docs at Amsterdam Design System}"
           ]
         },
-        "props": {}
+        "props": {
+          "max": {
+            "name": "max",
+            "required": true,
+            "type": {
+              "name": "number"
+            },
+            "description": "The value that represents 100% progress.",
+            "defaultValue": null,
+            "parent": {
+              "name": "ProgressBarProps",
+              "fileName": "../packages/react/src/ProgressBar/ProgressBar.tsx"
+            },
+            "declarations": [
+              {
+                "name": "TypeLiteral",
+                "fileName": "../packages/react/src/ProgressBar/ProgressBar.tsx"
+              }
+            ]
+          },
+          "text": {
+            "name": "text",
+            "required": true,
+            "type": {
+              "name": "string"
+            },
+            "description": "A description of the progress, such as '4 van de 10 stappen'.\nThis is not calculated from `value` and `max` and must be provided separately.",
+            "defaultValue": null,
+            "parent": {
+              "name": "ProgressBarProps",
+              "fileName": "../packages/react/src/ProgressBar/ProgressBar.tsx"
+            },
+            "declarations": [
+              {
+                "name": "TypeLiteral",
+                "fileName": "../packages/react/src/ProgressBar/ProgressBar.tsx"
+              }
+            ]
+          },
+          "value": {
+            "name": "value",
+            "required": true,
+            "type": {
+              "name": "number"
+            },
+            "description": "The current progress value.",
+            "defaultValue": null,
+            "parent": {
+              "name": "ProgressBarProps",
+              "fileName": "../packages/react/src/ProgressBar/ProgressBar.tsx"
+            },
+            "declarations": [
+              {
+                "name": "TypeLiteral",
+                "fileName": "../packages/react/src/ProgressBar/ProgressBar.tsx"
+              }
+            ]
+          }
+        }
       },
       "stories": [
         {
@@ -12116,6 +12174,6 @@
   },
   "meta": {
     "docgen": "react-component-meta",
-    "durationMs": 5560
+    "durationMs": 4088
   }
 }
