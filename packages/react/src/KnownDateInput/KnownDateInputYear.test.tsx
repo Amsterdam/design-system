@@ -40,6 +40,12 @@ describe('KnownDateInput.Year', () => {
     expect(ref.current).toBe(screen.getByRole('textbox'))
   })
 
+  it('generates an id that contains the English word for its part', () => {
+    render(<KnownDateInputYear />)
+
+    expect(screen.getByRole('textbox').id).toMatch(/-year$/)
+  })
+
   it('renders a custom label', () => {
     render(<KnownDateInputYear label="Year" />)
 

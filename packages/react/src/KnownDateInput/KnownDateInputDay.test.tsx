@@ -42,6 +42,12 @@ describe('KnownDateInput.Day', () => {
     expect(ref.current).toBe(screen.getByRole('textbox'))
   })
 
+  it('generates an id that contains the English word for its part', () => {
+    render(<KnownDateInputDay />)
+
+    expect(screen.getByRole('textbox').id).toMatch(/-day$/)
+  })
+
   it('renders a custom label', () => {
     render(<KnownDateInputDay label="Day" />)
 

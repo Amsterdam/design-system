@@ -40,6 +40,12 @@ describe('KnownDateInput.Month', () => {
     expect(ref.current).toBe(screen.getByRole('textbox'))
   })
 
+  it('generates an id that contains the English word for its part', () => {
+    render(<KnownDateInputMonth />)
+
+    expect(screen.getByRole('textbox').id).toMatch(/-month$/)
+  })
+
   it('renders a custom label', () => {
     render(<KnownDateInputMonth label="Month" />)
 

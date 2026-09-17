@@ -52,6 +52,9 @@ Write the example in the order the fields appear, so it doubles as a format hint
 Set `autoComplete` to `birth-date` for a date of birth, or to `credit-card-expiry-date` for the expiry date of a payment card, so the browser can fill in a date it already knows.
 
 Give each field an `id` so that an [Invalid Form Alert](/docs/components-forms-invalid-form-alert--docs) can link to it.
+If you set an `id` or a `name`, include the English word for its part in at least one of them, such as `birth-date-day`.
+Safari on iOS only autofills a field when its `id` or `name` contains that word, whatever language the page or the phone is in.
+The `id` a field generates for itself already does.
 
 Accept what the user types in the format they type it.
 Both `1` and `01` are a valid month, and rejecting one of the two gives the user an unnecessary task.

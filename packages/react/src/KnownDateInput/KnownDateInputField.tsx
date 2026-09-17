@@ -33,7 +33,8 @@ type FieldProps = {
 export const KnownDateInputField = forwardRef(
   ({ className, id, label, part, ...restProps }: FieldProps, ref: ForwardedRef<HTMLInputElement>) => {
     const generatedId = useId()
-    const inputId = id || generatedId
+    // Safari on iOS only autofills the parts of a date when their id or name contains the English word for it.
+    const inputId = id || `${generatedId}-${part}`
     const { autoComplete } = useContext(KnownDateInputContext)
 
     return (
