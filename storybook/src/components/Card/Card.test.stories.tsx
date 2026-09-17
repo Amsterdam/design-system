@@ -38,9 +38,23 @@ const NewsCard = () => (
   </Card>
 )
 
+// Without a Card Link there is no ::after overlay and no suppressed focus ring, which is its own visual variant.
+const StaticCard = () => (
+  <Card>
+    <Card.HeadingGroup>
+      <Card.Heading level={3}>Ontwerp</Card.Heading>
+      <Metadata size="small">2023-2025</Metadata>
+    </Card.HeadingGroup>
+    <div>
+      <p>Bewoners en ondernemers dachten mee over de inrichting van de straat.</p>
+    </div>
+  </Card>
+)
+
 /*
  * Both sides of the 36rem container width at which a Card with an image and a Content switches to a
  * horizontal layout. Each Card sits in its own query container, so one snapshot covers both layouts.
+ * The StaticCard has no image, so it never switches layout and needs only one container width.
  */
 export const Test: Story = {
   render: () => (
@@ -53,6 +67,9 @@ export const Test: Story = {
       </div>
       <div className="ams-query-container-inline-size" style={{ inlineSize: '48rem' }}>
         <NewsCard />
+      </div>
+      <div className="ams-query-container-inline-size" style={{ inlineSize: '24rem' }}>
+        <StaticCard />
       </div>
     </div>
   ),
