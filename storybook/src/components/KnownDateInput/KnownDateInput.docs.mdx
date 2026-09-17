@@ -19,12 +19,12 @@ import * as KnownDateInputStories from "./KnownDateInput.stories.tsx";
 
 ## Subcomponents
 
-Compose a Known Date Input from its parts: Known Date Input Day, Month, and Year.
-Each part renders a [Label](/docs/components-forms-label--docs) and a [Text Input](/docs/components-forms-text-input--docs), links the two, and sets what every part of a date needs: a numeric keyboard, a width that fits its digits, and the autocomplete value that matches the `autoComplete` of the Known Date Input.
+Compose a Known Date Input from its Day, Month, and Year parts.
+Each part renders a [Label](/docs/components-forms-label--docs) and a [Text Input](/docs/components-forms-text-input--docs), links the two, sets a numeric keyboard, a fitting width, and a chosen autocomplete value.
 Everything else you pass to a part, such as `name`, `invalid`, a `ref`, or a `className`, goes to its input.
 
 The labels default to Dag, Maand, and Jaar.
-Set `label` on each part for a form in another language.
+Set `label` on each field for a form in another language.
 
 ## Usage guidelines
 
@@ -33,11 +33,11 @@ Set `label` on each part for a form in another language.
 Use a Known Date Input for a date the user already knows or can copy from a document in front of them: a date of birth, the expiry date of a passport, the day something happened.
 Separate fields let someone type the date the way they would say it, without first working out which format the browser expects.
 
-This is the pattern the [NL Design System](https://nldesignsystem.nl/richtlijnen/formulieren/wanneer-welk-form-element/iedereen-kan-invullen) and [gov.uk](https://design-system.service.gov.uk/components/date-input/) recommend for these dates.
+Both [NL Design System](https://nldesignsystem.nl/richtlijnen/formulieren/wanneer-welk-form-element/iedereen-kan-invullen) and [gov.uk](https://design-system.service.gov.uk/components/date-input/) recommend this pattern for these dates.
 
 ### When not to use
 
-Use a [Date Input](/docs/components-forms-date-input--docs) for a date the user does not know by heart and has to look up, such as an appointment.
+Use a [Date Input](/docs/components-forms-date-input--docs) for a date that the user has to look up, such as for an appointment.
 Its native control opens a calendar to browse, which a group of text fields cannot offer.
 
 Use a [Date Picker](/docs/components-forms-date-picker--docs) when the user has to choose a date or a date range from a calendar they can see, such as when booking an appointment.
@@ -45,19 +45,16 @@ Use a [Date Picker](/docs/components-forms-date-picker--docs) when the user has 
 ### How to use
 
 Wrap a Known Date Input in a [Field Set](/docs/components-forms-field-set--docs) whose legend asks for the date as a question.
-The legend is what ties the parts together for a screen reader; without it, three labels read as three unrelated questions.
 
 Put a Paragraph with an example date above the Known Date Input and connect it to the Field Set with `aria-describedby`.
-Write the example in the order the parts appear, so it doubles as a format hint.
+Write the example in the order the fields appear, so it doubles as a format hint.
 
-Set `autoComplete` to `bday` for a date of birth, or to `cc-exp` for the expiry date of a payment card, so the browser can fill in a date it already knows.
-Leave it out for any other date.
+Set `autoComplete` to `birth-date` for a date of birth, or to `credit-card-expiry-date` for the expiry date of a payment card, so the browser can fill in a date it already knows.
 
-Give each part an `id` when an [Invalid Form Alert](/docs/components-forms-invalid-form-alert--docs) has to link to it.
-Without one, the part generates its own.
+Give each field an `id` so that an [Invalid Form Alert](/docs/components-forms-invalid-form-alert--docs) can link to it.
 
 Accept what the user types in the format they type it.
-Both `1` and `01` are a valid month, and rejecting one of the two turns a formatting preference into an error the user has to solve.
+Both `1` and `01` are a valid month, and rejecting one of the two gives the user an unnecessary task.
 
 ## Examples
 
@@ -71,8 +68,9 @@ Check [the Field Set docs](/docs/components-forms-field-set--docs) for more info
 
 ### In a Field Set with validation
 
+The component does not validate its values itself.
 To report an error, add `invalid` and an [Error Message](/docs/components-forms-error-message--docs) to the Field Set, and connect the Error Message to the Field Set with `aria-describedby`.
-Set `invalid` on the parts that are at fault, and only on those: mark the year alone if the year is what is missing.
+Set `invalid` only on the fields that are at fault.
 
 See the [gov.uk documentation on validating this pattern](https://design-system.service.gov.uk/components/date-input/#error-messages) for how to word the message.
 
@@ -87,37 +85,35 @@ Leave out the Day for a month and a year.
 
 ### Translated
 
-The labels default to Dutch, and the parts appear in the order you place them.
-For a form in another language, set `label` on each part and place the parts in the order its readers expect.
+The labels default to Dutch, and the fields appear in the order you place them.
+For a form in another language, set `label` on each field and place the fields in the order its readers expect.
 This example asks for a date of birth in American English, which puts the month first.
-
-A Known Date Input does not read `lang`, so the order is always the one in your markup.
-Still set `lang` on the Field Set, so screen readers pronounce its text in the right language.
-See the [Localisation guide](/docs/docs-guidelines-localisation--docs) for more.
+Make sure the `lang` attribute is in effect; see the [Localisation guide](/docs/docs-guidelines-localisation--docs) for more.
 
 <Canvas of={KnownDateInputStories.Translated} />
 
 ## Design
 
-Each part is as wide as the answer it takes: two digits for a day or a month, four for a year.
-That difference is a hint in itself, and it keeps the parts from reading as three interchangeable boxes.
+Each field is as wide as the answer it takes: two digits for a day or a month, four for a year.
+That difference is a hint in itself, and it keeps the fields from reading as three interchangeable boxes.
 The widths hold without CSS too, because each input also carries a `size` attribute for its digits.
 
-The parts wrap onto a second line when they no longer fit beside each other, which happens at narrow widths and at large text sizes rather than at a fixed breakpoint.
+The fields wrap onto a second line when they no longer fit beside each other, which happens at narrow widths and at large text sizes.
 
 ## Accessibility
 
 The accessible name of each input comes from its own Label, and the question they answer together comes from the legend of the surrounding Field Set.
-A screen reader announces both, so ‘Jaar’ is heard as part of ‘Wanneer ben je geboren?’ rather than on its own.
+A screen reader announces both, so ‘Jaar’ is heard as part of ‘Wanneer ben je geboren?’, not on its own.
 
-Unlike a [Date Input](/docs/components-forms-date-input--docs), this pattern shows the same order of day, month, and year to everyone.
-A native date control takes its order from the browser and the operating system, so the page cannot promise which one a visitor sees; here the page decides, and the example above the parts can state it.
+Unlike a [Date Input](/docs/components-forms-date-input--docs), a Known Date Input shows the same order of day, month, and year to everyone.
+A native date control takes its order from the browser and the operating system, which the page cannot change.
+Here, the page decides the order, so the example above the fields can match it.
 
 ## See also
 
 - [Date Input](/docs/components-forms-date-input--docs) – a native date control for dates the user has to look up.
-- [Field Set](/docs/components-forms-field-set--docs) – groups the parts under one question.
-- [Text Input](/docs/components-forms-text-input--docs) – the input each part renders.
+- [Field Set](/docs/components-forms-field-set--docs) – groups the fields under one question.
+- [Text Input](/docs/components-forms-text-input--docs) – the input in each field.
 - [Date Picker](/docs/components-forms-date-picker--docs) – lets the user choose a date from a visible calendar.
 - [Calendar](/docs/components-navigation-calendar--docs) – displays content organised by date in a month view.
 

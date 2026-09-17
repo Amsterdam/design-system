@@ -114,7 +114,7 @@ That behaviour is the reason for using the native control rather than rebuilding
 
 The format the field shows and expects comes from the browser and the operating system, not from the language of the page.
 A visitor whose browser is set to another locale sees the order of day, month and year they are used to, which is helpful — but it also means the page cannot promise which one they will see.
-A [Known Date Input](/docs/components-forms-known-date-input--docs) shows the same order to everyone, which is what makes an example date above the fields possible there.
+A [Known Date Input](/docs/components-forms-known-date-input--docs) shows the same order to everyone, so you can put an example date above its fields.
 
 The invalid styling responds to `aria-invalid="true"` and to the browser’s own `:invalid` state alike.
 The second matches a partially entered date as well, so a field can turn red while someone is still filling in its segments; set `aria-invalid` from your own validation to control when that happens.
