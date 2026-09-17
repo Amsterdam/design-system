@@ -106,6 +106,22 @@ const ArabicCalendar = (props: CalendarProps) => (
 
 The same pattern applies to the Date Picker, which also takes `rangeStartAccessibleName` and `rangeEndAccessibleName` in range mode.
 
+It also applies to a [Known Date Input](/docs/components-forms-known-date-input--docs), where a wrapper sets the labels and the order of the fields:
+
+```tsx
+import type { KnownDateInputProps } from "@amsterdam/design-system-react";
+
+import { KnownDateInput } from "@amsterdam/design-system-react";
+
+const AmericanKnownDateInput = (props: KnownDateInputProps) => (
+  <KnownDateInput {...props}>
+    <KnownDateInput.Month label="Month" />
+    <KnownDateInput.Day label="Day" />
+    <KnownDateInput.Year label="Year" />
+  </KnownDateInput>
+);
+```
+
 ### Native form controls
 
 Native form controls render some of their text themselves.
