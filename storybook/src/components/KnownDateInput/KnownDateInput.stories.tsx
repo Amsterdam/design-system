@@ -24,7 +24,7 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
-    autoComplete: 'bday',
+    autoComplete: 'birth-date',
   },
   render: (args) => (
     <FieldSet aria-describedby="description-a" legend="Wanneer ben je geboren?">
@@ -40,7 +40,7 @@ export const Default: Story = {
 
 export const WithValidation: Story = {
   args: {
-    autoComplete: 'bday',
+    autoComplete: 'birth-date',
   },
   render: (args) => (
     <FieldSet aria-describedby="description-b error-b" invalid legend="Wanneer ben je geboren?">
@@ -69,7 +69,7 @@ export const MonthAndYear: Story = {
 
 export const Translated: Story = {
   args: {
-    autoComplete: 'bday',
+    autoComplete: 'birth-date',
   },
   render: (args) => (
     <FieldSet aria-describedby="description-d" lang="en" legend="What is your date of birth?">

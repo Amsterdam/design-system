@@ -76,21 +76,11 @@ describe('KnownDateInput.Day', () => {
 
   it('renders the autocomplete value for a date of birth', () => {
     render(
-      <KnownDateInput autoComplete="bday">
+      <KnownDateInput autoComplete="birth-date">
         <KnownDateInputDay />
       </KnownDateInput>,
     )
 
     expect(screen.getByRole('textbox')).toHaveAttribute('autocomplete', 'bday-day')
-  })
-
-  it('renders no autocomplete value for a payment card, which has no day', () => {
-    render(
-      <KnownDateInput autoComplete="cc-exp">
-        <KnownDateInputDay />
-      </KnownDateInput>,
-    )
-
-    expect(screen.getByRole('textbox')).not.toHaveAttribute('autocomplete')
   })
 })

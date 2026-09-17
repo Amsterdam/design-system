@@ -60,7 +60,7 @@ describe('KnownDateInput', () => {
   })
 
   it('does not render the autocomplete value on its container', () => {
-    const { container } = render(<KnownDateInput autoComplete="bday" />)
+    const { container } = render(<KnownDateInput autoComplete="birth-date" />)
 
     const component = container.querySelector(':only-child')
 

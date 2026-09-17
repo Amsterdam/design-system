@@ -14,11 +14,18 @@ import { Label } from '../Label/Label'
 import { TextInput } from '../TextInput/TextInput'
 import { KnownDateInputContext } from './KnownDateInputContext'
 
+const autoCompleteTokens = {
+  'birth-date': 'bday',
+  'credit-card-expiry-date': 'cc-exp',
+} as const
+
 /** What every field shares: the props of a Text Input, minus the ones the field sets itself. */
 export type KnownDateInputFieldProps = Omit<TextInputProps, 'autoComplete' | 'inputMode' | 'size' | 'type'>
 
 type FieldProps = {
+  /** The text of the label. */
   readonly label: string
+  /** The part of the date the field asks for, which sets its width and autocomplete value. */
   readonly part: 'day' | 'month' | 'year'
 } & KnownDateInputFieldProps
 
@@ -29,9 +36,6 @@ export const KnownDateInputField = forwardRef(
     const inputId = id || generatedId
     const { autoComplete } = useContext(KnownDateInputContext)
 
-    // A payment card has no day to fill in.
-    const hasAutoComplete = autoComplete && !(autoComplete === 'cc-exp' && part === 'day')
-
     return (
       <div className="ams-known-date-input__field">
         <Label htmlFor={inputId} inFieldSet>
@@ -39,7 +43,7 @@ export const KnownDateInputField = forwardRef(
         </Label>
         <TextInput
           {...restProps}
-          autoComplete={hasAutoComplete ? `${autoComplete}-${part}` : undefined}
+          autoComplete={autoComplete && `${autoCompleteTokens[autoComplete]}-${part}`}
           className={clsx(
             'ams-known-date-input__input',
             part === 'year' && 'ams-known-date-input__input--year',

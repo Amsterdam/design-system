@@ -16,9 +16,9 @@ import { KnownDateInputYear } from './KnownDateInputYear'
 export type KnownDateInputProps = {
   /**
    * Lets the browser fill in a date it already knows.
-   * Use `bday` for a date of birth, and `cc-exp` for the expiry date of a payment card.
+   * Use `birth-date` for a date of birth, and `credit-card-expiry-date` for the expiry date of a payment card.
    */
-  readonly autoComplete?: 'bday' | 'cc-exp'
+  readonly autoComplete?: 'birth-date' | 'credit-card-expiry-date'
 } & Readonly<PropsWithChildren<HTMLAttributes<HTMLDivElement>>>
 
 const KnownDateInputRoot = forwardRef(
@@ -34,8 +34,8 @@ const KnownDateInputRoot = forwardRef(
 KnownDateInputRoot.displayName = 'KnownDateInput'
 
 /**
- * Lines up the parts of a date that a user knows by heart, each in a field of its own.
- * Typing a day, month, and year separately asks less of someone than filling in a single date control.
+ * A set of three text inputs for the day, month and year of a date.
+ * Typing these separately is easier for known dates than browsing through a date control.
  *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-known-date-input--docs Known Date Input docs at Amsterdam Design System}
  */

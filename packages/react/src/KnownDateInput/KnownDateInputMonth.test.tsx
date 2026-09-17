@@ -54,7 +54,7 @@ describe('KnownDateInput.Month', () => {
 
   it('renders the autocomplete value for a date of birth', () => {
     render(
-      <KnownDateInput autoComplete="bday">
+      <KnownDateInput autoComplete="birth-date">
         <KnownDateInputMonth />
       </KnownDateInput>,
     )
@@ -64,7 +64,7 @@ describe('KnownDateInput.Month', () => {
 
   it('renders the autocomplete value for a payment card', () => {
     render(
-      <KnownDateInput autoComplete="cc-exp">
+      <KnownDateInput autoComplete="credit-card-expiry-date">
         <KnownDateInputMonth />
       </KnownDateInput>,
     )
