@@ -8812,7 +8812,7 @@
         {
           "id": "components-navigation-card--image-fit",
           "name": "Image Fit",
-          "snippet": "const ImageFit = () => (\n  <Grid paddingVertical=\"x-large\">\n    <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>\n      <Card>\n        <Card.Image alt=\"\" src=\"https://picsum.photos/id/122/800/1200\" />\n        <Card.Heading level={2}>\n          <Card.Link href=\"#\">Volledig in beeld</Card.Link>\n        </Card.Heading>\n        <Paragraph>De afbeelding past in het vlak, met de achtergrond ernaast.</Paragraph>\n      </Card>\n    </Grid.Cell>\n    <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>\n      <Card>\n        <Card.Image alt=\"\" objectFit=\"cover\" src=\"https://picsum.photos/id/122/800/1200\" />\n        <Card.Heading level={2}>\n          <Card.Link href=\"#\">Bijgesneden</Card.Link>\n        </Card.Heading>\n        <Paragraph>De afbeelding vult het vlak, waarbij de boven- en onderkant wegvallen.</Paragraph>\n      </Card>\n    </Grid.Cell>\n  </Grid>\n);",
+          "snippet": "const ImageFit = (args) => (\n  <Grid paddingVertical=\"x-large\">\n    <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>\n      <Card>\n        <Card.Image alt=\"\" src=\"https://picsum.photos/id/122/800/1200\" />\n        <Card.Heading level={2}>\n          <Card.Link href=\"#\">Volledig in beeld</Card.Link>\n        </Card.Heading>\n        <Paragraph>De afbeelding past in het vlak, met de achtergrond ernaast.</Paragraph>\n      </Card>\n    </Grid.Cell>\n    <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>\n      <Card>\n        <Card.Image alt=\"\" objectFit=\"cover\" src=\"https://picsum.photos/id/122/800/1200\" />\n        <Card.Heading level={2}>\n          <Card.Link href=\"#\">Bijgesneden</Card.Link>\n        </Card.Heading>\n        <Paragraph>De afbeelding vult het vlak, waarbij de boven- en onderkant wegvallen.</Paragraph>\n      </Card>\n    </Grid.Cell>\n  </Grid>\n);",
           "description": "Both Cards show the same portrait photograph in the same area, which is 16 by 9 as usual.\nThe first fits the image inside that area and keeps all of it in view; the second fills the area and crops it."
         },
         {
@@ -12109,6 +12109,6 @@
   },
   "meta": {
     "docgen": "react-component-meta",
-    "durationMs": 4227
+    "durationMs": 5414
   }
 }
