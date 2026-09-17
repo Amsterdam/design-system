@@ -325,6 +325,12 @@ describe('ams/require-single-value-token', () => {
     expect(await lint(ruleName, code)).toHaveLength(1)
   })
 
+  it('accepts a math function inside a quoted string, which is text rather than a call', async () => {
+    const code = '.a::before { content: "max(var(--ams-two-value-padding-block), 1rem)"; }'
+
+    expect(await lint(ruleName, code)).toHaveLength(0)
+  })
+
   it('accepts a calculation fragment in a math function, whose whitespace surrounds an operator', async () => {
     const code = '.a { --ams-sum: 1rem + 2rem; inline-size: calc(var(--ams-sum) * 2); }'
 

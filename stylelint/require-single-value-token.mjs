@@ -112,10 +112,15 @@ const warnedFiles = new Set()
  *   references a math function reads, each with the function that reads it.
  */
 function findMathReferences(value) {
+  /* A function name inside a quoted string is text, not a call. Blanking the string keeps the
+   * positions of everything around it intact.
+   */
+  const unquoted = value.replace(/(['"]).*?\1/g, (string) => ' '.repeat(string.length))
+
   const calls = MATH_FUNCTIONS.flatMap((functionName) =>
-    findFunctions(value, functionName).map((call) => ({ ...call, functionName })),
+    findFunctions(unquoted, functionName).map((call) => ({ ...call, functionName })),
   )
-  const references = findFunctions(value, 'var')
+  const references = findFunctions(unquoted, 'var')
   const encloses = (outer, inner) => inner.start > outer.start && inner.end <= outer.end
   const found = []
 
