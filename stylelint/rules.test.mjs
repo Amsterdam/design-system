@@ -325,6 +325,16 @@ describe('ams/require-single-value-token', () => {
     expect(await lint(ruleName, code)).toHaveLength(1)
   })
 
+  it('accepts a calculation fragment in a math function, whose whitespace surrounds an operator', async () => {
+    const code = '.a { --ams-sum: 1rem + 2rem; inline-size: calc(var(--ams-sum) * 2); }'
+
+    expect(await lint(ruleName, code)).toHaveLength(0)
+  })
+
+  it('rejects a calculation fragment on a longhand, which cannot compute it', async () => {
+    expect(await lint(ruleName, '.a { --ams-sum: 1rem + 2rem; inline-size: var(--ams-sum); }')).toHaveLength(1)
+  })
+
   it('accepts a two-value token in a shorthand, which takes a value per side on purpose', async () => {
     expect(await lint(ruleName, '.a { padding-block: var(--ams-two-value-padding-block); }')).toHaveLength(0)
   })

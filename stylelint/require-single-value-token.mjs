@@ -20,6 +20,8 @@ const ruleName = 'ams/require-single-value-token'
 /* The functions that compute one value from an expression, so each of their operands is one value. */
 const MATH_FUNCTIONS = ['calc', 'clamp', 'max', 'min']
 
+const MATH_OPERATORS = new Set(['*', '+', '-', '/'])
+
 /* The properties that take exactly one value. Shorthands are deliberately absent: `padding-block`
  * and `gap` take two on purpose. So are `border-block-width` and the corner radii, which take a
  * second value of their own.
@@ -134,6 +136,18 @@ function findMathReferences(value) {
   return found
 }
 
+/**
+ * Reports whether two operands follow each other without an operator between them, which is what
+ * makes a math function invalid. A custom property can hold a fragment such as `1rem + 2rem`, whose
+ * whitespace surrounds an operator rather than separating two values.
+ *
+ * @param {string[]} values - The whitespace separated parts of the substituted value.
+ * @returns {boolean} True when two operands are adjacent.
+ */
+function hasAdjacentOperands(values) {
+  return values.some((part, index) => index > 0 && !MATH_OPERATORS.has(part) && !MATH_OPERATORS.has(values[index - 1]))
+}
+
 /** @type {import('stylelint').Rule} */
 const rule =
   (primary, secondaryOptions = {}) =>
@@ -193,7 +207,7 @@ const rule =
         const call = declaration.value.slice(reference.start, reference.end)
         const values = resolveToValues(call)
 
-        if (values === null || values.length < 2) {
+        if (values === null || !hasAdjacentOperands(values)) {
           continue
         }
 
