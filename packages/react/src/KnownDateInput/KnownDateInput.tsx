@@ -15,7 +15,7 @@ import { KnownDateInputYear } from './KnownDateInputYear'
 
 export type KnownDateInputProps = {
   /**
-   * Lets the browser fill in a date it already knows.
+   * Lets browsers and password managers that support it fill in the date.
    * Use `birth-date` for a date of birth, and `credit-card-expiry-date` for the expiry date of a payment card.
    */
   readonly autoComplete?: 'birth-date' | 'credit-card-expiry-date'
