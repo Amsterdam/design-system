@@ -35,9 +35,17 @@ export const ProgressBar = forwardRef(
       <p aria-hidden className="ams-progress-bar-text">
         {text}
       </p>
-      <progress aria-label={text} className="ams-progress-bar-progress" max={max} value={value}>
-        {text}
-      </progress>
+      <div className="ams-progress-bar-track">
+        <progress
+          aria-label={text}
+          className={clsx('ams-progress-bar-progress', 'ams-visually-hidden')}
+          max={max}
+          value={value}
+        >
+          {text}
+        </progress>
+        <div aria-hidden className="ams-progress-bar-fill" style={{ transform: `scaleX(${value / max})` }} />
+      </div>
     </div>
   ),
 )

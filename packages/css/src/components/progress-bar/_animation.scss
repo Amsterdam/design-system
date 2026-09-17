@@ -7,9 +7,7 @@
 // change without animation. The bar does not animate on page load
 // only when the value is changed.
 @media (prefers-reduced-motion: no-preference) {
-  .ams-progress-bar-progress {
-    &::-webkit-progress-value {
-      transition: var(--ams-progress-bar-animation);
-    }
+  .ams-progress-bar-fill {
+    transition: transform var(--ams-progress-bar-transition-duration) var(--ams-progress-bar-transition-timing-function);
   }
 }

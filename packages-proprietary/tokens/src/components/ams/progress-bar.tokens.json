@@ -1,9 +1,17 @@
 {
   "ams": {
     "progress-bar": {
-      "animation": {
-        "$value": "width 0.3s ease-out",
-        "$description": "The transition used to animate the bar toward its new value."
+      "transition-duration": {
+        "$value": "0.3s",
+        "$type": "duration",
+        "$description": "The duration of the transition."
+      },
+      "transition-timing-function": {
+        "$value": "ease",
+        "$extensions": {
+          "nl.amsterdam.type": "transitionTimingFunction"
+        },
+        "$description": "The timing function of the transition."
       },
       "height": {
         "$value": {

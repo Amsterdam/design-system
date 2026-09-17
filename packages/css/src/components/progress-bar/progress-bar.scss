@@ -14,29 +14,49 @@
 
 .ams-progress-bar-text {
   color: var(--ams-color-text);
+  direction: ltr;
   font-size: var(--ams-progress-bar-text-font-size);
   margin-block: var(--ams-progress-bar-text-gap);
+  text-align: center;
 }
 
-.ams-progress-bar-progress {
-  appearance: none;
+.ams-progress-bar-track {
+  background-color: var(--ams-color-background);
   block-size: var(--ams-progress-bar-height);
   border-color: var(--ams-color-progress-upcoming);
   border-radius: var(--ams-progress-bar-height);
   border-style: solid;
   border-width: var(--ams-progress-bar-border-width);
   box-sizing: border-box;
-  display: block;
   inline-size: 100%;
   overflow: hidden;
+  position: relative;
+}
 
-  &::-webkit-progress-bar {
-    background-color: var(--ams-color-background);
-    border-radius: var(--ams-progress-bar-height);
+.ams-progress-bar-fill {
+  background-color: var(--ams-color-progress-completed);
+  block-size: 100%;
+  inline-size: 100%;
+  transform-origin: left;
+}
+
+[dir="rtl"] .ams-progress-bar-fill {
+  transform-origin: right;
+}
+
+@media (forced-colors: active) {
+  .ams-progress-bar-track {
+    border-color: CanvasText;
   }
 
-  &::-webkit-progress-value {
-    background-color: var(--ams-color-progress-completed);
-    border-radius: var(--ams-progress-bar-height);
+  .ams-progress-bar-fill {
+    background-color: Highlight;
+  }
+}
+
+@media print {
+  .ams-progress-bar-track,
+  .ams-progress-bar-fill {
+    -webkit-print-color-adjust: exact;
   }
 }
