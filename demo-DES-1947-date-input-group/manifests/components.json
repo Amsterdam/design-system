@@ -4806,12 +4806,12 @@
           "{@link https://designsystem.amsterdam/?path=/docs/components-forms-known-date-input--docs Known Date Input docs at Amsterdam Design System}"
         ]
       },
-      "description": "A set of three text inputs for the day, month and year of a date.\nTyping these separately is easier for known dates than browsing through a date control.",
+      "description": "Separate text inputs for the parts of a date, such as the day, month and year.\nTyping these separately is easier for known dates than browsing through a date control.",
       "reactComponentMeta": {
         "displayName": "KnownDateInput",
         "exportName": "KnownDateInput",
         "filePath": "/home/runner/work/design-system/design-system/packages/react/src/index.ts",
-        "description": "A set of three text inputs for the day, month and year of a date.\nTyping these separately is easier for known dates than browsing through a date control.",
+        "description": "Separate text inputs for the parts of a date, such as the day, month and year.\nTyping these separately is easier for known dates than browsing through a date control.",
         "jsDocTags": {
           "see": [
             "{@link https://designsystem.amsterdam/?path=/docs/components-forms-known-date-input--docs Known Date Input docs at Amsterdam Design System}"
@@ -12349,6 +12349,6 @@
   },
   "meta": {
     "docgen": "react-component-meta",
-    "durationMs": 5287
+    "durationMs": 5866
   }
 }
