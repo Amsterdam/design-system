@@ -45,16 +45,25 @@ describe('KnownDateInput', () => {
     expect(ref.current).toBe(component)
   })
 
-  it('renders its fields', () => {
+  it('renders its parts', () => {
     render(
       <KnownDateInput>
-        <KnownDateInput.Field>
-          <label htmlFor="day">Dag</label>
-          <input className="ams-text-input" id="day" />
-        </KnownDateInput.Field>
+        <KnownDateInput.Day />
+        <KnownDateInput.Month />
+        <KnownDateInput.Year />
       </KnownDateInput>,
     )
 
     expect(screen.getByLabelText('Dag')).toBeInTheDocument()
+    expect(screen.getByLabelText('Maand')).toBeInTheDocument()
+    expect(screen.getByLabelText('Jaar')).toBeInTheDocument()
+  })
+
+  it('does not render the autocomplete value on its container', () => {
+    const { container } = render(<KnownDateInput autoComplete="bday" />)
+
+    const component = container.querySelector(':only-child')
+
+    expect(component).not.toHaveAttribute('autocomplete')
   })
 })

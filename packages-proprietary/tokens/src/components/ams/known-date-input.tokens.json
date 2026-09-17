@@ -3,7 +3,7 @@
     "known-date-input": {
       "column-gap": {
         "$value": "{ams.space.m}",
-        "$description": "The space between the fields of the group.",
+        "$description": "The space between the parts of the date.",
         "$extensions": {
           "nl.amsterdam.hint": "Must be a single value: it sets a longhand property, which takes only one.",
           "nl.amsterdam.subtype": "space",
@@ -12,39 +12,41 @@
       },
       "row-gap": {
         "$value": "{ams.space.s}",
-        "$description": "The space between rows of fields, once the group wraps at narrow widths or large text sizes.",
+        "$description": "The space between rows of parts, once the component wraps at narrow widths or large text sizes.",
         "$extensions": {
           "nl.amsterdam.hint": "Must be a single value: it sets a longhand property, which takes only one.",
           "nl.amsterdam.subtype": "space",
           "nl.amsterdam.type": "dimension"
         }
       },
-      "field": {
+      "input": {
         "inline-size": {
           "$value": "calc(3ch + (2 * {ams.inputs.padding-inline}) + (2 * {ams.inputs.border-width}))",
-          "$description": "Fits a two-digit value such as a day or a month, with a character to spare for the caret. Includes the padding and border of the input, which sizes itself with `border-box`.",
+          "$description": "Fits a two-digit day or month, with a character to spare for the caret. Includes the padding and border of the input, which sizes itself with `border-box`.",
           "$extensions": {
             "nl.amsterdam.hint": "Must be a single value: it sets a longhand property, which takes only one.",
             "nl.amsterdam.type": "dimension"
           }
         },
-        "row-gap": {
-          "$value": "{ams.space.s}",
-          "$description": "The space between the label of a field and its input.",
-          "$extensions": {
-            "nl.amsterdam.hint": "Must be a single value: it sets a longhand property, which takes only one.",
-            "nl.amsterdam.subtype": "space",
-            "nl.amsterdam.type": "dimension"
-          }
-        },
-        "wide": {
+        "year": {
           "inline-size": {
             "$value": "calc(5ch + (2 * {ams.inputs.padding-inline}) + (2 * {ams.inputs.border-width}))",
-            "$description": "Fits a four-digit value such as a year, with a character to spare for the caret. Includes the padding and border of the input, which sizes itself with `border-box`.",
+            "$description": "Fits a four-digit year, with a character to spare for the caret. Includes the padding and border of the input, which sizes itself with `border-box`.",
             "$extensions": {
               "nl.amsterdam.hint": "Must be a single value: it sets a longhand property, which takes only one.",
               "nl.amsterdam.type": "dimension"
             }
+          }
+        }
+      },
+      "part": {
+        "row-gap": {
+          "$value": "{ams.space.s}",
+          "$description": "The space between the label of a part and its input.",
+          "$extensions": {
+            "nl.amsterdam.hint": "Must be a single value: it sets a longhand property, which takes only one.",
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
           }
         }
       }

@@ -5,4 +5,6 @@
 
 export { KnownDateInput } from './KnownDateInput'
 export type { KnownDateInputProps } from './KnownDateInput'
-export type { KnownDateInputFieldProps } from './KnownDateInputField'
+export type { KnownDateInputDayProps } from './KnownDateInputDay'
+export type { KnownDateInputMonthProps } from './KnownDateInputMonth'
+export type { KnownDateInputYearProps } from './KnownDateInputYear'
