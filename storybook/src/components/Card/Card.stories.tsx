@@ -124,7 +124,9 @@ export const ImageFit: Story = {
   parameters: {
     layout: 'fullscreen',
   },
-  render: () => (
+  // Storybook needs a render function with an args parameter to correctly render Code view, even if we don't use it in this story.
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  render: (args) => (
     <Grid paddingVertical="x-large">
       <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
         <Card>
