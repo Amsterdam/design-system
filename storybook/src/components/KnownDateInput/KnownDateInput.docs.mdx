@@ -61,14 +61,22 @@ Both `1` and `01` are a valid month, and rejecting one of the two turns a format
 
 ## Examples
 
-### With validation
+### In a Field Set
+
+Use a Field Set to give the fields a legend, a description and, when needed, an Error Message.
+
+Check [the Field Set docs](/docs/components-forms-field-set--docs) for more information on configuring it.
+
+<Canvas of={KnownDateInputStories.InAFieldSet} />
+
+### In a Field Set with validation
 
 To report an error, add `invalid` and an [Error Message](/docs/components-forms-error-message--docs) to the Field Set, and connect the Error Message to the Field Set with `aria-describedby`.
 Set `invalid` on the parts that are at fault, and only on those: mark the year alone if the year is what is missing.
 
 See the [gov.uk documentation on validating this pattern](https://design-system.service.gov.uk/components/date-input/#error-messages) for how to word the message.
 
-<Canvas of={KnownDateInputStories.WithValidation} />
+<Canvas of={KnownDateInputStories.InAFieldSetWithValidation} />
 
 ### Month and year
 

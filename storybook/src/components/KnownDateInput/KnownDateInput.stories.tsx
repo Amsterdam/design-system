@@ -27,6 +27,19 @@ export const Default: Story = {
     autoComplete: 'birth-date',
   },
   render: (args) => (
+    <KnownDateInput {...args}>
+      <KnownDateInput.Day name="dag" />
+      <KnownDateInput.Month name="maand" />
+      <KnownDateInput.Year name="jaar" />
+    </KnownDateInput>
+  ),
+}
+
+export const InAFieldSet: Story = {
+  args: {
+    autoComplete: 'birth-date',
+  },
+  render: (args) => (
     <FieldSet aria-describedby="description-a" legend="Wanneer ben je geboren?">
       <Paragraph id="description-a">Bijvoorbeeld 1 1 2000.</Paragraph>
       <KnownDateInput {...args}>
@@ -38,7 +51,7 @@ export const Default: Story = {
   ),
 }
 
-export const WithValidation: Story = {
+export const InAFieldSetWithValidation: Story = {
   args: {
     autoComplete: 'birth-date',
   },
@@ -58,7 +71,7 @@ export const WithValidation: Story = {
 export const MonthAndYear: Story = {
   render: (args) => (
     <FieldSet aria-describedby="description-c" legend="Sinds wanneer woon je op dit adres?">
-      <Paragraph id="description-c">Bijvoorbeeld 3 2019.</Paragraph>
+      <Paragraph id="description-c">Bijvoorbeeld 3 2019 voor maart 2019.</Paragraph>
       <KnownDateInput {...args}>
         <KnownDateInput.Month name="maand" />
         <KnownDateInput.Year name="jaar" />
