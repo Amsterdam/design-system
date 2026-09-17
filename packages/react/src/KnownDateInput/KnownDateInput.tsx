@@ -34,7 +34,7 @@ const KnownDateInputRoot = forwardRef(
 KnownDateInputRoot.displayName = 'KnownDateInput'
 
 /**
- * A set of three text inputs for the day, month and year of a date.
+ * Separate text inputs for the parts of a date, such as the day, month and year.
  * Typing these separately is easier for known dates than browsing through a date control.
  *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-known-date-input--docs Known Date Input docs at Amsterdam Design System}
