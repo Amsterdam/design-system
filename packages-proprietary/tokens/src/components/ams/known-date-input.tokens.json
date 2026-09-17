@@ -11,7 +11,7 @@
         }
       },
       "row-gap": {
-        "$value": "{ams.space.s}",
+        "$value": "{ams.space.m}",
         "$description": "The space between rows of fields, once the component wraps at narrow widths or large text sizes.",
         "$extensions": {
           "nl.amsterdam.hint": "Must be a single value: it sets a longhand property, which takes only one.",
