@@ -45,7 +45,7 @@ describe('KnownDateInput', () => {
     expect(ref.current).toBe(component)
   })
 
-  it('renders its parts', () => {
+  it('renders its fields', () => {
     render(
       <KnownDateInput>
         <KnownDateInput.Day />

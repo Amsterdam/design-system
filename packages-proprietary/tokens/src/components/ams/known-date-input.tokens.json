@@ -3,7 +3,7 @@
     "known-date-input": {
       "column-gap": {
         "$value": "{ams.space.m}",
-        "$description": "The space between the parts of the date.",
+        "$description": "The space between the fields of the date.",
         "$extensions": {
           "nl.amsterdam.hint": "Must be a single value: it sets a longhand property, which takes only one.",
           "nl.amsterdam.subtype": "space",
@@ -12,7 +12,7 @@
       },
       "row-gap": {
         "$value": "{ams.space.s}",
-        "$description": "The space between rows of parts, once the component wraps at narrow widths or large text sizes.",
+        "$description": "The space between rows of fields, once the component wraps at narrow widths or large text sizes.",
         "$extensions": {
           "nl.amsterdam.hint": "Must be a single value: it sets a longhand property, which takes only one.",
           "nl.amsterdam.subtype": "space",
@@ -39,10 +39,10 @@
           }
         }
       },
-      "part": {
+      "field": {
         "row-gap": {
           "$value": "{ams.space.s}",
-          "$description": "The space between the label of a part and its input.",
+          "$description": "The space between the label of a field and its input.",
           "$extensions": {
             "nl.amsterdam.hint": "Must be a single value: it sets a longhand property, which takes only one.",
             "nl.amsterdam.subtype": "space",

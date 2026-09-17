@@ -10,10 +10,10 @@
   row-gap: var(--ams-known-date-input-row-gap);
 }
 
-.ams-known-date-input__part {
+.ams-known-date-input__field {
   display: flex;
   flex-direction: column;
-  row-gap: var(--ams-known-date-input-part-row-gap);
+  row-gap: var(--ams-known-date-input-field-row-gap);
 }
 
 .ams-known-date-input__input {

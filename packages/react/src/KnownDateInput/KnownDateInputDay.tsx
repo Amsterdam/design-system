@@ -7,9 +7,9 @@ import type { ForwardedRef } from 'react'
 
 import { forwardRef } from 'react'
 
-import type { KnownDateInputPartProps } from './KnownDateInputPart'
+import type { KnownDateInputFieldProps } from './KnownDateInputField'
 
-import { KnownDateInputPart } from './KnownDateInputPart'
+import { KnownDateInputField } from './KnownDateInputField'
 
 export type KnownDateInputDayProps = {
   /**
@@ -17,7 +17,7 @@ export type KnownDateInputDayProps = {
    * @default Dag
    */
   readonly label?: string
-} & KnownDateInputPartProps
+} & KnownDateInputFieldProps
 
 /**
  * The day of a date, in a field for one or two digits.
@@ -26,7 +26,7 @@ export type KnownDateInputDayProps = {
  */
 export const KnownDateInputDay = forwardRef(
   ({ label = 'Dag', ...restProps }: KnownDateInputDayProps, ref: ForwardedRef<HTMLInputElement>) => (
-    <KnownDateInputPart {...restProps} label={label} part="day" ref={ref} />
+    <KnownDateInputField {...restProps} label={label} part="day" ref={ref} />
   ),
 )
 

@@ -7,9 +7,9 @@ import type { ForwardedRef } from 'react'
 
 import { forwardRef } from 'react'
 
-import type { KnownDateInputPartProps } from './KnownDateInputPart'
+import type { KnownDateInputFieldProps } from './KnownDateInputField'
 
-import { KnownDateInputPart } from './KnownDateInputPart'
+import { KnownDateInputField } from './KnownDateInputField'
 
 export type KnownDateInputYearProps = {
   /**
@@ -17,7 +17,7 @@ export type KnownDateInputYearProps = {
    * @default Jaar
    */
   readonly label?: string
-} & KnownDateInputPartProps
+} & KnownDateInputFieldProps
 
 /**
  * The year of a date, in a field for four digits.
@@ -26,7 +26,7 @@ export type KnownDateInputYearProps = {
  */
 export const KnownDateInputYear = forwardRef(
   ({ label = 'Jaar', ...restProps }: KnownDateInputYearProps, ref: ForwardedRef<HTMLInputElement>) => (
-    <KnownDateInputPart {...restProps} label={label} part="year" ref={ref} />
+    <KnownDateInputField {...restProps} label={label} part="year" ref={ref} />
   ),
 )
 

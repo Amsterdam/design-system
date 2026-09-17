@@ -23,7 +23,7 @@ describe('KnownDateInput.Day', () => {
   it('renders design system BEM class names', () => {
     const { container } = render(<KnownDateInputDay />)
 
-    expect(container.firstChild).toHaveClass('ams-known-date-input__part')
+    expect(container.firstChild).toHaveClass('ams-known-date-input__field')
     expect(screen.getByRole('textbox')).toHaveClass('ams-text-input ams-known-date-input__input')
     expect(screen.getByRole('textbox')).not.toHaveClass('ams-known-date-input__input--year')
   })

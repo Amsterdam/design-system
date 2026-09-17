@@ -14,17 +14,17 @@ import { Label } from '../Label/Label'
 import { TextInput } from '../TextInput/TextInput'
 import { KnownDateInputContext } from './KnownDateInputContext'
 
-/** What every part shares: the props of a Text Input, minus the ones the part sets itself. */
-export type KnownDateInputPartProps = Omit<TextInputProps, 'autoComplete' | 'inputMode' | 'size' | 'type'>
+/** What every field shares: the props of a Text Input, minus the ones the field sets itself. */
+export type KnownDateInputFieldProps = Omit<TextInputProps, 'autoComplete' | 'inputMode' | 'size' | 'type'>
 
-type PartProps = {
+type FieldProps = {
   readonly label: string
   readonly part: 'day' | 'month' | 'year'
-} & KnownDateInputPartProps
+} & KnownDateInputFieldProps
 
 /** The Label and Text Input that Day, Month and Year each render. */
-export const KnownDateInputPart = forwardRef(
-  ({ className, id, label, part, ...restProps }: PartProps, ref: ForwardedRef<HTMLInputElement>) => {
+export const KnownDateInputField = forwardRef(
+  ({ className, id, label, part, ...restProps }: FieldProps, ref: ForwardedRef<HTMLInputElement>) => {
     const generatedId = useId()
     const inputId = id || generatedId
     const { autoComplete } = useContext(KnownDateInputContext)
@@ -33,7 +33,7 @@ export const KnownDateInputPart = forwardRef(
     const hasAutoComplete = autoComplete && !(autoComplete === 'cc-exp' && part === 'day')
 
     return (
-      <div className="ams-known-date-input__part">
+      <div className="ams-known-date-input__field">
         <Label htmlFor={inputId} inFieldSet>
           {label}
         </Label>
@@ -56,4 +56,4 @@ export const KnownDateInputPart = forwardRef(
   },
 )
 
-KnownDateInputPart.displayName = 'KnownDateInputPart'
+KnownDateInputField.displayName = 'KnownDateInputField'

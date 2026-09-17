@@ -21,8 +21,8 @@ type Story = StoryObj<typeof meta>
 
 export const Test: Story = {
   /*
-   * A generated matrix would show only the container: the parts that carry the widths and the invalid
-   * state are composed inside it. What is worth a picture is the width of each part, an invalid input,
+   * A generated matrix would show only the container: the fields that carry the widths and the invalid
+   * state are composed inside it. What is worth a picture is the width of each field, an invalid input,
    * and the wrap onto a second row.
    */
   render: () => (
@@ -41,7 +41,7 @@ export const Test: Story = {
           <KnownDateInput.Year invalid />
         </KnownDateInput>
       </FieldSet>
-      {/* Too narrow for three parts side by side, so the year drops onto a second row. */}
+      {/* Too narrow for three fields side by side, so the year drops onto a second row. */}
       <div style={{ maxInlineSize: '14rem' }}>
         <FieldSet legend="Wanneer ben je geboren?">
           <KnownDateInput>
