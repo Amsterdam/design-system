@@ -21,8 +21,7 @@
   max-inline-size: 100%;
   outline-offset: var(--ams-select-outline-offset);
   padding-block: var(--ams-select-padding-block);
-  padding-inline-end: var(--ams-select-padding-inline-end);
-  padding-inline-start: var(--ams-select-padding-inline-start);
+  padding-inline: var(--ams-select-padding-inline);
   touch-action: manipulation;
 
   &:not([multiple]) {
