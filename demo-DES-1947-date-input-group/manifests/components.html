@@ -594,7 +594,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>5.6s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>5.3s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -16216,7 +16216,7 @@ Typing these separately is easier for known dates than browsing through a date c
             <pre><code>Component: ../packages/react/src/index.ts::KnownDateInput</code></pre>
             <pre><code>Props:</code></pre>
             <pre><code>/**
- * Lets the browser fill in a date it already knows.
+ * Lets browsers and password managers that support it fill in the date.
  * Use `birth-date` for a date of birth, and `credit-card-expiry-date` for the expiry date of a payment card.
  */
 autoComplete?: &quot;birth-date&quot; | &quot;credit-card-expiry-date&quot;</code></pre>
@@ -16381,9 +16381,12 @@ Wrap a Known Date Input in a [Field Set](/docs/components-forms-field-set--docs)
 Put a Paragraph with an example date above the Known Date Input and connect it to the Field Set with `aria-describedby`.
 Write the example in the order the fields appear, so it doubles as a format hint.
 
-Set `autoComplete` to `birth-date` for a date of birth, or to `credit-card-expiry-date` for the expiry date of a payment card, so the browser can fill in a date it already knows.
+Set `autoComplete` to `birth-date` for a date of birth, or to `credit-card-expiry-date` for the expiry date of a payment card, so browsers and password managers that support it can fill in the date.
 
 Give each field an `id` so that an [Invalid Form Alert](/docs/components-forms-invalid-form-alert--docs) can link to it.
+If you set an `id` or a `name`, include the English word for its part in at least one of them, such as `birth-date-day`.
+Safari on iOS only autofills a field when its `id` or `name` contains that word, whatever language the page or the phone is in.
+The `id` a field generates for itself already does.
 
 Accept what the user types in the format they type it.
 Both `1` and `01` are a valid month, and rejecting one of the two gives the user an unnecessary task.
