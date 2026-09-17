@@ -41,16 +41,20 @@ export const Test: Story = {
           <KnownDateInput.Year invalid />
         </KnownDateInput>
       </FieldSet>
-      {/* Too narrow for three fields side by side, so the year drops onto a second row. */}
-      <div style={{ maxInlineSize: '14rem' }}>
-        <FieldSet legend="Wanneer ben je geboren?">
-          <KnownDateInput>
-            <KnownDateInput.Day defaultValue={16} />
-            <KnownDateInput.Month defaultValue={8} />
-            <KnownDateInput.Year defaultValue={2000} />
-          </KnownDateInput>
-        </FieldSet>
-      </div>
+      {/* Room for a day and a month side by side, but not the year, which drops onto a second row. */}
+      <FieldSet
+        legend="Wanneer ben je geboren?"
+        style={{
+          maxInlineSize:
+            'calc(2 * var(--ams-known-date-input-input-inline-size) + 2 * var(--ams-known-date-input-column-gap))',
+        }}
+      >
+        <KnownDateInput>
+          <KnownDateInput.Day defaultValue={16} />
+          <KnownDateInput.Month defaultValue={8} />
+          <KnownDateInput.Year defaultValue={2000} />
+        </KnownDateInput>
+      </FieldSet>
     </div>
   ),
   tags: ['!dev', '!autodocs', '!manifest'],
