@@ -588,13 +588,13 @@
 <header>
   <div class="wrap">
     <h1>Manifest Debugger</h1>
-    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">15/90 prop type errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">15/90 infos</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">1/306 story errors</a><a class="filter-pill ok" data-k="docs" href="#filter-docs">126 docs ok</a></div>
+    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">15/90 prop type errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">15/90 infos</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">1/306 story errors</a><a class="filter-pill ok" data-k="docs" href="#filter-docs">127 docs ok</a></div>
   </div>
 </header>
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>5.7s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>5.5s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -4077,7 +4077,7 @@ Nothing in it is focusable, so it is read as content rather than offering a keyb
 ## See also
 
 - [Date Input](/docs/components-forms-date-input--docs) – lets the user select a date in the context of a form.
-- [Date Input Group](/docs/components-forms-date-input-group--docs) – lets the user type a date they know by heart, one part per field.
+- [Known Date Input](/docs/components-forms-known-date-input--docs) – lets the user type a date they know by heart, one part per field.
 
 ## Design tokens
 
@@ -4913,7 +4913,7 @@ This means:
 - screen reader users will hear the count announcement when they stop typing.
 
 This component does not restrict the user from entering information.
-The user can enter more than the character limit, but are told they’ve entered too many characters.
+The user can enter more than the character limit; the count keeps going, so it reads ‘12 van 10 tekens’.
 This lets them type or copy and paste their full answer, then edit it down.
 
 ## Design
@@ -4930,9 +4930,6 @@ The wording never has to switch from characters remaining to characters too many
 
 A Character Count is a status region, so screen readers announce the new count without moving focus and without interrupting what is being read.
 Someone typing hears the count between words rather than after every keystroke, which is what ‘Features’ above describes.
-
-The text is fixed Dutch — the count, the word ‘van’, the limit, and ‘tekens’ — and cannot be configured.
-That is worth weighing before using a Character Count on a page in another language.
 
 Going over the limit is signalled by colour alone, so the count itself has to be read for the change to register.
 The text says the same thing either way, which is what keeps the message complete without the colour.
@@ -5831,7 +5828,7 @@ Use a Date Input when the user must enter a calendar date and the date picker pr
 
 ### When not to use
 
-Use a [Date Input Group](/docs/components-forms-date-input-group--docs) for a date the user already knows or can copy from a document in front of them, such as a date of birth or the expiry date of a passport.
+Use a [Known Date Input](/docs/components-forms-known-date-input--docs) for a date the user already knows or can copy from a document in front of them, such as a date of birth or the expiry date of a passport.
 Separate fields for day, month, and year are easier to fill in than a native date control, and both the [NL Design System](https://nldesignsystem.nl/richtlijnen/formulieren/wanneer-welk-form-element/iedereen-kan-invullen) and [gov.uk](https://design-system.service.gov.uk/components/date-input/) recommend that pattern for these dates.
 
 Avoid disabling input fields.
@@ -5920,14 +5917,14 @@ That behaviour is the reason for using the native control rather than rebuilding
 
 The format the field shows and expects comes from the browser and the operating system, not from the language of the page.
 A visitor whose browser is set to another locale sees the order of day, month and year they are used to, which is helpful — but it also means the page cannot promise which one they will see.
-A [Date Input Group](/docs/components-forms-date-input-group--docs) shows the same order to everyone, which is what makes an example date above the fields possible there.
+A [Known Date Input](/docs/components-forms-known-date-input--docs) shows the same order to everyone, which is what makes an example date above the fields possible there.
 
 The invalid styling responds to `aria-invalid=&quot;true&quot;` and to the browser’s own `:invalid` state alike.
 The second matches a partially entered date as well, so a field can turn red while someone is still filling in its segments; set `aria-invalid` from your own validation to control when that happens.
 
 ## See also
 
-- [Date Input Group](/docs/components-forms-date-input-group--docs) – separate fields for day, month, and year, for a date the user knows by heart.
+- [Known Date Input](/docs/components-forms-known-date-input--docs) – separate fields for day, month, and year, for a date the user knows by heart.
 - [Calendar](/docs/components-navigation-calendar--docs) – navigate between dates using a calendar view.
 - [Field](/docs/components-forms-field--docs) – wraps a single input with its Label, description, and Error Message.
 - [Time Input](/docs/components-forms-time-input--docs) – the counterpart for entering a time.
@@ -5948,314 +5945,15 @@ The second matches a partially entered date as well, so a field can turn red whi
   no-story-error
   no-doc-error"
   role="listitem"
-  aria-label="DateInputGroup">
-  <div class="head">
-    <div class="title">
-      <h2><span class="status-dot dot-ok"></span> DateInputGroup</h2>
-      <div class="badges">
-        
-        
-        <label for="c-19-components-forms-date-input-group-stories" class="badge ok as-toggle">3 stories</label>
-        <label for="c-19-components-forms-date-input-group-docs" class="badge ok as-toggle">1 doc</label>
-        <label for="c-19-components-forms-date-input-group-subcomponents" class="badge ok as-toggle">1 subcomponent</label>
-      </div>
-    </div>
-    <div class="meta" title="./src/components/DateInputGroup/DateInputGroup.stories.tsx">components-forms-date-input-group · ./src/components/DateInputGroup/DateInputGroup.stories.tsx</div>
-    
-    <div class="hint">Lines up the parts of a date that a user knows by heart, each in a field of its own.
-Typing a day, month, and year separately asks less of someone than filling in a single date control.</div>
-    <div class="kv"><span class="chip">see: {@link https://designsystem.amsterdam/?path=/docs/components-forms-date-input-group--docs Date Input Group docs at Amsterdam Design System}</span></div>
-  </div>
-
-  <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  
-  
-  <input id="c-19-components-forms-date-input-group-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-19-components-forms-date-input-group-docs" class="tg tg-docs" type="checkbox" hidden />
-  <input id="c-19-components-forms-date-input-group-subcomponents" class="tg tg-subcomponents" type="checkbox" hidden />
-  
-
-  <div class="panels">
-    
-    
-    
-    
-        <div class="panel panel-stories">
-          
-          
-          
-          <div class="note ok">
-                <div class="row">
-                  <span class="ex-name">Imports</span>
-                </div>
-                <pre><code>import { DateInputGroup } from "@amsterdam/design-system-react/src";
-import { ErrorMessage, FieldSet, Label, Paragraph, TextInput } from "@amsterdam/design-system-react";</code></pre>
-              </div>
-          
-          
-            <div class="note ok">
-              <div class="row">
-                <span class="ex-name">Default</span>
-                <span class="badge ok">story ok</span>
-              </div>
-              
-              
-              <pre><code>const Default = () =&gt; &lt;FieldSet aria-describedby=&quot;description-a&quot; legend={legend}&gt;
-    &lt;Paragraph id=&quot;description-a&quot;&gt;{description}&lt;/Paragraph&gt;
-    &lt;DateInputGroup description=&quot;Bijvoorbeeld 1 1 2000.&quot; legend=&quot;Wanneer ben je geboren?&quot;&gt;
-        &lt;DateInputGroup.Field&gt;
-            &lt;Label htmlFor=&quot;input-a1&quot; inFieldSet&gt;Dag
-                          &lt;/Label&gt;
-            &lt;TextInput autoComplete=&quot;bday-day&quot; id=&quot;input-a1&quot; inputMode=&quot;numeric&quot; name=&quot;dag&quot; /&gt;
-        &lt;/DateInputGroup.Field&gt;
-        &lt;DateInputGroup.Field&gt;
-            &lt;Label htmlFor=&quot;input-a2&quot; inFieldSet&gt;Maand
-                          &lt;/Label&gt;
-            &lt;TextInput autoComplete=&quot;bday-month&quot; id=&quot;input-a2&quot; inputMode=&quot;numeric&quot; name=&quot;maand&quot; /&gt;
-        &lt;/DateInputGroup.Field&gt;
-        &lt;DateInputGroup.Field wide&gt;
-            &lt;Label htmlFor=&quot;input-a3&quot; inFieldSet&gt;Jaar
-                          &lt;/Label&gt;
-            &lt;TextInput autoComplete=&quot;bday-year&quot; id=&quot;input-a3&quot; inputMode=&quot;numeric&quot; name=&quot;jaar&quot; /&gt;
-        &lt;/DateInputGroup.Field&gt;
-    &lt;/DateInputGroup&gt;
-&lt;/FieldSet&gt;;</code></pre>
-            </div>
-            <div class="note ok">
-              <div class="row">
-                <span class="ex-name">With Validation</span>
-                <span class="badge ok">story ok</span>
-              </div>
-              
-              
-              <pre><code>const WithValidation = () =&gt; &lt;FieldSet
-    aria-describedby=&quot;description-b error-b&quot;
-    invalid
-    legend=&quot;Wanneer ben je geboren?&quot;&gt;
-    &lt;Paragraph id=&quot;description-b&quot;&gt;Bijvoorbeeld 1 1 2000.&lt;/Paragraph&gt;
-    &lt;ErrorMessage id=&quot;error-b&quot;&gt;Vul een jaar in.&lt;/ErrorMessage&gt;
-    &lt;DateInputGroup&gt;
-        &lt;DateInputGroup.Field&gt;
-            &lt;Label htmlFor=&quot;input-b1&quot; inFieldSet&gt;Dag
-                          &lt;/Label&gt;
-            &lt;TextInput
-                autoComplete=&quot;bday-day&quot;
-                defaultValue={16}
-                id=&quot;input-b1&quot;
-                inputMode=&quot;numeric&quot;
-                name=&quot;dag&quot; /&gt;
-        &lt;/DateInputGroup.Field&gt;
-        &lt;DateInputGroup.Field&gt;
-            &lt;Label htmlFor=&quot;input-b2&quot; inFieldSet&gt;Maand
-                          &lt;/Label&gt;
-            &lt;TextInput
-                autoComplete=&quot;bday-month&quot;
-                defaultValue={8}
-                id=&quot;input-b2&quot;
-                inputMode=&quot;numeric&quot;
-                name=&quot;maand&quot; /&gt;
-        &lt;/DateInputGroup.Field&gt;
-        &lt;DateInputGroup.Field wide&gt;
-            &lt;Label htmlFor=&quot;input-b3&quot; inFieldSet&gt;Jaar
-                          &lt;/Label&gt;
-            &lt;TextInput
-                autoComplete=&quot;bday-year&quot;
-                id=&quot;input-b3&quot;
-                inputMode=&quot;numeric&quot;
-                invalid
-                name=&quot;jaar&quot; /&gt;
-        &lt;/DateInputGroup.Field&gt;
-    &lt;/DateInputGroup&gt;
-&lt;/FieldSet&gt;;</code></pre>
-            </div>
-            <div class="note ok">
-              <div class="row">
-                <span class="ex-name">Month And Year</span>
-                <span class="badge ok">story ok</span>
-              </div>
-              
-              
-              <pre><code>const MonthAndYear = () =&gt; &lt;FieldSet
-    aria-describedby=&quot;description-c&quot;
-    legend=&quot;Sinds wanneer woon je op dit adres?&quot;&gt;
-    &lt;Paragraph id=&quot;description-c&quot;&gt;Bijvoorbeeld 3 2019.&lt;/Paragraph&gt;
-    &lt;DateInputGroup&gt;
-        &lt;DateInputGroup.Field&gt;
-            &lt;Label htmlFor=&quot;input-c1&quot; inFieldSet&gt;Maand
-                          &lt;/Label&gt;
-            &lt;TextInput id=&quot;input-c1&quot; inputMode=&quot;numeric&quot; name=&quot;maand&quot; /&gt;
-        &lt;/DateInputGroup.Field&gt;
-        &lt;DateInputGroup.Field wide&gt;
-            &lt;Label htmlFor=&quot;input-c2&quot; inFieldSet&gt;Jaar
-                          &lt;/Label&gt;
-            &lt;TextInput id=&quot;input-c2&quot; inputMode=&quot;numeric&quot; name=&quot;jaar&quot; /&gt;
-        &lt;/DateInputGroup.Field&gt;
-    &lt;/DateInputGroup&gt;
-&lt;/FieldSet&gt;;</code></pre>
-            </div>
-        </div>
-    
-        <div class="panel panel-docs">
-          
-          
-            <div class="note ok">
-              <div class="row">
-                <span class="ex-name">Docs</span>
-                <span class="badge ok">doc ok</span>
-              </div>
-              <div class="hint">./src/components/DateInputGroup/DateInputGroup.docs.mdx</div>
-              <div>The group itself has no props to configure. The controls above set the legend and the desc...</div>
-              <div class="mdx-content"><pre><code>{/* @license CC0-1.0 */}
-
-import { Canvas, Controls, Description, Meta, Primary, Title } from &quot;@storybook/addon-docs/blocks&quot;;
-
-import { DesignTokensTable } from &quot;#storybook/_components/DesignTokensTable/DesignTokensTable&quot;;
-import tokens from &quot;#tokens/components/ams/date-input-group.tokens.json&quot;;
-
-import * as DateInputGroupStories from &quot;./DateInputGroup.stories.tsx&quot;;
-
-&lt;Meta of={DateInputGroupStories} /&gt;
-
-&lt;Title /&gt;
-
-&lt;Description of={DateInputGroupStories} /&gt;
-
-&lt;Primary /&gt;
-
-&lt;Controls /&gt;
-
-The group itself has no props to configure.
-The controls above set the legend and the description of the Field Set in this example.
-
-## Subcomponents
-
-Compose a Date Input Group from Date Input Group Fields, one for each part of the date.
-A Field pairs a [Label](/docs/components-forms-label--docs) with the [Text Input](/docs/components-forms-text-input--docs) it describes, and gives that input a width that matches the number of digits it takes.
-Set `wide` on the Field that holds a four-digit value, such as a year.
-
-## Usage guidelines
-
-### When to use
-
-Use a Date Input Group for a date the user already knows or can copy from a document in front of them: a date of birth, the expiry date of a passport, the day something happened.
-Three separate fields let someone type the date the way they would say it, without first working out which format the browser expects.
-
-This is the pattern the [NL Design System](https://nldesignsystem.nl/richtlijnen/formulieren/wanneer-welk-form-element/iedereen-kan-invullen) and [gov.uk](https://design-system.service.gov.uk/components/date-input/) recommend for these dates.
-
-### When not to use
-
-Use a [Date Input](/docs/components-forms-date-input--docs) for a date the user does not know by heart and has to look up, such as an appointment.
-Its native control opens a calendar to browse, which a group of text fields cannot offer.
-
-Use a [Date Picker](/docs/components-forms-date-picker--docs) when the user has to choose a date or a date range from a calendar they can see, such as when booking an appointment.
-
-### How to use
-
-Wrap a Date Input Group in a [Field Set](/docs/components-forms-field-set--docs) whose legend asks for the date as a question.
-The legend is what ties the fields together for a screen reader; without it, three labels read as three unrelated questions.
-
-Put a Paragraph with an example date above the group and connect it to the Field Set with `aria-describedby`.
-Write the example in the order the fields appear, so it doubles as a format hint.
-
-Give every Text Input an `inputMode` of `numeric`, so touch devices offer a numeric keyboard.
-Add an `autoComplete` value where one exists, such as `bday-day`, `bday-month`, and `bday-year` for a date of birth.
-
-Leave the `size` attribute off the Text Inputs.
-The Field sets the width, and a `size` attribute overrides it.
-
-Accept what the user types in the format they type it.
-Both `1` and `01` are a valid month, and rejecting one of the two turns a formatting preference into an error the user has to solve.
-
-## Examples
-
-### With validation
-
-To report an error, add `invalid` and an [Error Message](/docs/components-forms-error-message--docs) to the Field Set, and connect the Error Message to the Field Set with `aria-describedby`.
-Set `invalid` on the Text Inputs that are at fault, and only on those: mark the year alone if the year is what is missing.
-
-See the [gov.uk documentation on validating this pattern](https://design-system.service.gov.uk/components/date-input/#error-messages) for how to word the message.
-
-&lt;Canvas of={DateInputGroupStories.WithValidation} /&gt;
-
-### Month and year
-
-Ask only for the parts of the date you need.
-A group holds as many fields as the question has parts.
-
-&lt;Canvas of={DateInputGroupStories.MonthAndYear} /&gt;
-
-## Design
-
-Each field is as wide as the answer it takes: two digits for a day or a month, four for a year.
-That difference is a hint in itself, and it keeps the group from reading as three interchangeable boxes.
-
-The fields wrap onto a second line when they no longer fit beside each other, which happens at narrow widths and at large text sizes rather than at a fixed breakpoint.
-
-## Accessibility
-
-The accessible name of each input comes from its own Label, and the question they answer together comes from the legend of the surrounding Field Set.
-A screen reader announces both, so ‘Jaar’ is heard as part of ‘Wanneer ben je geboren?’ rather than on its own.
-
-Unlike a [Date Input](/docs/components-forms-date-input--docs), this pattern shows the same order of day, month, and year to everyone.
-A native date control takes its order from the browser and the operating system, so the page cannot promise which one a visitor sees; here the page decides, and the example above the fields can state it.
-
-## See also
-
-- [Date Input](/docs/components-forms-date-input--docs) – a native date control for dates the user has to look up.
-- [Field Set](/docs/components-forms-field-set--docs) – groups the fields under one question.
-- [Text Input](/docs/components-forms-text-input--docs) – the input each field holds.
-- [Date Picker](/docs/components-forms-date-picker--docs) – lets the user choose a date from a visible calendar.
-- [Calendar](/docs/components-navigation-calendar--docs) – displays content organised by date in a month view.
-
-## Design tokens
-
-&lt;DesignTokensTable tokens={tokens} /&gt;
-</code></pre></div>
-            </div>
-        </div>
-    
-        <div class="panel panel-subcomponents">
-          
-    <div class="note ok">
-      <div class="row">
-        <span class="ex-name">DateInputGroup.Field</span>
-        <span class="badge ok">
-          1 prop type
-        </span>
-      </div>
-      <div class="hint">/home/runner/work/design-system/design-system/packages/react/src/index.ts</div>
-      
-      <div class="hint">Pairs the Label and Text Input for one part of a date, and gives the input a width that suits the digits it takes.</div>
-      <div class="kv"><span class="chip">see: {@link https://designsystem.amsterdam/?path=/docs/components-forms-date-input-group--docs Date Input Group docs at Amsterdam Design System}</span></div>
-      <pre><code>import { DateInputGroup } from &quot;@amsterdam/design-system-react/src&quot;;</code></pre>
-      
-      
-          <pre><code>Component: ../packages/react/src/index.ts::DateInputGroup (react-component-meta)</code></pre>
-          <pre><code>/**
- * Whether the input holds a four-digit value, such as a year.
- */
-wide?: boolean = false</code></pre>
-    </div>
-  
-        </div>
-  </div>
-</article>
-<article
-  class="card 
-  no-error 
-  no-info 
-  no-story-error
-  no-doc-error"
-  role="listitem"
   aria-label="DatePicker">
   <div class="head">
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> DatePicker</h2>
       <div class="badges">
-        <label for="c-20-components-forms-date-picker-props" class="badge ok as-toggle">18 prop types</label>
+        <label for="c-19-components-forms-date-picker-props" class="badge ok as-toggle">18 prop types</label>
         
-        <label for="c-20-components-forms-date-picker-stories" class="badge ok as-toggle">5 stories</label>
-        <label for="c-20-components-forms-date-picker-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-19-components-forms-date-picker-stories" class="badge ok as-toggle">5 stories</label>
+        <label for="c-19-components-forms-date-picker-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -6268,10 +5966,10 @@ wide?: boolean = false</code></pre>
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-20-components-forms-date-picker-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-20-components-forms-date-picker-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-19-components-forms-date-picker-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-19-components-forms-date-picker-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-20-components-forms-date-picker-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-19-components-forms-date-picker-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -6500,7 +6198,7 @@ Use a Date Picker when someone needs to choose a date or date range from a visib
 ### When not to use
 
 - Use a [Date Input](/docs/components-forms-date-input--docs) when a single form field with the browser’s own date control is enough.
-- Use a [Date Input Group](/docs/components-forms-date-input-group--docs) when the user knows the exact date, such as a date of birth, and no calendar is needed.
+- Use a [Known Date Input](/docs/components-forms-known-date-input--docs) when the user knows the exact date, such as a date of birth, and no calendar is needed.
 - Use a [Calendar](/docs/components-navigation-calendar--docs) to browse content grouped by date, such as an events calendar.
 
 ### How to use
@@ -6612,7 +6310,7 @@ The month names, weekday names and spoken dates follow `locale`, while the navig
 ## See also
 
 - [Date Input](/docs/components-forms-date-input--docs) – lets the user pick a date with the browser’s own control.
-- [Date Input Group](/docs/components-forms-date-input-group--docs) – lets the user type a date they know by heart, one part per field.
+- [Known Date Input](/docs/components-forms-known-date-input--docs) – lets the user type a date they know by heart, one part per field.
 - [Calendar](/docs/components-navigation-calendar--docs) – displays content organised by date in a month view.
 
 ## Design tokens
@@ -6636,10 +6334,10 @@ The month names, weekday names and spoken dates follow `locale`, while the navig
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> DescriptionList</h2>
       <div class="badges">
-        <label for="c-21-components-text-description-list-props" class="badge ok as-toggle">2 prop types</label>
+        <label for="c-20-components-text-description-list-props" class="badge ok as-toggle">2 prop types</label>
         
-        <label for="c-21-components-text-description-list-stories" class="badge ok as-toggle">6 stories</label>
-        <label for="c-21-components-text-description-list-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-20-components-text-description-list-stories" class="badge ok as-toggle">6 stories</label>
+        <label for="c-20-components-text-description-list-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -6652,10 +6350,10 @@ The month names, weekday names and spoken dates follow `locale`, while the navig
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-21-components-text-description-list-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-21-components-text-description-list-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-20-components-text-description-list-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-20-components-text-description-list-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-21-components-text-description-list-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-20-components-text-description-list-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -6939,10 +6637,10 @@ The component leaves the native elements alone rather than adding `term` and `de
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> Dialog</h2>
       <div class="badges">
-        <label for="c-22-components-containers-dialog-props" class="badge ok as-toggle">3 prop types</label>
+        <label for="c-21-components-containers-dialog-props" class="badge ok as-toggle">3 prop types</label>
         
-        <label for="c-22-components-containers-dialog-stories" class="badge ok as-toggle">3 stories</label>
-        <label for="c-22-components-containers-dialog-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-21-components-containers-dialog-stories" class="badge ok as-toggle">3 stories</label>
+        <label for="c-21-components-containers-dialog-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -6955,10 +6653,10 @@ The component leaves the native elements alone rather than adding `term` and `de
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-22-components-containers-dialog-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-22-components-containers-dialog-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-21-components-containers-dialog-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-21-components-containers-dialog-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-22-components-containers-dialog-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-21-components-containers-dialog-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -7230,10 +6928,10 @@ Opening a modal does not lock scrolling on its own, and iOS Safari still needs J
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> ErrorMessage</h2>
       <div class="badges">
-        <label for="c-23-components-forms-error-message-props" class="badge ok as-toggle">2 prop types</label>
+        <label for="c-22-components-forms-error-message-props" class="badge ok as-toggle">2 prop types</label>
         
-        <label for="c-23-components-forms-error-message-stories" class="badge ok as-toggle">3 stories</label>
-        <label for="c-23-components-forms-error-message-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-22-components-forms-error-message-stories" class="badge ok as-toggle">3 stories</label>
+        <label for="c-22-components-forms-error-message-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -7246,10 +6944,10 @@ Opening a modal does not lock scrolling on its own, and iOS Safari still needs J
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-23-components-forms-error-message-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-23-components-forms-error-message-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-22-components-forms-error-message-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-22-components-forms-error-message-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-23-components-forms-error-message-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-22-components-forms-error-message-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -7432,10 +7130,10 @@ Announcing it is the job of the field that now describes it, or of an [Invalid F
     <div class="title">
       <h2><span class="status-dot dot-err"></span> EventsOverviewPage</h2>
       <div class="badges">
-        <label for="c-24-pages-public-events-overview-page-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-24-pages-public-events-overview-page-info" class="badge info as-toggle">1 info</label>
-        <label for="c-24-pages-public-events-overview-page-stories" class="badge ok as-toggle">2 stories</label>
-        <label for="c-24-pages-public-events-overview-page-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-23-pages-public-events-overview-page-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-23-pages-public-events-overview-page-info" class="badge info as-toggle">1 info</label>
+        <label for="c-23-pages-public-events-overview-page-stories" class="badge ok as-toggle">2 stories</label>
+        <label for="c-23-pages-public-events-overview-page-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -7446,10 +7144,10 @@ Announcing it is the job of the field that now describes it, or of an [Invalid F
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-24-pages-public-events-overview-page-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-24-pages-public-events-overview-page-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-24-pages-public-events-overview-page-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-24-pages-public-events-overview-page-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-23-pages-public-events-overview-page-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-23-pages-public-events-overview-page-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-23-pages-public-events-overview-page-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-23-pages-public-events-overview-page-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -8933,10 +8631,10 @@ That is what lets a browser or an extension offer to put the activity in a calen
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> Field</h2>
       <div class="badges">
-        <label for="c-25-components-forms-field-props" class="badge ok as-toggle">1 prop type</label>
+        <label for="c-24-components-forms-field-props" class="badge ok as-toggle">1 prop type</label>
         
-        <label for="c-25-components-forms-field-stories" class="badge ok as-toggle">4 stories</label>
-        <label for="c-25-components-forms-field-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-24-components-forms-field-stories" class="badge ok as-toggle">4 stories</label>
+        <label for="c-24-components-forms-field-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -8949,10 +8647,10 @@ That is what lets a browser or an extension offer to put the activity in a calen
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-25-components-forms-field-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-25-components-forms-field-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-24-components-forms-field-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-24-components-forms-field-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-25-components-forms-field-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-24-components-forms-field-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -9205,10 +8903,10 @@ The hidden prefix inside the message is what says that something went wrong.
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> FieldSet</h2>
       <div class="badges">
-        <label for="c-26-components-forms-field-set-props" class="badge ok as-toggle">6 prop types</label>
+        <label for="c-25-components-forms-field-set-props" class="badge ok as-toggle">6 prop types</label>
         
-        <label for="c-26-components-forms-field-set-stories" class="badge ok as-toggle">7 stories</label>
-        <label for="c-26-components-forms-field-set-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-25-components-forms-field-set-stories" class="badge ok as-toggle">7 stories</label>
+        <label for="c-25-components-forms-field-set-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -9221,10 +8919,10 @@ The hidden prefix inside the message is what says that something went wrong.
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-26-components-forms-field-set-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-26-components-forms-field-set-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-25-components-forms-field-set-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-25-components-forms-field-set-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-26-components-forms-field-set-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-25-components-forms-field-set-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -9660,7 +9358,7 @@ Someone moving from one Radio to the next therefore hears which question they ar
 - [Field](/docs/components-forms-field--docs) – wraps a single input.
 - [Radio](/docs/components-forms-radio--docs) – one of the inputs typically grouped in a Field Set.
 - [Checkbox](/docs/components-forms-checkbox--docs) – one of the inputs typically grouped in a Field Set.
-- [Date Input Group](/docs/components-forms-date-input-group--docs) – a set of fields for one date, which a Field Set gathers under a single question.
+- [Known Date Input](/docs/components-forms-known-date-input--docs) – a set of fields for one date, which a Field Set gathers under a single question.
 
 ## Design tokens
 
@@ -9685,9 +9383,9 @@ Someone moving from one Radio to the next therefore hears which question they ar
       <div class="badges">
         
         
-        <label for="c-27-components-media-figure-stories" class="badge ok as-toggle">2 stories</label>
-        <label for="c-27-components-media-figure-docs" class="badge ok as-toggle">1 doc</label>
-        <label for="c-27-components-media-figure-subcomponents" class="badge ok as-toggle">1 subcomponent</label>
+        <label for="c-26-components-media-figure-stories" class="badge ok as-toggle">2 stories</label>
+        <label for="c-26-components-media-figure-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-26-components-media-figure-subcomponents" class="badge ok as-toggle">1 subcomponent</label>
       </div>
     </div>
     <div class="meta" title="./src/components/Figure/Figure.stories.tsx">components-media-figure · ./src/components/Figure/Figure.stories.tsx</div>
@@ -9699,9 +9397,9 @@ Someone moving from one Radio to the next therefore hears which question they ar
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-27-components-media-figure-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-27-components-media-figure-docs" class="tg tg-docs" type="checkbox" hidden />
-  <input id="c-27-components-media-figure-subcomponents" class="tg tg-subcomponents" type="checkbox" hidden />
+  <input id="c-26-components-media-figure-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-26-components-media-figure-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-26-components-media-figure-subcomponents" class="tg tg-subcomponents" type="checkbox" hidden />
   
 
   <div class="panels">
@@ -9888,8 +9586,8 @@ color?: &quot;inverse&quot;</code></pre>
       <div class="badges">
         
         
-        <label for="c-28-components-forms-file-input-stories" class="badge ok as-toggle">5 stories</label>
-        <label for="c-28-components-forms-file-input-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-27-components-forms-file-input-stories" class="badge ok as-toggle">5 stories</label>
+        <label for="c-27-components-forms-file-input-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -9902,8 +9600,8 @@ color?: &quot;inverse&quot;</code></pre>
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-28-components-forms-file-input-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-28-components-forms-file-input-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-27-components-forms-file-input-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-27-components-forms-file-input-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -10099,9 +9797,9 @@ A [File List](/docs/components-forms-file-list--docs) beside the field is how a 
       <div class="badges">
         
         
-        <label for="c-29-components-forms-file-list-stories" class="badge ok as-toggle">2 stories</label>
-        <label for="c-29-components-forms-file-list-docs" class="badge ok as-toggle">1 doc</label>
-        <label for="c-29-components-forms-file-list-subcomponents" class="badge ok as-toggle">1 subcomponent</label>
+        <label for="c-28-components-forms-file-list-stories" class="badge ok as-toggle">2 stories</label>
+        <label for="c-28-components-forms-file-list-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-28-components-forms-file-list-subcomponents" class="badge ok as-toggle">1 subcomponent</label>
       </div>
     </div>
     <div class="meta" title="./src/components/FileList/FileList.stories.tsx">components-forms-file-list · ./src/components/FileList/FileList.stories.tsx</div>
@@ -10113,9 +9811,9 @@ A [File List](/docs/components-forms-file-list--docs) beside the field is how a 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-29-components-forms-file-list-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-29-components-forms-file-list-docs" class="tg tg-docs" type="checkbox" hidden />
-  <input id="c-29-components-forms-file-list-subcomponents" class="tg tg-subcomponents" type="checkbox" hidden />
+  <input id="c-28-components-forms-file-list-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-28-components-forms-file-list-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-28-components-forms-file-list-subcomponents" class="tg tg-subcomponents" type="checkbox" hidden />
   
 
   <div class="panels">
@@ -10303,10 +10001,10 @@ onDelete?: () =&gt; void</code></pre>
     <div class="title">
       <h2><span class="status-dot dot-err"></span> FormFlow</h2>
       <div class="badges">
-        <label for="c-30-pages-public-form-flow-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-30-pages-public-form-flow-info" class="badge info as-toggle">1 info</label>
-        <label for="c-30-pages-public-form-flow-stories" class="badge ok as-toggle">5 stories</label>
-        <label for="c-30-pages-public-form-flow-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-29-pages-public-form-flow-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-29-pages-public-form-flow-info" class="badge info as-toggle">1 info</label>
+        <label for="c-29-pages-public-form-flow-stories" class="badge ok as-toggle">5 stories</label>
+        <label for="c-29-pages-public-form-flow-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -10317,10 +10015,10 @@ onDelete?: () =&gt; void</code></pre>
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-30-pages-public-form-flow-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-30-pages-public-form-flow-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-30-pages-public-form-flow-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-30-pages-public-form-flow-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-29-pages-public-form-flow-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-29-pages-public-form-flow-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-29-pages-public-form-flow-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-29-pages-public-form-flow-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -11882,10 +11580,10 @@ An [Invalid Form Alert](/docs/components-forms-invalid-form-alert--docs) takes f
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> Gap</h2>
       <div class="badges">
-        <label for="c-31-utilities-css-gap-props" class="badge ok as-toggle">1 prop type</label>
+        <label for="c-30-utilities-css-gap-props" class="badge ok as-toggle">1 prop type</label>
         
-        <label for="c-31-utilities-css-gap-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-31-utilities-css-gap-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-30-utilities-css-gap-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-30-utilities-css-gap-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -11898,10 +11596,10 @@ An [Invalid Form Alert](/docs/components-forms-invalid-form-alert--docs) takes f
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-31-utilities-css-gap-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-31-utilities-css-gap-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-30-utilities-css-gap-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-30-utilities-css-gap-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-31-utilities-css-gap-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-30-utilities-css-gap-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -11998,11 +11696,11 @@ import * as GapStories from &quot;./Gap.stories.tsx&quot;;
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> Grid</h2>
       <div class="badges">
-        <label for="c-32-components-layout-grid-props" class="badge ok as-toggle">5 prop types</label>
+        <label for="c-31-components-layout-grid-props" class="badge ok as-toggle">5 prop types</label>
         
-        <label for="c-32-components-layout-grid-stories" class="badge ok as-toggle">5 stories</label>
-        <label for="c-32-components-layout-grid-docs" class="badge ok as-toggle">1 doc</label>
-        <label for="c-32-components-layout-grid-subcomponents" class="badge ok as-toggle">2 subcomponents</label>
+        <label for="c-31-components-layout-grid-stories" class="badge ok as-toggle">5 stories</label>
+        <label for="c-31-components-layout-grid-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-31-components-layout-grid-subcomponents" class="badge ok as-toggle">2 subcomponents</label>
       </div>
     </div>
     <div class="meta" title="./src/components/Grid/Grid.stories.tsx">components-layout-grid · ./src/components/Grid/Grid.stories.tsx</div>
@@ -12014,10 +11712,10 @@ import * as GapStories from &quot;./Gap.stories.tsx&quot;;
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-32-components-layout-grid-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-32-components-layout-grid-docs" class="tg tg-docs" type="checkbox" hidden />
-  <input id="c-32-components-layout-grid-subcomponents" class="tg tg-subcomponents" type="checkbox" hidden />
-  <input id="c-32-components-layout-grid-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-31-components-layout-grid-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-31-components-layout-grid-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-31-components-layout-grid-subcomponents" class="tg tg-subcomponents" type="checkbox" hidden />
+  <input id="c-31-components-layout-grid-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -12638,10 +12336,10 @@ start?: GridColumnNumber | GridColumnNumbers | undefined</code></pre>
     <div class="title">
       <h2><span class="status-dot dot-err"></span> HandbookPage</h2>
       <div class="badges">
-        <label for="c-33-pages-public-handbook-page-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-33-pages-public-handbook-page-info" class="badge info as-toggle">1 info</label>
-        <label for="c-33-pages-public-handbook-page-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-33-pages-public-handbook-page-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-32-pages-public-handbook-page-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-32-pages-public-handbook-page-info" class="badge info as-toggle">1 info</label>
+        <label for="c-32-pages-public-handbook-page-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-32-pages-public-handbook-page-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -12652,10 +12350,10 @@ start?: GridColumnNumber | GridColumnNumbers | undefined</code></pre>
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-33-pages-public-handbook-page-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-33-pages-public-handbook-page-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-33-pages-public-handbook-page-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-33-pages-public-handbook-page-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-32-pages-public-handbook-page-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-32-pages-public-handbook-page-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-32-pages-public-handbook-page-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-32-pages-public-handbook-page-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -13071,10 +12769,10 @@ The link they just activated therefore keeps focus, where a navigation rebuilt p
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> Heading</h2>
       <div class="badges">
-        <label for="c-34-components-text-heading-props" class="badge ok as-toggle">3 prop types</label>
+        <label for="c-33-components-text-heading-props" class="badge ok as-toggle">3 prop types</label>
         
-        <label for="c-34-components-text-heading-stories" class="badge ok as-toggle">8 stories</label>
-        <label for="c-34-components-text-heading-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-33-components-text-heading-stories" class="badge ok as-toggle">8 stories</label>
+        <label for="c-33-components-text-heading-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -13087,10 +12785,10 @@ The link they just activated therefore keeps focus, where a navigation rebuilt p
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-34-components-text-heading-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-34-components-text-heading-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-33-components-text-heading-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-33-components-text-heading-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-34-components-text-heading-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-33-components-text-heading-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -13400,10 +13098,10 @@ A level 2 Heading shown at the size of a level 4 is still reported as level 2, s
     <div class="title">
       <h2><span class="status-dot dot-err"></span> HomePage</h2>
       <div class="badges">
-        <label for="c-35-pages-public-home-page-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-35-pages-public-home-page-info" class="badge info as-toggle">1 info</label>
-        <label for="c-35-pages-public-home-page-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-35-pages-public-home-page-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-34-pages-public-home-page-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-34-pages-public-home-page-info" class="badge info as-toggle">1 info</label>
+        <label for="c-34-pages-public-home-page-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-34-pages-public-home-page-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -13414,10 +13112,10 @@ A level 2 Heading shown at the size of a level 4 is still reported as level 2, s
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-35-pages-public-home-page-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-35-pages-public-home-page-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-35-pages-public-home-page-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-35-pages-public-home-page-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-34-pages-public-home-page-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-34-pages-public-home-page-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-34-pages-public-home-page-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-34-pages-public-home-page-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -13918,10 +13616,10 @@ A screen reader then announces how many Cards the set holds and which one it is 
     <div class="title">
       <h2><span class="status-dot dot-err"></span> HomePage</h2>
       <div class="badges">
-        <label for="c-36-pages-internal-home-page-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-36-pages-internal-home-page-info" class="badge info as-toggle">1 info</label>
-        <label for="c-36-pages-internal-home-page-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-36-pages-internal-home-page-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-35-pages-internal-home-page-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-35-pages-internal-home-page-info" class="badge info as-toggle">1 info</label>
+        <label for="c-35-pages-internal-home-page-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-35-pages-internal-home-page-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -13932,10 +13630,10 @@ A screen reader then announces how many Cards the set holds and which one it is 
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-36-pages-internal-home-page-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-36-pages-internal-home-page-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-36-pages-internal-home-page-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-36-pages-internal-home-page-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-35-pages-internal-home-page-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-35-pages-internal-home-page-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-35-pages-internal-home-page-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-35-pages-internal-home-page-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -14177,10 +13875,10 @@ Use this page as the landing page of a backoffice system, where a Menu carries t
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> Icon</h2>
       <div class="badges">
-        <label for="c-37-components-media-icon-props" class="badge ok as-toggle">4 prop types</label>
+        <label for="c-36-components-media-icon-props" class="badge ok as-toggle">4 prop types</label>
         
-        <label for="c-37-components-media-icon-stories" class="badge ok as-toggle">6 stories</label>
-        <label for="c-37-components-media-icon-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-36-components-media-icon-stories" class="badge ok as-toggle">6 stories</label>
+        <label for="c-36-components-media-icon-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -14194,10 +13892,10 @@ Icons communicate a message at a glance and draw attention to important – ofte
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-37-components-media-icon-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-37-components-media-icon-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-36-components-media-icon-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-36-components-media-icon-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-37-components-media-icon-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-36-components-media-icon-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -14485,10 +14183,10 @@ It is decoration for text that carries the meaning, which is why ‘When to use�
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> IconButton</h2>
       <div class="badges">
-        <label for="c-38-components-buttons-icon-button-props" class="badge ok as-toggle">4 prop types</label>
+        <label for="c-37-components-buttons-icon-button-props" class="badge ok as-toggle">4 prop types</label>
         
-        <label for="c-38-components-buttons-icon-button-stories" class="badge ok as-toggle">3 stories</label>
-        <label for="c-38-components-buttons-icon-button-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-37-components-buttons-icon-button-stories" class="badge ok as-toggle">3 stories</label>
+        <label for="c-37-components-buttons-icon-button-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -14501,10 +14199,10 @@ It is decoration for text that carries the meaning, which is why ‘When to use�
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-38-components-buttons-icon-button-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-38-components-buttons-icon-button-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-37-components-buttons-icon-button-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-37-components-buttons-icon-button-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-38-components-buttons-icon-button-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-37-components-buttons-icon-button-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -14694,10 +14392,10 @@ Its `type` defaults to `button` rather than `submit`, so it never submits a form
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> Image</h2>
       <div class="badges">
-        <label for="c-39-components-media-image-props" class="badge ok as-toggle">2 prop types</label>
+        <label for="c-38-components-media-image-props" class="badge ok as-toggle">2 prop types</label>
         
-        <label for="c-39-components-media-image-stories" class="badge ok as-toggle">3 stories</label>
-        <label for="c-39-components-media-image-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-38-components-media-image-stories" class="badge ok as-toggle">3 stories</label>
+        <label for="c-38-components-media-image-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -14710,10 +14408,10 @@ Its `type` defaults to `button` rather than `submit`, so it never submits a form
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-39-components-media-image-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-39-components-media-image-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-38-components-media-image-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-38-components-media-image-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-39-components-media-image-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-38-components-media-image-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -14912,10 +14610,10 @@ Someone reading with a screen magnifier or following a keyboard focus ring does 
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> ImageSlider</h2>
       <div class="badges">
-        <label for="c-40-components-media-image-slider-props" class="badge ok as-toggle">5 prop types</label>
+        <label for="c-39-components-media-image-slider-props" class="badge ok as-toggle">5 prop types</label>
         
-        <label for="c-40-components-media-image-slider-stories" class="badge ok as-toggle">3 stories</label>
-        <label for="c-40-components-media-image-slider-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-39-components-media-image-slider-stories" class="badge ok as-toggle">3 stories</label>
+        <label for="c-39-components-media-image-slider-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -14928,10 +14626,10 @@ Someone reading with a screen magnifier or following a keyboard focus ring does 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-40-components-media-image-slider-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-40-components-media-image-slider-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-39-components-media-image-slider-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-39-components-media-image-slider-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-40-components-media-image-slider-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-39-components-media-image-slider-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -15217,10 +14915,10 @@ Assistive technology therefore announces the thumbnails as tabs without being ab
     <div class="title">
       <h2><span class="status-dot dot-err"></span> InformationPage</h2>
       <div class="badges">
-        <label for="c-41-pages-public-information-page-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-41-pages-public-information-page-info" class="badge info as-toggle">1 info</label>
-        <label for="c-41-pages-public-information-page-stories" class="badge ok as-toggle">2 stories</label>
-        <label for="c-41-pages-public-information-page-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-40-pages-public-information-page-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-40-pages-public-information-page-info" class="badge info as-toggle">1 info</label>
+        <label for="c-40-pages-public-information-page-stories" class="badge ok as-toggle">2 stories</label>
+        <label for="c-40-pages-public-information-page-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -15231,10 +14929,10 @@ Assistive technology therefore announces the thumbnails as tabs without being ab
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-41-pages-public-information-page-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-41-pages-public-information-page-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-41-pages-public-information-page-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-41-pages-public-information-page-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-40-pages-public-information-page-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-40-pages-public-information-page-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-40-pages-public-information-page-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-40-pages-public-information-page-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -16281,10 +15979,10 @@ What a Table and a Figure each take their accessible name from is the part of th
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> InvalidFormAlert</h2>
       <div class="badges">
-        <label for="c-42-components-forms-invalid-form-alert-props" class="badge ok as-toggle">5 prop types</label>
+        <label for="c-41-components-forms-invalid-form-alert-props" class="badge ok as-toggle">5 prop types</label>
         
-        <label for="c-42-components-forms-invalid-form-alert-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-42-components-forms-invalid-form-alert-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-41-components-forms-invalid-form-alert-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-41-components-forms-invalid-form-alert-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -16297,10 +15995,10 @@ What a Table and a Figure each take their accessible name from is the part of th
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-42-components-forms-invalid-form-alert-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-42-components-forms-invalid-form-alert-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-41-components-forms-invalid-form-alert-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-41-components-forms-invalid-form-alert-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-42-components-forms-invalid-form-alert-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-41-components-forms-invalid-form-alert-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -16469,6 +16167,305 @@ Placing the component outside the `form` element, as ‘How to use’ asks, is w
             </div>
         </div>
     
+  </div>
+</article>
+<article
+  class="card 
+  no-error 
+  no-info 
+  no-story-error
+  no-doc-error"
+  role="listitem"
+  aria-label="KnownDateInput">
+  <div class="head">
+    <div class="title">
+      <h2><span class="status-dot dot-ok"></span> KnownDateInput</h2>
+      <div class="badges">
+        
+        
+        <label for="c-42-components-forms-known-date-input-stories" class="badge ok as-toggle">3 stories</label>
+        <label for="c-42-components-forms-known-date-input-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-42-components-forms-known-date-input-subcomponents" class="badge ok as-toggle">1 subcomponent</label>
+      </div>
+    </div>
+    <div class="meta" title="./src/components/KnownDateInput/KnownDateInput.stories.tsx">components-forms-known-date-input · ./src/components/KnownDateInput/KnownDateInput.stories.tsx</div>
+    
+    <div class="hint">Lines up the parts of a date that a user knows by heart, each in a field of its own.
+Typing a day, month, and year separately asks less of someone than filling in a single date control.</div>
+    <div class="kv"><span class="chip">see: {@link https://designsystem.amsterdam/?path=/docs/components-forms-known-date-input--docs Known Date Input docs at Amsterdam Design System}</span></div>
+  </div>
+
+  <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
+  
+  
+  <input id="c-42-components-forms-known-date-input-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-42-components-forms-known-date-input-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-42-components-forms-known-date-input-subcomponents" class="tg tg-subcomponents" type="checkbox" hidden />
+  
+
+  <div class="panels">
+    
+    
+    
+    
+        <div class="panel panel-stories">
+          
+          
+          
+          <div class="note ok">
+                <div class="row">
+                  <span class="ex-name">Imports</span>
+                </div>
+                <pre><code>import { ErrorMessage, FieldSet, Label, Paragraph, TextInput } from "@amsterdam/design-system-react";
+import { KnownDateInput } from "@amsterdam/design-system-react/src";</code></pre>
+              </div>
+          
+          
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Default</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const Default = () =&gt; &lt;FieldSet aria-describedby=&quot;description-a&quot; legend={legend}&gt;
+    &lt;Paragraph id=&quot;description-a&quot;&gt;{description}&lt;/Paragraph&gt;
+    &lt;KnownDateInput description=&quot;Bijvoorbeeld 1 1 2000.&quot; legend=&quot;Wanneer ben je geboren?&quot;&gt;
+        &lt;KnownDateInput.Field&gt;
+            &lt;Label htmlFor=&quot;input-a1&quot; inFieldSet&gt;Dag
+                          &lt;/Label&gt;
+            &lt;TextInput autoComplete=&quot;bday-day&quot; id=&quot;input-a1&quot; inputMode=&quot;numeric&quot; name=&quot;dag&quot; /&gt;
+        &lt;/KnownDateInput.Field&gt;
+        &lt;KnownDateInput.Field&gt;
+            &lt;Label htmlFor=&quot;input-a2&quot; inFieldSet&gt;Maand
+                          &lt;/Label&gt;
+            &lt;TextInput autoComplete=&quot;bday-month&quot; id=&quot;input-a2&quot; inputMode=&quot;numeric&quot; name=&quot;maand&quot; /&gt;
+        &lt;/KnownDateInput.Field&gt;
+        &lt;KnownDateInput.Field wide&gt;
+            &lt;Label htmlFor=&quot;input-a3&quot; inFieldSet&gt;Jaar
+                          &lt;/Label&gt;
+            &lt;TextInput autoComplete=&quot;bday-year&quot; id=&quot;input-a3&quot; inputMode=&quot;numeric&quot; name=&quot;jaar&quot; /&gt;
+        &lt;/KnownDateInput.Field&gt;
+    &lt;/KnownDateInput&gt;
+&lt;/FieldSet&gt;;</code></pre>
+            </div>
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">With Validation</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const WithValidation = () =&gt; &lt;FieldSet
+    aria-describedby=&quot;description-b error-b&quot;
+    invalid
+    legend=&quot;Wanneer ben je geboren?&quot;&gt;
+    &lt;Paragraph id=&quot;description-b&quot;&gt;Bijvoorbeeld 1 1 2000.&lt;/Paragraph&gt;
+    &lt;ErrorMessage id=&quot;error-b&quot;&gt;Vul een jaar in.&lt;/ErrorMessage&gt;
+    &lt;KnownDateInput&gt;
+        &lt;KnownDateInput.Field&gt;
+            &lt;Label htmlFor=&quot;input-b1&quot; inFieldSet&gt;Dag
+                          &lt;/Label&gt;
+            &lt;TextInput
+                autoComplete=&quot;bday-day&quot;
+                defaultValue={16}
+                id=&quot;input-b1&quot;
+                inputMode=&quot;numeric&quot;
+                name=&quot;dag&quot; /&gt;
+        &lt;/KnownDateInput.Field&gt;
+        &lt;KnownDateInput.Field&gt;
+            &lt;Label htmlFor=&quot;input-b2&quot; inFieldSet&gt;Maand
+                          &lt;/Label&gt;
+            &lt;TextInput
+                autoComplete=&quot;bday-month&quot;
+                defaultValue={8}
+                id=&quot;input-b2&quot;
+                inputMode=&quot;numeric&quot;
+                name=&quot;maand&quot; /&gt;
+        &lt;/KnownDateInput.Field&gt;
+        &lt;KnownDateInput.Field wide&gt;
+            &lt;Label htmlFor=&quot;input-b3&quot; inFieldSet&gt;Jaar
+                          &lt;/Label&gt;
+            &lt;TextInput
+                autoComplete=&quot;bday-year&quot;
+                id=&quot;input-b3&quot;
+                inputMode=&quot;numeric&quot;
+                invalid
+                name=&quot;jaar&quot; /&gt;
+        &lt;/KnownDateInput.Field&gt;
+    &lt;/KnownDateInput&gt;
+&lt;/FieldSet&gt;;</code></pre>
+            </div>
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Month And Year</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const MonthAndYear = () =&gt; &lt;FieldSet
+    aria-describedby=&quot;description-c&quot;
+    legend=&quot;Sinds wanneer woon je op dit adres?&quot;&gt;
+    &lt;Paragraph id=&quot;description-c&quot;&gt;Bijvoorbeeld 3 2019.&lt;/Paragraph&gt;
+    &lt;KnownDateInput&gt;
+        &lt;KnownDateInput.Field&gt;
+            &lt;Label htmlFor=&quot;input-c1&quot; inFieldSet&gt;Maand
+                          &lt;/Label&gt;
+            &lt;TextInput id=&quot;input-c1&quot; inputMode=&quot;numeric&quot; name=&quot;maand&quot; /&gt;
+        &lt;/KnownDateInput.Field&gt;
+        &lt;KnownDateInput.Field wide&gt;
+            &lt;Label htmlFor=&quot;input-c2&quot; inFieldSet&gt;Jaar
+                          &lt;/Label&gt;
+            &lt;TextInput id=&quot;input-c2&quot; inputMode=&quot;numeric&quot; name=&quot;jaar&quot; /&gt;
+        &lt;/KnownDateInput.Field&gt;
+    &lt;/KnownDateInput&gt;
+&lt;/FieldSet&gt;;</code></pre>
+            </div>
+        </div>
+    
+        <div class="panel panel-docs">
+          
+          
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Docs</span>
+                <span class="badge ok">doc ok</span>
+              </div>
+              <div class="hint">./src/components/KnownDateInput/KnownDateInput.docs.mdx</div>
+              <div>The group itself has no props to configure. The controls above set the legend and the desc...</div>
+              <div class="mdx-content"><pre><code>{/* @license CC0-1.0 */}
+
+import { Canvas, Controls, Description, Meta, Primary, Title } from &quot;@storybook/addon-docs/blocks&quot;;
+
+import { DesignTokensTable } from &quot;#storybook/_components/DesignTokensTable/DesignTokensTable&quot;;
+import tokens from &quot;#tokens/components/ams/known-date-input.tokens.json&quot;;
+
+import * as KnownDateInputStories from &quot;./KnownDateInput.stories.tsx&quot;;
+
+&lt;Meta of={KnownDateInputStories} /&gt;
+
+&lt;Title /&gt;
+
+&lt;Description of={KnownDateInputStories} /&gt;
+
+&lt;Primary /&gt;
+
+&lt;Controls /&gt;
+
+The group itself has no props to configure.
+The controls above set the legend and the description of the Field Set in this example.
+
+## Subcomponents
+
+Compose a Known Date Input from Known Date Input Fields, one for each part of the date.
+A Field pairs a [Label](/docs/components-forms-label--docs) with the [Text Input](/docs/components-forms-text-input--docs) it describes, and gives that input a width that matches the number of digits it takes.
+Set `wide` on the Field that holds a four-digit value, such as a year.
+
+## Usage guidelines
+
+### When to use
+
+Use a Known Date Input for a date the user already knows or can copy from a document in front of them: a date of birth, the expiry date of a passport, the day something happened.
+Three separate fields let someone type the date the way they would say it, without first working out which format the browser expects.
+
+This is the pattern the [NL Design System](https://nldesignsystem.nl/richtlijnen/formulieren/wanneer-welk-form-element/iedereen-kan-invullen) and [gov.uk](https://design-system.service.gov.uk/components/date-input/) recommend for these dates.
+
+### When not to use
+
+Use a [Date Input](/docs/components-forms-date-input--docs) for a date the user does not know by heart and has to look up, such as an appointment.
+Its native control opens a calendar to browse, which a group of text fields cannot offer.
+
+Use a [Date Picker](/docs/components-forms-date-picker--docs) when the user has to choose a date or a date range from a calendar they can see, such as when booking an appointment.
+
+### How to use
+
+Wrap a Known Date Input in a [Field Set](/docs/components-forms-field-set--docs) whose legend asks for the date as a question.
+The legend is what ties the fields together for a screen reader; without it, three labels read as three unrelated questions.
+
+Put a Paragraph with an example date above the group and connect it to the Field Set with `aria-describedby`.
+Write the example in the order the fields appear, so it doubles as a format hint.
+
+Give every Text Input an `inputMode` of `numeric`, so touch devices offer a numeric keyboard.
+Add an `autoComplete` value where one exists, such as `bday-day`, `bday-month`, and `bday-year` for a date of birth.
+
+Leave the `size` attribute off the Text Inputs.
+The Field sets the width, and a `size` attribute overrides it.
+
+Accept what the user types in the format they type it.
+Both `1` and `01` are a valid month, and rejecting one of the two turns a formatting preference into an error the user has to solve.
+
+## Examples
+
+### With validation
+
+To report an error, add `invalid` and an [Error Message](/docs/components-forms-error-message--docs) to the Field Set, and connect the Error Message to the Field Set with `aria-describedby`.
+Set `invalid` on the Text Inputs that are at fault, and only on those: mark the year alone if the year is what is missing.
+
+See the [gov.uk documentation on validating this pattern](https://design-system.service.gov.uk/components/date-input/#error-messages) for how to word the message.
+
+&lt;Canvas of={KnownDateInputStories.WithValidation} /&gt;
+
+### Month and year
+
+Ask only for the parts of the date you need.
+A group holds as many fields as the question has parts.
+
+&lt;Canvas of={KnownDateInputStories.MonthAndYear} /&gt;
+
+## Design
+
+Each field is as wide as the answer it takes: two digits for a day or a month, four for a year.
+That difference is a hint in itself, and it keeps the group from reading as three interchangeable boxes.
+
+The fields wrap onto a second line when they no longer fit beside each other, which happens at narrow widths and at large text sizes rather than at a fixed breakpoint.
+
+## Accessibility
+
+The accessible name of each input comes from its own Label, and the question they answer together comes from the legend of the surrounding Field Set.
+A screen reader announces both, so ‘Jaar’ is heard as part of ‘Wanneer ben je geboren?’ rather than on its own.
+
+Unlike a [Date Input](/docs/components-forms-date-input--docs), this pattern shows the same order of day, month, and year to everyone.
+A native date control takes its order from the browser and the operating system, so the page cannot promise which one a visitor sees; here the page decides, and the example above the fields can state it.
+
+## See also
+
+- [Date Input](/docs/components-forms-date-input--docs) – a native date control for dates the user has to look up.
+- [Field Set](/docs/components-forms-field-set--docs) – groups the fields under one question.
+- [Text Input](/docs/components-forms-text-input--docs) – the input each field holds.
+- [Date Picker](/docs/components-forms-date-picker--docs) – lets the user choose a date from a visible calendar.
+- [Calendar](/docs/components-navigation-calendar--docs) – displays content organised by date in a month view.
+
+## Design tokens
+
+&lt;DesignTokensTable tokens={tokens} /&gt;
+</code></pre></div>
+            </div>
+        </div>
+    
+        <div class="panel panel-subcomponents">
+          
+    <div class="note ok">
+      <div class="row">
+        <span class="ex-name">KnownDateInput.Field</span>
+        <span class="badge ok">
+          1 prop type
+        </span>
+      </div>
+      <div class="hint">/home/runner/work/design-system/design-system/packages/react/src/index.ts</div>
+      
+      <div class="hint">Pairs the Label and Text Input for one part of a date, and gives the input a width that suits the digits it takes.</div>
+      <div class="kv"><span class="chip">see: {@link https://designsystem.amsterdam/?path=/docs/components-forms-known-date-input--docs Known Date Input docs at Amsterdam Design System}</span></div>
+      <pre><code>import { KnownDateInput } from &quot;@amsterdam/design-system-react/src&quot;;</code></pre>
+      
+      
+          <pre><code>Component: ../packages/react/src/index.ts::KnownDateInput (react-component-meta)</code></pre>
+          <pre><code>/**
+ * Whether the input holds a four-digit value, such as a year.
+ */
+wide?: boolean = false</code></pre>
+    </div>
+  
+        </div>
   </div>
 </article>
 <article
@@ -38701,7 +38698,7 @@ Placeholder text is styled but not recommended, and it is not a label: it disapp
 - [Text Area](/docs/components-forms-text-area--docs) – for multi-line text input.
 - [Password Input](/docs/components-forms-password-input--docs) – for sensitive single-line text.
 - [Date Input](/docs/components-forms-date-input--docs) – for entering a date.
-- [Date Input Group](/docs/components-forms-date-input-group--docs) – for a date the user knows by heart, in a Text Input per part.
+- [Known Date Input](/docs/components-forms-known-date-input--docs) – for a date the user knows by heart, in a Text Input per part.
 - [Time Input](/docs/components-forms-time-input--docs) – for entering a time.
 - [Search Field](/docs/components-forms-search-field--docs) – for searching the content of the site.
 - [Field](/docs/components-forms-field--docs) – wraps a Text Input with its Label, description, and Error Message.
@@ -38940,7 +38937,7 @@ The invalid styling responds to `aria-invalid=&quot;true&quot;` and to the brows
 ## See also
 
 - [Date Input](/docs/components-forms-date-input--docs) – the counterpart for entering a date.
-- [Date Input Group](/docs/components-forms-date-input-group--docs) – separate fields for a date the user knows by heart.
+- [Known Date Input](/docs/components-forms-known-date-input--docs) – separate fields for a date the user knows by heart.
 - [Field](/docs/components-forms-field--docs) – wraps a Time Input with its Label, description, and Error Message.
 
 ## Design tokens
@@ -57127,7 +57124,7 @@ And once people learn one, they can use them all, while it matters less which de
 ## Accessible to everyone
 
 People can use City services whatever their ability, device, or situation.
-Every component is built and tested to meet accessibility standards (WCAG) from the start.
+Every component is built and tested to meet [WCAG 2.2 Level AA](/docs/docs-guidelines-accessibility--docs) from the start.
 We honour preferences like text size and reduced motion.
 
 ## Built in the open
@@ -57719,10 +57716,57 @@ If you find any issues related to browser support, please [report them](https://
   aria-label="Docs">
   <div class="head">
     <div class="title">
+      <h2><span class="status-dot dot-ok"></span> Docs/Guidelines/Accessibility</h2>
+      <div class="badges">
+        
+        <label for="doc-5-docs-guidelines-accessibility-docs-content" class="badge ok as-toggle">view content</label>
+      </div>
+    </div>
+    <div class="meta" title="./src/docs/guidelines/accessibility.docs.mdx">docs-guidelines-accessibility--docs · ./src/docs/guidelines/accessibility.docs.mdx</div>
+    <div># Accessibility We build and test every component against WCAG 2.2 Level AA. Target that s...</div>
+  </div>
+
+  <!-- Hidden toggles must be siblings BEFORE .panels -->
+  
+  <input id="doc-5-docs-guidelines-accessibility-docs-content" class="tg tg-content" type="checkbox" hidden />
+
+  <div class="panels">
+    
+    
+        <div class="panel panel-content">
+          <div class="mdx-content">
+            <pre><code>{/* @license CC0-1.0 */}
+
+import { Meta } from &quot;@storybook/addon-docs/blocks&quot;;
+
+&lt;Meta title=&quot;Docs/Guidelines/Accessibility&quot; /&gt;
+
+# Accessibility
+
+We build and test every component against WCAG 2.2 Level AA.
+Target that same version when building with the design system: our components carry part of the work, the rest depends on how you compose and fill them.
+
+The [Wet Digitale Overheid](https://www.digitaleoverheid.nl/overzicht-van-alle-onderwerpen/wetgeving/wet-digitale-overheid-wdo/#v4) obliges government websites to meet WCAG 2.1 Level AA, and [the City’s standard for developers](https://developers.amsterdam/docs/frontend/accessibility) names that version as well.
+[WCAG 2.2](https://www.w3.org/TR/WCAG22/#backwards-compatibility) is backwards compatible with 2.1, so meeting it also meets that legal minimum.
+
+Accessibility tests run in [Chromatic](https://chromatic.com) on every component with a Test story, with each pull request.
+They catch only part of what the standard asks, so the [definition of done](https://github.com/Amsterdam/design-system/blob/develop/documentation/definition-of-done.md) adds checks we do by hand, including screen readers, zoom, and forced colours.
+[Report a component that falls short](https://github.com/Amsterdam/design-system/issues) so we can fix it.
+</code></pre>
+          </div>
+        </div>
+  </div>
+</article>
+<article
+  class="card is-doc no-doc-error"
+  role="listitem"
+  aria-label="Docs">
+  <div class="head">
+    <div class="title">
       <h2><span class="status-dot dot-ok"></span> Docs/Guidelines/Modes</h2>
       <div class="badges">
         
-        <label for="doc-5-docs-guidelines-modes-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-6-docs-guidelines-modes-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/docs/guidelines/modes.docs.mdx">docs-guidelines-modes--docs · ./src/docs/guidelines/modes.docs.mdx</div>
@@ -57731,7 +57775,7 @@ If you find any issues related to browser support, please [report them](https://
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-5-docs-guidelines-modes-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-6-docs-guidelines-modes-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -57847,7 +57891,7 @@ The Home Page example in both fidelities:
       <h2><span class="status-dot dot-ok"></span> Docs/Guidelines/Responsive design</h2>
       <div class="badges">
         
-        <label for="doc-6-docs-guidelines-responsive-design-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-7-docs-guidelines-responsive-design-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/docs/guidelines/responsive-design.docs.mdx">docs-guidelines-responsive-design--docs · ./src/docs/guidelines/responsive-design.docs.mdx</div>
@@ -57856,7 +57900,7 @@ The Home Page example in both fidelities:
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-6-docs-guidelines-responsive-design-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-7-docs-guidelines-responsive-design-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -58029,7 +58073,7 @@ If your component can appear both inside and outside one of these named containe
       <h2><span class="status-dot dot-ok"></span> Docs/Guidelines/Spacing</h2>
       <div class="badges">
         
-        <label for="doc-7-docs-guidelines-spacing-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-8-docs-guidelines-spacing-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/docs/guidelines/spacing.docs.mdx">docs-guidelines-spacing--docs · ./src/docs/guidelines/spacing.docs.mdx</div>
@@ -58038,7 +58082,7 @@ If your component can appear both inside and outside one of these named containe
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-7-docs-guidelines-spacing-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-8-docs-guidelines-spacing-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -58124,7 +58168,7 @@ Margin is the right choice for a single targeted override; Prose is the right ch
       <h2><span class="status-dot dot-ok"></span> Docs/Guidelines/Vertical space</h2>
       <div class="badges">
         
-        <label for="doc-8-docs-guidelines-vertical-space-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-9-docs-guidelines-vertical-space-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/docs/guidelines/vertical-space.docs.mdx">docs-guidelines-vertical-space--docs · ./src/docs/guidelines/vertical-space.docs.mdx</div>
@@ -58133,7 +58177,7 @@ Margin is the right choice for a single targeted override; Prose is the right ch
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-8-docs-guidelines-vertical-space-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-9-docs-guidelines-vertical-space-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -58346,7 +58390,7 @@ Set the [Prose](/docs/utilities-css-prose--docs) utility class (`.ams-prose`) to
       <h2><span class="status-dot dot-ok"></span> Docs/Guidelines/Interactivity</h2>
       <div class="badges">
         
-        <label for="doc-9-docs-guidelines-interactivity-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-10-docs-guidelines-interactivity-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/docs/guidelines/interactivity.docs.mdx">docs-guidelines-interactivity--docs · ./src/docs/guidelines/interactivity.docs.mdx</div>
@@ -58355,7 +58399,7 @@ Set the [Prose](/docs/utilities-css-prose--docs) utility class (`.ams-prose`) to
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-9-docs-guidelines-interactivity-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-10-docs-guidelines-interactivity-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -58381,12 +58425,6 @@ Don’t use generic text fragments like “Click here” or “Read more” for 
 A more meaningful text helps sighted users scan the page, and screen reader users navigate between links.
 It’s also beneficial to search engines.
 
-### Relevant WCAG requirements
-
-- [WCAG 2.4.4](https://www.w3.org/TR/WCAG22/#link-purpose-in-context): it is clear to users what it means to click on a link
-- [WCAG 2.4.6](https://www.w3.org/TR/WCAG22/#headings-and-labels): use a label to describe interactive elements
-- [WCAG 2.5.3](https://www.w3.org/TR/WCAG22/#label-in-name): the accessible name of an element must contain at least the visible text of the element
-
 ## Colour
 
 To indicate that an element is interactive, we use the colour blue.
@@ -58396,18 +58434,9 @@ Both colours become darker on hover.
 
 Colour should not be the only indicator of interactivity so that people with difficulty perceiving colour differences can still see that an element is interactive.
 
-### Relevant WCAG requirements
-
-- [WCAG 1.4.1](https://www.w3.org/TR/WCAG22/#use-of-color): colour should not be the only way to indicate that something is interactive
-- [WCAG 1.4.3](https://www.w3.org/TR/WCAG21/#contrast-minimum): text has sufficient contrast with the background
-
 ## Format
 
 Interactive elements are at least 24 by 24 pixels in size, so they are easy to use for a large group of users.
-
-### Relevant WCAG requirements
-
-- [WCAG 2.5.8](https://w3c.github.io/wcag/guidelines/22/#target-size-minimum): interactive elements are at least 24 by 24 pixels in size
 
 ## Focus indicator
 
@@ -58415,14 +58444,6 @@ We use the standard focus indicator of the web browsers.
 We only adjust the focus outline with an offset of 2 pixels to increase contrast with dark elements.
 
 When setting up a page, ensure that the interactive elements are in a logical order, usually from top to bottom and from left to right.
-
-### Relevant WCAG requirements
-
-- [WCAG 2.4.3](https://www.w3.org/TR/WCAG22/#focus-order): interactive elements have a logical focus / tabbing order
-- [WCAG 2.4.7](https://www.w3.org/TR/WCAG22/#focus-visible): the focus indicator is visible
-- [WCAG 2.4.11](https://www.w3.org/TR/WCAG22/#focus-not-obscured-minimum): the focus indicator is not completely hidden by content
-- [WCAG 2.4.12](https://www.w3.org/TR/WCAG22/#focus-not-obscured-enhanced): the focus indicator is not partially hidden by content
-- [WCAG 2.4.13](https://www.w3.org/TR/WCAG22/#focus-appearance): the focus indicator is at least 2 pixels wide and has sufficient contrast with the element that has focus
 
 ## Focus management
 
@@ -58477,7 +58498,7 @@ We use the CSS rule `touch-action: manipulation` on all interactive elements to 
       <h2><span class="status-dot dot-ok"></span> Docs/Guidelines/Localisation</h2>
       <div class="badges">
         
-        <label for="doc-10-docs-guidelines-localisation-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-11-docs-guidelines-localisation-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/docs/guidelines/localisation.docs.mdx">docs-guidelines-localisation--docs · ./src/docs/guidelines/localisation.docs.mdx</div>
@@ -58486,7 +58507,7 @@ We use the CSS rule `touch-action: manipulation` on all interactive elements to 
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-10-docs-guidelines-localisation-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-11-docs-guidelines-localisation-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -58615,10 +58636,6 @@ The design system’s own directional icons handle this automatically: each carr
 
 The [Calendar](/docs/components-navigation-calendar--docs) and [Date Picker](/docs/components-forms-date-picker--docs) navigation chevrons are one example.
 When you supply your own directional icon anywhere, give it the same attribute so it mirrors as well.
-
-## Relevant WCAG requirements
-
-- [WCAG 3.1.2](https://www.w3.org/TR/WCAG22/#language-of-parts): indicate the language of any passage or phrase that differs from the page’s default language
 </code></pre>
           </div>
         </div>
@@ -58633,7 +58650,7 @@ When you supply your own directional icon anywhere, give it the same attribute s
       <h2><span class="status-dot dot-ok"></span> Docs/Guidelines/Routing libraries</h2>
       <div class="badges">
         
-        <label for="doc-11-docs-guidelines-routing-libraries-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-12-docs-guidelines-routing-libraries-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/docs/guidelines/routing-libraries.docs.mdx">docs-guidelines-routing-libraries--docs · ./src/docs/guidelines/routing-libraries.docs.mdx</div>
@@ -58642,7 +58659,7 @@ When you supply your own directional icon anywhere, give it the same attribute s
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-11-docs-guidelines-routing-libraries-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-12-docs-guidelines-routing-libraries-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -58744,7 +58761,7 @@ If you need a ref to a custom link component, set it on that component directly.
       <h2><span class="status-dot dot-ok"></span> Docs/Guidelines/Web app</h2>
       <div class="badges">
         
-        <label for="doc-12-docs-guidelines-web-app-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-13-docs-guidelines-web-app-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/docs/guidelines/web-app.docs.mdx">docs-guidelines-web-app--docs · ./src/docs/guidelines/web-app.docs.mdx</div>
@@ -58753,7 +58770,7 @@ If you need a ref to a custom link component, set it on that component directly.
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-12-docs-guidelines-web-app-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-13-docs-guidelines-web-app-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -58891,7 +58908,7 @@ Browsers [may prompt the user to install the app](https://web.dev/learn/pwa/inst
       <h2><span class="status-dot dot-ok"></span> Docs/Guidelines/AI assistance</h2>
       <div class="badges">
         
-        <label for="doc-13-docs-guidelines-ai-assistance-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-14-docs-guidelines-ai-assistance-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/docs/guidelines/ai-assistance.docs.mdx">docs-guidelines-ai-assistance--docs · ./src/docs/guidelines/ai-assistance.docs.mdx</div>
@@ -58900,7 +58917,7 @@ Browsers [may prompt the user to install the app](https://web.dev/learn/pwa/inst
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-13-docs-guidelines-ai-assistance-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-14-docs-guidelines-ai-assistance-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -59007,7 +59024,7 @@ Once connected, ask for what you want in plain language:
       <h2><span class="status-dot dot-ok"></span> Docs/Terms of use/Copyright</h2>
       <div class="badges">
         
-        <label for="doc-14-docs-terms-of-use-copyright-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-15-docs-terms-of-use-copyright-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/docs/terms-of-use/copyright.docs.mdx">docs-terms-of-use-copyright--docs · ./src/docs/terms-of-use/copyright.docs.mdx</div>
@@ -59016,7 +59033,7 @@ Once connected, ask for what you want in plain language:
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-14-docs-terms-of-use-copyright-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-15-docs-terms-of-use-copyright-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -59046,7 +59063,7 @@ import NOTICE from &quot;../../../../NOTICE.md?raw&quot;;
       <h2><span class="status-dot dot-ok"></span> Docs/Terms of use/License</h2>
       <div class="badges">
         
-        <label for="doc-15-docs-terms-of-use-license-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-16-docs-terms-of-use-license-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/docs/terms-of-use/license.docs.mdx">docs-terms-of-use-license--docs · ./src/docs/terms-of-use/license.docs.mdx</div>
@@ -59055,7 +59072,7 @@ import NOTICE from &quot;../../../../NOTICE.md?raw&quot;;
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-15-docs-terms-of-use-license-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-16-docs-terms-of-use-license-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -59085,7 +59102,7 @@ import LICENSE from &quot;../../../../LICENSE.md?raw&quot;;
       <h2><span class="status-dot dot-ok"></span> Brand/Assets/Favicon</h2>
       <div class="badges">
         
-        <label for="doc-16-brand-assets-favicon-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-17-brand-assets-favicon-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/brand/assets/favicon.docs.mdx">brand-assets-favicon--docs · ./src/brand/assets/favicon.docs.mdx</div>
@@ -59094,7 +59111,7 @@ import LICENSE from &quot;../../../../LICENSE.md?raw&quot;;
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-16-brand-assets-favicon-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-17-brand-assets-favicon-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -59229,7 +59246,7 @@ An iPhone or iPad uses this image when adding the webpage as a shortcut to your 
       <h2><span class="status-dot dot-ok"></span> Brand/Assets/Font</h2>
       <div class="badges">
         
-        <label for="doc-17-brand-assets-font-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-18-brand-assets-font-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/brand/assets/font.docs.mdx">brand-assets-font--docs · ./src/brand/assets/font.docs.mdx</div>
@@ -59238,7 +59255,7 @@ An iPhone or iPad uses this image when adding the webpage as a shortcut to your 
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-17-brand-assets-font-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-18-brand-assets-font-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -59307,7 +59324,7 @@ For additional details about the font, refer to [Typography on Stijlweb](https:/
       <h2><span class="status-dot dot-ok"></span> Brand/Assets/Icons</h2>
       <div class="badges">
         
-        <label for="doc-18-brand-assets-icons-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-19-brand-assets-icons-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/brand/assets/icons.docs.mdx">brand-assets-icons--docs · ./src/brand/assets/icons.docs.mdx</div>
@@ -59316,7 +59333,7 @@ For additional details about the font, refer to [Typography on Stijlweb](https:/
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-18-brand-assets-icons-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-19-brand-assets-icons-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -59457,7 +59474,7 @@ If you need an icon that is not in our set, [check this Figma library](https://w
       <h2><span class="status-dot dot-ok"></span> Brand/Design tokens/Aspect ratio</h2>
       <div class="badges">
         
-        <label for="doc-19-brand-design-tokens-aspect-ratio-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-20-brand-design-tokens-aspect-ratio-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/brand/design-tokens/aspect-ratio.docs.mdx">brand-design-tokens-aspect-ratio--docs · ./src/brand/design-tokens/aspect-ratio.docs.mdx</div>
@@ -59466,7 +59483,7 @@ If you need an icon that is not in our set, [check this Figma library](https://w
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-19-brand-design-tokens-aspect-ratio-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-20-brand-design-tokens-aspect-ratio-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -59516,7 +59533,7 @@ Content with intrinsic dimensions that do not match an aspect ratio will be crop
       <h2><span class="status-dot dot-ok"></span> Brand/Design tokens/Border</h2>
       <div class="badges">
         
-        <label for="doc-20-brand-design-tokens-border-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-21-brand-design-tokens-border-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/brand/design-tokens/border.docs.mdx">brand-design-tokens-border--docs · ./src/brand/design-tokens/border.docs.mdx</div>
@@ -59525,7 +59542,7 @@ Content with intrinsic dimensions that do not match an aspect ratio will be crop
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-20-brand-design-tokens-border-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-21-brand-design-tokens-border-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -59580,7 +59597,7 @@ All borders are a pixel thinner in [Compact Mode](/docs/docs-guidelines-modes--d
       <h2><span class="status-dot dot-ok"></span> Brand/Design tokens/Colour</h2>
       <div class="badges">
         
-        <label for="doc-21-brand-design-tokens-colour-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-22-brand-design-tokens-colour-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/brand/design-tokens/colour.docs.mdx">brand-design-tokens-colour--docs · ./src/brand/design-tokens/colour.docs.mdx</div>
@@ -59589,7 +59606,7 @@ All borders are a pixel thinner in [Compact Mode](/docs/docs-guidelines-modes--d
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-21-brand-design-tokens-colour-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-22-brand-design-tokens-colour-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -59802,7 +59819,7 @@ On these, both text and links are white – the **‘inverse’** text and inter
       <h2><span class="status-dot dot-ok"></span> Brand/Design tokens/Cursor</h2>
       <div class="badges">
         
-        <label for="doc-22-brand-design-tokens-cursor-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-23-brand-design-tokens-cursor-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/brand/design-tokens/cursor.docs.mdx">brand-design-tokens-cursor--docs · ./src/brand/design-tokens/cursor.docs.mdx</div>
@@ -59811,7 +59828,7 @@ On these, both text and links are white – the **‘inverse’** text and inter
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-22-brand-design-tokens-cursor-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-23-brand-design-tokens-cursor-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -59846,7 +59863,7 @@ import tokens from &quot;#tokens/brand/ams/cursor.tokens.json&quot;;
       <h2><span class="status-dot dot-ok"></span> Brand/Design tokens/Focus</h2>
       <div class="badges">
         
-        <label for="doc-23-brand-design-tokens-focus-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-24-brand-design-tokens-focus-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/brand/design-tokens/focus.docs.mdx">brand-design-tokens-focus--docs · ./src/brand/design-tokens/focus.docs.mdx</div>
@@ -59855,7 +59872,7 @@ import tokens from &quot;#tokens/brand/ams/cursor.tokens.json&quot;;
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-23-brand-design-tokens-focus-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-24-brand-design-tokens-focus-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -59901,7 +59918,7 @@ When setting up a page, ensure that the interactive elements are in a logical or
       <h2><span class="status-dot dot-ok"></span> Brand/Design tokens/Inputs</h2>
       <div class="badges">
         
-        <label for="doc-24-brand-design-tokens-inputs-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-25-brand-design-tokens-inputs-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/brand/design-tokens/inputs.docs.mdx">brand-design-tokens-inputs--docs · ./src/brand/design-tokens/inputs.docs.mdx</div>
@@ -59910,7 +59927,7 @@ When setting up a page, ensure that the interactive elements are in a logical or
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-24-brand-design-tokens-inputs-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-25-brand-design-tokens-inputs-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -59933,7 +59950,7 @@ This set of common tokens maintains their visual consistency.
 
 These tokens are used by
 [Date Input](/docs/components-forms-date-input--docs),
-[Date Input Group](/docs/components-forms-date-input-group--docs),
+[Known Date Input](/docs/components-forms-known-date-input--docs),
 [File Input](/docs/components-forms-file-input--docs),
 [Password Input](/docs/components-forms-password-input--docs),
 [Search Field](/docs/components-forms-search-field--docs),
@@ -59992,7 +60009,7 @@ Use these tokens if you recreate our React components with different technology,
       <h2><span class="status-dot dot-ok"></span> Brand/Design tokens/Links</h2>
       <div class="badges">
         
-        <label for="doc-25-brand-design-tokens-links-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-26-brand-design-tokens-links-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/brand/design-tokens/links.docs.mdx">brand-design-tokens-links--docs · ./src/brand/design-tokens/links.docs.mdx</div>
@@ -60001,7 +60018,7 @@ Use these tokens if you recreate our React components with different technology,
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-25-brand-design-tokens-links-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-26-brand-design-tokens-links-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -60065,7 +60082,7 @@ Use these tokens if you recreate our React components with different technology,
       <h2><span class="status-dot dot-ok"></span> Brand/Design tokens/Space</h2>
       <div class="badges">
         
-        <label for="doc-26-brand-design-tokens-space-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-27-brand-design-tokens-space-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/brand/design-tokens/space.docs.mdx">brand-design-tokens-space--docs · ./src/brand/design-tokens/space.docs.mdx</div>
@@ -60074,7 +60091,7 @@ Use these tokens if you recreate our React components with different technology,
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-26-brand-design-tokens-space-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-27-brand-design-tokens-space-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -60149,7 +60166,7 @@ The responsive values above are specified using the [clamp function](https://dev
       <h2><span class="status-dot dot-ok"></span> Brand/Design tokens/Typography</h2>
       <div class="badges">
         
-        <label for="doc-27-brand-design-tokens-typography-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-28-brand-design-tokens-typography-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/brand/design-tokens/typography.docs.mdx">brand-design-tokens-typography--docs · ./src/brand/design-tokens/typography.docs.mdx</div>
@@ -60158,7 +60175,7 @@ The responsive values above are specified using the [clamp function](https://dev
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-27-brand-design-tokens-typography-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-28-brand-design-tokens-typography-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -60352,7 +60369,7 @@ They use [Compact Mode](/docs/docs-guidelines-modes--docs), where both body text
       <h2><span class="status-dot dot-ok"></span> Pages/Introduction</h2>
       <div class="badges">
         
-        <label for="doc-28-pages-introduction-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-29-pages-introduction-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/pages/Introduction.docs.mdx">pages-introduction--docs · ./src/pages/Introduction.docs.mdx</div>
@@ -60361,7 +60378,7 @@ They use [Compact Mode](/docs/docs-guidelines-modes--docs), where both body text
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-28-pages-introduction-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-29-pages-introduction-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -60424,7 +60441,7 @@ Use the ‘Go to full screen’ (or press `alt+F`) or ‘Open canvas in new tab�
       <h2><span class="status-dot dot-ok"></span> Pages/Guidelines/Choosing a page type</h2>
       <div class="badges">
         
-        <label for="doc-29-pages-guidelines-choosing-a-page-type-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-30-pages-guidelines-choosing-a-page-type-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/pages/guidelines/choosing-a-page-type.docs.mdx">pages-guidelines-choosing-a-page-type--docs · ./src/pages/guidelines/choosing-a-page-type.docs.mdx</div>
@@ -60433,7 +60450,7 @@ Use the ‘Go to full screen’ (or press `alt+F`) or ‘Open canvas in new tab�
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-29-pages-guidelines-choosing-a-page-type-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-30-pages-guidelines-choosing-a-page-type-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -60497,7 +60514,7 @@ Where your context needs something else, design it, and tell us about it: templa
       <h2><span class="status-dot dot-ok"></span> Pages/Guidelines/Page structure</h2>
       <div class="badges">
         
-        <label for="doc-30-pages-guidelines-page-structure-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-31-pages-guidelines-page-structure-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/pages/guidelines/page-structure.docs.mdx">pages-guidelines-page-structure--docs · ./src/pages/guidelines/page-structure.docs.mdx</div>
@@ -60506,7 +60523,7 @@ Where your context needs something else, design it, and tell us about it: templa
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-30-pages-guidelines-page-structure-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-31-pages-guidelines-page-structure-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -60629,7 +60646,7 @@ Compact Mode already sets the type down a step, and a second reduction would lea
       <h2><span class="status-dot dot-ok"></span> Pages/Guidelines/Layout and spacing</h2>
       <div class="badges">
         
-        <label for="doc-31-pages-guidelines-layout-and-spacing-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-32-pages-guidelines-layout-and-spacing-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/pages/guidelines/layout-and-spacing.docs.mdx">pages-guidelines-layout-and-spacing--docs · ./src/pages/guidelines/layout-and-spacing.docs.mdx</div>
@@ -60638,7 +60655,7 @@ Compact Mode already sets the type down a step, and a second reduction would lea
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-31-pages-guidelines-layout-and-spacing-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-32-pages-guidelines-layout-and-spacing-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -60850,7 +60867,7 @@ These layouts require **4 columns** for each Card, which can be achieved with a 
       <h2><span class="status-dot dot-ok"></span> Pages/Guidelines/Reading the anatomy</h2>
       <div class="badges">
         
-        <label for="doc-32-pages-guidelines-reading-the-anatomy-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-33-pages-guidelines-reading-the-anatomy-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/pages/guidelines/reading-the-anatomy.docs.mdx">pages-guidelines-reading-the-anatomy--docs · ./src/pages/guidelines/reading-the-anatomy.docs.mdx</div>
@@ -60859,7 +60876,7 @@ These layouts require **4 columns** for each Card, which can be achieved with a 
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-32-pages-guidelines-reading-the-anatomy-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-33-pages-guidelines-reading-the-anatomy-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -60908,7 +60925,7 @@ It all happens per Grid variant, because a run that fills a phone from top to bo
       <h2><span class="status-dot dot-ok"></span> Pages/Guidelines/Composing your own page</h2>
       <div class="badges">
         
-        <label for="doc-33-pages-guidelines-composing-your-own-page-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-34-pages-guidelines-composing-your-own-page-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/pages/guidelines/composing-your-own-page.docs.mdx">pages-guidelines-composing-your-own-page--docs · ./src/pages/guidelines/composing-your-own-page.docs.mdx</div>
@@ -60917,7 +60934,7 @@ It all happens per Grid variant, because a run that fills a phone from top to bo
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-33-pages-guidelines-composing-your-own-page-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-34-pages-guidelines-composing-your-own-page-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -60990,7 +61007,7 @@ Tell us what you built and what you had to invent for it, and we will look at ta
       <h2><span class="status-dot dot-ok"></span> Pages/Public/Introduction</h2>
       <div class="badges">
         
-        <label for="doc-34-pages-public-introduction-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-35-pages-public-introduction-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/pages/public/Introduction.docs.mdx">pages-public-introduction--docs · ./src/pages/public/Introduction.docs.mdx</div>
@@ -60999,7 +61016,7 @@ Tell us what you built and what you had to invent for it, and we will look at ta
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-34-pages-public-introduction-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-35-pages-public-introduction-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -61052,7 +61069,7 @@ Both differences are covered where the rules are: [Page structure](/docs/pages-g
       <h2><span class="status-dot dot-ok"></span> Pages/Internal/Introduction</h2>
       <div class="badges">
         
-        <label for="doc-35-pages-internal-introduction-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-36-pages-internal-introduction-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/pages/internal/Introduction.docs.mdx">pages-internal-introduction--docs · ./src/pages/internal/Introduction.docs.mdx</div>
@@ -61061,7 +61078,7 @@ Both differences are covered where the rules are: [Page structure](/docs/pages-g
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-35-pages-internal-introduction-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-36-pages-internal-introduction-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
