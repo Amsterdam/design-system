@@ -4817,13 +4817,42 @@
             "{@link https://designsystem.amsterdam/?path=/docs/components-forms-known-date-input--docs Known Date Input docs at Amsterdam Design System}"
           ]
         },
-        "props": {}
+        "props": {
+          "autoComplete": {
+            "name": "autoComplete",
+            "required": false,
+            "type": {
+              "name": "enum",
+              "raw": "\"cc-exp\" | \"bday\"",
+              "value": [
+                {
+                  "value": "\"cc-exp\""
+                },
+                {
+                  "value": "\"bday\""
+                }
+              ]
+            },
+            "description": "Lets the browser fill in a date it already knows.\nUse `bday` for a date of birth, and `cc-exp` for the expiry date of a payment card.",
+            "defaultValue": null,
+            "parent": {
+              "name": "KnownDateInputProps",
+              "fileName": "../packages/react/src/KnownDateInput/KnownDateInput.tsx"
+            },
+            "declarations": [
+              {
+                "name": "TypeLiteral",
+                "fileName": "../packages/react/src/KnownDateInput/KnownDateInput.tsx"
+              }
+            ]
+          }
+        }
       },
       "subcomponents": {
-        "KnownDateInput.Field": {
-          "name": "KnownDateInput.Field",
+        "KnownDateInput.Day": {
+          "name": "KnownDateInput.Day",
           "path": "/home/runner/work/design-system/design-system/packages/react/src/index.ts",
-          "description": "Pairs the Label and Text Input for one part of a date, and gives the input a width that suits the digits it takes.",
+          "description": "The day of a date, in a field for one or two digits.",
           "import": "import { KnownDateInput } from \"@amsterdam/design-system-react/src\";",
           "jsDocTags": {
             "see": [
@@ -4831,34 +4860,181 @@
             ]
           },
           "reactComponentMeta": {
-            "displayName": "KnownDateInput.Field",
+            "displayName": "KnownDateInput.Day",
             "exportName": "KnownDateInput",
             "filePath": "/home/runner/work/design-system/design-system/packages/react/src/index.ts",
-            "description": "Pairs the Label and Text Input for one part of a date, and gives the input a width that suits the digits it takes.",
+            "description": "The day of a date, in a field for one or two digits.",
             "jsDocTags": {
               "see": [
                 "{@link https://designsystem.amsterdam/?path=/docs/components-forms-known-date-input--docs Known Date Input docs at Amsterdam Design System}"
               ]
             },
             "props": {
-              "wide": {
-                "name": "wide",
+              "label": {
+                "name": "label",
                 "required": false,
                 "type": {
-                  "name": "boolean"
+                  "name": "string"
                 },
-                "description": "Whether the input holds a four-digit value, such as a year.",
+                "description": "The text of the label.",
                 "defaultValue": {
-                  "value": "false"
+                  "value": "'Dag'"
                 },
                 "parent": {
-                  "name": "KnownDateInputFieldProps",
-                  "fileName": "../packages/react/src/KnownDateInput/KnownDateInputField.tsx"
+                  "name": "KnownDateInputDayProps",
+                  "fileName": "../packages/react/src/KnownDateInput/KnownDateInputDay.tsx"
                 },
                 "declarations": [
                   {
                     "name": "TypeLiteral",
-                    "fileName": "../packages/react/src/KnownDateInput/KnownDateInputField.tsx"
+                    "fileName": "../packages/react/src/KnownDateInput/KnownDateInputDay.tsx"
+                  }
+                ]
+              },
+              "invalid": {
+                "name": "invalid",
+                "required": false,
+                "type": {
+                  "name": "boolean"
+                },
+                "description": "Whether the value fails a validation rule.",
+                "defaultValue": null,
+                "parent": {
+                  "name": "TextInputProps",
+                  "fileName": "../packages/react/src/TextInput/TextInput.tsx"
+                },
+                "declarations": [
+                  {
+                    "name": "TypeLiteral",
+                    "fileName": "../packages/react/src/TextInput/TextInput.tsx"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "KnownDateInput.Month": {
+          "name": "KnownDateInput.Month",
+          "path": "/home/runner/work/design-system/design-system/packages/react/src/index.ts",
+          "description": "The month of a date, in a field for one or two digits.",
+          "import": "import { KnownDateInput } from \"@amsterdam/design-system-react/src\";",
+          "jsDocTags": {
+            "see": [
+              "{@link https://designsystem.amsterdam/?path=/docs/components-forms-known-date-input--docs Known Date Input docs at Amsterdam Design System}"
+            ]
+          },
+          "reactComponentMeta": {
+            "displayName": "KnownDateInput.Month",
+            "exportName": "KnownDateInput",
+            "filePath": "/home/runner/work/design-system/design-system/packages/react/src/index.ts",
+            "description": "The month of a date, in a field for one or two digits.",
+            "jsDocTags": {
+              "see": [
+                "{@link https://designsystem.amsterdam/?path=/docs/components-forms-known-date-input--docs Known Date Input docs at Amsterdam Design System}"
+              ]
+            },
+            "props": {
+              "label": {
+                "name": "label",
+                "required": false,
+                "type": {
+                  "name": "string"
+                },
+                "description": "The text of the label.",
+                "defaultValue": {
+                  "value": "'Maand'"
+                },
+                "parent": {
+                  "name": "KnownDateInputMonthProps",
+                  "fileName": "../packages/react/src/KnownDateInput/KnownDateInputMonth.tsx"
+                },
+                "declarations": [
+                  {
+                    "name": "TypeLiteral",
+                    "fileName": "../packages/react/src/KnownDateInput/KnownDateInputMonth.tsx"
+                  }
+                ]
+              },
+              "invalid": {
+                "name": "invalid",
+                "required": false,
+                "type": {
+                  "name": "boolean"
+                },
+                "description": "Whether the value fails a validation rule.",
+                "defaultValue": null,
+                "parent": {
+                  "name": "TextInputProps",
+                  "fileName": "../packages/react/src/TextInput/TextInput.tsx"
+                },
+                "declarations": [
+                  {
+                    "name": "TypeLiteral",
+                    "fileName": "../packages/react/src/TextInput/TextInput.tsx"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "KnownDateInput.Year": {
+          "name": "KnownDateInput.Year",
+          "path": "/home/runner/work/design-system/design-system/packages/react/src/index.ts",
+          "description": "The year of a date, in a field for four digits.",
+          "import": "import { KnownDateInput } from \"@amsterdam/design-system-react/src\";",
+          "jsDocTags": {
+            "see": [
+              "{@link https://designsystem.amsterdam/?path=/docs/components-forms-known-date-input--docs Known Date Input docs at Amsterdam Design System}"
+            ]
+          },
+          "reactComponentMeta": {
+            "displayName": "KnownDateInput.Year",
+            "exportName": "KnownDateInput",
+            "filePath": "/home/runner/work/design-system/design-system/packages/react/src/index.ts",
+            "description": "The year of a date, in a field for four digits.",
+            "jsDocTags": {
+              "see": [
+                "{@link https://designsystem.amsterdam/?path=/docs/components-forms-known-date-input--docs Known Date Input docs at Amsterdam Design System}"
+              ]
+            },
+            "props": {
+              "label": {
+                "name": "label",
+                "required": false,
+                "type": {
+                  "name": "string"
+                },
+                "description": "The text of the label.",
+                "defaultValue": {
+                  "value": "'Jaar'"
+                },
+                "parent": {
+                  "name": "KnownDateInputYearProps",
+                  "fileName": "../packages/react/src/KnownDateInput/KnownDateInputYear.tsx"
+                },
+                "declarations": [
+                  {
+                    "name": "TypeLiteral",
+                    "fileName": "../packages/react/src/KnownDateInput/KnownDateInputYear.tsx"
+                  }
+                ]
+              },
+              "invalid": {
+                "name": "invalid",
+                "required": false,
+                "type": {
+                  "name": "boolean"
+                },
+                "description": "Whether the value fails a validation rule.",
+                "defaultValue": null,
+                "parent": {
+                  "name": "TextInputProps",
+                  "fileName": "../packages/react/src/TextInput/TextInput.tsx"
+                },
+                "declarations": [
+                  {
+                    "name": "TypeLiteral",
+                    "fileName": "../packages/react/src/TextInput/TextInput.tsx"
                   }
                 ]
               }
@@ -4870,28 +5046,33 @@
         {
           "id": "components-forms-known-date-input--default",
           "name": "Default",
-          "snippet": "const Default = () => <FieldSet aria-describedby=\"description-a\" legend={legend}>\n    <Paragraph id=\"description-a\">{description}</Paragraph>\n    <KnownDateInput description=\"Bijvoorbeeld 1 1 2000.\" legend=\"Wanneer ben je geboren?\">\n        <KnownDateInput.Field>\n            <Label htmlFor=\"input-a1\" inFieldSet>Dag\n                          </Label>\n            <TextInput autoComplete=\"bday-day\" id=\"input-a1\" inputMode=\"numeric\" name=\"dag\" />\n        </KnownDateInput.Field>\n        <KnownDateInput.Field>\n            <Label htmlFor=\"input-a2\" inFieldSet>Maand\n                          </Label>\n            <TextInput autoComplete=\"bday-month\" id=\"input-a2\" inputMode=\"numeric\" name=\"maand\" />\n        </KnownDateInput.Field>\n        <KnownDateInput.Field wide>\n            <Label htmlFor=\"input-a3\" inFieldSet>Jaar\n                          </Label>\n            <TextInput autoComplete=\"bday-year\" id=\"input-a3\" inputMode=\"numeric\" name=\"jaar\" />\n        </KnownDateInput.Field>\n    </KnownDateInput>\n</FieldSet>;"
+          "snippet": "const Default = () => <FieldSet aria-describedby=\"description-a\" legend=\"Wanneer ben je geboren?\">\n    <Paragraph id=\"description-a\">Bijvoorbeeld 1 1 2000.</Paragraph>\n    <KnownDateInput autoComplete=\"bday\">\n        <KnownDateInput.Day name=\"dag\" />\n        <KnownDateInput.Month name=\"maand\" />\n        <KnownDateInput.Year name=\"jaar\" />\n    </KnownDateInput>\n</FieldSet>;"
         },
         {
           "id": "components-forms-known-date-input--with-validation",
           "name": "With Validation",
-          "snippet": "const WithValidation = () => <FieldSet\n    aria-describedby=\"description-b error-b\"\n    invalid\n    legend=\"Wanneer ben je geboren?\">\n    <Paragraph id=\"description-b\">Bijvoorbeeld 1 1 2000.</Paragraph>\n    <ErrorMessage id=\"error-b\">Vul een jaar in.</ErrorMessage>\n    <KnownDateInput>\n        <KnownDateInput.Field>\n            <Label htmlFor=\"input-b1\" inFieldSet>Dag\n                          </Label>\n            <TextInput\n                autoComplete=\"bday-day\"\n                defaultValue={16}\n                id=\"input-b1\"\n                inputMode=\"numeric\"\n                name=\"dag\" />\n        </KnownDateInput.Field>\n        <KnownDateInput.Field>\n            <Label htmlFor=\"input-b2\" inFieldSet>Maand\n                          </Label>\n            <TextInput\n                autoComplete=\"bday-month\"\n                defaultValue={8}\n                id=\"input-b2\"\n                inputMode=\"numeric\"\n                name=\"maand\" />\n        </KnownDateInput.Field>\n        <KnownDateInput.Field wide>\n            <Label htmlFor=\"input-b3\" inFieldSet>Jaar\n                          </Label>\n            <TextInput\n                autoComplete=\"bday-year\"\n                id=\"input-b3\"\n                inputMode=\"numeric\"\n                invalid\n                name=\"jaar\" />\n        </KnownDateInput.Field>\n    </KnownDateInput>\n</FieldSet>;"
+          "snippet": "const WithValidation = () => <FieldSet\n    aria-describedby=\"description-b error-b\"\n    invalid\n    legend=\"Wanneer ben je geboren?\">\n    <Paragraph id=\"description-b\">Bijvoorbeeld 1 1 2000.</Paragraph>\n    <ErrorMessage id=\"error-b\">Vul een jaar in.</ErrorMessage>\n    <KnownDateInput autoComplete=\"bday\">\n        <KnownDateInput.Day defaultValue={16} name=\"dag\" />\n        <KnownDateInput.Month defaultValue={8} name=\"maand\" />\n        <KnownDateInput.Year invalid name=\"jaar\" />\n    </KnownDateInput>\n</FieldSet>;"
         },
         {
           "id": "components-forms-known-date-input--month-and-year",
           "name": "Month And Year",
-          "snippet": "const MonthAndYear = () => <FieldSet\n    aria-describedby=\"description-c\"\n    legend=\"Sinds wanneer woon je op dit adres?\">\n    <Paragraph id=\"description-c\">Bijvoorbeeld 3 2019.</Paragraph>\n    <KnownDateInput>\n        <KnownDateInput.Field>\n            <Label htmlFor=\"input-c1\" inFieldSet>Maand\n                          </Label>\n            <TextInput id=\"input-c1\" inputMode=\"numeric\" name=\"maand\" />\n        </KnownDateInput.Field>\n        <KnownDateInput.Field wide>\n            <Label htmlFor=\"input-c2\" inFieldSet>Jaar\n                          </Label>\n            <TextInput id=\"input-c2\" inputMode=\"numeric\" name=\"jaar\" />\n        </KnownDateInput.Field>\n    </KnownDateInput>\n</FieldSet>;"
+          "snippet": "const MonthAndYear = () => <FieldSet\n    aria-describedby=\"description-c\"\n    legend=\"Sinds wanneer woon je op dit adres?\">\n    <Paragraph id=\"description-c\">Bijvoorbeeld 3 2019.</Paragraph>\n    <KnownDateInput>\n        <KnownDateInput.Month name=\"maand\" />\n        <KnownDateInput.Year name=\"jaar\" />\n    </KnownDateInput>\n</FieldSet>;"
+        },
+        {
+          "id": "components-forms-known-date-input--translated",
+          "name": "Translated",
+          "snippet": "const Translated = () => <FieldSet\n    aria-describedby=\"description-d\"\n    lang=\"en\"\n    legend=\"What is your date of birth?\">\n    <Paragraph id=\"description-d\">For example, 12 31 1980.</Paragraph>\n    <KnownDateInput autoComplete=\"bday\">\n        <KnownDateInput.Month label=\"Month\" name=\"month\" />\n        <KnownDateInput.Day label=\"Day\" name=\"day\" />\n        <KnownDateInput.Year label=\"Year\" name=\"year\" />\n    </KnownDateInput>\n</FieldSet>;"
         }
       ],
-      "import": "import { ErrorMessage, FieldSet, Label, Paragraph, TextInput } from \"@amsterdam/design-system-react\";\nimport { KnownDateInput } from \"@amsterdam/design-system-react/src\";",
+      "import": "import { ErrorMessage, FieldSet, Paragraph } from \"@amsterdam/design-system-react\";\nimport { KnownDateInput } from \"@amsterdam/design-system-react/src\";",
       "docs": {
         "components-forms-known-date-input--docs": {
           "id": "components-forms-known-date-input--docs",
           "name": "Docs",
           "path": "./src/components/KnownDateInput/KnownDateInput.docs.mdx",
           "title": "Components/Forms/Known Date Input",
-          "content": "{/* @license CC0-1.0 */}\n\nimport { Canvas, Controls, Description, Meta, Primary, Title } from \"@storybook/addon-docs/blocks\";\n\nimport { DesignTokensTable } from \"#storybook/_components/DesignTokensTable/DesignTokensTable\";\nimport tokens from \"#tokens/components/ams/known-date-input.tokens.json\";\n\nimport * as KnownDateInputStories from \"./KnownDateInput.stories.tsx\";\n\n<Meta of={KnownDateInputStories} />\n\n<Title />\n\n<Description of={KnownDateInputStories} />\n\n<Primary />\n\n<Controls />\n\nThe group itself has no props to configure.\nThe controls above set the legend and the description of the Field Set in this example.\n\n## Subcomponents\n\nCompose a Known Date Input from Known Date Input Fields, one for each part of the date.\nA Field pairs a [Label](/docs/components-forms-label--docs) with the [Text Input](/docs/components-forms-text-input--docs) it describes, and gives that input a width that matches the number of digits it takes.\nSet `wide` on the Field that holds a four-digit value, such as a year.\n\n## Usage guidelines\n\n### When to use\n\nUse a Known Date Input for a date the user already knows or can copy from a document in front of them: a date of birth, the expiry date of a passport, the day something happened.\nThree separate fields let someone type the date the way they would say it, without first working out which format the browser expects.\n\nThis is the pattern the [NL Design System](https://nldesignsystem.nl/richtlijnen/formulieren/wanneer-welk-form-element/iedereen-kan-invullen) and [gov.uk](https://design-system.service.gov.uk/components/date-input/) recommend for these dates.\n\n### When not to use\n\nUse a [Date Input](/docs/components-forms-date-input--docs) for a date the user does not know by heart and has to look up, such as an appointment.\nIts native control opens a calendar to browse, which a group of text fields cannot offer.\n\nUse a [Date Picker](/docs/components-forms-date-picker--docs) when the user has to choose a date or a date range from a calendar they can see, such as when booking an appointment.\n\n### How to use\n\nWrap a Known Date Input in a [Field Set](/docs/components-forms-field-set--docs) whose legend asks for the date as a question.\nThe legend is what ties the fields together for a screen reader; without it, three labels read as three unrelated questions.\n\nPut a Paragraph with an example date above the group and connect it to the Field Set with `aria-describedby`.\nWrite the example in the order the fields appear, so it doubles as a format hint.\n\nGive every Text Input an `inputMode` of `numeric`, so touch devices offer a numeric keyboard.\nAdd an `autoComplete` value where one exists, such as `bday-day`, `bday-month`, and `bday-year` for a date of birth.\n\nLeave the `size` attribute off the Text Inputs.\nThe Field sets the width, and a `size` attribute overrides it.\n\nAccept what the user types in the format they type it.\nBoth `1` and `01` are a valid month, and rejecting one of the two turns a formatting preference into an error the user has to solve.\n\n## Examples\n\n### With validation\n\nTo report an error, add `invalid` and an [Error Message](/docs/components-forms-error-message--docs) to the Field Set, and connect the Error Message to the Field Set with `aria-describedby`.\nSet `invalid` on the Text Inputs that are at fault, and only on those: mark the year alone if the year is what is missing.\n\nSee the [gov.uk documentation on validating this pattern](https://design-system.service.gov.uk/components/date-input/#error-messages) for how to word the message.\n\n<Canvas of={KnownDateInputStories.WithValidation} />\n\n### Month and year\n\nAsk only for the parts of the date you need.\nA group holds as many fields as the question has parts.\n\n<Canvas of={KnownDateInputStories.MonthAndYear} />\n\n## Design\n\nEach field is as wide as the answer it takes: two digits for a day or a month, four for a year.\nThat difference is a hint in itself, and it keeps the group from reading as three interchangeable boxes.\n\nThe fields wrap onto a second line when they no longer fit beside each other, which happens at narrow widths and at large text sizes rather than at a fixed breakpoint.\n\n## Accessibility\n\nThe accessible name of each input comes from its own Label, and the question they answer together comes from the legend of the surrounding Field Set.\nA screen reader announces both, so ‘Jaar’ is heard as part of ‘Wanneer ben je geboren?’ rather than on its own.\n\nUnlike a [Date Input](/docs/components-forms-date-input--docs), this pattern shows the same order of day, month, and year to everyone.\nA native date control takes its order from the browser and the operating system, so the page cannot promise which one a visitor sees; here the page decides, and the example above the fields can state it.\n\n## See also\n\n- [Date Input](/docs/components-forms-date-input--docs) – a native date control for dates the user has to look up.\n- [Field Set](/docs/components-forms-field-set--docs) – groups the fields under one question.\n- [Text Input](/docs/components-forms-text-input--docs) – the input each field holds.\n- [Date Picker](/docs/components-forms-date-picker--docs) – lets the user choose a date from a visible calendar.\n- [Calendar](/docs/components-navigation-calendar--docs) – displays content organised by date in a month view.\n\n## Design tokens\n\n<DesignTokensTable tokens={tokens} />\n",
-          "summary": "The group itself has no props to configure. The controls above set the legend and the desc..."
+          "content": "{/* @license CC0-1.0 */}\n\nimport { Canvas, Controls, Description, Meta, Primary, Title } from \"@storybook/addon-docs/blocks\";\n\nimport { DesignTokensTable } from \"#storybook/_components/DesignTokensTable/DesignTokensTable\";\nimport tokens from \"#tokens/components/ams/known-date-input.tokens.json\";\n\nimport * as KnownDateInputStories from \"./KnownDateInput.stories.tsx\";\n\n<Meta of={KnownDateInputStories} />\n\n<Title />\n\n<Description of={KnownDateInputStories} />\n\n<Primary />\n\n<Controls />\n\n## Subcomponents\n\nCompose a Known Date Input from its parts: Known Date Input Day, Month, and Year.\nEach part renders a [Label](/docs/components-forms-label--docs) and a [Text Input](/docs/components-forms-text-input--docs), links the two, and sets what every part of a date needs: a numeric keyboard, a width that fits its digits, and the autocomplete value that matches the `autoComplete` of the Known Date Input.\nEverything else you pass to a part, such as `name`, `invalid`, a `ref`, or a `className`, goes to its input.\n\nThe labels default to Dag, Maand, and Jaar.\nSet `label` on each part for a form in another language.\n\n## Usage guidelines\n\n### When to use\n\nUse a Known Date Input for a date the user already knows or can copy from a document in front of them: a date of birth, the expiry date of a passport, the day something happened.\nSeparate fields let someone type the date the way they would say it, without first working out which format the browser expects.\n\nThis is the pattern the [NL Design System](https://nldesignsystem.nl/richtlijnen/formulieren/wanneer-welk-form-element/iedereen-kan-invullen) and [gov.uk](https://design-system.service.gov.uk/components/date-input/) recommend for these dates.\n\n### When not to use\n\nUse a [Date Input](/docs/components-forms-date-input--docs) for a date the user does not know by heart and has to look up, such as an appointment.\nIts native control opens a calendar to browse, which a group of text fields cannot offer.\n\nUse a [Date Picker](/docs/components-forms-date-picker--docs) when the user has to choose a date or a date range from a calendar they can see, such as when booking an appointment.\n\n### How to use\n\nWrap a Known Date Input in a [Field Set](/docs/components-forms-field-set--docs) whose legend asks for the date as a question.\nThe legend is what ties the parts together for a screen reader; without it, three labels read as three unrelated questions.\n\nPut a Paragraph with an example date above the Known Date Input and connect it to the Field Set with `aria-describedby`.\nWrite the example in the order the parts appear, so it doubles as a format hint.\n\nSet `autoComplete` to `bday` for a date of birth, or to `cc-exp` for the expiry date of a payment card, so the browser can fill in a date it already knows.\nLeave it out for any other date.\n\nGive each part an `id` when an [Invalid Form Alert](/docs/components-forms-invalid-form-alert--docs) has to link to it.\nWithout one, the part generates its own.\n\nAccept what the user types in the format they type it.\nBoth `1` and `01` are a valid month, and rejecting one of the two turns a formatting preference into an error the user has to solve.\n\n## Examples\n\n### With validation\n\nTo report an error, add `invalid` and an [Error Message](/docs/components-forms-error-message--docs) to the Field Set, and connect the Error Message to the Field Set with `aria-describedby`.\nSet `invalid` on the parts that are at fault, and only on those: mark the year alone if the year is what is missing.\n\nSee the [gov.uk documentation on validating this pattern](https://design-system.service.gov.uk/components/date-input/#error-messages) for how to word the message.\n\n<Canvas of={KnownDateInputStories.WithValidation} />\n\n### Month and year\n\nAsk only for the parts of the date you need.\nLeave out the Day for a month and a year.\n\n<Canvas of={KnownDateInputStories.MonthAndYear} />\n\n### Translated\n\nThe labels default to Dutch, and the parts appear in the order you place them.\nFor a form in another language, set `label` on each part and place the parts in the order its readers expect.\nThis example asks for a date of birth in American English, which puts the month first.\n\nA Known Date Input does not read `lang`, so the order is always the one in your markup.\nStill set `lang` on the Field Set, so screen readers pronounce its text in the right language.\nSee the [Localisation guide](/docs/docs-guidelines-localisation--docs) for more.\n\n<Canvas of={KnownDateInputStories.Translated} />\n\n## Design\n\nEach part is as wide as the answer it takes: two digits for a day or a month, four for a year.\nThat difference is a hint in itself, and it keeps the parts from reading as three interchangeable boxes.\nThe widths hold without CSS too, because each input also carries a `size` attribute for its digits.\n\nThe parts wrap onto a second line when they no longer fit beside each other, which happens at narrow widths and at large text sizes rather than at a fixed breakpoint.\n\n## Accessibility\n\nThe accessible name of each input comes from its own Label, and the question they answer together comes from the legend of the surrounding Field Set.\nA screen reader announces both, so ‘Jaar’ is heard as part of ‘Wanneer ben je geboren?’ rather than on its own.\n\nUnlike a [Date Input](/docs/components-forms-date-input--docs), this pattern shows the same order of day, month, and year to everyone.\nA native date control takes its order from the browser and the operating system, so the page cannot promise which one a visitor sees; here the page decides, and the example above the parts can state it.\n\n## See also\n\n- [Date Input](/docs/components-forms-date-input--docs) – a native date control for dates the user has to look up.\n- [Field Set](/docs/components-forms-field-set--docs) – groups the parts under one question.\n- [Text Input](/docs/components-forms-text-input--docs) – the input each part renders.\n- [Date Picker](/docs/components-forms-date-picker--docs) – lets the user choose a date from a visible calendar.\n- [Calendar](/docs/components-navigation-calendar--docs) – displays content organised by date in a month view.\n\n## Design tokens\n\n<DesignTokensTable tokens={tokens} />\n",
+          "summary": "## Subcomponents Compose a Known Date Input from its parts: Known Date Input Day, Month, a..."
         }
       }
     },
@@ -10439,16 +10620,16 @@
             "required": false,
             "type": {
               "name": "enum",
-              "raw": "\"wide\" | \"narrow\" | \"medium\"",
+              "raw": "\"narrow\" | \"medium\" | \"wide\"",
               "value": [
-                {
-                  "value": "\"wide\""
-                },
                 {
                   "value": "\"narrow\""
                 },
                 {
                   "value": "\"medium\""
+                },
+                {
+                  "value": "\"wide\""
                 }
               ]
             },
@@ -12163,6 +12344,6 @@
   },
   "meta": {
     "docgen": "react-component-meta",
-    "durationMs": 5522
+    "durationMs": 5563
   }
 }
