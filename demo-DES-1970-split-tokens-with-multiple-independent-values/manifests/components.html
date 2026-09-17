@@ -588,13 +588,13 @@
 <header>
   <div class="wrap">
     <h1>Manifest Debugger</h1>
-    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">15/89 prop type errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">15/89 infos</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">1/305 story errors</a><a class="filter-pill ok" data-k="docs" href="#filter-docs">125 docs ok</a></div>
+    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">15/89 prop type errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">15/89 infos</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">1/305 story errors</a><a class="filter-pill ok" data-k="docs" href="#filter-docs">126 docs ok</a></div>
   </div>
 </header>
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>5.7s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>5.8s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -4912,7 +4912,7 @@ This means:
 - screen reader users will hear the count announcement when they stop typing.
 
 This component does not restrict the user from entering information.
-The user can enter more than the character limit, but are told they’ve entered too many characters.
+The user can enter more than the character limit; the count keeps going, so it reads ‘12 van 10 tekens’.
 This lets them type or copy and paste their full answer, then edit it down.
 
 ## Design
@@ -4929,9 +4929,6 @@ The wording never has to switch from characters remaining to characters too many
 
 A Character Count is a status region, so screen readers announce the new count without moving focus and without interrupting what is being read.
 Someone typing hears the count between words rather than after every keystroke, which is what ‘Features’ above describes.
-
-The text is fixed Dutch — the count, the word ‘van’, the limit, and ‘tekens’ — and cannot be configured.
-That is worth weighing before using a Character Count on a page in another language.
 
 Going over the limit is signalled by colour alone, so the count itself has to be read for the change to register.
 The text says the same thing either way, which is what keeps the message complete without the colour.
@@ -56914,7 +56911,7 @@ And once people learn one, they can use them all, while it matters less which de
 ## Accessible to everyone
 
 People can use City services whatever their ability, device, or situation.
-Every component is built and tested to meet accessibility standards (WCAG) from the start.
+Every component is built and tested to meet [WCAG 2.2 Level AA](/docs/docs-guidelines-accessibility--docs) from the start.
 We honour preferences like text size and reduced motion.
 
 ## Built in the open
@@ -57506,10 +57503,57 @@ If you find any issues related to browser support, please [report them](https://
   aria-label="Docs">
   <div class="head">
     <div class="title">
+      <h2><span class="status-dot dot-ok"></span> Docs/Guidelines/Accessibility</h2>
+      <div class="badges">
+        
+        <label for="doc-5-docs-guidelines-accessibility-docs-content" class="badge ok as-toggle">view content</label>
+      </div>
+    </div>
+    <div class="meta" title="./src/docs/guidelines/accessibility.docs.mdx">docs-guidelines-accessibility--docs · ./src/docs/guidelines/accessibility.docs.mdx</div>
+    <div># Accessibility We build and test every component against WCAG 2.2 Level AA. Target that s...</div>
+  </div>
+
+  <!-- Hidden toggles must be siblings BEFORE .panels -->
+  
+  <input id="doc-5-docs-guidelines-accessibility-docs-content" class="tg tg-content" type="checkbox" hidden />
+
+  <div class="panels">
+    
+    
+        <div class="panel panel-content">
+          <div class="mdx-content">
+            <pre><code>{/* @license CC0-1.0 */}
+
+import { Meta } from &quot;@storybook/addon-docs/blocks&quot;;
+
+&lt;Meta title=&quot;Docs/Guidelines/Accessibility&quot; /&gt;
+
+# Accessibility
+
+We build and test every component against WCAG 2.2 Level AA.
+Target that same version when building with the design system: our components carry part of the work, the rest depends on how you compose and fill them.
+
+The [Wet Digitale Overheid](https://www.digitaleoverheid.nl/overzicht-van-alle-onderwerpen/wetgeving/wet-digitale-overheid-wdo/#v4) obliges government websites to meet WCAG 2.1 Level AA, and [the City’s standard for developers](https://developers.amsterdam/docs/frontend/accessibility) names that version as well.
+[WCAG 2.2](https://www.w3.org/TR/WCAG22/#backwards-compatibility) is backwards compatible with 2.1, so meeting it also meets that legal minimum.
+
+Accessibility tests run in [Chromatic](https://chromatic.com) on every component with a Test story, with each pull request.
+They catch only part of what the standard asks, so the [definition of done](https://github.com/Amsterdam/design-system/blob/develop/documentation/definition-of-done.md) adds checks we do by hand, including screen readers, zoom, and forced colours.
+[Report a component that falls short](https://github.com/Amsterdam/design-system/issues) so we can fix it.
+</code></pre>
+          </div>
+        </div>
+  </div>
+</article>
+<article
+  class="card is-doc no-doc-error"
+  role="listitem"
+  aria-label="Docs">
+  <div class="head">
+    <div class="title">
       <h2><span class="status-dot dot-ok"></span> Docs/Guidelines/Modes</h2>
       <div class="badges">
         
-        <label for="doc-5-docs-guidelines-modes-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-6-docs-guidelines-modes-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/docs/guidelines/modes.docs.mdx">docs-guidelines-modes--docs · ./src/docs/guidelines/modes.docs.mdx</div>
@@ -57518,7 +57562,7 @@ If you find any issues related to browser support, please [report them](https://
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-5-docs-guidelines-modes-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-6-docs-guidelines-modes-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -57634,7 +57678,7 @@ The Home Page example in both fidelities:
       <h2><span class="status-dot dot-ok"></span> Docs/Guidelines/Responsive design</h2>
       <div class="badges">
         
-        <label for="doc-6-docs-guidelines-responsive-design-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-7-docs-guidelines-responsive-design-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/docs/guidelines/responsive-design.docs.mdx">docs-guidelines-responsive-design--docs · ./src/docs/guidelines/responsive-design.docs.mdx</div>
@@ -57643,7 +57687,7 @@ The Home Page example in both fidelities:
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-6-docs-guidelines-responsive-design-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-7-docs-guidelines-responsive-design-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -57816,7 +57860,7 @@ If your component can appear both inside and outside one of these named containe
       <h2><span class="status-dot dot-ok"></span> Docs/Guidelines/Spacing</h2>
       <div class="badges">
         
-        <label for="doc-7-docs-guidelines-spacing-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-8-docs-guidelines-spacing-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/docs/guidelines/spacing.docs.mdx">docs-guidelines-spacing--docs · ./src/docs/guidelines/spacing.docs.mdx</div>
@@ -57825,7 +57869,7 @@ If your component can appear both inside and outside one of these named containe
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-7-docs-guidelines-spacing-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-8-docs-guidelines-spacing-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -57911,7 +57955,7 @@ Margin is the right choice for a single targeted override; Prose is the right ch
       <h2><span class="status-dot dot-ok"></span> Docs/Guidelines/Vertical space</h2>
       <div class="badges">
         
-        <label for="doc-8-docs-guidelines-vertical-space-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-9-docs-guidelines-vertical-space-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/docs/guidelines/vertical-space.docs.mdx">docs-guidelines-vertical-space--docs · ./src/docs/guidelines/vertical-space.docs.mdx</div>
@@ -57920,7 +57964,7 @@ Margin is the right choice for a single targeted override; Prose is the right ch
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-8-docs-guidelines-vertical-space-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-9-docs-guidelines-vertical-space-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -58133,7 +58177,7 @@ Set the [Prose](/docs/utilities-css-prose--docs) utility class (`.ams-prose`) to
       <h2><span class="status-dot dot-ok"></span> Docs/Guidelines/Interactivity</h2>
       <div class="badges">
         
-        <label for="doc-9-docs-guidelines-interactivity-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-10-docs-guidelines-interactivity-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/docs/guidelines/interactivity.docs.mdx">docs-guidelines-interactivity--docs · ./src/docs/guidelines/interactivity.docs.mdx</div>
@@ -58142,7 +58186,7 @@ Set the [Prose](/docs/utilities-css-prose--docs) utility class (`.ams-prose`) to
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-9-docs-guidelines-interactivity-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-10-docs-guidelines-interactivity-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -58168,12 +58212,6 @@ Don’t use generic text fragments like “Click here” or “Read more” for 
 A more meaningful text helps sighted users scan the page, and screen reader users navigate between links.
 It’s also beneficial to search engines.
 
-### Relevant WCAG requirements
-
-- [WCAG 2.4.4](https://www.w3.org/TR/WCAG22/#link-purpose-in-context): it is clear to users what it means to click on a link
-- [WCAG 2.4.6](https://www.w3.org/TR/WCAG22/#headings-and-labels): use a label to describe interactive elements
-- [WCAG 2.5.3](https://www.w3.org/TR/WCAG22/#label-in-name): the accessible name of an element must contain at least the visible text of the element
-
 ## Colour
 
 To indicate that an element is interactive, we use the colour blue.
@@ -58183,18 +58221,9 @@ Both colours become darker on hover.
 
 Colour should not be the only indicator of interactivity so that people with difficulty perceiving colour differences can still see that an element is interactive.
 
-### Relevant WCAG requirements
-
-- [WCAG 1.4.1](https://www.w3.org/TR/WCAG22/#use-of-color): colour should not be the only way to indicate that something is interactive
-- [WCAG 1.4.3](https://www.w3.org/TR/WCAG21/#contrast-minimum): text has sufficient contrast with the background
-
 ## Format
 
 Interactive elements are at least 24 by 24 pixels in size, so they are easy to use for a large group of users.
-
-### Relevant WCAG requirements
-
-- [WCAG 2.5.8](https://w3c.github.io/wcag/guidelines/22/#target-size-minimum): interactive elements are at least 24 by 24 pixels in size
 
 ## Focus indicator
 
@@ -58202,14 +58231,6 @@ We use the standard focus indicator of the web browsers.
 We only adjust the focus outline with an offset of 2 pixels to increase contrast with dark elements.
 
 When setting up a page, ensure that the interactive elements are in a logical order, usually from top to bottom and from left to right.
-
-### Relevant WCAG requirements
-
-- [WCAG 2.4.3](https://www.w3.org/TR/WCAG22/#focus-order): interactive elements have a logical focus / tabbing order
-- [WCAG 2.4.7](https://www.w3.org/TR/WCAG22/#focus-visible): the focus indicator is visible
-- [WCAG 2.4.11](https://www.w3.org/TR/WCAG22/#focus-not-obscured-minimum): the focus indicator is not completely hidden by content
-- [WCAG 2.4.12](https://www.w3.org/TR/WCAG22/#focus-not-obscured-enhanced): the focus indicator is not partially hidden by content
-- [WCAG 2.4.13](https://www.w3.org/TR/WCAG22/#focus-appearance): the focus indicator is at least 2 pixels wide and has sufficient contrast with the element that has focus
 
 ## Focus management
 
@@ -58264,7 +58285,7 @@ We use the CSS rule `touch-action: manipulation` on all interactive elements to 
       <h2><span class="status-dot dot-ok"></span> Docs/Guidelines/Localisation</h2>
       <div class="badges">
         
-        <label for="doc-10-docs-guidelines-localisation-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-11-docs-guidelines-localisation-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/docs/guidelines/localisation.docs.mdx">docs-guidelines-localisation--docs · ./src/docs/guidelines/localisation.docs.mdx</div>
@@ -58273,7 +58294,7 @@ We use the CSS rule `touch-action: manipulation` on all interactive elements to 
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-10-docs-guidelines-localisation-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-11-docs-guidelines-localisation-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -58402,10 +58423,6 @@ The design system’s own directional icons handle this automatically: each carr
 
 The [Calendar](/docs/components-navigation-calendar--docs) and [Date Picker](/docs/components-forms-date-picker--docs) navigation chevrons are one example.
 When you supply your own directional icon anywhere, give it the same attribute so it mirrors as well.
-
-## Relevant WCAG requirements
-
-- [WCAG 3.1.2](https://www.w3.org/TR/WCAG22/#language-of-parts): indicate the language of any passage or phrase that differs from the page’s default language
 </code></pre>
           </div>
         </div>
@@ -58420,7 +58437,7 @@ When you supply your own directional icon anywhere, give it the same attribute s
       <h2><span class="status-dot dot-ok"></span> Docs/Guidelines/Routing libraries</h2>
       <div class="badges">
         
-        <label for="doc-11-docs-guidelines-routing-libraries-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-12-docs-guidelines-routing-libraries-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/docs/guidelines/routing-libraries.docs.mdx">docs-guidelines-routing-libraries--docs · ./src/docs/guidelines/routing-libraries.docs.mdx</div>
@@ -58429,7 +58446,7 @@ When you supply your own directional icon anywhere, give it the same attribute s
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-11-docs-guidelines-routing-libraries-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-12-docs-guidelines-routing-libraries-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -58531,7 +58548,7 @@ If you need a ref to a custom link component, set it on that component directly.
       <h2><span class="status-dot dot-ok"></span> Docs/Guidelines/Web app</h2>
       <div class="badges">
         
-        <label for="doc-12-docs-guidelines-web-app-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-13-docs-guidelines-web-app-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/docs/guidelines/web-app.docs.mdx">docs-guidelines-web-app--docs · ./src/docs/guidelines/web-app.docs.mdx</div>
@@ -58540,7 +58557,7 @@ If you need a ref to a custom link component, set it on that component directly.
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-12-docs-guidelines-web-app-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-13-docs-guidelines-web-app-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -58678,7 +58695,7 @@ Browsers [may prompt the user to install the app](https://web.dev/learn/pwa/inst
       <h2><span class="status-dot dot-ok"></span> Docs/Guidelines/AI assistance</h2>
       <div class="badges">
         
-        <label for="doc-13-docs-guidelines-ai-assistance-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-14-docs-guidelines-ai-assistance-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/docs/guidelines/ai-assistance.docs.mdx">docs-guidelines-ai-assistance--docs · ./src/docs/guidelines/ai-assistance.docs.mdx</div>
@@ -58687,7 +58704,7 @@ Browsers [may prompt the user to install the app](https://web.dev/learn/pwa/inst
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-13-docs-guidelines-ai-assistance-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-14-docs-guidelines-ai-assistance-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -58794,7 +58811,7 @@ Once connected, ask for what you want in plain language:
       <h2><span class="status-dot dot-ok"></span> Docs/Terms of use/Copyright</h2>
       <div class="badges">
         
-        <label for="doc-14-docs-terms-of-use-copyright-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-15-docs-terms-of-use-copyright-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/docs/terms-of-use/copyright.docs.mdx">docs-terms-of-use-copyright--docs · ./src/docs/terms-of-use/copyright.docs.mdx</div>
@@ -58803,7 +58820,7 @@ Once connected, ask for what you want in plain language:
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-14-docs-terms-of-use-copyright-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-15-docs-terms-of-use-copyright-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -58833,7 +58850,7 @@ import NOTICE from &quot;../../../../NOTICE.md?raw&quot;;
       <h2><span class="status-dot dot-ok"></span> Docs/Terms of use/License</h2>
       <div class="badges">
         
-        <label for="doc-15-docs-terms-of-use-license-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-16-docs-terms-of-use-license-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/docs/terms-of-use/license.docs.mdx">docs-terms-of-use-license--docs · ./src/docs/terms-of-use/license.docs.mdx</div>
@@ -58842,7 +58859,7 @@ import NOTICE from &quot;../../../../NOTICE.md?raw&quot;;
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-15-docs-terms-of-use-license-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-16-docs-terms-of-use-license-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -58872,7 +58889,7 @@ import LICENSE from &quot;../../../../LICENSE.md?raw&quot;;
       <h2><span class="status-dot dot-ok"></span> Brand/Assets/Favicon</h2>
       <div class="badges">
         
-        <label for="doc-16-brand-assets-favicon-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-17-brand-assets-favicon-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/brand/assets/favicon.docs.mdx">brand-assets-favicon--docs · ./src/brand/assets/favicon.docs.mdx</div>
@@ -58881,7 +58898,7 @@ import LICENSE from &quot;../../../../LICENSE.md?raw&quot;;
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-16-brand-assets-favicon-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-17-brand-assets-favicon-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -59016,7 +59033,7 @@ An iPhone or iPad uses this image when adding the webpage as a shortcut to your 
       <h2><span class="status-dot dot-ok"></span> Brand/Assets/Font</h2>
       <div class="badges">
         
-        <label for="doc-17-brand-assets-font-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-18-brand-assets-font-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/brand/assets/font.docs.mdx">brand-assets-font--docs · ./src/brand/assets/font.docs.mdx</div>
@@ -59025,7 +59042,7 @@ An iPhone or iPad uses this image when adding the webpage as a shortcut to your 
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-17-brand-assets-font-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-18-brand-assets-font-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -59094,7 +59111,7 @@ For additional details about the font, refer to [Typography on Stijlweb](https:/
       <h2><span class="status-dot dot-ok"></span> Brand/Assets/Icons</h2>
       <div class="badges">
         
-        <label for="doc-18-brand-assets-icons-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-19-brand-assets-icons-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/brand/assets/icons.docs.mdx">brand-assets-icons--docs · ./src/brand/assets/icons.docs.mdx</div>
@@ -59103,7 +59120,7 @@ For additional details about the font, refer to [Typography on Stijlweb](https:/
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-18-brand-assets-icons-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-19-brand-assets-icons-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -59244,7 +59261,7 @@ If you need an icon that is not in our set, [check this Figma library](https://w
       <h2><span class="status-dot dot-ok"></span> Brand/Design tokens/Aspect ratio</h2>
       <div class="badges">
         
-        <label for="doc-19-brand-design-tokens-aspect-ratio-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-20-brand-design-tokens-aspect-ratio-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/brand/design-tokens/aspect-ratio.docs.mdx">brand-design-tokens-aspect-ratio--docs · ./src/brand/design-tokens/aspect-ratio.docs.mdx</div>
@@ -59253,7 +59270,7 @@ If you need an icon that is not in our set, [check this Figma library](https://w
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-19-brand-design-tokens-aspect-ratio-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-20-brand-design-tokens-aspect-ratio-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -59303,7 +59320,7 @@ Content with intrinsic dimensions that do not match an aspect ratio will be crop
       <h2><span class="status-dot dot-ok"></span> Brand/Design tokens/Border</h2>
       <div class="badges">
         
-        <label for="doc-20-brand-design-tokens-border-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-21-brand-design-tokens-border-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/brand/design-tokens/border.docs.mdx">brand-design-tokens-border--docs · ./src/brand/design-tokens/border.docs.mdx</div>
@@ -59312,7 +59329,7 @@ Content with intrinsic dimensions that do not match an aspect ratio will be crop
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-20-brand-design-tokens-border-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-21-brand-design-tokens-border-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -59367,7 +59384,7 @@ All borders are a pixel thinner in [Compact Mode](/docs/docs-guidelines-modes--d
       <h2><span class="status-dot dot-ok"></span> Brand/Design tokens/Colour</h2>
       <div class="badges">
         
-        <label for="doc-21-brand-design-tokens-colour-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-22-brand-design-tokens-colour-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/brand/design-tokens/colour.docs.mdx">brand-design-tokens-colour--docs · ./src/brand/design-tokens/colour.docs.mdx</div>
@@ -59376,7 +59393,7 @@ All borders are a pixel thinner in [Compact Mode](/docs/docs-guidelines-modes--d
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-21-brand-design-tokens-colour-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-22-brand-design-tokens-colour-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -59589,7 +59606,7 @@ On these, both text and links are white – the **‘inverse’** text and inter
       <h2><span class="status-dot dot-ok"></span> Brand/Design tokens/Cursor</h2>
       <div class="badges">
         
-        <label for="doc-22-brand-design-tokens-cursor-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-23-brand-design-tokens-cursor-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/brand/design-tokens/cursor.docs.mdx">brand-design-tokens-cursor--docs · ./src/brand/design-tokens/cursor.docs.mdx</div>
@@ -59598,7 +59615,7 @@ On these, both text and links are white – the **‘inverse’** text and inter
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-22-brand-design-tokens-cursor-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-23-brand-design-tokens-cursor-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -59633,7 +59650,7 @@ import tokens from &quot;#tokens/brand/ams/cursor.tokens.json&quot;;
       <h2><span class="status-dot dot-ok"></span> Brand/Design tokens/Focus</h2>
       <div class="badges">
         
-        <label for="doc-23-brand-design-tokens-focus-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-24-brand-design-tokens-focus-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/brand/design-tokens/focus.docs.mdx">brand-design-tokens-focus--docs · ./src/brand/design-tokens/focus.docs.mdx</div>
@@ -59642,7 +59659,7 @@ import tokens from &quot;#tokens/brand/ams/cursor.tokens.json&quot;;
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-23-brand-design-tokens-focus-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-24-brand-design-tokens-focus-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -59688,7 +59705,7 @@ When setting up a page, ensure that the interactive elements are in a logical or
       <h2><span class="status-dot dot-ok"></span> Brand/Design tokens/Inputs</h2>
       <div class="badges">
         
-        <label for="doc-24-brand-design-tokens-inputs-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-25-brand-design-tokens-inputs-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/brand/design-tokens/inputs.docs.mdx">brand-design-tokens-inputs--docs · ./src/brand/design-tokens/inputs.docs.mdx</div>
@@ -59697,7 +59714,7 @@ When setting up a page, ensure that the interactive elements are in a logical or
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-24-brand-design-tokens-inputs-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-25-brand-design-tokens-inputs-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -59778,7 +59795,7 @@ Use these tokens if you recreate our React components with different technology,
       <h2><span class="status-dot dot-ok"></span> Brand/Design tokens/Links</h2>
       <div class="badges">
         
-        <label for="doc-25-brand-design-tokens-links-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-26-brand-design-tokens-links-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/brand/design-tokens/links.docs.mdx">brand-design-tokens-links--docs · ./src/brand/design-tokens/links.docs.mdx</div>
@@ -59787,7 +59804,7 @@ Use these tokens if you recreate our React components with different technology,
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-25-brand-design-tokens-links-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-26-brand-design-tokens-links-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -59851,7 +59868,7 @@ Use these tokens if you recreate our React components with different technology,
       <h2><span class="status-dot dot-ok"></span> Brand/Design tokens/Space</h2>
       <div class="badges">
         
-        <label for="doc-26-brand-design-tokens-space-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-27-brand-design-tokens-space-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/brand/design-tokens/space.docs.mdx">brand-design-tokens-space--docs · ./src/brand/design-tokens/space.docs.mdx</div>
@@ -59860,7 +59877,7 @@ Use these tokens if you recreate our React components with different technology,
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-26-brand-design-tokens-space-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-27-brand-design-tokens-space-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -59935,7 +59952,7 @@ The responsive values above are specified using the [clamp function](https://dev
       <h2><span class="status-dot dot-ok"></span> Brand/Design tokens/Typography</h2>
       <div class="badges">
         
-        <label for="doc-27-brand-design-tokens-typography-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-28-brand-design-tokens-typography-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/brand/design-tokens/typography.docs.mdx">brand-design-tokens-typography--docs · ./src/brand/design-tokens/typography.docs.mdx</div>
@@ -59944,7 +59961,7 @@ The responsive values above are specified using the [clamp function](https://dev
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-27-brand-design-tokens-typography-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-28-brand-design-tokens-typography-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -60138,7 +60155,7 @@ They use [Compact Mode](/docs/docs-guidelines-modes--docs), where both body text
       <h2><span class="status-dot dot-ok"></span> Pages/Introduction</h2>
       <div class="badges">
         
-        <label for="doc-28-pages-introduction-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-29-pages-introduction-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/pages/Introduction.docs.mdx">pages-introduction--docs · ./src/pages/Introduction.docs.mdx</div>
@@ -60147,7 +60164,7 @@ They use [Compact Mode](/docs/docs-guidelines-modes--docs), where both body text
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-28-pages-introduction-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-29-pages-introduction-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -60210,7 +60227,7 @@ Use the ‘Go to full screen’ (or press `alt+F`) or ‘Open canvas in new tab�
       <h2><span class="status-dot dot-ok"></span> Pages/Guidelines/Choosing a page type</h2>
       <div class="badges">
         
-        <label for="doc-29-pages-guidelines-choosing-a-page-type-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-30-pages-guidelines-choosing-a-page-type-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/pages/guidelines/choosing-a-page-type.docs.mdx">pages-guidelines-choosing-a-page-type--docs · ./src/pages/guidelines/choosing-a-page-type.docs.mdx</div>
@@ -60219,7 +60236,7 @@ Use the ‘Go to full screen’ (or press `alt+F`) or ‘Open canvas in new tab�
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-29-pages-guidelines-choosing-a-page-type-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-30-pages-guidelines-choosing-a-page-type-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -60283,7 +60300,7 @@ Where your context needs something else, design it, and tell us about it: templa
       <h2><span class="status-dot dot-ok"></span> Pages/Guidelines/Page structure</h2>
       <div class="badges">
         
-        <label for="doc-30-pages-guidelines-page-structure-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-31-pages-guidelines-page-structure-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/pages/guidelines/page-structure.docs.mdx">pages-guidelines-page-structure--docs · ./src/pages/guidelines/page-structure.docs.mdx</div>
@@ -60292,7 +60309,7 @@ Where your context needs something else, design it, and tell us about it: templa
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-30-pages-guidelines-page-structure-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-31-pages-guidelines-page-structure-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -60415,7 +60432,7 @@ Compact Mode already sets the type down a step, and a second reduction would lea
       <h2><span class="status-dot dot-ok"></span> Pages/Guidelines/Layout and spacing</h2>
       <div class="badges">
         
-        <label for="doc-31-pages-guidelines-layout-and-spacing-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-32-pages-guidelines-layout-and-spacing-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/pages/guidelines/layout-and-spacing.docs.mdx">pages-guidelines-layout-and-spacing--docs · ./src/pages/guidelines/layout-and-spacing.docs.mdx</div>
@@ -60424,7 +60441,7 @@ Compact Mode already sets the type down a step, and a second reduction would lea
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-31-pages-guidelines-layout-and-spacing-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-32-pages-guidelines-layout-and-spacing-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -60636,7 +60653,7 @@ These layouts require **4 columns** for each Card, which can be achieved with a 
       <h2><span class="status-dot dot-ok"></span> Pages/Guidelines/Reading the anatomy</h2>
       <div class="badges">
         
-        <label for="doc-32-pages-guidelines-reading-the-anatomy-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-33-pages-guidelines-reading-the-anatomy-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/pages/guidelines/reading-the-anatomy.docs.mdx">pages-guidelines-reading-the-anatomy--docs · ./src/pages/guidelines/reading-the-anatomy.docs.mdx</div>
@@ -60645,7 +60662,7 @@ These layouts require **4 columns** for each Card, which can be achieved with a 
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-32-pages-guidelines-reading-the-anatomy-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-33-pages-guidelines-reading-the-anatomy-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -60694,7 +60711,7 @@ It all happens per Grid variant, because a run that fills a phone from top to bo
       <h2><span class="status-dot dot-ok"></span> Pages/Guidelines/Composing your own page</h2>
       <div class="badges">
         
-        <label for="doc-33-pages-guidelines-composing-your-own-page-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-34-pages-guidelines-composing-your-own-page-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/pages/guidelines/composing-your-own-page.docs.mdx">pages-guidelines-composing-your-own-page--docs · ./src/pages/guidelines/composing-your-own-page.docs.mdx</div>
@@ -60703,7 +60720,7 @@ It all happens per Grid variant, because a run that fills a phone from top to bo
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-33-pages-guidelines-composing-your-own-page-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-34-pages-guidelines-composing-your-own-page-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -60776,7 +60793,7 @@ Tell us what you built and what you had to invent for it, and we will look at ta
       <h2><span class="status-dot dot-ok"></span> Pages/Public/Introduction</h2>
       <div class="badges">
         
-        <label for="doc-34-pages-public-introduction-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-35-pages-public-introduction-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/pages/public/Introduction.docs.mdx">pages-public-introduction--docs · ./src/pages/public/Introduction.docs.mdx</div>
@@ -60785,7 +60802,7 @@ Tell us what you built and what you had to invent for it, and we will look at ta
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-34-pages-public-introduction-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-35-pages-public-introduction-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -60838,7 +60855,7 @@ Both differences are covered where the rules are: [Page structure](/docs/pages-g
       <h2><span class="status-dot dot-ok"></span> Pages/Internal/Introduction</h2>
       <div class="badges">
         
-        <label for="doc-35-pages-internal-introduction-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-36-pages-internal-introduction-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/pages/internal/Introduction.docs.mdx">pages-internal-introduction--docs · ./src/pages/internal/Introduction.docs.mdx</div>
@@ -60847,7 +60864,7 @@ Both differences are covered where the rules are: [Page structure](/docs/pages-g
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-35-pages-internal-introduction-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-36-pages-internal-introduction-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
