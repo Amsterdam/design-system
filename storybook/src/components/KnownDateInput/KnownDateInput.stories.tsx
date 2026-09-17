@@ -66,3 +66,19 @@ export const MonthAndYear: Story = {
     </FieldSet>
   ),
 }
+
+export const Translated: Story = {
+  args: {
+    autoComplete: 'bday',
+  },
+  render: (args) => (
+    <FieldSet aria-describedby="description-d" lang="en" legend="What is your date of birth?">
+      <Paragraph id="description-d">For example, 12 31 1980.</Paragraph>
+      <KnownDateInput {...args}>
+        <KnownDateInput.Month label="Month" name="month" />
+        <KnownDateInput.Day label="Day" name="day" />
+        <KnownDateInput.Year label="Year" name="year" />
+      </KnownDateInput>
+    </FieldSet>
+  ),
+}

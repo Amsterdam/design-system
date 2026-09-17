@@ -77,6 +77,18 @@ Leave out the Day for a month and a year.
 
 <Canvas of={KnownDateInputStories.MonthAndYear} />
 
+### Translated
+
+The labels default to Dutch, and the parts appear in the order you place them.
+For a form in another language, set `label` on each part and place the parts in the order its readers expect.
+This example asks for a date of birth in American English, which puts the month first.
+
+A Known Date Input does not read `lang`, so the order is always the one in your markup.
+Still set `lang` on the Field Set, so screen readers pronounce its text in the right language.
+See the [Localisation guide](/docs/docs-guidelines-localisation--docs) for more.
+
+<Canvas of={KnownDateInputStories.Translated} />
+
 ## Design
 
 Each part is as wide as the answer it takes: two digits for a day or a month, four for a year.

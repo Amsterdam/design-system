@@ -112,6 +112,10 @@ Native form controls render some of their text themselves.
 For example, `<input type="time">` orders and formats its hour and minute fields according to the browser’s own locale, not the page’s `lang` or `dir`.
 This is browser behaviour that pages cannot override.
 
+The [Date Input](/docs/components-forms-date-input--docs) has the same limitation: it wraps `<input type="date">`, so the browser decides the order of its day, month and year segments from its own locale, not from `lang`.
+The [Known Date Input](/docs/components-forms-known-date-input--docs) has no such control to render, so it has no such limitation.
+Its day, month and year are separate fields that appear in the order you place them in markup, so you set that order yourself to match the language you write the surrounding labels in.
+
 ### Mirror directional icons
 
 Icons that imply a reading direction or depict movement that follows the reader’s natural flow flip in a right-to-left context.
