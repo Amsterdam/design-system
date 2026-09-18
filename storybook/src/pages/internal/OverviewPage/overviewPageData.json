@@ -1,0 +1,530 @@
+{
+  "pageTitle": "Objecten",
+  "actionLabel": "Object toevoegen",
+  "sectionHeading": "Belangrijke landmarks in Amsterdam",
+  "description": "Voor dit voorbeeld zijn 42 bekende landmarks samengebracht uit publieke bronnen zoals I amsterdam, UNESCO, Wikipedia en OpenStreetMap. Elk record bevat ook geo-coordinaten, zodat dezelfde JSON later rechtstreeks een gedeelde kaartweergave kan voeden.",
+  "sources": [
+    {
+      "label": "I amsterdam: Attractions and sights",
+      "url": "https://www.iamsterdam.com/en/see-and-do/things-to-do/attractions-and-sights"
+    },
+    {
+      "label": "UNESCO: Canal Ring Area of Amsterdam",
+      "url": "https://whc.unesco.org/en/list/1349/"
+    },
+    {
+      "label": "Wikipedia: List of tourist attractions in Amsterdam",
+      "url": "https://en.wikipedia.org/wiki/List_of_tourist_attractions_in_Amsterdam"
+    },
+    {
+      "label": "OpenStreetMap Nominatim",
+      "url": "https://nominatim.openstreetmap.org/"
+    }
+  ],
+  "landmarks": [
+    {
+      "name": "De Dam",
+      "type": "Plein",
+      "district": "Centrum",
+      "year": "ca. 1270",
+      "sourceLabel": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Dam_Square",
+      "coordinates": {
+        "latitude": 52.37305555555555,
+        "longitude": 4.892777777777778
+      }
+    },
+    {
+      "name": "Koninklijk Paleis",
+      "type": "Paleis",
+      "district": "Centrum",
+      "year": "1665",
+      "sourceLabel": "Paleis Amsterdam",
+      "sourceUrl": "https://www.paleisamsterdam.nl/en/",
+      "coordinates": {
+        "latitude": 52.37316666666667,
+        "longitude": 4.891361111111111
+      }
+    },
+    {
+      "name": "Nationaal Monument",
+      "type": "Monument",
+      "district": "Centrum",
+      "year": "1956",
+      "sourceLabel": "4 en 5 mei",
+      "sourceUrl": "https://www.4en5mei.nl/herdenken/oorlogsmonumenten/monumenten_zoeken/oorlogsmonumenten/1375/amsterdam-nationaal-monument-op-de-dam",
+      "coordinates": {
+        "latitude": 52.3730435,
+        "longitude": 4.8931883
+      }
+    },
+    {
+      "name": "Oude Kerk",
+      "type": "Kerk",
+      "district": "Centrum",
+      "year": "ca. 1306",
+      "sourceLabel": "Oude Kerk",
+      "sourceUrl": "https://oudekerk.nl/en/",
+      "coordinates": {
+        "latitude": 52.374167,
+        "longitude": 4.898056
+      }
+    },
+    {
+      "name": "Westerkerk",
+      "type": "Kerk",
+      "district": "Centrum",
+      "year": "1631",
+      "sourceLabel": "Westerkerk",
+      "sourceUrl": "https://westerkerk.nl/",
+      "coordinates": {
+        "latitude": 52.3745,
+        "longitude": 4.8839
+      }
+    },
+    {
+      "name": "Portugese Synagoge",
+      "type": "Synagoge",
+      "district": "Centrum",
+      "year": "1675",
+      "sourceLabel": "JCK",
+      "sourceUrl": "https://jck.nl/en/location/portuguese-synagogue/",
+      "coordinates": {
+        "latitude": 52.3675,
+        "longitude": 4.905278
+      }
+    },
+    {
+      "name": "Begijnhof",
+      "type": "Binnenhof",
+      "district": "Centrum",
+      "year": "14e eeuw",
+      "sourceLabel": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Begijnhof,_Amsterdam",
+      "coordinates": {
+        "latitude": 52.36944444444445,
+        "longitude": 4.89
+      }
+    },
+    {
+      "name": "Magere Brug",
+      "type": "Brug",
+      "district": "Centrum",
+      "year": "1934",
+      "sourceLabel": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Magere_Brug",
+      "coordinates": {
+        "latitude": 52.363586,
+        "longitude": 4.902357
+      }
+    },
+    {
+      "name": "Blauwbrug",
+      "type": "Brug",
+      "district": "Centrum",
+      "year": "1883",
+      "sourceLabel": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Blauwbrug",
+      "coordinates": {
+        "latitude": 52.366344,
+        "longitude": 4.900844
+      }
+    },
+    {
+      "name": "Pythonbrug",
+      "type": "Brug",
+      "district": "Oost",
+      "year": "2001",
+      "sourceLabel": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Python_Bridge",
+      "coordinates": {
+        "latitude": 52.372981,
+        "longitude": 4.948911
+      }
+    },
+    {
+      "name": "Rijksmuseum",
+      "type": "Museum",
+      "district": "Zuid",
+      "year": "1885",
+      "sourceLabel": "Rijksmuseum",
+      "sourceUrl": "https://www.rijksmuseum.nl/en",
+      "coordinates": {
+        "latitude": 52.36,
+        "longitude": 4.885277777777778
+      }
+    },
+    {
+      "name": "Van Gogh Museum",
+      "type": "Museum",
+      "district": "Zuid",
+      "year": "1973",
+      "sourceLabel": "Van Gogh Museum",
+      "sourceUrl": "https://www.vangoghmuseum.nl/en",
+      "coordinates": {
+        "latitude": 52.358333333333,
+        "longitude": 4.8811111111111
+      }
+    },
+    {
+      "name": "Stedelijk Museum Amsterdam",
+      "type": "Museum",
+      "district": "Zuid",
+      "year": "1895",
+      "sourceLabel": "Stedelijk",
+      "sourceUrl": "https://www.stedelijk.nl/en",
+      "coordinates": {
+        "latitude": 52.357778,
+        "longitude": 4.879722
+      }
+    },
+    {
+      "name": "Amsterdam Museum",
+      "type": "Museum",
+      "district": "Centrum",
+      "year": "1926",
+      "sourceLabel": "Amsterdam Museum",
+      "sourceUrl": "https://www.amsterdammuseum.nl/en",
+      "coordinates": {
+        "latitude": 52.370278,
+        "longitude": 4.890833
+      }
+    },
+    {
+      "name": "Rembrandthuis",
+      "type": "Museum",
+      "district": "Centrum",
+      "year": "1911",
+      "sourceLabel": "Rembrandthuis",
+      "sourceUrl": "https://www.rembrandthuis.nl/en/",
+      "coordinates": {
+        "latitude": 52.369444,
+        "longitude": 4.901389
+      }
+    },
+    {
+      "name": "NEMO Science Museum",
+      "type": "Museum",
+      "district": "Centrum",
+      "year": "1997",
+      "sourceLabel": "NEMO",
+      "sourceUrl": "https://www.nemosciencemuseum.nl/en/",
+      "coordinates": {
+        "latitude": 52.374106,
+        "longitude": 4.912392
+      }
+    },
+    {
+      "name": "Eye Filmmuseum",
+      "type": "Museum",
+      "district": "Noord",
+      "year": "2012",
+      "sourceLabel": "Eye",
+      "sourceUrl": "https://www.eyefilm.nl/en",
+      "coordinates": {
+        "latitude": 52.384411,
+        "longitude": 4.900594
+      }
+    },
+    {
+      "name": "Hortus Botanicus",
+      "type": "Botanische tuin",
+      "district": "Centrum",
+      "year": "1638",
+      "sourceLabel": "Hortus",
+      "sourceUrl": "https://www.dehortus.nl/en/",
+      "coordinates": {
+        "latitude": 52.366969444444,
+        "longitude": 4.9084416666667
+      }
+    },
+    {
+      "name": "Artis",
+      "type": "Dierentuin",
+      "district": "Centrum",
+      "year": "1838",
+      "sourceLabel": "Artis",
+      "sourceUrl": "https://www.artis.nl/en/",
+      "coordinates": {
+        "latitude": 52.3662382,
+        "longitude": 4.9165461
+      }
+    },
+    {
+      "name": "Vondelpark",
+      "type": "Park",
+      "district": "Zuid",
+      "year": "1865",
+      "sourceLabel": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Vondelpark",
+      "coordinates": {
+        "latitude": 52.356944444444,
+        "longitude": 4.8663888888889
+      }
+    },
+    {
+      "name": "Oosterpark",
+      "type": "Park",
+      "district": "Oost",
+      "year": "1891",
+      "sourceLabel": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Oosterpark",
+      "coordinates": {
+        "latitude": 52.3602065,
+        "longitude": 4.9205433
+      }
+    },
+    {
+      "name": "Flevopark",
+      "type": "Park",
+      "district": "Oost",
+      "year": "—",
+      "sourceLabel": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Flevopark",
+      "coordinates": {
+        "latitude": 52.361111111111114,
+        "longitude": 4.95
+      }
+    },
+    {
+      "name": "Sarphatipark",
+      "type": "Park",
+      "district": "Zuid",
+      "year": "—",
+      "sourceLabel": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Sarphatipark",
+      "coordinates": {
+        "latitude": 52.354444,
+        "longitude": 4.896389
+      }
+    },
+    {
+      "name": "Amstelpark",
+      "type": "Park",
+      "district": "Zuid",
+      "year": "1972",
+      "sourceLabel": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Amstelpark",
+      "coordinates": {
+        "latitude": 52.329166666666666,
+        "longitude": 4.8933333333333335
+      }
+    },
+    {
+      "name": "Museumplein",
+      "type": "Plein",
+      "district": "Zuid",
+      "year": "1903",
+      "sourceLabel": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Museumplein",
+      "coordinates": {
+        "latitude": 52.357611,
+        "longitude": 4.881619
+      }
+    },
+    {
+      "name": "Leidseplein",
+      "type": "Plein",
+      "district": "Centrum",
+      "year": "1750",
+      "sourceLabel": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Leidseplein",
+      "coordinates": {
+        "latitude": 52.364133,
+        "longitude": 4.882969
+      }
+    },
+    {
+      "name": "Rembrandtplein",
+      "type": "Plein",
+      "district": "Centrum",
+      "year": "1876",
+      "sourceLabel": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Rembrandtplein",
+      "coordinates": {
+        "latitude": 52.366019,
+        "longitude": 4.896642
+      }
+    },
+    {
+      "name": "Waterlooplein",
+      "type": "Plein",
+      "district": "Centrum",
+      "year": "1882",
+      "sourceLabel": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Waterlooplein",
+      "coordinates": {
+        "latitude": 52.368333,
+        "longitude": 4.901667
+      }
+    },
+    {
+      "name": "Nieuwmarkt",
+      "type": "Plein",
+      "district": "Centrum",
+      "year": "1585",
+      "sourceLabel": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Nieuwmarkt",
+      "coordinates": {
+        "latitude": 52.372573,
+        "longitude": 4.900503
+      }
+    },
+    {
+      "name": "Albert Cuypmarkt",
+      "type": "Markt",
+      "district": "Zuid",
+      "year": "1905",
+      "sourceLabel": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Albert_Cuyp_Market",
+      "coordinates": {
+        "latitude": 52.356111,
+        "longitude": 4.896944
+      }
+    },
+    {
+      "name": "Bloemenmarkt",
+      "type": "Markt",
+      "district": "Centrum",
+      "year": "1862",
+      "sourceLabel": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Bloemenmarkt",
+      "coordinates": {
+        "latitude": 52.366778,
+        "longitude": 4.891347
+      }
+    },
+    {
+      "name": "Amsterdam Centraal",
+      "type": "Station",
+      "district": "Centrum",
+      "year": "1889",
+      "sourceLabel": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Amsterdam_Centraal_station",
+      "coordinates": {
+        "latitude": 52.37895,
+        "longitude": 4.90016
+      }
+    },
+    {
+      "name": "Beurs van Berlage",
+      "type": "Beursgebouw",
+      "district": "Centrum",
+      "year": "1903",
+      "sourceLabel": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Beurs_van_Berlage",
+      "coordinates": {
+        "latitude": 52.375,
+        "longitude": 4.8963888888889
+      }
+    },
+    {
+      "name": "Munttoren",
+      "type": "Toren",
+      "district": "Centrum",
+      "year": "1620",
+      "sourceLabel": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Munttoren",
+      "coordinates": {
+        "latitude": 52.366944,
+        "longitude": 4.893333
+      }
+    },
+    {
+      "name": "Waag",
+      "type": "Waaggebouw",
+      "district": "Centrum",
+      "year": "1488",
+      "sourceLabel": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Waag,_Amsterdam",
+      "coordinates": {
+        "latitude": 52.37278,
+        "longitude": 4.90028
+      }
+    },
+    {
+      "name": "Stopera",
+      "type": "Stadhuis en opera",
+      "district": "Centrum",
+      "year": "1986",
+      "sourceLabel": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Stopera",
+      "coordinates": {
+        "latitude": 52.367267,
+        "longitude": 4.901533
+      }
+    },
+    {
+      "name": "Basiliek van de Heilige Nicolaas",
+      "type": "Basiliek",
+      "district": "Centrum",
+      "year": "1887",
+      "sourceLabel": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Basilica_of_Saint_Nicholas,_Amsterdam",
+      "coordinates": {
+        "latitude": 52.376528,
+        "longitude": 4.901111
+      }
+    },
+    {
+      "name": "Concertgebouw",
+      "type": "Concertzaal",
+      "district": "Zuid",
+      "year": "1888",
+      "sourceLabel": "Concertgebouw",
+      "sourceUrl": "https://www.concertgebouw.nl/en",
+      "coordinates": {
+        "latitude": 52.3561982,
+        "longitude": 4.8790448
+      }
+    },
+    {
+      "name": "Olympisch Stadion",
+      "type": "Stadion",
+      "district": "Zuid",
+      "year": "1928",
+      "sourceLabel": "Olympisch Stadion",
+      "sourceUrl": "https://olympischstadion.nl/en/",
+      "coordinates": {
+        "latitude": 52.343419,
+        "longitude": 4.854192
+      }
+    },
+    {
+      "name": "Johan Cruijff ArenA",
+      "type": "Stadion",
+      "district": "Zuidoost",
+      "year": "1996",
+      "sourceLabel": "Johan Cruijff ArenA",
+      "sourceUrl": "https://www.johancruijffarena.nl/en/",
+      "coordinates": {
+        "latitude": 52.314166666667,
+        "longitude": 4.9419444444444
+      }
+    },
+    {
+      "name": "OBA Oosterdok",
+      "type": "Bibliotheek",
+      "district": "Centrum",
+      "year": "2007",
+      "sourceLabel": "OBA",
+      "sourceUrl": "https://www.oba.nl/en/opening-hours/oosterdok.html",
+      "coordinates": {
+        "latitude": 52.3762463,
+        "longitude": 4.9081983
+      }
+    },
+    {
+      "name": "Homomonument",
+      "type": "Monument",
+      "district": "Centrum",
+      "year": "1987",
+      "sourceLabel": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Homomonument",
+      "coordinates": {
+        "latitude": 52.374444444444,
+        "longitude": 4.8847222222222
+      }
+    }
+  ]
+}
