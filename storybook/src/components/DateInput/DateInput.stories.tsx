@@ -5,7 +5,7 @@
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-import { Column, ErrorMessage, Field, FieldSet, Label, Paragraph, Row, TextInput } from '@amsterdam/design-system-react'
+import { ErrorMessage, Field, Label, Paragraph } from '@amsterdam/design-system-react'
 import { DateInput } from '@amsterdam/design-system-react/src'
 import { dateInputTypes } from '@amsterdam/design-system-react/src/DateInput/DateInput'
 
@@ -82,73 +82,5 @@ export const InAFieldWithValidation: Story = {
       {args.invalid && <ErrorMessage id="error2">Foutmelding.</ErrorMessage>}
       <DateInput aria-describedby={`description2${args.invalid ? ' error2' : ''}`} id="input2" {...args} />
     </Field>
-  ),
-}
-
-export const MemorableDate: Story = {
-  // Storybook needs a render function with an args parameter to correctly render Code view, even if we don't use it in this story.
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  render: (args) => (
-    <FieldSet aria-describedby="description-a" legend="Wanneer ben je geboren?">
-      <Paragraph id="description-a">Bijvoorbeeld 1 1 2000.</Paragraph>
-      <Row>
-        <Column gap="small">
-          <Label htmlFor="input-a1" inFieldSet>
-            Dag
-          </Label>
-          <TextInput autoComplete="bday-day" id="input-a1" inputMode="numeric" name="dag" size={2} />
-        </Column>
-        <Column gap="small">
-          <Label htmlFor="input-a2" inFieldSet>
-            Maand
-          </Label>
-          <TextInput autoComplete="bday-month" id="input-a2" inputMode="numeric" name="maand" size={2} />
-        </Column>
-        <Column gap="small">
-          <Label htmlFor="input-a3" inFieldSet>
-            Jaar
-          </Label>
-          <TextInput autoComplete="bday-year" id="input-a3" inputMode="numeric" name="jaar" size={4} />
-        </Column>
-      </Row>
-    </FieldSet>
-  ),
-}
-
-export const MemorableDateWithValidation: Story = {
-  // Storybook needs a render function with an args parameter to correctly render Code view, even if we don't use it in this story.
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  render: (args) => (
-    <FieldSet aria-describedby="description-b error-b" invalid legend="Wanneer ben je geboren?">
-      <Paragraph id="description-b">Bijvoorbeeld 1 1 2000.</Paragraph>
-      <ErrorMessage id="error-b">Vul alle drie de velden in.</ErrorMessage>
-      <Row>
-        <Column gap="small">
-          <Label htmlFor="input-b1" inFieldSet>
-            Dag
-          </Label>
-          <TextInput autoComplete="bday-day" defaultValue={16} id="input-b1" inputMode="numeric" name="dag" size={2} />
-        </Column>
-        <Column gap="small">
-          <Label htmlFor="input-b2" inFieldSet>
-            Maand
-          </Label>
-          <TextInput
-            autoComplete="bday-month"
-            defaultValue={8}
-            id="input-b2"
-            inputMode="numeric"
-            name="maand"
-            size={2}
-          />
-        </Column>
-        <Column gap="small">
-          <Label htmlFor="input-b3" inFieldSet>
-            Jaar
-          </Label>
-          <TextInput autoComplete="bday-year" id="input-b3" inputMode="numeric" invalid name="jaar" size={4} />
-        </Column>
-      </Row>
-    </FieldSet>
   ),
 }
