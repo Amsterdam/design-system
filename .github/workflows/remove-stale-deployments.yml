@@ -17,6 +17,10 @@
 #
 # The default `dry_run=true` only logs what would be deleted.
 # Pass `dry_run=false` from the Actions UI to perform deletions.
+#
+# Selecting more than 25 deployments aborts a real run unless
+# `i_really_mean_it=true` is passed. A dry run deletes nothing, so there the cap
+# is reported as a warning annotation and the job stays green.
 
 name: Remove stale deployments
 
@@ -24,19 +28,19 @@ on:
   workflow_dispatch:
     inputs:
       dry_run:
-        description: "If true, only log what would be deleted."
+        description: 'Dry run (dry_run) — "true" only logs what would be deleted; "false" performs the deletions.'
         required: false
         default: "true"
       stale_days:
-        description: "Only delete deployments not updated in this many days (0 = ignore age)."
+        description: 'Minimum age (stale_days) — keep deployments updated within this many days; "0" ignores age.'
         required: false
         default: "0"
       include_production:
-        description: "Also clean github-pages and demo-develop deployments. Off by default."
+        description: 'Include production (include_production) — "true" also cleans the github-pages and demo-develop deployments.'
         required: false
         default: "false"
       i_really_mean_it:
-        description: "Allow deleting more than 25 deployments in one run."
+        description: 'Lift safety cap (i_really_mean_it) — "true" allows deleting more than 25 deployments in one run.'
         required: false
         default: "false"
   schedule:
