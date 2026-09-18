@@ -1,0 +1,17 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+// A steady rotation signals that loading is under way. Users who prefer reduced motion keep a static ring.
+@media (prefers-reduced-motion: no-preference) {
+  .ams-spinner {
+    animation: var(--ams-spinner-animation);
+  }
+}
+
+@keyframes ams-spinner-rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
