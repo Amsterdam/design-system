@@ -84,6 +84,7 @@ The property then falls back to its initial value rather than to the token, so t
 A shorthand is not reported: `padding-block` and `gap` take a value per side on purpose.
 
 Each operand of a math function is judged on its own, so an operand that cannot be resolved does not hide a problem in the one beside it.
+That includes an operand with Sass interpolation.
 A reference nested in another is a fallback, which only applies while the custom property before it is undefined; resolution already weighs that up, so it is not judged a second time on its own.
 
 The [token build](../packages-proprietary/tokens/README.md#tokens-that-hold-a-single-value) enforces the same constraint from the other end, by failing when a token typed as a dimension resolves to more than one value.

@@ -113,9 +113,9 @@ const warnedFiles = new Set()
  */
 function findMathReferences(value) {
   /* A function name inside a quoted string is text, not a call. Blanking the string keeps the
-   * positions of everything around it intact.
+   * positions of everything around it intact. An escaped quote does not end the string.
    */
-  const unquoted = value.replace(/(['"]).*?\1/g, (string) => ' '.repeat(string.length))
+  const unquoted = value.replace(/(['"])(?:\\[\s\S]|(?!\1)[^\\])*\1/g, (string) => ' '.repeat(string.length))
 
   const calls = MATH_FUNCTIONS.flatMap((functionName) =>
     findFunctions(unquoted, functionName).map((call) => ({ ...call, functionName })),
@@ -201,16 +201,19 @@ const rule =
     }
 
     root.walkDecls((declaration) => {
-      /* Interpolation only resolves once the stylesheet is compiled. A value without a reference
-       * holds whatever it literally says, which needs no token resolution to read.
+      /* A value without a reference holds whatever it literally says, which needs no token
+       * resolution to read.
        */
-      if (hasInterpolation(declaration.value) || !declaration.value.includes('var(')) {
+      if (!declaration.value.includes('var(')) {
         return
       }
 
+      /* Interpolation only resolves once the stylesheet is compiled, so it only hides the reference
+       * or value it is part of. The other operands of a math function are still judged.
+       */
       for (const { functionName, reference } of findMathReferences(declaration.value)) {
         const call = declaration.value.slice(reference.start, reference.end)
-        const values = resolveToValues(call)
+        const values = hasInterpolation(call) ? null : resolveToValues(call)
 
         if (values === null || !hasAdjacentOperands(values)) {
           continue
@@ -225,7 +228,7 @@ const rule =
         })
       }
 
-      if (!properties.has(declaration.prop.toLowerCase())) {
+      if (!properties.has(declaration.prop.toLowerCase()) || hasInterpolation(declaration.value)) {
         return
       }
 

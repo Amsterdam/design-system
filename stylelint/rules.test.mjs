@@ -331,6 +331,24 @@ describe('ams/require-single-value-token', () => {
     expect(await lint(ruleName, code)).toHaveLength(0)
   })
 
+  it('accepts a math function after an escaped quote, which does not end the string', async () => {
+    const code = '.a::before { content: "He said \\"max(var(--ams-two-value-padding-block), 1rem)\\""; }'
+
+    expect(await lint(ruleName, code)).toHaveLength(0)
+  })
+
+  it('judges each operand on its own, so interpolation in a neighbour hides nothing', async () => {
+    const code = '.a { --ams-a: max(var(--ams-two-value-padding-block), #{$dynamic}); }'
+
+    expect(await lint(ruleName, code)).toHaveLength(1)
+  })
+
+  it('accepts a reference whose name contains interpolation', async () => {
+    const code = '.a { --ams-a: max(var(--ams-#{$name}), 1rem); }'
+
+    expect(await lint(ruleName, code)).toHaveLength(0)
+  })
+
   it('accepts a calculation fragment in a math function, whose whitespace surrounds an operator', async () => {
     const code = '.a { --ams-sum: 1rem + 2rem; inline-size: calc(var(--ams-sum) * 2); }'
 
