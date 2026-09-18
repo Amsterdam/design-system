@@ -165,6 +165,7 @@ Test stories (`*.test.stories.tsx`) render all states of a component in the sing
 They inherit the component’s meta and must not define argTypes of their own.
 Note that `renderComponentVariants` reads both the argTypes and the args of the meta to build its variant matrix – changing options, hiding args, or giving an arg a value can change what the Test story renders and snapshots.
 The matrix holds each configuration once: it opens every state with the component as the meta’s args leave it, and leaves out any prop value that baseline already shows, whether the meta set it or the prop defaults to it.
+A prop that cannot change how the component looks stays off the matrix altogether: the accessible name props, and `as`, which only swaps the element the component renders.
 
 A `play` function has to allow for that matrix rendering the component more than once, since `args.children` repeat with it: a query for a single element throws where a test id or a role occurs once per configuration.
 Either take the first match, as Tabs and Image Slider do, or give the interaction its own instance outside the matrix, as Accordion does.

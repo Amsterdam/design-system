@@ -162,11 +162,18 @@ const ListCase = () => (
 /*
  * A Grid can be the list itself. Unlike a Subgrid it keeps its inline padding, the gutter of the page, which
  * the list reset would zero: these Cells must line up with those of every other case rather than sit further
- * out. The Grid below it is the reference.
+ * out. An `ol` and a `ul` reset through rules of their own, so both are here. The plain Grid below them is
+ * the reference.
  */
 const GridListCase = () => (
   <>
     <Grid as="ul" paddingVertical="large">
+      <Grid.Cell {...item} as="li" span={quarter} />
+      <Grid.Cell {...item} as="li" span={quarter} />
+      <Grid.Cell {...item} as="li" span={quarter} />
+      <Grid.Cell {...item} as="li" span={quarter} />
+    </Grid>
+    <Grid as="ol" paddingVertical="large">
       <Grid.Cell {...item} as="li" span={quarter} />
       <Grid.Cell {...item} as="li" span={quarter} />
       <Grid.Cell {...item} as="li" span={quarter} />
