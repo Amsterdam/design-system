@@ -110,8 +110,13 @@ Tooling already owns them, and repeating tooling in prose only buries your real 
 Our review culture is set out in [documentation/code-reviews.md](../../../documentation/code-reviews.md); it applies to agents too.
 
 - One comment per issue, anchored to the line it concerns.
-- Ask rather than instruct: "Would it be okay to…?", "Have you taken into account that…?"
-  Written feedback reads more sharply than intended.
+- Ask a question only when either answer would be fine: a preference, a judgement call, or a trade-off the author may have weighed differently.
+  “Would it be okay to move this into a helper? The stories repeat the same three lines.”
+- Write a bug, a regression, a broken contract, or a clearly bad choice as a plain statement, not a question.
+  Say what breaks, in which situation, and what the fix is.
+  “Keep this alias pointing at the `vi-medium` token. It now skips that token, so an app that overrides `--ams-dialog-header-vi-medium-padding-block` sees no change.”
+  Asked as a question, a required fix reads like an optional preference.
+  Stay courteous: direct is not harsh, and the comment still says why it matters.
 - Give a concrete fix as a GitHub suggestion block whenever the change is a line or two.
 - Say why it matters — which rule, which WCAG criterion, which convention — and link to the file that states it.
 - Mark your own confidence when you are unsure.
