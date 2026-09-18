@@ -25,9 +25,10 @@ export const SIZE_PROP_NAME = 'size'
  * the baseline, so they stay off the prop axis. `UNVARIED_PROP_NAMES` below is the other
  * case: those values do look different, and are snapshotted somewhere else instead.
  *
- * `ol` and `ul` are the tags that could differ, a browser indenting a list and drawing
- * markers. The Grid test story checks that reset by putting a list Grid and Subgrid beside
- * plain ones, which a row of the matrix could never do, having nothing to compare against.
+ * `ol` and `ul` are the tags that could differ, since a browser indents a list and draws
+ * markers. As the matrix gives no tag a row of its own, each list tag a component accepts
+ * needs a case in a test story instead. The Grid test story has them: `ol` and `ul` Grids
+ * and Subgrids, built from `li` Cells, beside plain ones.
  */
 export const NON_VISUAL_PROP_NAMES = ['accessibleName', 'accessibleNameId', 'as']
 
