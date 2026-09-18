@@ -5855,24 +5855,30 @@ import { DataList, DataListHeader } from "@amsterdam/design-system-react/src";</
       &lt;DataList.Item key={1}&gt;
         &lt;DataList.Label&gt;Adres&lt;/DataList.Label&gt;
         &lt;DataList.Value&gt;
-          &lt;span&gt;Amstel 1&lt;/span&gt;
-          &lt;span&gt;1011 PN Amsterdam&lt;/span&gt;
+          &lt;Column gap=&quot;small&quot;&gt;
+            &lt;span&gt;Amstel 1&lt;/span&gt;
+            &lt;span&gt;1011 PN Amsterdam&lt;/span&gt;
+          &lt;/Column&gt;
         &lt;/DataList.Value&gt;
       &lt;/DataList.Item&gt;,
       &lt;DataList.Item key={2}&gt;
         &lt;DataList.Label&gt;Toelichting&lt;/DataList.Label&gt;
         &lt;DataList.Value&gt;
-          &lt;Paragraph&gt;
-            De brug is afgesloten voor gemotoriseerd verkeer. Fietsers en voetgangers kunnen er wel overheen.
-          &lt;/Paragraph&gt;
-          &lt;Link href=&quot;#&quot;&gt;Bekijk de omleidingsroute&lt;/Link&gt;
+          &lt;Column gap=&quot;small&quot;&gt;
+            &lt;Paragraph&gt;
+              De brug is afgesloten voor gemotoriseerd verkeer. Fietsers en voetgangers kunnen er wel overheen.
+            &lt;/Paragraph&gt;
+            &lt;Link href=&quot;#&quot;&gt;Bekijk de omleidingsroute&lt;/Link&gt;
+          &lt;/Column&gt;
         &lt;/DataList.Value&gt;
       &lt;/DataList.Item&gt;,
       &lt;DataList.Item key={3}&gt;
         &lt;DataList.Label&gt;Foto’s&lt;/DataList.Label&gt;
         &lt;DataList.Value&gt;
-          &lt;Image alt=&quot;De Magere Brug over de Amstel&quot; aspectRatio=&quot;4:3&quot; src=&quot;https://picsum.photos/id/164/1280/960&quot; /&gt;
-          &lt;Image alt=&quot;De leuning van de Magere Brug&quot; aspectRatio=&quot;4:3&quot; src=&quot;https://picsum.photos/id/122/1280/960&quot; /&gt;
+          &lt;Column gap=&quot;small&quot;&gt;
+            &lt;Image alt=&quot;De Magere Brug over de Amstel&quot; aspectRatio=&quot;4:3&quot; src=&quot;https://picsum.photos/id/164/1280/960&quot; /&gt;
+            &lt;Image alt=&quot;De leuning van de Magere Brug&quot; aspectRatio=&quot;4:3&quot; src=&quot;https://picsum.photos/id/122/1280/960&quot; /&gt;
+          &lt;/Column&gt;
         &lt;/DataList.Value&gt;
       &lt;/DataList.Item&gt;,
     ]}&lt;/DataList&gt;;</code></pre>
@@ -5957,9 +5963,11 @@ import { DataList, DataListHeader } from "@amsterdam/design-system-react/src";</
             &lt;DataList.Item&gt;
               &lt;DataList.Label&gt;Adres&lt;/DataList.Label&gt;
               &lt;DataList.Value&gt;
-                {address.map((line) =&gt; (
-                  &lt;span key={line}&gt;{line}&lt;/span&gt;
-                ))}
+                &lt;Column gap=&quot;small&quot;&gt;
+                  {address.map((line) =&gt; (
+                    &lt;span key={line}&gt;{line}&lt;/span&gt;
+                  ))}
+                &lt;/Column&gt;
               &lt;/DataList.Value&gt;
               &lt;DataList.Actions&gt;
                 &lt;StandaloneLink href=&quot;#&quot; icon={PencilIcon}&gt;
@@ -6060,7 +6068,7 @@ Use this when the values are long, or when the list sits in a narrow column of a
 
 An item can offer one or more actions on its value, such as a link to the step of a form where that value is entered or a button that opens a dialog to edit the value directly.
 The text, the icon, and the type of each action are yours to choose: pass Standalone Links, Links, or Buttons.
-A line separates each action from the one before it.
+An [Action Group](/docs/components-layout-action-group--docs) lays them out, so links and buttons line up and wrap when they run out of room.
 
 Repeated actions read as a list of identical links to anyone who navigates by links alone.
 Add the label of the item as visually hidden text to tell them apart.
@@ -6070,7 +6078,8 @@ Add the label of the item as visually hidden text to tell them apart.
 ### Composite value
 
 A value takes rich content: several lines of text, an address, a paragraph, a link, or an image.
-Its parts are spaced evenly, so an address or a set of photos needs no markup of its own.
+Wrap its parts in a [Column](/docs/components-layout-column--docs) to stack them with space between them.
+Text with inline markup, such as a link in a sentence, stays on one line.
 
 &lt;Canvas of={DataListStories.CompositeValue} /&gt;
 
