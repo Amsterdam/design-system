@@ -89,7 +89,22 @@
         }
       },
       "padding-inline": {
-        "$value": "{ams.inputs.padding-inline} calc(2 * {ams.inputs.padding-inline} + 1em)",
+        "$deprecated": "Use `ams.select.padding-inline-start` and `ams.select.padding-inline-end` instead. Will be removed on or after 2027-02-25.",
+        "$value": "{ams.select.padding-inline-start} {ams.select.padding-inline-end}",
+        "$extensions": {
+          "nl.amsterdam.subtype": "space",
+          "nl.amsterdam.type": "dimension"
+        }
+      },
+      "padding-inline-end": {
+        "$value": "calc(2 * {ams.inputs.padding-inline} + 1em)",
+        "$extensions": {
+          "nl.amsterdam.subtype": "space",
+          "nl.amsterdam.type": "dimension"
+        }
+      },
+      "padding-inline-start": {
+        "$value": "{ams.inputs.padding-inline}",
         "$extensions": {
           "nl.amsterdam.subtype": "space",
           "nl.amsterdam.type": "dimension"
