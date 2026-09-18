@@ -51,7 +51,7 @@
 @container ams-query-container-inline-size (inline-size >= #{$ams-container-breakpoint-term-and-value}) {
   .ams-data-list--horizontal .ams-data-list__item {
     align-items: start;
-    column-gap: 0;
+    column-gap: var(--ams-data-list-item-vi-medium-column-gap);
     display: grid;
     grid-template-columns: var(--ams-data-list-item-vi-medium-grid-template-columns);
   }
@@ -83,7 +83,6 @@
 
   .ams-data-list--horizontal .ams-data-list__value {
     grid-column-start: 2;
-    margin-inline-start: var(--ams-data-list-item-vi-medium-column-gap);
 
     // Make sure the first value starts at the top row
     &:first-of-type {
@@ -95,6 +94,5 @@
     grid-column-start: 3;
     grid-row-start: 1;
     margin-block-start: 0;
-    margin-inline-start: var(--ams-data-list-item-vi-medium-column-gap);
   }
 }
