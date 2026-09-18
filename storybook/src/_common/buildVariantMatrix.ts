@@ -112,8 +112,9 @@ export const buildVariantMatrix = (
     throw new Error(
       `The variant matrix found no values for ${collapsed.join(', ')}, though the controls offer a choice, so this ` +
         `story snapshots its baseline alone. Either resolve the type to an enum or a boolean, give the prop a ` +
-        `fixture in variantFixtures.ts, name it in UNVARIED_PROP_NAMES when leaving it out is the intention, or ` +
-        `drop renderComponentVariants and snapshot one composition on purpose, the way Breakout does.`,
+        `fixture in variantFixtures.ts, name it in NON_VISUAL_PROP_NAMES when it cannot change how the component ` +
+        `looks or in UNVARIED_PROP_NAMES when its values are snapshotted elsewhere, or drop renderComponentVariants ` +
+        `and snapshot one composition on purpose, the way Breakout does.`,
     )
   }
 
