@@ -46,10 +46,6 @@
 .ams-data-list__actions {
   @include reset-dd;
 
-  align-items: start;
-  column-gap: var(--ams-data-list-actions-column-gap);
-  display: flex;
-  flex-wrap: wrap;
   margin-block-start: var(--ams-data-list-actions-margin-block-start);
 }
 

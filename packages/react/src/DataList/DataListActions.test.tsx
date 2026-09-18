@@ -59,7 +59,7 @@ describe('DataListActions', () => {
       </DataList.Actions>,
     )
 
-    const component = screen.getByRole('definition')
+    const component = screen.getByRole('group')
 
     expect(component.children).toHaveLength(2)
     expect(screen.getByRole('link', { name: 'Wijzigen' })).toBeInTheDocument()

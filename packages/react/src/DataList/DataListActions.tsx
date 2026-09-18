@@ -8,6 +8,8 @@ import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
 
+import { ActionGroup } from '../ActionGroup/ActionGroup'
+
 export type DataListActionsProps = PropsWithChildren<HTMLAttributes<HTMLElement>>
 
 /**
@@ -18,7 +20,7 @@ export type DataListActionsProps = PropsWithChildren<HTMLAttributes<HTMLElement>
 export const DataListActions = forwardRef(
   ({ children, className, ...restProps }: DataListActionsProps, ref: ForwardedRef<HTMLElement>) => (
     <dd {...restProps} className={clsx('ams-data-list__actions', className)} ref={ref}>
-      {children}
+      <ActionGroup>{children}</ActionGroup>
     </dd>
   ),
 )

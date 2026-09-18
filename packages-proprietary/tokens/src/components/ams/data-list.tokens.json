@@ -141,14 +141,6 @@
         }
       },
       "actions": {
-        "column-gap": {
-          "$value": "{ams.space.s}",
-          "$extensions": {
-            "nl.amsterdam.hint": "The whitespace on either side of the separator between two actions. Must be a single value: it is used for both a gap and a padding.",
-            "nl.amsterdam.subtype": "space",
-            "nl.amsterdam.type": "dimension"
-          }
-        },
         "margin-block-start": {
           "$value": "{ams.space.s}",
           "$extensions": {
