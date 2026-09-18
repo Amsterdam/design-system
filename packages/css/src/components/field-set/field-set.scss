@@ -25,9 +25,10 @@
   margin-block-end: var(--ams-field-set-child-before-error-message-margin-block-end);
 }
 
-// If a Field Set contains a Field or another Field Set, increase the margin of the preceding element.
+// If a Field Set contains a Field, another Field Set or a Known Date Input, increase the margin of the preceding element.
 .ams-field-set > :has(+ .ams-field),
-.ams-field-set > :has(+ .ams-field-set) {
+.ams-field-set > :has(+ .ams-field-set),
+.ams-field-set > :has(+ .ams-known-date-input) {
   margin-block-end: var(--ams-field-set-child-before-field-or-field-set-margin-block-end);
 }
 

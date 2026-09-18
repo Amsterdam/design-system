@@ -8,6 +8,8 @@
 
 #### Required accessibility checks
 
+These checks are part of how we meet [WCAG 2.2 Level AA](https://designsystem.amsterdam/?path=/docs/docs-guidelines-accessibility--docs), the version and level the design system targets.
+
 - Focus outline is visible for interactive components.
 - Content does not overflow or get cut off on smaller screens.
 - Native pointer (mouse), keyboard, and touch interactions work. For example, you can tab to interactive elements and you can pinch to zoom.
@@ -113,7 +115,8 @@ New components are created using our Plop templates. Extensions of existing comp
 ## Documentation
 
 - Props are typed with JSDoc descriptions.
-- A component README has been written (documentation in English, example content in Dutch).
+- A CSS-only utility has a README (documentation in English, example content in Dutch).
+  For a component with a React counterpart its TSDoc and Storybook page carry that documentation.
 - Storybook stories exist for all component variants that are relevant to our users.
 - Documentation follows Storybook conventions (Sentence case headings, Title Case component names).
 - Relevant `AGENTS.md` files are updated if conventions, file locations, or tooling changed.

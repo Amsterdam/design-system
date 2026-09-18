@@ -122,3 +122,15 @@ When acting on review comments left by AI tools:
 
 - Verify each suggestion against the codebase before applying it — AI tools can hallucinate APIs, file paths, or conventions.
 - The comment author resolves their own comments, except for AI-generated comments. The PR author is responsible for checking and resolving those (see [Resolve comments](#resolve-comments)).
+
+### AI-assisted reviews
+
+We steer AI reviewers from files in the repository, so the guidance travels with the code and changes through a pull request like anything else.
+
+- [AGENTS.md](../AGENTS.md) and the per-package `AGENTS.md` files hold the conventions and the "never do" rules.
+  GitHub Copilot code review reads them from the head branch, and takes the nearest one in the directory tree for each changed file.
+- [.github/skills/code-review/SKILL.md](../.github/skills/code-review/SKILL.md) holds the review checklist: how to rank findings, what to flag per layer, what to leave to the linters, and how to phrase a comment.
+- [.github/skills/pull-request/SKILL.md](../.github/skills/pull-request/SKILL.md) holds the rules for a pull request title and description.
+- [agent-workarounds.md](./agent-workarounds.md) is the parking lot for patterns we have seen but not yet turned into a rule.
+
+When a review comment from an agent is wrong in the same way twice, that is a signal to change one of these files rather than to correct the agent again.
