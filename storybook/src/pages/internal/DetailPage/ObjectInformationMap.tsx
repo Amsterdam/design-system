@@ -5,14 +5,10 @@
 
 import type { FeatureCollection, GeoJsonProperties, Geometry } from 'geojson'
 
-import { ZoomControls } from './ZoomControls'
-
-import './object-information-map.css'
+import { LandmarkMap } from '../common/LandmarkMap/LandmarkMap'
 
 type ObjectInformationMapProps = {
   readonly geoJson: FeatureCollection<Geometry, GeoJsonProperties>
 }
 
-export const ObjectInformationMap = ({ geoJson }: ObjectInformationMapProps) => (
-  <ZoomControls geoJson={geoJson} scrollWheelZoom={false} />
-)
+export const ObjectInformationMap = ({ geoJson }: ObjectInformationMapProps) => <LandmarkMap geoJson={geoJson} />
