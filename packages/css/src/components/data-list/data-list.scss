@@ -49,16 +49,8 @@
   align-items: start;
   column-gap: var(--ams-data-list-actions-column-gap);
   display: flex;
-
-  // Actions never wrap so that a separator never starts a line. With many actions in a narrow column, their labels wrap instead.
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   margin-block-start: var(--ams-data-list-actions-margin-block-start);
-
-  // A line separates each action from the one before it.
-  > * + * {
-    border-inline-start: var(--ams-data-list-actions-separator-border-inline-start);
-    padding-inline-start: var(--ams-data-list-actions-column-gap);
-  }
 }
 
 // Below this width every item stacks, so a Data List never forces horizontal scroll.

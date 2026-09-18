@@ -156,14 +156,6 @@
             "nl.amsterdam.subtype": "space",
             "nl.amsterdam.type": "dimension"
           }
-        },
-        "separator": {
-          "border-inline-start": {
-            "$value": "{ams.border.width.s} solid {ams.color.separator}",
-            "$extensions": {
-              "nl.amsterdam.type": "border"
-            }
-          }
         }
       }
     }
