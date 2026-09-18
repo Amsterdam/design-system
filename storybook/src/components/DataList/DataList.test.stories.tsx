@@ -6,7 +6,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import type { ComponentProps } from 'react'
 
-import { Link, Paragraph, StandaloneLink } from '@amsterdam/design-system-react'
+import { Column, Link, Paragraph, StandaloneLink } from '@amsterdam/design-system-react'
 import { PencilIcon, TrashBinIcon } from '@amsterdam/design-system-react-icons'
 import { DataList } from '@amsterdam/design-system-react/src'
 
@@ -74,8 +74,10 @@ export const Test: Story = {
       <DataList.Item key={4}>
         <DataList.Label>Toelichting</DataList.Label>
         <DataList.Value>
-          <Paragraph>De brug is afgesloten voor gemotoriseerd verkeer.</Paragraph>
-          <Link href="#">Bekijk de omleidingsroute</Link>
+          <Column gap="small">
+            <Paragraph>De brug is afgesloten voor gemotoriseerd verkeer.</Paragraph>
+            <Link href="#">Bekijk de omleidingsroute</Link>
+          </Column>
         </DataList.Value>
         <DataList.Actions>
           <StandaloneLink href="#" icon={PencilIcon}>

@@ -38,9 +38,7 @@
 .ams-data-list__value {
   @include reset-dd;
 
-  display: grid;
   font-weight: var(--ams-data-list-value-font-weight);
-  row-gap: var(--ams-data-list-value-row-gap);
 }
 
 .ams-data-list__actions {

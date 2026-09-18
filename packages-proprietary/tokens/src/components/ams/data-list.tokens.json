@@ -130,14 +130,6 @@
           "$extensions": {
             "nl.amsterdam.type": "fontWeight"
           }
-        },
-        "row-gap": {
-          "$value": "{ams.space.s}",
-          "$extensions": {
-            "nl.amsterdam.hint": "The whitespace between the parts of a composite value. Must be a single value: it sets a longhand property, which takes only one.",
-            "nl.amsterdam.subtype": "space",
-            "nl.amsterdam.type": "dimension"
-          }
         }
       },
       "actions": {

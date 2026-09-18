@@ -77,7 +77,8 @@ Add the label of the item as visually hidden text to tell them apart.
 ### Composite value
 
 A value takes rich content: several lines of text, an address, a paragraph, a link, or an image.
-Its parts are spaced evenly, so an address or a set of photos needs no markup of its own.
+Wrap its parts in a [Column](/docs/components-layout-column--docs) to stack them with space between them.
+Text with inline markup, such as a link in a sentence, stays on one line.
 
 <Canvas of={DataListStories.CompositeValue} />
 

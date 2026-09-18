@@ -150,24 +150,30 @@ export const CompositeValue: Story = {
       <DataList.Item key={1}>
         <DataList.Label>Adres</DataList.Label>
         <DataList.Value>
-          <span>Amstel 1</span>
-          <span>1011 PN Amsterdam</span>
+          <Column gap="small">
+            <span>Amstel 1</span>
+            <span>1011 PN Amsterdam</span>
+          </Column>
         </DataList.Value>
       </DataList.Item>,
       <DataList.Item key={2}>
         <DataList.Label>Toelichting</DataList.Label>
         <DataList.Value>
-          <Paragraph>
-            De brug is afgesloten voor gemotoriseerd verkeer. Fietsers en voetgangers kunnen er wel overheen.
-          </Paragraph>
-          <Link href="#">Bekijk de omleidingsroute</Link>
+          <Column gap="small">
+            <Paragraph>
+              De brug is afgesloten voor gemotoriseerd verkeer. Fietsers en voetgangers kunnen er wel overheen.
+            </Paragraph>
+            <Link href="#">Bekijk de omleidingsroute</Link>
+          </Column>
         </DataList.Value>
       </DataList.Item>,
       <DataList.Item key={3}>
         <DataList.Label>Foto’s</DataList.Label>
         <DataList.Value>
-          <Image alt="De Magere Brug over de Amstel" aspectRatio="4:3" src="https://picsum.photos/id/164/1280/960" />
-          <Image alt="De leuning van de Magere Brug" aspectRatio="4:3" src="https://picsum.photos/id/122/1280/960" />
+          <Column gap="small">
+            <Image alt="De Magere Brug over de Amstel" aspectRatio="4:3" src="https://picsum.photos/id/164/1280/960" />
+            <Image alt="De leuning van de Magere Brug" aspectRatio="4:3" src="https://picsum.photos/id/122/1280/960" />
+          </Column>
         </DataList.Value>
       </DataList.Item>,
     ],
@@ -234,9 +240,11 @@ export const FormReview: Story = {
               <DataList.Item>
                 <DataList.Label>Adres</DataList.Label>
                 <DataList.Value>
-                  {address.map((line) => (
-                    <span key={line}>{line}</span>
-                  ))}
+                  <Column gap="small">
+                    {address.map((line) => (
+                      <span key={line}>{line}</span>
+                    ))}
+                  </Column>
                 </DataList.Value>
                 <DataList.Actions>
                   <StandaloneLink href="#" icon={PencilIcon}>
