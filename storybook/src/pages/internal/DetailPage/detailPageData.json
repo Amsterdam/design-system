@@ -1,0 +1,167 @@
+{
+  "name": "De Dam",
+  "breadcrumbs": ["Home", "Erfgoed"],
+  "description": "De Dam is het historische hart van Amsterdam en groeide uit van een dam in de Amstel tot het bekendste plein van de stad.",
+  "basicInformation": [
+    {
+      "term": "Type",
+      "description": "Stadsplein"
+    },
+    {
+      "term": "Ligging",
+      "description": "In het centrum van Amsterdam, tussen Damrak, Rokin, Nieuwendijk, Kalverstraat en Damstraat."
+    },
+    {
+      "term": "Stadsdeel",
+      "description": "Centrum"
+    },
+    {
+      "term": "Ontstaan",
+      "description": "Ontstaan rond 1270 op de dam in de Amstel waar Amsterdam zijn naam aan ontleent."
+    },
+    {
+      "term": "Afmetingen",
+      "description": "Ongeveer 200 meter van west naar oost en 100 meter van noord naar zuid."
+    },
+    {
+      "term": "Functie",
+      "description": "Bestuurlijk, ceremonieel en publiek plein voor herdenkingen, evenementen en ontmoeting."
+    },
+    {
+      "term": "Belangrijke landmarks",
+      "description": "Koninklijk Paleis, Nieuwe Kerk, Nationaal Monument en De Bijenkorf."
+    }
+  ],
+  "history": [
+    {
+      "year": "ca. 1270",
+      "event": "Aanleg van de dam in de Amstel",
+      "details": "De dam verbindt de nederzettingen aan beide oevers en vormt de basis voor het latere Amsterdam."
+    },
+    {
+      "year": "1275",
+      "event": "Eerste schriftelijke vermelding",
+      "details": "In een tolprivilege van Floris V worden de bewoners apud Amestelledamme genoemd."
+    },
+    {
+      "year": "1655",
+      "event": "Nieuw stadhuis voltooid",
+      "details": "Het gebouw dat nu het Koninklijk Paleis is, wordt in gebruik genomen als stadhuis van Amsterdam."
+    },
+    {
+      "year": "1808",
+      "event": "Paleisfunctie en sloop van de waag",
+      "details": "Lodewijk Napoleon maakt van het stadhuis een paleis en laat de waag op de Dam verwijderen."
+    },
+    {
+      "year": "1914",
+      "event": "De Bijenkorf opent aan de Dam",
+      "details": "Het warenhuis versterkt de functie van de Dam als commercieel en stedelijk middelpunt."
+    },
+    {
+      "year": "1945",
+      "event": "Schietpartij op de Dam",
+      "details": "Op 7 mei vallen doden en gewonden wanneer Duitse militairen in de menigte schieten kort na de bevrijding."
+    },
+    {
+      "year": "1956",
+      "event": "Onthulling van het Nationaal Monument",
+      "details": "Het monument op de Dam wordt het nationale herdenkingspunt voor de Tweede Wereldoorlog."
+    },
+    {
+      "year": "1980",
+      "event": "Kroningsrellen",
+      "details": "Tijdens de inhuldiging van koningin Beatrix is de Dam het toneel van grote maatschappelijke onrust."
+    }
+  ],
+  "links": [
+    {
+      "label": "Wikipedia: Dam Square",
+      "url": "https://en.wikipedia.org/wiki/Dam_Square"
+    },
+    {
+      "label": "Koninklijk Paleis Amsterdam",
+      "url": "https://www.paleisamsterdam.nl/"
+    },
+    {
+      "label": "Nationaal Monument op de Dam",
+      "url": "https://www.4en5mei.nl/herdenken/oorlogsmonumenten/monumenten_zoeken/oorlogsmonumenten/1375/amsterdam-nationaal-monument-op-de-dam"
+    }
+  ],
+  "geoJson": {
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {
+          "kind": "square",
+          "name": "De Dam"
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [4.890725, 52.3731031],
+              [4.8907539, 52.3725139],
+              [4.8921145, 52.3726718],
+              [4.8931389, 52.3725824],
+              [4.8940942, 52.3725255],
+              [4.8944937, 52.3728698],
+              [4.8935533, 52.3733333],
+              [4.8926018, 52.3734815],
+              [4.8923577, 52.3737291],
+              [4.8919827, 52.3736758],
+              [4.8911003, 52.3737666],
+              [4.8909965, 52.3738438],
+              [4.890725, 52.3731031]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "kind": "landmark",
+          "name": "Koninklijk Paleis"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [4.8913363, 52.3731449]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "kind": "landmark",
+          "name": "Nieuwe Kerk"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [4.8916924, 52.3739231]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "kind": "landmark",
+          "name": "Nationaal Monument"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [4.8936888, 52.3728196]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "kind": "landmark",
+          "name": "De Bijenkorf"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [4.893942, 52.3733488]
+        }
+      }
+    ]
+  }
+}
