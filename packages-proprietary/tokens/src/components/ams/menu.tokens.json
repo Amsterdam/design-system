@@ -47,7 +47,7 @@
         },
         "padding-block": {
           "$deprecated": "Use `ams.menu.vi-wide.padding-block-start` and `ams.menu.vi-wide.padding-block-end` instead. Will be removed on or after 2026-10-20.",
-          "$value": "{ams.menu.vi-wide.padding-block-start} {ams.menu.vi-wide.padding-block-end}",
+          "$value": "{ams.menu.vi-wide.padding-block}",
           "$type": "dimension",
           "$extensions": {
             "nl.amsterdam.subtype": "space"

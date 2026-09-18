@@ -142,7 +142,7 @@
         "medium": {
           "padding-block": {
             "$deprecated": "Use `ams.dialog.header.vi-medium.padding-block-start` and `ams.dialog.header.vi-medium.padding-block-end` instead. Will be removed on or after 2026-10-20.",
-            "$value": "{ams.dialog.header.vi-medium.padding-block-start} {ams.dialog.header.vi-medium.padding-block-end}",
+            "$value": "{ams.dialog.header.vi-medium.padding-block}",
             "$type": "dimension",
             "$extensions": {
               "nl.amsterdam.subtype": "space"
@@ -264,7 +264,7 @@
         "medium": {
           "padding-block": {
             "$deprecated": "Use `ams.dialog.footer.vi-medium.padding-block-start` and `ams.dialog.footer.vi-medium.padding-block-end` instead. Will be removed on or after 2026-10-20.",
-            "$value": "{ams.dialog.footer.vi-medium.padding-block-start} {ams.dialog.footer.vi-medium.padding-block-end}",
+            "$value": "{ams.dialog.footer.vi-medium.padding-block}",
             "$type": "dimension",
             "$extensions": {
               "nl.amsterdam.subtype": "space"
