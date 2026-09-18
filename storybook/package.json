@@ -22,7 +22,10 @@
     "start": "storybook dev --config-dir config/ --port 6006"
   },
   "dependencies": {
-    "clsx": "2.1.1"
+    "clsx": "2.1.1",
+    "geojson": "0.5.0",
+    "leaflet": "1.9.4",
+    "proj4": "2.22.0"
   },
   "devDependencies": {
     "@amsterdam/design-system-assets": "workspace:*",
@@ -38,6 +41,9 @@
     "@storybook/addon-mcp": "0.7.0",
     "@storybook/mdx2-csf": "1.1.0",
     "@storybook/react-vite": "10.5.8",
+    "@types/geojson": "7946.0.16",
+    "@types/leaflet": "1.9.22",
+    "@types/proj4": "2.19.0",
     "@types/react": "18.3.31",
     "@types/react-dom": "18.3.7",
     "@vitejs/plugin-react": "6.1.1",
