@@ -1,0 +1,14 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+.ams-data-list-header {
+  border-block-end: var(--ams-data-list-header-border-block-end);
+  padding-block-end: var(--ams-data-list-header-padding-block-end);
+
+  // The header and the Data List below it read as one unit, so the header sets the space between them.
+  &:has(+ .ams-data-list) {
+    margin-block-end: var(--ams-data-list-header-margin-block-end);
+  }
+}
