@@ -3015,8 +3015,8 @@
         }
       }
     },
-    "components-feedback-progressbar": {
-      "id": "components-feedback-progressbar",
+    "components-feedback-progress-bar": {
+      "id": "components-feedback-progress-bar",
       "name": "ProgressBar",
       "path": "./src/components/ProgressBar/ProgressBar.stories.tsx",
       "jsDocTags": {
@@ -3097,18 +3097,18 @@
       },
       "stories": [
         {
-          "id": "components-feedback-progressbar--default",
+          "id": "components-feedback-progress-bar--default",
           "name": "Default",
           "snippet": "const Default = () => <ProgressBar max={10} text=\"4 van de 10 stappen\" value={4} />;"
         }
       ],
       "import": "import { ProgressBar } from \"@amsterdam/design-system-react/src\";",
       "docs": {
-        "components-feedback-progressbar--docs": {
-          "id": "components-feedback-progressbar--docs",
+        "components-feedback-progress-bar--docs": {
+          "id": "components-feedback-progress-bar--docs",
           "name": "Docs",
           "path": "./src/components/ProgressBar/ProgressBar.docs.mdx",
-          "title": "Components/Feedback/ProgressBar",
+          "title": "Components/Feedback/Progress Bar",
           "content": "{/* @license CC0-1.0 */}\n\nimport { Canvas, Controls, Description, Meta, Primary, Title } from \"@storybook/addon-docs/blocks\";\n\nimport { DesignTokensTable } from \"#storybook/_components/DesignTokensTable/DesignTokensTable\";\nimport tokens from \"#tokens/components/ams/progress-bar.tokens.json\";\n\nimport * as ProgressBarStories from \"./ProgressBar.stories.tsx\";\n\n<Meta of={ProgressBarStories} />\n\n<Title />\n\n<Description of={ProgressBarStories} />\n\n<Primary />\n\n<Controls />\n\n## Subcomponents\n\n### SubcomponentName\n\n## Usage guidelines\n\n### When to use\n\n### When not to use\n\n### How to use\n\n### How to write\n\n## Examples\n\n## Features\n\n## Design\n\n## Accessibility\n\n## See also\n\n## Design tokens\n\n<DesignTokensTable tokens={tokens} />\n",
           "summary": "## Subcomponents ### SubcomponentName ## Usage guidelines ### When to use ### When not to ..."
         }
@@ -12174,6 +12174,6 @@
   },
   "meta": {
     "docgen": "react-component-meta",
-    "durationMs": 4988
+    "durationMs": 4354
   }
 }
