@@ -8,7 +8,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { ProgressBar } from '@amsterdam/design-system-react/src'
 
 const meta = {
-  title: 'Components/Feedback/ProgressBar',
+  title: 'Components/Feedback/Progress Bar',
   component: ProgressBar,
 } satisfies Meta<typeof ProgressBar>
 

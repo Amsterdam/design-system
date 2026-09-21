@@ -15,8 +15,10 @@
 .ams-progress-bar-text {
   color: var(--ams-color-text);
   direction: ltr;
+  font-family: var(--ams-typography-font-family);
   font-size: var(--ams-progress-bar-text-font-size);
-  margin-block: var(--ams-progress-bar-text-gap);
+  font-style: var(--ams-typography-italic-font-style);
+  gap: var(--ams-progress-bar-text-gap);
   text-align: center;
 }
 
