@@ -1,1 +1,0 @@
-import{t as e}from"./iframe-mGpt-0bN.js";e();
