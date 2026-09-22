@@ -588,13 +588,13 @@
 <header>
   <div class="wrap">
     <h1>Manifest Debugger</h1>
-    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">16/90 prop type errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">16/90 infos</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">1/308 story errors</a><a class="filter-pill ok" data-k="docs" href="#filter-docs">126 docs ok</a></div>
+    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">16/90 prop type errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">16/90 infos</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">1/307 story errors</a><a class="filter-pill ok" data-k="docs" href="#filter-docs">126 docs ok</a></div>
   </div>
 </header>
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>5.7s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>5.6s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -6729,7 +6729,7 @@ The component leaves the native elements alone rather than adding `term` and `de
       <div class="badges">
         <label for="c-21-pages-internal-detail-page-err" class="badge err as-toggle">prop type error</label>
         <label for="c-21-pages-internal-detail-page-info" class="badge info as-toggle">1 info</label>
-        <label for="c-21-pages-internal-detail-page-stories" class="badge ok as-toggle">3 stories</label>
+        <label for="c-21-pages-internal-detail-page-stories" class="badge ok as-toggle">2 stories</label>
         <label for="c-21-pages-internal-detail-page-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
@@ -6755,13 +6755,13 @@ The component leaves the native elements alone rather than adding `term` and `de
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
-  54 | }
-  55 |
-&gt; 56 | const meta = {
-     | ^
-  57 |   ...commonMeta,
-  58 |   title: &#39;Pages/Internal/Detail Page&#39;,
-  59 |   parameters: pageParameters(
+  119 | `
+  120 |
+&gt; 121 | const meta = {
+      | ^
+  122 |   ...commonMeta,
+  123 |   title: &#39;Pages/Internal/Detail Page&#39;,
+  124 |   parameters: pageParameters(
 
 ./src/pages/internal/DetailPage/DetailPage.stories.tsx:
 /**
@@ -6771,38 +6771,39 @@ The component leaves the native elements alone rather than adding `term` and `de
 
 import type { Meta, StoryObj } from &#39;@storybook/react-vite&#39;
 import type { FeatureCollection } from &#39;geojson&#39;
-import type { MouseEvent } from &#39;react&#39;
 
 import {
   ActionGroup,
   Breadcrumb,
   Button,
+  Card,
   Column,
   Field,
   Grid,
   Heading,
+  IconButton,
   Label,
   LinkList,
+  Metadata,
   Paragraph,
   Row,
   TableOfContents,
-  TabNavigation,
   TextArea,
+  TextInput,
 } from &#39;@amsterdam/design-system-react&#39;
 import {
-  EyeOpenIcon,
+  ArrowForwardIcon,
+  CheckMarkIcon,
   LinkExternalIcon,
   MagnifyingGlassWithEyeIcon,
   PencilIcon,
+  SpeechBalloonIcon,
 } from &#39;@amsterdam/design-system-react-icons&#39;
 import { ModalDialog } from &#39;@amsterdam/design-system-react/src&#39;
 import { useState } from &#39;react&#39;
 
 import { commonMeta, pageParameters } from &#39;../common/commonMeta&#39;
 import detailPageData from &#39;./detailPageData.json&#39;
-import { DetailPageEditGeneralInformationTab } from &#39;./DetailPageEditGeneralInformationTab&#39;
-import { DetailPageEditHistoryTab } from &#39;./DetailPageEditHistoryTab&#39;
-import { DetailPageEditMapTab } from &#39;./DetailPageEditMapTab&#39;
 import { ObjectInformationDescriptionList } from &#39;./ObjectInformationDescriptionList&#39;
 import { ObjectInformationMap } from &#39;./ObjectInformationMap&#39;
 import { ObjectInformationTable } from &#39;./ObjectInformationTable&#39;
@@ -6810,14 +6811,78 @@ import { ObjectInformationTable } from &#39;./ObjectInformationTable&#39;
 // A JSON import widens the literal type names GeoJSON relies on to string.
 const geoJson = detailPageData.geoJson as FeatureCollection
 
-type EditTabId = &#39;algemene-informatie&#39; | &#39;historie&#39; | &#39;kaart&#39;
+// type EditTabId = &#39;algemene-informatie&#39; | &#39;historie&#39; | &#39;kaart&#39;
 type ReviewSectionId = &#39;algemene-informatie&#39; | &#39;geschiedenis&#39; | &#39;kaart&#39;
+
+const highlightedReviewSectionParentAttribute = &#39;data-ams-detail-page-highlighted&#39;
+const reviewSectionHighlightTimeouts = new WeakMap&lt;HTMLElement, number&gt;()
 
 const reviewSectionLabels: Record&lt;ReviewSectionId, string&gt; = {
   &#39;algemene-informatie&#39;: &#39;Algemene informatie&#39;,
   geschiedenis: &#39;Geschiedenis&#39;,
   kaart: &#39;Kaart&#39;,
 }
+
+const highlightReviewElement = (sectionId: string) =&gt; {
+  const sectionHeading = document.getElementById(sectionId)
+
+  if (!(sectionHeading instanceof HTMLElement)) {
+    return
+  }
+
+  window.location.hash = sectionId
+  sectionHeading.scrollIntoView({ behavior: &#39;smooth&#39;, block: &#39;start&#39; })
+
+  const existingTimeoutId = reviewSectionHighlightTimeouts.get(sectionHeading)
+
+  if (existingTimeoutId !== undefined) {
+    window.clearTimeout(existingTimeoutId)
+  }
+
+  sectionHeading.setAttribute(highlightedReviewSectionParentAttribute, &#39;true&#39;)
+
+  const timeoutId = window.setTimeout(() =&gt; {
+    sectionHeading.removeAttribute(highlightedReviewSectionParentAttribute)
+    reviewSectionHighlightTimeouts.delete(sectionHeading)
+  }, 3000)
+
+  reviewSectionHighlightTimeouts.set(sectionHeading, timeoutId)
+}
+
+const reviewSectionHighlightStyles = `
+  [id]:not(.ams-table__row),
+  .ams-table__row &gt; .ams-table__header-cell,
+  .ams-table__row &gt; .ams-table__cell {
+    transition: box-shadow 200ms ease-out;
+  }
+
+  [${highlightedReviewSectionParentAttribute}=&quot;true&quot;]:not(.ams-table__row) {
+    box-shadow: 0 0 0 var(--ams-border-width-l) var(--ams-color-interactive);
+  }
+
+  .ams-table__row[${highlightedReviewSectionParentAttribute}=&quot;true&quot;] &gt; .ams-table__header-cell,
+  .ams-table__row[${highlightedReviewSectionParentAttribute}=&quot;true&quot;] &gt; .ams-table__cell {
+    box-shadow:
+      inset 0 var(--ams-border-width-l) 0 var(--ams-color-interactive),
+      inset 0 calc(-1 * var(--ams-border-width-l)) 0 var(--ams-color-interactive);
+  }
+
+  .ams-table__row[${highlightedReviewSectionParentAttribute}=&quot;true&quot;] &gt; .ams-table__header-cell:first-child,
+  .ams-table__row[${highlightedReviewSectionParentAttribute}=&quot;true&quot;] &gt; .ams-table__cell:first-child {
+    box-shadow:
+      inset var(--ams-border-width-l) 0 0 var(--ams-color-interactive),
+      inset 0 var(--ams-border-width-l) 0 var(--ams-color-interactive),
+      inset 0 calc(-1 * var(--ams-border-width-l)) 0 var(--ams-color-interactive);
+  }
+
+  .ams-table__row[${highlightedReviewSectionParentAttribute}=&quot;true&quot;] &gt; .ams-table__header-cell:last-child,
+  .ams-table__row[${highlightedReviewSectionParentAttribute}=&quot;true&quot;] &gt; .ams-table__cell:last-child {
+    box-shadow:
+      inset calc(-1 * var(--ams-border-width-l)) 0 0 var(--ams-color-interactive),
+      inset 0 var(--ams-border-width-l) 0 var(--ams-color-interactive),
+      inset 0 calc(-1 * var(--ams-border-width-l)) 0 var(--ams-color-interactive);
+  }
+`
 
 const meta = {
   ...commonMeta,
@@ -6931,7 +6996,7 @@ export const Default: StoryObj = {
           &lt;/Row&gt;
         &lt;/Grid.Cell&gt;
 
-        &lt;Grid.Subgrid span={{ narrow: 4, medium: 3, wide: 3 }}&gt;
+        &lt;Grid.Subgrid span={{ narrow: 4, medium: 2, wide: 3 }} start={{ narrow: 1, medium: 7, wide: 10 }}&gt;
           &lt;Grid.Cell span=&quot;all&quot;&gt;
             &lt;TableOfContents heading=&quot;Op deze pagina&quot;&gt;
               &lt;TableOfContents.List&gt;
@@ -6955,7 +7020,7 @@ export const Default: StoryObj = {
           &lt;/Grid.Cell&gt;
         &lt;/Grid.Subgrid&gt;
 
-        &lt;Grid.Subgrid span={{ narrow: 4, medium: 5, wide: 9 }}&gt;
+        &lt;Grid.Subgrid rowStart={{ narrow: 3, medium: 2, wide: 2 }} span={{ narrow: 4, medium: 6, wide: 9 }}&gt;
           &lt;Grid.Cell className=&quot;ams-prose&quot; span=&quot;all&quot;&gt;
             &lt;Heading id=&quot;algemene-informatie&quot; level={2}&gt;
               Algemene informatie
@@ -6981,139 +7046,139 @@ export const Default: StoryObj = {
   },
 }
 
-export const Edit: StoryObj = {
-  parameters: {
-    docs: {
-      source: {
-        // Because the `render` of this story lives on the shared meta, its own source is nothing but these parameters,
-        // and that is all the Code Panel would print. Provide the source by hand so the layout reads the way a
-        // developer would write it, without the interactive state.
-        code: `&lt;Grid paddingVertical=&quot;x-large&quot;&gt;
-  &lt;Grid.Cell appearance=&quot;transparent&quot; span=&quot;all&quot;&gt;
-    &lt;Breadcrumb&gt;
-      {detailPageData.breadcrumbs.map((breadcrumb) =&gt; (
-        &lt;Breadcrumb.Link href=&quot;#&quot; key={breadcrumb}&gt;
-          {breadcrumb}
-        &lt;/Breadcrumb.Link&gt;
-      ))}
-    &lt;/Breadcrumb&gt;
-    &lt;Row align=&quot;between&quot; wrap&gt;
-      &lt;Heading level={1}&gt;{detailPageData.name}&lt;/Heading&gt;
-      &lt;ActionGroup&gt;
-        &lt;Button icon={MagnifyingGlassWithEyeIcon} variant=&quot;secondary&quot;&gt;
-          Exporteren
-        &lt;/Button&gt;
-        &lt;Button icon={EyeOpenIcon}&gt;Toon Object&lt;/Button&gt;
-      &lt;/ActionGroup&gt;
-    &lt;/Row&gt;
-  &lt;/Grid.Cell&gt;
-  &lt;Grid.Cell appearance=&quot;flush&quot; span=&quot;all&quot;&gt;
-    &lt;TabNavigation accessibleName=&quot;Subnavigatie voor dit project&quot;&gt;
-      &lt;TabNavigation.List&gt;
-        &lt;TabNavigation.Link
-          aria-current={currentTabId === &#39;algemene-informatie&#39; ? &#39;page&#39; : undefined}
-          href=&quot;#algemene-informatie&quot;
-          onClick={(event) =&gt; handleTabClick(event, &#39;algemene-informatie&#39;)}
-        &gt;
-          Algemene informatie
-        &lt;/TabNavigation.Link&gt;
-        &lt;TabNavigation.Link
-          aria-current={currentTabId === &#39;historie&#39; ? &#39;page&#39; : undefined}
-          href=&quot;#historie&quot;
-          onClick={(event) =&gt; handleTabClick(event, &#39;historie&#39;)}
-        &gt;
-          Historie
-        &lt;/TabNavigation.Link&gt;
-        &lt;TabNavigation.Link
-          aria-current={currentTabId === &#39;kaart&#39; ? &#39;page&#39; : undefined}
-          href=&quot;#kaart&quot;
-          onClick={(event) =&gt; handleTabClick(event, &#39;kaart&#39;)}
-        &gt;
-          Kaart
-        &lt;/TabNavigation.Link&gt;
-      &lt;/TabNavigation.List&gt;
-    &lt;/TabNavigation&gt;
-  &lt;/Grid.Cell&gt;
-  &lt;Grid.Subgrid span=&quot;all&quot;&gt;
-    &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 8 }}&gt;
-      &lt;DetailPageEditGeneralInformationTab hidden={currentTabId !== &#39;algemene-informatie&#39;} /&gt;
-      &lt;DetailPageEditHistoryTab hidden={currentTabId !== &#39;historie&#39;} /&gt;
-      &lt;DetailPageEditMapTab hidden={currentTabId !== &#39;kaart&#39;} /&gt;
-    &lt;/Grid.Cell&gt;
-  &lt;/Grid.Subgrid&gt;
-&lt;/Grid&gt;`,
-        language: &#39;tsx&#39;,
-      },
-    },
-  },
-  render: () =&gt; {
-    const [currentTabId, setCurrentTabId] = useState&lt;EditTabId&gt;(&#39;algemene-informatie&#39;)
+// export const Edit: StoryObj = {
+//   parameters: {
+//     docs: {
+//       source: {
+//         // Because the `render` of this story lives on the shared meta, its own source is nothing but these parameters,
+//         // and that is all the Code Panel would print. Provide the source by hand so the layout reads the way a
+//         // developer would write it, without the interactive state.
+//         code: `&lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+//   &lt;Grid.Cell appearance=&quot;transparent&quot; span=&quot;all&quot;&gt;
+//     &lt;Breadcrumb&gt;
+//       {detailPageData.breadcrumbs.map((breadcrumb) =&gt; (
+//         &lt;Breadcrumb.Link href=&quot;#&quot; key={breadcrumb}&gt;
+//           {breadcrumb}
+//         &lt;/Breadcrumb.Link&gt;
+//       ))}
+//     &lt;/Breadcrumb&gt;
+//     &lt;Row align=&quot;between&quot; wrap&gt;
+//       &lt;Heading level={1}&gt;{detailPageData.name}&lt;/Heading&gt;
+//       &lt;ActionGroup&gt;
+//         &lt;Button icon={MagnifyingGlassWithEyeIcon} variant=&quot;secondary&quot;&gt;
+//           Exporteren
+//         &lt;/Button&gt;
+//         &lt;Button icon={EyeOpenIcon}&gt;Toon Object&lt;/Button&gt;
+//       &lt;/ActionGroup&gt;
+//     &lt;/Row&gt;
+//   &lt;/Grid.Cell&gt;
+//   &lt;Grid.Cell appearance=&quot;flush&quot; span=&quot;all&quot;&gt;
+//     &lt;TabNavigation accessibleName=&quot;Subnavigatie voor dit project&quot;&gt;
+//       &lt;TabNavigation.List&gt;
+//         &lt;TabNavigation.Link
+//           aria-current={currentTabId === &#39;algemene-informatie&#39; ? &#39;page&#39; : undefined}
+//           href=&quot;#algemene-informatie&quot;
+//           onClick={(event) =&gt; handleTabClick(event, &#39;algemene-informatie&#39;)}
+//         &gt;
+//           Algemene informatie
+//         &lt;/TabNavigation.Link&gt;
+//         &lt;TabNavigation.Link
+//           aria-current={currentTabId === &#39;historie&#39; ? &#39;page&#39; : undefined}
+//           href=&quot;#historie&quot;
+//           onClick={(event) =&gt; handleTabClick(event, &#39;historie&#39;)}
+//         &gt;
+//           Historie
+//         &lt;/TabNavigation.Link&gt;
+//         &lt;TabNavigation.Link
+//           aria-current={currentTabId === &#39;kaart&#39; ? &#39;page&#39; : undefined}
+//           href=&quot;#kaart&quot;
+//           onClick={(event) =&gt; handleTabClick(event, &#39;kaart&#39;)}
+//         &gt;
+//           Kaart
+//         &lt;/TabNavigation.Link&gt;
+//       &lt;/TabNavigation.List&gt;
+//     &lt;/TabNavigation&gt;
+//   &lt;/Grid.Cell&gt;
+//   &lt;Grid.Subgrid span=&quot;all&quot;&gt;
+//     &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 8 }}&gt;
+//       &lt;DetailPageEditGeneralInformationTab hidden={currentTabId !== &#39;algemene-informatie&#39;} /&gt;
+//       &lt;DetailPageEditHistoryTab hidden={currentTabId !== &#39;historie&#39;} /&gt;
+//       &lt;DetailPageEditMapTab hidden={currentTabId !== &#39;kaart&#39;} /&gt;
+//     &lt;/Grid.Cell&gt;
+//   &lt;/Grid.Subgrid&gt;
+// &lt;/Grid&gt;`,
+//         language: &#39;tsx&#39;,
+//       },
+//     },
+//   },
+//   render: () =&gt; {
+//     const [currentTabId, setCurrentTabId] = useState&lt;EditTabId&gt;(&#39;algemene-informatie&#39;)
 
-    const handleTabClick = (event: MouseEvent&lt;HTMLAnchorElement&gt;, tabId: EditTabId) =&gt; {
-      event.preventDefault()
-      setCurrentTabId(tabId)
-    }
+//     const handleTabClick = (event: MouseEvent&lt;HTMLAnchorElement&gt;, tabId: EditTabId) =&gt; {
+//       event.preventDefault()
+//       setCurrentTabId(tabId)
+//     }
 
-    return (
-      &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
-        &lt;Grid.Cell appearance=&quot;transparent&quot; span=&quot;all&quot;&gt;
-          &lt;Breadcrumb&gt;
-            {detailPageData.breadcrumbs.map((breadcrumb) =&gt; (
-              &lt;Breadcrumb.Link href=&quot;#&quot; key={breadcrumb}&gt;
-                {breadcrumb}
-              &lt;/Breadcrumb.Link&gt;
-            ))}
-          &lt;/Breadcrumb&gt;
-          &lt;Row align=&quot;between&quot; wrap&gt;
-            &lt;Heading level={1}&gt;{detailPageData.name}&lt;/Heading&gt;
-            &lt;ActionGroup&gt;
-              &lt;Button icon={MagnifyingGlassWithEyeIcon} variant=&quot;secondary&quot;&gt;
-                Exporteren
-              &lt;/Button&gt;
-              &lt;Button icon={EyeOpenIcon}&gt;Toon Object&lt;/Button&gt;
-            &lt;/ActionGroup&gt;
-          &lt;/Row&gt;
-        &lt;/Grid.Cell&gt;
+//     return (
+//       &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+//         &lt;Grid.Cell appearance=&quot;transparent&quot; span=&quot;all&quot;&gt;
+//           &lt;Breadcrumb&gt;
+//             {detailPageData.breadcrumbs.map((breadcrumb) =&gt; (
+//               &lt;Breadcrumb.Link href=&quot;#&quot; key={breadcrumb}&gt;
+//                 {breadcrumb}
+//               &lt;/Breadcrumb.Link&gt;
+//             ))}
+//           &lt;/Breadcrumb&gt;
+//           &lt;Row align=&quot;between&quot; wrap&gt;
+//             &lt;Heading level={1}&gt;{detailPageData.name}&lt;/Heading&gt;
+//             &lt;ActionGroup&gt;
+//               &lt;Button icon={MagnifyingGlassWithEyeIcon} variant=&quot;secondary&quot;&gt;
+//                 Exporteren
+//               &lt;/Button&gt;
+//               &lt;Button icon={EyeOpenIcon}&gt;Toon Object&lt;/Button&gt;
+//             &lt;/ActionGroup&gt;
+//           &lt;/Row&gt;
+//         &lt;/Grid.Cell&gt;
 
-        &lt;Grid.Cell appearance=&quot;flush&quot; span=&quot;all&quot;&gt;
-          &lt;TabNavigation accessibleName=&quot;Subnavigatie voor dit project&quot;&gt;
-            &lt;TabNavigation.List&gt;
-              &lt;TabNavigation.Link
-                aria-current={currentTabId === &#39;algemene-informatie&#39; ? &#39;page&#39; : undefined}
-                href=&quot;#algemene-informatie&quot;
-                onClick={(event) =&gt; handleTabClick(event, &#39;algemene-informatie&#39;)}
-              &gt;
-                Algemene informatie
-              &lt;/TabNavigation.Link&gt;
-              &lt;TabNavigation.Link
-                aria-current={currentTabId === &#39;historie&#39; ? &#39;page&#39; : undefined}
-                href=&quot;#historie&quot;
-                onClick={(event) =&gt; handleTabClick(event, &#39;historie&#39;)}
-              &gt;
-                Historie
-              &lt;/TabNavigation.Link&gt;
-              &lt;TabNavigation.Link
-                aria-current={currentTabId === &#39;kaart&#39; ? &#39;page&#39; : undefined}
-                href=&quot;#kaart&quot;
-                onClick={(event) =&gt; handleTabClick(event, &#39;kaart&#39;)}
-              &gt;
-                Kaart
-              &lt;/TabNavigation.Link&gt;
-            &lt;/TabNavigation.List&gt;
-          &lt;/TabNavigation&gt;
-        &lt;/Grid.Cell&gt;
+//         &lt;Grid.Cell appearance=&quot;flush&quot; span=&quot;all&quot;&gt;
+//           &lt;TabNavigation accessibleName=&quot;Subnavigatie voor dit project&quot;&gt;
+//             &lt;TabNavigation.List&gt;
+//               &lt;TabNavigation.Link
+//                 aria-current={currentTabId === &#39;algemene-informatie&#39; ? &#39;page&#39; : undefined}
+//                 href=&quot;#algemene-informatie&quot;
+//                 onClick={(event) =&gt; handleTabClick(event, &#39;algemene-informatie&#39;)}
+//               &gt;
+//                 Algemene informatie
+//               &lt;/TabNavigation.Link&gt;
+//               &lt;TabNavigation.Link
+//                 aria-current={currentTabId === &#39;historie&#39; ? &#39;page&#39; : undefined}
+//                 href=&quot;#historie&quot;
+//                 onClick={(event) =&gt; handleTabClick(event, &#39;historie&#39;)}
+//               &gt;
+//                 Historie
+//               &lt;/TabNavigation.Link&gt;
+//               &lt;TabNavigation.Link
+//                 aria-current={currentTabId === &#39;kaart&#39; ? &#39;page&#39; : undefined}
+//                 href=&quot;#kaart&quot;
+//                 onClick={(event) =&gt; handleTabClick(event, &#39;kaart&#39;)}
+//               &gt;
+//                 Kaart
+//               &lt;/TabNavigation.Link&gt;
+//             &lt;/TabNavigation.List&gt;
+//           &lt;/TabNavigation&gt;
+//         &lt;/Grid.Cell&gt;
 
-        &lt;Grid.Subgrid span=&quot;all&quot;&gt;
-          &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 8 }}&gt;
-            &lt;DetailPageEditGeneralInformationTab hidden={currentTabId !== &#39;algemene-informatie&#39;} /&gt;
-            &lt;DetailPageEditHistoryTab hidden={currentTabId !== &#39;historie&#39;} /&gt;
-            &lt;DetailPageEditMapTab hidden={currentTabId !== &#39;kaart&#39;} /&gt;
-          &lt;/Grid.Cell&gt;
-        &lt;/Grid.Subgrid&gt;
-      &lt;/Grid&gt;
-    )
-  },
-}
+//         &lt;Grid.Subgrid span=&quot;all&quot;&gt;
+//           &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 8 }}&gt;
+//             &lt;DetailPageEditGeneralInformationTab hidden={currentTabId !== &#39;algemene-informatie&#39;} /&gt;
+//             &lt;DetailPageEditHistoryTab hidden={currentTabId !== &#39;historie&#39;} /&gt;
+//             &lt;DetailPageEditMapTab hidden={currentTabId !== &#39;kaart&#39;} /&gt;
+//           &lt;/Grid.Cell&gt;
+//         &lt;/Grid.Subgrid&gt;
+//       &lt;/Grid&gt;
+//     )
+//   },
+// }
 
 export const Review: StoryObj = {
   parameters: {
@@ -7224,6 +7289,7 @@ export const Review: StoryObj = {
             &lt;/ModalDialog.Footer&gt;
           &lt;/ModalDialog&gt;
         &lt;/Grid&gt;
+      &lt;/&gt;
         `,
         language: &#39;tsx&#39;,
       },
@@ -7246,6 +7312,349 @@ export const Review: StoryObj = {
     }
 
     return (
+      &lt;&gt;
+        &lt;style&gt;{reviewSectionHighlightStyles}&lt;/style&gt;
+        &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+          &lt;Grid.Cell appearance=&quot;transparent&quot; span=&quot;all&quot;&gt;
+            &lt;Breadcrumb&gt;
+              {detailPageData.breadcrumbs.map((breadcrumb) =&gt; (
+                &lt;Breadcrumb.Link href=&quot;#&quot; key={breadcrumb}&gt;
+                  {breadcrumb}
+                &lt;/Breadcrumb.Link&gt;
+              ))}
+            &lt;/Breadcrumb&gt;
+            &lt;Row align=&quot;between&quot; wrap&gt;
+              &lt;Heading level={1}&gt;{detailPageData.name}&lt;/Heading&gt;
+              &lt;ActionGroup&gt;
+                &lt;Button icon={MagnifyingGlassWithEyeIcon} variant=&quot;secondary&quot;&gt;
+                  Review
+                &lt;/Button&gt;
+                &lt;Button icon={PencilIcon}&gt;Bewerken&lt;/Button&gt;
+              &lt;/ActionGroup&gt;
+            &lt;/Row&gt;
+          &lt;/Grid.Cell&gt;
+
+          &lt;Grid.Subgrid span={{ narrow: 4, medium: 3, wide: 4 }} start={{ narrow: 1, medium: 6, wide: 9 }}&gt;
+            &lt;Grid.Cell span=&quot;all&quot;&gt;
+              &lt;Card&gt;
+                &lt;Card.HeadingGroup key={1}&gt;
+                  &lt;Card.Heading level={4}&gt;L van de Akker&lt;/Card.Heading&gt;
+                  &lt;Metadata size=&quot;small&quot;&gt;12-08-2026 10:30&lt;/Metadata&gt;
+                &lt;/Card.HeadingGroup&gt;
+                &lt;Column gap=&quot;small&quot;&gt;
+                  &lt;Paragraph key={2}&gt;Hier zou je ook protesten bij kunnen vermelden.&lt;/Paragraph&gt;
+                  &lt;Row alignVertical=&quot;center&quot; gap=&quot;small&quot;&gt;
+                    &lt;TextInput key={3} placeholder=&quot;Voeg een opmerking toe&quot; /&gt;
+                    &lt;IconButton label=&quot;Voeg opmerking toe&quot; size=&quot;large&quot; svg={ArrowForwardIcon} /&gt;
+                  &lt;/Row&gt;
+                  &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; gap=&quot;small&quot;&gt;
+                    &lt;Row gap=&quot;small&quot;&gt;
+                      &lt;IconButton
+                        label=&quot;Bekijken&quot;
+                        onClick={() =&gt; highlightReviewElement(&#39;functie-5&#39;)}
+                        svg={MagnifyingGlassWithEyeIcon}
+                      /&gt;
+                      &lt;IconButton label=&quot;Bewerken&quot; svg={PencilIcon} /&gt;
+                    &lt;/Row&gt;
+                    &lt;IconButton label=&quot;Opgelost&quot; svg={CheckMarkIcon} /&gt;
+                  &lt;/Row&gt;
+                &lt;/Column&gt;
+              &lt;/Card&gt;
+            &lt;/Grid.Cell&gt;
+            &lt;Grid.Cell span=&quot;all&quot;&gt;
+              &lt;Card&gt;
+                &lt;Card.HeadingGroup key={1}&gt;
+                  &lt;Card.Heading level={4}&gt;L van de Akker&lt;/Card.Heading&gt;
+                  &lt;Metadata size=&quot;small&quot;&gt;12-08-2026 10:30&lt;/Metadata&gt;
+                &lt;/Card.HeadingGroup&gt;
+                &lt;Column gap=&quot;small&quot;&gt;
+                  &lt;Paragraph key={2}&gt;Jaar moet 1915 zijn.&lt;/Paragraph&gt;
+                  &lt;Row alignVertical=&quot;center&quot; gap=&quot;small&quot;&gt;
+                    &lt;TextInput key={3} placeholder=&quot;Voeg een opmerking toe&quot; /&gt;
+                    &lt;IconButton label=&quot;Voeg opmerking toe&quot; size=&quot;large&quot; svg={ArrowForwardIcon} /&gt;
+                  &lt;/Row&gt;
+                  &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; gap=&quot;small&quot;&gt;
+                    &lt;Row gap=&quot;small&quot;&gt;
+                      &lt;IconButton
+                        label=&quot;Bekijken&quot;
+                        onClick={() =&gt; highlightReviewElement(&#39;row-4&#39;)}
+                        svg={MagnifyingGlassWithEyeIcon}
+                      /&gt;
+                      &lt;IconButton label=&quot;Bewerken&quot; svg={PencilIcon} /&gt;
+                    &lt;/Row&gt;
+                    &lt;IconButton label=&quot;Opgelost&quot; svg={CheckMarkIcon} /&gt;
+                  &lt;/Row&gt;
+                &lt;/Column&gt;
+              &lt;/Card&gt;
+            &lt;/Grid.Cell&gt;
+            &lt;Grid.Cell span=&quot;all&quot;&gt;
+              &lt;Card&gt;
+                &lt;Card.HeadingGroup key={1}&gt;
+                  &lt;Card.Heading level={4}&gt;L van de Akker&lt;/Card.Heading&gt;
+                  &lt;Metadata size=&quot;small&quot;&gt;12-08-2026 10:30&lt;/Metadata&gt;
+                &lt;/Card.HeadingGroup&gt;
+                &lt;Column gap=&quot;small&quot;&gt;
+                  &lt;Paragraph key={2}&gt;de Bijenkorf lijkt zo meer bij de Damrak te horen dan de Dam.&lt;/Paragraph&gt;
+                  &lt;Row alignVertical=&quot;center&quot; gap=&quot;small&quot;&gt;
+                    &lt;TextInput key={3} placeholder=&quot;Voeg een opmerking toe&quot; /&gt;
+                    &lt;IconButton label=&quot;Voeg opmerking toe&quot; size=&quot;large&quot; svg={ArrowForwardIcon} /&gt;
+                  &lt;/Row&gt;
+                  &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; gap=&quot;small&quot;&gt;
+                    &lt;Row gap=&quot;small&quot;&gt;
+                      &lt;IconButton
+                        label=&quot;Bekijken&quot;
+                        onClick={() =&gt; highlightReviewElement(&#39;kaart&#39;)}
+                        svg={MagnifyingGlassWithEyeIcon}
+                      /&gt;
+                      &lt;IconButton label=&quot;Bewerken&quot; svg={PencilIcon} /&gt;
+                    &lt;/Row&gt;
+                    &lt;IconButton label=&quot;Opgelost&quot; svg={CheckMarkIcon} /&gt;
+                  &lt;/Row&gt;
+                &lt;/Column&gt;
+              &lt;/Card&gt;
+            &lt;/Grid.Cell&gt;
+          &lt;/Grid.Subgrid&gt;
+
+          &lt;Grid.Subgrid rowStart={{ narrow: 3, medium: 2, wide: 2 }} span={{ narrow: 4, medium: 5, wide: 8 }}&gt;
+            &lt;Grid.Cell className=&quot;ams-prose&quot; span=&quot;all&quot;&gt;
+              &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; className=&quot;ams-mb-m&quot; wrap&gt;
+                &lt;Heading id=&quot;algemene-informatie&quot; level={2}&gt;
+                  Algemene informatie
+                &lt;/Heading&gt;
+                &lt;Button
+                  icon={SpeechBalloonIcon}
+                  onClick={() =&gt; openRemarkDialog(&#39;algemene-informatie&#39;)}
+                  variant=&quot;secondary&quot;
+                &gt;
+                  Opmerkingen
+                &lt;/Button&gt;
+              &lt;/Row&gt;
+              &lt;Paragraph&gt;{detailPageData.description}&lt;/Paragraph&gt;
+              &lt;ObjectInformationDescriptionList items={detailPageData.basicInformation} review /&gt;
+            &lt;/Grid.Cell&gt;
+            &lt;Grid.Cell className=&quot;ams-prose&quot; span=&quot;all&quot;&gt;
+              &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; className=&quot;ams-mb-m&quot; wrap&gt;
+                &lt;Heading id=&quot;geschiedenis&quot; level={2}&gt;
+                  Geschiedenis
+                &lt;/Heading&gt;
+                &lt;Button icon={SpeechBalloonIcon} onClick={() =&gt; openRemarkDialog(&#39;geschiedenis&#39;)} variant=&quot;secondary&quot;&gt;
+                  Opmerkingen
+                &lt;/Button&gt;
+              &lt;/Row&gt;
+              &lt;ObjectInformationTable events={detailPageData.history} review /&gt;
+            &lt;/Grid.Cell&gt;
+            &lt;Grid.Cell span=&quot;all&quot;&gt;
+              &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; className=&quot;ams-mb-s&quot; wrap&gt;
+                &lt;Heading id=&quot;kaart&quot; level={2}&gt;
+                  Kaart
+                &lt;/Heading&gt;
+                &lt;Button icon={SpeechBalloonIcon} onClick={() =&gt; openRemarkDialog(&#39;kaart&#39;)} variant=&quot;secondary&quot;&gt;
+                  Opmerkingen
+                &lt;/Button&gt;
+              &lt;/Row&gt;
+              &lt;ObjectInformationMap geoJson={geoJson} /&gt;
+            &lt;/Grid.Cell&gt;
+          &lt;/Grid.Subgrid&gt;
+
+          &lt;ModalDialog
+            aria-labelledby={`${dialogId}-heading`}
+            id={dialogId}
+            onClose={() =&gt; setCurrentRemarkSectionId(null)}
+          &gt;
+            &lt;ModalDialog.Header&gt;
+              &lt;Heading id={`${dialogId}-heading`} level={1} size=&quot;level-2&quot;&gt;
+                {currentRemarkSectionLabel
+                  ? `Opmerking toevoegen bij ${currentRemarkSectionLabel}`
+                  : &#39;Opmerking toevoegen&#39;}
+              &lt;/Heading&gt;
+            &lt;/ModalDialog.Header&gt;
+            &lt;ModalDialog.Body&gt;
+              &lt;Column gap=&quot;small&quot;&gt;
+                &lt;Field&gt;
+                  &lt;Label htmlFor=&quot;detail-page-review-remarks&quot;&gt;Opmerkingen&lt;/Label&gt;
+                  &lt;TextArea
+                    id=&quot;detail-page-review-remarks&quot;
+                    onChange={(event) =&gt; {
+                      if (!currentRemarkSectionId) {
+                        return
+                      }
+
+                      const sectionId = currentRemarkSectionId
+                      const value = event.currentTarget.value
+
+                      setRemarks((currentRemarks) =&gt; ({
+                        ...currentRemarks,
+                        [sectionId]: value,
+                      }))
+                    }}
+                    rows={4}
+                    value={currentRemarkSectionId ? remarks[currentRemarkSectionId] : &#39;&#39;}
+                  /&gt;
+                &lt;/Field&gt;
+              &lt;/Column&gt;
+            &lt;/ModalDialog.Body&gt;
+            &lt;ModalDialog.Footer&gt;
+              &lt;Button onClick={ModalDialog.close}&gt;Sluiten&lt;/Button&gt;
+            &lt;/ModalDialog.Footer&gt;
+          &lt;/ModalDialog&gt;
+        &lt;/Grid&gt;
+      &lt;/&gt;
+    )
+  },
+}
+</code></pre></div>
+    </div>
+        </div>
+    
+        <div class="panel panel-info">
+          
+    <div class="note info">
+      <div class="note-title">Info</div>
+      <div class="note-body">No description found. Write a jsdoc comment such as /** Component description */.</div>
+    </div>
+        </div>
+    
+    
+        <div class="panel panel-stories">
+          
+          
+          
+          <div class="note ok">
+                <div class="row">
+                  <span class="ex-name">Imports</span>
+                </div>
+                <pre><code>import {
+    ActionGroup,
+    Breadcrumb,
+    Button,
+    Card,
+    Column,
+    Field,
+    Grid,
+    Heading,
+    IconButton,
+    Label,
+    LinkList,
+    Metadata,
+    Paragraph,
+    Row,
+    TableOfContents,
+    TextArea,
+    TextInput,
+} from "@amsterdam/design-system-react";
+import { ModalDialog } from "@amsterdam/design-system-react/src";
+import {
+    ObjectInformationDescriptionList,
+    ObjectInformationMap,
+    ObjectInformationTable,
+} from "@amsterdam/storybook";</code></pre>
+              </div>
+          
+          
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Default</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const Default = () =&gt; {
+  return (
+    &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+      &lt;Grid.Cell appearance=&quot;transparent&quot; span=&quot;all&quot;&gt;
+        &lt;Breadcrumb&gt;
+          {detailPageData.breadcrumbs.map((breadcrumb) =&gt; (
+            &lt;Breadcrumb.Link href=&quot;#&quot; key={breadcrumb}&gt;
+              {breadcrumb}
+            &lt;/Breadcrumb.Link&gt;
+          ))}
+        &lt;/Breadcrumb&gt;
+        &lt;Row align=&quot;between&quot; wrap&gt;
+          &lt;Heading level={1}&gt;{detailPageData.name}&lt;/Heading&gt;
+          &lt;ActionGroup&gt;
+            &lt;Button icon={MagnifyingGlassWithEyeIcon} variant=&quot;secondary&quot;&gt;
+              Review
+            &lt;/Button&gt;
+            &lt;Button icon={PencilIcon}&gt;Bewerken&lt;/Button&gt;
+          &lt;/ActionGroup&gt;
+        &lt;/Row&gt;
+      &lt;/Grid.Cell&gt;
+
+      &lt;Grid.Subgrid span={{ narrow: 4, medium: 2, wide: 3 }} start={{ narrow: 1, medium: 7, wide: 10 }}&gt;
+        &lt;Grid.Cell span=&quot;all&quot;&gt;
+          &lt;TableOfContents heading=&quot;Op deze pagina&quot;&gt;
+            &lt;TableOfContents.List&gt;
+              &lt;TableOfContents.Link href=&quot;#algemene-informatie&quot; label=&quot;Algemene informatie&quot; /&gt;
+              &lt;TableOfContents.Link href=&quot;#geschiedenis&quot; label=&quot;Geschiedenis&quot; /&gt;
+              &lt;TableOfContents.Link href=&quot;#kaart&quot; label=&quot;Kaart&quot; /&gt;
+            &lt;/TableOfContents.List&gt;
+          &lt;/TableOfContents&gt;
+        &lt;/Grid.Cell&gt;
+        &lt;Grid.Cell span=&quot;all&quot;&gt;
+          &lt;Heading className=&quot;ams-mb-xs&quot; level={3}&gt;
+            Bronnen
+          &lt;/Heading&gt;
+          &lt;LinkList&gt;
+            {detailPageData.links.map(({ label, url }) =&gt; (
+              &lt;LinkList.Link href={url} icon={LinkExternalIcon} key={url}&gt;
+                {label}
+              &lt;/LinkList.Link&gt;
+            ))}
+          &lt;/LinkList&gt;
+        &lt;/Grid.Cell&gt;
+      &lt;/Grid.Subgrid&gt;
+
+      &lt;Grid.Subgrid rowStart={{ narrow: 3, medium: 2, wide: 2 }} span={{ narrow: 4, medium: 6, wide: 9 }}&gt;
+        &lt;Grid.Cell className=&quot;ams-prose&quot; span=&quot;all&quot;&gt;
+          &lt;Heading id=&quot;algemene-informatie&quot; level={2}&gt;
+            Algemene informatie
+          &lt;/Heading&gt;
+          &lt;Paragraph&gt;{detailPageData.description}&lt;/Paragraph&gt;
+          &lt;ObjectInformationDescriptionList items={detailPageData.basicInformation} /&gt;
+        &lt;/Grid.Cell&gt;
+        &lt;Grid.Cell className=&quot;ams-prose&quot; span=&quot;all&quot;&gt;
+          &lt;Heading id=&quot;geschiedenis&quot; level={2}&gt;
+            Geschiedenis
+          &lt;/Heading&gt;
+          &lt;ObjectInformationTable events={detailPageData.history} /&gt;
+        &lt;/Grid.Cell&gt;
+        &lt;Grid.Cell span=&quot;all&quot;&gt;
+          &lt;Heading className=&quot;ams-mb-s&quot; id=&quot;kaart&quot; level={2}&gt;
+            Kaart
+          &lt;/Heading&gt;
+          &lt;ObjectInformationMap geoJson={geoJson} /&gt;
+        &lt;/Grid.Cell&gt;
+      &lt;/Grid.Subgrid&gt;
+    &lt;/Grid&gt;
+  )
+};</code></pre>
+            </div>
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Review</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const Review = () =&gt; {
+  const [currentRemarkSectionId, setCurrentRemarkSectionId] = useState&lt;ReviewSectionId | null&gt;(null)
+  const [remarks, setRemarks] = useState&lt;Record&lt;ReviewSectionId, string&gt;&gt;({
+    &#39;algemene-informatie&#39;: &#39;&#39;,
+    geschiedenis: &#39;&#39;,
+    kaart: &#39;&#39;,
+  })
+
+  const dialogId = &#39;detail-page-review-remark-dialog&#39;
+  const currentRemarkSectionLabel = currentRemarkSectionId ? reviewSectionLabels[currentRemarkSectionId] : &#39;&#39;
+
+  const openRemarkDialog = (sectionId: ReviewSectionId) =&gt; {
+    setCurrentRemarkSectionId(sectionId)
+    ModalDialog.open(`#${dialogId}`)
+  }
+
+  return (
+    &lt;&gt;
+      &lt;style&gt;{reviewSectionHighlightStyles}&lt;/style&gt;
       &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
         &lt;Grid.Cell appearance=&quot;transparent&quot; span=&quot;all&quot;&gt;
           &lt;Breadcrumb&gt;
@@ -7266,76 +7675,122 @@ export const Review: StoryObj = {
           &lt;/Row&gt;
         &lt;/Grid.Cell&gt;
 
-        &lt;Grid.Subgrid span={{ narrow: 4, medium: 3, wide: 3 }}&gt;
+        &lt;Grid.Subgrid span={{ narrow: 4, medium: 3, wide: 4 }} start={{ narrow: 1, medium: 6, wide: 9 }}&gt;
           &lt;Grid.Cell span=&quot;all&quot;&gt;
-            &lt;TableOfContents heading=&quot;Op deze pagina&quot;&gt;
-              &lt;TableOfContents.List&gt;
-                &lt;TableOfContents.Link href=&quot;#algemene-informatie&quot; label=&quot;Algemene informatie&quot; /&gt;
-                &lt;TableOfContents.Link href=&quot;#geschiedenis&quot; label=&quot;Geschiedenis&quot; /&gt;
-                &lt;TableOfContents.Link href=&quot;#kaart&quot; label=&quot;Kaart&quot; /&gt;
-              &lt;/TableOfContents.List&gt;
-            &lt;/TableOfContents&gt;
+            &lt;Card&gt;
+              &lt;Card.HeadingGroup key={1}&gt;
+                &lt;Card.Heading level={4}&gt;L van de Akker&lt;/Card.Heading&gt;
+                &lt;Metadata size=&quot;small&quot;&gt;12-08-2026 10:30&lt;/Metadata&gt;
+              &lt;/Card.HeadingGroup&gt;
+              &lt;Column gap=&quot;small&quot;&gt;
+                &lt;Paragraph key={2}&gt;Hier zou je ook protesten bij kunnen vermelden.&lt;/Paragraph&gt;
+                &lt;Row alignVertical=&quot;center&quot; gap=&quot;small&quot;&gt;
+                  &lt;TextInput key={3} placeholder=&quot;Voeg een opmerking toe&quot; /&gt;
+                  &lt;IconButton label=&quot;Voeg opmerking toe&quot; size=&quot;large&quot; svg={ArrowForwardIcon} /&gt;
+                &lt;/Row&gt;
+                &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; gap=&quot;small&quot;&gt;
+                  &lt;Row gap=&quot;small&quot;&gt;
+                    &lt;IconButton
+                      label=&quot;Bekijken&quot;
+                      onClick={() =&gt; highlightReviewElement(&#39;functie-5&#39;)}
+                      svg={MagnifyingGlassWithEyeIcon}
+                    /&gt;
+                    &lt;IconButton label=&quot;Bewerken&quot; svg={PencilIcon} /&gt;
+                  &lt;/Row&gt;
+                  &lt;IconButton label=&quot;Opgelost&quot; svg={CheckMarkIcon} /&gt;
+                &lt;/Row&gt;
+              &lt;/Column&gt;
+            &lt;/Card&gt;
           &lt;/Grid.Cell&gt;
           &lt;Grid.Cell span=&quot;all&quot;&gt;
-            &lt;Heading className=&quot;ams-mb-xs&quot; level={3}&gt;
-              Bronnen
-            &lt;/Heading&gt;
-            &lt;LinkList&gt;
-              {detailPageData.links.map(({ label, url }) =&gt; (
-                &lt;LinkList.Link href={url} icon={LinkExternalIcon} key={url}&gt;
-                  {label}
-                &lt;/LinkList.Link&gt;
-              ))}
-            &lt;/LinkList&gt;
+            &lt;Card&gt;
+              &lt;Card.HeadingGroup key={1}&gt;
+                &lt;Card.Heading level={4}&gt;L van de Akker&lt;/Card.Heading&gt;
+                &lt;Metadata size=&quot;small&quot;&gt;12-08-2026 10:30&lt;/Metadata&gt;
+              &lt;/Card.HeadingGroup&gt;
+              &lt;Column gap=&quot;small&quot;&gt;
+                &lt;Paragraph key={2}&gt;Jaar moet 1915 zijn.&lt;/Paragraph&gt;
+                &lt;Row alignVertical=&quot;center&quot; gap=&quot;small&quot;&gt;
+                  &lt;TextInput key={3} placeholder=&quot;Voeg een opmerking toe&quot; /&gt;
+                  &lt;IconButton label=&quot;Voeg opmerking toe&quot; size=&quot;large&quot; svg={ArrowForwardIcon} /&gt;
+                &lt;/Row&gt;
+                &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; gap=&quot;small&quot;&gt;
+                  &lt;Row gap=&quot;small&quot;&gt;
+                    &lt;IconButton
+                      label=&quot;Bekijken&quot;
+                      onClick={() =&gt; highlightReviewElement(&#39;row-4&#39;)}
+                      svg={MagnifyingGlassWithEyeIcon}
+                    /&gt;
+                    &lt;IconButton label=&quot;Bewerken&quot; svg={PencilIcon} /&gt;
+                  &lt;/Row&gt;
+                  &lt;IconButton label=&quot;Opgelost&quot; svg={CheckMarkIcon} /&gt;
+                &lt;/Row&gt;
+              &lt;/Column&gt;
+            &lt;/Card&gt;
+          &lt;/Grid.Cell&gt;
+          &lt;Grid.Cell span=&quot;all&quot;&gt;
+            &lt;Card&gt;
+              &lt;Card.HeadingGroup key={1}&gt;
+                &lt;Card.Heading level={4}&gt;L van de Akker&lt;/Card.Heading&gt;
+                &lt;Metadata size=&quot;small&quot;&gt;12-08-2026 10:30&lt;/Metadata&gt;
+              &lt;/Card.HeadingGroup&gt;
+              &lt;Column gap=&quot;small&quot;&gt;
+                &lt;Paragraph key={2}&gt;de Bijenkorf lijkt zo meer bij de Damrak te horen dan de Dam.&lt;/Paragraph&gt;
+                &lt;Row alignVertical=&quot;center&quot; gap=&quot;small&quot;&gt;
+                  &lt;TextInput key={3} placeholder=&quot;Voeg een opmerking toe&quot; /&gt;
+                  &lt;IconButton label=&quot;Voeg opmerking toe&quot; size=&quot;large&quot; svg={ArrowForwardIcon} /&gt;
+                &lt;/Row&gt;
+                &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; gap=&quot;small&quot;&gt;
+                  &lt;Row gap=&quot;small&quot;&gt;
+                    &lt;IconButton
+                      label=&quot;Bekijken&quot;
+                      onClick={() =&gt; highlightReviewElement(&#39;kaart&#39;)}
+                      svg={MagnifyingGlassWithEyeIcon}
+                    /&gt;
+                    &lt;IconButton label=&quot;Bewerken&quot; svg={PencilIcon} /&gt;
+                  &lt;/Row&gt;
+                  &lt;IconButton label=&quot;Opgelost&quot; svg={CheckMarkIcon} /&gt;
+                &lt;/Row&gt;
+              &lt;/Column&gt;
+            &lt;/Card&gt;
           &lt;/Grid.Cell&gt;
         &lt;/Grid.Subgrid&gt;
 
-        &lt;Grid.Subgrid span={{ narrow: 4, medium: 5, wide: 9 }}&gt;
+        &lt;Grid.Subgrid rowStart={{ narrow: 3, medium: 2, wide: 2 }} span={{ narrow: 4, medium: 5, wide: 8 }}&gt;
           &lt;Grid.Cell className=&quot;ams-prose&quot; span=&quot;all&quot;&gt;
             &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; className=&quot;ams-mb-m&quot; wrap&gt;
               &lt;Heading id=&quot;algemene-informatie&quot; level={2}&gt;
                 Algemene informatie
               &lt;/Heading&gt;
               &lt;Button
-                icon={MagnifyingGlassWithEyeIcon}
-                iconOnly
+                icon={SpeechBalloonIcon}
                 onClick={() =&gt; openRemarkDialog(&#39;algemene-informatie&#39;)}
                 variant=&quot;secondary&quot;
               &gt;
-                Voeg een opmerking toe bij Algemene informatie
+                Opmerkingen
               &lt;/Button&gt;
             &lt;/Row&gt;
             &lt;Paragraph&gt;{detailPageData.description}&lt;/Paragraph&gt;
-            &lt;ObjectInformationDescriptionList items={detailPageData.basicInformation} /&gt;
+            &lt;ObjectInformationDescriptionList items={detailPageData.basicInformation} review /&gt;
           &lt;/Grid.Cell&gt;
           &lt;Grid.Cell className=&quot;ams-prose&quot; span=&quot;all&quot;&gt;
             &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; className=&quot;ams-mb-m&quot; wrap&gt;
               &lt;Heading id=&quot;geschiedenis&quot; level={2}&gt;
                 Geschiedenis
               &lt;/Heading&gt;
-              &lt;Button
-                icon={MagnifyingGlassWithEyeIcon}
-                iconOnly
-                onClick={() =&gt; openRemarkDialog(&#39;geschiedenis&#39;)}
-                variant=&quot;secondary&quot;
-              &gt;
-                Voeg een opmerking toe bij Geschiedenis
+              &lt;Button icon={SpeechBalloonIcon} onClick={() =&gt; openRemarkDialog(&#39;geschiedenis&#39;)} variant=&quot;secondary&quot;&gt;
+                Opmerkingen
               &lt;/Button&gt;
             &lt;/Row&gt;
-            &lt;ObjectInformationTable events={detailPageData.history} /&gt;
+            &lt;ObjectInformationTable events={detailPageData.history} review /&gt;
           &lt;/Grid.Cell&gt;
           &lt;Grid.Cell span=&quot;all&quot;&gt;
             &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; className=&quot;ams-mb-s&quot; wrap&gt;
               &lt;Heading id=&quot;kaart&quot; level={2}&gt;
                 Kaart
               &lt;/Heading&gt;
-              &lt;Button
-                icon={MagnifyingGlassWithEyeIcon}
-                iconOnly
-                onClick={() =&gt; openRemarkDialog(&#39;kaart&#39;)}
-                variant=&quot;secondary&quot;
-              &gt;
-                Voeg een opmerking toe bij Kaart
+              &lt;Button icon={SpeechBalloonIcon} onClick={() =&gt; openRemarkDialog(&#39;kaart&#39;)} variant=&quot;secondary&quot;&gt;
+                Opmerkingen
               &lt;/Button&gt;
             &lt;/Row&gt;
             &lt;ObjectInformationMap geoJson={geoJson} /&gt;
@@ -7384,373 +7839,7 @@ export const Review: StoryObj = {
           &lt;/ModalDialog.Footer&gt;
         &lt;/ModalDialog&gt;
       &lt;/Grid&gt;
-    )
-  },
-}
-</code></pre></div>
-    </div>
-        </div>
-    
-        <div class="panel panel-info">
-          
-    <div class="note info">
-      <div class="note-title">Info</div>
-      <div class="note-body">No description found. Write a jsdoc comment such as /** Component description */.</div>
-    </div>
-        </div>
-    
-    
-        <div class="panel panel-stories">
-          
-          
-          
-          <div class="note ok">
-                <div class="row">
-                  <span class="ex-name">Imports</span>
-                </div>
-                <pre><code>import {
-    ActionGroup,
-    Breadcrumb,
-    Button,
-    Column,
-    Field,
-    Grid,
-    Heading,
-    Label,
-    LinkList,
-    Paragraph,
-    Row,
-    TableOfContents,
-    TabNavigation,
-    TextArea,
-} from "@amsterdam/design-system-react";
-import {
-    DetailPageEditGeneralInformationTab,
-    DetailPageEditHistoryTab,
-    DetailPageEditMapTab,
-    ObjectInformationDescriptionList,
-    ObjectInformationMap,
-    ObjectInformationTable,
-} from "@amsterdam/storybook";
-import { ModalDialog } from "@amsterdam/design-system-react/src";</code></pre>
-              </div>
-          
-          
-            <div class="note ok">
-              <div class="row">
-                <span class="ex-name">Default</span>
-                <span class="badge ok">story ok</span>
-              </div>
-              
-              
-              <pre><code>const Default = () =&gt; {
-  return (
-    &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
-      &lt;Grid.Cell appearance=&quot;transparent&quot; span=&quot;all&quot;&gt;
-        &lt;Breadcrumb&gt;
-          {detailPageData.breadcrumbs.map((breadcrumb) =&gt; (
-            &lt;Breadcrumb.Link href=&quot;#&quot; key={breadcrumb}&gt;
-              {breadcrumb}
-            &lt;/Breadcrumb.Link&gt;
-          ))}
-        &lt;/Breadcrumb&gt;
-        &lt;Row align=&quot;between&quot; wrap&gt;
-          &lt;Heading level={1}&gt;{detailPageData.name}&lt;/Heading&gt;
-          &lt;ActionGroup&gt;
-            &lt;Button icon={MagnifyingGlassWithEyeIcon} variant=&quot;secondary&quot;&gt;
-              Review
-            &lt;/Button&gt;
-            &lt;Button icon={PencilIcon}&gt;Bewerken&lt;/Button&gt;
-          &lt;/ActionGroup&gt;
-        &lt;/Row&gt;
-      &lt;/Grid.Cell&gt;
-
-      &lt;Grid.Subgrid span={{ narrow: 4, medium: 3, wide: 3 }}&gt;
-        &lt;Grid.Cell span=&quot;all&quot;&gt;
-          &lt;TableOfContents heading=&quot;Op deze pagina&quot;&gt;
-            &lt;TableOfContents.List&gt;
-              &lt;TableOfContents.Link href=&quot;#algemene-informatie&quot; label=&quot;Algemene informatie&quot; /&gt;
-              &lt;TableOfContents.Link href=&quot;#geschiedenis&quot; label=&quot;Geschiedenis&quot; /&gt;
-              &lt;TableOfContents.Link href=&quot;#kaart&quot; label=&quot;Kaart&quot; /&gt;
-            &lt;/TableOfContents.List&gt;
-          &lt;/TableOfContents&gt;
-        &lt;/Grid.Cell&gt;
-        &lt;Grid.Cell span=&quot;all&quot;&gt;
-          &lt;Heading className=&quot;ams-mb-xs&quot; level={3}&gt;
-            Bronnen
-          &lt;/Heading&gt;
-          &lt;LinkList&gt;
-            {detailPageData.links.map(({ label, url }) =&gt; (
-              &lt;LinkList.Link href={url} icon={LinkExternalIcon} key={url}&gt;
-                {label}
-              &lt;/LinkList.Link&gt;
-            ))}
-          &lt;/LinkList&gt;
-        &lt;/Grid.Cell&gt;
-      &lt;/Grid.Subgrid&gt;
-
-      &lt;Grid.Subgrid span={{ narrow: 4, medium: 5, wide: 9 }}&gt;
-        &lt;Grid.Cell className=&quot;ams-prose&quot; span=&quot;all&quot;&gt;
-          &lt;Heading id=&quot;algemene-informatie&quot; level={2}&gt;
-            Algemene informatie
-          &lt;/Heading&gt;
-          &lt;Paragraph&gt;{detailPageData.description}&lt;/Paragraph&gt;
-          &lt;ObjectInformationDescriptionList items={detailPageData.basicInformation} /&gt;
-        &lt;/Grid.Cell&gt;
-        &lt;Grid.Cell className=&quot;ams-prose&quot; span=&quot;all&quot;&gt;
-          &lt;Heading id=&quot;geschiedenis&quot; level={2}&gt;
-            Geschiedenis
-          &lt;/Heading&gt;
-          &lt;ObjectInformationTable events={detailPageData.history} /&gt;
-        &lt;/Grid.Cell&gt;
-        &lt;Grid.Cell span=&quot;all&quot;&gt;
-          &lt;Heading className=&quot;ams-mb-s&quot; id=&quot;kaart&quot; level={2}&gt;
-            Kaart
-          &lt;/Heading&gt;
-          &lt;ObjectInformationMap geoJson={geoJson} /&gt;
-        &lt;/Grid.Cell&gt;
-      &lt;/Grid.Subgrid&gt;
-    &lt;/Grid&gt;
-  )
-};</code></pre>
-            </div>
-            <div class="note ok">
-              <div class="row">
-                <span class="ex-name">Edit</span>
-                <span class="badge ok">story ok</span>
-              </div>
-              
-              
-              <pre><code>const Edit = () =&gt; {
-  const [currentTabId, setCurrentTabId] = useState&lt;EditTabId&gt;(&#39;algemene-informatie&#39;)
-
-  const handleTabClick = (event: MouseEvent&lt;HTMLAnchorElement&gt;, tabId: EditTabId) =&gt; {
-    event.preventDefault()
-    setCurrentTabId(tabId)
-  }
-
-  return (
-    &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
-      &lt;Grid.Cell appearance=&quot;transparent&quot; span=&quot;all&quot;&gt;
-        &lt;Breadcrumb&gt;
-          {detailPageData.breadcrumbs.map((breadcrumb) =&gt; (
-            &lt;Breadcrumb.Link href=&quot;#&quot; key={breadcrumb}&gt;
-              {breadcrumb}
-            &lt;/Breadcrumb.Link&gt;
-          ))}
-        &lt;/Breadcrumb&gt;
-        &lt;Row align=&quot;between&quot; wrap&gt;
-          &lt;Heading level={1}&gt;{detailPageData.name}&lt;/Heading&gt;
-          &lt;ActionGroup&gt;
-            &lt;Button icon={MagnifyingGlassWithEyeIcon} variant=&quot;secondary&quot;&gt;
-              Exporteren
-            &lt;/Button&gt;
-            &lt;Button icon={EyeOpenIcon}&gt;Toon Object&lt;/Button&gt;
-          &lt;/ActionGroup&gt;
-        &lt;/Row&gt;
-      &lt;/Grid.Cell&gt;
-
-      &lt;Grid.Cell appearance=&quot;flush&quot; span=&quot;all&quot;&gt;
-        &lt;TabNavigation accessibleName=&quot;Subnavigatie voor dit project&quot;&gt;
-          &lt;TabNavigation.List&gt;
-            &lt;TabNavigation.Link
-              aria-current={currentTabId === &#39;algemene-informatie&#39; ? &#39;page&#39; : undefined}
-              href=&quot;#algemene-informatie&quot;
-              onClick={(event) =&gt; handleTabClick(event, &#39;algemene-informatie&#39;)}
-            &gt;
-              Algemene informatie
-            &lt;/TabNavigation.Link&gt;
-            &lt;TabNavigation.Link
-              aria-current={currentTabId === &#39;historie&#39; ? &#39;page&#39; : undefined}
-              href=&quot;#historie&quot;
-              onClick={(event) =&gt; handleTabClick(event, &#39;historie&#39;)}
-            &gt;
-              Historie
-            &lt;/TabNavigation.Link&gt;
-            &lt;TabNavigation.Link
-              aria-current={currentTabId === &#39;kaart&#39; ? &#39;page&#39; : undefined}
-              href=&quot;#kaart&quot;
-              onClick={(event) =&gt; handleTabClick(event, &#39;kaart&#39;)}
-            &gt;
-              Kaart
-            &lt;/TabNavigation.Link&gt;
-          &lt;/TabNavigation.List&gt;
-        &lt;/TabNavigation&gt;
-      &lt;/Grid.Cell&gt;
-
-      &lt;Grid.Subgrid span=&quot;all&quot;&gt;
-        &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 8 }}&gt;
-          &lt;DetailPageEditGeneralInformationTab hidden={currentTabId !== &#39;algemene-informatie&#39;} /&gt;
-          &lt;DetailPageEditHistoryTab hidden={currentTabId !== &#39;historie&#39;} /&gt;
-          &lt;DetailPageEditMapTab hidden={currentTabId !== &#39;kaart&#39;} /&gt;
-        &lt;/Grid.Cell&gt;
-      &lt;/Grid.Subgrid&gt;
-    &lt;/Grid&gt;
-  )
-};</code></pre>
-            </div>
-            <div class="note ok">
-              <div class="row">
-                <span class="ex-name">Review</span>
-                <span class="badge ok">story ok</span>
-              </div>
-              
-              
-              <pre><code>const Review = () =&gt; {
-  const [currentRemarkSectionId, setCurrentRemarkSectionId] = useState&lt;ReviewSectionId | null&gt;(null)
-  const [remarks, setRemarks] = useState&lt;Record&lt;ReviewSectionId, string&gt;&gt;({
-    &#39;algemene-informatie&#39;: &#39;&#39;,
-    geschiedenis: &#39;&#39;,
-    kaart: &#39;&#39;,
-  })
-
-  const dialogId = &#39;detail-page-review-remark-dialog&#39;
-  const currentRemarkSectionLabel = currentRemarkSectionId ? reviewSectionLabels[currentRemarkSectionId] : &#39;&#39;
-
-  const openRemarkDialog = (sectionId: ReviewSectionId) =&gt; {
-    setCurrentRemarkSectionId(sectionId)
-    ModalDialog.open(`#${dialogId}`)
-  }
-
-  return (
-    &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
-      &lt;Grid.Cell appearance=&quot;transparent&quot; span=&quot;all&quot;&gt;
-        &lt;Breadcrumb&gt;
-          {detailPageData.breadcrumbs.map((breadcrumb) =&gt; (
-            &lt;Breadcrumb.Link href=&quot;#&quot; key={breadcrumb}&gt;
-              {breadcrumb}
-            &lt;/Breadcrumb.Link&gt;
-          ))}
-        &lt;/Breadcrumb&gt;
-        &lt;Row align=&quot;between&quot; wrap&gt;
-          &lt;Heading level={1}&gt;{detailPageData.name}&lt;/Heading&gt;
-          &lt;ActionGroup&gt;
-            &lt;Button icon={MagnifyingGlassWithEyeIcon} variant=&quot;secondary&quot;&gt;
-              Review
-            &lt;/Button&gt;
-            &lt;Button icon={PencilIcon}&gt;Bewerken&lt;/Button&gt;
-          &lt;/ActionGroup&gt;
-        &lt;/Row&gt;
-      &lt;/Grid.Cell&gt;
-
-      &lt;Grid.Subgrid span={{ narrow: 4, medium: 3, wide: 3 }}&gt;
-        &lt;Grid.Cell span=&quot;all&quot;&gt;
-          &lt;TableOfContents heading=&quot;Op deze pagina&quot;&gt;
-            &lt;TableOfContents.List&gt;
-              &lt;TableOfContents.Link href=&quot;#algemene-informatie&quot; label=&quot;Algemene informatie&quot; /&gt;
-              &lt;TableOfContents.Link href=&quot;#geschiedenis&quot; label=&quot;Geschiedenis&quot; /&gt;
-              &lt;TableOfContents.Link href=&quot;#kaart&quot; label=&quot;Kaart&quot; /&gt;
-            &lt;/TableOfContents.List&gt;
-          &lt;/TableOfContents&gt;
-        &lt;/Grid.Cell&gt;
-        &lt;Grid.Cell span=&quot;all&quot;&gt;
-          &lt;Heading className=&quot;ams-mb-xs&quot; level={3}&gt;
-            Bronnen
-          &lt;/Heading&gt;
-          &lt;LinkList&gt;
-            {detailPageData.links.map(({ label, url }) =&gt; (
-              &lt;LinkList.Link href={url} icon={LinkExternalIcon} key={url}&gt;
-                {label}
-              &lt;/LinkList.Link&gt;
-            ))}
-          &lt;/LinkList&gt;
-        &lt;/Grid.Cell&gt;
-      &lt;/Grid.Subgrid&gt;
-
-      &lt;Grid.Subgrid span={{ narrow: 4, medium: 5, wide: 9 }}&gt;
-        &lt;Grid.Cell className=&quot;ams-prose&quot; span=&quot;all&quot;&gt;
-          &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; className=&quot;ams-mb-m&quot; wrap&gt;
-            &lt;Heading id=&quot;algemene-informatie&quot; level={2}&gt;
-              Algemene informatie
-            &lt;/Heading&gt;
-            &lt;Button
-              icon={MagnifyingGlassWithEyeIcon}
-              iconOnly
-              onClick={() =&gt; openRemarkDialog(&#39;algemene-informatie&#39;)}
-              variant=&quot;secondary&quot;
-            &gt;
-              Voeg een opmerking toe bij Algemene informatie
-            &lt;/Button&gt;
-          &lt;/Row&gt;
-          &lt;Paragraph&gt;{detailPageData.description}&lt;/Paragraph&gt;
-          &lt;ObjectInformationDescriptionList items={detailPageData.basicInformation} /&gt;
-        &lt;/Grid.Cell&gt;
-        &lt;Grid.Cell className=&quot;ams-prose&quot; span=&quot;all&quot;&gt;
-          &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; className=&quot;ams-mb-m&quot; wrap&gt;
-            &lt;Heading id=&quot;geschiedenis&quot; level={2}&gt;
-              Geschiedenis
-            &lt;/Heading&gt;
-            &lt;Button
-              icon={MagnifyingGlassWithEyeIcon}
-              iconOnly
-              onClick={() =&gt; openRemarkDialog(&#39;geschiedenis&#39;)}
-              variant=&quot;secondary&quot;
-            &gt;
-              Voeg een opmerking toe bij Geschiedenis
-            &lt;/Button&gt;
-          &lt;/Row&gt;
-          &lt;ObjectInformationTable events={detailPageData.history} /&gt;
-        &lt;/Grid.Cell&gt;
-        &lt;Grid.Cell span=&quot;all&quot;&gt;
-          &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; className=&quot;ams-mb-s&quot; wrap&gt;
-            &lt;Heading id=&quot;kaart&quot; level={2}&gt;
-              Kaart
-            &lt;/Heading&gt;
-            &lt;Button
-              icon={MagnifyingGlassWithEyeIcon}
-              iconOnly
-              onClick={() =&gt; openRemarkDialog(&#39;kaart&#39;)}
-              variant=&quot;secondary&quot;
-            &gt;
-              Voeg een opmerking toe bij Kaart
-            &lt;/Button&gt;
-          &lt;/Row&gt;
-          &lt;ObjectInformationMap geoJson={geoJson} /&gt;
-        &lt;/Grid.Cell&gt;
-      &lt;/Grid.Subgrid&gt;
-
-      &lt;ModalDialog
-        aria-labelledby={`${dialogId}-heading`}
-        id={dialogId}
-        onClose={() =&gt; setCurrentRemarkSectionId(null)}
-      &gt;
-        &lt;ModalDialog.Header&gt;
-          &lt;Heading id={`${dialogId}-heading`} level={1} size=&quot;level-2&quot;&gt;
-            {currentRemarkSectionLabel
-              ? `Opmerking toevoegen bij ${currentRemarkSectionLabel}`
-              : &#39;Opmerking toevoegen&#39;}
-          &lt;/Heading&gt;
-        &lt;/ModalDialog.Header&gt;
-        &lt;ModalDialog.Body&gt;
-          &lt;Column gap=&quot;small&quot;&gt;
-            &lt;Field&gt;
-              &lt;Label htmlFor=&quot;detail-page-review-remarks&quot;&gt;Opmerkingen&lt;/Label&gt;
-              &lt;TextArea
-                id=&quot;detail-page-review-remarks&quot;
-                onChange={(event) =&gt; {
-                  if (!currentRemarkSectionId) {
-                    return
-                  }
-
-                  const sectionId = currentRemarkSectionId
-                  const value = event.currentTarget.value
-
-                  setRemarks((currentRemarks) =&gt; ({
-                    ...currentRemarks,
-                    [sectionId]: value,
-                  }))
-                }}
-                rows={4}
-                value={currentRemarkSectionId ? remarks[currentRemarkSectionId] : &#39;&#39;}
-              /&gt;
-            &lt;/Field&gt;
-          &lt;/Column&gt;
-        &lt;/ModalDialog.Body&gt;
-        &lt;ModalDialog.Footer&gt;
-          &lt;Button onClick={ModalDialog.close}&gt;Sluiten&lt;/Button&gt;
-        &lt;/ModalDialog.Footer&gt;
-      &lt;/ModalDialog&gt;
-    &lt;/Grid&gt;
+    &lt;/&gt;
   )
 };</code></pre>
             </div>
@@ -41007,7 +41096,7 @@ The hero Image and the Card images take an empty `alt`, because the text beside 
       <div class="badges">
         <label for="c-error-1-pages-internal-detail-page-err" class="badge err as-toggle">prop type error</label>
         <label for="c-error-1-pages-internal-detail-page-info" class="badge info as-toggle">1 info</label>
-        <label for="c-error-1-pages-internal-detail-page-stories" class="badge ok as-toggle">3 stories</label>
+        <label for="c-error-1-pages-internal-detail-page-stories" class="badge ok as-toggle">2 stories</label>
         <label for="c-error-1-pages-internal-detail-page-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
@@ -41033,13 +41122,13 @@ The hero Image and the Card images take an empty `alt`, because the text beside 
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
-  54 | }
-  55 |
-&gt; 56 | const meta = {
-     | ^
-  57 |   ...commonMeta,
-  58 |   title: &#39;Pages/Internal/Detail Page&#39;,
-  59 |   parameters: pageParameters(
+  119 | `
+  120 |
+&gt; 121 | const meta = {
+      | ^
+  122 |   ...commonMeta,
+  123 |   title: &#39;Pages/Internal/Detail Page&#39;,
+  124 |   parameters: pageParameters(
 
 ./src/pages/internal/DetailPage/DetailPage.stories.tsx:
 /**
@@ -41049,38 +41138,39 @@ The hero Image and the Card images take an empty `alt`, because the text beside 
 
 import type { Meta, StoryObj } from &#39;@storybook/react-vite&#39;
 import type { FeatureCollection } from &#39;geojson&#39;
-import type { MouseEvent } from &#39;react&#39;
 
 import {
   ActionGroup,
   Breadcrumb,
   Button,
+  Card,
   Column,
   Field,
   Grid,
   Heading,
+  IconButton,
   Label,
   LinkList,
+  Metadata,
   Paragraph,
   Row,
   TableOfContents,
-  TabNavigation,
   TextArea,
+  TextInput,
 } from &#39;@amsterdam/design-system-react&#39;
 import {
-  EyeOpenIcon,
+  ArrowForwardIcon,
+  CheckMarkIcon,
   LinkExternalIcon,
   MagnifyingGlassWithEyeIcon,
   PencilIcon,
+  SpeechBalloonIcon,
 } from &#39;@amsterdam/design-system-react-icons&#39;
 import { ModalDialog } from &#39;@amsterdam/design-system-react/src&#39;
 import { useState } from &#39;react&#39;
 
 import { commonMeta, pageParameters } from &#39;../common/commonMeta&#39;
 import detailPageData from &#39;./detailPageData.json&#39;
-import { DetailPageEditGeneralInformationTab } from &#39;./DetailPageEditGeneralInformationTab&#39;
-import { DetailPageEditHistoryTab } from &#39;./DetailPageEditHistoryTab&#39;
-import { DetailPageEditMapTab } from &#39;./DetailPageEditMapTab&#39;
 import { ObjectInformationDescriptionList } from &#39;./ObjectInformationDescriptionList&#39;
 import { ObjectInformationMap } from &#39;./ObjectInformationMap&#39;
 import { ObjectInformationTable } from &#39;./ObjectInformationTable&#39;
@@ -41088,14 +41178,78 @@ import { ObjectInformationTable } from &#39;./ObjectInformationTable&#39;
 // A JSON import widens the literal type names GeoJSON relies on to string.
 const geoJson = detailPageData.geoJson as FeatureCollection
 
-type EditTabId = &#39;algemene-informatie&#39; | &#39;historie&#39; | &#39;kaart&#39;
+// type EditTabId = &#39;algemene-informatie&#39; | &#39;historie&#39; | &#39;kaart&#39;
 type ReviewSectionId = &#39;algemene-informatie&#39; | &#39;geschiedenis&#39; | &#39;kaart&#39;
+
+const highlightedReviewSectionParentAttribute = &#39;data-ams-detail-page-highlighted&#39;
+const reviewSectionHighlightTimeouts = new WeakMap&lt;HTMLElement, number&gt;()
 
 const reviewSectionLabels: Record&lt;ReviewSectionId, string&gt; = {
   &#39;algemene-informatie&#39;: &#39;Algemene informatie&#39;,
   geschiedenis: &#39;Geschiedenis&#39;,
   kaart: &#39;Kaart&#39;,
 }
+
+const highlightReviewElement = (sectionId: string) =&gt; {
+  const sectionHeading = document.getElementById(sectionId)
+
+  if (!(sectionHeading instanceof HTMLElement)) {
+    return
+  }
+
+  window.location.hash = sectionId
+  sectionHeading.scrollIntoView({ behavior: &#39;smooth&#39;, block: &#39;start&#39; })
+
+  const existingTimeoutId = reviewSectionHighlightTimeouts.get(sectionHeading)
+
+  if (existingTimeoutId !== undefined) {
+    window.clearTimeout(existingTimeoutId)
+  }
+
+  sectionHeading.setAttribute(highlightedReviewSectionParentAttribute, &#39;true&#39;)
+
+  const timeoutId = window.setTimeout(() =&gt; {
+    sectionHeading.removeAttribute(highlightedReviewSectionParentAttribute)
+    reviewSectionHighlightTimeouts.delete(sectionHeading)
+  }, 3000)
+
+  reviewSectionHighlightTimeouts.set(sectionHeading, timeoutId)
+}
+
+const reviewSectionHighlightStyles = `
+  [id]:not(.ams-table__row),
+  .ams-table__row &gt; .ams-table__header-cell,
+  .ams-table__row &gt; .ams-table__cell {
+    transition: box-shadow 200ms ease-out;
+  }
+
+  [${highlightedReviewSectionParentAttribute}=&quot;true&quot;]:not(.ams-table__row) {
+    box-shadow: 0 0 0 var(--ams-border-width-l) var(--ams-color-interactive);
+  }
+
+  .ams-table__row[${highlightedReviewSectionParentAttribute}=&quot;true&quot;] &gt; .ams-table__header-cell,
+  .ams-table__row[${highlightedReviewSectionParentAttribute}=&quot;true&quot;] &gt; .ams-table__cell {
+    box-shadow:
+      inset 0 var(--ams-border-width-l) 0 var(--ams-color-interactive),
+      inset 0 calc(-1 * var(--ams-border-width-l)) 0 var(--ams-color-interactive);
+  }
+
+  .ams-table__row[${highlightedReviewSectionParentAttribute}=&quot;true&quot;] &gt; .ams-table__header-cell:first-child,
+  .ams-table__row[${highlightedReviewSectionParentAttribute}=&quot;true&quot;] &gt; .ams-table__cell:first-child {
+    box-shadow:
+      inset var(--ams-border-width-l) 0 0 var(--ams-color-interactive),
+      inset 0 var(--ams-border-width-l) 0 var(--ams-color-interactive),
+      inset 0 calc(-1 * var(--ams-border-width-l)) 0 var(--ams-color-interactive);
+  }
+
+  .ams-table__row[${highlightedReviewSectionParentAttribute}=&quot;true&quot;] &gt; .ams-table__header-cell:last-child,
+  .ams-table__row[${highlightedReviewSectionParentAttribute}=&quot;true&quot;] &gt; .ams-table__cell:last-child {
+    box-shadow:
+      inset calc(-1 * var(--ams-border-width-l)) 0 0 var(--ams-color-interactive),
+      inset 0 var(--ams-border-width-l) 0 var(--ams-color-interactive),
+      inset 0 calc(-1 * var(--ams-border-width-l)) 0 var(--ams-color-interactive);
+  }
+`
 
 const meta = {
   ...commonMeta,
@@ -41209,7 +41363,7 @@ export const Default: StoryObj = {
           &lt;/Row&gt;
         &lt;/Grid.Cell&gt;
 
-        &lt;Grid.Subgrid span={{ narrow: 4, medium: 3, wide: 3 }}&gt;
+        &lt;Grid.Subgrid span={{ narrow: 4, medium: 2, wide: 3 }} start={{ narrow: 1, medium: 7, wide: 10 }}&gt;
           &lt;Grid.Cell span=&quot;all&quot;&gt;
             &lt;TableOfContents heading=&quot;Op deze pagina&quot;&gt;
               &lt;TableOfContents.List&gt;
@@ -41233,7 +41387,7 @@ export const Default: StoryObj = {
           &lt;/Grid.Cell&gt;
         &lt;/Grid.Subgrid&gt;
 
-        &lt;Grid.Subgrid span={{ narrow: 4, medium: 5, wide: 9 }}&gt;
+        &lt;Grid.Subgrid rowStart={{ narrow: 3, medium: 2, wide: 2 }} span={{ narrow: 4, medium: 6, wide: 9 }}&gt;
           &lt;Grid.Cell className=&quot;ams-prose&quot; span=&quot;all&quot;&gt;
             &lt;Heading id=&quot;algemene-informatie&quot; level={2}&gt;
               Algemene informatie
@@ -41259,139 +41413,139 @@ export const Default: StoryObj = {
   },
 }
 
-export const Edit: StoryObj = {
-  parameters: {
-    docs: {
-      source: {
-        // Because the `render` of this story lives on the shared meta, its own source is nothing but these parameters,
-        // and that is all the Code Panel would print. Provide the source by hand so the layout reads the way a
-        // developer would write it, without the interactive state.
-        code: `&lt;Grid paddingVertical=&quot;x-large&quot;&gt;
-  &lt;Grid.Cell appearance=&quot;transparent&quot; span=&quot;all&quot;&gt;
-    &lt;Breadcrumb&gt;
-      {detailPageData.breadcrumbs.map((breadcrumb) =&gt; (
-        &lt;Breadcrumb.Link href=&quot;#&quot; key={breadcrumb}&gt;
-          {breadcrumb}
-        &lt;/Breadcrumb.Link&gt;
-      ))}
-    &lt;/Breadcrumb&gt;
-    &lt;Row align=&quot;between&quot; wrap&gt;
-      &lt;Heading level={1}&gt;{detailPageData.name}&lt;/Heading&gt;
-      &lt;ActionGroup&gt;
-        &lt;Button icon={MagnifyingGlassWithEyeIcon} variant=&quot;secondary&quot;&gt;
-          Exporteren
-        &lt;/Button&gt;
-        &lt;Button icon={EyeOpenIcon}&gt;Toon Object&lt;/Button&gt;
-      &lt;/ActionGroup&gt;
-    &lt;/Row&gt;
-  &lt;/Grid.Cell&gt;
-  &lt;Grid.Cell appearance=&quot;flush&quot; span=&quot;all&quot;&gt;
-    &lt;TabNavigation accessibleName=&quot;Subnavigatie voor dit project&quot;&gt;
-      &lt;TabNavigation.List&gt;
-        &lt;TabNavigation.Link
-          aria-current={currentTabId === &#39;algemene-informatie&#39; ? &#39;page&#39; : undefined}
-          href=&quot;#algemene-informatie&quot;
-          onClick={(event) =&gt; handleTabClick(event, &#39;algemene-informatie&#39;)}
-        &gt;
-          Algemene informatie
-        &lt;/TabNavigation.Link&gt;
-        &lt;TabNavigation.Link
-          aria-current={currentTabId === &#39;historie&#39; ? &#39;page&#39; : undefined}
-          href=&quot;#historie&quot;
-          onClick={(event) =&gt; handleTabClick(event, &#39;historie&#39;)}
-        &gt;
-          Historie
-        &lt;/TabNavigation.Link&gt;
-        &lt;TabNavigation.Link
-          aria-current={currentTabId === &#39;kaart&#39; ? &#39;page&#39; : undefined}
-          href=&quot;#kaart&quot;
-          onClick={(event) =&gt; handleTabClick(event, &#39;kaart&#39;)}
-        &gt;
-          Kaart
-        &lt;/TabNavigation.Link&gt;
-      &lt;/TabNavigation.List&gt;
-    &lt;/TabNavigation&gt;
-  &lt;/Grid.Cell&gt;
-  &lt;Grid.Subgrid span=&quot;all&quot;&gt;
-    &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 8 }}&gt;
-      &lt;DetailPageEditGeneralInformationTab hidden={currentTabId !== &#39;algemene-informatie&#39;} /&gt;
-      &lt;DetailPageEditHistoryTab hidden={currentTabId !== &#39;historie&#39;} /&gt;
-      &lt;DetailPageEditMapTab hidden={currentTabId !== &#39;kaart&#39;} /&gt;
-    &lt;/Grid.Cell&gt;
-  &lt;/Grid.Subgrid&gt;
-&lt;/Grid&gt;`,
-        language: &#39;tsx&#39;,
-      },
-    },
-  },
-  render: () =&gt; {
-    const [currentTabId, setCurrentTabId] = useState&lt;EditTabId&gt;(&#39;algemene-informatie&#39;)
+// export const Edit: StoryObj = {
+//   parameters: {
+//     docs: {
+//       source: {
+//         // Because the `render` of this story lives on the shared meta, its own source is nothing but these parameters,
+//         // and that is all the Code Panel would print. Provide the source by hand so the layout reads the way a
+//         // developer would write it, without the interactive state.
+//         code: `&lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+//   &lt;Grid.Cell appearance=&quot;transparent&quot; span=&quot;all&quot;&gt;
+//     &lt;Breadcrumb&gt;
+//       {detailPageData.breadcrumbs.map((breadcrumb) =&gt; (
+//         &lt;Breadcrumb.Link href=&quot;#&quot; key={breadcrumb}&gt;
+//           {breadcrumb}
+//         &lt;/Breadcrumb.Link&gt;
+//       ))}
+//     &lt;/Breadcrumb&gt;
+//     &lt;Row align=&quot;between&quot; wrap&gt;
+//       &lt;Heading level={1}&gt;{detailPageData.name}&lt;/Heading&gt;
+//       &lt;ActionGroup&gt;
+//         &lt;Button icon={MagnifyingGlassWithEyeIcon} variant=&quot;secondary&quot;&gt;
+//           Exporteren
+//         &lt;/Button&gt;
+//         &lt;Button icon={EyeOpenIcon}&gt;Toon Object&lt;/Button&gt;
+//       &lt;/ActionGroup&gt;
+//     &lt;/Row&gt;
+//   &lt;/Grid.Cell&gt;
+//   &lt;Grid.Cell appearance=&quot;flush&quot; span=&quot;all&quot;&gt;
+//     &lt;TabNavigation accessibleName=&quot;Subnavigatie voor dit project&quot;&gt;
+//       &lt;TabNavigation.List&gt;
+//         &lt;TabNavigation.Link
+//           aria-current={currentTabId === &#39;algemene-informatie&#39; ? &#39;page&#39; : undefined}
+//           href=&quot;#algemene-informatie&quot;
+//           onClick={(event) =&gt; handleTabClick(event, &#39;algemene-informatie&#39;)}
+//         &gt;
+//           Algemene informatie
+//         &lt;/TabNavigation.Link&gt;
+//         &lt;TabNavigation.Link
+//           aria-current={currentTabId === &#39;historie&#39; ? &#39;page&#39; : undefined}
+//           href=&quot;#historie&quot;
+//           onClick={(event) =&gt; handleTabClick(event, &#39;historie&#39;)}
+//         &gt;
+//           Historie
+//         &lt;/TabNavigation.Link&gt;
+//         &lt;TabNavigation.Link
+//           aria-current={currentTabId === &#39;kaart&#39; ? &#39;page&#39; : undefined}
+//           href=&quot;#kaart&quot;
+//           onClick={(event) =&gt; handleTabClick(event, &#39;kaart&#39;)}
+//         &gt;
+//           Kaart
+//         &lt;/TabNavigation.Link&gt;
+//       &lt;/TabNavigation.List&gt;
+//     &lt;/TabNavigation&gt;
+//   &lt;/Grid.Cell&gt;
+//   &lt;Grid.Subgrid span=&quot;all&quot;&gt;
+//     &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 8 }}&gt;
+//       &lt;DetailPageEditGeneralInformationTab hidden={currentTabId !== &#39;algemene-informatie&#39;} /&gt;
+//       &lt;DetailPageEditHistoryTab hidden={currentTabId !== &#39;historie&#39;} /&gt;
+//       &lt;DetailPageEditMapTab hidden={currentTabId !== &#39;kaart&#39;} /&gt;
+//     &lt;/Grid.Cell&gt;
+//   &lt;/Grid.Subgrid&gt;
+// &lt;/Grid&gt;`,
+//         language: &#39;tsx&#39;,
+//       },
+//     },
+//   },
+//   render: () =&gt; {
+//     const [currentTabId, setCurrentTabId] = useState&lt;EditTabId&gt;(&#39;algemene-informatie&#39;)
 
-    const handleTabClick = (event: MouseEvent&lt;HTMLAnchorElement&gt;, tabId: EditTabId) =&gt; {
-      event.preventDefault()
-      setCurrentTabId(tabId)
-    }
+//     const handleTabClick = (event: MouseEvent&lt;HTMLAnchorElement&gt;, tabId: EditTabId) =&gt; {
+//       event.preventDefault()
+//       setCurrentTabId(tabId)
+//     }
 
-    return (
-      &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
-        &lt;Grid.Cell appearance=&quot;transparent&quot; span=&quot;all&quot;&gt;
-          &lt;Breadcrumb&gt;
-            {detailPageData.breadcrumbs.map((breadcrumb) =&gt; (
-              &lt;Breadcrumb.Link href=&quot;#&quot; key={breadcrumb}&gt;
-                {breadcrumb}
-              &lt;/Breadcrumb.Link&gt;
-            ))}
-          &lt;/Breadcrumb&gt;
-          &lt;Row align=&quot;between&quot; wrap&gt;
-            &lt;Heading level={1}&gt;{detailPageData.name}&lt;/Heading&gt;
-            &lt;ActionGroup&gt;
-              &lt;Button icon={MagnifyingGlassWithEyeIcon} variant=&quot;secondary&quot;&gt;
-                Exporteren
-              &lt;/Button&gt;
-              &lt;Button icon={EyeOpenIcon}&gt;Toon Object&lt;/Button&gt;
-            &lt;/ActionGroup&gt;
-          &lt;/Row&gt;
-        &lt;/Grid.Cell&gt;
+//     return (
+//       &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+//         &lt;Grid.Cell appearance=&quot;transparent&quot; span=&quot;all&quot;&gt;
+//           &lt;Breadcrumb&gt;
+//             {detailPageData.breadcrumbs.map((breadcrumb) =&gt; (
+//               &lt;Breadcrumb.Link href=&quot;#&quot; key={breadcrumb}&gt;
+//                 {breadcrumb}
+//               &lt;/Breadcrumb.Link&gt;
+//             ))}
+//           &lt;/Breadcrumb&gt;
+//           &lt;Row align=&quot;between&quot; wrap&gt;
+//             &lt;Heading level={1}&gt;{detailPageData.name}&lt;/Heading&gt;
+//             &lt;ActionGroup&gt;
+//               &lt;Button icon={MagnifyingGlassWithEyeIcon} variant=&quot;secondary&quot;&gt;
+//                 Exporteren
+//               &lt;/Button&gt;
+//               &lt;Button icon={EyeOpenIcon}&gt;Toon Object&lt;/Button&gt;
+//             &lt;/ActionGroup&gt;
+//           &lt;/Row&gt;
+//         &lt;/Grid.Cell&gt;
 
-        &lt;Grid.Cell appearance=&quot;flush&quot; span=&quot;all&quot;&gt;
-          &lt;TabNavigation accessibleName=&quot;Subnavigatie voor dit project&quot;&gt;
-            &lt;TabNavigation.List&gt;
-              &lt;TabNavigation.Link
-                aria-current={currentTabId === &#39;algemene-informatie&#39; ? &#39;page&#39; : undefined}
-                href=&quot;#algemene-informatie&quot;
-                onClick={(event) =&gt; handleTabClick(event, &#39;algemene-informatie&#39;)}
-              &gt;
-                Algemene informatie
-              &lt;/TabNavigation.Link&gt;
-              &lt;TabNavigation.Link
-                aria-current={currentTabId === &#39;historie&#39; ? &#39;page&#39; : undefined}
-                href=&quot;#historie&quot;
-                onClick={(event) =&gt; handleTabClick(event, &#39;historie&#39;)}
-              &gt;
-                Historie
-              &lt;/TabNavigation.Link&gt;
-              &lt;TabNavigation.Link
-                aria-current={currentTabId === &#39;kaart&#39; ? &#39;page&#39; : undefined}
-                href=&quot;#kaart&quot;
-                onClick={(event) =&gt; handleTabClick(event, &#39;kaart&#39;)}
-              &gt;
-                Kaart
-              &lt;/TabNavigation.Link&gt;
-            &lt;/TabNavigation.List&gt;
-          &lt;/TabNavigation&gt;
-        &lt;/Grid.Cell&gt;
+//         &lt;Grid.Cell appearance=&quot;flush&quot; span=&quot;all&quot;&gt;
+//           &lt;TabNavigation accessibleName=&quot;Subnavigatie voor dit project&quot;&gt;
+//             &lt;TabNavigation.List&gt;
+//               &lt;TabNavigation.Link
+//                 aria-current={currentTabId === &#39;algemene-informatie&#39; ? &#39;page&#39; : undefined}
+//                 href=&quot;#algemene-informatie&quot;
+//                 onClick={(event) =&gt; handleTabClick(event, &#39;algemene-informatie&#39;)}
+//               &gt;
+//                 Algemene informatie
+//               &lt;/TabNavigation.Link&gt;
+//               &lt;TabNavigation.Link
+//                 aria-current={currentTabId === &#39;historie&#39; ? &#39;page&#39; : undefined}
+//                 href=&quot;#historie&quot;
+//                 onClick={(event) =&gt; handleTabClick(event, &#39;historie&#39;)}
+//               &gt;
+//                 Historie
+//               &lt;/TabNavigation.Link&gt;
+//               &lt;TabNavigation.Link
+//                 aria-current={currentTabId === &#39;kaart&#39; ? &#39;page&#39; : undefined}
+//                 href=&quot;#kaart&quot;
+//                 onClick={(event) =&gt; handleTabClick(event, &#39;kaart&#39;)}
+//               &gt;
+//                 Kaart
+//               &lt;/TabNavigation.Link&gt;
+//             &lt;/TabNavigation.List&gt;
+//           &lt;/TabNavigation&gt;
+//         &lt;/Grid.Cell&gt;
 
-        &lt;Grid.Subgrid span=&quot;all&quot;&gt;
-          &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 8 }}&gt;
-            &lt;DetailPageEditGeneralInformationTab hidden={currentTabId !== &#39;algemene-informatie&#39;} /&gt;
-            &lt;DetailPageEditHistoryTab hidden={currentTabId !== &#39;historie&#39;} /&gt;
-            &lt;DetailPageEditMapTab hidden={currentTabId !== &#39;kaart&#39;} /&gt;
-          &lt;/Grid.Cell&gt;
-        &lt;/Grid.Subgrid&gt;
-      &lt;/Grid&gt;
-    )
-  },
-}
+//         &lt;Grid.Subgrid span=&quot;all&quot;&gt;
+//           &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 8 }}&gt;
+//             &lt;DetailPageEditGeneralInformationTab hidden={currentTabId !== &#39;algemene-informatie&#39;} /&gt;
+//             &lt;DetailPageEditHistoryTab hidden={currentTabId !== &#39;historie&#39;} /&gt;
+//             &lt;DetailPageEditMapTab hidden={currentTabId !== &#39;kaart&#39;} /&gt;
+//           &lt;/Grid.Cell&gt;
+//         &lt;/Grid.Subgrid&gt;
+//       &lt;/Grid&gt;
+//     )
+//   },
+// }
 
 export const Review: StoryObj = {
   parameters: {
@@ -41502,6 +41656,7 @@ export const Review: StoryObj = {
             &lt;/ModalDialog.Footer&gt;
           &lt;/ModalDialog&gt;
         &lt;/Grid&gt;
+      &lt;/&gt;
         `,
         language: &#39;tsx&#39;,
       },
@@ -41524,6 +41679,349 @@ export const Review: StoryObj = {
     }
 
     return (
+      &lt;&gt;
+        &lt;style&gt;{reviewSectionHighlightStyles}&lt;/style&gt;
+        &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+          &lt;Grid.Cell appearance=&quot;transparent&quot; span=&quot;all&quot;&gt;
+            &lt;Breadcrumb&gt;
+              {detailPageData.breadcrumbs.map((breadcrumb) =&gt; (
+                &lt;Breadcrumb.Link href=&quot;#&quot; key={breadcrumb}&gt;
+                  {breadcrumb}
+                &lt;/Breadcrumb.Link&gt;
+              ))}
+            &lt;/Breadcrumb&gt;
+            &lt;Row align=&quot;between&quot; wrap&gt;
+              &lt;Heading level={1}&gt;{detailPageData.name}&lt;/Heading&gt;
+              &lt;ActionGroup&gt;
+                &lt;Button icon={MagnifyingGlassWithEyeIcon} variant=&quot;secondary&quot;&gt;
+                  Review
+                &lt;/Button&gt;
+                &lt;Button icon={PencilIcon}&gt;Bewerken&lt;/Button&gt;
+              &lt;/ActionGroup&gt;
+            &lt;/Row&gt;
+          &lt;/Grid.Cell&gt;
+
+          &lt;Grid.Subgrid span={{ narrow: 4, medium: 3, wide: 4 }} start={{ narrow: 1, medium: 6, wide: 9 }}&gt;
+            &lt;Grid.Cell span=&quot;all&quot;&gt;
+              &lt;Card&gt;
+                &lt;Card.HeadingGroup key={1}&gt;
+                  &lt;Card.Heading level={4}&gt;L van de Akker&lt;/Card.Heading&gt;
+                  &lt;Metadata size=&quot;small&quot;&gt;12-08-2026 10:30&lt;/Metadata&gt;
+                &lt;/Card.HeadingGroup&gt;
+                &lt;Column gap=&quot;small&quot;&gt;
+                  &lt;Paragraph key={2}&gt;Hier zou je ook protesten bij kunnen vermelden.&lt;/Paragraph&gt;
+                  &lt;Row alignVertical=&quot;center&quot; gap=&quot;small&quot;&gt;
+                    &lt;TextInput key={3} placeholder=&quot;Voeg een opmerking toe&quot; /&gt;
+                    &lt;IconButton label=&quot;Voeg opmerking toe&quot; size=&quot;large&quot; svg={ArrowForwardIcon} /&gt;
+                  &lt;/Row&gt;
+                  &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; gap=&quot;small&quot;&gt;
+                    &lt;Row gap=&quot;small&quot;&gt;
+                      &lt;IconButton
+                        label=&quot;Bekijken&quot;
+                        onClick={() =&gt; highlightReviewElement(&#39;functie-5&#39;)}
+                        svg={MagnifyingGlassWithEyeIcon}
+                      /&gt;
+                      &lt;IconButton label=&quot;Bewerken&quot; svg={PencilIcon} /&gt;
+                    &lt;/Row&gt;
+                    &lt;IconButton label=&quot;Opgelost&quot; svg={CheckMarkIcon} /&gt;
+                  &lt;/Row&gt;
+                &lt;/Column&gt;
+              &lt;/Card&gt;
+            &lt;/Grid.Cell&gt;
+            &lt;Grid.Cell span=&quot;all&quot;&gt;
+              &lt;Card&gt;
+                &lt;Card.HeadingGroup key={1}&gt;
+                  &lt;Card.Heading level={4}&gt;L van de Akker&lt;/Card.Heading&gt;
+                  &lt;Metadata size=&quot;small&quot;&gt;12-08-2026 10:30&lt;/Metadata&gt;
+                &lt;/Card.HeadingGroup&gt;
+                &lt;Column gap=&quot;small&quot;&gt;
+                  &lt;Paragraph key={2}&gt;Jaar moet 1915 zijn.&lt;/Paragraph&gt;
+                  &lt;Row alignVertical=&quot;center&quot; gap=&quot;small&quot;&gt;
+                    &lt;TextInput key={3} placeholder=&quot;Voeg een opmerking toe&quot; /&gt;
+                    &lt;IconButton label=&quot;Voeg opmerking toe&quot; size=&quot;large&quot; svg={ArrowForwardIcon} /&gt;
+                  &lt;/Row&gt;
+                  &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; gap=&quot;small&quot;&gt;
+                    &lt;Row gap=&quot;small&quot;&gt;
+                      &lt;IconButton
+                        label=&quot;Bekijken&quot;
+                        onClick={() =&gt; highlightReviewElement(&#39;row-4&#39;)}
+                        svg={MagnifyingGlassWithEyeIcon}
+                      /&gt;
+                      &lt;IconButton label=&quot;Bewerken&quot; svg={PencilIcon} /&gt;
+                    &lt;/Row&gt;
+                    &lt;IconButton label=&quot;Opgelost&quot; svg={CheckMarkIcon} /&gt;
+                  &lt;/Row&gt;
+                &lt;/Column&gt;
+              &lt;/Card&gt;
+            &lt;/Grid.Cell&gt;
+            &lt;Grid.Cell span=&quot;all&quot;&gt;
+              &lt;Card&gt;
+                &lt;Card.HeadingGroup key={1}&gt;
+                  &lt;Card.Heading level={4}&gt;L van de Akker&lt;/Card.Heading&gt;
+                  &lt;Metadata size=&quot;small&quot;&gt;12-08-2026 10:30&lt;/Metadata&gt;
+                &lt;/Card.HeadingGroup&gt;
+                &lt;Column gap=&quot;small&quot;&gt;
+                  &lt;Paragraph key={2}&gt;de Bijenkorf lijkt zo meer bij de Damrak te horen dan de Dam.&lt;/Paragraph&gt;
+                  &lt;Row alignVertical=&quot;center&quot; gap=&quot;small&quot;&gt;
+                    &lt;TextInput key={3} placeholder=&quot;Voeg een opmerking toe&quot; /&gt;
+                    &lt;IconButton label=&quot;Voeg opmerking toe&quot; size=&quot;large&quot; svg={ArrowForwardIcon} /&gt;
+                  &lt;/Row&gt;
+                  &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; gap=&quot;small&quot;&gt;
+                    &lt;Row gap=&quot;small&quot;&gt;
+                      &lt;IconButton
+                        label=&quot;Bekijken&quot;
+                        onClick={() =&gt; highlightReviewElement(&#39;kaart&#39;)}
+                        svg={MagnifyingGlassWithEyeIcon}
+                      /&gt;
+                      &lt;IconButton label=&quot;Bewerken&quot; svg={PencilIcon} /&gt;
+                    &lt;/Row&gt;
+                    &lt;IconButton label=&quot;Opgelost&quot; svg={CheckMarkIcon} /&gt;
+                  &lt;/Row&gt;
+                &lt;/Column&gt;
+              &lt;/Card&gt;
+            &lt;/Grid.Cell&gt;
+          &lt;/Grid.Subgrid&gt;
+
+          &lt;Grid.Subgrid rowStart={{ narrow: 3, medium: 2, wide: 2 }} span={{ narrow: 4, medium: 5, wide: 8 }}&gt;
+            &lt;Grid.Cell className=&quot;ams-prose&quot; span=&quot;all&quot;&gt;
+              &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; className=&quot;ams-mb-m&quot; wrap&gt;
+                &lt;Heading id=&quot;algemene-informatie&quot; level={2}&gt;
+                  Algemene informatie
+                &lt;/Heading&gt;
+                &lt;Button
+                  icon={SpeechBalloonIcon}
+                  onClick={() =&gt; openRemarkDialog(&#39;algemene-informatie&#39;)}
+                  variant=&quot;secondary&quot;
+                &gt;
+                  Opmerkingen
+                &lt;/Button&gt;
+              &lt;/Row&gt;
+              &lt;Paragraph&gt;{detailPageData.description}&lt;/Paragraph&gt;
+              &lt;ObjectInformationDescriptionList items={detailPageData.basicInformation} review /&gt;
+            &lt;/Grid.Cell&gt;
+            &lt;Grid.Cell className=&quot;ams-prose&quot; span=&quot;all&quot;&gt;
+              &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; className=&quot;ams-mb-m&quot; wrap&gt;
+                &lt;Heading id=&quot;geschiedenis&quot; level={2}&gt;
+                  Geschiedenis
+                &lt;/Heading&gt;
+                &lt;Button icon={SpeechBalloonIcon} onClick={() =&gt; openRemarkDialog(&#39;geschiedenis&#39;)} variant=&quot;secondary&quot;&gt;
+                  Opmerkingen
+                &lt;/Button&gt;
+              &lt;/Row&gt;
+              &lt;ObjectInformationTable events={detailPageData.history} review /&gt;
+            &lt;/Grid.Cell&gt;
+            &lt;Grid.Cell span=&quot;all&quot;&gt;
+              &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; className=&quot;ams-mb-s&quot; wrap&gt;
+                &lt;Heading id=&quot;kaart&quot; level={2}&gt;
+                  Kaart
+                &lt;/Heading&gt;
+                &lt;Button icon={SpeechBalloonIcon} onClick={() =&gt; openRemarkDialog(&#39;kaart&#39;)} variant=&quot;secondary&quot;&gt;
+                  Opmerkingen
+                &lt;/Button&gt;
+              &lt;/Row&gt;
+              &lt;ObjectInformationMap geoJson={geoJson} /&gt;
+            &lt;/Grid.Cell&gt;
+          &lt;/Grid.Subgrid&gt;
+
+          &lt;ModalDialog
+            aria-labelledby={`${dialogId}-heading`}
+            id={dialogId}
+            onClose={() =&gt; setCurrentRemarkSectionId(null)}
+          &gt;
+            &lt;ModalDialog.Header&gt;
+              &lt;Heading id={`${dialogId}-heading`} level={1} size=&quot;level-2&quot;&gt;
+                {currentRemarkSectionLabel
+                  ? `Opmerking toevoegen bij ${currentRemarkSectionLabel}`
+                  : &#39;Opmerking toevoegen&#39;}
+              &lt;/Heading&gt;
+            &lt;/ModalDialog.Header&gt;
+            &lt;ModalDialog.Body&gt;
+              &lt;Column gap=&quot;small&quot;&gt;
+                &lt;Field&gt;
+                  &lt;Label htmlFor=&quot;detail-page-review-remarks&quot;&gt;Opmerkingen&lt;/Label&gt;
+                  &lt;TextArea
+                    id=&quot;detail-page-review-remarks&quot;
+                    onChange={(event) =&gt; {
+                      if (!currentRemarkSectionId) {
+                        return
+                      }
+
+                      const sectionId = currentRemarkSectionId
+                      const value = event.currentTarget.value
+
+                      setRemarks((currentRemarks) =&gt; ({
+                        ...currentRemarks,
+                        [sectionId]: value,
+                      }))
+                    }}
+                    rows={4}
+                    value={currentRemarkSectionId ? remarks[currentRemarkSectionId] : &#39;&#39;}
+                  /&gt;
+                &lt;/Field&gt;
+              &lt;/Column&gt;
+            &lt;/ModalDialog.Body&gt;
+            &lt;ModalDialog.Footer&gt;
+              &lt;Button onClick={ModalDialog.close}&gt;Sluiten&lt;/Button&gt;
+            &lt;/ModalDialog.Footer&gt;
+          &lt;/ModalDialog&gt;
+        &lt;/Grid&gt;
+      &lt;/&gt;
+    )
+  },
+}
+</code></pre></div>
+    </div>
+        </div>
+    
+        <div class="panel panel-info">
+          
+    <div class="note info">
+      <div class="note-title">Info</div>
+      <div class="note-body">No description found. Write a jsdoc comment such as /** Component description */.</div>
+    </div>
+        </div>
+    
+    
+        <div class="panel panel-stories">
+          
+          
+          
+          <div class="note ok">
+                <div class="row">
+                  <span class="ex-name">Imports</span>
+                </div>
+                <pre><code>import {
+    ActionGroup,
+    Breadcrumb,
+    Button,
+    Card,
+    Column,
+    Field,
+    Grid,
+    Heading,
+    IconButton,
+    Label,
+    LinkList,
+    Metadata,
+    Paragraph,
+    Row,
+    TableOfContents,
+    TextArea,
+    TextInput,
+} from "@amsterdam/design-system-react";
+import { ModalDialog } from "@amsterdam/design-system-react/src";
+import {
+    ObjectInformationDescriptionList,
+    ObjectInformationMap,
+    ObjectInformationTable,
+} from "@amsterdam/storybook";</code></pre>
+              </div>
+          
+          
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Default</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const Default = () =&gt; {
+  return (
+    &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+      &lt;Grid.Cell appearance=&quot;transparent&quot; span=&quot;all&quot;&gt;
+        &lt;Breadcrumb&gt;
+          {detailPageData.breadcrumbs.map((breadcrumb) =&gt; (
+            &lt;Breadcrumb.Link href=&quot;#&quot; key={breadcrumb}&gt;
+              {breadcrumb}
+            &lt;/Breadcrumb.Link&gt;
+          ))}
+        &lt;/Breadcrumb&gt;
+        &lt;Row align=&quot;between&quot; wrap&gt;
+          &lt;Heading level={1}&gt;{detailPageData.name}&lt;/Heading&gt;
+          &lt;ActionGroup&gt;
+            &lt;Button icon={MagnifyingGlassWithEyeIcon} variant=&quot;secondary&quot;&gt;
+              Review
+            &lt;/Button&gt;
+            &lt;Button icon={PencilIcon}&gt;Bewerken&lt;/Button&gt;
+          &lt;/ActionGroup&gt;
+        &lt;/Row&gt;
+      &lt;/Grid.Cell&gt;
+
+      &lt;Grid.Subgrid span={{ narrow: 4, medium: 2, wide: 3 }} start={{ narrow: 1, medium: 7, wide: 10 }}&gt;
+        &lt;Grid.Cell span=&quot;all&quot;&gt;
+          &lt;TableOfContents heading=&quot;Op deze pagina&quot;&gt;
+            &lt;TableOfContents.List&gt;
+              &lt;TableOfContents.Link href=&quot;#algemene-informatie&quot; label=&quot;Algemene informatie&quot; /&gt;
+              &lt;TableOfContents.Link href=&quot;#geschiedenis&quot; label=&quot;Geschiedenis&quot; /&gt;
+              &lt;TableOfContents.Link href=&quot;#kaart&quot; label=&quot;Kaart&quot; /&gt;
+            &lt;/TableOfContents.List&gt;
+          &lt;/TableOfContents&gt;
+        &lt;/Grid.Cell&gt;
+        &lt;Grid.Cell span=&quot;all&quot;&gt;
+          &lt;Heading className=&quot;ams-mb-xs&quot; level={3}&gt;
+            Bronnen
+          &lt;/Heading&gt;
+          &lt;LinkList&gt;
+            {detailPageData.links.map(({ label, url }) =&gt; (
+              &lt;LinkList.Link href={url} icon={LinkExternalIcon} key={url}&gt;
+                {label}
+              &lt;/LinkList.Link&gt;
+            ))}
+          &lt;/LinkList&gt;
+        &lt;/Grid.Cell&gt;
+      &lt;/Grid.Subgrid&gt;
+
+      &lt;Grid.Subgrid rowStart={{ narrow: 3, medium: 2, wide: 2 }} span={{ narrow: 4, medium: 6, wide: 9 }}&gt;
+        &lt;Grid.Cell className=&quot;ams-prose&quot; span=&quot;all&quot;&gt;
+          &lt;Heading id=&quot;algemene-informatie&quot; level={2}&gt;
+            Algemene informatie
+          &lt;/Heading&gt;
+          &lt;Paragraph&gt;{detailPageData.description}&lt;/Paragraph&gt;
+          &lt;ObjectInformationDescriptionList items={detailPageData.basicInformation} /&gt;
+        &lt;/Grid.Cell&gt;
+        &lt;Grid.Cell className=&quot;ams-prose&quot; span=&quot;all&quot;&gt;
+          &lt;Heading id=&quot;geschiedenis&quot; level={2}&gt;
+            Geschiedenis
+          &lt;/Heading&gt;
+          &lt;ObjectInformationTable events={detailPageData.history} /&gt;
+        &lt;/Grid.Cell&gt;
+        &lt;Grid.Cell span=&quot;all&quot;&gt;
+          &lt;Heading className=&quot;ams-mb-s&quot; id=&quot;kaart&quot; level={2}&gt;
+            Kaart
+          &lt;/Heading&gt;
+          &lt;ObjectInformationMap geoJson={geoJson} /&gt;
+        &lt;/Grid.Cell&gt;
+      &lt;/Grid.Subgrid&gt;
+    &lt;/Grid&gt;
+  )
+};</code></pre>
+            </div>
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Review</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const Review = () =&gt; {
+  const [currentRemarkSectionId, setCurrentRemarkSectionId] = useState&lt;ReviewSectionId | null&gt;(null)
+  const [remarks, setRemarks] = useState&lt;Record&lt;ReviewSectionId, string&gt;&gt;({
+    &#39;algemene-informatie&#39;: &#39;&#39;,
+    geschiedenis: &#39;&#39;,
+    kaart: &#39;&#39;,
+  })
+
+  const dialogId = &#39;detail-page-review-remark-dialog&#39;
+  const currentRemarkSectionLabel = currentRemarkSectionId ? reviewSectionLabels[currentRemarkSectionId] : &#39;&#39;
+
+  const openRemarkDialog = (sectionId: ReviewSectionId) =&gt; {
+    setCurrentRemarkSectionId(sectionId)
+    ModalDialog.open(`#${dialogId}`)
+  }
+
+  return (
+    &lt;&gt;
+      &lt;style&gt;{reviewSectionHighlightStyles}&lt;/style&gt;
       &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
         &lt;Grid.Cell appearance=&quot;transparent&quot; span=&quot;all&quot;&gt;
           &lt;Breadcrumb&gt;
@@ -41544,76 +42042,122 @@ export const Review: StoryObj = {
           &lt;/Row&gt;
         &lt;/Grid.Cell&gt;
 
-        &lt;Grid.Subgrid span={{ narrow: 4, medium: 3, wide: 3 }}&gt;
+        &lt;Grid.Subgrid span={{ narrow: 4, medium: 3, wide: 4 }} start={{ narrow: 1, medium: 6, wide: 9 }}&gt;
           &lt;Grid.Cell span=&quot;all&quot;&gt;
-            &lt;TableOfContents heading=&quot;Op deze pagina&quot;&gt;
-              &lt;TableOfContents.List&gt;
-                &lt;TableOfContents.Link href=&quot;#algemene-informatie&quot; label=&quot;Algemene informatie&quot; /&gt;
-                &lt;TableOfContents.Link href=&quot;#geschiedenis&quot; label=&quot;Geschiedenis&quot; /&gt;
-                &lt;TableOfContents.Link href=&quot;#kaart&quot; label=&quot;Kaart&quot; /&gt;
-              &lt;/TableOfContents.List&gt;
-            &lt;/TableOfContents&gt;
+            &lt;Card&gt;
+              &lt;Card.HeadingGroup key={1}&gt;
+                &lt;Card.Heading level={4}&gt;L van de Akker&lt;/Card.Heading&gt;
+                &lt;Metadata size=&quot;small&quot;&gt;12-08-2026 10:30&lt;/Metadata&gt;
+              &lt;/Card.HeadingGroup&gt;
+              &lt;Column gap=&quot;small&quot;&gt;
+                &lt;Paragraph key={2}&gt;Hier zou je ook protesten bij kunnen vermelden.&lt;/Paragraph&gt;
+                &lt;Row alignVertical=&quot;center&quot; gap=&quot;small&quot;&gt;
+                  &lt;TextInput key={3} placeholder=&quot;Voeg een opmerking toe&quot; /&gt;
+                  &lt;IconButton label=&quot;Voeg opmerking toe&quot; size=&quot;large&quot; svg={ArrowForwardIcon} /&gt;
+                &lt;/Row&gt;
+                &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; gap=&quot;small&quot;&gt;
+                  &lt;Row gap=&quot;small&quot;&gt;
+                    &lt;IconButton
+                      label=&quot;Bekijken&quot;
+                      onClick={() =&gt; highlightReviewElement(&#39;functie-5&#39;)}
+                      svg={MagnifyingGlassWithEyeIcon}
+                    /&gt;
+                    &lt;IconButton label=&quot;Bewerken&quot; svg={PencilIcon} /&gt;
+                  &lt;/Row&gt;
+                  &lt;IconButton label=&quot;Opgelost&quot; svg={CheckMarkIcon} /&gt;
+                &lt;/Row&gt;
+              &lt;/Column&gt;
+            &lt;/Card&gt;
           &lt;/Grid.Cell&gt;
           &lt;Grid.Cell span=&quot;all&quot;&gt;
-            &lt;Heading className=&quot;ams-mb-xs&quot; level={3}&gt;
-              Bronnen
-            &lt;/Heading&gt;
-            &lt;LinkList&gt;
-              {detailPageData.links.map(({ label, url }) =&gt; (
-                &lt;LinkList.Link href={url} icon={LinkExternalIcon} key={url}&gt;
-                  {label}
-                &lt;/LinkList.Link&gt;
-              ))}
-            &lt;/LinkList&gt;
+            &lt;Card&gt;
+              &lt;Card.HeadingGroup key={1}&gt;
+                &lt;Card.Heading level={4}&gt;L van de Akker&lt;/Card.Heading&gt;
+                &lt;Metadata size=&quot;small&quot;&gt;12-08-2026 10:30&lt;/Metadata&gt;
+              &lt;/Card.HeadingGroup&gt;
+              &lt;Column gap=&quot;small&quot;&gt;
+                &lt;Paragraph key={2}&gt;Jaar moet 1915 zijn.&lt;/Paragraph&gt;
+                &lt;Row alignVertical=&quot;center&quot; gap=&quot;small&quot;&gt;
+                  &lt;TextInput key={3} placeholder=&quot;Voeg een opmerking toe&quot; /&gt;
+                  &lt;IconButton label=&quot;Voeg opmerking toe&quot; size=&quot;large&quot; svg={ArrowForwardIcon} /&gt;
+                &lt;/Row&gt;
+                &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; gap=&quot;small&quot;&gt;
+                  &lt;Row gap=&quot;small&quot;&gt;
+                    &lt;IconButton
+                      label=&quot;Bekijken&quot;
+                      onClick={() =&gt; highlightReviewElement(&#39;row-4&#39;)}
+                      svg={MagnifyingGlassWithEyeIcon}
+                    /&gt;
+                    &lt;IconButton label=&quot;Bewerken&quot; svg={PencilIcon} /&gt;
+                  &lt;/Row&gt;
+                  &lt;IconButton label=&quot;Opgelost&quot; svg={CheckMarkIcon} /&gt;
+                &lt;/Row&gt;
+              &lt;/Column&gt;
+            &lt;/Card&gt;
+          &lt;/Grid.Cell&gt;
+          &lt;Grid.Cell span=&quot;all&quot;&gt;
+            &lt;Card&gt;
+              &lt;Card.HeadingGroup key={1}&gt;
+                &lt;Card.Heading level={4}&gt;L van de Akker&lt;/Card.Heading&gt;
+                &lt;Metadata size=&quot;small&quot;&gt;12-08-2026 10:30&lt;/Metadata&gt;
+              &lt;/Card.HeadingGroup&gt;
+              &lt;Column gap=&quot;small&quot;&gt;
+                &lt;Paragraph key={2}&gt;de Bijenkorf lijkt zo meer bij de Damrak te horen dan de Dam.&lt;/Paragraph&gt;
+                &lt;Row alignVertical=&quot;center&quot; gap=&quot;small&quot;&gt;
+                  &lt;TextInput key={3} placeholder=&quot;Voeg een opmerking toe&quot; /&gt;
+                  &lt;IconButton label=&quot;Voeg opmerking toe&quot; size=&quot;large&quot; svg={ArrowForwardIcon} /&gt;
+                &lt;/Row&gt;
+                &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; gap=&quot;small&quot;&gt;
+                  &lt;Row gap=&quot;small&quot;&gt;
+                    &lt;IconButton
+                      label=&quot;Bekijken&quot;
+                      onClick={() =&gt; highlightReviewElement(&#39;kaart&#39;)}
+                      svg={MagnifyingGlassWithEyeIcon}
+                    /&gt;
+                    &lt;IconButton label=&quot;Bewerken&quot; svg={PencilIcon} /&gt;
+                  &lt;/Row&gt;
+                  &lt;IconButton label=&quot;Opgelost&quot; svg={CheckMarkIcon} /&gt;
+                &lt;/Row&gt;
+              &lt;/Column&gt;
+            &lt;/Card&gt;
           &lt;/Grid.Cell&gt;
         &lt;/Grid.Subgrid&gt;
 
-        &lt;Grid.Subgrid span={{ narrow: 4, medium: 5, wide: 9 }}&gt;
+        &lt;Grid.Subgrid rowStart={{ narrow: 3, medium: 2, wide: 2 }} span={{ narrow: 4, medium: 5, wide: 8 }}&gt;
           &lt;Grid.Cell className=&quot;ams-prose&quot; span=&quot;all&quot;&gt;
             &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; className=&quot;ams-mb-m&quot; wrap&gt;
               &lt;Heading id=&quot;algemene-informatie&quot; level={2}&gt;
                 Algemene informatie
               &lt;/Heading&gt;
               &lt;Button
-                icon={MagnifyingGlassWithEyeIcon}
-                iconOnly
+                icon={SpeechBalloonIcon}
                 onClick={() =&gt; openRemarkDialog(&#39;algemene-informatie&#39;)}
                 variant=&quot;secondary&quot;
               &gt;
-                Voeg een opmerking toe bij Algemene informatie
+                Opmerkingen
               &lt;/Button&gt;
             &lt;/Row&gt;
             &lt;Paragraph&gt;{detailPageData.description}&lt;/Paragraph&gt;
-            &lt;ObjectInformationDescriptionList items={detailPageData.basicInformation} /&gt;
+            &lt;ObjectInformationDescriptionList items={detailPageData.basicInformation} review /&gt;
           &lt;/Grid.Cell&gt;
           &lt;Grid.Cell className=&quot;ams-prose&quot; span=&quot;all&quot;&gt;
             &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; className=&quot;ams-mb-m&quot; wrap&gt;
               &lt;Heading id=&quot;geschiedenis&quot; level={2}&gt;
                 Geschiedenis
               &lt;/Heading&gt;
-              &lt;Button
-                icon={MagnifyingGlassWithEyeIcon}
-                iconOnly
-                onClick={() =&gt; openRemarkDialog(&#39;geschiedenis&#39;)}
-                variant=&quot;secondary&quot;
-              &gt;
-                Voeg een opmerking toe bij Geschiedenis
+              &lt;Button icon={SpeechBalloonIcon} onClick={() =&gt; openRemarkDialog(&#39;geschiedenis&#39;)} variant=&quot;secondary&quot;&gt;
+                Opmerkingen
               &lt;/Button&gt;
             &lt;/Row&gt;
-            &lt;ObjectInformationTable events={detailPageData.history} /&gt;
+            &lt;ObjectInformationTable events={detailPageData.history} review /&gt;
           &lt;/Grid.Cell&gt;
           &lt;Grid.Cell span=&quot;all&quot;&gt;
             &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; className=&quot;ams-mb-s&quot; wrap&gt;
               &lt;Heading id=&quot;kaart&quot; level={2}&gt;
                 Kaart
               &lt;/Heading&gt;
-              &lt;Button
-                icon={MagnifyingGlassWithEyeIcon}
-                iconOnly
-                onClick={() =&gt; openRemarkDialog(&#39;kaart&#39;)}
-                variant=&quot;secondary&quot;
-              &gt;
-                Voeg een opmerking toe bij Kaart
+              &lt;Button icon={SpeechBalloonIcon} onClick={() =&gt; openRemarkDialog(&#39;kaart&#39;)} variant=&quot;secondary&quot;&gt;
+                Opmerkingen
               &lt;/Button&gt;
             &lt;/Row&gt;
             &lt;ObjectInformationMap geoJson={geoJson} /&gt;
@@ -41662,373 +42206,7 @@ export const Review: StoryObj = {
           &lt;/ModalDialog.Footer&gt;
         &lt;/ModalDialog&gt;
       &lt;/Grid&gt;
-    )
-  },
-}
-</code></pre></div>
-    </div>
-        </div>
-    
-        <div class="panel panel-info">
-          
-    <div class="note info">
-      <div class="note-title">Info</div>
-      <div class="note-body">No description found. Write a jsdoc comment such as /** Component description */.</div>
-    </div>
-        </div>
-    
-    
-        <div class="panel panel-stories">
-          
-          
-          
-          <div class="note ok">
-                <div class="row">
-                  <span class="ex-name">Imports</span>
-                </div>
-                <pre><code>import {
-    ActionGroup,
-    Breadcrumb,
-    Button,
-    Column,
-    Field,
-    Grid,
-    Heading,
-    Label,
-    LinkList,
-    Paragraph,
-    Row,
-    TableOfContents,
-    TabNavigation,
-    TextArea,
-} from "@amsterdam/design-system-react";
-import {
-    DetailPageEditGeneralInformationTab,
-    DetailPageEditHistoryTab,
-    DetailPageEditMapTab,
-    ObjectInformationDescriptionList,
-    ObjectInformationMap,
-    ObjectInformationTable,
-} from "@amsterdam/storybook";
-import { ModalDialog } from "@amsterdam/design-system-react/src";</code></pre>
-              </div>
-          
-          
-            <div class="note ok">
-              <div class="row">
-                <span class="ex-name">Default</span>
-                <span class="badge ok">story ok</span>
-              </div>
-              
-              
-              <pre><code>const Default = () =&gt; {
-  return (
-    &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
-      &lt;Grid.Cell appearance=&quot;transparent&quot; span=&quot;all&quot;&gt;
-        &lt;Breadcrumb&gt;
-          {detailPageData.breadcrumbs.map((breadcrumb) =&gt; (
-            &lt;Breadcrumb.Link href=&quot;#&quot; key={breadcrumb}&gt;
-              {breadcrumb}
-            &lt;/Breadcrumb.Link&gt;
-          ))}
-        &lt;/Breadcrumb&gt;
-        &lt;Row align=&quot;between&quot; wrap&gt;
-          &lt;Heading level={1}&gt;{detailPageData.name}&lt;/Heading&gt;
-          &lt;ActionGroup&gt;
-            &lt;Button icon={MagnifyingGlassWithEyeIcon} variant=&quot;secondary&quot;&gt;
-              Review
-            &lt;/Button&gt;
-            &lt;Button icon={PencilIcon}&gt;Bewerken&lt;/Button&gt;
-          &lt;/ActionGroup&gt;
-        &lt;/Row&gt;
-      &lt;/Grid.Cell&gt;
-
-      &lt;Grid.Subgrid span={{ narrow: 4, medium: 3, wide: 3 }}&gt;
-        &lt;Grid.Cell span=&quot;all&quot;&gt;
-          &lt;TableOfContents heading=&quot;Op deze pagina&quot;&gt;
-            &lt;TableOfContents.List&gt;
-              &lt;TableOfContents.Link href=&quot;#algemene-informatie&quot; label=&quot;Algemene informatie&quot; /&gt;
-              &lt;TableOfContents.Link href=&quot;#geschiedenis&quot; label=&quot;Geschiedenis&quot; /&gt;
-              &lt;TableOfContents.Link href=&quot;#kaart&quot; label=&quot;Kaart&quot; /&gt;
-            &lt;/TableOfContents.List&gt;
-          &lt;/TableOfContents&gt;
-        &lt;/Grid.Cell&gt;
-        &lt;Grid.Cell span=&quot;all&quot;&gt;
-          &lt;Heading className=&quot;ams-mb-xs&quot; level={3}&gt;
-            Bronnen
-          &lt;/Heading&gt;
-          &lt;LinkList&gt;
-            {detailPageData.links.map(({ label, url }) =&gt; (
-              &lt;LinkList.Link href={url} icon={LinkExternalIcon} key={url}&gt;
-                {label}
-              &lt;/LinkList.Link&gt;
-            ))}
-          &lt;/LinkList&gt;
-        &lt;/Grid.Cell&gt;
-      &lt;/Grid.Subgrid&gt;
-
-      &lt;Grid.Subgrid span={{ narrow: 4, medium: 5, wide: 9 }}&gt;
-        &lt;Grid.Cell className=&quot;ams-prose&quot; span=&quot;all&quot;&gt;
-          &lt;Heading id=&quot;algemene-informatie&quot; level={2}&gt;
-            Algemene informatie
-          &lt;/Heading&gt;
-          &lt;Paragraph&gt;{detailPageData.description}&lt;/Paragraph&gt;
-          &lt;ObjectInformationDescriptionList items={detailPageData.basicInformation} /&gt;
-        &lt;/Grid.Cell&gt;
-        &lt;Grid.Cell className=&quot;ams-prose&quot; span=&quot;all&quot;&gt;
-          &lt;Heading id=&quot;geschiedenis&quot; level={2}&gt;
-            Geschiedenis
-          &lt;/Heading&gt;
-          &lt;ObjectInformationTable events={detailPageData.history} /&gt;
-        &lt;/Grid.Cell&gt;
-        &lt;Grid.Cell span=&quot;all&quot;&gt;
-          &lt;Heading className=&quot;ams-mb-s&quot; id=&quot;kaart&quot; level={2}&gt;
-            Kaart
-          &lt;/Heading&gt;
-          &lt;ObjectInformationMap geoJson={geoJson} /&gt;
-        &lt;/Grid.Cell&gt;
-      &lt;/Grid.Subgrid&gt;
-    &lt;/Grid&gt;
-  )
-};</code></pre>
-            </div>
-            <div class="note ok">
-              <div class="row">
-                <span class="ex-name">Edit</span>
-                <span class="badge ok">story ok</span>
-              </div>
-              
-              
-              <pre><code>const Edit = () =&gt; {
-  const [currentTabId, setCurrentTabId] = useState&lt;EditTabId&gt;(&#39;algemene-informatie&#39;)
-
-  const handleTabClick = (event: MouseEvent&lt;HTMLAnchorElement&gt;, tabId: EditTabId) =&gt; {
-    event.preventDefault()
-    setCurrentTabId(tabId)
-  }
-
-  return (
-    &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
-      &lt;Grid.Cell appearance=&quot;transparent&quot; span=&quot;all&quot;&gt;
-        &lt;Breadcrumb&gt;
-          {detailPageData.breadcrumbs.map((breadcrumb) =&gt; (
-            &lt;Breadcrumb.Link href=&quot;#&quot; key={breadcrumb}&gt;
-              {breadcrumb}
-            &lt;/Breadcrumb.Link&gt;
-          ))}
-        &lt;/Breadcrumb&gt;
-        &lt;Row align=&quot;between&quot; wrap&gt;
-          &lt;Heading level={1}&gt;{detailPageData.name}&lt;/Heading&gt;
-          &lt;ActionGroup&gt;
-            &lt;Button icon={MagnifyingGlassWithEyeIcon} variant=&quot;secondary&quot;&gt;
-              Exporteren
-            &lt;/Button&gt;
-            &lt;Button icon={EyeOpenIcon}&gt;Toon Object&lt;/Button&gt;
-          &lt;/ActionGroup&gt;
-        &lt;/Row&gt;
-      &lt;/Grid.Cell&gt;
-
-      &lt;Grid.Cell appearance=&quot;flush&quot; span=&quot;all&quot;&gt;
-        &lt;TabNavigation accessibleName=&quot;Subnavigatie voor dit project&quot;&gt;
-          &lt;TabNavigation.List&gt;
-            &lt;TabNavigation.Link
-              aria-current={currentTabId === &#39;algemene-informatie&#39; ? &#39;page&#39; : undefined}
-              href=&quot;#algemene-informatie&quot;
-              onClick={(event) =&gt; handleTabClick(event, &#39;algemene-informatie&#39;)}
-            &gt;
-              Algemene informatie
-            &lt;/TabNavigation.Link&gt;
-            &lt;TabNavigation.Link
-              aria-current={currentTabId === &#39;historie&#39; ? &#39;page&#39; : undefined}
-              href=&quot;#historie&quot;
-              onClick={(event) =&gt; handleTabClick(event, &#39;historie&#39;)}
-            &gt;
-              Historie
-            &lt;/TabNavigation.Link&gt;
-            &lt;TabNavigation.Link
-              aria-current={currentTabId === &#39;kaart&#39; ? &#39;page&#39; : undefined}
-              href=&quot;#kaart&quot;
-              onClick={(event) =&gt; handleTabClick(event, &#39;kaart&#39;)}
-            &gt;
-              Kaart
-            &lt;/TabNavigation.Link&gt;
-          &lt;/TabNavigation.List&gt;
-        &lt;/TabNavigation&gt;
-      &lt;/Grid.Cell&gt;
-
-      &lt;Grid.Subgrid span=&quot;all&quot;&gt;
-        &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 8 }}&gt;
-          &lt;DetailPageEditGeneralInformationTab hidden={currentTabId !== &#39;algemene-informatie&#39;} /&gt;
-          &lt;DetailPageEditHistoryTab hidden={currentTabId !== &#39;historie&#39;} /&gt;
-          &lt;DetailPageEditMapTab hidden={currentTabId !== &#39;kaart&#39;} /&gt;
-        &lt;/Grid.Cell&gt;
-      &lt;/Grid.Subgrid&gt;
-    &lt;/Grid&gt;
-  )
-};</code></pre>
-            </div>
-            <div class="note ok">
-              <div class="row">
-                <span class="ex-name">Review</span>
-                <span class="badge ok">story ok</span>
-              </div>
-              
-              
-              <pre><code>const Review = () =&gt; {
-  const [currentRemarkSectionId, setCurrentRemarkSectionId] = useState&lt;ReviewSectionId | null&gt;(null)
-  const [remarks, setRemarks] = useState&lt;Record&lt;ReviewSectionId, string&gt;&gt;({
-    &#39;algemene-informatie&#39;: &#39;&#39;,
-    geschiedenis: &#39;&#39;,
-    kaart: &#39;&#39;,
-  })
-
-  const dialogId = &#39;detail-page-review-remark-dialog&#39;
-  const currentRemarkSectionLabel = currentRemarkSectionId ? reviewSectionLabels[currentRemarkSectionId] : &#39;&#39;
-
-  const openRemarkDialog = (sectionId: ReviewSectionId) =&gt; {
-    setCurrentRemarkSectionId(sectionId)
-    ModalDialog.open(`#${dialogId}`)
-  }
-
-  return (
-    &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
-      &lt;Grid.Cell appearance=&quot;transparent&quot; span=&quot;all&quot;&gt;
-        &lt;Breadcrumb&gt;
-          {detailPageData.breadcrumbs.map((breadcrumb) =&gt; (
-            &lt;Breadcrumb.Link href=&quot;#&quot; key={breadcrumb}&gt;
-              {breadcrumb}
-            &lt;/Breadcrumb.Link&gt;
-          ))}
-        &lt;/Breadcrumb&gt;
-        &lt;Row align=&quot;between&quot; wrap&gt;
-          &lt;Heading level={1}&gt;{detailPageData.name}&lt;/Heading&gt;
-          &lt;ActionGroup&gt;
-            &lt;Button icon={MagnifyingGlassWithEyeIcon} variant=&quot;secondary&quot;&gt;
-              Review
-            &lt;/Button&gt;
-            &lt;Button icon={PencilIcon}&gt;Bewerken&lt;/Button&gt;
-          &lt;/ActionGroup&gt;
-        &lt;/Row&gt;
-      &lt;/Grid.Cell&gt;
-
-      &lt;Grid.Subgrid span={{ narrow: 4, medium: 3, wide: 3 }}&gt;
-        &lt;Grid.Cell span=&quot;all&quot;&gt;
-          &lt;TableOfContents heading=&quot;Op deze pagina&quot;&gt;
-            &lt;TableOfContents.List&gt;
-              &lt;TableOfContents.Link href=&quot;#algemene-informatie&quot; label=&quot;Algemene informatie&quot; /&gt;
-              &lt;TableOfContents.Link href=&quot;#geschiedenis&quot; label=&quot;Geschiedenis&quot; /&gt;
-              &lt;TableOfContents.Link href=&quot;#kaart&quot; label=&quot;Kaart&quot; /&gt;
-            &lt;/TableOfContents.List&gt;
-          &lt;/TableOfContents&gt;
-        &lt;/Grid.Cell&gt;
-        &lt;Grid.Cell span=&quot;all&quot;&gt;
-          &lt;Heading className=&quot;ams-mb-xs&quot; level={3}&gt;
-            Bronnen
-          &lt;/Heading&gt;
-          &lt;LinkList&gt;
-            {detailPageData.links.map(({ label, url }) =&gt; (
-              &lt;LinkList.Link href={url} icon={LinkExternalIcon} key={url}&gt;
-                {label}
-              &lt;/LinkList.Link&gt;
-            ))}
-          &lt;/LinkList&gt;
-        &lt;/Grid.Cell&gt;
-      &lt;/Grid.Subgrid&gt;
-
-      &lt;Grid.Subgrid span={{ narrow: 4, medium: 5, wide: 9 }}&gt;
-        &lt;Grid.Cell className=&quot;ams-prose&quot; span=&quot;all&quot;&gt;
-          &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; className=&quot;ams-mb-m&quot; wrap&gt;
-            &lt;Heading id=&quot;algemene-informatie&quot; level={2}&gt;
-              Algemene informatie
-            &lt;/Heading&gt;
-            &lt;Button
-              icon={MagnifyingGlassWithEyeIcon}
-              iconOnly
-              onClick={() =&gt; openRemarkDialog(&#39;algemene-informatie&#39;)}
-              variant=&quot;secondary&quot;
-            &gt;
-              Voeg een opmerking toe bij Algemene informatie
-            &lt;/Button&gt;
-          &lt;/Row&gt;
-          &lt;Paragraph&gt;{detailPageData.description}&lt;/Paragraph&gt;
-          &lt;ObjectInformationDescriptionList items={detailPageData.basicInformation} /&gt;
-        &lt;/Grid.Cell&gt;
-        &lt;Grid.Cell className=&quot;ams-prose&quot; span=&quot;all&quot;&gt;
-          &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; className=&quot;ams-mb-m&quot; wrap&gt;
-            &lt;Heading id=&quot;geschiedenis&quot; level={2}&gt;
-              Geschiedenis
-            &lt;/Heading&gt;
-            &lt;Button
-              icon={MagnifyingGlassWithEyeIcon}
-              iconOnly
-              onClick={() =&gt; openRemarkDialog(&#39;geschiedenis&#39;)}
-              variant=&quot;secondary&quot;
-            &gt;
-              Voeg een opmerking toe bij Geschiedenis
-            &lt;/Button&gt;
-          &lt;/Row&gt;
-          &lt;ObjectInformationTable events={detailPageData.history} /&gt;
-        &lt;/Grid.Cell&gt;
-        &lt;Grid.Cell span=&quot;all&quot;&gt;
-          &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; className=&quot;ams-mb-s&quot; wrap&gt;
-            &lt;Heading id=&quot;kaart&quot; level={2}&gt;
-              Kaart
-            &lt;/Heading&gt;
-            &lt;Button
-              icon={MagnifyingGlassWithEyeIcon}
-              iconOnly
-              onClick={() =&gt; openRemarkDialog(&#39;kaart&#39;)}
-              variant=&quot;secondary&quot;
-            &gt;
-              Voeg een opmerking toe bij Kaart
-            &lt;/Button&gt;
-          &lt;/Row&gt;
-          &lt;ObjectInformationMap geoJson={geoJson} /&gt;
-        &lt;/Grid.Cell&gt;
-      &lt;/Grid.Subgrid&gt;
-
-      &lt;ModalDialog
-        aria-labelledby={`${dialogId}-heading`}
-        id={dialogId}
-        onClose={() =&gt; setCurrentRemarkSectionId(null)}
-      &gt;
-        &lt;ModalDialog.Header&gt;
-          &lt;Heading id={`${dialogId}-heading`} level={1} size=&quot;level-2&quot;&gt;
-            {currentRemarkSectionLabel
-              ? `Opmerking toevoegen bij ${currentRemarkSectionLabel}`
-              : &#39;Opmerking toevoegen&#39;}
-          &lt;/Heading&gt;
-        &lt;/ModalDialog.Header&gt;
-        &lt;ModalDialog.Body&gt;
-          &lt;Column gap=&quot;small&quot;&gt;
-            &lt;Field&gt;
-              &lt;Label htmlFor=&quot;detail-page-review-remarks&quot;&gt;Opmerkingen&lt;/Label&gt;
-              &lt;TextArea
-                id=&quot;detail-page-review-remarks&quot;
-                onChange={(event) =&gt; {
-                  if (!currentRemarkSectionId) {
-                    return
-                  }
-
-                  const sectionId = currentRemarkSectionId
-                  const value = event.currentTarget.value
-
-                  setRemarks((currentRemarks) =&gt; ({
-                    ...currentRemarks,
-                    [sectionId]: value,
-                  }))
-                }}
-                rows={4}
-                value={currentRemarkSectionId ? remarks[currentRemarkSectionId] : &#39;&#39;}
-              /&gt;
-            &lt;/Field&gt;
-          &lt;/Column&gt;
-        &lt;/ModalDialog.Body&gt;
-        &lt;ModalDialog.Footer&gt;
-          &lt;Button onClick={ModalDialog.close}&gt;Sluiten&lt;/Button&gt;
-        &lt;/ModalDialog.Footer&gt;
-      &lt;/ModalDialog&gt;
-    &lt;/Grid&gt;
+    &lt;/&gt;
   )
 };</code></pre>
             </div>
