@@ -594,7 +594,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>6.0s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>4.9s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -6681,13 +6681,13 @@ The component leaves the native elements alone rather than adding `term` and `de
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
-  92 | }
-  93 |
-&gt; 94 | const meta = {
+  94 | }
+  95 |
+&gt; 96 | const meta = {
      | ^
-  95 |   ...commonMeta,
-  96 |   title: &#39;Pages/Internal/Detail Page&#39;,
-  97 |   parameters: pageParameters(
+  97 |   ...commonMeta,
+  98 |   title: &#39;Pages/Internal/Detail Page&#39;,
+  99 |   parameters: pageParameters(
 
 ./src/pages/internal/DetailPage/DetailPage.stories.tsx:
 /**
@@ -6720,6 +6720,7 @@ import {
 import {
   ArrowForwardIcon,
   CheckMarkIcon,
+  CloseIcon,
   LinkExternalIcon,
   MagnifyingGlassWithEyeIcon,
   PencilIcon,
@@ -6727,6 +6728,7 @@ import {
   SpeechBalloonNotificationIcon,
 } from &#39;@amsterdam/design-system-react-icons&#39;
 import { ModalDialog } from &#39;@amsterdam/design-system-react/src&#39;
+import clsx from &#39;clsx&#39;
 import { useRef, useState } from &#39;react&#39;
 
 import { commonMeta, pageParameters } from &#39;../common/commonMeta&#39;
@@ -7144,7 +7146,7 @@ export const Review: StoryObj = {
 
                 &lt;Card className={styles[&#39;remark&#39;]}&gt;
                   &lt;Card.HeadingGroup key={1}&gt;
-                    &lt;Card.Heading level={4}&gt;L van de Akker&lt;/Card.Heading&gt;
+                    &lt;Card.Heading level={4}&gt;M Biesheuvel&lt;/Card.Heading&gt;
                     &lt;Metadata size=&quot;small&quot;&gt;12-08-2026 10:30&lt;/Metadata&gt;
                   &lt;/Card.HeadingGroup&gt;
                   &lt;Column gap=&quot;small&quot;&gt;
@@ -7188,6 +7190,27 @@ export const Review: StoryObj = {
                         &lt;IconButton label=&quot;Bewerken&quot; svg={PencilIcon} /&gt;
                       &lt;/Row&gt;
                       &lt;IconButton label=&quot;Opgelost&quot; svg={CheckMarkIcon} /&gt;
+                    &lt;/Row&gt;
+                  &lt;/Column&gt;
+                &lt;/Card&gt;
+
+                &lt;Card className={clsx(styles[&#39;remark&#39;], styles[&#39;remarkArchived&#39;])}&gt;
+                  &lt;Card.HeadingGroup key={1}&gt;
+                    &lt;Card.Heading level={4}&gt;c&lt;/Card.Heading&gt;
+                    &lt;Metadata size=&quot;small&quot;&gt;11-08-2026 09:12&lt;/Metadata&gt;
+                  &lt;/Card.HeadingGroup&gt;
+                  &lt;Column gap=&quot;small&quot;&gt;
+                    &lt;Paragraph key={2}&gt;de Bijenkorf lijkt zo meer bij de Damrak te horen dan de Dam.&lt;/Paragraph&gt;
+                    &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; gap=&quot;small&quot;&gt;
+                      &lt;Row gap=&quot;small&quot;&gt;
+                        &lt;IconButton
+                          label=&quot;Bekijken&quot;
+                          onClick={() =&gt; highlightReviewElement(&#39;kaart&#39;, isWide, remarksPopoverRef.current)}
+                          svg={MagnifyingGlassWithEyeIcon}
+                        /&gt;
+                        &lt;IconButton label=&quot;Bewerken&quot; svg={PencilIcon} /&gt;
+                      &lt;/Row&gt;
+                      &lt;IconButton label=&quot;Terugzetten&quot; svg={CloseIcon} /&gt;
                     &lt;/Row&gt;
                   &lt;/Column&gt;
                 &lt;/Card&gt;
@@ -7502,7 +7525,7 @@ import {
 
               &lt;Card className={styles[&#39;remark&#39;]}&gt;
                 &lt;Card.HeadingGroup key={1}&gt;
-                  &lt;Card.Heading level={4}&gt;L van de Akker&lt;/Card.Heading&gt;
+                  &lt;Card.Heading level={4}&gt;M Biesheuvel&lt;/Card.Heading&gt;
                   &lt;Metadata size=&quot;small&quot;&gt;12-08-2026 10:30&lt;/Metadata&gt;
                 &lt;/Card.HeadingGroup&gt;
                 &lt;Column gap=&quot;small&quot;&gt;
@@ -7546,6 +7569,27 @@ import {
                       &lt;IconButton label=&quot;Bewerken&quot; svg={PencilIcon} /&gt;
                     &lt;/Row&gt;
                     &lt;IconButton label=&quot;Opgelost&quot; svg={CheckMarkIcon} /&gt;
+                  &lt;/Row&gt;
+                &lt;/Column&gt;
+              &lt;/Card&gt;
+
+              &lt;Card className={clsx(styles[&#39;remark&#39;], styles[&#39;remarkArchived&#39;])}&gt;
+                &lt;Card.HeadingGroup key={1}&gt;
+                  &lt;Card.Heading level={4}&gt;c&lt;/Card.Heading&gt;
+                  &lt;Metadata size=&quot;small&quot;&gt;11-08-2026 09:12&lt;/Metadata&gt;
+                &lt;/Card.HeadingGroup&gt;
+                &lt;Column gap=&quot;small&quot;&gt;
+                  &lt;Paragraph key={2}&gt;de Bijenkorf lijkt zo meer bij de Damrak te horen dan de Dam.&lt;/Paragraph&gt;
+                  &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; gap=&quot;small&quot;&gt;
+                    &lt;Row gap=&quot;small&quot;&gt;
+                      &lt;IconButton
+                        label=&quot;Bekijken&quot;
+                        onClick={() =&gt; highlightReviewElement(&#39;kaart&#39;, isWide, remarksPopoverRef.current)}
+                        svg={MagnifyingGlassWithEyeIcon}
+                      /&gt;
+                      &lt;IconButton label=&quot;Bewerken&quot; svg={PencilIcon} /&gt;
+                    &lt;/Row&gt;
+                    &lt;IconButton label=&quot;Terugzetten&quot; svg={CloseIcon} /&gt;
                   &lt;/Row&gt;
                 &lt;/Column&gt;
               &lt;/Card&gt;
@@ -41220,13 +41264,13 @@ The hero Image and the Card images take an empty `alt`, because the text beside 
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
-  92 | }
-  93 |
-&gt; 94 | const meta = {
+  94 | }
+  95 |
+&gt; 96 | const meta = {
      | ^
-  95 |   ...commonMeta,
-  96 |   title: &#39;Pages/Internal/Detail Page&#39;,
-  97 |   parameters: pageParameters(
+  97 |   ...commonMeta,
+  98 |   title: &#39;Pages/Internal/Detail Page&#39;,
+  99 |   parameters: pageParameters(
 
 ./src/pages/internal/DetailPage/DetailPage.stories.tsx:
 /**
@@ -41259,6 +41303,7 @@ import {
 import {
   ArrowForwardIcon,
   CheckMarkIcon,
+  CloseIcon,
   LinkExternalIcon,
   MagnifyingGlassWithEyeIcon,
   PencilIcon,
@@ -41266,6 +41311,7 @@ import {
   SpeechBalloonNotificationIcon,
 } from &#39;@amsterdam/design-system-react-icons&#39;
 import { ModalDialog } from &#39;@amsterdam/design-system-react/src&#39;
+import clsx from &#39;clsx&#39;
 import { useRef, useState } from &#39;react&#39;
 
 import { commonMeta, pageParameters } from &#39;../common/commonMeta&#39;
@@ -41683,7 +41729,7 @@ export const Review: StoryObj = {
 
                 &lt;Card className={styles[&#39;remark&#39;]}&gt;
                   &lt;Card.HeadingGroup key={1}&gt;
-                    &lt;Card.Heading level={4}&gt;L van de Akker&lt;/Card.Heading&gt;
+                    &lt;Card.Heading level={4}&gt;M Biesheuvel&lt;/Card.Heading&gt;
                     &lt;Metadata size=&quot;small&quot;&gt;12-08-2026 10:30&lt;/Metadata&gt;
                   &lt;/Card.HeadingGroup&gt;
                   &lt;Column gap=&quot;small&quot;&gt;
@@ -41727,6 +41773,27 @@ export const Review: StoryObj = {
                         &lt;IconButton label=&quot;Bewerken&quot; svg={PencilIcon} /&gt;
                       &lt;/Row&gt;
                       &lt;IconButton label=&quot;Opgelost&quot; svg={CheckMarkIcon} /&gt;
+                    &lt;/Row&gt;
+                  &lt;/Column&gt;
+                &lt;/Card&gt;
+
+                &lt;Card className={clsx(styles[&#39;remark&#39;], styles[&#39;remarkArchived&#39;])}&gt;
+                  &lt;Card.HeadingGroup key={1}&gt;
+                    &lt;Card.Heading level={4}&gt;c&lt;/Card.Heading&gt;
+                    &lt;Metadata size=&quot;small&quot;&gt;11-08-2026 09:12&lt;/Metadata&gt;
+                  &lt;/Card.HeadingGroup&gt;
+                  &lt;Column gap=&quot;small&quot;&gt;
+                    &lt;Paragraph key={2}&gt;de Bijenkorf lijkt zo meer bij de Damrak te horen dan de Dam.&lt;/Paragraph&gt;
+                    &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; gap=&quot;small&quot;&gt;
+                      &lt;Row gap=&quot;small&quot;&gt;
+                        &lt;IconButton
+                          label=&quot;Bekijken&quot;
+                          onClick={() =&gt; highlightReviewElement(&#39;kaart&#39;, isWide, remarksPopoverRef.current)}
+                          svg={MagnifyingGlassWithEyeIcon}
+                        /&gt;
+                        &lt;IconButton label=&quot;Bewerken&quot; svg={PencilIcon} /&gt;
+                      &lt;/Row&gt;
+                      &lt;IconButton label=&quot;Terugzetten&quot; svg={CloseIcon} /&gt;
                     &lt;/Row&gt;
                   &lt;/Column&gt;
                 &lt;/Card&gt;
@@ -42041,7 +42108,7 @@ import {
 
               &lt;Card className={styles[&#39;remark&#39;]}&gt;
                 &lt;Card.HeadingGroup key={1}&gt;
-                  &lt;Card.Heading level={4}&gt;L van de Akker&lt;/Card.Heading&gt;
+                  &lt;Card.Heading level={4}&gt;M Biesheuvel&lt;/Card.Heading&gt;
                   &lt;Metadata size=&quot;small&quot;&gt;12-08-2026 10:30&lt;/Metadata&gt;
                 &lt;/Card.HeadingGroup&gt;
                 &lt;Column gap=&quot;small&quot;&gt;
@@ -42085,6 +42152,27 @@ import {
                       &lt;IconButton label=&quot;Bewerken&quot; svg={PencilIcon} /&gt;
                     &lt;/Row&gt;
                     &lt;IconButton label=&quot;Opgelost&quot; svg={CheckMarkIcon} /&gt;
+                  &lt;/Row&gt;
+                &lt;/Column&gt;
+              &lt;/Card&gt;
+
+              &lt;Card className={clsx(styles[&#39;remark&#39;], styles[&#39;remarkArchived&#39;])}&gt;
+                &lt;Card.HeadingGroup key={1}&gt;
+                  &lt;Card.Heading level={4}&gt;c&lt;/Card.Heading&gt;
+                  &lt;Metadata size=&quot;small&quot;&gt;11-08-2026 09:12&lt;/Metadata&gt;
+                &lt;/Card.HeadingGroup&gt;
+                &lt;Column gap=&quot;small&quot;&gt;
+                  &lt;Paragraph key={2}&gt;de Bijenkorf lijkt zo meer bij de Damrak te horen dan de Dam.&lt;/Paragraph&gt;
+                  &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; gap=&quot;small&quot;&gt;
+                    &lt;Row gap=&quot;small&quot;&gt;
+                      &lt;IconButton
+                        label=&quot;Bekijken&quot;
+                        onClick={() =&gt; highlightReviewElement(&#39;kaart&#39;, isWide, remarksPopoverRef.current)}
+                        svg={MagnifyingGlassWithEyeIcon}
+                      /&gt;
+                      &lt;IconButton label=&quot;Bewerken&quot; svg={PencilIcon} /&gt;
+                    &lt;/Row&gt;
+                    &lt;IconButton label=&quot;Terugzetten&quot; svg={CloseIcon} /&gt;
                   &lt;/Row&gt;
                 &lt;/Column&gt;
               &lt;/Card&gt;
