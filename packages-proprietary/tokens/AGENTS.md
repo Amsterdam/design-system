@@ -57,7 +57,7 @@ Two checks enforce this, so it does not have to be remembered:
 The build check exempts a deprecated token, since it is frozen at the value it shipped with until it is removed.
 The Stylelint rule does not: it judges the declaration in front of it, deprecated or not, so a deprecated alias that still resolves to two values is still reported where one value fits.
 Where a value per side is wanted, split the token in two and set the longhands.
-When splitting a published token, deprecate it with a value that references both halves, and keep the stylesheet reading it through the shorthand until it is removed, so that an application overriding it keeps working.
+When splitting a published token, deprecate it with a value that references both halves, and keep the stylesheet reading it through the shorthand, with the halves as the fallback, until it is removed, so that an application overriding it keeps working.
 `ams.dialog.header.padding-block` was split that way into `ams.dialog.header.padding-block-start` and `ams.dialog.header.padding-block-end`.
 
 Some tokens also carry a `nl.amsterdam.hint` recording why one value is all that fits, in one of two wordings:
