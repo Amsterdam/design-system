@@ -28,6 +28,7 @@ import {
 import {
   ArrowForwardIcon,
   CheckMarkIcon,
+  CloseIcon,
   LinkExternalIcon,
   MagnifyingGlassWithEyeIcon,
   PencilIcon,
@@ -35,6 +36,7 @@ import {
   SpeechBalloonNotificationIcon,
 } from '@amsterdam/design-system-react-icons'
 import { ModalDialog } from '@amsterdam/design-system-react/src'
+import clsx from 'clsx'
 import { useRef, useState } from 'react'
 
 import { commonMeta, pageParameters } from '../common/commonMeta'
@@ -452,7 +454,7 @@ export const Review: StoryObj = {
 
                 <Card className={styles['remark']}>
                   <Card.HeadingGroup key={1}>
-                    <Card.Heading level={4}>L van de Akker</Card.Heading>
+                    <Card.Heading level={4}>M Biesheuvel</Card.Heading>
                     <Metadata size="small">12-08-2026 10:30</Metadata>
                   </Card.HeadingGroup>
                   <Column gap="small">
@@ -496,6 +498,27 @@ export const Review: StoryObj = {
                         <IconButton label="Bewerken" svg={PencilIcon} />
                       </Row>
                       <IconButton label="Opgelost" svg={CheckMarkIcon} />
+                    </Row>
+                  </Column>
+                </Card>
+
+                <Card className={clsx(styles['remark'], styles['remarkArchived'])}>
+                  <Card.HeadingGroup key={1}>
+                    <Card.Heading level={4}>c</Card.Heading>
+                    <Metadata size="small">11-08-2026 09:12</Metadata>
+                  </Card.HeadingGroup>
+                  <Column gap="small">
+                    <Paragraph key={2}>de Bijenkorf lijkt zo meer bij de Damrak te horen dan de Dam.</Paragraph>
+                    <Row align="between" alignVertical="center" gap="small">
+                      <Row gap="small">
+                        <IconButton
+                          label="Bekijken"
+                          onClick={() => highlightReviewElement('kaart', isWide, remarksPopoverRef.current)}
+                          svg={MagnifyingGlassWithEyeIcon}
+                        />
+                        <IconButton label="Bewerken" svg={PencilIcon} />
+                      </Row>
+                      <IconButton label="Terugzetten" svg={CloseIcon} />
                     </Row>
                   </Column>
                 </Card>

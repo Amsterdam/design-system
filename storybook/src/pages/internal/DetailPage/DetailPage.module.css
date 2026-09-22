@@ -70,3 +70,8 @@
 .remark {
   padding: var(--ams-grid-padding-block-l) var(--ams-grid-padding-inline) var(--ams-space-s);
 }
+
+.remarkArchived {
+  opacity: 0.5;
+  color: var(--ams-color-text-disabled);
+}
