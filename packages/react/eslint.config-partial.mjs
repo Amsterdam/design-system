@@ -10,6 +10,8 @@ export const reactPreset = {
   rules: {
     ...react.configs.recommended.rules,
     ...reactHooks.configs.recommended.rules,
+    'react/jsx-uses-react': 'off', // Scope analysis marks the JSX pragma as used
+    'react/jsx-uses-vars': 'off', // Scope analysis tracks JSX references
     'react/prefer-read-only-props': 'error',
     'react/prop-types': 'off', // TypeScript types replace prop-types
     'react/react-in-jsx-scope': 'off',
