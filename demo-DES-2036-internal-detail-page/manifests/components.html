@@ -594,7 +594,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>5.5s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>6.0s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -6681,13 +6681,13 @@ The component leaves the native elements alone rather than adding `term` and `de
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
-  117 |   }
-  118 | `
-&gt; 119 | const meta = {
-      | ^
-  120 |   ...commonMeta,
-  121 |   title: &#39;Pages/Internal/Detail Page&#39;,
-  122 |   parameters: pageParameters(
+  92 | }
+  93 |
+&gt; 94 | const meta = {
+     | ^
+  95 |   ...commonMeta,
+  96 |   title: &#39;Pages/Internal/Detail Page&#39;,
+  97 |   parameters: pageParameters(
 
 ./src/pages/internal/DetailPage/DetailPage.stories.tsx:
 /**
@@ -6724,20 +6724,25 @@ import {
   MagnifyingGlassWithEyeIcon,
   PencilIcon,
   SpeechBalloonIcon,
+  SpeechBalloonNotificationIcon,
 } from &#39;@amsterdam/design-system-react-icons&#39;
 import { ModalDialog } from &#39;@amsterdam/design-system-react/src&#39;
-import { useState } from &#39;react&#39;
+import { useRef, useState } from &#39;react&#39;
 
 import { commonMeta, pageParameters } from &#39;../common/commonMeta&#39;
+import styles from &#39;./DetailPage.module.css&#39;
 import detailPageData from &#39;./detailPageData.json&#39;
 import { ObjectInformationDescriptionList } from &#39;./ObjectInformationDescriptionList&#39;
 import { ObjectInformationMap } from &#39;./ObjectInformationMap&#39;
 import { ObjectInformationTable } from &#39;./ObjectInformationTable&#39;
+import { useMediaQuery } from &#39;./useMediaQuery&#39;
 
 // A JSON import widens the literal type names GeoJSON relies on to string.
 const geoJson = detailPageData.geoJson as FeatureCollection
 
 type ReviewSectionId = &#39;algemene-informatie&#39; | &#39;geschiedenis&#39; | &#39;kaart&#39;
+
+const wideMediaQuery = &#39;(min-width: 37.5rem)&#39;
 
 const highlightedReviewSectionParentAttribute = &#39;data-ams-detail-page-highlighted&#39;
 const reviewSectionHighlightTimeouts = new WeakMap&lt;HTMLElement, number&gt;()
@@ -6748,7 +6753,7 @@ const reviewSectionLabels: Record&lt;ReviewSectionId, string&gt; = {
   kaart: &#39;Kaart&#39;,
 }
 
-const highlightReviewElement = (sectionId: string) =&gt; {
+const highlightReviewElement = (sectionId: string, isWide: boolean, remarksPopover: HTMLDivElement | null) =&gt; {
   const sectionHeading = document.getElementById(sectionId)
 
   if (!(sectionHeading instanceof HTMLElement)) {
@@ -6756,7 +6761,7 @@ const highlightReviewElement = (sectionId: string) =&gt; {
   }
 
   window.location.hash = sectionId
-  sectionHeading.scrollIntoView({ behavior: &#39;smooth&#39;, block: &#39;start&#39; })
+  sectionHeading.scrollIntoView({ behavior: &#39;smooth&#39;, block: &#39;center&#39; })
 
   const existingTimeoutId = reviewSectionHighlightTimeouts.get(sectionHeading)
 
@@ -6772,42 +6777,12 @@ const highlightReviewElement = (sectionId: string) =&gt; {
   }, 3000)
 
   reviewSectionHighlightTimeouts.set(sectionHeading, timeoutId)
+
+  if (!isWide &amp;&amp; remarksPopover) {
+    remarksPopover.hidePopover()
+  }
 }
 
-const reviewSectionHighlightStyles = `
-  [id]:not(.ams-table__row),
-  .ams-table__row &gt; .ams-table__header-cell,
-  .ams-table__row &gt; .ams-table__cell {
-    transition: box-shadow 200ms ease-out;
-  }
-
-  [${highlightedReviewSectionParentAttribute}=&quot;true&quot;]:not(.ams-table__row) {
-    box-shadow: 0 0 0 var(--ams-border-width-l) var(--ams-color-interactive);
-  }
-
-  .ams-table__row[${highlightedReviewSectionParentAttribute}=&quot;true&quot;] &gt; .ams-table__header-cell,
-  .ams-table__row[${highlightedReviewSectionParentAttribute}=&quot;true&quot;] &gt; .ams-table__cell {
-    box-shadow:
-      inset 0 var(--ams-border-width-l) 0 var(--ams-color-interactive),
-      inset 0 calc(-1 * var(--ams-border-width-l)) 0 var(--ams-color-interactive);
-  }
-
-  .ams-table__row[${highlightedReviewSectionParentAttribute}=&quot;true&quot;] &gt; .ams-table__header-cell:first-child,
-  .ams-table__row[${highlightedReviewSectionParentAttribute}=&quot;true&quot;] &gt; .ams-table__cell:first-child {
-    box-shadow:
-      inset var(--ams-border-width-l) 0 0 var(--ams-color-interactive),
-      inset 0 var(--ams-border-width-l) 0 var(--ams-color-interactive),
-      inset 0 calc(-1 * var(--ams-border-width-l)) 0 var(--ams-color-interactive);
-  }
-
-  .ams-table__row[${highlightedReviewSectionParentAttribute}=&quot;true&quot;] &gt; .ams-table__header-cell:last-child,
-  .ams-table__row[${highlightedReviewSectionParentAttribute}=&quot;true&quot;] &gt; .ams-table__cell:last-child {
-    box-shadow:
-      inset calc(-1 * var(--ams-border-width-l)) 0 0 var(--ams-color-interactive),
-      inset 0 var(--ams-border-width-l) 0 var(--ams-color-interactive),
-      inset 0 calc(-1 * var(--ams-border-width-l)) 0 var(--ams-color-interactive);
-  }
-`
 const meta = {
   ...commonMeta,
   title: &#39;Pages/Internal/Detail Page&#39;,
@@ -6978,7 +6953,7 @@ export const Review: StoryObj = {
         // and that is all the Code Panel would print. Provide the source by hand so the layout reads the way a
         // developer would write it, without the interactive state.
         code: `
-        &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+        &lt;Grid className={styles[&#39;reviewPage&#39;]} paddingVertical=&quot;x-large&quot;&gt;
           &lt;Grid.Cell appearance=&quot;transparent&quot; span=&quot;all&quot;&gt;
             &lt;Breadcrumb&gt;
               {detailPageData.breadcrumbs.map((breadcrumb) =&gt; (
@@ -7086,6 +7061,8 @@ export const Review: StoryObj = {
     },
   },
   render: () =&gt; {
+    const isWide = useMediaQuery(wideMediaQuery)
+    const remarksPopoverRef = useRef&lt;HTMLDivElement | null&gt;(null)
     const [currentRemarkSectionId, setCurrentRemarkSectionId] = useState&lt;ReviewSectionId | null&gt;(null)
     const [remarks, setRemarks] = useState&lt;Record&lt;ReviewSectionId, string&gt;&gt;({
       &#39;algemene-informatie&#39;: &#39;&#39;,
@@ -7103,8 +7080,7 @@ export const Review: StoryObj = {
 
     return (
       &lt;&gt;
-        &lt;style&gt;{reviewSectionHighlightStyles}&lt;/style&gt;
-        &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+        &lt;Grid className={styles[&#39;reviewPage&#39;]} paddingVertical=&quot;x-large&quot;&gt;
           &lt;Grid.Cell appearance=&quot;transparent&quot; span=&quot;all&quot;&gt;
             &lt;Breadcrumb&gt;
               {detailPageData.breadcrumbs.map((breadcrumb) =&gt; (
@@ -7116,94 +7092,108 @@ export const Review: StoryObj = {
             &lt;Row align=&quot;between&quot; wrap&gt;
               &lt;Heading level={1}&gt;{detailPageData.name}&lt;/Heading&gt;
               &lt;ActionGroup&gt;
-                &lt;Button icon={MagnifyingGlassWithEyeIcon} variant=&quot;secondary&quot;&gt;
-                  Review
+                &lt;Button
+                  className={styles[&#39;toggleRemarks&#39;]}
+                  icon={SpeechBalloonNotificationIcon}
+                  popoverTarget=&quot;remarks&quot;
+                  variant=&quot;secondary&quot;
+                &gt;
+                  Opmerkingen
                 &lt;/Button&gt;
                 &lt;Button icon={PencilIcon}&gt;Bewerken&lt;/Button&gt;
               &lt;/ActionGroup&gt;
             &lt;/Row&gt;
           &lt;/Grid.Cell&gt;
 
-          &lt;Grid.Subgrid span={{ narrow: 4, medium: 3, wide: 4 }} start={{ narrow: 1, medium: 6, wide: 9 }}&gt;
-            &lt;Grid.Cell span=&quot;all&quot;&gt;
-              &lt;Card&gt;
-                &lt;Card.HeadingGroup key={1}&gt;
-                  &lt;Card.Heading level={4}&gt;L van de Akker&lt;/Card.Heading&gt;
-                  &lt;Metadata size=&quot;small&quot;&gt;12-08-2026 10:30&lt;/Metadata&gt;
-                &lt;/Card.HeadingGroup&gt;
-                &lt;Column gap=&quot;small&quot;&gt;
-                  &lt;Paragraph key={2}&gt;Hier zou je ook protesten bij kunnen vermelden.&lt;/Paragraph&gt;
-                  &lt;Row alignVertical=&quot;center&quot; gap=&quot;small&quot;&gt;
-                    &lt;TextInput key={3} placeholder=&quot;Voeg een opmerking toe&quot; /&gt;
-                    &lt;IconButton label=&quot;Voeg opmerking toe&quot; size=&quot;large&quot; svg={ArrowForwardIcon} /&gt;
-                  &lt;/Row&gt;
-                  &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; gap=&quot;small&quot;&gt;
-                    &lt;Row gap=&quot;small&quot;&gt;
-                      &lt;IconButton
-                        label=&quot;Bekijken&quot;
-                        onClick={() =&gt; highlightReviewElement(&#39;functie-5&#39;)}
-                        svg={MagnifyingGlassWithEyeIcon}
-                      /&gt;
-                      &lt;IconButton label=&quot;Bewerken&quot; svg={PencilIcon} /&gt;
+          &lt;Grid.Cell
+            appearance=&quot;flush&quot;
+            span={{ narrow: 4, medium: 3, wide: 4 }}
+            start={{ narrow: 1, medium: 6, wide: 9 }}
+          &gt;
+            &lt;div
+              {...(!isWide ? { popover: &#39;auto&#39; } : {})}
+              className={styles[&#39;remarks&#39;]}
+              id=&quot;remarks&quot;
+              ref={remarksPopoverRef}
+            &gt;
+              &lt;Column gap=&quot;large&quot;&gt;
+                &lt;Card className={styles[&#39;remark&#39;]}&gt;
+                  &lt;Card.HeadingGroup key={1}&gt;
+                    &lt;Card.Heading level={4}&gt;L van de Akker&lt;/Card.Heading&gt;
+                    &lt;Metadata size=&quot;small&quot;&gt;12-08-2026 10:30&lt;/Metadata&gt;
+                  &lt;/Card.HeadingGroup&gt;
+                  &lt;Column gap=&quot;small&quot;&gt;
+                    &lt;Paragraph key={2}&gt;Hier zou je ook protesten bij kunnen vermelden.&lt;/Paragraph&gt;
+                    &lt;Row alignVertical=&quot;center&quot; gap=&quot;small&quot;&gt;
+                      &lt;TextInput key={3} placeholder=&quot;Voeg een opmerking toe&quot; /&gt;
+                      &lt;IconButton label=&quot;Voeg opmerking toe&quot; size=&quot;large&quot; svg={ArrowForwardIcon} /&gt;
                     &lt;/Row&gt;
-                    &lt;IconButton label=&quot;Opgelost&quot; svg={CheckMarkIcon} /&gt;
-                  &lt;/Row&gt;
-                &lt;/Column&gt;
-              &lt;/Card&gt;
-            &lt;/Grid.Cell&gt;
-            &lt;Grid.Cell span=&quot;all&quot;&gt;
-              &lt;Card&gt;
-                &lt;Card.HeadingGroup key={1}&gt;
-                  &lt;Card.Heading level={4}&gt;L van de Akker&lt;/Card.Heading&gt;
-                  &lt;Metadata size=&quot;small&quot;&gt;12-08-2026 10:30&lt;/Metadata&gt;
-                &lt;/Card.HeadingGroup&gt;
-                &lt;Column gap=&quot;small&quot;&gt;
-                  &lt;Paragraph key={2}&gt;Jaar moet 1915 zijn.&lt;/Paragraph&gt;
-                  &lt;Row alignVertical=&quot;center&quot; gap=&quot;small&quot;&gt;
-                    &lt;TextInput key={3} placeholder=&quot;Voeg een opmerking toe&quot; /&gt;
-                    &lt;IconButton label=&quot;Voeg opmerking toe&quot; size=&quot;large&quot; svg={ArrowForwardIcon} /&gt;
-                  &lt;/Row&gt;
-                  &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; gap=&quot;small&quot;&gt;
-                    &lt;Row gap=&quot;small&quot;&gt;
-                      &lt;IconButton
-                        label=&quot;Bekijken&quot;
-                        onClick={() =&gt; highlightReviewElement(&#39;row-4&#39;)}
-                        svg={MagnifyingGlassWithEyeIcon}
-                      /&gt;
-                      &lt;IconButton label=&quot;Bewerken&quot; svg={PencilIcon} /&gt;
+                    &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; gap=&quot;small&quot;&gt;
+                      &lt;Row gap=&quot;small&quot;&gt;
+                        &lt;IconButton
+                          label=&quot;Bekijken&quot;
+                          onClick={() =&gt; highlightReviewElement(&#39;functie-5&#39;, isWide, remarksPopoverRef.current)}
+                          svg={MagnifyingGlassWithEyeIcon}
+                        /&gt;
+                        &lt;IconButton label=&quot;Bewerken&quot; svg={PencilIcon} /&gt;
+                      &lt;/Row&gt;
+                      &lt;IconButton label=&quot;Opgelost&quot; svg={CheckMarkIcon} /&gt;
                     &lt;/Row&gt;
-                    &lt;IconButton label=&quot;Opgelost&quot; svg={CheckMarkIcon} /&gt;
-                  &lt;/Row&gt;
-                &lt;/Column&gt;
-              &lt;/Card&gt;
-            &lt;/Grid.Cell&gt;
-            &lt;Grid.Cell span=&quot;all&quot;&gt;
-              &lt;Card&gt;
-                &lt;Card.HeadingGroup key={1}&gt;
-                  &lt;Card.Heading level={4}&gt;L van de Akker&lt;/Card.Heading&gt;
-                  &lt;Metadata size=&quot;small&quot;&gt;12-08-2026 10:30&lt;/Metadata&gt;
-                &lt;/Card.HeadingGroup&gt;
-                &lt;Column gap=&quot;small&quot;&gt;
-                  &lt;Paragraph key={2}&gt;de Bijenkorf lijkt zo meer bij de Damrak te horen dan de Dam.&lt;/Paragraph&gt;
-                  &lt;Row alignVertical=&quot;center&quot; gap=&quot;small&quot;&gt;
-                    &lt;TextInput key={3} placeholder=&quot;Voeg een opmerking toe&quot; /&gt;
-                    &lt;IconButton label=&quot;Voeg opmerking toe&quot; size=&quot;large&quot; svg={ArrowForwardIcon} /&gt;
-                  &lt;/Row&gt;
-                  &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; gap=&quot;small&quot;&gt;
-                    &lt;Row gap=&quot;small&quot;&gt;
-                      &lt;IconButton
-                        label=&quot;Bekijken&quot;
-                        onClick={() =&gt; highlightReviewElement(&#39;kaart&#39;)}
-                        svg={MagnifyingGlassWithEyeIcon}
-                      /&gt;
-                      &lt;IconButton label=&quot;Bewerken&quot; svg={PencilIcon} /&gt;
+                  &lt;/Column&gt;
+                &lt;/Card&gt;
+
+                &lt;Card className={styles[&#39;remark&#39;]}&gt;
+                  &lt;Card.HeadingGroup key={1}&gt;
+                    &lt;Card.Heading level={4}&gt;L van de Akker&lt;/Card.Heading&gt;
+                    &lt;Metadata size=&quot;small&quot;&gt;12-08-2026 10:30&lt;/Metadata&gt;
+                  &lt;/Card.HeadingGroup&gt;
+                  &lt;Column gap=&quot;small&quot;&gt;
+                    &lt;Paragraph key={2}&gt;Jaar moet 1915 zijn.&lt;/Paragraph&gt;
+                    &lt;Row alignVertical=&quot;center&quot; gap=&quot;small&quot;&gt;
+                      &lt;TextInput key={3} placeholder=&quot;Voeg een opmerking toe&quot; /&gt;
+                      &lt;IconButton label=&quot;Voeg opmerking toe&quot; size=&quot;large&quot; svg={ArrowForwardIcon} /&gt;
                     &lt;/Row&gt;
-                    &lt;IconButton label=&quot;Opgelost&quot; svg={CheckMarkIcon} /&gt;
-                  &lt;/Row&gt;
-                &lt;/Column&gt;
-              &lt;/Card&gt;
-            &lt;/Grid.Cell&gt;
-          &lt;/Grid.Subgrid&gt;
+                    &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; gap=&quot;small&quot;&gt;
+                      &lt;Row gap=&quot;small&quot;&gt;
+                        &lt;IconButton
+                          label=&quot;Bekijken&quot;
+                          onClick={() =&gt; highlightReviewElement(&#39;row-4&#39;, isWide, remarksPopoverRef.current)}
+                          svg={MagnifyingGlassWithEyeIcon}
+                        /&gt;
+                        &lt;IconButton label=&quot;Bewerken&quot; svg={PencilIcon} /&gt;
+                      &lt;/Row&gt;
+                      &lt;IconButton label=&quot;Opgelost&quot; svg={CheckMarkIcon} /&gt;
+                    &lt;/Row&gt;
+                  &lt;/Column&gt;
+                &lt;/Card&gt;
+
+                &lt;Card className={styles[&#39;remark&#39;]}&gt;
+                  &lt;Card.HeadingGroup key={1}&gt;
+                    &lt;Card.Heading level={4}&gt;L van de Akker&lt;/Card.Heading&gt;
+                    &lt;Metadata size=&quot;small&quot;&gt;12-08-2026 10:30&lt;/Metadata&gt;
+                  &lt;/Card.HeadingGroup&gt;
+                  &lt;Column gap=&quot;small&quot;&gt;
+                    &lt;Paragraph key={2}&gt;de Bijenkorf lijkt zo meer bij de Damrak te horen dan de Dam.&lt;/Paragraph&gt;
+                    &lt;Row alignVertical=&quot;center&quot; gap=&quot;small&quot;&gt;
+                      &lt;TextInput key={3} placeholder=&quot;Voeg een opmerking toe&quot; /&gt;
+                      &lt;IconButton label=&quot;Voeg opmerking toe&quot; size=&quot;large&quot; svg={ArrowForwardIcon} /&gt;
+                    &lt;/Row&gt;
+                    &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; gap=&quot;small&quot;&gt;
+                      &lt;Row gap=&quot;small&quot;&gt;
+                        &lt;IconButton
+                          label=&quot;Bekijken&quot;
+                          onClick={() =&gt; highlightReviewElement(&#39;kaart&#39;, isWide, remarksPopoverRef.current)}
+                          svg={MagnifyingGlassWithEyeIcon}
+                        /&gt;
+                        &lt;IconButton label=&quot;Bewerken&quot; svg={PencilIcon} /&gt;
+                      &lt;/Row&gt;
+                      &lt;IconButton label=&quot;Opgelost&quot; svg={CheckMarkIcon} /&gt;
+                    &lt;/Row&gt;
+                  &lt;/Column&gt;
+                &lt;/Card&gt;
+              &lt;/Column&gt;
+            &lt;/div&gt;
+          &lt;/Grid.Cell&gt;
 
           &lt;Grid.Subgrid rowStart={{ narrow: 3, medium: 2, wide: 2 }} span={{ narrow: 4, medium: 5, wide: 8 }}&gt;
             &lt;Grid.Cell className=&quot;ams-prose&quot; span=&quot;all&quot;&gt;
@@ -7211,13 +7201,11 @@ export const Review: StoryObj = {
                 &lt;Heading id=&quot;algemene-informatie&quot; level={2}&gt;
                   Algemene informatie
                 &lt;/Heading&gt;
-                &lt;Button
-                  icon={SpeechBalloonIcon}
+                &lt;IconButton
+                  label=&quot;Opmerking toevoegen bij Algemene informatie&quot;
                   onClick={() =&gt; openRemarkDialog(&#39;algemene-informatie&#39;)}
-                  variant=&quot;secondary&quot;
-                &gt;
-                  Opmerkingen
-                &lt;/Button&gt;
+                  svg={SpeechBalloonIcon}
+                /&gt;
               &lt;/Row&gt;
               &lt;Paragraph&gt;{detailPageData.description}&lt;/Paragraph&gt;
               &lt;ObjectInformationDescriptionList items={detailPageData.basicInformation} review /&gt;
@@ -7227,9 +7215,11 @@ export const Review: StoryObj = {
                 &lt;Heading id=&quot;geschiedenis&quot; level={2}&gt;
                   Geschiedenis
                 &lt;/Heading&gt;
-                &lt;Button icon={SpeechBalloonIcon} onClick={() =&gt; openRemarkDialog(&#39;geschiedenis&#39;)} variant=&quot;secondary&quot;&gt;
-                  Opmerkingen
-                &lt;/Button&gt;
+                &lt;IconButton
+                  label=&quot;Opmerking toevoegen bij Geschiedenis&quot;
+                  onClick={() =&gt; openRemarkDialog(&#39;geschiedenis&#39;)}
+                  svg={SpeechBalloonIcon}
+                /&gt;
               &lt;/Row&gt;
               &lt;ObjectInformationTable events={detailPageData.history} review /&gt;
             &lt;/Grid.Cell&gt;
@@ -7238,9 +7228,11 @@ export const Review: StoryObj = {
                 &lt;Heading id=&quot;kaart&quot; level={2}&gt;
                   Kaart
                 &lt;/Heading&gt;
-                &lt;Button icon={SpeechBalloonIcon} onClick={() =&gt; openRemarkDialog(&#39;kaart&#39;)} variant=&quot;secondary&quot;&gt;
-                  Opmerkingen
-                &lt;/Button&gt;
+                &lt;IconButton
+                  label=&quot;Opmerking toevoegen bij Kaart&quot;
+                  onClick={() =&gt; openRemarkDialog(&#39;kaart&#39;)}
+                  svg={SpeechBalloonNotificationIcon}
+                /&gt;
               &lt;/Row&gt;
               &lt;ObjectInformationMap geoJson={geoJson} /&gt;
             &lt;/Grid.Cell&gt;
@@ -7427,6 +7419,8 @@ import {
               
               
               <pre><code>const Review = () =&gt; {
+  const isWide = useMediaQuery(wideMediaQuery)
+  const remarksPopoverRef = useRef&lt;HTMLDivElement | null&gt;(null)
   const [currentRemarkSectionId, setCurrentRemarkSectionId] = useState&lt;ReviewSectionId | null&gt;(null)
   const [remarks, setRemarks] = useState&lt;Record&lt;ReviewSectionId, string&gt;&gt;({
     &#39;algemene-informatie&#39;: &#39;&#39;,
@@ -7444,8 +7438,7 @@ import {
 
   return (
     &lt;&gt;
-      &lt;style&gt;{reviewSectionHighlightStyles}&lt;/style&gt;
-      &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+      &lt;Grid className={styles[&#39;reviewPage&#39;]} paddingVertical=&quot;x-large&quot;&gt;
         &lt;Grid.Cell appearance=&quot;transparent&quot; span=&quot;all&quot;&gt;
           &lt;Breadcrumb&gt;
             {detailPageData.breadcrumbs.map((breadcrumb) =&gt; (
@@ -7457,94 +7450,108 @@ import {
           &lt;Row align=&quot;between&quot; wrap&gt;
             &lt;Heading level={1}&gt;{detailPageData.name}&lt;/Heading&gt;
             &lt;ActionGroup&gt;
-              &lt;Button icon={MagnifyingGlassWithEyeIcon} variant=&quot;secondary&quot;&gt;
-                Review
+              &lt;Button
+                className={styles[&#39;toggleRemarks&#39;]}
+                icon={SpeechBalloonNotificationIcon}
+                popoverTarget=&quot;remarks&quot;
+                variant=&quot;secondary&quot;
+              &gt;
+                Opmerkingen
               &lt;/Button&gt;
               &lt;Button icon={PencilIcon}&gt;Bewerken&lt;/Button&gt;
             &lt;/ActionGroup&gt;
           &lt;/Row&gt;
         &lt;/Grid.Cell&gt;
 
-        &lt;Grid.Subgrid span={{ narrow: 4, medium: 3, wide: 4 }} start={{ narrow: 1, medium: 6, wide: 9 }}&gt;
-          &lt;Grid.Cell span=&quot;all&quot;&gt;
-            &lt;Card&gt;
-              &lt;Card.HeadingGroup key={1}&gt;
-                &lt;Card.Heading level={4}&gt;L van de Akker&lt;/Card.Heading&gt;
-                &lt;Metadata size=&quot;small&quot;&gt;12-08-2026 10:30&lt;/Metadata&gt;
-              &lt;/Card.HeadingGroup&gt;
-              &lt;Column gap=&quot;small&quot;&gt;
-                &lt;Paragraph key={2}&gt;Hier zou je ook protesten bij kunnen vermelden.&lt;/Paragraph&gt;
-                &lt;Row alignVertical=&quot;center&quot; gap=&quot;small&quot;&gt;
-                  &lt;TextInput key={3} placeholder=&quot;Voeg een opmerking toe&quot; /&gt;
-                  &lt;IconButton label=&quot;Voeg opmerking toe&quot; size=&quot;large&quot; svg={ArrowForwardIcon} /&gt;
-                &lt;/Row&gt;
-                &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; gap=&quot;small&quot;&gt;
-                  &lt;Row gap=&quot;small&quot;&gt;
-                    &lt;IconButton
-                      label=&quot;Bekijken&quot;
-                      onClick={() =&gt; highlightReviewElement(&#39;functie-5&#39;)}
-                      svg={MagnifyingGlassWithEyeIcon}
-                    /&gt;
-                    &lt;IconButton label=&quot;Bewerken&quot; svg={PencilIcon} /&gt;
+        &lt;Grid.Cell
+          appearance=&quot;flush&quot;
+          span={{ narrow: 4, medium: 3, wide: 4 }}
+          start={{ narrow: 1, medium: 6, wide: 9 }}
+        &gt;
+          &lt;div
+            {...(!isWide ? { popover: &#39;auto&#39; } : {})}
+            className={styles[&#39;remarks&#39;]}
+            id=&quot;remarks&quot;
+            ref={remarksPopoverRef}
+          &gt;
+            &lt;Column gap=&quot;large&quot;&gt;
+              &lt;Card className={styles[&#39;remark&#39;]}&gt;
+                &lt;Card.HeadingGroup key={1}&gt;
+                  &lt;Card.Heading level={4}&gt;L van de Akker&lt;/Card.Heading&gt;
+                  &lt;Metadata size=&quot;small&quot;&gt;12-08-2026 10:30&lt;/Metadata&gt;
+                &lt;/Card.HeadingGroup&gt;
+                &lt;Column gap=&quot;small&quot;&gt;
+                  &lt;Paragraph key={2}&gt;Hier zou je ook protesten bij kunnen vermelden.&lt;/Paragraph&gt;
+                  &lt;Row alignVertical=&quot;center&quot; gap=&quot;small&quot;&gt;
+                    &lt;TextInput key={3} placeholder=&quot;Voeg een opmerking toe&quot; /&gt;
+                    &lt;IconButton label=&quot;Voeg opmerking toe&quot; size=&quot;large&quot; svg={ArrowForwardIcon} /&gt;
                   &lt;/Row&gt;
-                  &lt;IconButton label=&quot;Opgelost&quot; svg={CheckMarkIcon} /&gt;
-                &lt;/Row&gt;
-              &lt;/Column&gt;
-            &lt;/Card&gt;
-          &lt;/Grid.Cell&gt;
-          &lt;Grid.Cell span=&quot;all&quot;&gt;
-            &lt;Card&gt;
-              &lt;Card.HeadingGroup key={1}&gt;
-                &lt;Card.Heading level={4}&gt;L van de Akker&lt;/Card.Heading&gt;
-                &lt;Metadata size=&quot;small&quot;&gt;12-08-2026 10:30&lt;/Metadata&gt;
-              &lt;/Card.HeadingGroup&gt;
-              &lt;Column gap=&quot;small&quot;&gt;
-                &lt;Paragraph key={2}&gt;Jaar moet 1915 zijn.&lt;/Paragraph&gt;
-                &lt;Row alignVertical=&quot;center&quot; gap=&quot;small&quot;&gt;
-                  &lt;TextInput key={3} placeholder=&quot;Voeg een opmerking toe&quot; /&gt;
-                  &lt;IconButton label=&quot;Voeg opmerking toe&quot; size=&quot;large&quot; svg={ArrowForwardIcon} /&gt;
-                &lt;/Row&gt;
-                &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; gap=&quot;small&quot;&gt;
-                  &lt;Row gap=&quot;small&quot;&gt;
-                    &lt;IconButton
-                      label=&quot;Bekijken&quot;
-                      onClick={() =&gt; highlightReviewElement(&#39;row-4&#39;)}
-                      svg={MagnifyingGlassWithEyeIcon}
-                    /&gt;
-                    &lt;IconButton label=&quot;Bewerken&quot; svg={PencilIcon} /&gt;
+                  &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; gap=&quot;small&quot;&gt;
+                    &lt;Row gap=&quot;small&quot;&gt;
+                      &lt;IconButton
+                        label=&quot;Bekijken&quot;
+                        onClick={() =&gt; highlightReviewElement(&#39;functie-5&#39;, isWide, remarksPopoverRef.current)}
+                        svg={MagnifyingGlassWithEyeIcon}
+                      /&gt;
+                      &lt;IconButton label=&quot;Bewerken&quot; svg={PencilIcon} /&gt;
+                    &lt;/Row&gt;
+                    &lt;IconButton label=&quot;Opgelost&quot; svg={CheckMarkIcon} /&gt;
                   &lt;/Row&gt;
-                  &lt;IconButton label=&quot;Opgelost&quot; svg={CheckMarkIcon} /&gt;
-                &lt;/Row&gt;
-              &lt;/Column&gt;
-            &lt;/Card&gt;
-          &lt;/Grid.Cell&gt;
-          &lt;Grid.Cell span=&quot;all&quot;&gt;
-            &lt;Card&gt;
-              &lt;Card.HeadingGroup key={1}&gt;
-                &lt;Card.Heading level={4}&gt;L van de Akker&lt;/Card.Heading&gt;
-                &lt;Metadata size=&quot;small&quot;&gt;12-08-2026 10:30&lt;/Metadata&gt;
-              &lt;/Card.HeadingGroup&gt;
-              &lt;Column gap=&quot;small&quot;&gt;
-                &lt;Paragraph key={2}&gt;de Bijenkorf lijkt zo meer bij de Damrak te horen dan de Dam.&lt;/Paragraph&gt;
-                &lt;Row alignVertical=&quot;center&quot; gap=&quot;small&quot;&gt;
-                  &lt;TextInput key={3} placeholder=&quot;Voeg een opmerking toe&quot; /&gt;
-                  &lt;IconButton label=&quot;Voeg opmerking toe&quot; size=&quot;large&quot; svg={ArrowForwardIcon} /&gt;
-                &lt;/Row&gt;
-                &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; gap=&quot;small&quot;&gt;
-                  &lt;Row gap=&quot;small&quot;&gt;
-                    &lt;IconButton
-                      label=&quot;Bekijken&quot;
-                      onClick={() =&gt; highlightReviewElement(&#39;kaart&#39;)}
-                      svg={MagnifyingGlassWithEyeIcon}
-                    /&gt;
-                    &lt;IconButton label=&quot;Bewerken&quot; svg={PencilIcon} /&gt;
+                &lt;/Column&gt;
+              &lt;/Card&gt;
+
+              &lt;Card className={styles[&#39;remark&#39;]}&gt;
+                &lt;Card.HeadingGroup key={1}&gt;
+                  &lt;Card.Heading level={4}&gt;L van de Akker&lt;/Card.Heading&gt;
+                  &lt;Metadata size=&quot;small&quot;&gt;12-08-2026 10:30&lt;/Metadata&gt;
+                &lt;/Card.HeadingGroup&gt;
+                &lt;Column gap=&quot;small&quot;&gt;
+                  &lt;Paragraph key={2}&gt;Jaar moet 1915 zijn.&lt;/Paragraph&gt;
+                  &lt;Row alignVertical=&quot;center&quot; gap=&quot;small&quot;&gt;
+                    &lt;TextInput key={3} placeholder=&quot;Voeg een opmerking toe&quot; /&gt;
+                    &lt;IconButton label=&quot;Voeg opmerking toe&quot; size=&quot;large&quot; svg={ArrowForwardIcon} /&gt;
                   &lt;/Row&gt;
-                  &lt;IconButton label=&quot;Opgelost&quot; svg={CheckMarkIcon} /&gt;
-                &lt;/Row&gt;
-              &lt;/Column&gt;
-            &lt;/Card&gt;
-          &lt;/Grid.Cell&gt;
-        &lt;/Grid.Subgrid&gt;
+                  &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; gap=&quot;small&quot;&gt;
+                    &lt;Row gap=&quot;small&quot;&gt;
+                      &lt;IconButton
+                        label=&quot;Bekijken&quot;
+                        onClick={() =&gt; highlightReviewElement(&#39;row-4&#39;, isWide, remarksPopoverRef.current)}
+                        svg={MagnifyingGlassWithEyeIcon}
+                      /&gt;
+                      &lt;IconButton label=&quot;Bewerken&quot; svg={PencilIcon} /&gt;
+                    &lt;/Row&gt;
+                    &lt;IconButton label=&quot;Opgelost&quot; svg={CheckMarkIcon} /&gt;
+                  &lt;/Row&gt;
+                &lt;/Column&gt;
+              &lt;/Card&gt;
+
+              &lt;Card className={styles[&#39;remark&#39;]}&gt;
+                &lt;Card.HeadingGroup key={1}&gt;
+                  &lt;Card.Heading level={4}&gt;L van de Akker&lt;/Card.Heading&gt;
+                  &lt;Metadata size=&quot;small&quot;&gt;12-08-2026 10:30&lt;/Metadata&gt;
+                &lt;/Card.HeadingGroup&gt;
+                &lt;Column gap=&quot;small&quot;&gt;
+                  &lt;Paragraph key={2}&gt;de Bijenkorf lijkt zo meer bij de Damrak te horen dan de Dam.&lt;/Paragraph&gt;
+                  &lt;Row alignVertical=&quot;center&quot; gap=&quot;small&quot;&gt;
+                    &lt;TextInput key={3} placeholder=&quot;Voeg een opmerking toe&quot; /&gt;
+                    &lt;IconButton label=&quot;Voeg opmerking toe&quot; size=&quot;large&quot; svg={ArrowForwardIcon} /&gt;
+                  &lt;/Row&gt;
+                  &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; gap=&quot;small&quot;&gt;
+                    &lt;Row gap=&quot;small&quot;&gt;
+                      &lt;IconButton
+                        label=&quot;Bekijken&quot;
+                        onClick={() =&gt; highlightReviewElement(&#39;kaart&#39;, isWide, remarksPopoverRef.current)}
+                        svg={MagnifyingGlassWithEyeIcon}
+                      /&gt;
+                      &lt;IconButton label=&quot;Bewerken&quot; svg={PencilIcon} /&gt;
+                    &lt;/Row&gt;
+                    &lt;IconButton label=&quot;Opgelost&quot; svg={CheckMarkIcon} /&gt;
+                  &lt;/Row&gt;
+                &lt;/Column&gt;
+              &lt;/Card&gt;
+            &lt;/Column&gt;
+          &lt;/div&gt;
+        &lt;/Grid.Cell&gt;
 
         &lt;Grid.Subgrid rowStart={{ narrow: 3, medium: 2, wide: 2 }} span={{ narrow: 4, medium: 5, wide: 8 }}&gt;
           &lt;Grid.Cell className=&quot;ams-prose&quot; span=&quot;all&quot;&gt;
@@ -7552,13 +7559,11 @@ import {
               &lt;Heading id=&quot;algemene-informatie&quot; level={2}&gt;
                 Algemene informatie
               &lt;/Heading&gt;
-              &lt;Button
-                icon={SpeechBalloonIcon}
+              &lt;IconButton
+                label=&quot;Opmerking toevoegen bij Algemene informatie&quot;
                 onClick={() =&gt; openRemarkDialog(&#39;algemene-informatie&#39;)}
-                variant=&quot;secondary&quot;
-              &gt;
-                Opmerkingen
-              &lt;/Button&gt;
+                svg={SpeechBalloonIcon}
+              /&gt;
             &lt;/Row&gt;
             &lt;Paragraph&gt;{detailPageData.description}&lt;/Paragraph&gt;
             &lt;ObjectInformationDescriptionList items={detailPageData.basicInformation} review /&gt;
@@ -7568,9 +7573,11 @@ import {
               &lt;Heading id=&quot;geschiedenis&quot; level={2}&gt;
                 Geschiedenis
               &lt;/Heading&gt;
-              &lt;Button icon={SpeechBalloonIcon} onClick={() =&gt; openRemarkDialog(&#39;geschiedenis&#39;)} variant=&quot;secondary&quot;&gt;
-                Opmerkingen
-              &lt;/Button&gt;
+              &lt;IconButton
+                label=&quot;Opmerking toevoegen bij Geschiedenis&quot;
+                onClick={() =&gt; openRemarkDialog(&#39;geschiedenis&#39;)}
+                svg={SpeechBalloonIcon}
+              /&gt;
             &lt;/Row&gt;
             &lt;ObjectInformationTable events={detailPageData.history} review /&gt;
           &lt;/Grid.Cell&gt;
@@ -7579,9 +7586,11 @@ import {
               &lt;Heading id=&quot;kaart&quot; level={2}&gt;
                 Kaart
               &lt;/Heading&gt;
-              &lt;Button icon={SpeechBalloonIcon} onClick={() =&gt; openRemarkDialog(&#39;kaart&#39;)} variant=&quot;secondary&quot;&gt;
-                Opmerkingen
-              &lt;/Button&gt;
+              &lt;IconButton
+                label=&quot;Opmerking toevoegen bij Kaart&quot;
+                onClick={() =&gt; openRemarkDialog(&#39;kaart&#39;)}
+                svg={SpeechBalloonNotificationIcon}
+              /&gt;
             &lt;/Row&gt;
             &lt;ObjectInformationMap geoJson={geoJson} /&gt;
           &lt;/Grid.Cell&gt;
@@ -41211,13 +41220,13 @@ The hero Image and the Card images take an empty `alt`, because the text beside 
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
-  117 |   }
-  118 | `
-&gt; 119 | const meta = {
-      | ^
-  120 |   ...commonMeta,
-  121 |   title: &#39;Pages/Internal/Detail Page&#39;,
-  122 |   parameters: pageParameters(
+  92 | }
+  93 |
+&gt; 94 | const meta = {
+     | ^
+  95 |   ...commonMeta,
+  96 |   title: &#39;Pages/Internal/Detail Page&#39;,
+  97 |   parameters: pageParameters(
 
 ./src/pages/internal/DetailPage/DetailPage.stories.tsx:
 /**
@@ -41254,20 +41263,25 @@ import {
   MagnifyingGlassWithEyeIcon,
   PencilIcon,
   SpeechBalloonIcon,
+  SpeechBalloonNotificationIcon,
 } from &#39;@amsterdam/design-system-react-icons&#39;
 import { ModalDialog } from &#39;@amsterdam/design-system-react/src&#39;
-import { useState } from &#39;react&#39;
+import { useRef, useState } from &#39;react&#39;
 
 import { commonMeta, pageParameters } from &#39;../common/commonMeta&#39;
+import styles from &#39;./DetailPage.module.css&#39;
 import detailPageData from &#39;./detailPageData.json&#39;
 import { ObjectInformationDescriptionList } from &#39;./ObjectInformationDescriptionList&#39;
 import { ObjectInformationMap } from &#39;./ObjectInformationMap&#39;
 import { ObjectInformationTable } from &#39;./ObjectInformationTable&#39;
+import { useMediaQuery } from &#39;./useMediaQuery&#39;
 
 // A JSON import widens the literal type names GeoJSON relies on to string.
 const geoJson = detailPageData.geoJson as FeatureCollection
 
 type ReviewSectionId = &#39;algemene-informatie&#39; | &#39;geschiedenis&#39; | &#39;kaart&#39;
+
+const wideMediaQuery = &#39;(min-width: 37.5rem)&#39;
 
 const highlightedReviewSectionParentAttribute = &#39;data-ams-detail-page-highlighted&#39;
 const reviewSectionHighlightTimeouts = new WeakMap&lt;HTMLElement, number&gt;()
@@ -41278,7 +41292,7 @@ const reviewSectionLabels: Record&lt;ReviewSectionId, string&gt; = {
   kaart: &#39;Kaart&#39;,
 }
 
-const highlightReviewElement = (sectionId: string) =&gt; {
+const highlightReviewElement = (sectionId: string, isWide: boolean, remarksPopover: HTMLDivElement | null) =&gt; {
   const sectionHeading = document.getElementById(sectionId)
 
   if (!(sectionHeading instanceof HTMLElement)) {
@@ -41286,7 +41300,7 @@ const highlightReviewElement = (sectionId: string) =&gt; {
   }
 
   window.location.hash = sectionId
-  sectionHeading.scrollIntoView({ behavior: &#39;smooth&#39;, block: &#39;start&#39; })
+  sectionHeading.scrollIntoView({ behavior: &#39;smooth&#39;, block: &#39;center&#39; })
 
   const existingTimeoutId = reviewSectionHighlightTimeouts.get(sectionHeading)
 
@@ -41302,42 +41316,12 @@ const highlightReviewElement = (sectionId: string) =&gt; {
   }, 3000)
 
   reviewSectionHighlightTimeouts.set(sectionHeading, timeoutId)
+
+  if (!isWide &amp;&amp; remarksPopover) {
+    remarksPopover.hidePopover()
+  }
 }
 
-const reviewSectionHighlightStyles = `
-  [id]:not(.ams-table__row),
-  .ams-table__row &gt; .ams-table__header-cell,
-  .ams-table__row &gt; .ams-table__cell {
-    transition: box-shadow 200ms ease-out;
-  }
-
-  [${highlightedReviewSectionParentAttribute}=&quot;true&quot;]:not(.ams-table__row) {
-    box-shadow: 0 0 0 var(--ams-border-width-l) var(--ams-color-interactive);
-  }
-
-  .ams-table__row[${highlightedReviewSectionParentAttribute}=&quot;true&quot;] &gt; .ams-table__header-cell,
-  .ams-table__row[${highlightedReviewSectionParentAttribute}=&quot;true&quot;] &gt; .ams-table__cell {
-    box-shadow:
-      inset 0 var(--ams-border-width-l) 0 var(--ams-color-interactive),
-      inset 0 calc(-1 * var(--ams-border-width-l)) 0 var(--ams-color-interactive);
-  }
-
-  .ams-table__row[${highlightedReviewSectionParentAttribute}=&quot;true&quot;] &gt; .ams-table__header-cell:first-child,
-  .ams-table__row[${highlightedReviewSectionParentAttribute}=&quot;true&quot;] &gt; .ams-table__cell:first-child {
-    box-shadow:
-      inset var(--ams-border-width-l) 0 0 var(--ams-color-interactive),
-      inset 0 var(--ams-border-width-l) 0 var(--ams-color-interactive),
-      inset 0 calc(-1 * var(--ams-border-width-l)) 0 var(--ams-color-interactive);
-  }
-
-  .ams-table__row[${highlightedReviewSectionParentAttribute}=&quot;true&quot;] &gt; .ams-table__header-cell:last-child,
-  .ams-table__row[${highlightedReviewSectionParentAttribute}=&quot;true&quot;] &gt; .ams-table__cell:last-child {
-    box-shadow:
-      inset calc(-1 * var(--ams-border-width-l)) 0 0 var(--ams-color-interactive),
-      inset 0 var(--ams-border-width-l) 0 var(--ams-color-interactive),
-      inset 0 calc(-1 * var(--ams-border-width-l)) 0 var(--ams-color-interactive);
-  }
-`
 const meta = {
   ...commonMeta,
   title: &#39;Pages/Internal/Detail Page&#39;,
@@ -41508,7 +41492,7 @@ export const Review: StoryObj = {
         // and that is all the Code Panel would print. Provide the source by hand so the layout reads the way a
         // developer would write it, without the interactive state.
         code: `
-        &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+        &lt;Grid className={styles[&#39;reviewPage&#39;]} paddingVertical=&quot;x-large&quot;&gt;
           &lt;Grid.Cell appearance=&quot;transparent&quot; span=&quot;all&quot;&gt;
             &lt;Breadcrumb&gt;
               {detailPageData.breadcrumbs.map((breadcrumb) =&gt; (
@@ -41616,6 +41600,8 @@ export const Review: StoryObj = {
     },
   },
   render: () =&gt; {
+    const isWide = useMediaQuery(wideMediaQuery)
+    const remarksPopoverRef = useRef&lt;HTMLDivElement | null&gt;(null)
     const [currentRemarkSectionId, setCurrentRemarkSectionId] = useState&lt;ReviewSectionId | null&gt;(null)
     const [remarks, setRemarks] = useState&lt;Record&lt;ReviewSectionId, string&gt;&gt;({
       &#39;algemene-informatie&#39;: &#39;&#39;,
@@ -41633,8 +41619,7 @@ export const Review: StoryObj = {
 
     return (
       &lt;&gt;
-        &lt;style&gt;{reviewSectionHighlightStyles}&lt;/style&gt;
-        &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+        &lt;Grid className={styles[&#39;reviewPage&#39;]} paddingVertical=&quot;x-large&quot;&gt;
           &lt;Grid.Cell appearance=&quot;transparent&quot; span=&quot;all&quot;&gt;
             &lt;Breadcrumb&gt;
               {detailPageData.breadcrumbs.map((breadcrumb) =&gt; (
@@ -41646,94 +41631,108 @@ export const Review: StoryObj = {
             &lt;Row align=&quot;between&quot; wrap&gt;
               &lt;Heading level={1}&gt;{detailPageData.name}&lt;/Heading&gt;
               &lt;ActionGroup&gt;
-                &lt;Button icon={MagnifyingGlassWithEyeIcon} variant=&quot;secondary&quot;&gt;
-                  Review
+                &lt;Button
+                  className={styles[&#39;toggleRemarks&#39;]}
+                  icon={SpeechBalloonNotificationIcon}
+                  popoverTarget=&quot;remarks&quot;
+                  variant=&quot;secondary&quot;
+                &gt;
+                  Opmerkingen
                 &lt;/Button&gt;
                 &lt;Button icon={PencilIcon}&gt;Bewerken&lt;/Button&gt;
               &lt;/ActionGroup&gt;
             &lt;/Row&gt;
           &lt;/Grid.Cell&gt;
 
-          &lt;Grid.Subgrid span={{ narrow: 4, medium: 3, wide: 4 }} start={{ narrow: 1, medium: 6, wide: 9 }}&gt;
-            &lt;Grid.Cell span=&quot;all&quot;&gt;
-              &lt;Card&gt;
-                &lt;Card.HeadingGroup key={1}&gt;
-                  &lt;Card.Heading level={4}&gt;L van de Akker&lt;/Card.Heading&gt;
-                  &lt;Metadata size=&quot;small&quot;&gt;12-08-2026 10:30&lt;/Metadata&gt;
-                &lt;/Card.HeadingGroup&gt;
-                &lt;Column gap=&quot;small&quot;&gt;
-                  &lt;Paragraph key={2}&gt;Hier zou je ook protesten bij kunnen vermelden.&lt;/Paragraph&gt;
-                  &lt;Row alignVertical=&quot;center&quot; gap=&quot;small&quot;&gt;
-                    &lt;TextInput key={3} placeholder=&quot;Voeg een opmerking toe&quot; /&gt;
-                    &lt;IconButton label=&quot;Voeg opmerking toe&quot; size=&quot;large&quot; svg={ArrowForwardIcon} /&gt;
-                  &lt;/Row&gt;
-                  &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; gap=&quot;small&quot;&gt;
-                    &lt;Row gap=&quot;small&quot;&gt;
-                      &lt;IconButton
-                        label=&quot;Bekijken&quot;
-                        onClick={() =&gt; highlightReviewElement(&#39;functie-5&#39;)}
-                        svg={MagnifyingGlassWithEyeIcon}
-                      /&gt;
-                      &lt;IconButton label=&quot;Bewerken&quot; svg={PencilIcon} /&gt;
+          &lt;Grid.Cell
+            appearance=&quot;flush&quot;
+            span={{ narrow: 4, medium: 3, wide: 4 }}
+            start={{ narrow: 1, medium: 6, wide: 9 }}
+          &gt;
+            &lt;div
+              {...(!isWide ? { popover: &#39;auto&#39; } : {})}
+              className={styles[&#39;remarks&#39;]}
+              id=&quot;remarks&quot;
+              ref={remarksPopoverRef}
+            &gt;
+              &lt;Column gap=&quot;large&quot;&gt;
+                &lt;Card className={styles[&#39;remark&#39;]}&gt;
+                  &lt;Card.HeadingGroup key={1}&gt;
+                    &lt;Card.Heading level={4}&gt;L van de Akker&lt;/Card.Heading&gt;
+                    &lt;Metadata size=&quot;small&quot;&gt;12-08-2026 10:30&lt;/Metadata&gt;
+                  &lt;/Card.HeadingGroup&gt;
+                  &lt;Column gap=&quot;small&quot;&gt;
+                    &lt;Paragraph key={2}&gt;Hier zou je ook protesten bij kunnen vermelden.&lt;/Paragraph&gt;
+                    &lt;Row alignVertical=&quot;center&quot; gap=&quot;small&quot;&gt;
+                      &lt;TextInput key={3} placeholder=&quot;Voeg een opmerking toe&quot; /&gt;
+                      &lt;IconButton label=&quot;Voeg opmerking toe&quot; size=&quot;large&quot; svg={ArrowForwardIcon} /&gt;
                     &lt;/Row&gt;
-                    &lt;IconButton label=&quot;Opgelost&quot; svg={CheckMarkIcon} /&gt;
-                  &lt;/Row&gt;
-                &lt;/Column&gt;
-              &lt;/Card&gt;
-            &lt;/Grid.Cell&gt;
-            &lt;Grid.Cell span=&quot;all&quot;&gt;
-              &lt;Card&gt;
-                &lt;Card.HeadingGroup key={1}&gt;
-                  &lt;Card.Heading level={4}&gt;L van de Akker&lt;/Card.Heading&gt;
-                  &lt;Metadata size=&quot;small&quot;&gt;12-08-2026 10:30&lt;/Metadata&gt;
-                &lt;/Card.HeadingGroup&gt;
-                &lt;Column gap=&quot;small&quot;&gt;
-                  &lt;Paragraph key={2}&gt;Jaar moet 1915 zijn.&lt;/Paragraph&gt;
-                  &lt;Row alignVertical=&quot;center&quot; gap=&quot;small&quot;&gt;
-                    &lt;TextInput key={3} placeholder=&quot;Voeg een opmerking toe&quot; /&gt;
-                    &lt;IconButton label=&quot;Voeg opmerking toe&quot; size=&quot;large&quot; svg={ArrowForwardIcon} /&gt;
-                  &lt;/Row&gt;
-                  &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; gap=&quot;small&quot;&gt;
-                    &lt;Row gap=&quot;small&quot;&gt;
-                      &lt;IconButton
-                        label=&quot;Bekijken&quot;
-                        onClick={() =&gt; highlightReviewElement(&#39;row-4&#39;)}
-                        svg={MagnifyingGlassWithEyeIcon}
-                      /&gt;
-                      &lt;IconButton label=&quot;Bewerken&quot; svg={PencilIcon} /&gt;
+                    &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; gap=&quot;small&quot;&gt;
+                      &lt;Row gap=&quot;small&quot;&gt;
+                        &lt;IconButton
+                          label=&quot;Bekijken&quot;
+                          onClick={() =&gt; highlightReviewElement(&#39;functie-5&#39;, isWide, remarksPopoverRef.current)}
+                          svg={MagnifyingGlassWithEyeIcon}
+                        /&gt;
+                        &lt;IconButton label=&quot;Bewerken&quot; svg={PencilIcon} /&gt;
+                      &lt;/Row&gt;
+                      &lt;IconButton label=&quot;Opgelost&quot; svg={CheckMarkIcon} /&gt;
                     &lt;/Row&gt;
-                    &lt;IconButton label=&quot;Opgelost&quot; svg={CheckMarkIcon} /&gt;
-                  &lt;/Row&gt;
-                &lt;/Column&gt;
-              &lt;/Card&gt;
-            &lt;/Grid.Cell&gt;
-            &lt;Grid.Cell span=&quot;all&quot;&gt;
-              &lt;Card&gt;
-                &lt;Card.HeadingGroup key={1}&gt;
-                  &lt;Card.Heading level={4}&gt;L van de Akker&lt;/Card.Heading&gt;
-                  &lt;Metadata size=&quot;small&quot;&gt;12-08-2026 10:30&lt;/Metadata&gt;
-                &lt;/Card.HeadingGroup&gt;
-                &lt;Column gap=&quot;small&quot;&gt;
-                  &lt;Paragraph key={2}&gt;de Bijenkorf lijkt zo meer bij de Damrak te horen dan de Dam.&lt;/Paragraph&gt;
-                  &lt;Row alignVertical=&quot;center&quot; gap=&quot;small&quot;&gt;
-                    &lt;TextInput key={3} placeholder=&quot;Voeg een opmerking toe&quot; /&gt;
-                    &lt;IconButton label=&quot;Voeg opmerking toe&quot; size=&quot;large&quot; svg={ArrowForwardIcon} /&gt;
-                  &lt;/Row&gt;
-                  &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; gap=&quot;small&quot;&gt;
-                    &lt;Row gap=&quot;small&quot;&gt;
-                      &lt;IconButton
-                        label=&quot;Bekijken&quot;
-                        onClick={() =&gt; highlightReviewElement(&#39;kaart&#39;)}
-                        svg={MagnifyingGlassWithEyeIcon}
-                      /&gt;
-                      &lt;IconButton label=&quot;Bewerken&quot; svg={PencilIcon} /&gt;
+                  &lt;/Column&gt;
+                &lt;/Card&gt;
+
+                &lt;Card className={styles[&#39;remark&#39;]}&gt;
+                  &lt;Card.HeadingGroup key={1}&gt;
+                    &lt;Card.Heading level={4}&gt;L van de Akker&lt;/Card.Heading&gt;
+                    &lt;Metadata size=&quot;small&quot;&gt;12-08-2026 10:30&lt;/Metadata&gt;
+                  &lt;/Card.HeadingGroup&gt;
+                  &lt;Column gap=&quot;small&quot;&gt;
+                    &lt;Paragraph key={2}&gt;Jaar moet 1915 zijn.&lt;/Paragraph&gt;
+                    &lt;Row alignVertical=&quot;center&quot; gap=&quot;small&quot;&gt;
+                      &lt;TextInput key={3} placeholder=&quot;Voeg een opmerking toe&quot; /&gt;
+                      &lt;IconButton label=&quot;Voeg opmerking toe&quot; size=&quot;large&quot; svg={ArrowForwardIcon} /&gt;
                     &lt;/Row&gt;
-                    &lt;IconButton label=&quot;Opgelost&quot; svg={CheckMarkIcon} /&gt;
-                  &lt;/Row&gt;
-                &lt;/Column&gt;
-              &lt;/Card&gt;
-            &lt;/Grid.Cell&gt;
-          &lt;/Grid.Subgrid&gt;
+                    &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; gap=&quot;small&quot;&gt;
+                      &lt;Row gap=&quot;small&quot;&gt;
+                        &lt;IconButton
+                          label=&quot;Bekijken&quot;
+                          onClick={() =&gt; highlightReviewElement(&#39;row-4&#39;, isWide, remarksPopoverRef.current)}
+                          svg={MagnifyingGlassWithEyeIcon}
+                        /&gt;
+                        &lt;IconButton label=&quot;Bewerken&quot; svg={PencilIcon} /&gt;
+                      &lt;/Row&gt;
+                      &lt;IconButton label=&quot;Opgelost&quot; svg={CheckMarkIcon} /&gt;
+                    &lt;/Row&gt;
+                  &lt;/Column&gt;
+                &lt;/Card&gt;
+
+                &lt;Card className={styles[&#39;remark&#39;]}&gt;
+                  &lt;Card.HeadingGroup key={1}&gt;
+                    &lt;Card.Heading level={4}&gt;L van de Akker&lt;/Card.Heading&gt;
+                    &lt;Metadata size=&quot;small&quot;&gt;12-08-2026 10:30&lt;/Metadata&gt;
+                  &lt;/Card.HeadingGroup&gt;
+                  &lt;Column gap=&quot;small&quot;&gt;
+                    &lt;Paragraph key={2}&gt;de Bijenkorf lijkt zo meer bij de Damrak te horen dan de Dam.&lt;/Paragraph&gt;
+                    &lt;Row alignVertical=&quot;center&quot; gap=&quot;small&quot;&gt;
+                      &lt;TextInput key={3} placeholder=&quot;Voeg een opmerking toe&quot; /&gt;
+                      &lt;IconButton label=&quot;Voeg opmerking toe&quot; size=&quot;large&quot; svg={ArrowForwardIcon} /&gt;
+                    &lt;/Row&gt;
+                    &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; gap=&quot;small&quot;&gt;
+                      &lt;Row gap=&quot;small&quot;&gt;
+                        &lt;IconButton
+                          label=&quot;Bekijken&quot;
+                          onClick={() =&gt; highlightReviewElement(&#39;kaart&#39;, isWide, remarksPopoverRef.current)}
+                          svg={MagnifyingGlassWithEyeIcon}
+                        /&gt;
+                        &lt;IconButton label=&quot;Bewerken&quot; svg={PencilIcon} /&gt;
+                      &lt;/Row&gt;
+                      &lt;IconButton label=&quot;Opgelost&quot; svg={CheckMarkIcon} /&gt;
+                    &lt;/Row&gt;
+                  &lt;/Column&gt;
+                &lt;/Card&gt;
+              &lt;/Column&gt;
+            &lt;/div&gt;
+          &lt;/Grid.Cell&gt;
 
           &lt;Grid.Subgrid rowStart={{ narrow: 3, medium: 2, wide: 2 }} span={{ narrow: 4, medium: 5, wide: 8 }}&gt;
             &lt;Grid.Cell className=&quot;ams-prose&quot; span=&quot;all&quot;&gt;
@@ -41741,13 +41740,11 @@ export const Review: StoryObj = {
                 &lt;Heading id=&quot;algemene-informatie&quot; level={2}&gt;
                   Algemene informatie
                 &lt;/Heading&gt;
-                &lt;Button
-                  icon={SpeechBalloonIcon}
+                &lt;IconButton
+                  label=&quot;Opmerking toevoegen bij Algemene informatie&quot;
                   onClick={() =&gt; openRemarkDialog(&#39;algemene-informatie&#39;)}
-                  variant=&quot;secondary&quot;
-                &gt;
-                  Opmerkingen
-                &lt;/Button&gt;
+                  svg={SpeechBalloonIcon}
+                /&gt;
               &lt;/Row&gt;
               &lt;Paragraph&gt;{detailPageData.description}&lt;/Paragraph&gt;
               &lt;ObjectInformationDescriptionList items={detailPageData.basicInformation} review /&gt;
@@ -41757,9 +41754,11 @@ export const Review: StoryObj = {
                 &lt;Heading id=&quot;geschiedenis&quot; level={2}&gt;
                   Geschiedenis
                 &lt;/Heading&gt;
-                &lt;Button icon={SpeechBalloonIcon} onClick={() =&gt; openRemarkDialog(&#39;geschiedenis&#39;)} variant=&quot;secondary&quot;&gt;
-                  Opmerkingen
-                &lt;/Button&gt;
+                &lt;IconButton
+                  label=&quot;Opmerking toevoegen bij Geschiedenis&quot;
+                  onClick={() =&gt; openRemarkDialog(&#39;geschiedenis&#39;)}
+                  svg={SpeechBalloonIcon}
+                /&gt;
               &lt;/Row&gt;
               &lt;ObjectInformationTable events={detailPageData.history} review /&gt;
             &lt;/Grid.Cell&gt;
@@ -41768,9 +41767,11 @@ export const Review: StoryObj = {
                 &lt;Heading id=&quot;kaart&quot; level={2}&gt;
                   Kaart
                 &lt;/Heading&gt;
-                &lt;Button icon={SpeechBalloonIcon} onClick={() =&gt; openRemarkDialog(&#39;kaart&#39;)} variant=&quot;secondary&quot;&gt;
-                  Opmerkingen
-                &lt;/Button&gt;
+                &lt;IconButton
+                  label=&quot;Opmerking toevoegen bij Kaart&quot;
+                  onClick={() =&gt; openRemarkDialog(&#39;kaart&#39;)}
+                  svg={SpeechBalloonNotificationIcon}
+                /&gt;
               &lt;/Row&gt;
               &lt;ObjectInformationMap geoJson={geoJson} /&gt;
             &lt;/Grid.Cell&gt;
@@ -41957,6 +41958,8 @@ import {
               
               
               <pre><code>const Review = () =&gt; {
+  const isWide = useMediaQuery(wideMediaQuery)
+  const remarksPopoverRef = useRef&lt;HTMLDivElement | null&gt;(null)
   const [currentRemarkSectionId, setCurrentRemarkSectionId] = useState&lt;ReviewSectionId | null&gt;(null)
   const [remarks, setRemarks] = useState&lt;Record&lt;ReviewSectionId, string&gt;&gt;({
     &#39;algemene-informatie&#39;: &#39;&#39;,
@@ -41974,8 +41977,7 @@ import {
 
   return (
     &lt;&gt;
-      &lt;style&gt;{reviewSectionHighlightStyles}&lt;/style&gt;
-      &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+      &lt;Grid className={styles[&#39;reviewPage&#39;]} paddingVertical=&quot;x-large&quot;&gt;
         &lt;Grid.Cell appearance=&quot;transparent&quot; span=&quot;all&quot;&gt;
           &lt;Breadcrumb&gt;
             {detailPageData.breadcrumbs.map((breadcrumb) =&gt; (
@@ -41987,94 +41989,108 @@ import {
           &lt;Row align=&quot;between&quot; wrap&gt;
             &lt;Heading level={1}&gt;{detailPageData.name}&lt;/Heading&gt;
             &lt;ActionGroup&gt;
-              &lt;Button icon={MagnifyingGlassWithEyeIcon} variant=&quot;secondary&quot;&gt;
-                Review
+              &lt;Button
+                className={styles[&#39;toggleRemarks&#39;]}
+                icon={SpeechBalloonNotificationIcon}
+                popoverTarget=&quot;remarks&quot;
+                variant=&quot;secondary&quot;
+              &gt;
+                Opmerkingen
               &lt;/Button&gt;
               &lt;Button icon={PencilIcon}&gt;Bewerken&lt;/Button&gt;
             &lt;/ActionGroup&gt;
           &lt;/Row&gt;
         &lt;/Grid.Cell&gt;
 
-        &lt;Grid.Subgrid span={{ narrow: 4, medium: 3, wide: 4 }} start={{ narrow: 1, medium: 6, wide: 9 }}&gt;
-          &lt;Grid.Cell span=&quot;all&quot;&gt;
-            &lt;Card&gt;
-              &lt;Card.HeadingGroup key={1}&gt;
-                &lt;Card.Heading level={4}&gt;L van de Akker&lt;/Card.Heading&gt;
-                &lt;Metadata size=&quot;small&quot;&gt;12-08-2026 10:30&lt;/Metadata&gt;
-              &lt;/Card.HeadingGroup&gt;
-              &lt;Column gap=&quot;small&quot;&gt;
-                &lt;Paragraph key={2}&gt;Hier zou je ook protesten bij kunnen vermelden.&lt;/Paragraph&gt;
-                &lt;Row alignVertical=&quot;center&quot; gap=&quot;small&quot;&gt;
-                  &lt;TextInput key={3} placeholder=&quot;Voeg een opmerking toe&quot; /&gt;
-                  &lt;IconButton label=&quot;Voeg opmerking toe&quot; size=&quot;large&quot; svg={ArrowForwardIcon} /&gt;
-                &lt;/Row&gt;
-                &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; gap=&quot;small&quot;&gt;
-                  &lt;Row gap=&quot;small&quot;&gt;
-                    &lt;IconButton
-                      label=&quot;Bekijken&quot;
-                      onClick={() =&gt; highlightReviewElement(&#39;functie-5&#39;)}
-                      svg={MagnifyingGlassWithEyeIcon}
-                    /&gt;
-                    &lt;IconButton label=&quot;Bewerken&quot; svg={PencilIcon} /&gt;
+        &lt;Grid.Cell
+          appearance=&quot;flush&quot;
+          span={{ narrow: 4, medium: 3, wide: 4 }}
+          start={{ narrow: 1, medium: 6, wide: 9 }}
+        &gt;
+          &lt;div
+            {...(!isWide ? { popover: &#39;auto&#39; } : {})}
+            className={styles[&#39;remarks&#39;]}
+            id=&quot;remarks&quot;
+            ref={remarksPopoverRef}
+          &gt;
+            &lt;Column gap=&quot;large&quot;&gt;
+              &lt;Card className={styles[&#39;remark&#39;]}&gt;
+                &lt;Card.HeadingGroup key={1}&gt;
+                  &lt;Card.Heading level={4}&gt;L van de Akker&lt;/Card.Heading&gt;
+                  &lt;Metadata size=&quot;small&quot;&gt;12-08-2026 10:30&lt;/Metadata&gt;
+                &lt;/Card.HeadingGroup&gt;
+                &lt;Column gap=&quot;small&quot;&gt;
+                  &lt;Paragraph key={2}&gt;Hier zou je ook protesten bij kunnen vermelden.&lt;/Paragraph&gt;
+                  &lt;Row alignVertical=&quot;center&quot; gap=&quot;small&quot;&gt;
+                    &lt;TextInput key={3} placeholder=&quot;Voeg een opmerking toe&quot; /&gt;
+                    &lt;IconButton label=&quot;Voeg opmerking toe&quot; size=&quot;large&quot; svg={ArrowForwardIcon} /&gt;
                   &lt;/Row&gt;
-                  &lt;IconButton label=&quot;Opgelost&quot; svg={CheckMarkIcon} /&gt;
-                &lt;/Row&gt;
-              &lt;/Column&gt;
-            &lt;/Card&gt;
-          &lt;/Grid.Cell&gt;
-          &lt;Grid.Cell span=&quot;all&quot;&gt;
-            &lt;Card&gt;
-              &lt;Card.HeadingGroup key={1}&gt;
-                &lt;Card.Heading level={4}&gt;L van de Akker&lt;/Card.Heading&gt;
-                &lt;Metadata size=&quot;small&quot;&gt;12-08-2026 10:30&lt;/Metadata&gt;
-              &lt;/Card.HeadingGroup&gt;
-              &lt;Column gap=&quot;small&quot;&gt;
-                &lt;Paragraph key={2}&gt;Jaar moet 1915 zijn.&lt;/Paragraph&gt;
-                &lt;Row alignVertical=&quot;center&quot; gap=&quot;small&quot;&gt;
-                  &lt;TextInput key={3} placeholder=&quot;Voeg een opmerking toe&quot; /&gt;
-                  &lt;IconButton label=&quot;Voeg opmerking toe&quot; size=&quot;large&quot; svg={ArrowForwardIcon} /&gt;
-                &lt;/Row&gt;
-                &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; gap=&quot;small&quot;&gt;
-                  &lt;Row gap=&quot;small&quot;&gt;
-                    &lt;IconButton
-                      label=&quot;Bekijken&quot;
-                      onClick={() =&gt; highlightReviewElement(&#39;row-4&#39;)}
-                      svg={MagnifyingGlassWithEyeIcon}
-                    /&gt;
-                    &lt;IconButton label=&quot;Bewerken&quot; svg={PencilIcon} /&gt;
+                  &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; gap=&quot;small&quot;&gt;
+                    &lt;Row gap=&quot;small&quot;&gt;
+                      &lt;IconButton
+                        label=&quot;Bekijken&quot;
+                        onClick={() =&gt; highlightReviewElement(&#39;functie-5&#39;, isWide, remarksPopoverRef.current)}
+                        svg={MagnifyingGlassWithEyeIcon}
+                      /&gt;
+                      &lt;IconButton label=&quot;Bewerken&quot; svg={PencilIcon} /&gt;
+                    &lt;/Row&gt;
+                    &lt;IconButton label=&quot;Opgelost&quot; svg={CheckMarkIcon} /&gt;
                   &lt;/Row&gt;
-                  &lt;IconButton label=&quot;Opgelost&quot; svg={CheckMarkIcon} /&gt;
-                &lt;/Row&gt;
-              &lt;/Column&gt;
-            &lt;/Card&gt;
-          &lt;/Grid.Cell&gt;
-          &lt;Grid.Cell span=&quot;all&quot;&gt;
-            &lt;Card&gt;
-              &lt;Card.HeadingGroup key={1}&gt;
-                &lt;Card.Heading level={4}&gt;L van de Akker&lt;/Card.Heading&gt;
-                &lt;Metadata size=&quot;small&quot;&gt;12-08-2026 10:30&lt;/Metadata&gt;
-              &lt;/Card.HeadingGroup&gt;
-              &lt;Column gap=&quot;small&quot;&gt;
-                &lt;Paragraph key={2}&gt;de Bijenkorf lijkt zo meer bij de Damrak te horen dan de Dam.&lt;/Paragraph&gt;
-                &lt;Row alignVertical=&quot;center&quot; gap=&quot;small&quot;&gt;
-                  &lt;TextInput key={3} placeholder=&quot;Voeg een opmerking toe&quot; /&gt;
-                  &lt;IconButton label=&quot;Voeg opmerking toe&quot; size=&quot;large&quot; svg={ArrowForwardIcon} /&gt;
-                &lt;/Row&gt;
-                &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; gap=&quot;small&quot;&gt;
-                  &lt;Row gap=&quot;small&quot;&gt;
-                    &lt;IconButton
-                      label=&quot;Bekijken&quot;
-                      onClick={() =&gt; highlightReviewElement(&#39;kaart&#39;)}
-                      svg={MagnifyingGlassWithEyeIcon}
-                    /&gt;
-                    &lt;IconButton label=&quot;Bewerken&quot; svg={PencilIcon} /&gt;
+                &lt;/Column&gt;
+              &lt;/Card&gt;
+
+              &lt;Card className={styles[&#39;remark&#39;]}&gt;
+                &lt;Card.HeadingGroup key={1}&gt;
+                  &lt;Card.Heading level={4}&gt;L van de Akker&lt;/Card.Heading&gt;
+                  &lt;Metadata size=&quot;small&quot;&gt;12-08-2026 10:30&lt;/Metadata&gt;
+                &lt;/Card.HeadingGroup&gt;
+                &lt;Column gap=&quot;small&quot;&gt;
+                  &lt;Paragraph key={2}&gt;Jaar moet 1915 zijn.&lt;/Paragraph&gt;
+                  &lt;Row alignVertical=&quot;center&quot; gap=&quot;small&quot;&gt;
+                    &lt;TextInput key={3} placeholder=&quot;Voeg een opmerking toe&quot; /&gt;
+                    &lt;IconButton label=&quot;Voeg opmerking toe&quot; size=&quot;large&quot; svg={ArrowForwardIcon} /&gt;
                   &lt;/Row&gt;
-                  &lt;IconButton label=&quot;Opgelost&quot; svg={CheckMarkIcon} /&gt;
-                &lt;/Row&gt;
-              &lt;/Column&gt;
-            &lt;/Card&gt;
-          &lt;/Grid.Cell&gt;
-        &lt;/Grid.Subgrid&gt;
+                  &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; gap=&quot;small&quot;&gt;
+                    &lt;Row gap=&quot;small&quot;&gt;
+                      &lt;IconButton
+                        label=&quot;Bekijken&quot;
+                        onClick={() =&gt; highlightReviewElement(&#39;row-4&#39;, isWide, remarksPopoverRef.current)}
+                        svg={MagnifyingGlassWithEyeIcon}
+                      /&gt;
+                      &lt;IconButton label=&quot;Bewerken&quot; svg={PencilIcon} /&gt;
+                    &lt;/Row&gt;
+                    &lt;IconButton label=&quot;Opgelost&quot; svg={CheckMarkIcon} /&gt;
+                  &lt;/Row&gt;
+                &lt;/Column&gt;
+              &lt;/Card&gt;
+
+              &lt;Card className={styles[&#39;remark&#39;]}&gt;
+                &lt;Card.HeadingGroup key={1}&gt;
+                  &lt;Card.Heading level={4}&gt;L van de Akker&lt;/Card.Heading&gt;
+                  &lt;Metadata size=&quot;small&quot;&gt;12-08-2026 10:30&lt;/Metadata&gt;
+                &lt;/Card.HeadingGroup&gt;
+                &lt;Column gap=&quot;small&quot;&gt;
+                  &lt;Paragraph key={2}&gt;de Bijenkorf lijkt zo meer bij de Damrak te horen dan de Dam.&lt;/Paragraph&gt;
+                  &lt;Row alignVertical=&quot;center&quot; gap=&quot;small&quot;&gt;
+                    &lt;TextInput key={3} placeholder=&quot;Voeg een opmerking toe&quot; /&gt;
+                    &lt;IconButton label=&quot;Voeg opmerking toe&quot; size=&quot;large&quot; svg={ArrowForwardIcon} /&gt;
+                  &lt;/Row&gt;
+                  &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; gap=&quot;small&quot;&gt;
+                    &lt;Row gap=&quot;small&quot;&gt;
+                      &lt;IconButton
+                        label=&quot;Bekijken&quot;
+                        onClick={() =&gt; highlightReviewElement(&#39;kaart&#39;, isWide, remarksPopoverRef.current)}
+                        svg={MagnifyingGlassWithEyeIcon}
+                      /&gt;
+                      &lt;IconButton label=&quot;Bewerken&quot; svg={PencilIcon} /&gt;
+                    &lt;/Row&gt;
+                    &lt;IconButton label=&quot;Opgelost&quot; svg={CheckMarkIcon} /&gt;
+                  &lt;/Row&gt;
+                &lt;/Column&gt;
+              &lt;/Card&gt;
+            &lt;/Column&gt;
+          &lt;/div&gt;
+        &lt;/Grid.Cell&gt;
 
         &lt;Grid.Subgrid rowStart={{ narrow: 3, medium: 2, wide: 2 }} span={{ narrow: 4, medium: 5, wide: 8 }}&gt;
           &lt;Grid.Cell className=&quot;ams-prose&quot; span=&quot;all&quot;&gt;
@@ -42082,13 +42098,11 @@ import {
               &lt;Heading id=&quot;algemene-informatie&quot; level={2}&gt;
                 Algemene informatie
               &lt;/Heading&gt;
-              &lt;Button
-                icon={SpeechBalloonIcon}
+              &lt;IconButton
+                label=&quot;Opmerking toevoegen bij Algemene informatie&quot;
                 onClick={() =&gt; openRemarkDialog(&#39;algemene-informatie&#39;)}
-                variant=&quot;secondary&quot;
-              &gt;
-                Opmerkingen
-              &lt;/Button&gt;
+                svg={SpeechBalloonIcon}
+              /&gt;
             &lt;/Row&gt;
             &lt;Paragraph&gt;{detailPageData.description}&lt;/Paragraph&gt;
             &lt;ObjectInformationDescriptionList items={detailPageData.basicInformation} review /&gt;
@@ -42098,9 +42112,11 @@ import {
               &lt;Heading id=&quot;geschiedenis&quot; level={2}&gt;
                 Geschiedenis
               &lt;/Heading&gt;
-              &lt;Button icon={SpeechBalloonIcon} onClick={() =&gt; openRemarkDialog(&#39;geschiedenis&#39;)} variant=&quot;secondary&quot;&gt;
-                Opmerkingen
-              &lt;/Button&gt;
+              &lt;IconButton
+                label=&quot;Opmerking toevoegen bij Geschiedenis&quot;
+                onClick={() =&gt; openRemarkDialog(&#39;geschiedenis&#39;)}
+                svg={SpeechBalloonIcon}
+              /&gt;
             &lt;/Row&gt;
             &lt;ObjectInformationTable events={detailPageData.history} review /&gt;
           &lt;/Grid.Cell&gt;
@@ -42109,9 +42125,11 @@ import {
               &lt;Heading id=&quot;kaart&quot; level={2}&gt;
                 Kaart
               &lt;/Heading&gt;
-              &lt;Button icon={SpeechBalloonIcon} onClick={() =&gt; openRemarkDialog(&#39;kaart&#39;)} variant=&quot;secondary&quot;&gt;
-                Opmerkingen
-              &lt;/Button&gt;
+              &lt;IconButton
+                label=&quot;Opmerking toevoegen bij Kaart&quot;
+                onClick={() =&gt; openRemarkDialog(&#39;kaart&#39;)}
+                svg={SpeechBalloonNotificationIcon}
+              /&gt;
             &lt;/Row&gt;
             &lt;ObjectInformationMap geoJson={geoJson} /&gt;
           &lt;/Grid.Cell&gt;
