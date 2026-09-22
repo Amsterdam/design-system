@@ -157,6 +157,7 @@ Package filter names: `@amsterdam/design-system-tokens`, `@amsterdam/design-syst
 ## Git and contribution workflow
 
 Human contributors and agents should both follow the conventions in [documentation/git.md](documentation/git.md): branch from `develop`, use branch names like `feat/DES-178-introduce-checkbox-component`, and write commit messages in English imperative mood describing the goal of the change.
+Disclose GitHub Copilot as the [GitHub Copilot usage rules](https://github.com/Amsterdam/development-standards/blob/main/internal/github-copilot.md) require: end a commit whose changes it wrote or edited with `Co-authored-by: Copilot <175728472+Copilot@users.noreply.github.com>`, and say so in the pull request description.
 
 Read [.github/skills/pull-request/SKILL.md](.github/skills/pull-request/SKILL.md) before writing a pull request title or description.
 One rule agents break without noticing: `feat`, `fix` and `chore` are the only types the "Check PR title" workflow accepts — never `docs`, `refactor`, `test`, `ci`, `style`, `build`, `perf`, or `revert`.

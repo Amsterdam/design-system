@@ -86,6 +86,8 @@ Write one sentence per line, so that later edits produce small diffs.
 - **How** — the approach and the key considerations.
   This is where alternatives you rejected, deliberate omissions, and anything unusual belong.
   Mention what you left out of scope, and say so plainly.
+  If GitHub Copilot wrote or edited part of the change, state that here and name the parts it touched, as the [GitHub Copilot usage rules](https://github.com/Amsterdam/development-standards/blob/main/internal/github-copilot.md) require.
+  The reviewer uses it to know where to check tests and bias.
 - **Checklist** — tick only what is genuinely done or genuinely not applicable.
   An unticked box is a useful signal; a wrongly ticked one is a false one.
   Do not tick the Chromatic box before `/chromatic test` has run and passed, unless the diff has no visual surface at all.
@@ -96,6 +98,6 @@ Do not pad the template's sections to look thorough.
 
 ## Never
 
-- Never add AI attribution: no `Co-Authored-By` trailer, no "generated with" footer, no note that an agent wrote the branch.
+- Never dress the GitHub Copilot disclosure up as a footer or a `Co-Authored-By` trailer in the description; a sentence under **How** is what the rules ask for.
 - Never claim a test, story, or documentation update that is not in the diff.
 - Never describe intent you cannot see in the changes.
