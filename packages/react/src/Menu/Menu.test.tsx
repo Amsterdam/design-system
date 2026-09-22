@@ -3,9 +3,9 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { render, screen } from '@testing-library/react'
+import { fireEvent, render, screen } from '@testing-library/react'
 import { createRef } from 'react'
-import { describe, expect, it } from 'vitest'
+import { describe, expect, it, vi } from 'vitest'
 
 import { Menu } from './Menu'
 
@@ -51,6 +51,99 @@ describe('Menu', () => {
     const component = container.querySelector(':only-child')
 
     expect(component).toHaveClass('ams-menu--in-wide-window')
+  })
+
+  it('does not render a toggle button by default', () => {
+    render(<Menu inWideWindow />)
+
+    const button = screen.queryByRole('button', { name: 'Klap menu uit' })
+
+    expect(button).not.toBeInTheDocument()
+  })
+
+  it('renders a toggle button when collapsible in a wide window', () => {
+    render(<Menu collapsible inWideWindow />)
+
+    const button = screen.getByRole('button', { name: 'Klap menu uit' })
+
+    expect(button).toBeInTheDocument()
+    expect(button).toHaveAttribute('aria-pressed', 'false')
+  })
+
+  it('adds the expanded class when defaultExpanded is true', () => {
+    const { container } = render(<Menu collapsible defaultExpanded inWideWindow />)
+
+    const component = container.querySelector(':only-child')
+    const button = screen.getByRole('button', { name: 'Klap menu in' })
+
+    expect(component).toHaveClass('ams-menu--expanded')
+    expect(button).toHaveAttribute('aria-pressed', 'true')
+  })
+
+  it('toggles the expanded state when the button is clicked', () => {
+    const { container } = render(<Menu collapsible inWideWindow />)
+
+    const component = container.querySelector(':only-child')
+    const button = screen.getByRole('button', { name: 'Klap menu uit' })
+
+    expect(component).not.toHaveClass('ams-menu--expanded')
+
+    fireEvent.click(button)
+
+    expect(component).toHaveClass('ams-menu--expanded')
+    expect(button).toHaveAttribute('aria-pressed', 'true')
+
+    fireEvent.click(button)
+
+    expect(component).not.toHaveClass('ams-menu--expanded')
+    expect(button).toHaveAttribute('aria-pressed', 'false')
+  })
+
+  it('calls onToggle with the new expanded state when the button is clicked', () => {
+    const onToggle = vi.fn()
+
+    render(<Menu collapsible inWideWindow onToggle={onToggle} />)
+
+    const button = screen.getByRole('button', { name: 'Klap menu uit' })
+
+    fireEvent.click(button)
+    fireEvent.click(button)
+
+    expect(onToggle).toHaveBeenCalledTimes(2)
+    expect(onToggle).toHaveBeenNthCalledWith(1, true)
+    expect(onToggle).toHaveBeenNthCalledWith(2, false)
+  })
+
+  it('respects the expanded prop when false', () => {
+    const { container } = render(<Menu collapsible expanded={false} inWideWindow />)
+
+    const component = container.querySelector(':only-child')
+    const button = screen.getByRole('button', { name: 'Klap menu uit' })
+
+    expect(component).not.toHaveClass('ams-menu--expanded')
+    expect(button).toHaveAttribute('aria-pressed', 'false')
+  })
+
+  it('respects the expanded prop when true', () => {
+    const { container } = render(<Menu collapsible expanded inWideWindow />)
+
+    const component = container.querySelector(':only-child')
+    const button = screen.getByRole('button', { name: 'Klap menu in' })
+
+    expect(component).toHaveClass('ams-menu--expanded')
+    expect(button).toHaveAttribute('aria-pressed', 'true')
+  })
+
+  it('does not toggle internally when controlled', () => {
+    const { container } = render(<Menu collapsible expanded={false} inWideWindow />)
+
+    const component = container.querySelector(':only-child')
+    const button = screen.getByRole('button', { name: 'Klap menu uit' })
+
+    fireEvent.click(button)
+
+    expect(component).not.toHaveClass('ams-menu--expanded')
+    expect(button).toHaveAttribute('aria-pressed', 'false')
   })
 
   it('supports ForwardRef in React', () => {
