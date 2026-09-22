@@ -1,0 +1,25 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+.ams-known-date-input {
+  column-gap: var(--ams-known-date-input-column-gap);
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: var(--ams-known-date-input-row-gap);
+}
+
+.ams-known-date-input__field {
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--ams-known-date-input-field-row-gap);
+}
+
+.ams-known-date-input__input {
+  inline-size: var(--ams-known-date-input-input-inline-size);
+}
+
+.ams-known-date-input__input--year {
+  inline-size: var(--ams-known-date-input-input-year-inline-size);
+}

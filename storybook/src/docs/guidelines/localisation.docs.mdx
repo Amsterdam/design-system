@@ -106,11 +106,31 @@ const ArabicCalendar = (props: CalendarProps) => (
 
 The same pattern applies to the Date Picker, which also takes `rangeStartAccessibleName` and `rangeEndAccessibleName` in range mode.
 
+It also applies to a [Known Date Input](/docs/components-forms-known-date-input--docs), where a wrapper sets the labels and the order of the fields:
+
+```tsx
+import type { KnownDateInputProps } from "@amsterdam/design-system-react";
+
+import { KnownDateInput } from "@amsterdam/design-system-react";
+
+const AmericanKnownDateInput = (props: KnownDateInputProps) => (
+  <KnownDateInput {...props}>
+    <KnownDateInput.Month label="Month" />
+    <KnownDateInput.Day label="Day" />
+    <KnownDateInput.Year label="Year" />
+  </KnownDateInput>
+);
+```
+
 ### Native form controls
 
 Native form controls render some of their text themselves.
 For example, `<input type="time">` orders and formats its hour and minute fields according to the browser’s own locale, not the page’s `lang` or `dir`.
 This is browser behaviour that pages cannot override.
+
+The [Date Input](/docs/components-forms-date-input--docs) has the same limitation: it wraps `<input type="date">`, so the browser decides the order of its day, month and year segments from its own locale, not from `lang`.
+The [Known Date Input](/docs/components-forms-known-date-input--docs) has no such control to render, so it has no such limitation.
+Its day, month and year are separate fields that appear in the order you place them in markup, so you set that order yourself to match the language you write the surrounding labels in.
 
 ### Mirror directional icons
 
@@ -120,7 +140,3 @@ The design system’s own directional icons handle this automatically: each carr
 
 The [Calendar](/docs/components-navigation-calendar--docs) and [Date Picker](/docs/components-forms-date-picker--docs) navigation chevrons are one example.
 When you supply your own directional icon anywhere, give it the same attribute so it mirrors as well.
-
-## Relevant WCAG requirements
-
-- [WCAG 3.1.2](https://www.w3.org/TR/WCAG22/#language-of-parts): indicate the language of any passage or phrase that differs from the page’s default language

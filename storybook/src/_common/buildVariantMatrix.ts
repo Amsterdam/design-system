@@ -19,10 +19,18 @@ import { extractVariantsFromArgTypes } from './extractVariantsFromArgTypes'
 export const SIZE_PROP_NAME = 'size'
 
 /**
- * Props that only set an accessible name. Varying one produces a cell that looks
- * identical to the baseline, so they stay off the prop axis.
+ * Props that cannot change how a component looks: `accessibleName` and `accessibleNameId`
+ * only name it for assistive technology, and `as` only swaps the element it renders, which
+ * the stylesheet makes look the same. Varying one produces a cell that looks identical to
+ * the baseline, so they stay off the prop axis. `UNVARIED_PROP_NAMES` below is the other
+ * case: those values do look different, and are snapshotted somewhere else instead.
+ *
+ * `ol` and `ul` are the tags that could differ, since a browser indents a list and draws
+ * markers. As the matrix gives no tag a row of its own, each list tag a component accepts
+ * needs a case in a test story instead. The Grid test story has them: `ol` and `ul` Grids
+ * and Subgrids, built from `li` Cells, beside plain ones.
  */
-export const ARIA_ONLY_PROP_NAMES = ['accessibleName', 'accessibleNameId']
+export const NON_VISUAL_PROP_NAMES = ['accessibleName', 'accessibleNameId', 'as']
 
 /**
  * Props whose controls offer a choice the matrix leaves alone on purpose, so that the check
@@ -72,8 +80,8 @@ const sizesOf = (propsWithValues: PropWithValues[]): (string | undefined)[] => {
  *   being `disabled` and `hovered`. A prop that is also a state therefore leaves
  *   the prop axis: `disabled` would otherwise vary against the state that already
  *   sets it, rendering both values twice over.
- * • The prop axis carries every other prop, bar the aria-only ones, and shows only
- *   the values the baseline doesn’t already show.
+ * • The prop axis carries every other prop, bar the ones no cell can show and the ones
+ *   left unvaried on purpose, and gives only the values the baseline doesn’t already show.
  * • Each state opens with the baseline, so the component as a story’s own args
  *   leave it is snapshotted once per state rather than once per prop.
  *
@@ -93,7 +101,7 @@ export const buildVariantMatrix = (
   // Everything that feeds an axis: the prop axis below, and the size axis through `sizesOf`.
   const axisProps = propsWithValues.filter(
     ({ name }) =>
-      !ARIA_ONLY_PROP_NAMES.includes(name) &&
+      !NON_VISUAL_PROP_NAMES.includes(name) &&
       !UNVARIED_PROP_NAMES.includes(name) &&
       !variants.some((variant) => variant === name),
   )
@@ -104,8 +112,9 @@ export const buildVariantMatrix = (
     throw new Error(
       `The variant matrix found no values for ${collapsed.join(', ')}, though the controls offer a choice, so this ` +
         `story snapshots its baseline alone. Either resolve the type to an enum or a boolean, give the prop a ` +
-        `fixture in variantFixtures.ts, name it in UNVARIED_PROP_NAMES when leaving it out is the intention, or ` +
-        `drop renderComponentVariants and snapshot one composition on purpose, the way Breakout does.`,
+        `fixture in variantFixtures.ts, name it in NON_VISUAL_PROP_NAMES when it cannot change how the component ` +
+        `looks or in UNVARIED_PROP_NAMES when its values are snapshotted elsewhere, or drop renderComponentVariants ` +
+        `and snapshot one composition on purpose, the way Breakout does.`,
     )
   }
 
