@@ -24,6 +24,12 @@ packageExtensions:
   stylelint-plugin-defensive-css:
     dependencies:
       postcss-selector-parser: "^7.1.1"
+# eslint-plugin-react 7.37 declares support up to ESLint 9, but its rules run fine on ESLint 10 once React
+# version detection is bypassed (see packages/react/eslint.config-partial.mjs). Remove when the plugin
+# lists ESLint 10 as a peer.
+peerDependencyRules:
+  allowedVersions:
+    "eslint-plugin-react>eslint": "10"
 engineStrict: true
 savePrefix: ""
 # Explicitly mark these dependencies' install scripts as ignored.
