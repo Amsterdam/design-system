@@ -26,6 +26,14 @@ describe('extractVariantsFromArgTypes', () => {
     expect(result).toEqual([{ hasIcon: null, name: 'variant', values: ['primary', 'secondary'] }])
   })
 
+  it('expands a nullable enum prop, dropping null and keeping sorted values', () => {
+    const result = extractVariantsFromArgTypes(
+      argTypes([argType({ name: 'variant', type: { name: 'enum', value: ['secondary', null, 'primary'] } })]),
+    )
+
+    expect(result).toEqual([{ hasIcon: null, name: 'variant', values: ['primary', 'secondary'] }])
+  })
+
   it('expands a boolean prop to [true, false], defaulting to false', () => {
     const result = extractVariantsFromArgTypes(argTypes([argType({ name: 'disabled', type: { name: 'boolean' } })]))
 
