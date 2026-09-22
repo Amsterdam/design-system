@@ -9,6 +9,13 @@
 @use "../../common/safe-area" as *;
 @use "../../common/text-rendering" as *;
 
+/**
+ * CSS Custom properties cannot be used in container queries.
+ * A size query reads the content box, so the Menu measures its inline size minus its inline padding:
+ * roughly 6.6rem when collapsed and 10.6rem when expanded. This value separates those two.
+ */
+$ams-menu-vertical-breakpoint: 9rem;
+
 .ams-menu {
   // The padding of Page Header, which resolves to the same value: its token aliases the Grid one.
   // Recomputed here rather than inherited, so a Menu outside a Page Header still bleeds correctly.
@@ -19,8 +26,10 @@
 
   background-color: var(--ams-menu-background-color);
 
-  // Keeps the horizontal padding within the maximum inline size in wide windows.
+  // Keeps the horizontal padding within the inline size in wide windows.
   box-sizing: border-box;
+  container-name: var(--ams-query-containers-inline-size-container-name);
+  container-type: inline-size;
   font-family: var(--ams-menu-font-family);
   font-size: var(--ams-menu-font-size);
   font-weight: var(--ams-menu-font-weight);
@@ -55,8 +64,11 @@
 
   @media (min-width: $ams-breakpoint-wide) {
     display: none;
+
+    // A definite size, because inline size containment stops the links from sizing the Menu.
+    // A layout that sizes the menu column to its content, such as the Grid of Page, would collapse it otherwise.
+    inline-size: var(--ams-menu-wide-max-inline-size /* @deprecated */, var(--ams-menu-vi-wide-max-inline-size));
     margin-inline: 0; // Override negative margin above.
-    max-inline-size: var(--ams-menu-wide-max-inline-size /* @deprecated */, var(--ams-menu-vi-wide-max-inline-size));
     padding-block: var(
       --ams-menu-wide-padding-block /* @deprecated */,
       var(
@@ -76,6 +88,19 @@
   }
 }
 
+.ams-menu--collapsible {
+  @media (min-width: $ams-breakpoint-wide) {
+    display: grid;
+    gap: var(--ams-menu-list-gap);
+  }
+}
+
+.ams-menu--expanded {
+  @media (min-width: $ams-breakpoint-wide) {
+    inline-size: var(--ams-menu-vi-wide-expanded-inline-size);
+  }
+}
+
 .ams-menu__list {
   @include reset-ul;
 
@@ -87,6 +112,10 @@
   @media (min-width: $ams-breakpoint-wide) {
     gap: var(--ams-menu-list-gap);
   }
+}
+
+.ams-menu__button {
+  justify-self: end;
 }
 
 .ams-menu__link {
@@ -112,7 +141,7 @@
     align-self: initial;
   }
 
-  @media (min-width: $ams-breakpoint-wide) {
+  @container ams-query-container-inline-size (inline-size < #{$ams-menu-vertical-breakpoint}) {
     align-items: center;
     display: flex; // The links do stretch in the vertical layout of Menu.
     flex-direction: column;
