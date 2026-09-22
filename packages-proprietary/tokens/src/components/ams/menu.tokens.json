@@ -83,6 +83,15 @@
             "nl.amsterdam.subtype": "space",
             "nl.amsterdam.type": "dimension"
           }
+        },
+        "expanded": {
+          "inline-size": {
+            "$value": {
+              "value": 12,
+              "unit": "rem"
+            },
+            "$type": "dimension"
+          }
         }
       },
       "link": {
