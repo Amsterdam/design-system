@@ -33,7 +33,7 @@ export type MenuProps = {
   readonly collapsible?: boolean
   /**
    * Whether the wide-window menu is initially expanded.
-   * Ignored unless `collapsible` and `inWideWindow` are both `true`, or when `expanded` is provided.
+   * Ignored unless `collapsible` and `inWideWindow` are both `true`. Also ignored when `expanded` is provided.
    * @default false
    */
   readonly defaultExpanded?: boolean
