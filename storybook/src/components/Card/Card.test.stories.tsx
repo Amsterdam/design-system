@@ -41,7 +41,7 @@ const NewsCard = ({ objectFit }: { readonly objectFit?: 'contain' | 'cover' }) =
 /*
  * Both sides of the 36rem container width at which a Card with an image and a Content switches to a
  * horizontal layout. Each Card sits in its own query container, so one snapshot covers both layouts.
- * The source is portrait, so contain and cover are visibly different: the horizontal Card contains
+ * The image is portrait, so contain and cover are visibly different: the horizontal Card contains
  * the whole image in its narrow column, while the other two use the default cover fit.
  */
 export const Test: Story = {
