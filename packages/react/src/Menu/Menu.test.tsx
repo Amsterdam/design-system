@@ -67,7 +67,7 @@ describe('Menu', () => {
     const button = screen.getByRole('button', { name: 'Klap menu uit' })
 
     expect(button).toBeInTheDocument()
-    expect(button).toHaveAttribute('aria-pressed', 'false')
+    expect(button).not.toHaveAttribute('aria-pressed')
   })
 
   it('adds the expanded class when defaultExpanded is true', () => {
@@ -77,26 +77,28 @@ describe('Menu', () => {
     const button = screen.getByRole('button', { name: 'Klap menu in' })
 
     expect(component).toHaveClass('ams-menu--expanded')
-    expect(button).toHaveAttribute('aria-pressed', 'true')
+    expect(button).toBeInTheDocument()
   })
 
   it('toggles the expanded state when the button is clicked', () => {
     const { container } = render(<Menu collapsible inWideWindow />)
 
     const component = container.querySelector(':only-child')
-    const button = screen.getByRole('button', { name: 'Klap menu uit' })
+    const expandButton = screen.getByRole('button', { name: 'Klap menu uit' })
 
     expect(component).not.toHaveClass('ams-menu--expanded')
 
-    fireEvent.click(button)
+    fireEvent.click(expandButton)
+
+    const collapseButton = screen.getByRole('button', { name: 'Klap menu in' })
 
     expect(component).toHaveClass('ams-menu--expanded')
-    expect(button).toHaveAttribute('aria-pressed', 'true')
+    expect(collapseButton).toBeInTheDocument()
 
-    fireEvent.click(button)
+    fireEvent.click(collapseButton)
 
     expect(component).not.toHaveClass('ams-menu--expanded')
-    expect(button).toHaveAttribute('aria-pressed', 'false')
+    expect(screen.getByRole('button', { name: 'Klap menu uit' })).toBeInTheDocument()
   })
 
   it('calls onToggle with the new expanded state when the button is clicked', () => {
@@ -121,7 +123,7 @@ describe('Menu', () => {
     const button = screen.getByRole('button', { name: 'Klap menu uit' })
 
     expect(component).not.toHaveClass('ams-menu--expanded')
-    expect(button).toHaveAttribute('aria-pressed', 'false')
+    expect(button).toBeInTheDocument()
   })
 
   it('respects the expanded prop when true', () => {
@@ -131,7 +133,7 @@ describe('Menu', () => {
     const button = screen.getByRole('button', { name: 'Klap menu in' })
 
     expect(component).toHaveClass('ams-menu--expanded')
-    expect(button).toHaveAttribute('aria-pressed', 'true')
+    expect(button).toBeInTheDocument()
   })
 
   it('does not toggle internally when controlled', () => {
@@ -143,7 +145,7 @@ describe('Menu', () => {
     fireEvent.click(button)
 
     expect(component).not.toHaveClass('ams-menu--expanded')
-    expect(button).toHaveAttribute('aria-pressed', 'false')
+    expect(screen.getByRole('button', { name: 'Klap menu uit' })).toBeInTheDocument()
   })
 
   it('supports ForwardRef in React', () => {

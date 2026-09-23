@@ -111,7 +111,7 @@ In the wide layout the links do stretch, since the column is barely wider than t
 Without `inWideWindow` the Menu renders a `div`, because it then sits inside the `nav` element of the [Page Header](/docs/components-containers-page-header--docs).
 With the prop it renders a `nav` of its own, named by a visually hidden heading that `accessibleName` fills.
 With `collapsible`, the icon-only button is named through `expandButtonLabel` and `collapseButtonLabel`.
-It carries `aria-pressed` rather than `aria-expanded`: expanding widens the Menu, and hides no content that collapsing would reveal.
+Its accessible name changes with the action, because the button widens and narrows the Menu rather than exposing hidden content.
 
 That name defaults to ‘Hoofdmenu’, and so does the `navigationLabel` of the Page Header.
 A wide window shows both navigations, so give one of the two another name.
