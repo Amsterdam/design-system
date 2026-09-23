@@ -9444,7 +9444,7 @@
             "type": {
               "name": "boolean"
             },
-            "description": "Whether the wide-window menu is initially expanded.\nIgnored unless `collapsible` and `inWideWindow` are both `true`, or when `expanded` is provided.",
+            "description": "Whether the wide-window menu is initially expanded.\nIgnored unless `collapsible` and `inWideWindow` are both `true`. Also ignored when `expanded` is provided.",
             "defaultValue": {
               "value": "false"
             },
@@ -12481,6 +12481,6 @@
   },
   "meta": {
     "docgen": "react-component-meta",
-    "durationMs": 5143
+    "durationMs": 5484
   }
 }
