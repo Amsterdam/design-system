@@ -626,7 +626,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>5.4s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>4.6s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -4828,7 +4828,7 @@ aspectRatio?: &quot;9:16&quot; | &quot;3:4&quot; | &quot;1:1&quot; | &quot;4:3&q
 /**
  * How the image fills its box. Cover crops to fill it; contain keeps the whole image visible.
  */
-imageFit?: &quot;cover&quot; | &quot;contain&quot; = cover</code></pre>
+objectFit?: &quot;cover&quot; | &quot;contain&quot; = cover</code></pre>
     </div>
   
     <div class="note ok">
@@ -14766,7 +14766,7 @@ aspectRatio?: &quot;9:16&quot; | &quot;3:4&quot; | &quot;1:1&quot; | &quot;4:3&q
 /**
  * How the image fills its box. Cover crops to fill it; contain keeps the whole image visible.
  */
-imageFit?: &quot;cover&quot; | &quot;contain&quot; = cover</code></pre>
+objectFit?: &quot;cover&quot; | &quot;contain&quot; = cover</code></pre>
           </div>
         </div>
     
@@ -14788,7 +14788,7 @@ imageFit?: &quot;cover&quot; | &quot;contain&quot; = cover</code></pre>
                 <span class="badge ok">story ok</span>
               </div>
               
-              <div class="hint">The source is portrait while the box is 16 by 9, so `imageFit` has something to do here.
+              <div class="hint">The source is portrait while the box is 16 by 9, so `objectFit` has something to do here.
 A source that already matches the shape of its box looks the same either way.</div>
               <pre><code>const Default = () =&gt; &lt;Image alt=&quot;&quot; src=&quot;https://picsum.photos/640/800&quot; /&gt;;</code></pre>
               
@@ -14857,7 +14857,7 @@ Use `alt=&quot;&quot;` for decorative images – images that add little to the n
 Non-decorative images need a text description.
 
 Leaving out `aspectRatio` falls back to the default ratio; no value preserves the proportions of the source file.
-Leave `imageFit` to the default of `cover` unless important objects in the image dissapear or the cropping just looks weird.
+Leave `objectFit` to the default of `cover` unless important objects in the image disappear or the cropping does not look right.
 Setting it to `contain` keeps the whole image in view at the cost of empty space beside or above it.
 Do not set `loading=&quot;lazy&quot;` on an image in the first screenful of the page: there it delays the largest image in the viewport.
 
@@ -14903,7 +14903,7 @@ Every Image should be shown in one of the [available aspect ratios](/docs/brand-
 The default is 16:9.
 If the intrinsic dimensions of the source do not match an aspect ratio, the image is cropped to cover the intended area by default.
 The crop is taken from the centre, so the middle of a photograph is what survives a ratio it was not made for.
-Setting `imageFit` to `contain` keeps the whole source in view inside that same area instead.
+Setting `objectFit` to `contain` keeps the whole source in view inside that same area instead.
 
 Alternate text is displayed in italics.
 When a file fails to load, its description then reads as a stand-in rather than as a stray sentence in the surrounding copy.
