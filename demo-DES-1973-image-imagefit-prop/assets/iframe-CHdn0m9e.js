@@ -1,0 +1,1 @@
+import{t as e}from"./iframe-7dirWbu_.js";e();
