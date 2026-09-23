@@ -17,7 +17,7 @@ export const reactPreset = {
     'react/react-in-jsx-scope': 'off',
   },
   settings: {
-    // Detection crashes on ESLint 10 in eslint-plugin-react 7.37. Restore 'detect' once it supports ESLint 10.
+    // TODO: Detection crashes on ESLint 10 in eslint-plugin-react 7.37. Restore 'detect' once it supports ESLint 10.
     react: { version: '18.3' },
   },
 }
