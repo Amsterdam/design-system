@@ -12,11 +12,17 @@ import type { AspectRatioProps } from '../common/types'
 
 import { generateAspectRatioClass } from './generateAspectRatioClass'
 
+export const imageFitOptions = ['cover', 'contain'] as const
+type ImageFit = (typeof imageFitOptions)[number]
+
 export type ImageProps = {
   /** A textual description of the content of the image. */
   readonly alt: string
-  /** How the image fills its box. Cover crops to fill it; contain keeps the whole image visible. */
-  readonly imageFit?: 'contain' | 'cover'
+  /**
+   * How the image fills its box. Cover crops to fill it; contain keeps the whole image visible.
+   * @default cover
+   */
+  readonly imageFit?: ImageFit
 } & Readonly<AspectRatioProps> &
   Readonly<Omit<ImgHTMLAttributes<HTMLImageElement>, 'children'>>
 

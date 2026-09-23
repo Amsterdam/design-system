@@ -7,6 +7,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Image } from '@amsterdam/design-system-react/src'
 import { aspectRatioOptions } from '@amsterdam/design-system-react/src/common/types'
+import { imageFitOptions } from '@amsterdam/design-system-react/src/Image/Image'
 
 import { maximiseInlineSize } from '#storybook/_common/decorators'
 
@@ -23,7 +24,7 @@ const meta = {
     },
     imageFit: {
       control: { type: 'radio' },
-      options: ['cover', 'contain'],
+      options: imageFitOptions,
     },
     src: {
       description: 'The url for the image.',
