@@ -405,7 +405,8 @@ export const Review: StoryObj = {
                 <Button
                   className={styles['toggleRemarks']}
                   icon={SpeechBalloonNotificationIcon}
-                  popoverTarget="remarks"
+                  /* @ts-expect-error this prop is supported */
+                  popovertarget="remarks"
                   variant="secondary"
                 >
                   Opmerkingen
@@ -416,7 +417,7 @@ export const Review: StoryObj = {
           </Grid.Cell>
 
           <Grid.Cell
-            appearance="flush"
+            appearance="transparent"
             span={{ narrow: 4, medium: 3, wide: 4 }}
             start={{ narrow: 1, medium: 6, wide: 9 }}
           >

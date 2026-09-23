@@ -68,6 +68,7 @@
 }
 
 .remark {
+  background-color: var(--ams-color-background);
   padding: var(--ams-grid-padding-block-l) var(--ams-grid-padding-inline) var(--ams-space-s);
 }
 
