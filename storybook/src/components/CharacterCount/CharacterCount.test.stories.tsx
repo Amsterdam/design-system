@@ -9,11 +9,14 @@ import { CharacterCount } from '@amsterdam/design-system-react/src'
 
 import { renderComponentVariants } from '#storybook/_common/renderComponentVariants'
 
-import { default as characterCountMeta } from './CharacterCount.stories'
-
+// Keeps visual regression coverage for the deprecated component until its removal on or after 2027-03-01.
 const meta = {
-  ...characterCountMeta,
   title: 'Components/Forms/Character Count',
+  component: CharacterCount,
+  args: {
+    length: 7,
+    maxLength: 10,
+  },
 } satisfies Meta<typeof CharacterCount>
 
 export default meta
