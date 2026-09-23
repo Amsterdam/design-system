@@ -1,0 +1,4 @@
+import{n as e}from"./rolldown-runtime-DkW27tQK.js";import{n as t,r as n}from"./VisuallyHidden.stories-D8f26grC.js";var r,i,a;function o(){return(o=e((()=>{t(),r={...n,title:`Utilities/CSS/Visually Hidden`},i={tags:[`!dev`,`!autodocs`,`!manifest`]},a=[`Test`],i.parameters={...i.parameters,docs:{...i.parameters?.docs,source:{originalSource:`{
+  tags: ['!dev', '!autodocs', '!manifest']
+}`,...i.parameters?.docs?.source},description:{story:`Snapshots the one regression that is visible by definition: the hidden paragraph becoming perceivable.
+The story shows a single visible paragraph; a second one appearing means the utility stopped hiding.`,...i.parameters?.docs?.description}}}})))()}o();export{i as Test,a as __namedExportsOrder,r as default};
