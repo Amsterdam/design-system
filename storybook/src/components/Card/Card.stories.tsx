@@ -42,8 +42,8 @@ type DefaultProps = {
 type DefaultStory = StoryObj<DefaultProps>
 
 /**
- * The source is portrait while the shape of the image is 16 by 9, so `objectFit` has something to do here.
- * A source that already matches the shape it is given looks the same either way.
+ * The image is portrait while the shape of the image is 16 by 9, so `objectFit` has something to do here.
+ * A image that already matches the shape it is given looks the same either way.
  */
 export const Default: DefaultStory = {
   args: {
