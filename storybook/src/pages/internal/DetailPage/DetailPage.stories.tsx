@@ -504,7 +504,7 @@ export const Review: StoryObj = {
 
                 <Card className={clsx(styles['remark'], styles['remarkArchived'])}>
                   <Card.HeadingGroup key={1}>
-                    <Card.Heading level={4}>c</Card.Heading>
+                    <Card.Heading level={4}>M Biesheuvel</Card.Heading>
                     <Metadata size="small">11-08-2026 09:12</Metadata>
                   </Card.HeadingGroup>
                   <Column gap="small">
