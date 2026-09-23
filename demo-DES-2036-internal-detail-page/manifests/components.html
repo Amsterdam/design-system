@@ -594,7 +594,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>6.1s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>3.5s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -7097,7 +7097,8 @@ export const Review: StoryObj = {
                 &lt;Button
                   className={styles[&#39;toggleRemarks&#39;]}
                   icon={SpeechBalloonNotificationIcon}
-                  popoverTarget=&quot;remarks&quot;
+                  /* @ts-expect-error this prop is supported */
+                  popovertarget=&quot;remarks&quot;
                   variant=&quot;secondary&quot;
                 &gt;
                   Opmerkingen
@@ -7108,7 +7109,7 @@ export const Review: StoryObj = {
           &lt;/Grid.Cell&gt;
 
           &lt;Grid.Cell
-            appearance=&quot;flush&quot;
+            appearance=&quot;transparent&quot;
             span={{ narrow: 4, medium: 3, wide: 4 }}
             start={{ narrow: 1, medium: 6, wide: 9 }}
           &gt;
@@ -7476,7 +7477,8 @@ import {
               &lt;Button
                 className={styles[&#39;toggleRemarks&#39;]}
                 icon={SpeechBalloonNotificationIcon}
-                popoverTarget=&quot;remarks&quot;
+                /* @ts-expect-error this prop is supported */
+                popovertarget=&quot;remarks&quot;
                 variant=&quot;secondary&quot;
               &gt;
                 Opmerkingen
@@ -7487,7 +7489,7 @@ import {
         &lt;/Grid.Cell&gt;
 
         &lt;Grid.Cell
-          appearance=&quot;flush&quot;
+          appearance=&quot;transparent&quot;
           span={{ narrow: 4, medium: 3, wide: 4 }}
           start={{ narrow: 1, medium: 6, wide: 9 }}
         &gt;
@@ -41680,7 +41682,8 @@ export const Review: StoryObj = {
                 &lt;Button
                   className={styles[&#39;toggleRemarks&#39;]}
                   icon={SpeechBalloonNotificationIcon}
-                  popoverTarget=&quot;remarks&quot;
+                  /* @ts-expect-error this prop is supported */
+                  popovertarget=&quot;remarks&quot;
                   variant=&quot;secondary&quot;
                 &gt;
                   Opmerkingen
@@ -41691,7 +41694,7 @@ export const Review: StoryObj = {
           &lt;/Grid.Cell&gt;
 
           &lt;Grid.Cell
-            appearance=&quot;flush&quot;
+            appearance=&quot;transparent&quot;
             span={{ narrow: 4, medium: 3, wide: 4 }}
             start={{ narrow: 1, medium: 6, wide: 9 }}
           &gt;
@@ -42059,7 +42062,8 @@ import {
               &lt;Button
                 className={styles[&#39;toggleRemarks&#39;]}
                 icon={SpeechBalloonNotificationIcon}
-                popoverTarget=&quot;remarks&quot;
+                /* @ts-expect-error this prop is supported */
+                popovertarget=&quot;remarks&quot;
                 variant=&quot;secondary&quot;
               &gt;
                 Opmerkingen
@@ -42070,7 +42074,7 @@ import {
         &lt;/Grid.Cell&gt;
 
         &lt;Grid.Cell
-          appearance=&quot;flush&quot;
+          appearance=&quot;transparent&quot;
           span={{ narrow: 4, medium: 3, wide: 4 }}
           start={{ narrow: 1, medium: 6, wide: 9 }}
         &gt;
