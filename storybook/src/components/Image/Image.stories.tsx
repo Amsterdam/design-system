@@ -39,10 +39,14 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
+/**
+ * The source is portrait while the box is 16 by 9, so `imageFit` has something to do here.
+ * A source that already matches the shape of its box looks the same either way.
+ */
 export const Default: Story = {
   args: {
     alt: '',
-    src: 'https://picsum.photos/640/360',
+    src: 'https://picsum.photos/640/800',
   },
 }
 
