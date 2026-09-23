@@ -626,7 +626,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>5.3s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>4.9s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -4461,8 +4461,8 @@ import { formatDate } from '#storybook/_common/formatDate';</code></pre>
                 <span class="badge ok">story ok</span>
               </div>
               
-              <div class="hint">The source is portrait while the shape of the image is 16 by 9, so `objectFit` has something to do here.
-A source that already matches the shape it is given looks the same either way.</div>
+              <div class="hint">The image is portrait while the shape of the image is 16 by 9, so `objectFit` has something to do here.
+A image that already matches the shape it is given looks the same either way.</div>
               <pre><code>const Default = () =&gt; &lt;Card
     aspectRatio=&quot;16:9&quot;
     category=&quot;Nieuws&quot;
@@ -4628,7 +4628,7 @@ It accepts all props of a regular [Image](/docs/components-media-image--docs), s
 Its `aspectRatio` sets the shape of the image itself.
 A Card defaults that shape to 16 by 9 through a Card-specific token.
 Give every Card in the same set the same value, so they all end up the same size.
-Set `objectFit` to `contain` to keep the full source in view instead of the default cover fit.
+Set `objectFit` to `contain` to keep the full image in view instead of the default cover fit.
 Only use decorative images with `alt=&quot;&quot;` here.
 The heading provides screen reader users with enough context.
 
@@ -4719,7 +4719,7 @@ The example below is vertical in a narrow window.
 
 ### Fitting the image
 
-A source whose proportions differ from the shape the Card gives its image fills that shape by default, losing whatever falls outside it.
+An image whose proportions differ from the shape the Card gives its image fills that shape by default, losing whatever falls outside it.
 Set `objectFit` to `contain` to keep all of it in view instead.
 Give the Cards in one set the same treatment, so the set reads as a whole.
 
@@ -4762,7 +4762,7 @@ The same Card is one row in a list of results and one card in a row of three, an
 A Card gives its image a default aspect ratio of 16 by 9 through a Card-specific token.
 That default keeps a row of Cards visually consistent without extra configuration.
 The image fills and crops to that shape by default, so cards in one set keep the same visual rhythm.
-Use `objectFit=&quot;contain&quot;` when keeping all of the source in view is the intended visual choice.
+Use `objectFit=&quot;contain&quot;` when keeping all of the image in view is the intended visual choice.
 
 The image of a horizontal Card measures 4 of the 9 columns it spans, which is the width of a vertical Card beside it, and it keeps its aspect ratio rather than stretching to the height of the text beside it.
 Both choices exist so that the image is the same size in either direction: an index page that opens with a row of vertical Cards above a list of horizontal ones then has one left edge and one image width running down it.
