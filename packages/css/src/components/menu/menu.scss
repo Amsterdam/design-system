@@ -69,7 +69,13 @@ $ams-menu-vertical-breakpoint: 9rem;
     // A layout that sizes the menu column to its content, such as the Grid of Page, would collapse it otherwise.
     inline-size: var(--ams-menu-wide-max-inline-size /* @deprecated */, var(--ams-menu-vi-wide-max-inline-size));
     margin-inline: 0; // Override negative margin above.
-    padding-block: var(--ams-menu-wide-padding-block /* @deprecated */, var(--ams-menu-vi-wide-padding-block));
+    padding-block: var(
+      --ams-menu-wide-padding-block /* @deprecated */,
+      var(
+        --ams-menu-vi-wide-padding-block /* @deprecated */,
+        var(--ams-menu-vi-wide-padding-block-start) var(--ams-menu-vi-wide-padding-block-end)
+      )
+    );
     padding-inline: var(--ams-menu-wide-padding-inline /* @deprecated */, var(--ams-menu-vi-wide-padding-inline));
   }
 }
