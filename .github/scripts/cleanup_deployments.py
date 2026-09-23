@@ -23,7 +23,7 @@ Safety guards:
 - Aborts if the branch list comes back empty (likely API/auth issue;
   proceeding could target all demo-* deployments).
 - Aborts if more than MAX_DELETES are slated for deletion, unless
-  --i-really-mean-it is passed.
+  --i-really-mean-it is passed. A dry run only warns, since it deletes nothing.
 - Candidate selection uses branch matching and stale_days filtering.
 - Production candidates are pre-filtered by deployment state to skip any
   currently-live, in-progress, queued, or pending deployment.
@@ -38,6 +38,7 @@ import requests
 
 from cleanup_common import (
     build_session,
+    emit_warning,
     fetch_branch_short_names,
     get_required_env,
     paginate,
@@ -122,17 +123,12 @@ def select_obsolete_deployments(
     return selected
 
 
-def enforce_delete_cap(
+def exceeds_delete_cap(
     to_delete: list[tuple[int, str, datetime.datetime | None]],
     *,
     i_really_mean_it: bool,
-) -> None:
-    if len(to_delete) <= MAX_DELETES or i_really_mean_it:
-        return
-    raise RuntimeError(
-        f"would delete {len(to_delete)} deployments (cap is {MAX_DELETES}). "
-        "Re-run with --i-really-mean-it to override."
-    )
+) -> bool:
+    return len(to_delete) > MAX_DELETES and not i_really_mean_it
 
 
 def delete_obsolete_deployments(
@@ -264,13 +260,27 @@ def main() -> int:
         print("No deployments to delete.")
         return 0
 
-    try:
-        enforce_delete_cap(obsolete_deployments, i_really_mean_it=args.i_really_mean_it)
-    except RuntimeError as exc:
-        print(f"ERROR: {exc}", file=sys.stderr)
-        for deployment_id, environment, _ in obsolete_deployments:
-            print(f"  - deployment {deployment_id} ({environment})", file=sys.stderr)
-        return 2
+    if exceeds_delete_cap(obsolete_deployments, i_really_mean_it=args.i_really_mean_it):
+        # Lifting the cap alone would not change a dry run, which deletes
+        # nothing either way, so tell that reader to turn dry-run mode off too.
+        rerun_with = (
+            "dry_run=false and i_really_mean_it=true (--no-dry-run --i-really-mean-it)"
+            if args.dry_run
+            else "i_really_mean_it=true (--i-really-mean-it)"
+        )
+        message = (
+            f"Selected {len(obsolete_deployments)} deployments, over the cap of {MAX_DELETES}. "
+            f"Re-run with {rerun_with} to remove them."
+        )
+        # A dry run deletes nothing, so the cap is a heads-up rather than a
+        # failure: warn, then fall through to list the candidates. A real run
+        # still fails, because the deletions the caller asked for did not happen.
+        if not args.dry_run:
+            print(f"ERROR: {message}", file=sys.stderr)
+            for deployment_id, environment, _ in obsolete_deployments:
+                print(f"  - deployment {deployment_id} ({environment})", file=sys.stderr)
+            return 2
+        emit_warning(message, title="Delete cap exceeded")
 
     failures = delete_obsolete_deployments(session, api, obsolete_deployments, dry_run=args.dry_run)
     if failures:
