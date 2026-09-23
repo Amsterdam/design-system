@@ -363,6 +363,32 @@ We add a subtype for certain types to further specify their purpose and preview.
 
 An `$extensions.nl.amsterdam.hint` indicates special handling for internal use.
 
+### Tokens that hold a single value
+
+A token typed as a `dimension` must resolve to exactly one value, whichever of the two spellings gives it that type.
+
+A dimension is read through `calc()`, `clamp()`, `max()` or `min()`, or assigned to a longhand such as `padding-inline-start`, and none of those take two values.
+Given two, the declaration is invalid at computed-value time and the property falls back to its initial value rather than to the token, so the padding disappears rather than degrading.
+
+The build enforces this: `pnpm build` fails and names every token that resolves to more than one value.
+A deprecated token is left alone, since its value cannot change while it waits to be removed.
+
+Where a value per side is wanted, split the token in two and set the longhands:
+
+```jsonc
+"padding-block-start": {
+  "$value": "{ams.space.l}",
+  "$extensions": { "nl.amsterdam.subtype": "space", "nl.amsterdam.type": "dimension" }
+},
+"padding-block-end": {
+  "$value": "0",
+  "$type": "dimension",
+  "$extensions": { "nl.amsterdam.subtype": "space" }
+}
+```
+
+The `ams/require-single-value-token` Stylelint rule enforces the same constraint in the stylesheets that read the tokens.
+
 ### Descriptions
 
 Brand and common tokens use the DTCG `$description` property to explain the purpose of a token or group when the name alone is not sufficient.
