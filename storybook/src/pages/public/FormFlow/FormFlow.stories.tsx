@@ -195,7 +195,7 @@ export const SingleQuestion: StoryObj = {
     <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
       {/*
        * The task name is a caption, not a heading: the question below is the level 1 heading. A heading here
-       * would either sit above that h1 in the hierarchy, or need aria-hidden to stay out of it, which takes the
+       * would either precede that h1 in the heading list, or need aria-hidden to stay out of it, which takes the
        * name away from screen reader users. A paragraph keeps it available to everyone. The b tag only offsets it
        * visually – it carries no emphasis, so nothing changes for a screen reader.
        */}

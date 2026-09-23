@@ -32,14 +32,14 @@ Use this flow for any task a visitor completes by answering questions: an applic
 
 Use a [Product Page](/docs/pages-public-product-page--docs) to explain the task and lead into this flow.
 
+### How to use
+
+Do not put a step counter such as ‘Stap 2 van 5’ on form pages by default.
+The landing page can list the steps instead, and [With a progress indicator](#with-a-progress-indicator) says when a counter still helps.
+
 ### How to write
 
 Ask one thing per page, and write each question as the label or legend rather than as a separate sentence above it.
-
-### Showing progress
-
-Do not put a step counter such as ‘Stap 2 van 5’ on form pages by default.
-List the steps on the landing page instead, and read [With a Progress Indicator](#with-a-progress-indicator) before adding one anyway.
 
 ## Variants
 
@@ -100,21 +100,26 @@ For more information:
 
 ### With a progress indicator
 
-Form pages typically carry no step counter of their own:
+Form pages usually don’t have their own step counter for good reasons:
 
-- A form that branches cannot state a total it keeps to, so the count drifts from the number of pages a user actually sees.
-- A counter also takes up the space right above the question, and it tells users how much is left to give up on.
-- Setting expectations is the job of the step list on the landing page: it is written once, on the page where users decide whether to start.
+- A branching form cannot show a fixed total, since the count changes based on which path users take.
+- A counter takes up space above the question and reminds users how many steps remain, which may discourage them.
+- The landing page’s step list already sets expectations once, when users decide to begin.
 
-Test the form without an indicator first, and improve the order, type or number of questions before reaching for one.
-Only if users still lose track of where they are, and research on your own form shows an indicator helps, add plain text above the heading:
+Start by testing the form without a counter.
+Improve the order, type, and number of questions first before adding one.
+Only add a counter if users get lost and your own research proves it helps.
+Use plain text above the heading:
 
 ```tsx
 <Paragraph className="ams-mb-m">Stap 2 van 5: Uw gegevens</Paragraph>
 ```
 
-Keep it plain, and state a total only for a form that asks every user the same questions in the same order.
-Leave the total out when the route varies: ‘Stap 2’ on its own stays true.
+Keep it simple.
+Show a total only for forms where every user answers the same questions in the same order.
+Skip the total when the path changes: ‘Stap 2’ alone stays accurate.
+
+This deviates from the [NL Design System’s own step counter guidance](https://nldesignsystem.nl/richtlijnen/formulieren/meerdere-stappen/voortgang-tonen/), which also puts the count in the page `<title>`; this pattern only shows it above the heading.
 
 For more information, see [Question pages - Using progress indicators](https://design-system.service.gov.uk/patterns/question-pages/#using-progress-indicators).
 
