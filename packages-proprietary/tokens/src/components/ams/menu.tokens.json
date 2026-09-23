@@ -68,7 +68,10 @@
             "value": 8,
             "unit": "rem"
           },
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "nl.amsterdam.hint": "Must be a single value: it sets a longhand property, which takes only one."
+          }
         },
         "padding-block": {
           "$value": "calc({ams.logo.block-size} + 2 * {ams.page-header.padding-block}) {ams.space.m}",
