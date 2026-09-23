@@ -626,7 +626,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>4.6s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>5.0s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -10509,21 +10509,12 @@ export const SingleQuestion: StoryObj = {
   &lt;Grid as=&quot;main&quot; paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
     &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
       {/*
-       * The aria-hidden heading stays out of the heading hierarchy, and aria-labelledby re-exposes its text as the
-       * header’s accessible name. That is not a labelled section, though: a header inside main is no landmark –
-       * Chromium and WebKit expose the non-landmark sectionheader role, Firefox generic, where a name is prohibited
-       * and dropped. Label a landmark instead when a named section is what you need.
+       * The task name is a caption, not a heading: the question below is the level 1 heading. A heading here
+       * would either precede that h1 in the heading list, or need aria-hidden to stay out of it, which takes the
+       * name away from screen reader users. A paragraph keeps it available to everyone. The b tag only offsets it
+       * visually – it carries no emphasis, so nothing changes for a screen reader.
        */}
-      &lt;header aria-labelledby=&quot;form-header&quot; className=&quot;ams-mb-m ams-gap-xs&quot;&gt;
-        &lt;Heading aria-hidden id=&quot;form-header&quot; level={2} size=&quot;level-4&quot;&gt;Afspraak maken&lt;/Heading&gt;
-        {/*
-         * First test the form without a progress indicator to see whether it is simple enough to go without
-         * one, and try improving the order, type or number of questions first. Only if people still have
-         * difficulty, add a plain indicator like this, and state a total only if you can do so reliably.
-         * See https://design-system.service.gov.uk/patterns/question-pages/#using-progress-indicators
-         */}
-        &lt;Paragraph&gt;Stap 1 van 3: Afspraak&lt;/Paragraph&gt;
-      &lt;/header&gt;
+      &lt;Paragraph className=&quot;ams-mb-m&quot;&gt;&lt;b&gt;Afspraak maken&lt;/b&gt;&lt;/Paragraph&gt;
       {/*
        * Do not rely on HTML5 form validation: in many browsers not every user is told that a field is
        * required, and nothing explains why a pattern is not met, so errors are not identified accessibly
@@ -10585,23 +10576,14 @@ export const SingleQuestion: StoryObj = {
       &lt;Grid as=&quot;main&quot; paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
         &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
           {/*
-           * The aria-hidden heading stays out of the heading hierarchy, and aria-labelledby re-exposes its text as
-           * the header’s accessible name. That is not a labelled section, though: a header inside main is no landmark
-           * – Chromium and WebKit expose the non-landmark sectionheader role, Firefox generic, where a name is
-           * prohibited and dropped. Label a landmark instead when a named section is what you need.
+           * The task name is a caption, not a heading: the question below is the level 1 heading. A heading here
+           * would either sit above that h1 in the hierarchy, or need aria-hidden to stay out of it, which takes the
+           * name away from screen reader users. A paragraph keeps it available to everyone. The b tag only offsets it
+           * visually – it carries no emphasis, so nothing changes for a screen reader.
            */}
-          &lt;header aria-labelledby=&quot;form-header&quot; className=&quot;ams-mb-m ams-gap-xs&quot;&gt;
-            &lt;Heading aria-hidden id=&quot;form-header&quot; level={2} size=&quot;level-4&quot;&gt;
-              Afspraak maken
-            &lt;/Heading&gt;
-            {/*
-             * First test the form without a progress indicator to see whether it is simple enough to go without
-             * one, and try improving the order, type or number of questions first. Only if people still have
-             * difficulty, add a plain indicator like this, and state a total only if you can do so reliably.
-             * See https://design-system.service.gov.uk/patterns/question-pages/#using-progress-indicators
-             */}
-            &lt;Paragraph&gt;Stap 1 van 3: Afspraak&lt;/Paragraph&gt;
-          &lt;/header&gt;
+          &lt;Paragraph className=&quot;ams-mb-m&quot;&gt;
+            &lt;b&gt;Afspraak maken&lt;/b&gt;
+          &lt;/Paragraph&gt;
           {/*
            * Do not rely on HTML5 form validation: in many browsers not every user is told that a field is
            * required, and nothing explains why a pattern is not met, so errors are not identified accessibly
@@ -10673,21 +10655,12 @@ export const SingleQuestionWithSubquestions: StoryObj = {
   &lt;Grid as=&quot;main&quot; paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
     &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
       {/*
-       * The aria-hidden heading stays out of the heading hierarchy, and aria-labelledby re-exposes its text as the
-       * header’s accessible name. That is not a labelled section, though: a header inside main is no landmark –
-       * Chromium and WebKit expose the non-landmark sectionheader role, Firefox generic, where a name is prohibited
-       * and dropped. Label a landmark instead when a named section is what you need.
+       * The task name is a caption, not a heading: the question below is the level 1 heading. A heading here
+       * would either sit above that h1 in the hierarchy, or need aria-hidden to stay out of it, which takes the
+       * name away from screen reader users. A paragraph keeps it available to everyone. The b tag only offsets it
+       * visually – it carries no emphasis, so nothing changes for a screen reader.
        */}
-      &lt;header aria-labelledby=&quot;form-header&quot; className=&quot;ams-mb-m ams-gap-xs&quot;&gt;
-        &lt;Heading aria-hidden id=&quot;form-header&quot; level={2} size=&quot;level-4&quot;&gt;Afspraak maken&lt;/Heading&gt;
-        {/*
-         * First test the form without a progress indicator to see whether it is simple enough to go without
-         * one, and try improving the order, type or number of questions first. Only if people still have
-         * difficulty, add a plain indicator like this, and state a total only if you can do so reliably.
-         * See https://design-system.service.gov.uk/patterns/question-pages/#using-progress-indicators
-         */}
-        &lt;Paragraph&gt;Stap 2 van 3: Uw gegevens&lt;/Paragraph&gt;
-      &lt;/header&gt;
+      &lt;Paragraph className=&quot;ams-mb-m&quot;&gt;&lt;b&gt;Afspraak maken&lt;/b&gt;&lt;/Paragraph&gt;
       {/*
        * Do not rely on HTML5 form validation: in many browsers not every user is told that a field is
        * required, and nothing explains why a pattern is not met, so errors are not identified accessibly
@@ -10763,23 +10736,14 @@ export const SingleQuestionWithSubquestions: StoryObj = {
       &lt;Grid as=&quot;main&quot; paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
         &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
           {/*
-           * The aria-hidden heading stays out of the heading hierarchy, and aria-labelledby re-exposes its text as
-           * the header’s accessible name. That is not a labelled section, though: a header inside main is no landmark
-           * – Chromium and WebKit expose the non-landmark sectionheader role, Firefox generic, where a name is
-           * prohibited and dropped. Label a landmark instead when a named section is what you need.
+           * The task name is a caption, not a heading: the question below is the level 1 heading. A heading here
+           * would either sit above that h1 in the hierarchy, or need aria-hidden to stay out of it, which takes the
+           * name away from screen reader users. A paragraph keeps it available to everyone. The b tag only offsets it
+           * visually – it carries no emphasis, so nothing changes for a screen reader.
            */}
-          &lt;header aria-labelledby=&quot;form-header&quot; className=&quot;ams-mb-m ams-gap-xs&quot;&gt;
-            &lt;Heading aria-hidden id=&quot;form-header&quot; level={2} size=&quot;level-4&quot;&gt;
-              Afspraak maken
-            &lt;/Heading&gt;
-            {/*
-             * First test the form without a progress indicator to see whether it is simple enough to go without
-             * one, and try improving the order, type or number of questions first. Only if people still have
-             * difficulty, add a plain indicator like this, and state a total only if you can do so reliably.
-             * See https://design-system.service.gov.uk/patterns/question-pages/#using-progress-indicators
-             */}
-            &lt;Paragraph&gt;Stap 2 van 3: Uw gegevens&lt;/Paragraph&gt;
-          &lt;/header&gt;
+          &lt;Paragraph className=&quot;ams-mb-m&quot;&gt;
+            &lt;b&gt;Afspraak maken&lt;/b&gt;
+          &lt;/Paragraph&gt;
           {/*
            * Do not rely on HTML5 form validation: in many browsers not every user is told that a field is
            * required, and nothing explains why a pattern is not met, so errors are not identified accessibly
@@ -11044,21 +11008,12 @@ export const WithValidationError: StoryObj = {
         headingLevel={2}
       /&gt;
       {/*
-       * The aria-hidden heading stays out of the heading hierarchy, and aria-labelledby re-exposes its text as the
-       * header’s accessible name. That is not a labelled section, though: a header inside main is no landmark –
-       * Chromium and WebKit expose the non-landmark sectionheader role, Firefox generic, where a name is prohibited
-       * and dropped. Label a landmark instead when a named section is what you need.
+       * The task name is a caption, not a heading: the question below is the level 1 heading. A heading here
+       * would either sit above that h1 in the hierarchy, or need aria-hidden to stay out of it, which takes the
+       * name away from screen reader users. A paragraph keeps it available to everyone. The b tag only offsets it
+       * visually – it carries no emphasis, so nothing changes for a screen reader.
        */}
-      &lt;header aria-labelledby=&quot;form-header&quot; className=&quot;ams-mb-m ams-gap-xs&quot;&gt;
-        &lt;Heading aria-hidden id=&quot;form-header&quot; level={2} size=&quot;level-4&quot;&gt;Afspraak maken&lt;/Heading&gt;
-        {/*
-         * First test the form without a progress indicator to see whether it is simple enough to go without
-         * one, and try improving the order, type or number of questions first. Only if people still have
-         * difficulty, add a plain indicator like this, and state a total only if you can do so reliably.
-         * See https://design-system.service.gov.uk/patterns/question-pages/#using-progress-indicators
-         */}
-        &lt;Paragraph&gt;Stap 1 van 3: Afspraak&lt;/Paragraph&gt;
-      &lt;/header&gt;
+      &lt;Paragraph className=&quot;ams-mb-m&quot;&gt;&lt;b&gt;Afspraak maken&lt;/b&gt;&lt;/Paragraph&gt;
       {/*
        * Do not rely on HTML5 form validation: in many browsers not every user is told that a field is
        * required, and nothing explains why a pattern is not met, so errors are not identified accessibly
@@ -11144,23 +11099,14 @@ export const WithValidationError: StoryObj = {
             headingLevel={2}
           /&gt;
           {/*
-           * The aria-hidden heading stays out of the heading hierarchy, and aria-labelledby re-exposes its text as
-           * the header’s accessible name. That is not a labelled section, though: a header inside main is no landmark
-           * – Chromium and WebKit expose the non-landmark sectionheader role, Firefox generic, where a name is
-           * prohibited and dropped. Label a landmark instead when a named section is what you need.
+           * The task name is a caption, not a heading: the question below is the level 1 heading. A heading here
+           * would either sit above that h1 in the hierarchy, or need aria-hidden to stay out of it, which takes the
+           * name away from screen reader users. A paragraph keeps it available to everyone. The b tag only offsets it
+           * visually – it carries no emphasis, so nothing changes for a screen reader.
            */}
-          &lt;header aria-labelledby=&quot;form-header&quot; className=&quot;ams-mb-m ams-gap-xs&quot;&gt;
-            &lt;Heading aria-hidden id=&quot;form-header&quot; level={2} size=&quot;level-4&quot;&gt;
-              Afspraak maken
-            &lt;/Heading&gt;
-            {/*
-             * First test the form without a progress indicator to see whether it is simple enough to go without
-             * one, and try improving the order, type or number of questions first. Only if people still have
-             * difficulty, add a plain indicator like this, and state a total only if you can do so reliably.
-             * See https://design-system.service.gov.uk/patterns/question-pages/#using-progress-indicators
-             */}
-            &lt;Paragraph&gt;Stap 1 van 3: Afspraak&lt;/Paragraph&gt;
-          &lt;/header&gt;
+          &lt;Paragraph className=&quot;ams-mb-m&quot;&gt;
+            &lt;b&gt;Afspraak maken&lt;/b&gt;
+          &lt;/Paragraph&gt;
           {/*
            * Do not rely on HTML5 form validation: in many browsers not every user is told that a field is
            * required, and nothing explains why a pattern is not met, so errors are not identified accessibly
@@ -11350,23 +11296,14 @@ import { FormPageLayout, PageLayout } from '@amsterdam/storybook';</code></pre>
     &lt;Grid as=&quot;main&quot; paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
       &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
         {/*
-         * The aria-hidden heading stays out of the heading hierarchy, and aria-labelledby re-exposes its text as
-         * the header’s accessible name. That is not a labelled section, though: a header inside main is no landmark
-         * – Chromium and WebKit expose the non-landmark sectionheader role, Firefox generic, where a name is
-         * prohibited and dropped. Label a landmark instead when a named section is what you need.
+         * The task name is a caption, not a heading: the question below is the level 1 heading. A heading here
+         * would either sit above that h1 in the hierarchy, or need aria-hidden to stay out of it, which takes the
+         * name away from screen reader users. A paragraph keeps it available to everyone. The b tag only offsets it
+         * visually – it carries no emphasis, so nothing changes for a screen reader.
          */}
-        &lt;header aria-labelledby=&quot;form-header&quot; className=&quot;ams-mb-m ams-gap-xs&quot;&gt;
-          &lt;Heading aria-hidden id=&quot;form-header&quot; level={2} size=&quot;level-4&quot;&gt;
-            Afspraak maken
-          &lt;/Heading&gt;
-          {/*
-           * First test the form without a progress indicator to see whether it is simple enough to go without
-           * one, and try improving the order, type or number of questions first. Only if people still have
-           * difficulty, add a plain indicator like this, and state a total only if you can do so reliably.
-           * See https://design-system.service.gov.uk/patterns/question-pages/#using-progress-indicators
-           */}
-          &lt;Paragraph&gt;Stap 1 van 3: Afspraak&lt;/Paragraph&gt;
-        &lt;/header&gt;
+        &lt;Paragraph className=&quot;ams-mb-m&quot;&gt;
+          &lt;b&gt;Afspraak maken&lt;/b&gt;
+        &lt;/Paragraph&gt;
         {/*
          * Do not rely on HTML5 form validation: in many browsers not every user is told that a field is
          * required, and nothing explains why a pattern is not met, so errors are not identified accessibly
@@ -11440,23 +11377,14 @@ import { FormPageLayout, PageLayout } from '@amsterdam/storybook';</code></pre>
     &lt;Grid as=&quot;main&quot; paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
       &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
         {/*
-         * The aria-hidden heading stays out of the heading hierarchy, and aria-labelledby re-exposes its text as
-         * the header’s accessible name. That is not a labelled section, though: a header inside main is no landmark
-         * – Chromium and WebKit expose the non-landmark sectionheader role, Firefox generic, where a name is
-         * prohibited and dropped. Label a landmark instead when a named section is what you need.
+         * The task name is a caption, not a heading: the question below is the level 1 heading. A heading here
+         * would either sit above that h1 in the hierarchy, or need aria-hidden to stay out of it, which takes the
+         * name away from screen reader users. A paragraph keeps it available to everyone. The b tag only offsets it
+         * visually – it carries no emphasis, so nothing changes for a screen reader.
          */}
-        &lt;header aria-labelledby=&quot;form-header&quot; className=&quot;ams-mb-m ams-gap-xs&quot;&gt;
-          &lt;Heading aria-hidden id=&quot;form-header&quot; level={2} size=&quot;level-4&quot;&gt;
-            Afspraak maken
-          &lt;/Heading&gt;
-          {/*
-           * First test the form without a progress indicator to see whether it is simple enough to go without
-           * one, and try improving the order, type or number of questions first. Only if people still have
-           * difficulty, add a plain indicator like this, and state a total only if you can do so reliably.
-           * See https://design-system.service.gov.uk/patterns/question-pages/#using-progress-indicators
-           */}
-          &lt;Paragraph&gt;Stap 2 van 3: Uw gegevens&lt;/Paragraph&gt;
-        &lt;/header&gt;
+        &lt;Paragraph className=&quot;ams-mb-m&quot;&gt;
+          &lt;b&gt;Afspraak maken&lt;/b&gt;
+        &lt;/Paragraph&gt;
         {/*
          * Do not rely on HTML5 form validation: in many browsers not every user is told that a field is
          * required, and nothing explains why a pattern is not met, so errors are not identified accessibly
@@ -11647,23 +11575,14 @@ import { FormPageLayout, PageLayout } from '@amsterdam/storybook';</code></pre>
           headingLevel={2}
         /&gt;
         {/*
-         * The aria-hidden heading stays out of the heading hierarchy, and aria-labelledby re-exposes its text as
-         * the header’s accessible name. That is not a labelled section, though: a header inside main is no landmark
-         * – Chromium and WebKit expose the non-landmark sectionheader role, Firefox generic, where a name is
-         * prohibited and dropped. Label a landmark instead when a named section is what you need.
+         * The task name is a caption, not a heading: the question below is the level 1 heading. A heading here
+         * would either sit above that h1 in the hierarchy, or need aria-hidden to stay out of it, which takes the
+         * name away from screen reader users. A paragraph keeps it available to everyone. The b tag only offsets it
+         * visually – it carries no emphasis, so nothing changes for a screen reader.
          */}
-        &lt;header aria-labelledby=&quot;form-header&quot; className=&quot;ams-mb-m ams-gap-xs&quot;&gt;
-          &lt;Heading aria-hidden id=&quot;form-header&quot; level={2} size=&quot;level-4&quot;&gt;
-            Afspraak maken
-          &lt;/Heading&gt;
-          {/*
-           * First test the form without a progress indicator to see whether it is simple enough to go without
-           * one, and try improving the order, type or number of questions first. Only if people still have
-           * difficulty, add a plain indicator like this, and state a total only if you can do so reliably.
-           * See https://design-system.service.gov.uk/patterns/question-pages/#using-progress-indicators
-           */}
-          &lt;Paragraph&gt;Stap 1 van 3: Afspraak&lt;/Paragraph&gt;
-        &lt;/header&gt;
+        &lt;Paragraph className=&quot;ams-mb-m&quot;&gt;
+          &lt;b&gt;Afspraak maken&lt;/b&gt;
+        &lt;/Paragraph&gt;
         {/*
          * Do not rely on HTML5 form validation: in many browsers not every user is told that a field is
          * required, and nothing explains why a pattern is not met, so errors are not identified accessibly
@@ -11766,6 +11685,11 @@ Use this flow for any task a visitor completes by answering questions: an applic
 
 Use a [Product Page](/docs/pages-public-product-page--docs) to explain the task and lead into this flow.
 
+### How to use
+
+Do not put a step counter such as ‘Stap 2 van 5’ on form pages by default.
+The landing page can list the steps instead, and [With a progress indicator](#with-a-progress-indicator) says when a counter still helps.
+
 ### How to write
 
 Ask one thing per page, and write each question as the label or legend rather than as a separate sentence above it.
@@ -11826,6 +11750,31 @@ For more information:
 
 - [Recover from validation errors](https://design-system.service.gov.uk/patterns/validation/)
 - [Error summary](https://design-system.service.gov.uk/components/error-summary/)
+
+### With a progress indicator
+
+Form pages usually don’t have their own step counter for good reasons:
+
+- A branching form cannot show a fixed total, since the count changes based on which path users take.
+- A counter takes up space above the question and reminds users how many steps remain, which may discourage them.
+- The landing page’s step list already sets expectations once, when users decide to begin.
+
+Start by testing the form without a counter.
+Improve the order, type, and number of questions first before adding one.
+Only add a counter if users get lost and your own research proves it helps.
+Use plain text above the heading:
+
+```tsx
+&lt;Paragraph className=&quot;ams-mb-m&quot;&gt;Stap 2 van 5: Uw gegevens&lt;/Paragraph&gt;
+```
+
+Keep it simple.
+Show a total only for forms where every user answers the same questions in the same order.
+Skip the total when the path changes: ‘Stap 2’ alone stays accurate.
+
+This deviates from the [NL Design System’s own step counter guidance](https://nldesignsystem.nl/richtlijnen/formulieren/meerdere-stappen/voortgang-tonen/), which also puts the count in the page `&lt;title&gt;`; this pattern only shows it above the heading.
+
+For more information, see [Question pages - Using progress indicators](https://design-system.service.gov.uk/patterns/question-pages/#using-progress-indicators).
 
 ## Accessibility
 
@@ -42679,21 +42628,12 @@ export const SingleQuestion: StoryObj = {
   &lt;Grid as=&quot;main&quot; paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
     &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
       {/*
-       * The aria-hidden heading stays out of the heading hierarchy, and aria-labelledby re-exposes its text as the
-       * header’s accessible name. That is not a labelled section, though: a header inside main is no landmark –
-       * Chromium and WebKit expose the non-landmark sectionheader role, Firefox generic, where a name is prohibited
-       * and dropped. Label a landmark instead when a named section is what you need.
+       * The task name is a caption, not a heading: the question below is the level 1 heading. A heading here
+       * would either precede that h1 in the heading list, or need aria-hidden to stay out of it, which takes the
+       * name away from screen reader users. A paragraph keeps it available to everyone. The b tag only offsets it
+       * visually – it carries no emphasis, so nothing changes for a screen reader.
        */}
-      &lt;header aria-labelledby=&quot;form-header&quot; className=&quot;ams-mb-m ams-gap-xs&quot;&gt;
-        &lt;Heading aria-hidden id=&quot;form-header&quot; level={2} size=&quot;level-4&quot;&gt;Afspraak maken&lt;/Heading&gt;
-        {/*
-         * First test the form without a progress indicator to see whether it is simple enough to go without
-         * one, and try improving the order, type or number of questions first. Only if people still have
-         * difficulty, add a plain indicator like this, and state a total only if you can do so reliably.
-         * See https://design-system.service.gov.uk/patterns/question-pages/#using-progress-indicators
-         */}
-        &lt;Paragraph&gt;Stap 1 van 3: Afspraak&lt;/Paragraph&gt;
-      &lt;/header&gt;
+      &lt;Paragraph className=&quot;ams-mb-m&quot;&gt;&lt;b&gt;Afspraak maken&lt;/b&gt;&lt;/Paragraph&gt;
       {/*
        * Do not rely on HTML5 form validation: in many browsers not every user is told that a field is
        * required, and nothing explains why a pattern is not met, so errors are not identified accessibly
@@ -42755,23 +42695,14 @@ export const SingleQuestion: StoryObj = {
       &lt;Grid as=&quot;main&quot; paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
         &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
           {/*
-           * The aria-hidden heading stays out of the heading hierarchy, and aria-labelledby re-exposes its text as
-           * the header’s accessible name. That is not a labelled section, though: a header inside main is no landmark
-           * – Chromium and WebKit expose the non-landmark sectionheader role, Firefox generic, where a name is
-           * prohibited and dropped. Label a landmark instead when a named section is what you need.
+           * The task name is a caption, not a heading: the question below is the level 1 heading. A heading here
+           * would either sit above that h1 in the hierarchy, or need aria-hidden to stay out of it, which takes the
+           * name away from screen reader users. A paragraph keeps it available to everyone. The b tag only offsets it
+           * visually – it carries no emphasis, so nothing changes for a screen reader.
            */}
-          &lt;header aria-labelledby=&quot;form-header&quot; className=&quot;ams-mb-m ams-gap-xs&quot;&gt;
-            &lt;Heading aria-hidden id=&quot;form-header&quot; level={2} size=&quot;level-4&quot;&gt;
-              Afspraak maken
-            &lt;/Heading&gt;
-            {/*
-             * First test the form without a progress indicator to see whether it is simple enough to go without
-             * one, and try improving the order, type or number of questions first. Only if people still have
-             * difficulty, add a plain indicator like this, and state a total only if you can do so reliably.
-             * See https://design-system.service.gov.uk/patterns/question-pages/#using-progress-indicators
-             */}
-            &lt;Paragraph&gt;Stap 1 van 3: Afspraak&lt;/Paragraph&gt;
-          &lt;/header&gt;
+          &lt;Paragraph className=&quot;ams-mb-m&quot;&gt;
+            &lt;b&gt;Afspraak maken&lt;/b&gt;
+          &lt;/Paragraph&gt;
           {/*
            * Do not rely on HTML5 form validation: in many browsers not every user is told that a field is
            * required, and nothing explains why a pattern is not met, so errors are not identified accessibly
@@ -42843,21 +42774,12 @@ export const SingleQuestionWithSubquestions: StoryObj = {
   &lt;Grid as=&quot;main&quot; paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
     &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
       {/*
-       * The aria-hidden heading stays out of the heading hierarchy, and aria-labelledby re-exposes its text as the
-       * header’s accessible name. That is not a labelled section, though: a header inside main is no landmark –
-       * Chromium and WebKit expose the non-landmark sectionheader role, Firefox generic, where a name is prohibited
-       * and dropped. Label a landmark instead when a named section is what you need.
+       * The task name is a caption, not a heading: the question below is the level 1 heading. A heading here
+       * would either sit above that h1 in the hierarchy, or need aria-hidden to stay out of it, which takes the
+       * name away from screen reader users. A paragraph keeps it available to everyone. The b tag only offsets it
+       * visually – it carries no emphasis, so nothing changes for a screen reader.
        */}
-      &lt;header aria-labelledby=&quot;form-header&quot; className=&quot;ams-mb-m ams-gap-xs&quot;&gt;
-        &lt;Heading aria-hidden id=&quot;form-header&quot; level={2} size=&quot;level-4&quot;&gt;Afspraak maken&lt;/Heading&gt;
-        {/*
-         * First test the form without a progress indicator to see whether it is simple enough to go without
-         * one, and try improving the order, type or number of questions first. Only if people still have
-         * difficulty, add a plain indicator like this, and state a total only if you can do so reliably.
-         * See https://design-system.service.gov.uk/patterns/question-pages/#using-progress-indicators
-         */}
-        &lt;Paragraph&gt;Stap 2 van 3: Uw gegevens&lt;/Paragraph&gt;
-      &lt;/header&gt;
+      &lt;Paragraph className=&quot;ams-mb-m&quot;&gt;&lt;b&gt;Afspraak maken&lt;/b&gt;&lt;/Paragraph&gt;
       {/*
        * Do not rely on HTML5 form validation: in many browsers not every user is told that a field is
        * required, and nothing explains why a pattern is not met, so errors are not identified accessibly
@@ -42933,23 +42855,14 @@ export const SingleQuestionWithSubquestions: StoryObj = {
       &lt;Grid as=&quot;main&quot; paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
         &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
           {/*
-           * The aria-hidden heading stays out of the heading hierarchy, and aria-labelledby re-exposes its text as
-           * the header’s accessible name. That is not a labelled section, though: a header inside main is no landmark
-           * – Chromium and WebKit expose the non-landmark sectionheader role, Firefox generic, where a name is
-           * prohibited and dropped. Label a landmark instead when a named section is what you need.
+           * The task name is a caption, not a heading: the question below is the level 1 heading. A heading here
+           * would either sit above that h1 in the hierarchy, or need aria-hidden to stay out of it, which takes the
+           * name away from screen reader users. A paragraph keeps it available to everyone. The b tag only offsets it
+           * visually – it carries no emphasis, so nothing changes for a screen reader.
            */}
-          &lt;header aria-labelledby=&quot;form-header&quot; className=&quot;ams-mb-m ams-gap-xs&quot;&gt;
-            &lt;Heading aria-hidden id=&quot;form-header&quot; level={2} size=&quot;level-4&quot;&gt;
-              Afspraak maken
-            &lt;/Heading&gt;
-            {/*
-             * First test the form without a progress indicator to see whether it is simple enough to go without
-             * one, and try improving the order, type or number of questions first. Only if people still have
-             * difficulty, add a plain indicator like this, and state a total only if you can do so reliably.
-             * See https://design-system.service.gov.uk/patterns/question-pages/#using-progress-indicators
-             */}
-            &lt;Paragraph&gt;Stap 2 van 3: Uw gegevens&lt;/Paragraph&gt;
-          &lt;/header&gt;
+          &lt;Paragraph className=&quot;ams-mb-m&quot;&gt;
+            &lt;b&gt;Afspraak maken&lt;/b&gt;
+          &lt;/Paragraph&gt;
           {/*
            * Do not rely on HTML5 form validation: in many browsers not every user is told that a field is
            * required, and nothing explains why a pattern is not met, so errors are not identified accessibly
@@ -43214,21 +43127,12 @@ export const WithValidationError: StoryObj = {
         headingLevel={2}
       /&gt;
       {/*
-       * The aria-hidden heading stays out of the heading hierarchy, and aria-labelledby re-exposes its text as the
-       * header’s accessible name. That is not a labelled section, though: a header inside main is no landmark –
-       * Chromium and WebKit expose the non-landmark sectionheader role, Firefox generic, where a name is prohibited
-       * and dropped. Label a landmark instead when a named section is what you need.
+       * The task name is a caption, not a heading: the question below is the level 1 heading. A heading here
+       * would either sit above that h1 in the hierarchy, or need aria-hidden to stay out of it, which takes the
+       * name away from screen reader users. A paragraph keeps it available to everyone. The b tag only offsets it
+       * visually – it carries no emphasis, so nothing changes for a screen reader.
        */}
-      &lt;header aria-labelledby=&quot;form-header&quot; className=&quot;ams-mb-m ams-gap-xs&quot;&gt;
-        &lt;Heading aria-hidden id=&quot;form-header&quot; level={2} size=&quot;level-4&quot;&gt;Afspraak maken&lt;/Heading&gt;
-        {/*
-         * First test the form without a progress indicator to see whether it is simple enough to go without
-         * one, and try improving the order, type or number of questions first. Only if people still have
-         * difficulty, add a plain indicator like this, and state a total only if you can do so reliably.
-         * See https://design-system.service.gov.uk/patterns/question-pages/#using-progress-indicators
-         */}
-        &lt;Paragraph&gt;Stap 1 van 3: Afspraak&lt;/Paragraph&gt;
-      &lt;/header&gt;
+      &lt;Paragraph className=&quot;ams-mb-m&quot;&gt;&lt;b&gt;Afspraak maken&lt;/b&gt;&lt;/Paragraph&gt;
       {/*
        * Do not rely on HTML5 form validation: in many browsers not every user is told that a field is
        * required, and nothing explains why a pattern is not met, so errors are not identified accessibly
@@ -43314,23 +43218,14 @@ export const WithValidationError: StoryObj = {
             headingLevel={2}
           /&gt;
           {/*
-           * The aria-hidden heading stays out of the heading hierarchy, and aria-labelledby re-exposes its text as
-           * the header’s accessible name. That is not a labelled section, though: a header inside main is no landmark
-           * – Chromium and WebKit expose the non-landmark sectionheader role, Firefox generic, where a name is
-           * prohibited and dropped. Label a landmark instead when a named section is what you need.
+           * The task name is a caption, not a heading: the question below is the level 1 heading. A heading here
+           * would either sit above that h1 in the hierarchy, or need aria-hidden to stay out of it, which takes the
+           * name away from screen reader users. A paragraph keeps it available to everyone. The b tag only offsets it
+           * visually – it carries no emphasis, so nothing changes for a screen reader.
            */}
-          &lt;header aria-labelledby=&quot;form-header&quot; className=&quot;ams-mb-m ams-gap-xs&quot;&gt;
-            &lt;Heading aria-hidden id=&quot;form-header&quot; level={2} size=&quot;level-4&quot;&gt;
-              Afspraak maken
-            &lt;/Heading&gt;
-            {/*
-             * First test the form without a progress indicator to see whether it is simple enough to go without
-             * one, and try improving the order, type or number of questions first. Only if people still have
-             * difficulty, add a plain indicator like this, and state a total only if you can do so reliably.
-             * See https://design-system.service.gov.uk/patterns/question-pages/#using-progress-indicators
-             */}
-            &lt;Paragraph&gt;Stap 1 van 3: Afspraak&lt;/Paragraph&gt;
-          &lt;/header&gt;
+          &lt;Paragraph className=&quot;ams-mb-m&quot;&gt;
+            &lt;b&gt;Afspraak maken&lt;/b&gt;
+          &lt;/Paragraph&gt;
           {/*
            * Do not rely on HTML5 form validation: in many browsers not every user is told that a field is
            * required, and nothing explains why a pattern is not met, so errors are not identified accessibly
@@ -43520,23 +43415,14 @@ import { FormPageLayout, PageLayout } from '@amsterdam/storybook';</code></pre>
     &lt;Grid as=&quot;main&quot; paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
       &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
         {/*
-         * The aria-hidden heading stays out of the heading hierarchy, and aria-labelledby re-exposes its text as
-         * the header’s accessible name. That is not a labelled section, though: a header inside main is no landmark
-         * – Chromium and WebKit expose the non-landmark sectionheader role, Firefox generic, where a name is
-         * prohibited and dropped. Label a landmark instead when a named section is what you need.
+         * The task name is a caption, not a heading: the question below is the level 1 heading. A heading here
+         * would either sit above that h1 in the hierarchy, or need aria-hidden to stay out of it, which takes the
+         * name away from screen reader users. A paragraph keeps it available to everyone. The b tag only offsets it
+         * visually – it carries no emphasis, so nothing changes for a screen reader.
          */}
-        &lt;header aria-labelledby=&quot;form-header&quot; className=&quot;ams-mb-m ams-gap-xs&quot;&gt;
-          &lt;Heading aria-hidden id=&quot;form-header&quot; level={2} size=&quot;level-4&quot;&gt;
-            Afspraak maken
-          &lt;/Heading&gt;
-          {/*
-           * First test the form without a progress indicator to see whether it is simple enough to go without
-           * one, and try improving the order, type or number of questions first. Only if people still have
-           * difficulty, add a plain indicator like this, and state a total only if you can do so reliably.
-           * See https://design-system.service.gov.uk/patterns/question-pages/#using-progress-indicators
-           */}
-          &lt;Paragraph&gt;Stap 1 van 3: Afspraak&lt;/Paragraph&gt;
-        &lt;/header&gt;
+        &lt;Paragraph className=&quot;ams-mb-m&quot;&gt;
+          &lt;b&gt;Afspraak maken&lt;/b&gt;
+        &lt;/Paragraph&gt;
         {/*
          * Do not rely on HTML5 form validation: in many browsers not every user is told that a field is
          * required, and nothing explains why a pattern is not met, so errors are not identified accessibly
@@ -43610,23 +43496,14 @@ import { FormPageLayout, PageLayout } from '@amsterdam/storybook';</code></pre>
     &lt;Grid as=&quot;main&quot; paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
       &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
         {/*
-         * The aria-hidden heading stays out of the heading hierarchy, and aria-labelledby re-exposes its text as
-         * the header’s accessible name. That is not a labelled section, though: a header inside main is no landmark
-         * – Chromium and WebKit expose the non-landmark sectionheader role, Firefox generic, where a name is
-         * prohibited and dropped. Label a landmark instead when a named section is what you need.
+         * The task name is a caption, not a heading: the question below is the level 1 heading. A heading here
+         * would either sit above that h1 in the hierarchy, or need aria-hidden to stay out of it, which takes the
+         * name away from screen reader users. A paragraph keeps it available to everyone. The b tag only offsets it
+         * visually – it carries no emphasis, so nothing changes for a screen reader.
          */}
-        &lt;header aria-labelledby=&quot;form-header&quot; className=&quot;ams-mb-m ams-gap-xs&quot;&gt;
-          &lt;Heading aria-hidden id=&quot;form-header&quot; level={2} size=&quot;level-4&quot;&gt;
-            Afspraak maken
-          &lt;/Heading&gt;
-          {/*
-           * First test the form without a progress indicator to see whether it is simple enough to go without
-           * one, and try improving the order, type or number of questions first. Only if people still have
-           * difficulty, add a plain indicator like this, and state a total only if you can do so reliably.
-           * See https://design-system.service.gov.uk/patterns/question-pages/#using-progress-indicators
-           */}
-          &lt;Paragraph&gt;Stap 2 van 3: Uw gegevens&lt;/Paragraph&gt;
-        &lt;/header&gt;
+        &lt;Paragraph className=&quot;ams-mb-m&quot;&gt;
+          &lt;b&gt;Afspraak maken&lt;/b&gt;
+        &lt;/Paragraph&gt;
         {/*
          * Do not rely on HTML5 form validation: in many browsers not every user is told that a field is
          * required, and nothing explains why a pattern is not met, so errors are not identified accessibly
@@ -43817,23 +43694,14 @@ import { FormPageLayout, PageLayout } from '@amsterdam/storybook';</code></pre>
           headingLevel={2}
         /&gt;
         {/*
-         * The aria-hidden heading stays out of the heading hierarchy, and aria-labelledby re-exposes its text as
-         * the header’s accessible name. That is not a labelled section, though: a header inside main is no landmark
-         * – Chromium and WebKit expose the non-landmark sectionheader role, Firefox generic, where a name is
-         * prohibited and dropped. Label a landmark instead when a named section is what you need.
+         * The task name is a caption, not a heading: the question below is the level 1 heading. A heading here
+         * would either sit above that h1 in the hierarchy, or need aria-hidden to stay out of it, which takes the
+         * name away from screen reader users. A paragraph keeps it available to everyone. The b tag only offsets it
+         * visually – it carries no emphasis, so nothing changes for a screen reader.
          */}
-        &lt;header aria-labelledby=&quot;form-header&quot; className=&quot;ams-mb-m ams-gap-xs&quot;&gt;
-          &lt;Heading aria-hidden id=&quot;form-header&quot; level={2} size=&quot;level-4&quot;&gt;
-            Afspraak maken
-          &lt;/Heading&gt;
-          {/*
-           * First test the form without a progress indicator to see whether it is simple enough to go without
-           * one, and try improving the order, type or number of questions first. Only if people still have
-           * difficulty, add a plain indicator like this, and state a total only if you can do so reliably.
-           * See https://design-system.service.gov.uk/patterns/question-pages/#using-progress-indicators
-           */}
-          &lt;Paragraph&gt;Stap 1 van 3: Afspraak&lt;/Paragraph&gt;
-        &lt;/header&gt;
+        &lt;Paragraph className=&quot;ams-mb-m&quot;&gt;
+          &lt;b&gt;Afspraak maken&lt;/b&gt;
+        &lt;/Paragraph&gt;
         {/*
          * Do not rely on HTML5 form validation: in many browsers not every user is told that a field is
          * required, and nothing explains why a pattern is not met, so errors are not identified accessibly
@@ -43936,6 +43804,11 @@ Use this flow for any task a visitor completes by answering questions: an applic
 
 Use a [Product Page](/docs/pages-public-product-page--docs) to explain the task and lead into this flow.
 
+### How to use
+
+Do not put a step counter such as ‘Stap 2 van 5’ on form pages by default.
+The landing page can list the steps instead, and [With a progress indicator](#with-a-progress-indicator) says when a counter still helps.
+
 ### How to write
 
 Ask one thing per page, and write each question as the label or legend rather than as a separate sentence above it.
@@ -43996,6 +43869,31 @@ For more information:
 
 - [Recover from validation errors](https://design-system.service.gov.uk/patterns/validation/)
 - [Error summary](https://design-system.service.gov.uk/components/error-summary/)
+
+### With a progress indicator
+
+Form pages usually don’t have their own step counter for good reasons:
+
+- A branching form cannot show a fixed total, since the count changes based on which path users take.
+- A counter takes up space above the question and reminds users how many steps remain, which may discourage them.
+- The landing page’s step list already sets expectations once, when users decide to begin.
+
+Start by testing the form without a counter.
+Improve the order, type, and number of questions first before adding one.
+Only add a counter if users get lost and your own research proves it helps.
+Use plain text above the heading:
+
+```tsx
+&lt;Paragraph className=&quot;ams-mb-m&quot;&gt;Stap 2 van 5: Uw gegevens&lt;/Paragraph&gt;
+```
+
+Keep it simple.
+Show a total only for forms where every user answers the same questions in the same order.
+Skip the total when the path changes: ‘Stap 2’ alone stays accurate.
+
+This deviates from the [NL Design System’s own step counter guidance](https://nldesignsystem.nl/richtlijnen/formulieren/meerdere-stappen/voortgang-tonen/), which also puts the count in the page `&lt;title&gt;`; this pattern only shows it above the heading.
+
+For more information, see [Question pages - Using progress indicators](https://design-system.service.gov.uk/patterns/question-pages/#using-progress-indicators).
 
 ## Accessibility
 
