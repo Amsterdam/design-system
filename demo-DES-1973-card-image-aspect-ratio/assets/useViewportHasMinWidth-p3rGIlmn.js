@@ -1,0 +1,6 @@
+import{n as e}from"./rolldown-runtime-DkW27tQK.js";import{t}from"./react-B6tGW3fj.js";var n,r,i;function a(){return(a=e((()=>{n=t(),r={medium:`37.5rem`,wide:`72.5rem`},i=e=>{let t=`(min-width: ${r[e]})`,i=(0,n.useCallback)(e=>{if(typeof window>`u`)return()=>{};let n=window.matchMedia(t);return n.addEventListener(`change`,e),()=>n.removeEventListener(`change`,e)},[t]),a=(0,n.useCallback)(()=>typeof window>`u`?!1:window.matchMedia(t).matches,[t]);return(0,n.useSyncExternalStore)(i,a,()=>!1)};try{i.displayName=`useViewportHasMinWidth`,i.__docgenInfo={description:`Hook to determine if the viewport width is at or beyond a given breakpoint.
+
+**Prefer CSS media queries over this hook.** Use this only when viewport-dependent
+logic must run in JavaScript, e.g. for interactions or dynamic behaviour that cannot
+be expressed in CSS. CSS media queries are more performant, better supported across
+stacks, and easier to maintain.`,displayName:`useViewportHasMinWidth`,filePath:`/home/runner/work/design-system/design-system/packages/react/src/common/useViewportHasMinWidth.tsx`,methods:[],props:{},tags:{param:"breakpoint - The breakpoint to match against: `'medium'` or `'wide'`.",returns:"`true` if the viewport width meets or exceeds the breakpoint, `false` otherwise."}}}catch{}})))()}export{a as n,i as r,r as t};
