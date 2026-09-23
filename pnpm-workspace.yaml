@@ -16,19 +16,19 @@ overrides:
   "svgo@>=3.0.0 <3.3.4": "^3.3.4"
   tar: "^7.5.19"
   "valibot@<1.4.2": "^1.4.2"
-# stylelint-plugin-defensive-css imports postcss-selector-parser at runtime but lists it under
-# devDependencies, which consumers never receive. Without this, the plugin resolves that import
-# only by chance, through whichever packages pnpm happens to have hoisted into the virtual store,
-# which is not guaranteed to include it. The range matches the one the plugin declares itself.
 packageExtensions:
+  # stylelint-plugin-defensive-css imports postcss-selector-parser at runtime but lists it under
+  # devDependencies, which consumers never receive. Without this, the plugin resolves that import
+  # only by chance, through whichever packages pnpm happens to have hoisted into the virtual store,
+  # which is not guaranteed to include it. The range matches the one the plugin declares itself.
   stylelint-plugin-defensive-css:
     dependencies:
       postcss-selector-parser: "^7.1.1"
-# eslint-plugin-react 7.37 declares support up to ESLint 9, but its rules run fine on ESLint 10 once React
-# version detection is bypassed (see packages/react/eslint.config-partial.mjs).
-# TODO: Remove when the plugin lists ESLint 10 as a peer.
 peerDependencyRules:
   allowedVersions:
+    # eslint-plugin-react 7.37 declares support up to ESLint 9, but its rules run fine on ESLint 10 once React
+    # version detection is bypassed (see packages/react/eslint.config-partial.mjs).
+    # TODO: Remove when the plugin lists ESLint 10 as a peer.
     "eslint-plugin-react>eslint": "10"
 engineStrict: true
 savePrefix: ""
