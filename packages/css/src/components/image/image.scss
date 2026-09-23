@@ -17,10 +17,15 @@
   vertical-align: middle; /* [2] */
 }
 
+.ams-image--contain {
+  object-fit: contain; /* [7] */
+}
+
 // [1] Allow for fluid image sizing while maintaining aspect ratio governed by inline/block size attributes
 // [2] Remove ‘phantom’ white space
 // [3] Italicise alt text to visually offset it from surrounding copy
 // Source: https://x.com/csswizardry/status/1717841334462005661
-// [4] Crop the image to maintain a supported aspect ratio
+// [4] Crop the image to maintain a supported aspect ratio by default
 // [5] Marks the reserved space as a placeholder until the image loads
 // [6] Paints nothing by default: modes can move the image out of view and show a placeholder background instead
+// [7] Keeps the full source visible inside the image box

@@ -21,6 +21,10 @@ const meta = {
       },
       options: [undefined, ...aspectRatioOptions],
     },
+    imageFit: {
+      control: { type: 'radio' },
+      options: ['cover', 'contain'],
+    },
     src: {
       description: 'The url for the image.',
     },
