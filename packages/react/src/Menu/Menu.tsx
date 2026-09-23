@@ -108,7 +108,6 @@ export const MenuRoot = forwardRef<HTMLElement, MenuProps>(
         )}
         {isCollapsible && (
           <IconButton
-            aria-pressed={isExpanded}
             className="ams-menu__button"
             color="inverse"
             label={isExpanded ? collapseButtonLabel : expandButtonLabel}

@@ -54,16 +54,27 @@ export const WideCollapsible: Story = {
     fixedInWideWindow: true,
   },
   play: async ({ canvas, userEvent }) => {
+    const menu = canvas.getByRole('navigation', { name: 'Hoofdmenu' })
+    // The class only drives the container query; check the link layout it produces, since that is
+    // the behaviour the acceptance criteria describe.
+    const firstLink = canvas.getByRole('link', { name: 'Dashboard' })
+
+    expect(getComputedStyle(firstLink).flexDirection).toBe('column')
+
     await userEvent.click(canvas.getByRole('button', { name: 'Klap menu uit' }))
 
     const collapseButton = canvas.getByRole('button', { name: 'Klap menu in' })
 
-    await expect(collapseButton).toHaveAttribute('aria-pressed', 'true')
+    await expect(menu).toHaveClass('ams-menu--expanded')
+    await expect(collapseButton).toBeInTheDocument()
+    expect(getComputedStyle(firstLink).flexDirection).toBe('row')
 
     // Return to the collapsed state, so this story keeps snapshotting it.
     await userEvent.click(collapseButton)
 
-    await expect(canvas.getByRole('button', { name: 'Klap menu uit' })).toHaveAttribute('aria-pressed', 'false')
+    await expect(menu).not.toHaveClass('ams-menu--expanded')
+    await expect(canvas.getByRole('button', { name: 'Klap menu uit' })).toBeInTheDocument()
+    expect(getComputedStyle(firstLink).flexDirection).toBe('column')
   },
   render: renderMenu,
   tags: ['!dev', '!autodocs', '!manifest'],
