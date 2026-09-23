@@ -15,6 +15,7 @@ import { TableFooter } from './TableFooter'
 import { TableHeader } from './TableHeader'
 import { TableHeaderCell } from './TableHeaderCell'
 import { TableRow } from './TableRow'
+import { TableSortableHeaderCell } from './TableSortableHeaderCell'
 
 export type TableProps = PropsWithChildren<TableHTMLAttributes<HTMLTableElement>>
 
@@ -43,4 +44,5 @@ export const Table = Object.assign(TableRoot, {
   Header: TableHeader,
   HeaderCell: TableHeaderCell,
   Row: TableRow,
+  SortableHeaderCell: TableSortableHeaderCell,
 })
