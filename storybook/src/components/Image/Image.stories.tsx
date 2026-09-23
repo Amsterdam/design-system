@@ -7,7 +7,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Image } from '@amsterdam/design-system-react/src'
 import { aspectRatioOptions } from '@amsterdam/design-system-react/src/common/types'
-import { imageFitOptions } from '@amsterdam/design-system-react/src/Image/Image'
+import { objectFitOptions } from '@amsterdam/design-system-react/src/Image/Image'
 
 import { maximiseInlineSize } from '#storybook/_common/decorators'
 
@@ -22,9 +22,9 @@ const meta = {
       },
       options: [undefined, ...aspectRatioOptions],
     },
-    imageFit: {
+    objectFit: {
       control: { type: 'radio' },
-      options: imageFitOptions,
+      options: objectFitOptions,
     },
     src: {
       description: 'The url for the image.',
@@ -41,7 +41,7 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 /**
- * The source is portrait while the box is 16 by 9, so `imageFit` has something to do here.
+ * The source is portrait while the box is 16 by 9, so `objectFit` has something to do here.
  * A source that already matches the shape of its box looks the same either way.
  */
 export const Default: Story = {

@@ -48,8 +48,8 @@ describe('Image', () => {
     })
   })
 
-  it('fits the image inside its box when imageFit is set to contain', () => {
-    render(<Image alt="" imageFit="contain" />)
+  it('fits the image inside its box when objectFit is set to contain', () => {
+    render(<Image alt="" objectFit="contain" />)
 
     const component = screen.getByRole('presentation')
 

@@ -12,8 +12,8 @@ import type { AspectRatioProps } from '../common/types'
 
 import { generateAspectRatioClass } from './generateAspectRatioClass'
 
-export const imageFitOptions = ['cover', 'contain'] as const
-type ImageFit = (typeof imageFitOptions)[number]
+export const objectFitOptions = ['cover', 'contain'] as const
+type ObjectFit = (typeof objectFitOptions)[number]
 
 export type ImageProps = {
   /** A textual description of the content of the image. */
@@ -22,7 +22,7 @@ export type ImageProps = {
    * How the image fills its box. Cover crops to fill it; contain keeps the whole image visible.
    * @default cover
    */
-  readonly imageFit?: ImageFit
+  readonly objectFit?: ObjectFit
 } & Readonly<AspectRatioProps> &
   Readonly<Omit<ImgHTMLAttributes<HTMLImageElement>, 'children'>>
 
@@ -32,12 +32,12 @@ export type ImageProps = {
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-media-image--docs Image docs at Amsterdam Design System}
  */
 export const Image = forwardRef(
-  ({ aspectRatio, className, imageFit, width, ...restProps }: ImageProps, ref: ForwardedRef<HTMLImageElement>) => (
+  ({ aspectRatio, className, objectFit, width, ...restProps }: ImageProps, ref: ForwardedRef<HTMLImageElement>) => (
     <img
       {...restProps}
       className={clsx(
         'ams-image',
-        imageFit === 'contain' && 'ams-image--contain',
+        objectFit === 'contain' && 'ams-image--contain',
         generateAspectRatioClass(aspectRatio),
         className,
       )}
