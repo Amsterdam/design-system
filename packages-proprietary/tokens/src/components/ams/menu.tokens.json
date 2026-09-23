@@ -90,7 +90,10 @@
               "value": 12,
               "unit": "rem"
             },
-            "$type": "dimension"
+            "$type": "dimension",
+            "$extensions": {
+              "nl.amsterdam.hint": "Must be a single value: it sets a longhand property, which takes only one."
+            }
           }
         }
       },
