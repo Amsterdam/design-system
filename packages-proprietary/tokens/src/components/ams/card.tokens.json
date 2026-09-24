@@ -45,6 +45,13 @@
         }
       },
       "image": {
+        "aspect-ratio": {
+          "$value": "{ams.aspect-ratio.16-9}",
+          "$description": "The shape of a Card image. By default the image fills and crops to this shape; set objectFit to contain to keep the full source visible.",
+          "$extensions": {
+            "nl.amsterdam.type": "aspectRatio"
+          }
+        },
         "margin-block-end": {
           "$value": "{ams.space.s}",
           "$extensions": {

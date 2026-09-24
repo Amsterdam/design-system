@@ -7,6 +7,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Card } from '@amsterdam/design-system-react/src'
 import { aspectRatioOptions } from '@amsterdam/design-system-react/src/common/types'
+import { objectFitOptions } from '@amsterdam/design-system-react/src/Image/Image'
 
 import { maximiseInlineSize } from '#storybook/_common/decorators'
 
@@ -20,6 +21,10 @@ const meta = {
         type: 'select',
       },
       options: [undefined, ...aspectRatioOptions],
+    },
+    objectFit: {
+      control: { type: 'radio' },
+      options: objectFitOptions,
     },
   },
   decorators: [
@@ -36,11 +41,15 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
+/**
+ * The image is portrait while its shape is 16 by 9, so `objectFit` has something to do here.
+ * A image that already matches the shape it is given looks the same either way.
+ */
 export const Image: Story = {
   args: {
     alt: '',
     aspectRatio: '16:9',
-    src: 'https://picsum.photos/800/450',
+    src: 'https://picsum.photos/800/1200',
   },
   argTypes: {
     alt: {
