@@ -21,6 +21,13 @@ const meta = {
       },
       options: [undefined, ...aspectRatioOptions],
     },
+    fit: {
+      control: {
+        labels: { undefined: 'default (cover)' },
+        type: 'select',
+      },
+      options: [undefined, 'contain'],
+    },
     src: {
       description: 'The url for the image.',
     },
@@ -35,10 +42,21 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
+/**
+ * A source that already matches the shape of its box uses the default cover fit as intended.
+ */
 export const Default: Story = {
   args: {
     alt: '',
     src: 'https://picsum.photos/640/360',
+  },
+}
+
+export const ContainedImage: Story = {
+  args: {
+    alt: '',
+    fit: 'contain',
+    src: 'https://picsum.photos/640/800',
   },
 }
 
