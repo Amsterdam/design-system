@@ -3,20 +3,14 @@
  * Copyright Gemeente Amsterdam
  */
 
+@use "../../common/align-first-line" as *;
+@use "../../common/breakpoint" as *;
 @use "../../common/hyphenation" as *;
 @use "../../common/resets" as *;
 @use "../../common/text-rendering" as *;
 
-/**
- * CSS Custom properties cannot be used in container queries.
- * We resort to Sass variables for our breakpoint values.
- */
-
-/** The container width at which Description List toggles its orientation. */
-$ams-description-list-breakpoint: 32rem;
-
 @mixin horizontal-orientation {
-  @container ams-query-container-inline-size (inline-size >= #{$ams-description-list-breakpoint}) {
+  @container ams-query-container-inline-size (inline-size >= #{$ams-container-breakpoint-term-and-value}) {
     @content;
   }
 }
@@ -90,17 +84,14 @@ $ams-description-list-breakpoint: 32rem;
     // Add margin for Terms that are longer than their Description(s)
     margin-block-end: var(--ams-description-list-term-vi-medium-margin-block-end);
 
-    // Add half of the difference in computed line heights to align Terms with Descriptions.
-    // - Terms use heading line heights; Descriptions use body text
-    // - Not for Terms that follow a Term, or which are the last child
+    // Align Terms with Descriptions, which use body text line heights rather than heading ones.
+    // Not for Terms that follow a Term, or which are the last child.
     &:not(& + &, :last-child) {
-      padding-block-start: calc(
-        (
-            var(--ams-description-list-font-size) *
-              var(--ams-description-list-line-height) - var(--ams-description-list-term-font-size) *
-              var(--ams-description-list-term-line-height)
-          ) /
-          2
+      @include align-first-line(
+        $font-size: var(--ams-description-list-term-font-size),
+        $line-height: var(--ams-description-list-term-line-height),
+        $reference-font-size: var(--ams-description-list-font-size),
+        $reference-line-height: var(--ams-description-list-line-height)
       );
     }
   }
