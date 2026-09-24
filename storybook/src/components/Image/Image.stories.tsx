@@ -43,7 +43,7 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 /**
- * A source that already matches the shape of its box uses the default cover fit as intended.
+ * An image that already matches the shape of its box uses the default cover fit as intended.
  */
 export const Default: Story = {
   args: {
