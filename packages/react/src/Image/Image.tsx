@@ -15,6 +15,10 @@ import { generateAspectRatioClass } from './generateAspectRatioClass'
 export type ImageProps = {
   /** A textual description of the content of the image. */
   readonly alt: string
+  /**
+   * Keeps the whole image visible inside its box.
+   */
+  readonly fit?: 'contain'
 } & Readonly<AspectRatioProps> &
   Readonly<Omit<ImgHTMLAttributes<HTMLImageElement>, 'children'>>
 
@@ -24,10 +28,15 @@ export type ImageProps = {
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-media-image--docs Image docs at Amsterdam Design System}
  */
 export const Image = forwardRef(
-  ({ aspectRatio, className, width, ...restProps }: ImageProps, ref: ForwardedRef<HTMLImageElement>) => (
+  ({ aspectRatio, className, fit, width, ...restProps }: ImageProps, ref: ForwardedRef<HTMLImageElement>) => (
     <img
       {...restProps}
-      className={clsx('ams-image', generateAspectRatioClass(aspectRatio), className)}
+      className={clsx(
+        'ams-image',
+        fit === 'contain' && 'ams-image--contain',
+        generateAspectRatioClass(aspectRatio),
+        className,
+      )}
       ref={ref}
       width={width ?? 600} // Fixed width for when CSS does not load. Gets overridden by CSS.
     />
