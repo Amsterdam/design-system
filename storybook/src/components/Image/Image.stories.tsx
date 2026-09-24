@@ -5,7 +5,7 @@
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-import { Image } from '@amsterdam/design-system-react/src'
+import { Grid, Image } from '@amsterdam/design-system-react/src'
 import { aspectRatioOptions } from '@amsterdam/design-system-react/src/common/types'
 
 import { maximiseInlineSize } from '#storybook/_common/decorators'
@@ -43,20 +43,12 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 /**
- * An image that already matches the shape of its box uses the default cover fit as intended.
+ * A source that already matches the shape of its box uses the default cover fit as intended.
  */
 export const Default: Story = {
   args: {
     alt: '',
     src: 'https://picsum.photos/640/360',
-  },
-}
-
-export const ContainedImage: Story = {
-  args: {
-    alt: '',
-    fit: 'contain',
-    src: 'https://picsum.photos/640/800',
   },
 }
 
@@ -67,6 +59,34 @@ export const ResponsiveImages: Story = {
     src: 'https://picsum.photos/1280/720',
     srcSet: 'https://picsum.photos/640/360 640w, https://picsum.photos/1280/720 1280w',
   },
+}
+
+export const FittedImages: StoryObj = {
+  parameters: {
+    docs: {
+      source: {
+        code: `<Grid paddingVertical="x-large">
+  <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
+    <Image alt="" src="https://picsum.photos/640/800" />
+  </Grid.Cell>
+  <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
+    <Image alt="" fit="contain" src="https://picsum.photos/640/800" />
+  </Grid.Cell>
+</Grid>`,
+      },
+    },
+    layout: 'fullscreen',
+  },
+  render: () => (
+    <Grid paddingVertical="x-large">
+      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
+        <Image alt="" src="https://picsum.photos/640/800" />
+      </Grid.Cell>
+      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
+        <Image alt="" fit="contain" src="https://picsum.photos/640/800" />
+      </Grid.Cell>
+    </Grid>
+  ),
 }
 
 export const LazyLoading: Story = {

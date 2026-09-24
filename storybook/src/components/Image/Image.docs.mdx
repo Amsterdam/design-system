@@ -50,6 +50,12 @@ Don’t forget to still include the required `src` attribute.
 
 <Canvas of={ImageStories.ResponsiveImages} />
 
+### Contained image
+
+Setting `fit` to `contain` ensures that the entire image is visible within its container, even if it means leaving empty space around it. This is useful when you want to avoid cropping important parts of the image.
+
+<Canvas of={ImageStories.FittedImages} />
+
 ### Lazy loading
 
 Set the `loading` attribute (see [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#loading)) to `lazy` and the browser will wait to load the image until it is close to the viewport.
