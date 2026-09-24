@@ -7,7 +7,6 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Image } from '@amsterdam/design-system-react/src'
 import { aspectRatioOptions } from '@amsterdam/design-system-react/src/common/types'
-import { objectFitOptions } from '@amsterdam/design-system-react/src/Image/Image'
 
 import { maximiseInlineSize } from '#storybook/_common/decorators'
 
@@ -22,9 +21,12 @@ const meta = {
       },
       options: [undefined, ...aspectRatioOptions],
     },
-    objectFit: {
-      control: { type: 'radio' },
-      options: objectFitOptions,
+    fit: {
+      control: {
+        labels: { undefined: 'default (cover)' },
+        type: 'select',
+      },
+      options: [undefined, 'contain'],
     },
     src: {
       description: 'The url for the image.',
@@ -41,12 +43,19 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 /**
- * The source is portrait while the box is 16 by 9, so `objectFit` has something to do here.
- * A source that already matches the shape of its box looks the same either way.
+ * A source that already matches the shape of its box uses the default cover fit as intended.
  */
 export const Default: Story = {
   args: {
     alt: '',
+    src: 'https://picsum.photos/640/360',
+  },
+}
+
+export const ContainedImage: Story = {
+  args: {
+    alt: '',
+    fit: 'contain',
     src: 'https://picsum.photos/640/800',
   },
 }
