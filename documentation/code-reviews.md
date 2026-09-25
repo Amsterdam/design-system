@@ -76,6 +76,8 @@ Please realise that your written feedback may come across as more critical than 
 Your colleague has worked in good faith; make sure you communicate openly.
 Ask questions and make suggestions.
 “Would it be okay to…?” “Have you taken into account that…?” “I would expect such and such.”
+Keep questions for choices where either answer would be fine.
+When something is broken, say so plainly and suggest a fix, so it doesn’t read as optional.
 
 Call each other if that is more convenient.
 And write a compliment if you come across some quality work.
