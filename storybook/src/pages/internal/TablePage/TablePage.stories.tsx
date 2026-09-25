@@ -281,3 +281,44 @@ export const WithPagination: StoryObj = {
     )
   },
 }
+
+export const WithFilters: StoryObj = {
+  parameters: {
+    docs: {
+      source: {
+        // Because this story’s `render` takes no argument, the Code Panel prints its source as written, pagination
+        // scaffolding and all. Provide the source by hand so the panel shows the table markup on its own, with the
+        // guidance kept short.
+        code: `<Grid paddingVertical="x-large">`,
+        language: 'tsx',
+      },
+    },
+  },
+  render: () => {
+    const sortOrder = (params.get('sort') ?? 'straat-asc') as SortOrder
+    const addresses = sortAddresses(bagAddresses.slice(0, 30), sortOrder)
+
+    return (
+      <Grid paddingVertical="x-large">
+        <Grid.Cell appearance="transparent" span="all">
+          <Heading level={1}>Vergunninghouders 2026/2027</Heading>
+        </Grid.Cell>
+        <Grid.Cell span={{ narrow: 4, medium: 8, wide: 8 }}>
+          <Table className="ams-mb-l">
+            <Table.Caption>
+              <Heading level={2}>Gegevens per adres</Heading>
+            </Table.Caption>
+            <Table.Header>
+              <AddressTableHeaderRow />
+            </Table.Header>
+            <AddressTableBody addresses={addresses} />
+          </Table>
+        </Grid.Cell>
+        <Grid.Cell as="aside" span={{ narrow: 4, medium: 8, wide: 4 }}>
+          <Heading level={2}>Filters</Heading>
+          <p>Filter options would go here.</p>
+        </Grid.Cell>
+      </Grid>
+    )
+  },
+}
