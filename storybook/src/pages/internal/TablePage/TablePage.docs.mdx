@@ -39,6 +39,10 @@ The recommended layout: a visible heading and the sort and filter controls on on
 
 The same table split over pages, with the current page in the URL.
 
+### With Filters
+
+A wider layout with a separate filter form beside the table when the table has many columns.
+
 ## Structure
 
 ### Make table state easy to share
@@ -57,12 +61,14 @@ This is why we use links and forms for table controls rather than buttons.
 
 Place sort and filter controls in a row outside the table, never inside the `<caption>`.
 
-There are two ways to lay this out, and both keep a `<caption>` on the table for its accessible name and data-table semantics:
+There are three ways to lay this out, and all keep a `<caption>` on the table for its accessible name and data-table semantics:
 
 - **Controls above the table.** Add the controls in a row above the table and keep the caption visible inside it.
   This is the simplest option and needs no extra markup.
 - **Controls inline after the heading (recommended).** Place a visible heading and the controls on one row above the table – the heading on the start, the controls on the end – and give the table a visually hidden `<caption>` carrying the same text.
   The heading text is duplicated for assistive technology; this is the trade-off for placing the controls on the same line as the heading.
+- **Separate filter panel.** When the table has many columns or the filter form needs more room, place the filters in an adjacent aside and keep the table caption visible inside the table.
+  This keeps the controls outside the table while leaving enough room for a field per column.
 
 ## Accessibility
 

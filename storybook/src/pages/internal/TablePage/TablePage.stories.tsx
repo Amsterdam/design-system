@@ -9,10 +9,17 @@ import type { AnchorHTMLAttributes, ChangeEvent, FormEvent, MouseEvent } from 'r
 import { Grid, Heading, Label, Pagination, Row, Select, Table } from '@amsterdam/design-system-react'
 import { useEffect, useState } from 'react'
 
-import type { SortOrder } from './common'
+import type { AddressTableFiltersValues, BagAddress, SortOrder } from './common'
 
 import { commonMeta, pageParameters } from '../common/commonMeta'
-import { AddressTableBody, AddressTableHeaderRow, bagAddresses, sortAddresses, sortOptions } from './common'
+import {
+  AddressTableBody,
+  AddressTableFilters,
+  AddressTableHeaderRow,
+  bagAddresses,
+  sortAddresses,
+  sortOptions,
+} from './common'
 
 const meta = {
   ...commonMeta,
@@ -52,6 +59,58 @@ const sortSelectOptions = sortOptions.map(({ label, value }) => (
     {label}
   </Select.Option>
 ))
+
+const emptyAddressFilters: AddressTableFiltersValues = {
+  aantalKamers: '',
+  bouwjaar: '',
+  gebruiksdoel: '',
+  huisletter: '',
+  huisnummer: '',
+  oppervlakte: '',
+  postcode: '',
+  status: '',
+  straat: '',
+  wozSoortObject: '',
+}
+
+const splitListValues = (value?: string) =>
+  value
+    ?.split(',')
+    .map((part) => part.trim())
+    .filter(Boolean) ?? []
+
+const matchesText = (value: string | undefined, filter: string) =>
+  !filter || (value !== undefined && value.toLowerCase().includes(filter))
+const matchesExactText = (value: string | undefined, filter: string) => !filter || value === filter
+const matchesNumber = (value: number | undefined, filter: string) => !filter || String(value ?? '') === filter
+const matchesListValue = (value: string | undefined, filter: string) =>
+  !filter || splitListValues(value).includes(filter)
+
+const filterAddresses = (addresses: BagAddress[], filters: AddressTableFiltersValues) =>
+  addresses.filter(
+    ({
+      aantalKamers,
+      bouwjaar,
+      gebruiksdoel,
+      huisletter,
+      huisnummer,
+      oppervlakte,
+      postcode,
+      status,
+      straat,
+      wozSoortObject,
+    }) =>
+      matchesNumber(aantalKamers, filters.aantalKamers) &&
+      matchesNumber(bouwjaar, filters.bouwjaar) &&
+      matchesExactText(gebruiksdoel, filters.gebruiksdoel) &&
+      matchesExactText(huisletter?.toUpperCase(), filters.huisletter) &&
+      matchesNumber(huisnummer, filters.huisnummer) &&
+      matchesNumber(oppervlakte, filters.oppervlakte) &&
+      matchesExactText(postcode?.replaceAll(' ', '').toUpperCase(), filters.postcode) &&
+      matchesExactText(status, filters.status) &&
+      matchesText(straat, filters.straat) &&
+      matchesListValue(wozSoortObject, filters.wozSoortObject),
+  )
 
 export const SortingWithSelect: StoryObj = {
   parameters: {
@@ -286,17 +345,36 @@ export const WithFilters: StoryObj = {
   parameters: {
     docs: {
       source: {
-        // Because this story’s `render` takes no argument, the Code Panel prints its source as written, pagination
-        // scaffolding and all. Provide the source by hand so the panel shows the table markup on its own, with the
+        // Because this story’s `render` takes no argument, the Code Panel prints its source as written, filter
+        // scaffolding and all. Provide the source by hand so the panel shows the page layout on its own, with the
         // guidance kept short.
-        code: `<Grid paddingVertical="x-large">`,
+        code: `<Grid paddingVertical="x-large">
+  <Grid.Cell appearance="transparent" span="all">
+    <Heading level={1}>Vergunninghouders 2026/2027</Heading>
+  </Grid.Cell>
+  <Grid.Cell span={{ narrow: 4, medium: 8, wide: 8 }}>
+    <Table className="ams-mb-l">
+      <Table.Caption>
+        <Heading level={2}>Gegevens per adres</Heading>
+      </Table.Caption>
+      <Table.Header>
+        <AddressTableHeaderRow />
+      </Table.Header>
+      <AddressTableBody addresses={addresses} />
+    </Table>
+  </Grid.Cell>
+  <Grid.Cell as="aside" span={{ narrow: 4, medium: 8, wide: 4 }}>
+    <AddressTableFilters onApply={setAppliedFilters} onClear={() => setAppliedFilters(emptyAddressFilters)} />
+  </Grid.Cell>
+</Grid>`,
         language: 'tsx',
       },
     },
   },
   render: () => {
     const sortOrder = (params.get('sort') ?? 'straat-asc') as SortOrder
-    const addresses = sortAddresses(bagAddresses.slice(0, 30), sortOrder)
+    const [appliedFilters, setAppliedFilters] = useState(emptyAddressFilters)
+    const addresses = sortAddresses(filterAddresses(bagAddresses.slice(0, 30), appliedFilters), sortOrder)
 
     return (
       <Grid paddingVertical="x-large">
@@ -315,8 +393,7 @@ export const WithFilters: StoryObj = {
           </Table>
         </Grid.Cell>
         <Grid.Cell as="aside" span={{ narrow: 4, medium: 8, wide: 4 }}>
-          <Heading level={2}>Filters</Heading>
-          <p>Filter options would go here.</p>
+          <AddressTableFilters onApply={setAppliedFilters} onClear={() => setAppliedFilters(emptyAddressFilters)} />
         </Grid.Cell>
       </Grid>
     )

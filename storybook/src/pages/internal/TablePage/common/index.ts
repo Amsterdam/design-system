@@ -4,6 +4,7 @@
  */
 
 export * from './AddressTableBody'
+export * from './AddressTableFilters'
 export * from './AddressTableHeaderRow'
 export * from './bagAddresses'
 export * from './options'
