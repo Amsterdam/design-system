@@ -257,6 +257,7 @@ export const parameters = {
             'Getting started',
             'Release policy',
             'Browser support',
+            'Accessibility',
             'Modes',
             'Responsive design',
             'Spacing',
