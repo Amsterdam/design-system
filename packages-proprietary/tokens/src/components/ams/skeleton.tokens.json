@@ -87,7 +87,7 @@
       },
       "list": {
         "gap": {
-          "$value": "{ams.unordered-list.gap}",
+          "$value": "{ams.unordered-list.item.margin-block-end}",
           "$extensions": {
             "nl.amsterdam.hint": "Must be a single value: it sets a longhand property, which takes only one.",
             "nl.amsterdam.subtype": "space",

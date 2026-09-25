@@ -11,11 +11,17 @@
   @include reset-ol;
 
   box-sizing: border-box;
-  display: grid;
-  gap: var(--ams-ordered-list-gap);
 
   @include hyphenation;
   @include text-rendering;
+
+  > * {
+    break-inside: avoid;
+  }
+
+  > :not(:last-child) {
+    margin-block-end: var(--ams-ordered-list-gap /* @deprecated */, var(--ams-ordered-list-item-margin-block-end));
+  }
 }
 
 .ams-ordered-list:not(.ams-ordered-list--no-markers) {
@@ -47,13 +53,19 @@
  */
 :is(.ams-ordered-list, .ams-unordered-list) {
   > * > .ams-ordered-list:not(.ams-ordered-list--no-markers) {
-    gap: var(--ams-ordered-list-ordered-list-gap);
     list-style-type: var(--ams-ordered-list-ordered-list-list-style-type);
     padding-block-start: var(--ams-ordered-list-ordered-list-padding-block-start);
 
     > .ams-ordered-list__item {
       margin-inline-start: var(--ams-ordered-list-ordered-list-item-margin-inline-start);
       padding-inline-start: var(--ams-ordered-list-ordered-list-item-padding-inline-start);
+    }
+
+    > :not(:last-child) {
+      margin-block-end: var(
+        --ams-ordered-list-ordered-list-gap /* @deprecated */,
+        var(--ams-ordered-list-ordered-list-item-margin-block-end)
+      );
     }
   }
 

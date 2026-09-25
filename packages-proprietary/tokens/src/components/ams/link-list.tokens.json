@@ -2,7 +2,8 @@
   "ams": {
     "link-list": {
       "gap": {
-        "$value": "{ams.space.s}",
+        "$deprecated": "Use `ams.link-list.item.margin-block-end` instead. Will be removed on or after 2027-03-25.",
+        "$value": "{ams.link-list.item.margin-block-end}",
         "$extensions": {
           "nl.amsterdam.subtype": "space",
           "nl.amsterdam.type": "dimension"
@@ -12,6 +13,15 @@
         "$value": "balance",
         "$extensions": {
           "nl.amsterdam.type": "textWrap"
+        }
+      },
+      "item": {
+        "margin-block-end": {
+          "$value": "{ams.space.s}",
+          "$extensions": {
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
+          }
         }
       },
       "link": {

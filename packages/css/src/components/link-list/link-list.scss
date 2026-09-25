@@ -11,12 +11,18 @@
   @include reset-ul;
 
   box-sizing: border-box;
-  display: grid;
-  gap: var(--ams-link-list-gap);
   text-wrap: var(--ams-link-list-text-wrap);
 
   @include hyphenation;
   @include text-rendering;
+
+  > * {
+    break-inside: avoid;
+  }
+
+  > :not(:last-child) {
+    margin-block-end: var(--ams-link-list-gap /* @deprecated */, var(--ams-link-list-item-margin-block-end));
+  }
 }
 
 .ams-link-list__link {
