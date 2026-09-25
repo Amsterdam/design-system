@@ -40,7 +40,6 @@
     "@storybook/addon-links": "10.6.0",
     "@storybook/addon-mcp": "10.6.0",
     "@storybook/mdx2-csf": "1.1.0",
-    "@storybook/react-vite": "10.5.8",
     "@types/geojson": "7946.0.16",
     "@types/leaflet": "1.9.22",
     "@types/proj4": "2.19.0",
