@@ -102,10 +102,24 @@ describe('FileCard', () => {
     expect(container.querySelector('.ams-file-card__preview svg')).toBeInTheDocument()
   })
 
-  it('renders no delete button without an onDelete callback', () => {
+  it('renders no actions without an action prop or an onDelete callback', () => {
     render(<FileCard name="besluit.pdf" />)
 
     expect(screen.queryByRole('button')).not.toBeInTheDocument()
+    expect(document.querySelector('.ams-file-card__actions')).not.toBeInTheDocument()
+  })
+
+  it('renders custom actions', () => {
+    render(<FileCard actions={<button type="button">Download</button>} name="besluit.pdf" />)
+
+    expect(screen.getByRole('button', { name: 'Download' })).toBeInTheDocument()
+  })
+
+  it('renders custom actions beside the built-in delete button', () => {
+    render(<FileCard actions={<button type="button">Download</button>} name="besluit.pdf" onDelete={() => {}} />)
+
+    expect(screen.getByRole('button', { name: 'Download' })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'Verwijder besluit.pdf' })).toBeInTheDocument()
   })
 
   it('calls onDelete when the delete button is activated', () => {
@@ -147,6 +161,22 @@ describe('FileCard', () => {
 
     it('moves focus to the delete button of the next file', () => {
       renderList(['eerste.pdf', 'tweede.pdf', 'derde.pdf'])
+
+      fireEvent.click(screen.getByRole('button', { name: 'Verwijder tweede.pdf' }))
+
+      expect(screen.getByRole('button', { name: 'Verwijder derde.pdf' })).toHaveFocus()
+    })
+
+    it('still moves focus to the next delete button when other action buttons are present', () => {
+      render(
+        <ul>
+          {['eerste.pdf', 'tweede.pdf', 'derde.pdf'].map((name) => (
+            <li key={name}>
+              <FileCard actions={<button type="button">Download</button>} name={name} onDelete={() => {}} />
+            </li>
+          ))}
+        </ul>,
+      )
 
       fireEvent.click(screen.getByRole('button', { name: 'Verwijder tweede.pdf' }))
 

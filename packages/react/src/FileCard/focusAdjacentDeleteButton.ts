@@ -14,7 +14,7 @@ export const focusAdjacentDeleteButton = (button: HTMLButtonElement) => {
     return
   }
 
-  const buttons = Array.from(list.querySelectorAll<HTMLButtonElement>('.ams-file-card__actions button'))
+  const buttons = Array.from(list.querySelectorAll<HTMLButtonElement>('.ams-file-card__delete-button'))
   const index = buttons.indexOf(button)
 
   const adjacent = buttons[index + 1] ?? buttons[index - 1]

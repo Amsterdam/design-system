@@ -5,10 +5,11 @@
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-import { Column } from '@amsterdam/design-system-react'
-import { FileCard, FileList, formatFileDetailsTextEn } from '@amsterdam/design-system-react/src'
+import { Button, Column, UnorderedList } from '@amsterdam/design-system-react'
+import { FileCard, formatFileDetailsTextEn } from '@amsterdam/design-system-react/src'
 
 const remove = () => {}
+const download = () => {}
 
 const meta = {
   title: 'Components/Forms/File Card',
@@ -19,6 +20,7 @@ const meta = {
     type: 'application/pdf',
   },
   argTypes: {
+    actions: { control: false },
     formatDetailsText: { control: false },
     onDelete: { control: false },
     size: { control: { min: 0, type: 'number' } },
@@ -47,16 +49,27 @@ export const WithPreview: Story = {
 
 export const WithoutActions: Story = {}
 
-export const InAFileList: Story = {
+export const WithCustomActions: Story = {
+  args: {
+    actions: (
+      <Button onClick={download} variant="tertiary">
+        Download
+      </Button>
+    ),
+    onDelete: remove,
+  },
+}
+
+export const InAnUnorderedList: Story = {
   args: {
     onDelete: remove,
   },
   render: (args) => (
-    <FileList>
-      <FileList.Item>
+    <UnorderedList markers={false}>
+      <UnorderedList.Item>
         <FileCard {...args} />
-      </FileList.Item>
-      <FileList.Item>
+      </UnorderedList.Item>
+      <UnorderedList.Item>
         <FileCard
           {...args}
           name="pasfoto.jpg"
@@ -64,11 +77,11 @@ export const InAFileList: Story = {
           size={248000}
           type="image/jpeg"
         />
-      </FileList.Item>
-      <FileList.Item>
+      </UnorderedList.Item>
+      <UnorderedList.Item>
         <FileCard {...args} name="aanvraag-2026-03-11-definitief.docx" size={72000} type="application/msword" />
-      </FileList.Item>
-    </FileList>
+      </UnorderedList.Item>
+    </UnorderedList>
   ),
 }
 

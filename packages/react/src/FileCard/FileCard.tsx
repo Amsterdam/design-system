@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { ForwardedRef, HTMLAttributes, MouseEvent } from 'react'
+import type { ForwardedRef, HTMLAttributes, MouseEvent, ReactNode } from 'react'
 
 import { DocumentIcon } from '@amsterdam/design-system-react-icons'
 import { clsx } from 'clsx'
@@ -18,7 +18,13 @@ import { formatFileDetailsTextNl } from './formatFileDetailsText'
 
 export type FileCardProps = {
   /**
-   * The visible label of the delete button. The name of the file is appended for screen readers.
+   * A slot for action buttons or links, e.g. to download or edit the file.
+   * A delete button is built-in and added when an `onDelete` handler is provided.
+   */
+  readonly actions?: ReactNode
+  /**
+   * The visible label of the delete button.
+   * The name of the file is appended for screen readers.
    * @default 'Verwijder'
    */
   readonly deleteButtonLabel?: string
@@ -31,6 +37,10 @@ export type FileCardProps = {
   /** The name of the file. */
   readonly name: string
   /** A function to run when the user removes the file. Adds a delete button. */
+  /**
+   * A function to run when the user removes the file.
+   * Adds a delete button after any custom actions.
+   */
   readonly onDelete?: () => void
   /** The address of an image to display instead of the generic document icon. */
   readonly previewUrl?: string
@@ -48,6 +58,7 @@ export type FileCardProps = {
 export const FileCard = forwardRef(
   (
     {
+      actions,
       className,
       deleteButtonLabel = 'Verwijder',
       formatDetailsText = formatFileDetailsTextNl,
@@ -76,12 +87,15 @@ export const FileCard = forwardRef(
           <span className="ams-file-card__name">{name}</span>
           {details && <span className="ams-file-card__details">{details}</span>}
         </div>
-        {onDelete && (
+        {(actions || onDelete) && (
           <div className="ams-file-card__actions">
-            <Button onClick={deleteFile} variant="tertiary">
-              {deleteButtonLabel}
-              <span className="ams-visually-hidden">{` ${name}`}</span>
-            </Button>
+            {actions}
+            {onDelete && (
+              <Button className="ams-file-card__delete-button" onClick={deleteFile} variant="tertiary">
+                {deleteButtonLabel}
+                <span className="ams-visually-hidden">{` ${name}`}</span>
+              </Button>
+            )}
           </div>
         )}
       </div>
