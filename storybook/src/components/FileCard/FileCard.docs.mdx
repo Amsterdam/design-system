@@ -40,6 +40,9 @@ Give every custom action the file name for screen readers with `ams-visually-hid
 Pass `onDelete` to add the built-in delete button.
 It has no icon, and it always comes after the other actions.
 A delete button of your own in `actions` gets neither the file name for screen readers, nor the focus move after a delete.
+When you ask for confirmation first, remove the file after the confirmation has closed and returned focus to the delete button.
+
+When a File Card stands alone, or the last file leaves and takes the list with it, the page decides where focus goes.
 
 Leave out both `actions` and `onDelete` to only show the file.
 
@@ -120,6 +123,8 @@ The component cannot know what the image shows, and the name is already beside i
 When `onDelete` is used, the delete button reads ‘Verwijder’ on screen and ‘Verwijder’ followed by the name of the file to a screen reader.
 Repeating the name on screen would put it twice in every row and make the buttons wide and untidy; leaving it out of the accessible name would leave someone reviewing the buttons of a page out of context with the same word for each of them.
 Change `deleteButtonLabel` to change both, as the visible label stays the first part of the accessible name.
+
+When the focused delete button leaves the page, focus moves to the delete button of the next file, or of the previous one for the last file.
 
 There is no live region.
 Moving focus to a neighbouring button already makes the change noticeable, and announcing it on top of that reads as noise rather than as help.

@@ -3,11 +3,11 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { ForwardedRef, HTMLAttributes, MouseEvent, ReactNode } from 'react'
+import type { ForwardedRef, HTMLAttributes, ReactNode } from 'react'
 
 import { DocumentIcon } from '@amsterdam/design-system-react-icons'
 import { clsx } from 'clsx'
-import { forwardRef } from 'react'
+import { forwardRef, useCallback, useRef } from 'react'
 
 import type { FormatFileDetailsText } from './formatFileDetailsText'
 
@@ -36,7 +36,6 @@ export type FileCardProps = {
   readonly formatDetailsText?: FormatFileDetailsText
   /** The name of the file. */
   readonly name: string
-  /** A function to run when the user removes the file. Adds a delete button. */
   /**
    * A function to run when the user removes the file.
    * Adds a delete button after any custom actions.
@@ -72,11 +71,16 @@ export const FileCard = forwardRef(
     ref: ForwardedRef<HTMLDivElement>,
   ) => {
     const details = formatDetailsText({ size, type })
+    const deleteButton = useRef<HTMLButtonElement | null>(null)
 
-    const deleteFile = (event: MouseEvent<HTMLButtonElement>) => {
-      focusAdjacentDeleteButton(event.currentTarget)
-      onDelete?.()
-    }
+    // Use a ref callback so React can move focus at the moment it removes the focused delete button.
+    const setDeleteButton = useCallback((button: HTMLButtonElement | null) => {
+      if (button === null && deleteButton.current && deleteButton.current === document.activeElement) {
+        focusAdjacentDeleteButton(deleteButton.current)
+      }
+
+      deleteButton.current = button
+    }, [])
 
     return (
       <div {...restProps} className={clsx('ams-file-card', className)} ref={ref}>
@@ -91,7 +95,12 @@ export const FileCard = forwardRef(
           <div className="ams-file-card__actions">
             {actions}
             {onDelete && (
-              <Button className="ams-file-card__delete-button" onClick={deleteFile} variant="tertiary">
+              <Button
+                className="ams-file-card__delete-button"
+                onClick={onDelete}
+                ref={setDeleteButton}
+                variant="tertiary"
+              >
                 {deleteButtonLabel}
                 <span className="ams-visually-hidden">{` ${name}`}</span>
               </Button>

@@ -148,57 +148,141 @@ describe('FileCard', () => {
   })
 
   describe('moving focus after a delete', () => {
-    const renderList = (names: string[]) =>
-      render(
-        <ul>
-          {names.map((name) => (
-            <li key={name}>
-              <FileCard name={name} onDelete={() => {}} />
-            </li>
-          ))}
-        </ul>,
-      )
+    const getList = (
+      names: string[],
+      {
+        keyByIndex = false,
+        onDelete = () => {},
+        withActions = false,
+      }: {
+        keyByIndex?: boolean
+        onDelete?: (name: string) => void
+        withActions?: boolean
+      } = {},
+    ) => (
+      <ul>
+        {names.map((name, index) => (
+          <li key={keyByIndex ? index : name}>
+            <FileCard
+              actions={withActions ? <button type="button">Download</button> : undefined}
+              name={name}
+              onDelete={() => onDelete(name)}
+            />
+          </li>
+        ))}
+      </ul>
+    )
 
     it('moves focus to the delete button of the next file', () => {
-      renderList(['eerste.pdf', 'tweede.pdf', 'derde.pdf'])
+      const onDelete = vi.fn()
+      const { rerender } = render(getList(['eerste.pdf', 'tweede.pdf', 'derde.pdf'], { onDelete }))
 
-      fireEvent.click(screen.getByRole('button', { name: 'Verwijder tweede.pdf' }))
+      const button = screen.getByRole('button', { name: 'Verwijder tweede.pdf' })
 
-      expect(screen.getByRole('button', { name: 'Verwijder derde.pdf' })).toHaveFocus()
-    })
+      button.focus()
+      fireEvent.click(button)
+      rerender(getList(['eerste.pdf', 'derde.pdf'], { onDelete }))
 
-    it('still moves focus to the next delete button when other action buttons are present', () => {
-      render(
-        <ul>
-          {['eerste.pdf', 'tweede.pdf', 'derde.pdf'].map((name) => (
-            <li key={name}>
-              <FileCard actions={<button type="button">Download</button>} name={name} onDelete={() => {}} />
-            </li>
-          ))}
-        </ul>,
-      )
-
-      fireEvent.click(screen.getByRole('button', { name: 'Verwijder tweede.pdf' }))
-
+      expect(onDelete).toHaveBeenCalledWith('tweede.pdf')
       expect(screen.getByRole('button', { name: 'Verwijder derde.pdf' })).toHaveFocus()
     })
 
     it('moves focus to the delete button of the previous file when the last one is removed', () => {
-      renderList(['eerste.pdf', 'tweede.pdf', 'derde.pdf'])
+      const onDelete = vi.fn()
+      const { rerender } = render(getList(['eerste.pdf', 'tweede.pdf', 'derde.pdf'], { onDelete }))
 
-      fireEvent.click(screen.getByRole('button', { name: 'Verwijder derde.pdf' }))
+      const button = screen.getByRole('button', { name: 'Verwijder derde.pdf' })
+
+      button.focus()
+      fireEvent.click(button)
+      rerender(getList(['eerste.pdf', 'tweede.pdf'], { onDelete }))
+
+      expect(onDelete).toHaveBeenCalledWith('derde.pdf')
+      expect(screen.getByRole('button', { name: 'Verwijder tweede.pdf' })).toHaveFocus()
+    })
+
+    it('keeps focus on the delete button when onDelete leaves the file in place', () => {
+      const onDelete = vi.fn()
+
+      render(getList(['eerste.pdf'], { onDelete }))
+
+      const button = screen.getByRole('button', { name: 'Verwijder eerste.pdf' })
+
+      button.focus()
+      fireEvent.click(button)
+
+      expect(onDelete).toHaveBeenCalledWith('eerste.pdf')
+      expect(button).toHaveFocus()
+    })
+
+    it('keeps focus where it is when the removed file was not focused', () => {
+      const onDelete = vi.fn()
+      const getView = (names: string[]) => (
+        <>
+          <button type="button">Ergens anders</button>
+          {getList(names, { onDelete })}
+        </>
+      )
+
+      const { rerender } = render(getView(['eerste.pdf', 'tweede.pdf', 'derde.pdf']))
+
+      const otherButton = screen.getByRole('button', { name: 'Ergens anders' })
+
+      otherButton.focus()
+      fireEvent.click(screen.getByRole('button', { name: 'Verwijder tweede.pdf' }))
+      rerender(getView(['eerste.pdf', 'derde.pdf']))
+
+      expect(onDelete).toHaveBeenCalledWith('tweede.pdf')
+      expect(screen.getByRole('button', { name: 'Ergens anders' })).toHaveFocus()
+    })
+
+    it('moves focus to the next file when the list is keyed by index', () => {
+      const onDelete = vi.fn()
+      const { rerender } = render(getList(['eerste.pdf', 'tweede.pdf', 'derde.pdf'], { keyByIndex: true, onDelete }))
+
+      const button = screen.getByRole('button', { name: 'Verwijder tweede.pdf' })
+
+      button.focus()
+      fireEvent.click(button)
+      rerender(getList(['eerste.pdf', 'derde.pdf'], { keyByIndex: true, onDelete }))
+
+      expect(screen.getByRole('button', { name: 'Verwijder derde.pdf' })).toHaveFocus()
+    })
+
+    it('does not move focus when a File Card re-renders with a new onDelete', () => {
+      const { rerender } = render(getList(['eerste.pdf', 'tweede.pdf', 'derde.pdf'], { onDelete: vi.fn() }))
+
+      const button = screen.getByRole('button', { name: 'Verwijder tweede.pdf' })
+
+      button.focus()
+      rerender(getList(['eerste.pdf', 'tweede.pdf', 'derde.pdf'], { onDelete: vi.fn() }))
 
       expect(screen.getByRole('button', { name: 'Verwijder tweede.pdf' })).toHaveFocus()
     })
 
-    it('leaves focus alone when the File Card is not part of a list', () => {
-      render(<FileCard name="besluit.pdf" onDelete={() => {}} />)
+    it('still finds the next delete button when other action buttons are present', () => {
+      const onDelete = vi.fn()
+      const { rerender } = render(getList(['eerste.pdf', 'tweede.pdf', 'derde.pdf'], { onDelete, withActions: true }))
 
-      const button = screen.getByRole('button')
+      const button = screen.getByRole('button', { name: 'Verwijder tweede.pdf' })
 
+      button.focus()
       fireEvent.click(button)
+      rerender(getList(['eerste.pdf', 'derde.pdf'], { onDelete, withActions: true }))
 
-      expect(button).not.toHaveFocus()
+      expect(screen.getByRole('button', { name: 'Verwijder derde.pdf' })).toHaveFocus()
+    })
+
+    it('leaves focus alone for a File Card outside a list', () => {
+      const { rerender } = render(<FileCard name="besluit.pdf" onDelete={() => {}} />)
+
+      const button = screen.getByRole('button', { name: 'Verwijder besluit.pdf' })
+
+      button.focus()
+      fireEvent.click(button)
+      rerender(<></>)
+
+      expect(document.body).toHaveFocus()
     })
   })
 })
