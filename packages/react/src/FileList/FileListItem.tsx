@@ -6,7 +6,7 @@
 import type { ForwardedRef, HTMLAttributes } from 'react'
 
 import { clsx } from 'clsx'
-import { forwardRef } from 'react'
+import { forwardRef, useEffect, useState } from 'react'
 
 import { FileCard } from '../FileCard/FileCard'
 
@@ -24,11 +24,27 @@ export type FileListItemProps = {
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-file-list--docs File List docs at Amsterdam Design System}
  */
 export const FileListItem = forwardRef(
-  ({ className, file, onDelete, ...restProps }: FileListItemProps, ref: ForwardedRef<HTMLLIElement>) => (
-    <li {...restProps} className={clsx('ams-file-list__item', className)} ref={ref}>
-      <FileCard name={file.name} onDelete={onDelete} size={file.size} type={file.type} />
-    </li>
-  ),
+  ({ className, file, onDelete, ...restProps }: FileListItemProps, ref: ForwardedRef<HTMLLIElement>) => {
+    const [previewUrl, setPreviewUrl] = useState<string>()
+
+    useEffect(() => {
+      const nextPreviewUrl = file.type.startsWith('image/') ? URL.createObjectURL(file) : undefined
+
+      setPreviewUrl(nextPreviewUrl)
+
+      return () => {
+        if (nextPreviewUrl) {
+          URL.revokeObjectURL(nextPreviewUrl)
+        }
+      }
+    }, [file])
+
+    return (
+      <li {...restProps} className={clsx('ams-file-list__item', className)} ref={ref}>
+        <FileCard name={file.name} onDelete={onDelete} previewUrl={previewUrl} size={file.size} type={file.type} />
+      </li>
+    )
+  },
 )
 
 FileListItem.displayName = 'FileList.Item'
