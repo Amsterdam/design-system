@@ -3,7 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Field, FileCard, FileInput, FileList, Label, Paragraph } from '@amsterdam/design-system-react'
+import { Column, Field, FileInput, Label, Paragraph, UnorderedList } from '@amsterdam/design-system-react'
+import { FileCard } from '@amsterdam/design-system-react/src'
 import { useEffect, useRef, useState } from 'react'
 import { flushSync } from 'react-dom'
 
@@ -22,7 +23,7 @@ const toAttachments = (files: File[]): Attachment[] =>
     previewUrl: file.type.startsWith('image/') ? URL.createObjectURL(file) : '',
   }))
 
-export const FileInputWithFileList = () => {
+export const FileInputWithFileCards = () => {
   const inputRef = useRef<HTMLInputElement>(null)
   const emptiedRef = useRef<HTMLParagraphElement>(null)
   const [attachments, setAttachments] = useState<Attachment[]>([])
@@ -68,15 +69,15 @@ export const FileInputWithFileList = () => {
   }
 
   return (
-    <>
+    <Column>
       <Field>
         <Label htmlFor="file-input">Bijlagen</Label>
         <FileInput id="file-input" multiple onChange={changeFiles} ref={inputRef} />
       </Field>
       {attachments.length > 0 && (
-        <FileList>
+        <UnorderedList markers={false}>
           {attachments.map(({ file, id, previewUrl }) => (
-            <FileList.Item key={id}>
+            <UnorderedList.Item key={id}>
               <FileCard
                 name={file.name}
                 onDelete={() => removeFile(id)}
@@ -84,15 +85,15 @@ export const FileInputWithFileList = () => {
                 size={file.size}
                 type={file.type}
               />
-            </FileList.Item>
+            </UnorderedList.Item>
           ))}
-        </FileList>
+        </UnorderedList>
       )}
       {emptied && (
         <Paragraph ref={emptiedRef} tabIndex={-1}>
           Alle bijlagen zijn verwijderd.
         </Paragraph>
       )}
-    </>
+    </Column>
   )
 }

@@ -11,6 +11,7 @@ import { useState } from 'react'
 import { expect } from 'storybook/test'
 
 import { default as fileCardMeta } from './FileCard.stories'
+import { FileInputWithFileCards } from './FileInputWithFileCards'
 
 const meta = {
   ...fileCardMeta,
@@ -113,5 +114,28 @@ export const FocusAfterDelete: Story = {
     await expect(canvas.getByRole('button', { name: 'Verwijder eerste.pdf' })).toHaveFocus()
   },
   render: () => <RemovableFileCards />,
+  tags: ['!dev', '!autodocs', '!manifest'],
+}
+
+/*
+ * The file-input example is the one place that handles an emptied list, which a File Card cannot do for itself.
+ * Removing the last file has to reach the line that says so, rather than dropping focus on the body.
+ */
+export const FocusWhenEmptied: Story = {
+  play: async ({ canvas, userEvent }) => {
+    await userEvent.upload(canvas.getByLabelText('Bijlagen'), [
+      new File(['een'], 'een.pdf', { type: 'application/pdf' }),
+      new File(['twee'], 'twee.pdf', { type: 'application/pdf' }),
+    ])
+
+    await userEvent.click(canvas.getByRole('button', { name: 'Verwijder twee.pdf' }))
+
+    await expect(canvas.getByRole('button', { name: 'Verwijder een.pdf' })).toHaveFocus()
+
+    await userEvent.click(canvas.getByRole('button', { name: 'Verwijder een.pdf' }))
+
+    await expect(canvas.getByText('Alle bijlagen zijn verwijderd.')).toHaveFocus()
+  },
+  render: () => <FileInputWithFileCards />,
   tags: ['!dev', '!autodocs', '!manifest'],
 }

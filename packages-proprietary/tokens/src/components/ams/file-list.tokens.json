@@ -2,6 +2,7 @@
   "ams": {
     "file-list": {
       "gap": {
+        "$deprecated": "Use an Unordered List without markers instead. Will be removed on or after 2027-04-01.",
         "$value": "{ams.space.m}",
         "$extensions": {
           "nl.amsterdam.subtype": "space",
@@ -9,6 +10,7 @@
         }
       },
       "padding-block": {
+        "$deprecated": "Use an Unordered List without markers instead. Will be removed on or after 2027-04-01.",
         "$value": "{ams.space.m}",
         "$extensions": {
           "nl.amsterdam.subtype": "space",

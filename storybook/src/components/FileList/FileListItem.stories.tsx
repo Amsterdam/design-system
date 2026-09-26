@@ -5,13 +5,15 @@
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-import { FileCard, FileList } from '@amsterdam/design-system-react/src'
+import { FileList } from '@amsterdam/design-system-react/src'
+
+const sampleFile = new File(['sample'], 'document.pdf', { lastModified: Date.now(), type: 'application/pdf' })
 
 const meta = {
   title: 'Components/Forms/File List',
   component: FileList.Item,
   argTypes: {
-    file: { control: false }, // Deprecated, and a File object has no usable controls panel widget.
+    file: { control: false }, // A File object has no usable controls panel widget.
     onDelete: { control: false },
   },
   decorators: [
@@ -30,6 +32,7 @@ type Story = StoryObj<typeof meta>
 
 export const Item: Story = {
   args: {
-    children: <FileCard name="document.pdf" onDelete={() => {}} size={1536000} type="application/pdf" />,
+    file: sampleFile,
+    onDelete: () => {},
   },
 }

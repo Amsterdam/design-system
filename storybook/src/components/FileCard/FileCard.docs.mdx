@@ -1,11 +1,12 @@
 {/* @license CC0-1.0 */}
 
-import { Canvas, Controls, Description, Meta, Primary, Title } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Description, Meta, Primary, Source, Title } from "@storybook/addon-docs/blocks";
 
 import { DesignTokensTable } from "#storybook/_components/DesignTokensTable/DesignTokensTable";
 import tokens from "#tokens/components/ams/file-card.tokens.json";
 
 import * as FileCardStories from "./FileCard.stories.tsx";
+import FileInputWithFileCardsSource from "./FileInputWithFileCards?raw";
 
 <Meta of={FileCardStories} />
 
@@ -43,11 +44,13 @@ A delete button of your own in `actions` gets neither the file name for screen r
 When you ask for confirmation first, remove the file after the confirmation has closed and returned focus to the delete button.
 
 When a File Card stands alone, or the last file leaves and takes the list with it, the page decides where focus goes.
+The [With a File Input](#with-a-file-input) example moves focus to a message of its own when the last file leaves.
 
 Leave out both `actions` and `onDelete` to only show the file.
 
 Pass `previewUrl` to show a thumbnail.
 The component never creates that address, so whoever creates an object URL also releases it.
+The [With a File Input](#with-a-file-input) example shows one way to do that.
 
 ```jsx
 <FileCard name="besluit.pdf" onDelete={remove} size={1536000} type="application/pdf" />
@@ -74,6 +77,16 @@ A File Card sits inside an [Unordered List](/docs/components-text-unordered-list
 Use custom actions for tasks such as downloading a file.
 
 <Canvas of={FileCardStories.WithCustomActions} />
+
+### With a File Input
+
+The example creates object URLs as the selection changes and releases them in an effect clean-up.
+When the last file leaves, focus moves to a message of the example’s own.
+Sending it back to the field is unreliable, because some browsers keep announcing a removed file.
+
+<Canvas of={FileCardStories.WithFileInput} />
+
+<Source code={FileInputWithFileCardsSource} language="jsx" />
 
 ### Translated text
 
