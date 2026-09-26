@@ -6,9 +6,9 @@
 @use "../../common/text-rendering" as *;
 
 .ams-file-card {
+  /* stylelint-disable-next-line defensive-css/require-flex-wrap -- The card keeps one row, and its name and actions wrap within their own areas. */
   display: flex;
   flex: 1;
-  flex-wrap: nowrap;
   font-family: var(--ams-file-card-font-family);
   font-size: var(--ams-file-card-font-size);
   font-weight: var(--ams-file-card-font-weight);
@@ -26,7 +26,6 @@
 
   img {
     inline-size: 100%;
-    min-block-size: auto;
   }
 }
 
@@ -41,7 +40,7 @@
 }
 
 .ams-file-card__name {
-  hyphens: manual; // A File List hyphenates its contents, which would break a file name in places it does not belong.
+  hyphens: manual; // A surrounding list can hyphenate its contents, which would make a line-break hyphen look like part of the file name.
 }
 
 .ams-file-card__details {
@@ -49,6 +48,7 @@
 }
 
 .ams-file-card__actions {
+  align-self: flex-start;
   display: flex;
   flex-wrap: wrap;
   gap: var(--ams-file-card-actions-gap);
