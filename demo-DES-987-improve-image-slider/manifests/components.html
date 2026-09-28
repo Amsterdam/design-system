@@ -594,7 +594,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>5.7s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>5.9s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -14850,6 +14850,9 @@ Display all images separately if you want each of them to receive attention.
 Each entry in `images` accepts the props of an [Image](/docs/components-media-image--docs), such as `aspectRatio` and `srcSet`, plus an optional `caption`.
 Every image needs its own `alt`.
 
+Provide `accessibleName` to give the Image Slider a meaningful name for screen reader users.
+If skipped, the slider uses the generic label ‘Afbeeldingen’.
+
 Provide at least 2 images and at most 5.
 Feature the most essential image first.
 
@@ -14899,17 +14902,25 @@ Everyone else is moved to the next image directly, with no travel across the scr
 
 ## Accessibility
 
-The strip of images is a single focusable region that a keyboard user can scroll, and it announces politely as the image in view changes.
-Only the image currently in view is exposed; the others are hidden from assistive technology, so a screen reader reads one description rather than all of them at once.
+The images are in a live region that politely announces when the current image changes.
+A screen reader user hears an update after using the previous or next button, a thumbnail or swiping.
 
-The thumbnails are marked up as a tab list.
-Each thumbnail states its position and the total, and it is named by the number and the alternate text of its image, for example ‘Afbeelding 2: …’.
-The word before the number comes from the `imageLabel` prop, which is where a page in another language changes it.
+Only the current image is exposed to assistive technology.
+The other images are hidden so a screen reader does not read all images at once.
 
-Arrow keys move between thumbnails, and only the selected one is in the tab order, so Tab passes the whole strip in one step rather than stopping at every image.
+The thumbnails use the tab pattern.
+Each thumbnail controls its matching slide and the slide is labelled by its thumbnail.
+The current slide can receive focus, which helps keyboard users know which slide they are on.
 
-The tab list has no panels attached to it.
-Assistive technology therefore announces the thumbnails as tabs without being able to say which region each one controls, and the images stay reachable through the scrollable region instead.
+Each thumbnail uses the image’s alt text as its accessible name.
+The value of the `imageLabel` prop is placed before the alt text, for example: ‘Afbeelding: Het stadhuis van Amsterdam’.
+The tab list provides the position and total number of thumbnails automatically, so this information does not need to be repeated in the name.
+
+Use ArrowLeft and ArrowRight to move between thumbnails.
+Only the selected thumbnail can be reached with Tab, so the whole thumbnail strip can be passed in one step.
+
+The focus outline of a thumbnail is never dimmed.
+Only the thumbnail image becomes less visible when it is not selected.
 
 ## See also
 
