@@ -5,17 +5,34 @@
         "$value": "ams-spinner-rotate 0.8s linear infinite",
         "$description": "The loading animation."
       },
-      "track-color": {
-        "$value": "#D4D4D4",
-        "$description": "The colour of the ring's resting track.",
-        "$extensions": {
-          "nl.amsterdam.type": "color"
+      "reduced-motion": {
+        "animation": {
+          "$value": "ams-spinner-rotate 2.4s linear infinite",
+          "$description": "The loading animation for users who prefer reduced motion."
+        }
+      },
+      "accent": {
+        "border-color": {
+          "$value": "{ams.color.progress.current}",
+          "$description": "The colour of the moving part of the ring.",
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
+        }
+      },
+      "track": {
+        "border-color": {
+          "$value": "#bababa",
+          "$description": "The colour of the ring's resting track.",
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
         }
       },
       "small": {
-        "size": {
+        "block-size": {
           "$value": {
-            "value": 2,
+            "value": 1.5,
             "unit": "rem"
           },
           "$type": "dimension",
@@ -31,7 +48,7 @@
         }
       },
       "medium": {
-        "size": {
+        "block-size": {
           "$value": {
             "value": 4,
             "unit": "rem"
@@ -49,7 +66,7 @@
         }
       },
       "large": {
-        "size": {
+        "block-size": {
           "$value": {
             "value": 6,
             "unit": "rem"

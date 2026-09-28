@@ -60,7 +60,7 @@ describe('Spinner', () => {
   })
 
   it('supports ForwardRef in React', () => {
-    const ref = createRef<HTMLDivElement>()
+    const ref = createRef<HTMLSpanElement>()
 
     const { container } = render(<Spinner ref={ref} />)
 
