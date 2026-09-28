@@ -7,7 +7,7 @@ import type { ForwardedRef, HTMLAttributes } from 'react'
 
 import { ChevronBackwardIcon, ChevronForwardIcon } from '@amsterdam/design-system-react-icons'
 import { clsx } from 'clsx'
-import { forwardRef, useEffect, useRef, useState } from 'react'
+import { forwardRef, useEffect, useId, useRef, useState } from 'react'
 
 import type { ImageProps } from '../Image/Image'
 
@@ -22,6 +22,8 @@ export type ImageSliderImageProps = {
 } & Readonly<ImageProps>
 
 export type ImageSliderProps = {
+  /** The accessible name of the image slider. Falls back to ‘Afbeeldingen’ when skipped. */
+  readonly accessibleName?: string
   /** Display buttons to navigate to the previous or next image. */
   readonly controls?: boolean
   /** Label for the image if you need to translate the alt text. */
@@ -32,7 +34,7 @@ export type ImageSliderProps = {
   readonly nextLabel?: string
   /** The label for the ‘previous’ button. */
   readonly previousLabel?: string
-} & Readonly<HTMLAttributes<HTMLDivElement>>
+} & Readonly<HTMLAttributes<HTMLElement>>
 
 /**
  * Displays a small set of images in a limited space.
@@ -42,6 +44,7 @@ export type ImageSliderProps = {
 export const ImageSlider = forwardRef(
   (
     {
+      accessibleName,
       className,
       controls,
       imageLabel = 'Afbeelding',
@@ -50,29 +53,51 @@ export const ImageSlider = forwardRef(
       previousLabel = 'Vorige',
       ...restProps
     }: ImageSliderProps,
-    ref: ForwardedRef<HTMLDivElement>,
+    ref: ForwardedRef<HTMLElement>,
   ) => {
     const [currentSlideId, setCurrentSlideId] = useState(0)
 
     const scrollerRef = useRef<HTMLDivElement>(null)
 
+    const baseId = useId()
+    const labelId = `${baseId}-label`
+
+    // Prevents the IntersectionObserver from changing the selected slide while scrolling to a selected slide.
+    const isProgrammaticScroll = useRef(false)
+
+    const goToSlide = (id: number) => {
+      isProgrammaticScroll.current = true
+      setCurrentSlideId(id)
+      scrollToSlide(id, scrollerRef)
+    }
+
     useEffect(() => {
-      if (!scrollerRef.current) return undefined
+      const scroller = scrollerRef.current
+      if (!scroller) return undefined
+
+      const handleScrollEnd = () => {
+        isProgrammaticScroll.current = false
+      }
 
       const observerOptions = {
-        root: scrollerRef.current,
+        root: scroller,
         threshold: 0.6,
       }
 
-      const observer = new IntersectionObserver(
-        (observations) => setCurrentSlideIdToVisibleSlide({ observations, ref: scrollerRef, setCurrentSlideId }),
-        observerOptions,
-      )
+      const observer = new IntersectionObserver((observations) => {
+        if (isProgrammaticScroll.current) return
+        setCurrentSlideIdToVisibleSlide({ observations, ref: scrollerRef, setCurrentSlideId })
+      }, observerOptions)
 
-      const slides = Array.from(scrollerRef.current.children)
+      const slides = Array.from(scroller.children)
       slides.forEach((slide) => observer.observe(slide))
 
-      return () => observer.disconnect()
+      scroller.addEventListener('scrollend', handleScrollEnd)
+
+      return () => {
+        observer.disconnect()
+        scroller.removeEventListener('scrollend', handleScrollEnd)
+      }
     }, [])
 
     useEffect(() => {
@@ -91,43 +116,60 @@ export const ImageSlider = forwardRef(
     const isAtEnd = currentSlideId === images.length - 1
 
     return (
-      <div {...restProps} aria-roledescription="carousel" className={clsx('ams-image-slider', className)} ref={ref}>
+      <section
+        {...restProps}
+        aria-labelledby={labelId}
+        aria-roledescription="carousel"
+        className={clsx('ams-image-slider', className)}
+        ref={ref}
+      >
         {controls && (
           <div className="ams-image-slider__controls">
             <Button
               className="ams-image-slider__control"
-              color="inverse"
               disabled={isAtStart}
               icon={ChevronBackwardIcon}
               iconOnly
-              onClick={() => scrollToSlide(currentSlideId - 1, scrollerRef)}
+              onClick={() => goToSlide(currentSlideId - 1)}
             >
               {previousLabel}
             </Button>
             <Button
               className="ams-image-slider__control"
-              color="inverse"
               disabled={isAtEnd}
               icon={ChevronForwardIcon}
               iconOnly
-              onClick={() => scrollToSlide(currentSlideId + 1, scrollerRef)}
+              onClick={() => goToSlide(currentSlideId + 1)}
             >
               {nextLabel}
             </Button>
           </div>
         )}
-        <div aria-live="polite" className="ams-image-slider__scroller" ref={scrollerRef} role="group" tabIndex={0}>
+
+        <span className="ams-visually-hidden" id={labelId}>
+          {accessibleName || 'Afbeeldingen'}
+        </span>
+
+        <div aria-live="polite" className="ams-image-slider__scroller" ref={scrollerRef}>
           {images.map((image, index) => (
-            <ImageSliderSlide key={`${index}-${image.src}`} {...image} currentSlideId={currentSlideId} index={index} />
+            <ImageSliderSlide
+              key={`${index}-${image.src}`}
+              {...image}
+              currentSlideId={currentSlideId}
+              id={`${baseId}-panel-${index}`}
+              index={index}
+              tabId={`${baseId}-tab-${index}`}
+            />
           ))}
         </div>
         <ImageSliderThumbnails
+          baseId={baseId}
           currentSlideId={currentSlideId}
+          goToSlide={goToSlide}
           imageLabel={imageLabel}
-          scrollToSlide={(id) => scrollToSlide(id, scrollerRef)}
           thumbnails={images}
         />
-      </div>
+      </section>
     )
   },
 )
