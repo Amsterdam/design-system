@@ -7994,6 +7994,27 @@
           ]
         },
         "props": {
+          "accessibleName": {
+            "name": "accessibleName",
+            "required": false,
+            "type": {
+              "name": "string"
+            },
+            "description": "The name announced by screen readers for the image slider.",
+            "defaultValue": {
+              "value": "'Afbeeldingen'"
+            },
+            "parent": {
+              "name": "ImageSliderProps",
+              "fileName": "../packages/react/src/ImageSlider/ImageSlider.tsx"
+            },
+            "declarations": [
+              {
+                "name": "TypeLiteral",
+                "fileName": "../packages/react/src/ImageSlider/ImageSlider.tsx"
+              }
+            ]
+          },
           "controls": {
             "name": "controls",
             "required": false,
@@ -12349,6 +12370,6 @@
   },
   "meta": {
     "docgen": "react-component-meta",
-    "durationMs": 5544
+    "durationMs": 5535
   }
 }

@@ -14626,7 +14626,7 @@ Someone reading with a screen magnifier or following a keyboard focus ring does 
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> ImageSlider</h2>
       <div class="badges">
-        <label for="c-39-components-media-image-slider-props" class="badge ok as-toggle">5 prop types</label>
+        <label for="c-39-components-media-image-slider-props" class="badge ok as-toggle">6 prop types</label>
         
         <label for="c-39-components-media-image-slider-stories" class="badge ok as-toggle">3 stories</label>
         <label for="c-39-components-media-image-slider-docs" class="badge ok as-toggle">1 doc</label>
@@ -14655,11 +14655,16 @@ Someone reading with a screen magnifier or following a keyboard focus ring does 
           <div class="note ok">
             <div class="row">
               <span class="ex-name">Prop types <small>(react-component-meta)</small></span>
-              <span class="badge ok">5 prop types</span>
+              <span class="badge ok">6 prop types</span>
             </div>
             <pre><code>Component: ../packages/react/src/index.ts::ImageSlider</code></pre>
             <pre><code>Props:</code></pre>
             <pre><code>/**
+ * The name announced by screen readers for the image slider.
+ */
+accessibleName?: string = &#39;Afbeeldingen&#39;
+
+/**
  * Display buttons to navigate to the previous or next image.
  */
 controls?: boolean
