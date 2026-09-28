@@ -3383,10 +3383,20 @@
         {
           "id": "components-feedback-spinner--default",
           "name": "Default",
-          "snippet": "const Default = () => <Spinner size=\"medium\" />;"
+          "snippet": "const Default = () => <Spinner />;"
+        },
+        {
+          "id": "components-feedback-spinner--loading-results",
+          "name": "Loading Results",
+          "snippet": "const LoadingResults = () => <section aria-busy=\"true\">\n    <p className=\"ams-visually-hidden\" role=\"status\">Zoekresultaten worden geladen\n              </p>\n    <Spinner />\n</section>;"
+        },
+        {
+          "id": "components-feedback-spinner--in-button",
+          "name": "In Button",
+          "snippet": "const InButton = () => (\n  <Button>\n    <Spinner size=\"small\" /> Versturen\n  </Button>\n);"
         }
       ],
-      "import": "import { Spinner } from \"@amsterdam/design-system-react/src\";",
+      "import": "import { Button, Spinner } from \"@amsterdam/design-system-react/src\";",
       "docs": {
         "components-feedback-spinner--docs": {
           "id": "components-feedback-spinner--docs",
@@ -12150,6 +12160,6 @@
   },
   "meta": {
     "docgen": "react-component-meta",
-    "durationMs": 5511
+    "durationMs": 5670
   }
 }
