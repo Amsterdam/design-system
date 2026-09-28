@@ -22,7 +22,7 @@ export type ImageSliderImageProps = {
 } & Readonly<ImageProps>
 
 export type ImageSliderProps = {
-  /** The accessible name of the image slider. Falls back to ‘Afbeeldingen’ when skipped. */
+  /** The name announced by screen readers for the image slider. */
   readonly accessibleName?: string
   /** Display buttons to navigate to the previous or next image. */
   readonly controls?: boolean
@@ -44,7 +44,7 @@ export type ImageSliderProps = {
 export const ImageSlider = forwardRef(
   (
     {
-      accessibleName,
+      accessibleName = 'Afbeeldingen',
       className,
       controls,
       imageLabel = 'Afbeelding',
@@ -147,7 +147,7 @@ export const ImageSlider = forwardRef(
         )}
 
         <span className="ams-visually-hidden" id={labelId}>
-          {accessibleName || 'Afbeeldingen'}
+          {accessibleName}
         </span>
 
         <div aria-live="polite" className="ams-image-slider__scroller" ref={scrollerRef}>
