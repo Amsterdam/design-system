@@ -75,7 +75,7 @@ The animation is only enabled when the user has not enabled reduced motion. User
 
 The Progress Bar uses the native `<progress>` element so screen readers can understand the current progress. The `value` and `max` props are passed to the element.
 
-The `<progress>` element is visually hidden. The visible `text` and fill use `aria-hidden`, while `aria-label={text}` makes sure the text is read once by screen readers.
+The `<progress>` element is visually hidden. The visible `text` and fill use `aria-hidden`, while `aria-labelledby="progress-label-text"` makes sure the text is read once by screen readers.
 
 The Progress Bar does not announce value changes itself. If a change needs to be announced, the containing page should provide a separate status message.
 

@@ -30,24 +30,26 @@ export type ProgressBarProps = {
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-feedback-progress-bar--docs ProgressBar docs at Amsterdam Design System}
  */
 export const ProgressBar = forwardRef(
-  ({ className, max, text, value, ...restProps }: ProgressBarProps, ref: ForwardedRef<HTMLDivElement>) => (
-    <div {...restProps} className={clsx('ams-progress-bar', className)} ref={ref}>
-      <p aria-hidden className="ams-progress-bar-text">
-        {text}
-      </p>
-      <div className="ams-progress-bar-track">
-        <progress
-          aria-label={text}
-          className={clsx('ams-progress-bar-progress', 'ams-visually-hidden')}
-          max={max}
-          value={value}
-        >
+  ({ className, max, text, value, ...restProps }: ProgressBarProps, ref: ForwardedRef<HTMLDivElement>) => {
+    const fraction = max > 0 ? Math.min(Math.max(value / max, 0), 1) : 0
+
+    return (
+      <div {...restProps} className={clsx('ams-progress-bar', className)} ref={ref}>
+        <p aria-hidden className="ams-progress-bar-text" id="progress-label-text">
           {text}
-        </progress>
-        <div aria-hidden className="ams-progress-bar-fill" style={{ transform: `scaleX(${value / max})` }} />
+        </p>
+        <div className="ams-progress-bar-track">
+          <progress
+            aria-labelledby="progress-label-text"
+            className={clsx('ams-progress-bar-progress', 'ams-visually-hidden')}
+            max={max}
+            value={value}
+          />
+          <div aria-hidden className="ams-progress-bar-fill" style={{ transform: `scaleX(${fraction})` }} />
+        </div>
       </div>
-    </div>
-  ),
+    )
+  },
 )
 
 ProgressBar.displayName = 'ProgressBar'
