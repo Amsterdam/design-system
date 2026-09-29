@@ -72,6 +72,8 @@
   }
 
   .ams-data-list--horizontal .ams-data-list__label {
+    // TODO Experimental: reduce label emphasis in horizontal lists without changing stacked layouts.
+    font-weight: var(--ams-data-list-value-font-weight);
     grid-column-start: 1;
     margin-block-end: 0;
 
