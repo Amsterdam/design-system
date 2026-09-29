@@ -3,7 +3,6 @@
 import { Canvas, Controls, Description, Meta, Primary, Title } from "@storybook/addon-docs/blocks";
 
 import { DesignTokensTable } from "#storybook/_components/DesignTokensTable/DesignTokensTable";
-import dataListHeaderTokens from "#tokens/components/ams/data-list-header.tokens.json";
 import dataListTokens from "#tokens/components/ams/data-list.tokens.json";
 
 import * as DataListStories from "./DataList.stories.tsx";
@@ -82,21 +81,19 @@ Text with inline markup, such as a link in a sentence, stays on one line.
 
 <Canvas of={DataListStories.CompositeValue} />
 
-### Header
+### With header
 
-Introduce a Data List with a Data List Header, which draws a line below its content and sets the space to the list.
-Place a [Heading](/docs/components-text-heading--docs) in it, at the level that fits the document outline.
-Add at most one action next to it, and use a [Row](/docs/components-layout-row--docs) to place the two side by side.
+Introduce a Data List with a [Heading](/docs/components-text-heading--docs) and one or more actions in an [Action Group](/docs/components-layout-action-group--docs), laid out in a [Row](/docs/components-layout-row--docs) above the list.
+Use this when a group of data needs a title, or an action that applies to the whole group.
 
-<Canvas of={DataListStories.Header} />
+<Canvas of={DataListStories.WithHeader} />
 
 ### Form review
 
 A summary of the answers in a form is an application of Data List rather than a component of its own.
 Combine it with an action per item that returns to the matching question, and a button that submits the form.
 
-Group data about several people or subjects by placing a Data List Header above each Data List.
-Its action then applies to the whole group, such as removing a person.
+Group data about several subjects by repeating the same header pattern above each Data List.
 
 <Canvas of={DataListStories.FormReview} />
 
@@ -109,11 +106,6 @@ Below the breakpoint every value moves under its label, which keeps a Data List 
 
 Items are separated by a line, which runs the full width of the list.
 The whitespace above and below that line is the same, so the line sits between two items rather than belonging to one.
-
-Several actions sit next to each other, with a thin line between each pair.
-They do not wrap onto a new line, so a line never starts a row; in a narrow column their labels wrap instead.
-
-A Data List Header draws a thicker, darker line below its content, and adds space below itself when a Data List follows.
 
 Labels use heading typography and values use body text, which gives the two different line heights.
 Side by side, a label therefore gets half of that difference as extra space above it, so its first line sits level with the first line of its value.
@@ -132,8 +124,8 @@ Actions renders a second `dd`, so its links and buttons are announced in the con
 Give repeated actions a unique accessible name with the `ams-visually-hidden` helper, as [WCAG 2.4.4](https://www.w3.org/TR/WCAG22/#link-purpose-in-context) asks.
 Use visually hidden text rather than `aria-label`, because browsers do not reliably translate that attribute.
 
-A Data List Header renders a `div`, so it adds no landmark and its Heading stays part of the page outline.
-The action in a header applies to the whole group, so give it the name of that group as visually hidden text, such as ‘Verwijderen persoon 1’.
+When you compose a heading row above a Data List, the action in that row applies to the whole group.
+Give that action the name of the group as visually hidden text, such as ‘Verwijderen persoon 1’.
 
 ## See also
 
@@ -142,6 +134,4 @@ The action in a header applies to the whole group, so give it the name of that g
 
 ## Design tokens
 
-{/* Data List Header has no docs page of its own, so its tokens join this table. */}
-
-<DesignTokensTable tokens={{ ams: { ...dataListTokens.ams, ...dataListHeaderTokens.ams } }} />
+<DesignTokensTable tokens={dataListTokens} />

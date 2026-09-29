@@ -17,7 +17,7 @@ import {
   StandaloneLink,
 } from '@amsterdam/design-system-react'
 import { PencilIcon, TrashBinIcon } from '@amsterdam/design-system-react-icons'
-import { DataList, DataListHeader } from '@amsterdam/design-system-react/src'
+import { DataList } from '@amsterdam/design-system-react/src'
 import { dataListOrientations, dataListTermsWidths } from '@amsterdam/design-system-react/src/DataList/DataList'
 
 import { wrapInInlineSizeQueryContainer } from '#storybook/_common/decorators'
@@ -67,7 +67,6 @@ const meta = {
     'DataList.Item': DataList.Item,
     'DataList.Label': DataList.Label,
     'DataList.Value': DataList.Value,
-    DataListHeader,
   },
 } satisfies Meta<typeof DataList>
 
@@ -180,19 +179,19 @@ export const CompositeValue: Story = {
   },
 }
 
-export const Header: Story = {
+export const WithHeader: Story = {
   render: (args) => (
-    <>
-      <DataListHeader>
-        <Row align="between" alignVertical="end" wrap>
-          <Heading level={2}>Magere Brug</Heading>
+    <Column gap="small">
+      <Row align="between" alignVertical="end" wrap>
+        <Heading level={2}>Magere Brug</Heading>
+        <ActionGroup>
           <StandaloneLink href="#" icon={PencilIcon}>
             Wijzigen<span className="ams-visually-hidden"> Magere Brug</span>
           </StandaloneLink>
-        </Row>
-      </DataListHeader>
+        </ActionGroup>
+      </Row>
       <DataList {...args} />
-    </>
+    </Column>
   ),
 }
 
@@ -207,17 +206,17 @@ export const FormReview: Story = {
       {people.map(({ address, birthDate, name }, index) => {
         const person = `persoon ${index + 1}`
 
-        // Wrap each header and its list, so the gap of the Column falls between groups rather than inside them.
+        // Group each heading row with its list, so the larger gap falls between groups.
         return (
-          <div key={name}>
-            <DataListHeader>
-              <Row align="between" alignVertical="end" wrap>
-                <Heading level={2}>Persoon {index + 1}</Heading>
+          <Column gap="small" key={name}>
+            <Row align="between" alignVertical="end" wrap>
+              <Heading level={2}>Persoon {index + 1}</Heading>
+              <ActionGroup>
                 <Button icon={TrashBinIcon} iconBefore variant="secondary">
                   Verwijderen<span className="ams-visually-hidden"> {person}</span>
                 </Button>
-              </Row>
-            </DataListHeader>
+              </ActionGroup>
+            </Row>
             <DataList {...args}>
               <DataList.Item>
                 <DataList.Label>Naam</DataList.Label>
@@ -253,7 +252,7 @@ export const FormReview: Story = {
                 </DataList.Actions>
               </DataList.Item>
             </DataList>
-          </div>
+          </Column>
         )
       })}
       <Row>
