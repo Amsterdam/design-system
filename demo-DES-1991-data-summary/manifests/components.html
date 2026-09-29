@@ -626,7 +626,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>3.3s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>5.3s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -6302,9 +6302,11 @@ The whitespace above and below that line is the same, so the line sits between t
 Labels use heading typography and values use body text, which gives the two different line heights.
 Side by side, a label therefore gets half of that difference as extra space above it, so its first line sits level with the first line of its value.
 
-By default the column for the labels is at most `15rem` wide.
-Set `termsWidth` to `narrow`, `medium`, or `wide` when a ratio between labels and values serves the content better.
 Labels and values sit next to each other when their [query container](/docs/utilities-css-query-container--docs) is wide enough (at least `32rem`).
+All items then share the same columns, so labels, values, and actions line up across the list.
+By default the column for the labels is at most `15rem` wide, and at most 30% of the list.
+Set `termsWidth` to `narrow`, `medium`, or `wide` when a ratio between labels and values serves the content better.
+The column for the actions takes at most a quarter of the list, so several actions wrap when they do not fit next to each other.
 
 ## Accessibility
 
