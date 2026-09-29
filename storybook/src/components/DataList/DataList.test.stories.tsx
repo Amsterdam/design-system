@@ -29,6 +29,7 @@ type DataListProps = ComponentProps<typeof DataList>
  * Wrapper used by the single Chromatic ‘Test’ story:
  * - first render example is identical to the original Test story (container context will fallback to Page or none)
  * - then render example in a narrow container-query context
+ * - then render example in the narrowest container that still places labels and values side by side
  */
 const DataListWithContainerQueryExamples = (props: DataListProps) => (
   <>
@@ -36,6 +37,11 @@ const DataListWithContainerQueryExamples = (props: DataListProps) => (
 
     {/* Data List in a narrow container */}
     <div className="ams-query-container-inline-size" style={{ inlineSize: '31.99rem' }}>
+      <DataList {...props} />
+    </div>
+
+    {/* Data List in the narrowest horizontal container */}
+    <div className="ams-query-container-inline-size" style={{ inlineSize: '32rem' }}>
       <DataList {...props} />
     </div>
   </>
@@ -86,7 +92,7 @@ export const Test: Story = {
         </DataList.Actions>
       </DataList.Item>,
 
-      // Two actions, separated by a line
+      // Two actions
       <DataList.Item key={5}>
         <DataList.Label>Foto</DataList.Label>
         <DataList.Value>brug-voorzijde.jpg</DataList.Value>
@@ -96,6 +102,20 @@ export const Test: Story = {
           </StandaloneLink>
           <StandaloneLink href="#" icon={TrashBinIcon}>
             Verwijderen<span className="ams-visually-hidden"> foto</span>
+          </StandaloneLink>
+        </DataList.Actions>
+      </DataList.Item>,
+
+      // Two actions beside a value without break opportunities
+      <DataList.Item key={6}>
+        <DataList.Label>Telefoonnummer</DataList.Label>
+        <DataList.Value>0612345678</DataList.Value>
+        <DataList.Actions>
+          <StandaloneLink href="#" icon={PencilIcon}>
+            Wijzigen<span className="ams-visually-hidden"> telefoonnummer</span>
+          </StandaloneLink>
+          <StandaloneLink href="#" icon={TrashBinIcon}>
+            Verwijderen<span className="ams-visually-hidden"> telefoonnummer</span>
           </StandaloneLink>
         </DataList.Actions>
       </DataList.Item>,

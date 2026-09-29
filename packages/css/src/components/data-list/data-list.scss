@@ -52,23 +52,29 @@
 
 // Below this width every item stacks, so a Data List never forces horizontal scroll.
 @container ams-query-container-inline-size (inline-size >= #{$ams-container-breakpoint-term-and-value}) {
+  .ams-data-list--horizontal {
+    column-gap: var(--ams-data-list-vi-medium-column-gap);
+    grid-template-columns: var(--ams-data-list-vi-medium-grid-template-columns);
+  }
+
+  .ams-data-list--horizontal.ams-data-list--narrow {
+    grid-template-columns: var(--ams-data-list-vi-medium-narrow-grid-template-columns);
+  }
+
+  .ams-data-list--horizontal.ams-data-list--medium {
+    grid-template-columns: var(--ams-data-list-vi-medium-medium-grid-template-columns);
+  }
+
+  .ams-data-list--horizontal.ams-data-list--wide {
+    grid-template-columns: var(--ams-data-list-vi-medium-wide-grid-template-columns);
+  }
+
+  // Every item follows the columns of the list, so values line up whatever actions an item has.
   .ams-data-list--horizontal .ams-data-list__item {
     align-items: start;
-    column-gap: var(--ams-data-list-item-vi-medium-column-gap);
     display: grid;
-    grid-template-columns: var(--ams-data-list-item-vi-medium-grid-template-columns);
-  }
-
-  .ams-data-list--horizontal.ams-data-list--narrow .ams-data-list__item {
-    grid-template-columns: var(--ams-data-list-item-vi-medium-narrow-grid-template-columns);
-  }
-
-  .ams-data-list--horizontal.ams-data-list--medium .ams-data-list__item {
-    grid-template-columns: var(--ams-data-list-item-vi-medium-medium-grid-template-columns);
-  }
-
-  .ams-data-list--horizontal.ams-data-list--wide .ams-data-list__item {
-    grid-template-columns: var(--ams-data-list-item-vi-medium-wide-grid-template-columns);
+    grid-column: 1 / -1;
+    grid-template-columns: subgrid;
   }
 
   .ams-data-list--horizontal .ams-data-list__label {

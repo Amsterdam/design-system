@@ -36,6 +36,47 @@
           "nl.amsterdam.type": "dimension"
         }
       },
+      "vi-medium": {
+        "column-gap": {
+          "$value": "{ams.space.l}",
+          "$extensions": {
+            "nl.amsterdam.hint": "Must be a single value: it sets a longhand property, which takes only one.",
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
+          }
+        },
+        "grid-template-columns": {
+          "$value": "minmax(0, min(15rem, 30%)) minmax(0, 1fr) fit-content(25%)",
+          "$description": "Three columns that every item shares: the label, the value, and the optional actions. The label column takes at most 15rem, and at most 30% of the list. The actions column takes at most a quarter of the list, beyond which its actions wrap, and collapses when no item has actions.",
+          "$extensions": {
+            "nl.amsterdam.type": "gridTemplateColumns"
+          }
+        },
+        "narrow": {
+          "grid-template-columns": {
+            "$value": "minmax(0, 1fr) minmax(0, 4fr) fit-content(25%)",
+            "$extensions": {
+              "nl.amsterdam.type": "gridTemplateColumns"
+            }
+          }
+        },
+        "medium": {
+          "grid-template-columns": {
+            "$value": "minmax(0, 1fr) minmax(0, 2fr) fit-content(25%)",
+            "$extensions": {
+              "nl.amsterdam.type": "gridTemplateColumns"
+            }
+          }
+        },
+        "wide": {
+          "grid-template-columns": {
+            "$value": "minmax(0, 1fr) minmax(0, 1fr) fit-content(25%)",
+            "$extensions": {
+              "nl.amsterdam.type": "gridTemplateColumns"
+            }
+          }
+        }
+      },
       "item": {
         "border-block-end": {
           "$value": "{ams.border.width.s} solid {ams.color.separator}",
@@ -49,47 +90,6 @@
             "nl.amsterdam.hint": "The whitespace between the content of an item and its separator. Must be a single value: it sets a longhand property, which takes only one.",
             "nl.amsterdam.subtype": "space",
             "nl.amsterdam.type": "dimension"
-          }
-        },
-        "vi-medium": {
-          "column-gap": {
-            "$value": "{ams.space.l}",
-            "$extensions": {
-              "nl.amsterdam.hint": "Must be a single value: it sets a longhand property, which takes only one.",
-              "nl.amsterdam.subtype": "space",
-              "nl.amsterdam.type": "dimension"
-            }
-          },
-          "grid-template-columns": {
-            "$value": "minmax(0, 15rem) minmax(0, 1fr) auto",
-            "$description": "Three columns: the label, the value, and the optional actions. The actions column collapses when an item has none.",
-            "$extensions": {
-              "nl.amsterdam.type": "gridTemplateColumns"
-            }
-          },
-          "narrow": {
-            "grid-template-columns": {
-              "$value": "minmax(0, 1fr) minmax(0, 4fr) auto",
-              "$extensions": {
-                "nl.amsterdam.type": "gridTemplateColumns"
-              }
-            }
-          },
-          "medium": {
-            "grid-template-columns": {
-              "$value": "minmax(0, 1fr) minmax(0, 2fr) auto",
-              "$extensions": {
-                "nl.amsterdam.type": "gridTemplateColumns"
-              }
-            }
-          },
-          "wide": {
-            "grid-template-columns": {
-              "$value": "minmax(0, 1fr) minmax(0, 1fr) auto",
-              "$extensions": {
-                "nl.amsterdam.type": "gridTemplateColumns"
-              }
-            }
           }
         }
       },
