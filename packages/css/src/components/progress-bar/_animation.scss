@@ -3,9 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
-// The bar grows toward its new value. Users who prefer reduced motion see the
-// change without animation. The bar does not animate on page load
-// only when the value is changed.
+// The bar grows toward its new value. Users who prefer reduced motion see the change without animation.
+// The bar does not animate on page load, only when the value changes.
 @media (prefers-reduced-motion: no-preference) {
   .ams-progress-bar-fill {
     transition: transform var(--ams-progress-bar-transition-duration) var(--ams-progress-bar-transition-timing-function);

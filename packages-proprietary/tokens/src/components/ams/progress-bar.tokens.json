@@ -1,6 +1,22 @@
 {
   "ams": {
     "progress-bar": {
+      "block-size": {
+        "$value": {
+          "value": 0.5,
+          "unit": "rem"
+        },
+        "$type": "dimension",
+        "$description": "The block size of the ProgressBar's track."
+      },
+      "gap": {
+        "$value": {
+          "value": 0.25,
+          "unit": "rem"
+        },
+        "$type": "dimension",
+        "$description": "The space between the ProgressBar's text and its track."
+      },
       "transition-duration": {
         "$value": "0.3s",
         "$type": "duration",
@@ -13,37 +29,60 @@
         },
         "$description": "The timing function of the transition."
       },
-      "height": {
-        "$value": {
-          "value": 0.5,
-          "unit": "rem"
+      "text": {
+        "color": {
+          "$value": "{ams.color.text.default}",
+          "$description": "The text colour of the ProgressBar.",
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
         },
-        "$type": "dimension",
-        "$description": "The block size of the ProgressBar. (needs to be discussed)"
+        "font-size": {
+          "$value": {
+            "value": 0.875,
+            "unit": "rem"
+          },
+          "$type": "dimension",
+          "$description": "The font size of the ProgressBar's text."
+        },
+        "font-family": {
+          "$value": "{ams.typography.font-family}",
+          "$type": "fontFamily",
+          "$description": "The font family of the ProgressBar's text."
+        }
       },
-      "border-width": {
-        "$value": {
-          "value": 0.0625,
-          "unit": "rem"
+      "track": {
+        "background-color": {
+          "$value": "{ams.color.background.default}",
+          "$description": "The background colour of the ProgressBar's track.",
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
         },
-        "$type": "dimension",
-        "$description": "The border width of the ProgressBar. (needs to be discussed)"
+        "border-color": {
+          "$value": "{ams.color.progress.upcoming}",
+          "$description": "The border colour of the ProgressBar's track.",
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
+        },
+        "border-width": {
+          "$value": {
+            "value": 0.0625,
+            "unit": "rem"
+          },
+          "$type": "dimension",
+          "$description": "The border width of the ProgressBar's track."
+        }
       },
-      "text-font-size": {
-        "$value": {
-          "value": 0.875,
-          "unit": "rem"
-        },
-        "$type": "dimension",
-        "$description": "The font size of the ProgressBar's text. (needs to be discussed)"
-      },
-      "text-gap": {
-        "$value": {
-          "value": 0.25,
-          "unit": "rem"
-        },
-        "$type": "dimension",
-        "$description": "The space between the ProgressBar's text and its bar. (needs to be discussed)"
+      "fill": {
+        "background-color": {
+          "$value": "{ams.color.progress.completed}",
+          "$description": "The colour of the completed part of the ProgressBar.",
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
+        }
       }
     }
   }

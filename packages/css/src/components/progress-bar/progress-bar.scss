@@ -9,25 +9,25 @@
   block-size: auto;
   display: flex;
   flex-direction: column;
+  gap: var(--ams-progress-bar-gap);
   inline-size: 100%;
 }
 
 .ams-progress-bar-text {
-  color: var(--ams-color-text);
+  color: var(--ams-progress-bar-text-color);
   direction: ltr;
-  font-family: var(--ams-typography-font-family);
+  font-family: var(--ams-progress-bar-text-font-family);
   font-size: var(--ams-progress-bar-text-font-size);
-  gap: var(--ams-progress-bar-text-gap);
   text-align: center;
 }
 
 .ams-progress-bar-track {
-  background-color: var(--ams-color-background);
-  block-size: var(--ams-progress-bar-height);
-  border-color: var(--ams-color-progress-upcoming);
-  border-radius: var(--ams-progress-bar-height);
+  background-color: var(--ams-progress-bar-track-background-color);
+  block-size: var(--ams-progress-bar-block-size);
+  border-color: var(--ams-progress-bar-track-border-color);
+  border-radius: calc(var(--ams-progress-bar-block-size) / 2);
   border-style: solid;
-  border-width: var(--ams-progress-bar-border-width);
+  border-width: var(--ams-progress-bar-track-border-width);
   box-sizing: border-box;
   inline-size: 100%;
   overflow: hidden;
@@ -35,7 +35,7 @@
 }
 
 .ams-progress-bar-fill {
-  background-color: var(--ams-color-progress-completed);
+  background-color: var(--ams-progress-bar-fill-background-color);
   block-size: 100%;
   inline-size: 100%;
   transform-origin: left;
