@@ -181,7 +181,7 @@ export const CompositeValue: Story = {
 
 export const WithHeader: Story = {
   render: (args) => (
-    <Column gap="small">
+    <Column>
       <Row align="between" alignVertical="end" wrap>
         <Heading level={2}>Magere Brug</Heading>
         <ActionGroup>
@@ -206,9 +206,9 @@ export const FormReview: Story = {
       {people.map(({ address, birthDate, name }, index) => {
         const person = `persoon ${index + 1}`
 
-        // Group each heading row with its list, so the larger gap falls between groups.
+        // Group each heading row with its list, keeping a medium gap within each group and a larger gap between groups.
         return (
-          <Column gap="small" key={name}>
+          <Column key={name}>
             <Row align="between" alignVertical="end" wrap>
               <Heading level={2}>Persoon {index + 1}</Heading>
               <ActionGroup>
