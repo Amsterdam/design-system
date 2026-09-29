@@ -13,7 +13,7 @@ import { default as progressBarMeta } from './ProgressBar.stories'
 
 const meta = {
   ...progressBarMeta,
-  title: 'Components/Feedback/ProgressBar',
+  title: 'Components/Feedback/Progress Bar',
 } satisfies Meta<typeof ProgressBar>
 
 export default meta
