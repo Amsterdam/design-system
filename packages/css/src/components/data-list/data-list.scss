@@ -24,8 +24,11 @@
 }
 
 .ams-data-list__item {
-  border-block-end: var(--ams-data-list-item-border-block-end);
   padding-block-end: var(--ams-data-list-item-padding-block-end);
+
+  &:not(:last-child) {
+    border-block-end: var(--ams-data-list-item-border-block-end);
+  }
 }
 
 .ams-data-list__label {
