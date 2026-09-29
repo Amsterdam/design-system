@@ -594,7 +594,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>5.7s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>5.4s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -29601,7 +29601,7 @@ The animation is only enabled when the user has not enabled reduced motion. User
 
 The Progress Bar uses the native `&lt;progress&gt;` element so screen readers can understand the current progress. The `value` and `max` props are passed to the element.
 
-The `&lt;progress&gt;` element is visually hidden. The visible `text` and fill use `aria-hidden`, while `aria-label={text}` makes sure the text is read once by screen readers.
+The `&lt;progress&gt;` element is visually hidden. The visible `text` and fill use `aria-hidden`, while `aria-labelledby=&quot;progress-label-text&quot;` makes sure the text is read once by screen readers.
 
 The Progress Bar does not announce value changes itself. If a change needs to be announced, the containing page should provide a separate status message.
 
