@@ -19,12 +19,12 @@
 
 .ams-file-card__preview {
   display: grid;
-  flex: 0 0 var(--ams-file-card-preview-width);
+  flex: 0 0 var(--ams-file-card-preview-flex-basis);
   place-content: center;
 }
 
 .ams-file-card__image {
-  aspect-ratio: 1/1;
+  aspect-ratio: var(--ams-file-card-image-aspect-ratio);
   inline-size: 100%;
   object-fit: cover;
 }

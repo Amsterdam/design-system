@@ -59,8 +59,16 @@
           }
         }
       },
+      "image": {
+        "aspect-ratio": {
+          "$value": "{ams.aspect-ratio.1-1}",
+          "$extensions": {
+            "nl.amsterdam.type": "aspectRatio"
+          }
+        }
+      },
       "preview": {
-        "width": {
+        "flex-basis": {
           "$value": "clamp(2.5rem, 10vw, 5rem)",
           "$extensions": {
             "nl.amsterdam.type": "dimension"
