@@ -14,6 +14,12 @@ type Attachment = {
   previewUrl: string
 }
 
+const revokePreviewUrl = (previewUrl: string) => {
+  if (previewUrl) {
+    URL.revokeObjectURL(previewUrl)
+  }
+}
+
 // Two files chosen at once can share a name, so the list needs a key of its own.
 // Reusing the name would let React confuse one row with another and undo the focus move below.
 const toAttachments = (files: File[]): Attachment[] =>
@@ -28,21 +34,30 @@ export const FileInputWithFileCards = () => {
   const emptiedRef = useRef<HTMLParagraphElement>(null)
   const [attachments, setAttachments] = useState<Attachment[]>([])
   const [emptied, setEmptied] = useState(false)
+  const attachmentsRef = useRef<Attachment[]>([])
 
-  // A File Card only displays the address, so releasing it belongs to whoever creates it.
-  // This runs for the previous set whenever the selection changes, and once more on unmount.
-  useEffect(
-    () => () => attachments.forEach(({ previewUrl }) => previewUrl && URL.revokeObjectURL(previewUrl)),
-    [attachments],
-  )
+  useEffect(() => {
+    attachmentsRef.current = attachments
+  }, [attachments])
+
+  useEffect(() => {
+    return () => {
+      attachmentsRef.current.forEach(({ previewUrl }) => revokePreviewUrl(previewUrl))
+    }
+  }, [])
 
   const changeFiles = () => {
     setEmptied(false)
+
+    attachments.forEach(({ previewUrl }) => revokePreviewUrl(previewUrl))
     setAttachments(toAttachments(Array.from(inputRef.current?.files ?? [])))
   }
 
   const removeFile = (id: string) => {
+    const removedAttachment = attachments.find((attachment) => attachment.id === id)
     const remaining = attachments.filter((attachment) => attachment.id !== id)
+
+    revokePreviewUrl(removedAttachment?.previewUrl ?? '')
 
     // Keep the field in step with the list, so it never states a selection this page no longer shows.
     if (inputRef.current) {

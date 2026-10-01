@@ -139,3 +139,37 @@ export const FocusWhenEmptied: Story = {
   render: () => <FileInputWithFileCards />,
   tags: ['!dev', '!autodocs', '!manifest'],
 }
+
+export const PreviewRemovalLifecycle: Story = {
+  play: async ({ canvas, canvasElement, userEvent }) => {
+    const originalRevokeObjectURL = URL.revokeObjectURL
+    const revokedUrls: string[] = []
+
+    URL.revokeObjectURL = (url: string) => {
+      revokedUrls.push(url)
+      originalRevokeObjectURL(url)
+    }
+
+    try {
+      await userEvent.upload(canvas.getByLabelText('Bijlagen'), [
+        new File(['een'], 'eerste.png', { type: 'image/png' }),
+        new File(['twee'], 'tweede.png', { type: 'image/png' }),
+      ])
+
+      const previewsBeforeRemoval = Array.from(canvasElement.querySelectorAll('img'))
+      const firstPreviewUrl = previewsBeforeRemoval[0]?.getAttribute('src')
+      const secondPreviewUrl = previewsBeforeRemoval[1]?.getAttribute('src')
+
+      await userEvent.click(canvas.getByRole('button', { name: 'Verwijder eerste.png' }))
+
+      await expect(canvas.queryByText('eerste.png')).not.toBeInTheDocument()
+      await expect(revokedUrls).toContain(firstPreviewUrl)
+      await expect(revokedUrls).not.toContain(secondPreviewUrl)
+      await expect(canvasElement.querySelector('img')).toHaveAttribute('src', secondPreviewUrl)
+    } finally {
+      URL.revokeObjectURL = originalRevokeObjectURL
+    }
+  },
+  render: () => <FileInputWithFileCards />,
+  tags: ['!dev', '!autodocs', '!manifest'],
+}
