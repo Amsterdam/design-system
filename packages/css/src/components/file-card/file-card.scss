@@ -22,10 +22,10 @@
   display: grid;
   flex: 0 0 var(--ams-file-card-preview-width);
   place-items: center;
+}
 
-  img {
-    inline-size: 100%;
-  }
+.ams-file-card__image {
+  inline-size: 100%;
 }
 
 .ams-file-card__info {

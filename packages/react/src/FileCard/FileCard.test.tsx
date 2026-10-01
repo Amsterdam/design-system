@@ -99,6 +99,7 @@ describe('FileCard', () => {
 
     expect(image).toHaveAttribute('alt', '')
     expect(image).toHaveAttribute('src', 'blob:preview')
+    expect(image).toHaveClass('ams-file-card__image')
     expect(screen.queryByRole('img')).not.toBeInTheDocument()
   })
 

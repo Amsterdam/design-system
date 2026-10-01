@@ -85,7 +85,11 @@ export const FileCard = forwardRef(
     return (
       <div {...restProps} className={clsx('ams-file-card', className)} ref={ref}>
         <div className="ams-file-card__preview">
-          {previewUrl ? <img alt="" src={previewUrl} /> : <Icon size="heading-3" square svg={DocumentIcon} />}
+          {previewUrl ? (
+            <img alt="" className="ams-file-card__image" src={previewUrl} />
+          ) : (
+            <Icon size="heading-3" square svg={DocumentIcon} />
+          )}
         </div>
         <div className="ams-file-card__info">
           <div className="ams-file-card__name">{name}</div>
