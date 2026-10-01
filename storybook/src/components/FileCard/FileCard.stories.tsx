@@ -8,8 +8,6 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { Button, Column, UnorderedList } from '@amsterdam/design-system-react'
 import { FileCard, formatFileMetadataTextEn } from '@amsterdam/design-system-react/src'
 
-import { FileInputWithFileCards } from './FileInputWithFileCards'
-
 const remove = () => {}
 const download = () => {}
 
@@ -81,18 +79,6 @@ export const InAnUnorderedList: Story = {
       </UnorderedList.Item>
     </UnorderedList>
   ),
-}
-
-export const WithFileInput: Story = {
-  parameters: {
-    docs: {
-      canvas: {
-        sourceState: 'none',
-      },
-      codePanel: false,
-    },
-  },
-  render: () => <FileInputWithFileCards />,
 }
 
 export const Translated: Story = {
