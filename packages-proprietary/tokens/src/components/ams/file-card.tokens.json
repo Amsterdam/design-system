@@ -50,6 +50,15 @@
           }
         }
       },
+      "info": {
+        "flex-basis": {
+          "$value": "12rem",
+          "$description": "The width the name and details need beside the preview. When the actions do not fit beside them as well, the actions move below.",
+          "$extensions": {
+            "nl.amsterdam.type": "dimension"
+          }
+        }
+      },
       "preview": {
         "width": {
           "$value": "clamp(2.5rem, 10vw, 5rem)",

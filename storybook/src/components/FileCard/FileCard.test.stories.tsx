@@ -52,6 +52,10 @@ export const Test: Story = {
       <p>Names that do not fit on one row</p>
       <FileCard {...args} name={longName} onDelete={remove} />
       <FileCard {...args} name={nameWithoutSpaces} onDelete={remove} />
+      <p>In a narrow container, where the actions move below the name</p>
+      <div style={{ maxInlineSize: '20rem' }}>
+        <FileCard {...args} actions={actions} name={nameWithoutSpaces} onDelete={remove} />
+      </div>
       <p>Without a size or a type, so without details</p>
       <FileCard name="besluit.pdf" onDelete={remove} />
       <p>In an Unordered List</p>

@@ -6,15 +6,14 @@
 @use "../../common/text-rendering" as *;
 
 .ams-file-card {
-  /* stylelint-disable-next-line defensive-css/require-flex-wrap -- The card keeps one row, and its name and actions wrap within their own areas. */
   display: flex;
   flex: 1;
+  flex-wrap: wrap;
   font-family: var(--ams-file-card-font-family);
   font-size: var(--ams-file-card-font-size);
   font-weight: var(--ams-file-card-font-weight);
   gap: var(--ams-file-card-gap);
   line-height: var(--ams-file-card-line-height);
-  overflow-wrap: break-word; // A name without spaces has nowhere to break, so allow one anywhere within it.
 
   @include text-rendering;
 }
@@ -31,12 +30,12 @@
 
 .ams-file-card__info {
   display: flex;
-  flex: 1;
+  flex: 1 1 var(--ams-file-card-info-flex-basis);
   flex-direction: column;
 
-  // `overflow-wrap: break-word` does not lower the min-content width, so without this a name
-  // without spaces keeps this column from shrinking and pushes the actions out of the card.
-  min-inline-size: 0;
+  // A name without spaces has nowhere to break, so allow one anywhere within it.
+  // Unlike `break-word`, `anywhere` also lets the card become narrower than the longest part of the name.
+  overflow-wrap: anywhere;
 }
 
 .ams-file-card__name {
