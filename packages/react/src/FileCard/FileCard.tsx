@@ -88,8 +88,8 @@ export const FileCard = forwardRef(
           {previewUrl ? <img alt="" src={previewUrl} /> : <Icon size="heading-3" square svg={DocumentIcon} />}
         </div>
         <div className="ams-file-card__info">
-          <span className="ams-file-card__name">{name}</span>
-          {details && <span className="ams-file-card__details">{details}</span>}
+          <div className="ams-file-card__name">{name}</div>
+          {details && <div className="ams-file-card__details">{details}</div>}
         </div>
         {(actions || onDelete) && (
           <div className="ams-file-card__actions">

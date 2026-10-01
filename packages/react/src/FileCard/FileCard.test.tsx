@@ -66,6 +66,13 @@ describe('FileCard', () => {
     expect(screen.getByText('(pdf, 1,5 MB)')).toBeInTheDocument()
   })
 
+  it('renders the name and details as separate blocks, so they stay apart without CSS', () => {
+    render(<FileCard name="besluit.pdf" size={1536000} type="application/pdf" />)
+
+    expect(screen.getByText('besluit.pdf').tagName).toBe('DIV')
+    expect(screen.getByText('(pdf, 1,5 MB)').tagName).toBe('DIV')
+  })
+
   it('renders the details returned by a formatter of the consumer', () => {
     render(
       <FileCard
