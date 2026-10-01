@@ -52,8 +52,11 @@ describe('FileListItem', () => {
   })
 
   it('renders the file name and details', () => {
-    render(<FileListItem file={file} />)
+    const { container } = render(<FileListItem file={file} />)
 
+    expect(container.querySelector('.ams-file-list__item-preview')).toBeInTheDocument()
+    expect(container.querySelector('.ams-file-list__item-info')).toBeInTheDocument()
+    expect(container.querySelector('.ams-file-input__item-details')).toBeInTheDocument()
     expect(screen.getByText('sample.txt')).toBeInTheDocument()
     expect(screen.getByText('(txt, 14 bytes)')).toBeInTheDocument()
   })
@@ -66,6 +69,15 @@ describe('FileListItem', () => {
     fireEvent.click(screen.getByRole('button'))
 
     expect(onDelete).toHaveBeenCalledTimes(1)
+  })
+
+  it('names the delete button after the file it removes, without displaying that name twice', () => {
+    render(<FileListItem file={file} onDelete={() => {}} />)
+
+    const button = screen.getByRole('button', { name: 'Verwijder sample.txt' })
+
+    expect(button).toHaveTextContent('Verwijder sample.txt')
+    expect(button.querySelector('.ams-visually-hidden')).toHaveTextContent('sample.txt')
   })
 
   it('renders an image preview for image files', () => {
@@ -116,7 +128,31 @@ describe('FileListItem', () => {
     expect(createObjectURL).not.toHaveBeenCalled()
     expect(revokeObjectURL).not.toHaveBeenCalled()
     expect(screen.queryByAltText('')).not.toBeInTheDocument()
-    expect(container.querySelector('.ams-file-card__preview svg')).toBeInTheDocument()
+    expect(container.querySelector('.ams-file-list__item-preview svg')).toBeInTheDocument()
+  })
+
+  it('moves focus to the next file when the focused delete button leaves the list', () => {
+    const firstFile = new File(['first'], 'first.txt', { type: 'text/plain' })
+    const secondFile = new File(['second'], 'second.txt', { type: 'text/plain' })
+    const thirdFile = new File(['third'], 'third.txt', { type: 'text/plain' })
+    const onDelete = vi.fn()
+    const getList = (files: File[]) => (
+      <ul>
+        {files.map((item) => (
+          <FileListItem file={item} key={item.name} onDelete={() => onDelete(item.name)} />
+        ))}
+      </ul>
+    )
+    const { rerender } = render(getList([firstFile, secondFile, thirdFile]))
+
+    const button = screen.getByRole('button', { name: 'Verwijder second.txt' })
+
+    button.focus()
+    fireEvent.click(button)
+    rerender(getList([firstFile, thirdFile]))
+
+    expect(onDelete).toHaveBeenCalledWith('second.txt')
+    expect(screen.getByRole('button', { name: 'Verwijder third.txt' })).toHaveFocus()
   })
 
   it('passes additional props', () => {

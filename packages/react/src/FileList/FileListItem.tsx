@@ -5,10 +5,14 @@
 
 import type { ForwardedRef, HTMLAttributes } from 'react'
 
+import { DocumentIcon } from '@amsterdam/design-system-react-icons'
 import { clsx } from 'clsx'
-import { forwardRef, useEffect, useState } from 'react'
+import { forwardRef, useCallback, useEffect, useRef, useState } from 'react'
 
-import { FileCard } from '../FileCard/FileCard'
+import { Button } from '../Button'
+import { focusAdjacentDeleteButton } from '../FileCard/focusAdjacentDeleteButton'
+import { formatFileDetailsTextNl } from '../FileCard/formatFileDetailsText'
+import { Icon } from '../Icon'
 
 export type FileListItemProps = {
   /** The file to display. Shows its name, type, and size, and a thumbnail for images. */
@@ -25,7 +29,9 @@ export type FileListItemProps = {
  */
 export const FileListItem = forwardRef(
   ({ className, file, onDelete, ...restProps }: FileListItemProps, ref: ForwardedRef<HTMLLIElement>) => {
+    const details = formatFileDetailsTextNl({ size: file.size, type: file.type })
     const [previewUrl, setPreviewUrl] = useState<string>()
+    const deleteButton = useRef<HTMLButtonElement | null>(null)
 
     useEffect(() => {
       const nextPreviewUrl = file.type.startsWith('image/') ? URL.createObjectURL(file) : undefined
@@ -39,9 +45,36 @@ export const FileListItem = forwardRef(
       }
     }, [file])
 
+    const setDeleteButton = useCallback((button: HTMLButtonElement | null) => {
+      if (button === null && deleteButton.current && deleteButton.current === document.activeElement) {
+        focusAdjacentDeleteButton(deleteButton.current)
+      }
+
+      deleteButton.current = button
+    }, [])
+
     return (
       <li {...restProps} className={clsx('ams-file-list__item', className)} ref={ref}>
-        <FileCard name={file.name} onDelete={onDelete} previewUrl={previewUrl} size={file.size} type={file.type} />
+        <div className="ams-file-list__item-preview">
+          {previewUrl ? <img alt="" src={previewUrl} /> : <Icon size="heading-3" square svg={DocumentIcon} />}
+        </div>
+        <div className="ams-file-list__item-info">
+          {file.name}
+          {details && <div className="ams-file-input__item-details">{details}</div>}
+        </div>
+        {onDelete && (
+          <div>
+            <Button
+              className="ams-file-list__delete-button"
+              onClick={onDelete}
+              ref={setDeleteButton}
+              variant="tertiary"
+            >
+              Verwijder
+              <span className="ams-visually-hidden">{` ${file.name}`}</span>
+            </Button>
+          </div>
+        )}
       </li>
     )
   },
