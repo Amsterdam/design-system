@@ -3,14 +3,14 @@
  * Copyright Gemeente Amsterdam
  */
 
-export type FileDetails = {
+export type FileMetadata = {
   /** The size of the file in bytes. */
   size?: number
   /** The media type of the file. */
   type?: string
 }
 
-export type FormatFileDetailsText = (details: FileDetails) => string
+export type FormatFileMetadataText = (metadata: FileMetadata) => string
 
 const fileSizeUnits = ['bytes', 'kB', 'MB', 'GB', 'TB']
 
@@ -42,24 +42,24 @@ const formatFileSize = (size: number, locale: string) => {
   return `${number} ${exponent === 0 && amount === 1 ? 'byte' : fileSizeUnits[exponent]}`
 }
 
-const formatFileDetailsText =
-  (locale: string): FormatFileDetailsText =>
+const formatFileMetadataText =
+  (locale: string): FormatFileMetadataText =>
   ({ size, type }) => {
-    const details: string[] = []
+    const metadataParts: string[] = []
 
     if (type) {
-      details.push(formatFileType(type))
+      metadataParts.push(formatFileType(type))
     }
 
     if (size !== undefined) {
-      details.push(formatFileSize(size, locale))
+      metadataParts.push(formatFileSize(size, locale))
     }
 
-    return details.length > 0 ? `(${details.join(', ')})` : ''
+    return metadataParts.length > 0 ? `(${metadataParts.join(', ')})` : ''
   }
 
-/** Formats the type and size of a file in English, e.g. ‘(pdf, 1.5 MB)’. */
-export const formatFileDetailsTextEn: FormatFileDetailsText = formatFileDetailsText('en-GB')
+/** Formats the type and size metadata of a file in English, e.g. ‘(pdf, 1.5 MB)’. */
+export const formatFileMetadataTextEn: FormatFileMetadataText = formatFileMetadataText('en-GB')
 
-/** Formats the type and size of a file in Dutch, e.g. ‘(pdf, 1,5 MB)’. */
-export const formatFileDetailsTextNl: FormatFileDetailsText = formatFileDetailsText('nl-NL')
+/** Formats the type and size metadata of a file in Dutch, e.g. ‘(pdf, 1,5 MB)’. */
+export const formatFileMetadataTextNl: FormatFileMetadataText = formatFileMetadataText('nl-NL')

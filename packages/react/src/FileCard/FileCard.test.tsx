@@ -60,23 +60,23 @@ describe('FileCard', () => {
     expect(screen.getByText('besluit.pdf')).toBeInTheDocument()
   })
 
-  it('renders the type and size in Dutch by default', () => {
+  it('renders the type and size metadata in Dutch by default', () => {
     render(<FileCard name="besluit.pdf" size={1536000} type="application/pdf" />)
 
     expect(screen.getByText('(pdf, 1,5 MB)')).toBeInTheDocument()
   })
 
-  it('renders the name and details as separate blocks, so they stay apart without CSS', () => {
+  it('renders the name and metadata as separate blocks, so they stay apart without CSS', () => {
     render(<FileCard name="besluit.pdf" size={1536000} type="application/pdf" />)
 
     expect(screen.getByText('besluit.pdf').tagName).toBe('DIV')
     expect(screen.getByText('(pdf, 1,5 MB)').tagName).toBe('DIV')
   })
 
-  it('renders the details returned by a formatter of the consumer', () => {
+  it('renders the metadata returned by a formatter of the consumer', () => {
     render(
       <FileCard
-        formatDetailsText={({ size, type }) => `${type} – ${size} bytes`}
+        formatMetadataText={({ size, type }) => `${type} – ${size} bytes`}
         name="besluit.pdf"
         size={1536000}
         type="application/pdf"
@@ -86,10 +86,10 @@ describe('FileCard', () => {
     expect(screen.getByText('application/pdf – 1536000 bytes')).toBeInTheDocument()
   })
 
-  it('renders no details element when neither the type nor the size is known', () => {
+  it('renders no metadata element when neither the type nor the size is known', () => {
     const { container } = render(<FileCard name="besluit.pdf" />)
 
-    expect(container.querySelector('.ams-file-card__details')).not.toBeInTheDocument()
+    expect(container.querySelector('.ams-file-card__metadata')).not.toBeInTheDocument()
   })
 
   it('renders the preview as a decorative image', () => {

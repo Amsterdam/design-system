@@ -11,7 +11,7 @@ import { forwardRef, useCallback, useEffect, useRef, useState } from 'react'
 
 import { Button } from '../Button'
 import { focusAdjacentDeleteButton } from '../FileCard/focusAdjacentDeleteButton'
-import { formatFileDetailsTextNl } from '../FileCard/formatFileDetailsText'
+import { formatFileMetadataTextNl } from '../FileCard/formatFileMetadataText'
 import { Icon } from '../Icon'
 
 export type FileListItemProps = {
@@ -29,7 +29,7 @@ export type FileListItemProps = {
  */
 export const FileListItem = forwardRef(
   ({ className, file, onDelete, ...restProps }: FileListItemProps, ref: ForwardedRef<HTMLLIElement>) => {
-    const details = formatFileDetailsTextNl({ size: file.size, type: file.type })
+    const metadata = formatFileMetadataTextNl({ size: file.size, type: file.type })
     const [previewUrl, setPreviewUrl] = useState<string>()
     const deleteButton = useRef<HTMLButtonElement | null>(null)
 
@@ -60,7 +60,7 @@ export const FileListItem = forwardRef(
         </div>
         <div className="ams-file-list__item-info">
           {file.name}
-          {details && <div className="ams-file-input__item-details">{details}</div>}
+          {metadata && <div className="ams-file-input__item-details">{metadata}</div>}
         </div>
         {onDelete && (
           <div>

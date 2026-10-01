@@ -42,7 +42,7 @@
           }
         }
       },
-      "details": {
+      "metadata": {
         "color": {
           "$value": "{ams.color.text.secondary}",
           "$extensions": {
@@ -53,7 +53,7 @@
       "info": {
         "flex-basis": {
           "$value": "12rem",
-          "$description": "The width the name and details need beside the preview. When the actions do not fit beside them as well, the actions move below.",
+          "$description": "The width the name and metadata need beside the preview. When the actions do not fit beside them as well, the actions move below.",
           "$extensions": {
             "nl.amsterdam.type": "dimension"
           }

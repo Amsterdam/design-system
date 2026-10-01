@@ -56,7 +56,7 @@ export const Test: Story = {
       <div style={{ maxInlineSize: '20rem' }}>
         <FileCard {...args} actions={actions} name={nameWithoutSpaces} onDelete={remove} />
       </div>
-      <p>Without a size or a type, so without details</p>
+      <p>Without a size or a type, so without metadata</p>
       <FileCard name="besluit.pdf" onDelete={remove} />
       <p>In an Unordered List</p>
       <UnorderedList markers={false}>

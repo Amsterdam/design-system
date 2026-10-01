@@ -43,8 +43,8 @@
   hyphens: manual; // A surrounding list can hyphenate its contents, which would make a line-break hyphen look like part of the file name.
 }
 
-.ams-file-card__details {
-  color: var(--ams-file-card-details-color);
+.ams-file-card__metadata {
+  color: var(--ams-file-card-metadata-color);
 }
 
 .ams-file-card__actions {

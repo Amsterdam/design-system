@@ -9,12 +9,12 @@ import { DocumentIcon } from '@amsterdam/design-system-react-icons'
 import { clsx } from 'clsx'
 import { forwardRef, useCallback, useRef } from 'react'
 
-import type { FormatFileDetailsText } from './formatFileDetailsText'
+import type { FormatFileMetadataText } from './formatFileMetadataText'
 
 import { Button } from '../Button'
 import { Icon } from '../Icon'
 import { focusAdjacentDeleteButton } from './focusAdjacentDeleteButton'
-import { formatFileDetailsTextNl } from './formatFileDetailsText'
+import { formatFileMetadataTextNl } from './formatFileMetadataText'
 
 export type FileCardProps = {
   /**
@@ -31,9 +31,9 @@ export type FileCardProps = {
   /**
    * Returns the text with the type and size of the file, displayed below its name.
    * Formatters for Dutch and English are available as exports.
-   * @default formatFileDetailsTextNl
+   * @default formatFileMetadataTextNl
    */
-  readonly formatDetailsText?: FormatFileDetailsText
+  readonly formatMetadataText?: FormatFileMetadataText
   /** The name of the file. */
   readonly name: string
   /**
@@ -60,7 +60,7 @@ export const FileCard = forwardRef(
       actions,
       className,
       deleteButtonLabel = 'Verwijder',
-      formatDetailsText = formatFileDetailsTextNl,
+      formatMetadataText = formatFileMetadataTextNl,
       name,
       onDelete,
       previewUrl,
@@ -70,7 +70,7 @@ export const FileCard = forwardRef(
     }: FileCardProps,
     ref: ForwardedRef<HTMLDivElement>,
   ) => {
-    const details = formatDetailsText({ size, type })
+    const metadata = formatMetadataText({ size, type })
     const deleteButton = useRef<HTMLButtonElement | null>(null)
 
     // Use a ref callback so React can move focus at the moment it removes the focused delete button.
@@ -93,7 +93,7 @@ export const FileCard = forwardRef(
         </div>
         <div className="ams-file-card__info">
           <div className="ams-file-card__name">{name}</div>
-          {details && <div className="ams-file-card__details">{details}</div>}
+          {metadata && <div className="ams-file-card__metadata">{metadata}</div>}
         </div>
         {(actions || onDelete) && (
           <div className="ams-file-card__actions">

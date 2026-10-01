@@ -39,18 +39,18 @@ A File Card takes these as separate values rather than a `File` object, so it wo
 <FileCard name="besluit.pdf" onDelete={remove} size={1536000} type="application/pdf" />
 ```
 
-`formatDetailsText` returns the whole line below the name, brackets and separator included, so the order of the parts and the punctuation are yours to change.
+`formatMetadataText` returns the whole line below the name, brackets and separator included, so the order of the parts and the punctuation are yours to change.
 It receives the size and the type, and the default assumes the type is a media type such as `application/pdf`.
 When all you have is an extension, pass a function that formats it:
 
 ```tsx
 <FileCard
-  formatDetailsText={({ size, type }) => {
-    const details = [type, size !== undefined ? `${Math.round(size / 1000)} kB` : undefined].filter(
-      (detail): detail is string => detail !== undefined,
+  formatMetadataText={({ size, type }) => {
+    const parts = [type, size !== undefined ? `${Math.round(size / 1000)} kB` : undefined].filter(
+      (part): part is string => part !== undefined,
     );
 
-    return details.length > 0 ? `(${details.join(", ")})` : "";
+    return parts.length > 0 ? `(${parts.join(", ")})` : "";
   }}
   name="besluit.pdf"
   size={1536000}
@@ -114,7 +114,7 @@ Sending it back to the field is unreliable, because some browsers keep announcin
 ### Translated text
 
 The component displays its text in Dutch by default.
-Pass `formatFileDetailsTextEn`, or a function of your own, to `formatDetailsText`, and the matching label to `deleteButtonLabel`.
+Pass `formatFileMetadataTextEn`, or a function of your own, to `formatMetadataText`, and the matching label to `deleteButtonLabel`.
 Set `lang` on a File Card whose language differs from the page’s.
 See the [Localisation guide](/docs/docs-guidelines-localisation--docs) for more on this.
 
@@ -130,7 +130,7 @@ It moves once the file has left the page rather than on the click, so a cancelle
 
 ## Design
 
-A File Card places a preview of fixed width, the name with its details below it, and the actions side by side.
+A File Card places a preview of fixed width, the name with its metadata below it, and the actions side by side.
 The preview column is the same width whether it holds a thumbnail or the generic document icon, so the names line up down a list.
 A thumbnail is shown square, cropped to fill it, whatever the shape of the image.
 

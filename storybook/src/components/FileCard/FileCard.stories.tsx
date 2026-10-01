@@ -6,7 +6,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Button, Column, UnorderedList } from '@amsterdam/design-system-react'
-import { FileCard, formatFileDetailsTextEn } from '@amsterdam/design-system-react/src'
+import { FileCard, formatFileMetadataTextEn } from '@amsterdam/design-system-react/src'
 
 import { FileInputWithFileCards } from './FileInputWithFileCards'
 
@@ -23,7 +23,7 @@ const meta = {
   },
   argTypes: {
     actions: { control: false },
-    formatDetailsText: { control: false },
+    formatMetadataText: { control: false },
     onDelete: { control: false },
     size: { control: { min: 0, type: 'number' } },
   },
@@ -75,7 +75,7 @@ export const InAnUnorderedList: Story = {
         <FileCard
           {...args}
           name="pasfoto.jpg"
-          previewUrl="https://picsum.photos/id/64/128/256"
+          previewUrl="https://picsum.photos/id/64/128/128"
           size={248000}
           type="image/jpeg"
         />
@@ -109,7 +109,7 @@ export const Translated: Story = {
       <FileCard
         {...args}
         deleteButtonLabel="Delete"
-        formatDetailsText={formatFileDetailsTextEn}
+        formatMetadataText={formatFileMetadataTextEn}
         lang="en"
         name="passport.pdf"
       />
