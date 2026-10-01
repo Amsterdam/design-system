@@ -75,7 +75,7 @@ export const InAnUnorderedList: Story = {
         <FileCard
           {...args}
           name="pasfoto.jpg"
-          previewUrl="https://picsum.photos/id/64/128/128"
+          previewUrl="https://picsum.photos/id/64/128/256"
           size={248000}
           type="image/jpeg"
         />

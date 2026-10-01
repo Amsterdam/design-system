@@ -21,11 +21,13 @@
 .ams-file-card__preview {
   display: grid;
   flex: 0 0 var(--ams-file-card-preview-width);
-  place-items: center;
+  place-content: center;
 }
 
 .ams-file-card__image {
+  aspect-ratio: 1/1;
   inline-size: 100%;
+  object-fit: cover;
 }
 
 .ams-file-card__info {
