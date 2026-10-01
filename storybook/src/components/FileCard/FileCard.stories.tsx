@@ -5,7 +5,7 @@
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-import { Button, Column } from '@amsterdam/design-system-react'
+import { Button, Column, UnorderedList } from '@amsterdam/design-system-react'
 import { FileCard, formatFileMetadataTextEn } from '@amsterdam/design-system-react/src'
 
 const remove = () => {}
@@ -54,6 +54,31 @@ export const WithCustomActions: Story = {
     ),
     onDelete: remove,
   },
+}
+
+export const InAnUnorderedList: Story = {
+  args: {
+    onDelete: remove,
+  },
+  render: (args) => (
+    <UnorderedList markers={false}>
+      <UnorderedList.Item>
+        <FileCard {...args} />
+      </UnorderedList.Item>
+      <UnorderedList.Item>
+        <FileCard
+          {...args}
+          name="pasfoto.jpg"
+          previewUrl="https://picsum.photos/id/64/128/128"
+          size={248000}
+          type="image/jpeg"
+        />
+      </UnorderedList.Item>
+      <UnorderedList.Item>
+        <FileCard {...args} name="aanvraag-2026-03-11-definitief.docx" size={72000} type="application/msword" />
+      </UnorderedList.Item>
+    </UnorderedList>
+  ),
 }
 
 export const Translated: Story = {
