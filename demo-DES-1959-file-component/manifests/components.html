@@ -620,13 +620,13 @@
 <header>
   <div class="wrap">
     <h1>Manifest Debugger</h1>
-    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">15/91 API errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">15/91 infos</a><a class="filter-pill" data-k="no-api" href="#filter-no-api">17/91 without API description</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">1/314 story errors</a><a class="filter-pill info" data-k="story-warnings" href="#filter-story-warnings">45/314 incomplete snippets</a><a class="filter-pill ok" data-k="docs" href="#filter-docs">128 docs ok</a></div>
+    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">15/91 API errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">15/91 infos</a><a class="filter-pill" data-k="no-api" href="#filter-no-api">17/91 without API description</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">1/313 story errors</a><a class="filter-pill info" data-k="story-warnings" href="#filter-story-warnings">45/313 incomplete snippets</a><a class="filter-pill ok" data-k="docs" href="#filter-docs">128 docs ok</a></div>
   </div>
 </header>
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>4.6s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>5.3s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -9842,7 +9842,7 @@ color?: &quot;inverse&quot;</code></pre>
       <div class="badges">
         <label for="c-27-components-forms-file-card-props" class="badge ok as-toggle">8 prop types</label>
         
-        <label for="c-27-components-forms-file-card-stories" class="badge ok as-toggle">7 stories · 1 incomplete</label>
+        <label for="c-27-components-forms-file-card-stories" class="badge ok as-toggle">6 stories · 1 incomplete</label>
         <label for="c-27-components-forms-file-card-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
@@ -9889,7 +9889,7 @@ deleteButtonLabel?: string = &#39;Verwijder&#39;
  * Returns the text with the type and size of the file, displayed below its name.
  * Formatters for Dutch and English are available as exports.
  */
-formatDetailsText?: FormatFileDetailsText = formatFileDetailsText(&#39;nl-NL&#39;)
+formatMetadataText?: FormatFileMetadataText = formatFileMetadataText(&#39;nl-NL&#39;)
 
 /**
  * The name of the file.
@@ -9927,7 +9927,7 @@ type?: string</code></pre>
                 <div class="row">
                   <span class="ex-name">Imports</span>
                 </div>
-                <pre><code>import { Button, Column, FileInputWithFileCards, UnorderedList } from '@amsterdam/design-system-react';
+                <pre><code>import { Button, Column, UnorderedList } from '@amsterdam/design-system-react';
 import { FileCard } from '@amsterdam/design-system-react/src';</code></pre>
               </div>
           
@@ -9939,11 +9939,7 @@ import { FileCard } from '@amsterdam/design-system-react/src';</code></pre>
               </div>
               
               
-              <pre><code>const Default = () =&gt; &lt;FileCard
-    name=&quot;paspoort.pdf&quot;
-    size={1536000}
-    type=&quot;application/pdf&quot;
-    onDelete={() =&gt; {}} /&gt;;</code></pre>
+              <pre><code>const Default = () =&gt; &lt;FileCard name=&quot;paspoort.pdf&quot; size={1536000} type=&quot;application/pdf&quot; /&gt;;</code></pre>
               
             </div>
             <div class="note ok">
@@ -10006,7 +10002,7 @@ import { FileCard } from '@amsterdam/design-system-react/src';</code></pre>
         &lt;FileCard
             onDelete={() =&gt; {}}
             name=&quot;pasfoto.jpg&quot;
-            previewUrl=&quot;https://picsum.photos/id/64/128/256&quot;
+            previewUrl=&quot;https://picsum.photos/id/64/128/128&quot;
             size={248000}
             type=&quot;image/jpeg&quot; /&gt;
     &lt;/UnorderedList.Item&gt;
@@ -10018,16 +10014,6 @@ import { FileCard } from '@amsterdam/design-system-react/src';</code></pre>
             type=&quot;application/msword&quot; /&gt;
     &lt;/UnorderedList.Item&gt;
 &lt;/UnorderedList&gt;;</code></pre>
-              
-            </div>
-            <div class="note ok">
-              <div class="row">
-                <span class="ex-name">With File Input</span>
-                <span class="badge ok">story ok</span>
-              </div>
-              
-              
-              <pre><code>const WithFileInput = () =&gt; &lt;FileInputWithFileCards /&gt;;</code></pre>
               
             </div>
             <div class="note ok">
@@ -10049,7 +10035,7 @@ import { FileCard } from '@amsterdam/design-system-react/src';</code></pre>
         type=&quot;application/pdf&quot;
         onDelete={() =&gt; {}}
         deleteButtonLabel=&quot;Delete&quot;
-        formatDetailsText={formatFileDetailsTextEn}
+        formatMetadataText={formatFileMetadataTextEn}
         lang=&quot;en&quot;
         name=&quot;passport.pdf&quot; /&gt;
 &lt;/Column&gt;;</code></pre>
@@ -10069,13 +10055,12 @@ import { FileCard } from '@amsterdam/design-system-react/src';</code></pre>
               <div>## Usage guidelines ### When to use Use a File Card for one file that someone selected wit...</div>
               <div class="mdx-content"><pre><code>{/* @license CC0-1.0 */}
 
-import { Canvas, Controls, Description, Meta, Primary, Source, Title } from &quot;@storybook/addon-docs/blocks&quot;;
+import { Canvas, Controls, Description, Meta, Primary, Title } from &quot;@storybook/addon-docs/blocks&quot;;
 
 import { DesignTokensTable } from &quot;#storybook/_components/DesignTokensTable/DesignTokensTable&quot;;
 import tokens from &quot;#tokens/components/ams/file-card.tokens.json&quot;;
 
 import * as FileCardStories from &quot;./FileCard.stories.tsx&quot;;
-import FileInputWithFileCardsSource from &quot;./FileInputWithFileCards?raw&quot;;
 
 &lt;Meta of={FileCardStories} /&gt;
 
@@ -10108,18 +10093,18 @@ A File Card takes these as separate values rather than a `File` object, so it wo
 &lt;FileCard name=&quot;besluit.pdf&quot; onDelete={remove} size={1536000} type=&quot;application/pdf&quot; /&gt;
 ```
 
-`formatDetailsText` returns the whole line below the name, brackets and separator included, so the order of the parts and the punctuation are yours to change.
+`formatMetadataText` returns the whole line below the name, brackets and separator included, so the order of the parts and the punctuation are yours to change.
 It receives the size and the type, and the default assumes the type is a media type such as `application/pdf`.
 When all you have is an extension, pass a function that formats it:
 
 ```tsx
 &lt;FileCard
-  formatDetailsText={({ size, type }) =&gt; {
-    const details = [type, size !== undefined ? `${Math.round(size / 1000)} kB` : undefined].filter(
-      (detail): detail is string =&gt; detail !== undefined,
+  formatMetadataText={({ size, type }) =&gt; {
+    const parts = [type, size !== undefined ? `${Math.round(size / 1000)} kB` : undefined].filter(
+      (part): part is string =&gt; part !== undefined,
     );
 
-    return details.length &gt; 0 ? `(${details.join(&quot;, &quot;)})` : &quot;&quot;;
+    return parts.length &gt; 0 ? `(${parts.join(&quot;, &quot;)})` : &quot;&quot;;
   }}
   name=&quot;besluit.pdf&quot;
   size={1536000}
@@ -10136,13 +10121,11 @@ A delete button of your own in `actions` gets neither the file name for screen r
 When you ask for confirmation first, remove the file after the confirmation has closed and returned focus to the delete button.
 
 When a File Card stands alone, or the last file leaves and takes the list with it, the page decides where focus goes.
-The [With a File Input](#with-a-file-input) example moves focus to a message of its own when the last file leaves.
 
 Leave out both `actions` and `onDelete` to only show the file.
 
 Pass `previewUrl` to show a thumbnail.
 The component never creates that address, so whoever creates an object URL also releases it.
-The [With a File Input](#with-a-file-input) example shows one way to do that.
 
 ## Examples
 
@@ -10170,20 +10153,10 @@ Use custom actions for tasks such as downloading a file.
 
 &lt;Canvas of={FileCardStories.WithCustomActions} /&gt;
 
-### With a File Input
-
-The example creates object URLs as the selection changes and releases them in an effect clean-up.
-When the last file leaves, focus moves to a message of the example’s own.
-Sending it back to the field is unreliable, because some browsers keep announcing a removed file.
-
-&lt;Canvas of={FileCardStories.WithFileInput} /&gt;
-
-&lt;Source code={FileInputWithFileCardsSource} language=&quot;jsx&quot; /&gt;
-
 ### Translated text
 
 The component displays its text in Dutch by default.
-Pass `formatFileDetailsTextEn`, or a function of your own, to `formatDetailsText`, and the matching label to `deleteButtonLabel`.
+Pass `formatFileMetadataTextEn`, or a function of your own, to `formatMetadataText`, and the matching label to `deleteButtonLabel`.
 Set `lang` on a File Card whose language differs from the page’s.
 See the [Localisation guide](/docs/docs-guidelines-localisation--docs) for more on this.
 
@@ -10199,8 +10172,9 @@ It moves once the file has left the page rather than on the click, so a cancelle
 
 ## Design
 
-A File Card places a preview of fixed width, the name with its details below it, and the actions side by side.
+A File Card places a preview of fixed width, the name with its metadata below it, and the actions side by side.
 The preview column is the same width whether it holds a thumbnail or the generic document icon, so the names line up down a list.
+A thumbnail is shown square, cropped to fill it, whatever the shape of the image.
 
 A long name wraps rather than being cut off with an ellipsis.
 The name is what someone recognises the file by, and names that end in a date or a reference – `aanvraag-2026-03-11-definitief.pdf` – lose exactly the part that tells them apart when the end is dropped.
