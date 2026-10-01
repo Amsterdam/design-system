@@ -24,6 +24,7 @@ export type FileListItemProps = {
 /**
  * Represents a single uploaded file within a File List, with its details and an optional delete action.
  *
+ * @deprecated Use a File Card inside an Unordered List item instead. Will be removed on or after 2027-04-01.
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-file-list--docs File List docs at Amsterdam Design System}
  */
 export const FileListItem = forwardRef(
