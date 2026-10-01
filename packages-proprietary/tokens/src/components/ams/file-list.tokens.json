@@ -2,7 +2,7 @@
   "ams": {
     "file-list": {
       "gap": {
-        "$deprecated": "Use an Unordered List without markers instead. Will be removed on or after 2027-04-01.",
+        "$deprecated": "File List has been deprecated. Use File Card and Unordered List instead. Will be removed on or after 2027-04-01.",
         "$value": "{ams.space.m}",
         "$extensions": {
           "nl.amsterdam.subtype": "space",
@@ -10,7 +10,7 @@
         }
       },
       "padding-block": {
-        "$deprecated": "Use an Unordered List without markers instead. Will be removed on or after 2027-04-01.",
+        "$deprecated": "File List has been deprecated. Use File Card and Unordered List instead. Will be removed on or after 2027-04-01.",
         "$value": "{ams.space.m}",
         "$extensions": {
           "nl.amsterdam.subtype": "space",
@@ -19,37 +19,37 @@
       },
       "file": {
         "font-family": {
-          "$deprecated": "Use `ams.file-card.font-family` instead. Will be removed on or after 2027-04-01.",
-          "$value": "{ams.file-card.font-family}",
+          "$deprecated": "File List has been deprecated. Use File Card and Unordered List instead. Will be removed on or after 2027-04-01.",
+          "$value": "{ams.typography.font-family}",
           "$extensions": {
             "nl.amsterdam.type": "fontFamily"
           }
         },
         "font-size": {
-          "$deprecated": "Use `ams.file-card.font-size` instead. Will be removed on or after 2027-04-01.",
-          "$value": "{ams.file-card.font-size}",
+          "$deprecated": "File List has been deprecated. Use File Card and Unordered List instead. Will be removed on or after 2027-04-01.",
+          "$value": "{ams.typography.body-text.small.font-size}",
           "$extensions": {
             "nl.amsterdam.type": "fontSize"
           }
         },
         "font-weight": {
-          "$deprecated": "Use `ams.file-card.font-weight` instead. Will be removed on or after 2027-04-01.",
-          "$value": "{ams.file-card.font-weight}",
+          "$deprecated": "File List has been deprecated. Use File Card and Unordered List instead. Will be removed on or after 2027-04-01.",
+          "$value": "{ams.typography.body-text.font-weight}",
           "$extensions": {
             "nl.amsterdam.type": "fontWeight"
           }
         },
         "gap": {
-          "$deprecated": "Use `ams.file-card.gap` instead. Will be removed on or after 2027-04-01.",
-          "$value": "{ams.file-card.gap}",
+          "$deprecated": "File List has been deprecated. Use File Card and Unordered List instead. Will be removed on or after 2027-04-01.",
+          "$value": "{ams.space.s}",
           "$extensions": {
             "nl.amsterdam.subtype": "space",
             "nl.amsterdam.type": "dimension"
           }
         },
         "line-height": {
-          "$deprecated": "Use `ams.file-card.line-height` instead. Will be removed on or after 2027-04-01.",
-          "$value": "{ams.file-card.line-height}",
+          "$deprecated": "File List has been deprecated. Use File Card and Unordered List instead. Will be removed on or after 2027-04-01.",
+          "$value": "{ams.typography.body-text.small.line-height}",
           "$extensions": {
             "nl.amsterdam.subtype": "lineHeight",
             "nl.amsterdam.type": "number"
@@ -57,8 +57,8 @@
         },
         "details": {
           "color": {
-            "$deprecated": "Use `ams.file-card.details.color` instead. Will be removed on or after 2027-04-01.",
-            "$value": "{ams.file-card.details.color}",
+            "$deprecated": "File List has been deprecated. Use File Card and Unordered List instead. Will be removed on or after 2027-04-01.",
+            "$value": "{ams.color.text.secondary}",
             "$extensions": {
               "nl.amsterdam.type": "color"
             }
@@ -66,8 +66,8 @@
         },
         "preview": {
           "width": {
-            "$deprecated": "Use `ams.file-card.preview.width` instead. Will be removed on or after 2027-04-01.",
-            "$value": "{ams.file-card.preview.width}",
+            "$deprecated": "File List has been deprecated. Use File Card and Unordered List instead. Will be removed on or after 2027-04-01.",
+            "$value": "clamp(2.5rem, 10vw, 5rem)",
             "$extensions": {
               "nl.amsterdam.type": "dimension"
             }

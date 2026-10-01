@@ -7,7 +7,7 @@
 @use "../../common/resets" as *;
 @use "../../common/text-rendering" as *;
 
-/* @deprecated The `ams-file-list` block, its `ams-file-list__item` element, and the legacy preview and details class names are replaced by File Cards in an Unordered List without markers. Will be removed on or after 2027-04-01. */
+/* @deprecated `ams-file-list`, `ams-file-list__item`, `ams-file-list__item-preview`, `ams-file-list__item-info`, and `ams-file-input__item-details` are replaced by File Cards in an Unordered List without markers. Will be removed on or after 2027-04-01. */
 
 .ams-file-list {
   @include reset-ul;
