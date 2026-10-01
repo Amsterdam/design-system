@@ -52,8 +52,9 @@ list of files and use `onDelete` when removing a file from the list.
 Every item is one row: a preview of fixed width, then the name and details, then the delete button.
 The preview column is the same width whether it holds a thumbnail or the generic document icon, so the names line up down the list.
 
-A name too long for its row is cut off with an ellipsis on a single line rather than wrapped.
-Rows then stay the same height whatever has been uploaded, which keeps a list of several files scannable.
+A name too long for its row wraps onto the next line rather than being cut off, also when it has no spaces.
+The name is what someone recognises the file by, so all of it stays visible.
+Automatic hyphenation is switched off for the name, because a hyphen added at a line break looks like part of the file name.
 
 The file type and size sit below the name in their own colour, so the name stays the thing you read first.
 
@@ -61,14 +62,12 @@ The file type and size sit below the name in their own colour, so the name stays
 
 A File List renders `ul` and `li` elements, so screen readers announce it as a list and report how many files it holds.
 
-Cutting off a long name is visual only.
-The whole name is in the markup and is announced in full, so nothing is lost to someone who cannot see where the row ends.
+The preview of an image file is decorative and carries an empty `alt`, because the name of the file is already beside it.
 
-The preview of an image file repeats the file name as its alternative text, so that name is announced twice: once for the thumbnail and once for the text beside it.
+Every delete button reads ‘Verwijder’ on screen and ‘Verwijder’ followed by the name of the file to a screen reader, so each button has a name of its own.
+The label is in Dutch and cannot be configured.
 
-Every delete button is labelled ‘Verwijder’, in Dutch and without the name of the file it removes.
-Someone reviewing the buttons of the page out of context hears the same word for each of them, and the label cannot be configured.
-Until it can, prefer a File List short enough to keep each button next to the file it belongs to.
+When the focused delete button leaves the page, focus moves to the delete button of the next file, or of the previous one for the last file.
 
 ## See also
 
