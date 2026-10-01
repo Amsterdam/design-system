@@ -4690,7 +4690,7 @@
         {
           "id": "components-forms-file-card--in-an-unordered-list",
           "name": "In An Unordered List",
-          "snippet": "const InAnUnorderedList = () => <UnorderedList markers={false}>\n    <UnorderedList.Item>\n        <FileCard\n            name=\"paspoort.pdf\"\n            size={1536000}\n            type=\"application/pdf\"\n            onDelete={() => {}} />\n    </UnorderedList.Item>\n    <UnorderedList.Item>\n        <FileCard\n            onDelete={() => {}}\n            name=\"pasfoto.jpg\"\n            previewUrl=\"https://picsum.photos/id/64/128/128\"\n            size={248000}\n            type=\"image/jpeg\" />\n    </UnorderedList.Item>\n    <UnorderedList.Item>\n        <FileCard\n            onDelete={() => {}}\n            name=\"aanvraag-2026-03-11-definitief.docx\"\n            size={72000}\n            type=\"application/msword\" />\n    </UnorderedList.Item>\n</UnorderedList>;"
+          "snippet": "const InAnUnorderedList = () => <UnorderedList markers={false}>\n    <UnorderedList.Item>\n        <FileCard\n            name=\"paspoort.pdf\"\n            size={1536000}\n            type=\"application/pdf\"\n            onDelete={() => {}} />\n    </UnorderedList.Item>\n    <UnorderedList.Item>\n        <FileCard\n            onDelete={() => {}}\n            name=\"pasfoto.jpg\"\n            previewUrl=\"https://picsum.photos/id/64/128/256\"\n            size={248000}\n            type=\"image/jpeg\" />\n    </UnorderedList.Item>\n    <UnorderedList.Item>\n        <FileCard\n            onDelete={() => {}}\n            name=\"aanvraag-2026-03-11-definitief.docx\"\n            size={72000}\n            type=\"application/msword\" />\n    </UnorderedList.Item>\n</UnorderedList>;"
         },
         {
           "id": "components-forms-file-card--with-file-input",
@@ -12651,6 +12651,6 @@
   },
   "meta": {
     "docgen": "react-component-meta",
-    "durationMs": 4977
+    "durationMs": 5131
   }
 }
