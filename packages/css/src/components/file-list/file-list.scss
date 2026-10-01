@@ -45,9 +45,8 @@
 .ams-file-list__item-info {
   flex: 1;
   gap: var(--ams-file-list-file-gap);
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  hyphens: manual; // A hyphen added at a line break would look like part of the file name.
+  overflow-wrap: anywhere; // Break a long name rather than cutting it off, also one without spaces.
 }
 
 .ams-file-input__item-details {
