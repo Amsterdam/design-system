@@ -26,8 +26,10 @@ Use `alt=""` for decorative images – images that add little to the nearby text
 Non-decorative images need a text description.
 
 Leaving out `aspectRatio` falls back to the default ratio; no value preserves the proportions of the source file.
+
 Leave `fit` unset to keep the default of `cover` unless important objects in the image disappear or the cropping does not look right.
 Setting `fit` to `contain` keeps the whole image in view at the cost of empty space beside or above it.
+
 Do not set `loading="lazy"` on an image in the first screenful of the page: there it delays the largest image in the viewport.
 
 ### How to write
