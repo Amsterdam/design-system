@@ -7575,7 +7575,7 @@
         {
           "id": "components-layout-row--align-opposing-texts",
           "name": "Align Opposing Texts",
-          "snippet": "const AlignOpposingTexts = () => <Row className={undefined} wrap align=\"between\" alignVertical=\"baseline\">{[\n      <Heading key={1} level={3}>\n        Kerngegevens\n      </Heading>,\n      <StandaloneLink href=\"#\" icon={PencilIcon} key={2}>\n        Gegevens wijzigen\n      </StandaloneLink>,\n    ]}</Row>;"
+          "snippet": "const AlignOpposingTexts = () => <Row className={undefined} wrap align=\"between\" alignVertical=\"baseline\">{[\n      <Heading key={1} level={3}>\n        Kerngegevens\n      </Heading>,\n      <StandaloneLink href=\"#\" icon={EditIcon} key={2}>\n        Gegevens wijzigen\n      </StandaloneLink>,\n    ]}</Row>;"
         },
         {
           "id": "components-layout-row--vertical-alignment",
@@ -7588,7 +7588,7 @@
           "snippet": "const Wrapping = () => <Row className=\"_ams-row\" wrap>{Array.from(Array(4).keys()).map((i) => (\n      <span className=\"_ams-item\" key={i} style={{ flexBasis: '16rem' }} />\n    ))}</Row>;"
         }
       ],
-      "import": "import { Avatar, Heading, StandaloneLink } from '@amsterdam/design-system-react';\nimport { Row } from '@amsterdam/design-system-react/src';\nimport { PencilIcon } from '@amsterdam/design-system-react-icons';",
+      "import": "import { Avatar, Heading, StandaloneLink } from '@amsterdam/design-system-react';\nimport { Row } from '@amsterdam/design-system-react/src';\nimport { EditIcon } from '@amsterdam/design-system-react-icons';",
       "docs": {
         "components-layout-row--docs": {
           "id": "components-layout-row--docs",
@@ -12415,6 +12415,6 @@
   },
   "meta": {
     "docgen": "react-component-meta",
-    "durationMs": 5068
+    "durationMs": 4917
   }
 }
