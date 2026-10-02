@@ -71,17 +71,20 @@ When the content has loaded, replace the Spinner with it, set `aria-busy` to `fa
 
 #### Customising the animation
 
-The animation is set through one custom property, `--ams-spinner-animation`, which holds a CSS `animation` shorthand.
+The animation is set through two custom properties, which each hold a CSS `animation` shorthand.
+`--ams-spinner-animation` applies to users who have no preference about motion.
+`--ams-spinner-reduced-motion-animation` applies to users who prefer reduced motion.
 
-You can change it to fit your theme.
+You can change them to fit your theme.
 For example, you can:
 
 - Change the speed so that the spinner is rotating faster or slower.
 - Use your own @keyframes to change the animation.
-- Set it to none to disable the animation.
+- Set `--ams-spinner-animation` to none to disable the animation.
 
-Users who prefer reduced motion will not see the animation, regardless of how it is configured.
-The ring itself will still be visible.
+Users who prefer reduced motion get a slower rotation by default, so the ring does not look frozen.
+Keep the reduced motion animation calmer than the regular one.
+Avoid setting it to none, because a static ring can look like something is broken.
 
 ## Features
 
@@ -111,8 +114,8 @@ This meets [WCAG 4.1.3](https://www.w3.org/TR/WCAG22/#status-messages).
 aria-busy can also help assistive technology wait with announcing updates until the region has finished loading.
 This is allowed by the ARIA specification, but not every screen reader supports this in the same way.
 
-The animation only runs for users who have not enabled reduced motion.
-Other users see a static ring.
+Users who have not enabled reduced motion see a steady rotation.
+Users who prefer reduced motion see a slower rotation, so the ring does not look frozen.
 In forced colors mode, the ring remains visible and the moving part stays distinguishable by using system colours.
 
 ## See also
