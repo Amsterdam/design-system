@@ -8010,7 +8010,7 @@
         {
           "id": "components-media-image--contained-image-comparison",
           "name": "Contained Image Comparison",
-          "snippet": "const ContainedImageComparison = () => (\n  <Grid paddingVertical=\"x-large\">\n    <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>\n      <Image alt=\"\" src=\"https://picsum.photos/640/800\" />\n    </Grid.Cell>\n    <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>\n      <Image alt=\"\" fit=\"contain\" src=\"https://picsum.photos/640/800\" />\n    </Grid.Cell>\n  </Grid>\n);"
+          "snippet": "const ContainedImageComparison = ({ aspectRatio, src }) => (\n  <Row gap=\"x-large\">\n    <Column>\n      <Image alt=\"\" aspectRatio={aspectRatio} src={src} />\n    </Column>\n    <Column>\n      <Image alt=\"\" aspectRatio={aspectRatio} fit=\"contain\" src={src} />\n    </Column>\n  </Row>\n);"
         },
         {
           "id": "components-media-image--lazy-loading",
@@ -8018,7 +8018,7 @@
           "snippet": "const LazyLoading = () => <Image alt=\"\" loading=\"lazy\" src=\"https://picsum.photos/2560/1440\" />;"
         }
       ],
-      "import": "import { Grid, Image } from '@amsterdam/design-system-react/src';",
+      "import": "import { Column, Image, Row } from '@amsterdam/design-system-react/src';",
       "docs": {
         "components-media-image--docs": {
           "id": "components-media-image--docs",
@@ -12475,6 +12475,6 @@
   },
   "meta": {
     "docgen": "react-component-meta",
-    "durationMs": 5278
+    "durationMs": 5348
   }
 }

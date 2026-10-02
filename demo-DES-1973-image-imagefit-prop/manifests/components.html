@@ -14729,7 +14729,7 @@ fit?: &quot;contain&quot;</code></pre>
                 <div class="row">
                   <span class="ex-name">Imports</span>
                 </div>
-                <pre><code>import { Grid, Image } from '@amsterdam/design-system-react/src';</code></pre>
+                <pre><code>import { Column, Image, Row } from '@amsterdam/design-system-react/src';</code></pre>
               </div>
           
           
@@ -14774,15 +14774,15 @@ fit?: &quot;contain&quot;</code></pre>
               </div>
               
               
-              <pre><code>const ContainedImageComparison = () =&gt; (
-  &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
-    &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}&gt;
-      &lt;Image alt=&quot;&quot; src=&quot;https://picsum.photos/640/800&quot; /&gt;
-    &lt;/Grid.Cell&gt;
-    &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}&gt;
-      &lt;Image alt=&quot;&quot; fit=&quot;contain&quot; src=&quot;https://picsum.photos/640/800&quot; /&gt;
-    &lt;/Grid.Cell&gt;
-  &lt;/Grid&gt;
+              <pre><code>const ContainedImageComparison = ({ aspectRatio, src }) =&gt; (
+  &lt;Row gap=&quot;x-large&quot;&gt;
+    &lt;Column&gt;
+      &lt;Image alt=&quot;&quot; aspectRatio={aspectRatio} src={src} /&gt;
+    &lt;/Column&gt;
+    &lt;Column&gt;
+      &lt;Image alt=&quot;&quot; aspectRatio={aspectRatio} fit=&quot;contain&quot; src={src} /&gt;
+    &lt;/Column&gt;
+  &lt;/Row&gt;
 );</code></pre>
               
             </div>
