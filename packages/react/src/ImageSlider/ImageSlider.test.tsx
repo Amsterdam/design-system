@@ -84,6 +84,18 @@ describe('ImageSlider', () => {
     expect(ref.current).toBe(component)
   })
 
+  it('gives the root section an accessible name from the accessibleName prop', () => {
+    const { getByRole } = render(<ImageSlider accessibleName="Photos of the bridge" images={images} />)
+
+    expect(getByRole('region', { name: 'Photos of the bridge' })).toBeInTheDocument()
+  })
+
+  it('falls back to a default accessible name when accessibleName is not provided', () => {
+    const { getByRole } = render(<ImageSlider images={images} />)
+
+    expect(getByRole('region', { name: 'Afbeeldingen' })).toBeInTheDocument()
+  })
+
   it('does not render controls by default', () => {
     const { container } = render(<ImageSlider images={images} />)
 
@@ -101,19 +113,35 @@ describe('ImageSlider', () => {
   })
 
   it('shows the first image by default', () => {
-    const { getByAltText } = render(<ImageSlider images={images} />)
+    const { container, getByAltText } = render(<ImageSlider images={images} />)
+
+    const slides = container.querySelectorAll('.ams-image-slider__slide')
+
+    expect(slides[0]).not.toHaveAttribute('aria-hidden')
+    expect(slides[1]).toHaveAttribute('aria-hidden', 'true')
+    expect(slides[2]).toHaveAttribute('aria-hidden', 'true')
 
     const firstImage = getByAltText('One') as HTMLImageElement
     const secondImage = getByAltText('Two') as HTMLImageElement
     const thirdImage = getByAltText('Three') as HTMLImageElement
 
-    expect(firstImage).not.toHaveAttribute('aria-hidden', 'true')
-    expect(secondImage).toHaveAttribute('aria-hidden', 'true')
-    expect(thirdImage).toHaveAttribute('aria-hidden', 'true')
-
     expect(firstImage.src).toBe('https://picsum.photos/id/122/320/180')
     expect(secondImage.src).toBe('https://picsum.photos/id/101/320/180')
     expect(thirdImage.src).toBe('https://picsum.photos/id/153/320/180')
+  })
+
+  it('updates which slide is hidden from assistive technology immediately when a thumbnail is clicked, without waiting for the IntersectionObserver', async () => {
+    const user = userEvent.setup()
+
+    const { container, getAllByRole } = render(<ImageSlider images={images} />)
+
+    const tabs = getAllByRole('tab')
+    const slides = container.querySelectorAll('.ams-image-slider__slide')
+
+    await user.click(tabs[1])
+
+    expect(slides[0]).toHaveAttribute('aria-hidden', 'true')
+    expect(slides[1]).not.toHaveAttribute('aria-hidden')
   })
 
   it('scrolls to the next image when clicking the next button', async () => {
