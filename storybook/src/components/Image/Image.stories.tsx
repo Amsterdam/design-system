@@ -24,7 +24,7 @@ const meta = {
     fit: {
       control: {
         labels: { undefined: 'default (cover)' },
-        type: 'select',
+        type: 'radio',
       },
       options: [undefined, 'contain'],
     },
