@@ -1,0 +1,89 @@
+{
+  "ams": {
+    "progress-bar": {
+      "block-size": {
+        "$value": {
+          "value": 0.5,
+          "unit": "rem"
+        },
+        "$type": "dimension",
+        "$description": "The block size of the ProgressBar's track."
+      },
+      "gap": {
+        "$value": {
+          "value": 0.25,
+          "unit": "rem"
+        },
+        "$type": "dimension",
+        "$description": "The space between the ProgressBar's text and its track."
+      },
+      "transition-duration": {
+        "$value": "0.3s",
+        "$type": "duration",
+        "$description": "The duration of the transition."
+      },
+      "transition-timing-function": {
+        "$value": "ease",
+        "$extensions": {
+          "nl.amsterdam.type": "transitionTimingFunction"
+        },
+        "$description": "The timing function of the transition."
+      },
+      "text": {
+        "color": {
+          "$value": "{ams.color.text.default}",
+          "$description": "The text colour of the ProgressBar.",
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
+        },
+        "font-size": {
+          "$value": {
+            "value": 0.875,
+            "unit": "rem"
+          },
+          "$type": "dimension",
+          "$description": "The font size of the ProgressBar's text."
+        },
+        "font-family": {
+          "$value": "{ams.typography.font-family}",
+          "$type": "fontFamily",
+          "$description": "The font family of the ProgressBar's text."
+        }
+      },
+      "track": {
+        "background-color": {
+          "$value": "{ams.color.background.default}",
+          "$description": "The background colour of the ProgressBar's track.",
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
+        },
+        "border-color": {
+          "$value": "{ams.color.progress.upcoming}",
+          "$description": "The border colour of the ProgressBar's track.",
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
+        },
+        "border-width": {
+          "$value": {
+            "value": 0.0625,
+            "unit": "rem"
+          },
+          "$type": "dimension",
+          "$description": "The border width of the ProgressBar's track."
+        }
+      },
+      "fill": {
+        "background-color": {
+          "$value": "{ams.color.progress.completed}",
+          "$description": "The colour of the completed part of the ProgressBar.",
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
+        }
+      }
+    }
+  }
+}
