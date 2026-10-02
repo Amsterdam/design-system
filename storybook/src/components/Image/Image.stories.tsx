@@ -66,14 +66,21 @@ export const ContainedImage: Story = {
   },
 }
 
-export const ContainedImageComparison: StoryObj = {
-  render: () => (
+export const ContainedImageComparison: Story = {
+  args: {
+    alt: '',
+    src: 'https://picsum.photos/640/800',
+  },
+  parameters: {
+    controls: { include: ['aspectRatio', 'src'] },
+  },
+  render: ({ aspectRatio, src }) => (
     <Row gap="x-large">
       <Column>
-        <Image alt="" src="https://picsum.photos/640/800" />
+        <Image alt="" aspectRatio={aspectRatio} src={src} />
       </Column>
       <Column>
-        <Image alt="" fit="contain" src="https://picsum.photos/640/800" />
+        <Image alt="" aspectRatio={aspectRatio} fit="contain" src={src} />
       </Column>
     </Row>
   ),
