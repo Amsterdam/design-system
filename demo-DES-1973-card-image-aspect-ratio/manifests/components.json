@@ -9126,7 +9126,7 @@
           "id": "components-navigation-card--default",
           "name": "Default",
           "snippet": "const Default = () => <Card\n    aspectRatio=\"16:9\"\n    category=\"Nieuws\"\n    date={formatDate(Date.now())}\n    heading=\"Nederlands eerste houten woonwijk komt in Zuidoost\"\n    imageSrc=\"https://picsum.photos/800/1200\"\n    text=\"We bouwen een levendige, groene en duurzame woonbuurt tussen de Gooiseweg en het Nelson Mandelapark.\">\n    <Card.Image alt=\"\" aspectRatio={aspectRatio} objectFit={objectFit} src={imageSrc} />\n    <Card.Content>\n        <Card.HeadingGroup>\n            <Card.Heading level={3}>\n                <Card.Link href=\"/\">{heading}</Card.Link>\n            </Card.Heading>\n            {/* The Metadata is written after the heading and displayed above it, so the heading is read first. */}\n            <Metadata size=\"small\">{category}</Metadata>\n        </Card.HeadingGroup>\n        <Column gap=\"small\">\n            <Paragraph>{text}</Paragraph>\n            <Metadata size=\"small\">{date}</Metadata>\n        </Column>\n    </Card.Content>\n</Card>;",
-          "description": "The image is portrait while the shape of the image is 16 by 9, so `objectFit` has something to do here.\nA image that already matches the shape it is given looks the same either way."
+          "description": "The image is portrait while the shape of the image is 16 by 9, so `objectFit` has something to do here.\nAn image that already matches the shape it is given looks the same either way."
         },
         {
           "id": "components-navigation-card--with-metadata",
@@ -12483,6 +12483,6 @@
   },
   "meta": {
     "docgen": "react-component-meta",
-    "durationMs": 4921
+    "durationMs": 5169
   }
 }
