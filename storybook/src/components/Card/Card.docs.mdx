@@ -26,7 +26,11 @@ This component has no props to configure.
 ### Image
 
 The image of the Card.
-It accepts all props of a regular [Image](/docs/components-media-image--docs), such as `aspectRatio` or a set of image sources.
+It accepts all props of a regular [Image](/docs/components-media-image--docs), such as a set of image sources.
+Its `aspectRatio` sets the shape of the image itself.
+A Card defaults that shape to 16 by 9 through a Card-specific token.
+Give every Card in the same set the same value, so they all end up the same size.
+Set `objectFit` to `contain` to keep the full image in view instead of the default cover fit.
 Only use decorative images with `alt=""` here.
 The heading provides screen reader users with enough context.
 
@@ -115,6 +119,14 @@ The example below is vertical in a narrow window.
 
 <Canvas of={CardStories.HorizontalLayout} />
 
+### Fitting the image
+
+An image whose proportions differ from the shape the Card gives its image fills that shape by default, losing whatever falls outside it.
+Set `objectFit` to `contain` to keep all of it in view instead.
+Give the Cards in one set the same treatment, so the set reads as a whole.
+
+<Canvas of={CardStories.ImageFit} />
+
 ### Top tasks
 
 A set of cards without images can present links to frequently accessed interactions.
@@ -148,6 +160,11 @@ Writing it before the heading undoes both.
 
 Whether a Card is horizontal follows the width of its container rather than the width of the window.
 The same Card is one row in a list of results and one card in a row of three, and which of the two it should be depends on the space it is given, not on the size of the screen.
+
+A Card gives its image a default aspect ratio of 16 by 9 through a Card-specific token.
+That default keeps a row of Cards visually consistent without extra configuration.
+The image fills and crops to that shape by default, so cards in one set keep the same visual rhythm.
+Use `objectFit="contain"` when keeping all of the image in view is the intended visual choice.
 
 The image of a horizontal Card measures 4 of the 9 columns it spans, which is the width of a vertical Card beside it, and it keeps its aspect ratio rather than stretching to the height of the text beside it.
 Both choices exist so that the image is the same size in either direction: an index page that opens with a row of vertical Cards above a list of horizontal ones then has one left edge and one image width running down it.
