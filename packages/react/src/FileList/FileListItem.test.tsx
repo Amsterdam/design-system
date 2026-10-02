@@ -5,12 +5,17 @@
 
 import { fireEvent, render, screen } from '@testing-library/react'
 import { createRef } from 'react'
-import { describe, expect, it, vi } from 'vitest'
+import { afterEach, describe, expect, it, vi } from 'vitest'
 
 import { FileListItem } from './FileListItem'
 
 describe('FileListItem', () => {
   const file = new File(['sample content'], 'sample.txt', { type: 'text/plain' })
+
+  afterEach(() => {
+    vi.restoreAllMocks()
+  })
+
   it('renders', () => {
     render(<FileListItem file={file} />)
 
@@ -46,14 +51,19 @@ describe('FileListItem', () => {
     expect(ref.current).toBe(component)
   })
 
-  it('renders the file name', () => {
-    render(<FileListItem file={file} />)
+  it('renders the file name and details', () => {
+    const { container } = render(<FileListItem file={file} />)
 
+    expect(container.querySelector('.ams-file-list__item-preview')).toBeInTheDocument()
+    expect(container.querySelector('.ams-file-list__item-info')).toBeInTheDocument()
+    expect(container.querySelector('.ams-file-input__item-details')).toBeInTheDocument()
     expect(screen.getByText('sample.txt')).toBeInTheDocument()
+    expect(screen.getByText('(txt, 14 bytes)')).toBeInTheDocument()
   })
 
   it('calls onDelete when the remove button is clicked', () => {
     const onDelete = vi.fn()
+
     render(<FileListItem file={file} onDelete={onDelete} />)
 
     fireEvent.click(screen.getByRole('button'))
@@ -61,21 +71,88 @@ describe('FileListItem', () => {
     expect(onDelete).toHaveBeenCalledTimes(1)
   })
 
+  it('names the delete button after the file it removes, without displaying that name twice', () => {
+    render(<FileListItem file={file} onDelete={() => {}} />)
+
+    const button = screen.getByRole('button', { name: 'Verwijder sample.txt' })
+
+    expect(button).toHaveTextContent('Verwijder sample.txt')
+    expect(button.querySelector('.ams-visually-hidden')).toHaveTextContent('sample.txt')
+  })
+
   it('renders an image preview for image files', () => {
+    vi.spyOn(URL, 'createObjectURL').mockReturnValue('blob:test')
+
+    const imageFile = new File(['image content'], 'photo.png', { type: 'image/png' })
+
+    render(<FileListItem file={imageFile} />)
+
+    expect(screen.getByAltText('')).toHaveAttribute('src', 'blob:test')
+  })
+
+  it('releases the preview URL when the item unmounts', () => {
+    vi.spyOn(URL, 'createObjectURL').mockReturnValue('blob:test')
+
+    const revokeObjectURL = vi.spyOn(URL, 'revokeObjectURL').mockImplementation(() => {})
+    const imageFile = new File(['image content'], 'photo.png', { type: 'image/png' })
+    const { unmount } = render(<FileListItem file={imageFile} />)
+
+    unmount()
+
+    expect(revokeObjectURL).toHaveBeenCalledWith('blob:test')
+  })
+
+  it('releases the old preview URL and creates a new one when the file changes', () => {
+    const createObjectURL = vi
+      .spyOn(URL, 'createObjectURL')
+      .mockReturnValueOnce('blob:first')
+      .mockReturnValueOnce('blob:second')
+
+    const revokeObjectURL = vi.spyOn(URL, 'revokeObjectURL').mockImplementation(() => {})
+    const firstImageFile = new File(['first image'], 'first.png', { type: 'image/png' })
+    const secondImageFile = new File(['second image'], 'second.png', { type: 'image/png' })
+    const { rerender } = render(<FileListItem file={firstImageFile} />)
+
+    rerender(<FileListItem file={secondImageFile} />)
+
+    expect(createObjectURL).toHaveBeenCalledTimes(2)
+    expect(revokeObjectURL).toHaveBeenCalledWith('blob:first')
+    expect(screen.getByAltText('')).toHaveAttribute('src', 'blob:second')
+  })
+
+  it('creates no preview URL for a non-image file and shows the document icon', () => {
     const createObjectURL = vi.spyOn(URL, 'createObjectURL').mockReturnValue('blob:test')
+    const revokeObjectURL = vi.spyOn(URL, 'revokeObjectURL').mockImplementation(() => {})
+    const { container } = render(<FileListItem file={file} />)
 
-    try {
-      const imageFile = new File(['image content'], 'photo.png', { type: 'image/png' })
+    expect(createObjectURL).not.toHaveBeenCalled()
+    expect(revokeObjectURL).not.toHaveBeenCalled()
+    expect(screen.queryByAltText('')).not.toBeInTheDocument()
+    expect(container.querySelector('.ams-file-list__item-preview svg')).toBeInTheDocument()
+  })
 
-      render(<FileListItem file={imageFile} />)
+  it('moves focus to the next file when the focused delete button leaves the list', () => {
+    const firstFile = new File(['first'], 'first.txt', { type: 'text/plain' })
+    const secondFile = new File(['second'], 'second.txt', { type: 'text/plain' })
+    const thirdFile = new File(['third'], 'third.txt', { type: 'text/plain' })
+    const onDelete = vi.fn()
+    const getList = (files: File[]) => (
+      <ul>
+        {files.map((item) => (
+          <FileListItem file={item} key={item.name} onDelete={() => onDelete(item.name)} />
+        ))}
+      </ul>
+    )
+    const { rerender } = render(getList([firstFile, secondFile, thirdFile]))
 
-      const component = screen.getByRole('img', { name: 'photo.png' })
+    const button = screen.getByRole('button', { name: 'Verwijder second.txt' })
 
-      expect(component).toBeInTheDocument()
-      expect(component).toHaveAttribute('src', 'blob:test')
-    } finally {
-      createObjectURL.mockRestore()
-    }
+    button.focus()
+    fireEvent.click(button)
+    rerender(getList([firstFile, thirdFile]))
+
+    expect(onDelete).toHaveBeenCalledWith('second.txt')
+    expect(screen.getByRole('button', { name: 'Verwijder third.txt' })).toHaveFocus()
   })
 
   it('passes additional props', () => {
