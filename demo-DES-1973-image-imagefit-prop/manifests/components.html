@@ -620,13 +620,13 @@
 <header>
   <div class="wrap">
     <h1>Manifest Debugger</h1>
-    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">15/90 API errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">15/90 infos</a><a class="filter-pill" data-k="no-api" href="#filter-no-api">17/90 without API description</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">1/310 story errors</a><a class="filter-pill info" data-k="story-warnings" href="#filter-story-warnings">44/310 incomplete snippets</a><a class="filter-pill ok" data-k="docs" href="#filter-docs">127 docs ok</a></div>
+    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">15/90 API errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">15/90 infos</a><a class="filter-pill" data-k="no-api" href="#filter-no-api">17/90 without API description</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">1/309 story errors</a><a class="filter-pill info" data-k="story-warnings" href="#filter-story-warnings">44/309 incomplete snippets</a><a class="filter-pill ok" data-k="docs" href="#filter-docs">127 docs ok</a></div>
   </div>
 </header>
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>5.3s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>4.3s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -4827,7 +4827,6 @@ aspectRatio?: &quot;9:16&quot; | &quot;3:4&quot; | &quot;1:1&quot; | &quot;4:3&q
 
 /**
  * Keeps the whole image visible inside its box.
- * Has no effect if the image file and the component have the same aspect ratio.
  */
 fit?: &quot;contain&quot;</code></pre>
     </div>
@@ -14672,7 +14671,7 @@ Its `type` defaults to `button` rather than `submit`, so it never submits a form
       <div class="badges">
         <label for="c-38-components-media-image-props" class="badge ok as-toggle">3 prop types</label>
         
-        <label for="c-38-components-media-image-stories" class="badge ok as-toggle">5 stories</label>
+        <label for="c-38-components-media-image-stories" class="badge ok as-toggle">4 stories</label>
         <label for="c-38-components-media-image-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
@@ -14715,7 +14714,6 @@ aspectRatio?: &quot;9:16&quot; | &quot;3:4&quot; | &quot;1:1&quot; | &quot;4:3&q
 
 /**
  * Keeps the whole image visible inside its box.
- * Has no effect if the image file and the component have the same aspect ratio.
  */
 fit?: &quot;contain&quot;</code></pre>
           </div>
@@ -14729,7 +14727,7 @@ fit?: &quot;contain&quot;</code></pre>
                 <div class="row">
                   <span class="ex-name">Imports</span>
                 </div>
-                <pre><code>import { Column, Image, Row } from '@amsterdam/design-system-react/src';</code></pre>
+                <pre><code>import { Grid, Image } from '@amsterdam/design-system-react/src';</code></pre>
               </div>
           
           
@@ -14739,7 +14737,7 @@ fit?: &quot;contain&quot;</code></pre>
                 <span class="badge ok">story ok</span>
               </div>
               
-              
+              <div class="hint">A source that already matches the shape of its box uses the default cover fit as intended.</div>
               <pre><code>const Default = () =&gt; &lt;Image alt=&quot;&quot; src=&quot;https://picsum.photos/640/360&quot; /&gt;;</code></pre>
               
             </div>
@@ -14759,30 +14757,20 @@ fit?: &quot;contain&quot;</code></pre>
             </div>
             <div class="note ok">
               <div class="row">
-                <span class="ex-name">Contained Image</span>
+                <span class="ex-name">Fitted Images</span>
                 <span class="badge ok">story ok</span>
               </div>
               
               
-              <pre><code>const ContainedImage = () =&gt; &lt;Image alt=&quot;&quot; fit=&quot;contain&quot; src=&quot;https://picsum.photos/640/800&quot; /&gt;;</code></pre>
-              
-            </div>
-            <div class="note ok">
-              <div class="row">
-                <span class="ex-name">Contained Image Comparison</span>
-                <span class="badge ok">story ok</span>
-              </div>
-              
-              
-              <pre><code>const ContainedImageComparison = ({ aspectRatio, src }) =&gt; (
-  &lt;Row gap=&quot;x-large&quot;&gt;
-    &lt;Column&gt;
-      &lt;Image alt=&quot;&quot; aspectRatio={aspectRatio} src={src} /&gt;
-    &lt;/Column&gt;
-    &lt;Column&gt;
-      &lt;Image alt=&quot;&quot; aspectRatio={aspectRatio} fit=&quot;contain&quot; src={src} /&gt;
-    &lt;/Column&gt;
-  &lt;/Row&gt;
+              <pre><code>const FittedImages = () =&gt; (
+  &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}&gt;
+      &lt;Image alt=&quot;&quot; src=&quot;https://picsum.photos/640/800&quot; /&gt;
+    &lt;/Grid.Cell&gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}&gt;
+      &lt;Image alt=&quot;&quot; fit=&quot;contain&quot; src=&quot;https://picsum.photos/640/800&quot; /&gt;
+    &lt;/Grid.Cell&gt;
+  &lt;/Grid&gt;
 );</code></pre>
               
             </div>
@@ -14836,10 +14824,8 @@ Use `alt=&quot;&quot;` for decorative images – images that add little to the n
 Non-decorative images need a text description.
 
 Leaving out `aspectRatio` falls back to the default ratio; no value preserves the proportions of the source file.
-
 Leave `fit` unset to keep the default of `cover` unless important objects in the image disappear or the cropping does not look right.
 Setting `fit` to `contain` keeps the whole image in view at the cost of empty space beside or above it.
-
 Do not set `loading=&quot;lazy&quot;` on an image in the first screenful of the page: there it delays the largest image in the viewport.
 
 ### How to write
@@ -14864,14 +14850,9 @@ Don’t forget to still include the required `src` attribute.
 
 ### Contained image
 
-Setting `fit` to `contain` ensures that the entire image is visible within its container, even if it means leaving empty space around it.
-This is useful when you want to avoid cropping important parts of the image.
+Setting `fit` to `contain` ensures that the entire image is visible within its container, even if it means leaving empty space around it. This is useful when you want to avoid cropping important parts of the image.
 
-&lt;Canvas of={ImageStories.ContainedImage} /&gt;
-
-Side by side, the default crops the same image to fill the box.
-
-&lt;Canvas of={ImageStories.ContainedImageComparison} /&gt;
+&lt;Canvas of={ImageStories.FittedImages} /&gt;
 
 ### Lazy loading
 
