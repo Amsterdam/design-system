@@ -6,6 +6,9 @@
 @use "../../common/hyphenation" as *;
 @use "../../common/text-rendering" as *;
 
+/* @deprecated Use the `ams-form-field-status` class names instead.
+ * These class names will be removed on or after 2027-03-01. */
+
 .ams-character-count {
   color: var(--ams-character-count-color);
   font-family: var(--ams-character-count-font-family);
