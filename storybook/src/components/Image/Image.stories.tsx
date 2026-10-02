@@ -5,7 +5,7 @@
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-import { Grid, Image } from '@amsterdam/design-system-react/src'
+import { Column, Image, Row } from '@amsterdam/design-system-react/src'
 import { aspectRatioOptions } from '@amsterdam/design-system-react/src/common/types'
 
 import { maximiseInlineSize } from '#storybook/_common/decorators'
@@ -67,18 +67,15 @@ export const ContainedImage: Story = {
 }
 
 export const ContainedImageComparison: StoryObj = {
-  parameters: {
-    layout: 'fullscreen',
-  },
   render: () => (
-    <Grid paddingVertical="x-large">
-      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
+    <Row gap="x-large">
+      <Column>
         <Image alt="" src="https://picsum.photos/640/800" />
-      </Grid.Cell>
-      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
+      </Column>
+      <Column>
         <Image alt="" fit="contain" src="https://picsum.photos/640/800" />
-      </Grid.Cell>
-    </Grid>
+      </Column>
+    </Row>
   ),
 }
 
