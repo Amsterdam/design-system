@@ -43,7 +43,7 @@ type Story = StoryObj<typeof meta>
 
 /**
  * The image is portrait while its shape is 16 by 9, so `objectFit` has something to do here.
- * A image that already matches the shape it is given looks the same either way.
+ * An image that already matches the shape it is given looks the same either way.
  */
 export const Image: Story = {
   args: {
