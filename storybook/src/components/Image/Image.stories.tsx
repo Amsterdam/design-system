@@ -58,7 +58,15 @@ export const ResponsiveImages: Story = {
   },
 }
 
-export const FittedImages: StoryObj = {
+export const ContainedImage: Story = {
+  args: {
+    alt: '',
+    fit: 'contain',
+    src: 'https://picsum.photos/640/800',
+  },
+}
+
+export const ContainedImageComparison: StoryObj = {
   parameters: {
     layout: 'fullscreen',
   },

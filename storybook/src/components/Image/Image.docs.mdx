@@ -57,7 +57,11 @@ Don’t forget to still include the required `src` attribute.
 Setting `fit` to `contain` ensures that the entire image is visible within its container, even if it means leaving empty space around it.
 This is useful when you want to avoid cropping important parts of the image.
 
-<Canvas of={ImageStories.FittedImages} />
+<Canvas of={ImageStories.ContainedImage} />
+
+Side by side, the default crops the same image to fill the box.
+
+<Canvas of={ImageStories.ContainedImageComparison} />
 
 ### Lazy loading
 
