@@ -60,18 +60,6 @@ export const ResponsiveImages: Story = {
 
 export const FittedImages: StoryObj = {
   parameters: {
-    docs: {
-      source: {
-        code: `<Grid paddingVertical="x-large">
-  <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-    <Image alt="" src="https://picsum.photos/640/800" />
-  </Grid.Cell>
-  <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-    <Image alt="" fit="contain" src="https://picsum.photos/640/800" />
-  </Grid.Cell>
-</Grid>`,
-      },
-    },
     layout: 'fullscreen',
   },
   render: () => (
