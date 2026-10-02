@@ -22,6 +22,7 @@ import * as MenuLinkStories from "./MenuLink.stories.tsx";
 
 **Note**: This component is responsive.
 The appearance of the examples depends on the width of your screen.
+In a wide window, the layout of the links also depends on the width of the Menu itself.
 On the page for the Story, you can change the size of the preview with the related button in the toolbar.
 
 <Primary />
@@ -55,6 +56,12 @@ They should offer navigation using the Page Header only.
 
 Do not use this component anywhere other than the Page Header and the side of the Page.
 
+### How to use
+
+Set `collapsible` on the wide-window instance when users need room for a second level of navigation.
+It adds a button that widens the Menu, which gives the links the horizontal layout again.
+Start the Menu out wide with `defaultExpanded`, or pass `expanded` together with `onToggle` when the parent should own the state.
+
 ### How to write
 
 Use filled icons for the links.
@@ -62,6 +69,18 @@ Use filled icons for the links.
 ## Examples
 
 See the [Internal Home Page](/story/pages-internal-home-page--default) template for a full-page example.
+
+### Collapsible
+
+A Menu that users can widen themselves.
+
+<Canvas of={MenuStories.Collapsible} />
+
+### Expanded
+
+The same Menu, wide from the start.
+
+<Canvas of={MenuStories.CollapsibleExpanded} />
 
 ## Design
 
@@ -71,9 +90,14 @@ Links have a white icon and a label.
 In a narrow window, the menu occupies the full width.
 The icon and label of the link sit next to each other.
 
-In a wide window, the menu has a maximum width of 8rem.
+In a wide window, the menu is 8rem wide.
 It adds whitespace at the top to align with the baseline of Page Header.
 The icon is larger and positioned above the label.
+
+When `collapsible` is enabled, the wide Menu shows an icon-only button at the top end.
+Its default state keeps the narrow column and the vertical link layout.
+Expanded, the Menu is 12rem wide and the links return to the horizontal layout, with the label next to the icon.
+The links follow the width of the Menu rather than that of the window, so an application that gives the Menu another width gets the layout that fits it.
 
 In narrow and medium windows the Menu reaches both edges of the window by cancelling the horizontal padding of the Page Header with a negative margin of the same size.
 That ties the component to the one context it is used in, which is accepted here: it is the only way for a band of colour to span the window while the links stay aligned with the content around them.
@@ -86,6 +110,8 @@ In the wide layout the links do stretch, since the column is barely wider than t
 
 Without `inWideWindow` the Menu renders a `div`, because it then sits inside the `nav` element of the [Page Header](/docs/components-containers-page-header--docs).
 With the prop it renders a `nav` of its own, named by a visually hidden heading that `accessibleName` fills.
+With `collapsible`, the icon-only button is named through `expandButtonLabel` and `collapseButtonLabel`.
+Its accessible name changes with the action, because the button widens and narrows the Menu rather than exposing hidden content.
 
 That name defaults to ‘Hoofdmenu’, and so does the `navigationLabel` of the Page Header.
 A wide window shows both navigations, so give one of the two another name.

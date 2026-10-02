@@ -68,7 +68,10 @@
             "value": 8,
             "unit": "rem"
           },
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "nl.amsterdam.hint": "Must be a single value: it sets a longhand property, which takes only one."
+          }
         },
         "padding-block": {
           "$deprecated": "Use `ams.menu.vi-wide.padding-block-start` and `ams.menu.vi-wide.padding-block-end` instead. Will be removed on or after 2027-02-25.",
@@ -97,6 +100,18 @@
           "$extensions": {
             "nl.amsterdam.subtype": "space",
             "nl.amsterdam.type": "dimension"
+          }
+        },
+        "expanded": {
+          "inline-size": {
+            "$value": {
+              "value": 12,
+              "unit": "rem"
+            },
+            "$type": "dimension",
+            "$extensions": {
+              "nl.amsterdam.hint": "Must be a single value: it sets a longhand property, which takes only one."
+            }
           }
         }
       },

@@ -3,8 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-import type { ReactElement } from 'react'
+import type { Decorator, Meta, StoryObj } from '@storybook/react-vite'
 
 import {
   BarChartFillIcon,
@@ -48,10 +47,13 @@ const menuItems = [
   },
 ]
 
-const withInWideWindowArg = (StoryFn: () => ReactElement) => {
+const withInWideWindowArg: Decorator = (StoryFn, context) => {
   const [, updateArgs] = useArgs()
+  const isFixed = Boolean(context.parameters['fixedInWideWindow'])
 
   useEffect(() => {
+    if (isFixed) return undefined
+
     if (typeof window === 'undefined' || !window.matchMedia) return undefined
 
     const mq = window.matchMedia(`(min-width: ${BREAKPOINTS.wide})`)
@@ -64,7 +66,7 @@ const withInWideWindowArg = (StoryFn: () => ReactElement) => {
     mq.addEventListener('change', onChange)
 
     return () => mq.removeEventListener('change', onChange)
-  }, [updateArgs])
+  }, [isFixed, updateArgs])
 
   return <StoryFn />
 }
@@ -102,5 +104,20 @@ export const Default: Story = {
         {text}
       </Menu.Link>
     )),
+  },
+}
+
+export const Collapsible: Story = {
+  args: {
+    children: Default.args?.children,
+    collapsible: true,
+  },
+}
+
+export const CollapsibleExpanded: Story = {
+  args: {
+    children: Default.args?.children,
+    collapsible: true,
+    defaultExpanded: true,
   },
 }
