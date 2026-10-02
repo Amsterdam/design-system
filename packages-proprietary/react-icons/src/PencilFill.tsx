@@ -5,4 +5,9 @@ const SvgPencilFill = (props: SVGProps<SVGSVGElement>) => (
     <path d="M19.77 3.43a3.265 3.265 0 0 0-4.565 0l-.904.89 4.565 4.493.904-.89a3.14 3.14 0 0 0 0-4.493M3.651 14.802l9.19-9.044 4.565 4.493-8.815 8.675L2 20.919zM11.187 21.5H21v-2.033h-9.813z" />
   </svg>
 )
+
+/**
+ * @deprecated The ‘PencilFill’ icon will be removed on or after 2027-04-02.
+ * Use ‘EditFill’ instead.
+ */
 export default SvgPencilFill
