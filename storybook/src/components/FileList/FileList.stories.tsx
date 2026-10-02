@@ -7,8 +7,6 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { FileList } from '@amsterdam/design-system-react/src'
 
-import { FileInputWithFileList } from './FileInputWithFileList'
-
 const meta = {
   title: 'Components/Forms/File List',
   component: FileList,
@@ -36,15 +34,3 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
-
-export const WithInput: Story = {
-  parameters: {
-    docs: {
-      canvas: {
-        sourceState: 'none',
-      },
-      codePanel: false,
-    },
-  },
-  render: () => <FileInputWithFileList />,
-}

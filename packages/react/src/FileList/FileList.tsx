@@ -6,25 +6,34 @@
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 
 import { clsx } from 'clsx'
-import { forwardRef } from 'react'
+import { forwardRef, useEffect } from 'react'
 
 import { FileListItem } from './FileListItem'
 
 export type FileListProps = PropsWithChildren<HTMLAttributes<HTMLUListElement>>
 
 export const FileListRoot = forwardRef(
-  ({ children, className, ...restProps }: FileListProps, ref: ForwardedRef<HTMLUListElement>) => (
-    <ul {...restProps} className={clsx('ams-file-list', className)} ref={ref}>
-      {children}
-    </ul>
-  ),
+  ({ children, className, ...restProps }: FileListProps, ref: ForwardedRef<HTMLUListElement>) => {
+    useEffect(() => {
+      console.warn(
+        '@deprecated File List has been replaced. Wrap File Cards in an Unordered List without markers instead.',
+      )
+    }, [])
+
+    return (
+      <ul {...restProps} className={clsx('ams-file-list', className)} ref={ref}>
+        {children}
+      </ul>
+    )
+  },
 )
 
 FileListRoot.displayName = 'FileList'
 
 /**
- * An overview of files, showing their name, type, size, and a preview.
+ * Groups files in a list, so assistive technology can announce how many there are.
  *
+ * @deprecated Wrap File Cards in an Unordered List without markers instead. Will be removed on or after 2027-04-01.
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-file-list--docs File List docs at Amsterdam Design System}
  */
 export const FileList = Object.assign(FileListRoot, {

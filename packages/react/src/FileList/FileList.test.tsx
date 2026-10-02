@@ -5,11 +5,21 @@
 
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
-import { describe, expect, it } from 'vitest'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 import { FileList } from './FileList'
 
 describe('FileList', () => {
+  let warn: ReturnType<typeof vi.spyOn>
+
+  beforeEach(() => {
+    warn = vi.spyOn(console, 'warn').mockImplementation(() => {})
+  })
+
+  afterEach(() => {
+    warn.mockRestore()
+  })
+
   it('renders', () => {
     render(<FileList />)
 
@@ -53,5 +63,24 @@ describe('FileList', () => {
     expect(component).toHaveAttribute('aria-hidden', 'false')
     expect(component).toHaveAttribute('id', 'id')
     expect(component).toHaveAttribute('data-test', 'data-test')
+  })
+
+  it('warns that File List has been replaced', () => {
+    render(<FileList />)
+
+    expect(warn).toHaveBeenCalledTimes(1)
+    expect(warn).toHaveBeenCalledWith(expect.stringContaining('@deprecated'))
+    expect(warn).toHaveBeenCalledWith(
+      expect.stringContaining('Wrap File Cards in an Unordered List without markers instead.'),
+    )
+  })
+
+  it('does not warn again on rerender', () => {
+    const { rerender } = render(<FileList />)
+
+    warn.mockClear()
+    rerender(<FileList className="extra" />)
+
+    expect(warn).not.toHaveBeenCalled()
   })
 })

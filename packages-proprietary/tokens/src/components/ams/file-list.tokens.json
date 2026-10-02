@@ -2,6 +2,7 @@
   "ams": {
     "file-list": {
       "gap": {
+        "$deprecated": "File List has been deprecated. Use File Card and Unordered List instead. Will be removed on or after 2027-04-01.",
         "$value": "{ams.space.m}",
         "$extensions": {
           "nl.amsterdam.subtype": "space",
@@ -9,6 +10,7 @@
         }
       },
       "padding-block": {
+        "$deprecated": "File List has been deprecated. Use File Card and Unordered List instead. Will be removed on or after 2027-04-01.",
         "$value": "{ams.space.m}",
         "$extensions": {
           "nl.amsterdam.subtype": "space",
@@ -17,24 +19,28 @@
       },
       "file": {
         "font-family": {
+          "$deprecated": "File List has been deprecated. Use File Card and Unordered List instead. Will be removed on or after 2027-04-01.",
           "$value": "{ams.typography.font-family}",
           "$extensions": {
             "nl.amsterdam.type": "fontFamily"
           }
         },
         "font-size": {
+          "$deprecated": "File List has been deprecated. Use File Card and Unordered List instead. Will be removed on or after 2027-04-01.",
           "$value": "{ams.typography.body-text.small.font-size}",
           "$extensions": {
             "nl.amsterdam.type": "fontSize"
           }
         },
         "font-weight": {
+          "$deprecated": "File List has been deprecated. Use File Card and Unordered List instead. Will be removed on or after 2027-04-01.",
           "$value": "{ams.typography.body-text.font-weight}",
           "$extensions": {
             "nl.amsterdam.type": "fontWeight"
           }
         },
         "gap": {
+          "$deprecated": "File List has been deprecated. Use File Card and Unordered List instead. Will be removed on or after 2027-04-01.",
           "$value": "{ams.space.s}",
           "$extensions": {
             "nl.amsterdam.subtype": "space",
@@ -42,6 +48,7 @@
           }
         },
         "line-height": {
+          "$deprecated": "File List has been deprecated. Use File Card and Unordered List instead. Will be removed on or after 2027-04-01.",
           "$value": "{ams.typography.body-text.small.line-height}",
           "$extensions": {
             "nl.amsterdam.subtype": "lineHeight",
@@ -50,6 +57,7 @@
         },
         "details": {
           "color": {
+            "$deprecated": "File List has been deprecated. Use File Card and Unordered List instead. Will be removed on or after 2027-04-01.",
             "$value": "{ams.color.text.secondary}",
             "$extensions": {
               "nl.amsterdam.type": "color"
@@ -58,6 +66,7 @@
         },
         "preview": {
           "width": {
+            "$deprecated": "File List has been deprecated. Use File Card and Unordered List instead. Will be removed on or after 2027-04-01.",
             "$value": "clamp(2.5rem, 10vw, 5rem)",
             "$extensions": {
               "nl.amsterdam.type": "dimension"
