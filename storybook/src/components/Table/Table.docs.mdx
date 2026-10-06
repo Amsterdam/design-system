@@ -8,6 +8,7 @@ import tokens from "#tokens/components/ams/table.tokens.json";
 import * as TableStories from "./Table.stories.tsx";
 import * as TableCellStories from "./TableCell.stories.tsx";
 import * as TableHeaderCellStories from "./TableHeaderCell.stories.tsx";
+import * as TableSortableHeaderCellStories from "./TableSortableHeaderCell.stories.tsx";
 
 <Meta of={TableStories} />
 
@@ -21,7 +22,7 @@ This component has no props to configure.
 
 ## Subcomponents
 
-A Table is composed of a Caption, a Header containing Header Cells, a Body, an optional Footer, and Rows of Cells.
+A Table is composed of a Caption, a Header containing Header Cells or Sortable Header Cells, a Body, an optional Footer, and Rows of Cells.
 Caption, Header, Body, Footer, and Row have no props of their own; the example above shows each of them in place.
 
 ### Cell
@@ -42,6 +43,20 @@ Use the `align` prop to match the alignment of the column’s cells.
 <Canvas of={TableHeaderCellStories.HeaderCell} />
 
 <Controls of={TableHeaderCellStories.HeaderCell} />
+
+### Sortable Header Cell
+
+Labels a column and links to the table sorted by it.
+Use a link rather than a button, so the sort order lives in the URL and the table can be bookmarked and shared.
+
+Pass the direction the column is sorted in now to `sortDirection`, and the URL for the direction the link applies to `href`.
+The column the table is sorted by is underlined; the chevron of the other columns recedes.
+
+See [Table Page](/docs/pages-internal-table-page--docs) for the full pattern, including how to derive each `href`.
+
+<Canvas of={TableSortableHeaderCellStories.SortableHeaderCell} />
+
+<Controls of={TableSortableHeaderCellStories.SortableHeaderCell} />
 
 ## Usage guidelines
 
