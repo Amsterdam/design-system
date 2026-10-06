@@ -8,9 +8,9 @@ import type { FieldsetHTMLAttributes, ForwardedRef, PropsWithChildren } from 're
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
 
-import type { HintProps } from '../Hint'
+import type { HintProps } from '../Hint/Hint'
 
-import { Hint } from '../Hint'
+import { Hint } from '../Hint/Hint'
 
 export type FieldSetProps = {
   /**

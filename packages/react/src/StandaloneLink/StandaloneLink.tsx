@@ -9,9 +9,9 @@ import { ChevronForwardIcon } from '@amsterdam/design-system-react-icons'
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
 
-import type { IconProps } from '../Icon'
+import type { IconProps } from '../Icon/Icon'
 
-import { Icon } from '../Icon'
+import { Icon } from '../Icon/Icon'
 
 export type StandaloneLinkProps = {
   /** Changes the text colour for readability on a light or dark background. */

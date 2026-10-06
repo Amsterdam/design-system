@@ -9,10 +9,10 @@ import { DocumentIcon } from '@amsterdam/design-system-react-icons'
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
 
-import { Button } from '../Button'
+import { Button } from '../Button/Button'
 import { formatFileSize } from '../common/formatFileSize'
 import { formatFileType } from '../common/formatFileType'
-import { Icon } from '../Icon'
+import { Icon } from '../Icon/Icon'
 
 export type FileListItemProps = {
   /** The file to display. Shows its name, type, and size, and a thumbnail for images. */

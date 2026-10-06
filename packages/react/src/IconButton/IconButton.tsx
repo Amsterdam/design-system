@@ -9,9 +9,9 @@ import { CloseIcon } from '@amsterdam/design-system-react-icons'
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
 
-import type { IconProps } from '../Icon'
+import type { IconProps } from '../Icon/Icon'
 
-import { Icon } from '../Icon'
+import { Icon } from '../Icon/Icon'
 
 export const iconButtonColors = ['contrast', 'inverse'] as const
 export type IconButtonColor = (typeof iconButtonColors)[number]

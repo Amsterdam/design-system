@@ -9,7 +9,7 @@ import { ChevronBackwardIcon, ChevronForwardIcon } from '@amsterdam/design-syste
 import { clsx } from 'clsx'
 import { forwardRef, useId } from 'react'
 
-import { Icon } from '../Icon'
+import { Icon } from '../Icon/Icon'
 import { Ellipsis } from './Ellipsis'
 import { getRange } from './getRange'
 import { LinkItem } from './LinkItem'

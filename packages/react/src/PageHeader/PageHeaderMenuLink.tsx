@@ -8,9 +8,9 @@ import type { AnchorHTMLAttributes, ElementType, ForwardedRef, PropsWithChildren
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
 
-import type { IconProps } from '../Icon'
+import type { IconProps } from '../Icon/Icon'
 
-import { Icon } from '../Icon'
+import { Icon } from '../Icon/Icon'
 
 export type PageHeaderMenuLinkProps = {
   /** Whether the link appears in the Page Header on narrow windows. */

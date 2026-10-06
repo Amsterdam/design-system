@@ -7,7 +7,7 @@ import type { ForwardedRef, HTMLAttributes } from 'react'
 
 import { forwardRef, useState } from 'react'
 
-import type { HeadingProps } from '../Heading'
+import type { HeadingProps } from '../Heading/Heading'
 
 import { InvalidFormAlertWithErrors } from './InvalidFormAlertWithErrors'
 import { useAddErrorCountToDocumentTitle } from './useAddErrorCountToDocumentTitle'
