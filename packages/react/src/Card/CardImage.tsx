@@ -12,13 +12,17 @@ import type { ImageProps } from '../Image'
 
 import { Image } from '../Image'
 
+export type CardImageProps = ImageProps
+
 /**
  * The image associated with a Card.
  *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-navigation-card--docs Card docs at Amsterdam Design System}
  */
-export const CardImage = forwardRef(({ className, ...restProps }: ImageProps, ref: ForwardedRef<HTMLImageElement>) => (
-  <Image {...restProps} className={clsx('ams-card__image', className)} ref={ref} />
-))
+export const CardImage = forwardRef(
+  ({ className, ...restProps }: CardImageProps, ref: ForwardedRef<HTMLImageElement>) => (
+    <Image {...restProps} className={clsx('ams-card__image', className)} ref={ref} />
+  ),
+)
 
 CardImage.displayName = 'Card.Image'
