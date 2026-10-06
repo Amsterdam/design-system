@@ -19,6 +19,7 @@ import {
 import { PencilIcon, TrashBinIcon } from '@amsterdam/design-system-react-icons'
 import { DataList } from '@amsterdam/design-system-react/src'
 import { dataListOrientations, dataListTermsWidths } from '@amsterdam/design-system-react/src/DataList/DataList'
+import { Fragment } from 'react'
 
 import { wrapInInlineSizeQueryContainer } from '#storybook/_common/decorators'
 
@@ -149,10 +150,9 @@ export const CompositeValue: Story = {
       <DataList.Item key={1}>
         <DataList.Label>Adres</DataList.Label>
         <DataList.Value>
-          <Column gap="small">
-            <span>Amstel 1</span>
-            <span>1011 PN Amsterdam</span>
-          </Column>
+          Amstel 1
+          <br />
+          1011 PN Amsterdam
         </DataList.Value>
       </DataList.Item>,
       <DataList.Item key={2}>
@@ -239,11 +239,12 @@ export const FormReview: Story = {
               <DataList.Item>
                 <DataList.Label>Adres</DataList.Label>
                 <DataList.Value>
-                  <Column gap="small">
-                    {address.map((line) => (
-                      <span key={line}>{line}</span>
-                    ))}
-                  </Column>
+                  {address.map((line, index) => (
+                    <Fragment key={line}>
+                      {index > 0 && <br />}
+                      {line}
+                    </Fragment>
+                  ))}
                 </DataList.Value>
                 <DataList.Actions>
                   <StandaloneLink href="#" icon={PencilIcon}>
