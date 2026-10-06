@@ -57,12 +57,12 @@ export const FormFieldStatusCharacterCount = forwardRef(
 
     return (
       <div {...restProps} className={clsx('ams-form-field-status__character-count', className)} ref={ref}>
-        <span>{formatText(length, maxLength)}</span>
+        <div>{formatText(length, maxLength)}</div>
         {charactersOverLimit > 0 && (
-          <span className="ams-form-field-status__error">
+          <div className="ams-form-field-status__error">
             <Icon size="small" svg={WarningIcon} />
             {formatOverLimitText(charactersOverLimit)}
-          </span>
+          </div>
         )}
       </div>
     )
