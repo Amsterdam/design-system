@@ -7,7 +7,6 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Card } from '@amsterdam/design-system-react/src'
 import { aspectRatioOptions } from '@amsterdam/design-system-react/src/common/types'
-import { fitOptions } from '@amsterdam/design-system-react/src/Image/Image'
 
 import { maximiseInlineSize } from '#storybook/_common/decorators'
 
@@ -23,8 +22,11 @@ const meta = {
       options: [undefined, ...aspectRatioOptions],
     },
     fit: {
-      control: { type: 'radio' },
-      options: fitOptions,
+      control: {
+        labels: { undefined: 'default (cover)' },
+        type: 'radio',
+      },
+      options: [undefined, 'contain'],
     },
   },
   decorators: [

@@ -9,7 +9,6 @@ import type { ComponentProps } from 'react'
 import { Column, Grid, Paragraph } from '@amsterdam/design-system-react'
 import { Card, Metadata } from '@amsterdam/design-system-react/src'
 import { aspectRatioOptions } from '@amsterdam/design-system-react/src/common/types'
-import { fitOptions } from '@amsterdam/design-system-react/src/Image/Image'
 
 import { maximiseInlineSize, wrapInInlineSizeQueryContainer } from '#storybook/_common/decorators'
 import { formatDate } from '#storybook/_common/formatDate'
@@ -67,7 +66,7 @@ export const Default: DefaultStory = {
         labels: { undefined: 'default (cover)' },
         type: 'select',
       },
-      options: [undefined, ...fitOptions],
+      options: [undefined, 'contain'],
     },
     heading: { control: 'text' },
     imageSrc: { control: 'text' },

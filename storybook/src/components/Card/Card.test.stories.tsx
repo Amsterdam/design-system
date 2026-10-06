@@ -18,7 +18,7 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-const NewsCard = ({ fit }: { readonly fit?: 'contain' | 'cover' }) => (
+const NewsCard = ({ fit }: { readonly fit?: 'contain' }) => (
   <Card>
     <Card.Image alt="" fit={fit} src="https://picsum.photos/id/122/800/1200" />
     <Card.Content>
