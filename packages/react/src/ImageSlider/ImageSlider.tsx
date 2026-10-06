@@ -69,7 +69,7 @@ export const ImageSlider = forwardRef(
     const isProgrammaticScroll = useRef(false)
 
     const goToSlide = (id: number) => {
-      isProgrammaticScroll.current = true
+      if (id !== currentSlideId) isProgrammaticScroll.current = true
       setCurrentSlideId(id)
       scrollToSlide(id, scrollerRef)
     }
