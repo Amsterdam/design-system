@@ -31,6 +31,26 @@ export default [
     files: ['packages/react/**/*.{js,jsx,ts,tsx}'],
   },
 
+  // Imports within the React package
+  {
+    name: 'amsterdam-design-system/react-no-barrel-imports',
+
+    files: ['packages/react/src/**/*.{ts,tsx}'],
+    rules: {
+      'no-restricted-imports': [
+        'error',
+        {
+          patterns: [
+            {
+              message: 'Import from the file that defines the export, not from a barrel (index.ts).',
+              regex: '^(\\.\\./)+[^/]+/?$|^\\.\\.?/?$|(^|/)index$',
+            },
+          ],
+        },
+      ],
+    },
+  },
+
   // Logos in React
   {
     name: 'amsterdam-design-system/generated-logos',
