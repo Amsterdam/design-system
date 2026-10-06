@@ -47,7 +47,7 @@
       "image": {
         "aspect-ratio": {
           "$value": "{ams.aspect-ratio.16-9}",
-          "$description": "The shape of a Card image. By default the image fills and crops to this shape; set fit to contain to keep the full source visible.",
+          "$description": "The shape of a Card image. Keeps the appearance of a set of Cards consistent, even if some images have a different aspect ratio, and prevents very tall Cards for portrait images. By default the image fills and crops to this shape; set fit to contain to keep the full image visible.",
           "$extensions": {
             "nl.amsterdam.type": "aspectRatio"
           }

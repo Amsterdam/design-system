@@ -27,12 +27,16 @@ This component has no props to configure.
 
 The image of the Card.
 It accepts all props of a regular [Image](/docs/components-media-image--docs), such as a set of image sources.
+
 Its `aspectRatio` sets the shape of the image itself.
 A Card defaults that shape to 16 by 9 through a Card-specific token.
+Give every Card in the same set the same value, so they all end up the same size.
+
 A Card image intentionally does not follow a scoped override of `--ams-image-aspect-ratio`.
 Set `--ams-card-image-aspect-ratio` when you want to change the shape of Card images.
-Give every Card in the same set the same value, so they all end up the same size.
+
 Set `fit` to `contain` to keep the full image in view instead of the default cover fit.
+
 Only use decorative images with `alt=""` here.
 The heading provides screen reader users with enough context.
 
@@ -123,9 +127,9 @@ The example below is vertical in a narrow window.
 
 ### Fitting the image
 
-An image whose proportions differ from the shape the Card gives its image fills that shape by default, losing whatever falls outside it.
+An image with different proportions than the Card’s shape will be cut off by default.
 Set `fit` to `contain` to keep all of it in view instead.
-Give the Cards in one set the same treatment, so the set reads as a whole.
+It’s usually best to give all Cards in one set the same treatment.
 
 <Canvas of={CardStories.ImageFit} />
 
@@ -165,8 +169,7 @@ The same Card is one row in a list of results and one card in a row of three, an
 
 A Card gives its image a default aspect ratio of 16 by 9 through a Card-specific token.
 That default keeps a row of Cards visually consistent without extra configuration.
-The image fills and crops to that shape by default, so cards in one set keep the same visual rhythm.
-Use `fit="contain"` when keeping all of the image in view is the intended visual choice.
+The image fills and crops to that shape by default, so Cards in one set keep the same visual rhythm.
 
 The image of a horizontal Card measures 4 of the 9 columns it spans, which is the width of a vertical Card beside it, and it keeps its aspect ratio rather than stretching to the height of the text beside it.
 Both choices exist so that the image is the same size in either direction: an index page that opens with a row of vertical Cards above a list of horizontal ones then has one left edge and one image width running down it.
