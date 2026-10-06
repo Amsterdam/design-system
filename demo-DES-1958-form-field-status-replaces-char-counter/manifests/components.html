@@ -626,7 +626,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>5.3s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>5.1s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -10305,34 +10305,6 @@ import { FormFieldStatus } from '@amsterdam/design-system-react/src';</code></pr
             </div>
             <div class="note ok">
               <div class="row">
-                <span class="ex-name">In A Field</span>
-                <span class="badge ok">story ok</span>
-              </div>
-              
-              
-              <pre><code>const InAField = () =&gt; {
-    const [value, setValue] = useState(exampleRequest)
-
-    return (
-        &lt;Field&gt;
-            &lt;Label htmlFor=&quot;input1&quot;&gt;Beschrijf uw aanvraag&lt;/Label&gt;
-            &lt;Paragraph id=&quot;description1&quot;&gt;Licht kort toe wat u nodig heeft.&lt;/Paragraph&gt;
-            &lt;TextArea
-                aria-describedby=&quot;description1 status1&quot;
-                id=&quot;input1&quot;
-                onChange={(event) =&gt; setValue(event.target.value)}
-                rows={4}
-                value={value} /&gt;
-            &lt;FormFieldStatus maxLength={100} id=&quot;status1&quot;&gt;
-                &lt;FormFieldStatus.CharacterCount length={value.length} maxLength={maxLength} /&gt;
-            &lt;/FormFieldStatus&gt;
-        &lt;/Field&gt;
-    );
-};</code></pre>
-              
-            </div>
-            <div class="note ok">
-              <div class="row">
                 <span class="ex-name">Translated</span>
                 <span class="badge ok">story ok</span>
               </div>
@@ -10382,6 +10354,34 @@ import { FormFieldStatus } from '@amsterdam/design-system-react/src';</code></pr
             maxLength={10} /&gt;
     &lt;/FormFieldStatus&gt;
 &lt;/Column&gt;;</code></pre>
+              
+            </div>
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">In A Field</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const InAField = () =&gt; {
+    const [value, setValue] = useState(exampleRequest)
+
+    return (
+        &lt;Field&gt;
+            &lt;Label htmlFor=&quot;input1&quot;&gt;Beschrijf uw aanvraag&lt;/Label&gt;
+            &lt;Paragraph id=&quot;description1&quot;&gt;Licht kort toe wat u nodig heeft.&lt;/Paragraph&gt;
+            &lt;TextArea
+                aria-describedby=&quot;description1 status1&quot;
+                id=&quot;input1&quot;
+                onChange={(event) =&gt; setValue(event.target.value)}
+                rows={4}
+                value={value} /&gt;
+            &lt;FormFieldStatus maxLength={100} id=&quot;status1&quot;&gt;
+                &lt;FormFieldStatus.CharacterCount length={value.length} maxLength={maxLength} /&gt;
+            &lt;/FormFieldStatus&gt;
+        &lt;/Field&gt;
+    );
+};</code></pre>
               
             </div>
         </div>
@@ -10464,12 +10464,6 @@ Set `lang` on the component, or on an element containing it, when that language 
 
 ## Examples
 
-### In a field
-
-Type in the Text Area below to see and hear the status update in context.
-
-&lt;Canvas of={FormFieldStatusStories.InAField} /&gt;
-
 ### Over the limit
 
 Past the limit the count carries on, and a second line reports how far the value exceeds it.
@@ -10490,6 +10484,12 @@ The Arabic formatters apply Arabic number–noun agreement.
 See the [Localisation guide](/docs/docs-guidelines-localisation--docs) for the tested locales.
 
 &lt;Canvas of={FormFieldStatusStories.Translated} /&gt;
+
+### In a Field
+
+Type in the Text Area below to see and hear the status update in context.
+
+&lt;Canvas of={FormFieldStatusStories.InAField} /&gt;
 
 ## Features
 
