@@ -64,7 +64,7 @@ export const Default: DefaultStory = {
     fit: {
       control: {
         labels: { undefined: 'default (cover)' },
-        type: 'select',
+        type: 'radio',
       },
       options: [undefined, 'contain'],
     },
