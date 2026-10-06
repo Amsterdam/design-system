@@ -71,8 +71,6 @@ These are the mistakes that actually recur here, per layer.
 **React**
 
 - `import React from 'react'`, a default export, or `React.FC`.
-- A barrel import (`from '../index'`) inside the package — it creates cyclic dependencies.
-  Import from the source file.
 - A component that is not wrapped in `forwardRef`, or that has no `displayName`.
 - `...restProps` not spread onto the root element, or class names merged with a template literal instead of `clsx('ams-<component>', className)`.
 - `aria-label` used to supply screen reader-only text.
