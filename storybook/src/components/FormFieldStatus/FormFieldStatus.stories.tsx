@@ -6,7 +6,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import type { ComponentProps } from 'react'
 
-import { Column } from '@amsterdam/design-system-react'
+import { Column, Field, Label, Paragraph, TextArea } from '@amsterdam/design-system-react'
 import {
   formatCharacterCountOverLimitTextAr,
   formatCharacterCountOverLimitTextDe,
@@ -22,6 +22,10 @@ import {
   formatCharacterCountTextTr,
   FormFieldStatus,
 } from '@amsterdam/design-system-react/src'
+import { useState } from 'react'
+
+const exampleRequest =
+  'Ik wil voor volgende week graag een vergunning aanvragen voor mijn nieuwe adres in Amsterdam-Noord '
 
 const meta = {
   title: 'Components/Forms/Form Field Status',
@@ -75,7 +79,39 @@ export const OverLimit: ComposedStory = {
 }
 
 export const StatusText: Story = {
-  render: (args) => <FormFieldStatus {...args}>Je wachtwoord is sterk genoeg.</FormFieldStatus>,
+  render: (args) => <FormFieldStatus {...args}>Uw wachtwoord is sterk genoeg.</FormFieldStatus>,
+}
+
+export const InAField: ComposedStory = {
+  args: {
+    maxLength: 100,
+  },
+  argTypes: {
+    maxLength: {
+      control: { min: 0, type: 'number' },
+      description: 'The maximum length of the field’s value in this example.',
+    },
+  },
+  render: function Component({ maxLength, ...args }) {
+    const [value, setValue] = useState(exampleRequest)
+
+    return (
+      <Field>
+        <Label htmlFor="input1">Beschrijf uw aanvraag</Label>
+        <Paragraph id="description1">Licht kort toe wat u nodig heeft.</Paragraph>
+        <TextArea
+          aria-describedby="description1 status1"
+          id="input1"
+          onChange={(event) => setValue(event.target.value)}
+          rows={4}
+          value={value}
+        />
+        <FormFieldStatus {...args} id="status1">
+          <FormFieldStatus.CharacterCount length={value.length} maxLength={maxLength} />
+        </FormFieldStatus>
+      </Field>
+    )
+  },
 }
 
 export const Translated: Story = {

@@ -40,7 +40,7 @@ export const Test: Story = {
       <FormFieldStatus>
         <FormFieldStatus.CharacterCount length={15} maxLength={10} />
       </FormFieldStatus>
-      <FormFieldStatus>Je wachtwoord is sterk genoeg.</FormFieldStatus>
+      <FormFieldStatus>Uw wachtwoord is sterk genoeg.</FormFieldStatus>
       <FormFieldStatus dir="rtl" lang="ar">
         <FormFieldStatus.CharacterCount
           formatOverLimitText={formatCharacterCountOverLimitTextAr}
