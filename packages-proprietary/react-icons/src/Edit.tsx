@@ -1,6 +1,6 @@
 import type { SVGProps } from 'react'
 
-const SvgPencil = (props: SVGProps<SVGSVGElement>) => (
+const SvgEdit = (props: SVGProps<SVGSVGElement>) => (
   <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" {...props}>
     <path
       clipRule="evenodd"
@@ -10,9 +10,4 @@ const SvgPencil = (props: SVGProps<SVGSVGElement>) => (
     <path d="M11.415 21.5H21v-1.993h-9.585z" />
   </svg>
 )
-
-/**
- * @deprecated The ‘Pencil’ icon will be removed on or after 2027-04-02.
- * Use ‘Edit’ instead.
- */
-export default SvgPencil
+export default SvgEdit

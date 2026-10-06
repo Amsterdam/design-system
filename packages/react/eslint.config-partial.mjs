@@ -10,12 +10,15 @@ export const reactPreset = {
   rules: {
     ...react.configs.recommended.rules,
     ...reactHooks.configs.recommended.rules,
+    'react/jsx-uses-react': 'off', // The parser already marks the React import as used where JSX appears
+    'react/jsx-uses-vars': 'off', // ESLint already counts JSX tags as references to their components
     'react/prefer-read-only-props': 'error',
     'react/prop-types': 'off', // TypeScript types replace prop-types
     'react/react-in-jsx-scope': 'off',
   },
   settings: {
-    react: { version: 'detect' },
+    // TODO: Detection crashes on ESLint 10 in eslint-plugin-react 7.37. Restore 'detect' once it supports ESLint 10.
+    react: { version: '18.3' },
   },
 }
 
