@@ -7,20 +7,28 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { CharacterCount } from '@amsterdam/design-system-react/src'
 
-import { renderComponentVariants } from '#storybook/_common/renderComponentVariants'
-
-import { default as characterCountMeta } from './CharacterCount.stories'
-
 const meta = {
-  ...characterCountMeta,
   title: 'Components/Forms/Character Count',
+  component: CharacterCount,
+  args: {
+    length: 7,
+    maxLength: 10,
+  },
+  argTypes: {
+    formatText: {
+      control: false,
+    },
+    length: {
+      control: { min: 0, type: 'number' },
+    },
+    maxLength: {
+      control: { min: 0, type: 'number' },
+    },
+  },
 } satisfies Meta<typeof CharacterCount>
 
 export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const Test: Story = {
-  render: (args, context) => renderComponentVariants(CharacterCount, { args }, context),
-  tags: ['!dev', '!autodocs', '!manifest'],
-}
+export const Default: Story = {}
