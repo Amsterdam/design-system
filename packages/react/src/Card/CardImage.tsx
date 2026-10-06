@@ -8,9 +8,9 @@ import type { ForwardedRef } from 'react'
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
 
-import type { ImageProps } from '../Image/Image'
+import type { ImageProps } from '../Image'
 
-import { Image } from '../Image/Image'
+import { Image } from '../Image'
 
 export type CardImageProps = ImageProps
 
