@@ -82,38 +82,6 @@ export const StatusText: Story = {
   render: (args) => <FormFieldStatus {...args}>Uw wachtwoord is sterk genoeg.</FormFieldStatus>,
 }
 
-export const InAField: ComposedStory = {
-  args: {
-    maxLength: 100,
-  },
-  argTypes: {
-    maxLength: {
-      control: { min: 0, type: 'number' },
-      description: 'The maximum length of the field’s value in this example.',
-    },
-  },
-  render: function Component({ maxLength, ...args }) {
-    const [value, setValue] = useState(exampleRequest)
-
-    return (
-      <Field>
-        <Label htmlFor="input1">Beschrijf uw aanvraag</Label>
-        <Paragraph id="description1">Licht kort toe wat u nodig heeft.</Paragraph>
-        <TextArea
-          aria-describedby="description1 status1"
-          id="input1"
-          onChange={(event) => setValue(event.target.value)}
-          rows={4}
-          value={value}
-        />
-        <FormFieldStatus {...args} id="status1">
-          <FormFieldStatus.CharacterCount length={value.length} maxLength={maxLength} />
-        </FormFieldStatus>
-      </Field>
-    )
-  },
-}
-
 export const Translated: Story = {
   render: (args) => (
     <Column>
@@ -167,4 +135,36 @@ export const Translated: Story = {
       </FormFieldStatus>
     </Column>
   ),
+}
+
+export const InAField: ComposedStory = {
+  args: {
+    maxLength: 100,
+  },
+  argTypes: {
+    maxLength: {
+      control: { min: 0, type: 'number' },
+      description: 'The maximum length of the field’s value in this example.',
+    },
+  },
+  render: function Component({ maxLength, ...args }) {
+    const [value, setValue] = useState(exampleRequest)
+
+    return (
+      <Field>
+        <Label htmlFor="input1">Beschrijf uw aanvraag</Label>
+        <Paragraph id="description1">Licht kort toe wat u nodig heeft.</Paragraph>
+        <TextArea
+          aria-describedby="description1 status1"
+          id="input1"
+          onChange={(event) => setValue(event.target.value)}
+          rows={4}
+          value={value}
+        />
+        <FormFieldStatus {...args} id="status1">
+          <FormFieldStatus.CharacterCount length={value.length} maxLength={maxLength} />
+        </FormFieldStatus>
+      </Field>
+    )
+  },
 }
