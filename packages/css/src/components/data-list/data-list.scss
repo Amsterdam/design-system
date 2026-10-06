@@ -47,7 +47,7 @@
 .ams-data-list__actions {
   @include reset-dd;
 
-  margin-block-start: var(--ams-data-list-actions-margin-block-start);
+  padding-block-start: var(--ams-data-list-actions-padding-block-start);
 }
 
 // Below this width every item stacks, so a Data List never forces horizontal scroll.
@@ -78,8 +78,6 @@
   }
 
   .ams-data-list--horizontal .ams-data-list__label {
-    // TODO Experimental: reduce label emphasis in horizontal lists without changing stacked layouts.
-    font-weight: var(--ams-data-list-value-font-weight);
     grid-column-start: 1;
     margin-block-end: 0;
 
@@ -94,16 +92,11 @@
 
   .ams-data-list--horizontal .ams-data-list__value {
     grid-column-start: 2;
-
-    // Make sure the first value starts at the top row
-    &:first-of-type {
-      grid-row-start: 1;
-    }
   }
 
   .ams-data-list--horizontal .ams-data-list__actions {
     grid-column-start: 3;
     grid-row-start: 1;
-    margin-block-start: 0;
+    padding-block-start: 0;
   }
 }
