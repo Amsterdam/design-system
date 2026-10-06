@@ -626,7 +626,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>5.5s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>4.3s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -4627,6 +4627,8 @@ The image of the Card.
 It accepts all props of a regular [Image](/docs/components-media-image--docs), such as a set of image sources.
 Its `aspectRatio` sets the shape of the image itself.
 A Card defaults that shape to 16 by 9 through a Card-specific token.
+A Card image intentionally does not follow a scoped override of `--ams-image-aspect-ratio`.
+Set `--ams-card-image-aspect-ratio` when you want to change the shape of Card images.
 Give every Card in the same set the same value, so they all end up the same size.
 Set `fit` to `contain` to keep the full image in view instead of the default cover fit.
 Only use decorative images with `alt=&quot;&quot;` here.
