@@ -10,12 +10,10 @@ import { clsx } from 'clsx'
 import { forwardRef } from 'react'
 
 import type { FormatCharacterCountOverLimitText, FormatCharacterCountText } from './formatCharacterCountText'
+import type { LiveRegionAttributes } from './FormFieldStatus'
 
 import { Icon } from '../Icon'
 import { formatCharacterCountOverLimitTextNl, formatCharacterCountTextNl } from './formatCharacterCountText'
-
-// The root is the only live region, so a part takes no live-region semantics of its own.
-type LiveRegionAttributes = 'aria-atomic' | 'aria-live' | 'aria-relevant' | 'role'
 
 export type FormFieldStatusCharacterCountProps = {
   /**

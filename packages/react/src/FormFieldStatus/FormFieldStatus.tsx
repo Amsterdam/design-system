@@ -10,7 +10,7 @@ import { forwardRef } from 'react'
 
 import { FormFieldStatusCharacterCount } from './FormFieldStatusCharacterCount'
 
-type LiveRegionAttributes = 'aria-atomic' | 'aria-live' | 'aria-relevant' | 'role'
+export type LiveRegionAttributes ='aria-atomic' | 'aria-live' | 'aria-relevant' | 'role'
 
 // The root announces every part composed inside it, so its live-region semantics are not consumer options.
 export type FormFieldStatusProps = Readonly<
