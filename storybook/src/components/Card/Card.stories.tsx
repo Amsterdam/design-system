@@ -3,6 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { CardImageProps } from '@amsterdam/design-system-react/src'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import type { ComponentProps } from 'react'
 
@@ -29,14 +30,13 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 type DefaultProps = {
-  aspectRatio: (typeof aspectRatioOptions)[number]
   category: string
   date: string
-  fit: ComponentProps<typeof Card.Image>['fit']
   heading: string
   imageSrc: string
   text: string
-} & Readonly<ComponentProps<typeof Card>>
+} & Pick<CardImageProps, 'aspectRatio' | 'fit'> &
+  Readonly<ComponentProps<typeof Card>>
 
 type DefaultStory = StoryObj<DefaultProps>
 
