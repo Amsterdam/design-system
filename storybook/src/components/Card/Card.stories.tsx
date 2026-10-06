@@ -9,7 +9,7 @@ import type { ComponentProps } from 'react'
 import { Column, Grid, Paragraph } from '@amsterdam/design-system-react'
 import { Card, Metadata } from '@amsterdam/design-system-react/src'
 import { aspectRatioOptions } from '@amsterdam/design-system-react/src/common/types'
-import { objectFitOptions } from '@amsterdam/design-system-react/src/Image/Image'
+import { fitOptions } from '@amsterdam/design-system-react/src/Image/Image'
 
 import { maximiseInlineSize, wrapInInlineSizeQueryContainer } from '#storybook/_common/decorators'
 import { formatDate } from '#storybook/_common/formatDate'
@@ -33,16 +33,16 @@ type DefaultProps = {
   aspectRatio: (typeof aspectRatioOptions)[number]
   category: string
   date: string
+  fit: ComponentProps<typeof Card.Image>['fit']
   heading: string
   imageSrc: string
-  objectFit: ComponentProps<typeof Card.Image>['objectFit']
   text: string
 } & Readonly<ComponentProps<typeof Card>>
 
 type DefaultStory = StoryObj<DefaultProps>
 
 /**
- * The image is portrait while the shape of the image is 16 by 9, so `objectFit` has something to do here.
+ * The image is portrait while the shape of the image is 16 by 9, so `fit` has something to do here.
  * An image that already matches the shape it is given looks the same either way.
  */
 export const Default: DefaultStory = {
@@ -62,22 +62,22 @@ export const Default: DefaultStory = {
     },
     category: { control: 'text' },
     date: { control: 'text' },
-    heading: { control: 'text' },
-    imageSrc: { control: 'text' },
-    objectFit: {
+    fit: {
       control: {
         labels: { undefined: 'default (cover)' },
         type: 'select',
       },
-      options: [undefined, ...objectFitOptions],
+      options: [undefined, ...fitOptions],
     },
+    heading: { control: 'text' },
+    imageSrc: { control: 'text' },
     text: { control: 'text' },
   },
   // The query container keeps this Card below the width at which it would switch to a horizontal layout.
   decorators: [wrapInInlineSizeQueryContainer(), maximiseInlineSize('24rem')],
-  render: ({ aspectRatio, category, date, heading, imageSrc, objectFit, text, ...args }) => (
+  render: ({ aspectRatio, category, date, fit, heading, imageSrc, text, ...args }) => (
     <Card {...args}>
-      <Card.Image alt="" aspectRatio={aspectRatio} objectFit={objectFit} src={imageSrc} />
+      <Card.Image alt="" aspectRatio={aspectRatio} fit={fit} src={imageSrc} />
       <Card.Content>
         <Card.HeadingGroup>
           <Card.Heading level={3}>
@@ -137,7 +137,7 @@ export const ImageFit: Story = {
     <Grid paddingVertical="x-large">
       <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
         <Card>
-          <Card.Image alt="" objectFit="contain" src="https://picsum.photos/id/122/800/1200" />
+          <Card.Image alt="" fit="contain" src="https://picsum.photos/id/122/800/1200" />
           <Card.Heading level={2}>
             <Card.Link href="#">Volledig in beeld</Card.Link>
           </Card.Heading>

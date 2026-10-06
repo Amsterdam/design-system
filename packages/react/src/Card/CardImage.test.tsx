@@ -51,8 +51,8 @@ describe('CardImage', () => {
     expect(component).toHaveClass('ams-card__image ams-aspect-ratio-3-4')
   })
 
-  it('fits the image inside the area when objectFit is set to contain', () => {
-    const { container } = render(<CardImage alt="" objectFit="contain" />)
+  it('fits the image inside the area when fit is set to contain', () => {
+    const { container } = render(<CardImage alt="" fit="contain" />)
 
     const component = container.querySelector(':only-child')
 

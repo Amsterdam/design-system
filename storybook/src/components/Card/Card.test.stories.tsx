@@ -18,9 +18,9 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-const NewsCard = ({ objectFit }: { readonly objectFit?: 'contain' | 'cover' }) => (
+const NewsCard = ({ fit }: { readonly fit?: 'contain' | 'cover' }) => (
   <Card>
-    <Card.Image alt="" objectFit={objectFit} src="https://picsum.photos/id/122/800/1200" />
+    <Card.Image alt="" fit={fit} src="https://picsum.photos/id/122/800/1200" />
     <Card.Content>
       <Card.HeadingGroup>
         <Card.Heading level={3}>
@@ -54,7 +54,7 @@ export const Test: Story = {
         <NewsCard />
       </div>
       <div className="ams-query-container-inline-size" style={{ inlineSize: '48rem' }}>
-        <NewsCard objectFit="contain" />
+        <NewsCard fit="contain" />
       </div>
     </div>
   ),

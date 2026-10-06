@@ -12,6 +12,8 @@ import type { AspectRatioProps } from '../common/types'
 
 import { generateAspectRatioClass } from './generateAspectRatioClass'
 
+export const fitOptions = ['contain', 'cover'] as const
+
 export type ImageProps = {
   /** A textual description of the content of the image. */
   readonly alt: string
@@ -19,7 +21,7 @@ export type ImageProps = {
    * Keeps the whole image visible inside its box.
    * Has no effect if the image file and the component have the same aspect ratio.
    */
-  readonly fit?: 'contain'
+  readonly fit?: (typeof fitOptions)[number]
 } & Readonly<AspectRatioProps> &
   Readonly<Omit<ImgHTMLAttributes<HTMLImageElement>, 'children'>>
 
