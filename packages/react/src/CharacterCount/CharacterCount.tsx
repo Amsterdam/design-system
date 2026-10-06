@@ -29,7 +29,7 @@ export type CharacterCountProps = {
  * Shows how many characters remain within a specified limit as the user types.
  *
  * @deprecated Compose a `FormFieldStatus.CharacterCount` inside a `FormFieldStatus` instead.
- * The ‘CharacterCount’ component will be removed on or after 2027-03-01.
+ * The ‘CharacterCount’ component will be removed on or after 2027-05-01.
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-character-count--docs Character Count docs at Amsterdam Design System}
  */
 export const CharacterCount = forwardRef(

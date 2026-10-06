@@ -2,35 +2,35 @@
   "ams": {
     "character-count": {
       "color": {
-        "$deprecated": "Use `ams.form-field-status.color` instead. Will be removed on or after 2027-03-01.",
+        "$deprecated": "Use `ams.form-field-status.color` instead. Will be removed on or after 2027-05-01.",
         "$value": "{ams.form-field-status.color}",
         "$extensions": {
           "nl.amsterdam.type": "color"
         }
       },
       "font-family": {
-        "$deprecated": "Use `ams.form-field-status.font-family` instead. Will be removed on or after 2027-03-01.",
+        "$deprecated": "Use `ams.form-field-status.font-family` instead. Will be removed on or after 2027-05-01.",
         "$value": "{ams.form-field-status.font-family}",
         "$extensions": {
           "nl.amsterdam.type": "fontFamily"
         }
       },
       "font-size": {
-        "$deprecated": "Use `ams.form-field-status.font-size` instead. Will be removed on or after 2027-03-01.",
+        "$deprecated": "Use `ams.form-field-status.font-size` instead. Will be removed on or after 2027-05-01.",
         "$value": "{ams.form-field-status.font-size}",
         "$extensions": {
           "nl.amsterdam.type": "fontSize"
         }
       },
       "font-weight": {
-        "$deprecated": "Use `ams.form-field-status.font-weight` instead. Will be removed on or after 2027-03-01.",
+        "$deprecated": "Use `ams.form-field-status.font-weight` instead. Will be removed on or after 2027-05-01.",
         "$value": "{ams.form-field-status.font-weight}",
         "$extensions": {
           "nl.amsterdam.type": "fontWeight"
         }
       },
       "line-height": {
-        "$deprecated": "Use `ams.form-field-status.line-height` instead. Will be removed on or after 2027-03-01.",
+        "$deprecated": "Use `ams.form-field-status.line-height` instead. Will be removed on or after 2027-05-01.",
         "$value": "{ams.form-field-status.line-height}",
         "$extensions": {
           "nl.amsterdam.subtype": "lineHeight",
@@ -39,7 +39,7 @@
       },
       "error": {
         "color": {
-          "$deprecated": "Use `ams.form-field-status.error.color` instead. Will be removed on or after 2027-03-01.",
+          "$deprecated": "Use `ams.form-field-status.error.color` instead. Will be removed on or after 2027-05-01.",
           "$value": "{ams.form-field-status.error.color}",
           "$extensions": {
             "nl.amsterdam.type": "color"
