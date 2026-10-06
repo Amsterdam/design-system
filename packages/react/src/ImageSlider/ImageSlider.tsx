@@ -14,7 +14,10 @@ import type { ImageProps } from '../Image/Image'
 import { Button } from '../Button/Button'
 import { ImageSliderSlide } from './ImageSliderSlide'
 import { ImageSliderThumbnails } from './ImageSliderThumbnails'
-import { debounce, scrollToCurrentSlideOnResize, scrollToSlide, setCurrentSlideIdToVisibleSlide } from './utils'
+import { debounce } from './utils/debounce'
+import { scrollToCurrentSlideOnResize } from './utils/scrollToCurrentSlideOnResize'
+import { scrollToSlide } from './utils/scrollToSlide'
+import { setCurrentSlideIdToVisibleSlide } from './utils/setCurrentSlideIdToVisibleSlide'
 
 export type ImageSliderImageProps = {
   /** An optional caption displayed below the image. */
