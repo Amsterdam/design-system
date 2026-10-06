@@ -21,7 +21,7 @@ export type ImageProps = {
    * Keeps the whole image visible inside its box.
    * Has no effect if the image file and the component have the same aspect ratio.
    */
-  readonly fit?: (typeof fitOptions)[number]
+  readonly fit?: (typeof fitOptions)[0]
 } & Readonly<AspectRatioProps> &
   Readonly<Omit<ImgHTMLAttributes<HTMLImageElement>, 'children'>>
 
