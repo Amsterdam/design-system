@@ -620,13 +620,13 @@
 <header>
   <div class="wrap">
     <h1>Manifest Debugger</h1>
-    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">15/90 API errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">15/90 infos</a><a class="filter-pill" data-k="no-api" href="#filter-no-api">17/90 without API description</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">1/309 story errors</a><a class="filter-pill info" data-k="story-warnings" href="#filter-story-warnings">44/309 incomplete snippets</a><a class="filter-pill ok" data-k="docs" href="#filter-docs">127 docs ok</a></div>
+    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">15/90 API errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">15/90 infos</a><a class="filter-pill" data-k="no-api" href="#filter-no-api">17/90 without API description</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">1/311 story errors</a><a class="filter-pill info" data-k="story-warnings" href="#filter-story-warnings">44/311 incomplete snippets</a><a class="filter-pill ok" data-k="docs" href="#filter-docs">127 docs ok</a></div>
   </div>
 </header>
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>5.2s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>5.5s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -4461,7 +4461,7 @@ import { formatDate } from '#storybook/_common/formatDate';</code></pre>
                 <span class="badge ok">story ok</span>
               </div>
               
-              <div class="hint">The image is portrait while the shape of the image is 16 by 9, so `objectFit` has something to do here.
+              <div class="hint">The image is portrait while the shape of the image is 16 by 9, so `fit` has something to do here.
 An image that already matches the shape it is given looks the same either way.</div>
               <pre><code>const Default = () =&gt; &lt;Card
     aspectRatio=&quot;16:9&quot;
@@ -4470,7 +4470,7 @@ An image that already matches the shape it is given looks the same either way.</
     heading=&quot;Nederlands eerste houten woonwijk komt in Zuidoost&quot;
     imageSrc=&quot;https://picsum.photos/800/1200&quot;
     text=&quot;We bouwen een levendige, groene en duurzame woonbuurt tussen de Gooiseweg en het Nelson Mandelapark.&quot;&gt;
-    &lt;Card.Image alt=&quot;&quot; aspectRatio={aspectRatio} objectFit={objectFit} src={imageSrc} /&gt;
+    &lt;Card.Image alt=&quot;&quot; aspectRatio={aspectRatio} fit={fit} src={imageSrc} /&gt;
     &lt;Card.Content&gt;
         &lt;Card.HeadingGroup&gt;
             &lt;Card.Heading level={3}&gt;
@@ -4519,7 +4519,7 @@ The first keeps all of the image in view; the second uses the default fit and cr
   &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
     &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}&gt;
       &lt;Card&gt;
-        &lt;Card.Image alt=&quot;&quot; objectFit=&quot;contain&quot; src=&quot;https://picsum.photos/id/122/800/1200&quot; /&gt;
+        &lt;Card.Image alt=&quot;&quot; fit=&quot;contain&quot; src=&quot;https://picsum.photos/id/122/800/1200&quot; /&gt;
         &lt;Card.Heading level={2}&gt;
           &lt;Card.Link href=&quot;#&quot;&gt;Volledig in beeld&lt;/Card.Link&gt;
         &lt;/Card.Heading&gt;
@@ -4628,7 +4628,7 @@ It accepts all props of a regular [Image](/docs/components-media-image--docs), s
 Its `aspectRatio` sets the shape of the image itself.
 A Card defaults that shape to 16 by 9 through a Card-specific token.
 Give every Card in the same set the same value, so they all end up the same size.
-Set `objectFit` to `contain` to keep the full image in view instead of the default cover fit.
+Set `fit` to `contain` to keep the full image in view instead of the default cover fit.
 Only use decorative images with `alt=&quot;&quot;` here.
 The heading provides screen reader users with enough context.
 
@@ -4720,7 +4720,7 @@ The example below is vertical in a narrow window.
 ### Fitting the image
 
 An image whose proportions differ from the shape the Card gives its image fills that shape by default, losing whatever falls outside it.
-Set `objectFit` to `contain` to keep all of it in view instead.
+Set `fit` to `contain` to keep all of it in view instead.
 Give the Cards in one set the same treatment, so the set reads as a whole.
 
 &lt;Canvas of={CardStories.ImageFit} /&gt;
@@ -4762,7 +4762,7 @@ The same Card is one row in a list of results and one card in a row of three, an
 A Card gives its image a default aspect ratio of 16 by 9 through a Card-specific token.
 That default keeps a row of Cards visually consistent without extra configuration.
 The image fills and crops to that shape by default, so cards in one set keep the same visual rhythm.
-Use `objectFit=&quot;contain&quot;` when keeping all of the image in view is the intended visual choice.
+Use `fit=&quot;contain&quot;` when keeping all of the image in view is the intended visual choice.
 
 The image of a horizontal Card measures 4 of the 9 columns it spans, which is the width of a vertical Card beside it, and it keeps its aspect ratio rather than stretching to the height of the text beside it.
 Both choices exist so that the image is the same size in either direction: an index page that opens with a row of vertical Cards above a list of horizontal ones then has one left edge and one image width running down it.
@@ -4876,9 +4876,10 @@ alt: string
 aspectRatio?: &quot;9:16&quot; | &quot;3:4&quot; | &quot;1:1&quot; | &quot;4:3&quot; | &quot;16:9&quot; | &quot;16:5&quot;
 
 /**
- * How the image fills its box. Cover crops to fill it; contain keeps the whole image visible.
+ * Keeps the whole image visible inside its box.
+ * Has no effect if the image file and the component have the same aspect ratio.
  */
-objectFit?: &quot;cover&quot; | &quot;contain&quot; = cover</code></pre>
+fit?: &quot;contain&quot; | &quot;cover&quot;</code></pre>
     </div>
   
     <div class="note ok">
@@ -14721,7 +14722,7 @@ Its `type` defaults to `button` rather than `submit`, so it never submits a form
       <div class="badges">
         <label for="c-38-components-media-image-props" class="badge ok as-toggle">3 prop types</label>
         
-        <label for="c-38-components-media-image-stories" class="badge ok as-toggle">3 stories</label>
+        <label for="c-38-components-media-image-stories" class="badge ok as-toggle">5 stories</label>
         <label for="c-38-components-media-image-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
@@ -14763,9 +14764,10 @@ alt: string
 aspectRatio?: &quot;9:16&quot; | &quot;3:4&quot; | &quot;1:1&quot; | &quot;4:3&quot; | &quot;16:9&quot; | &quot;16:5&quot;
 
 /**
- * How the image fills its box. Cover crops to fill it; contain keeps the whole image visible.
+ * Keeps the whole image visible inside its box.
+ * Has no effect if the image file and the component have the same aspect ratio.
  */
-objectFit?: &quot;cover&quot; | &quot;contain&quot; = cover</code></pre>
+fit?: &quot;contain&quot; | &quot;cover&quot;</code></pre>
           </div>
         </div>
     
@@ -14777,7 +14779,7 @@ objectFit?: &quot;cover&quot; | &quot;contain&quot; = cover</code></pre>
                 <div class="row">
                   <span class="ex-name">Imports</span>
                 </div>
-                <pre><code>import { Image } from '@amsterdam/design-system-react/src';</code></pre>
+                <pre><code>import { Column, Image, Row } from '@amsterdam/design-system-react/src';</code></pre>
               </div>
           
           
@@ -14787,9 +14789,8 @@ objectFit?: &quot;cover&quot; | &quot;contain&quot; = cover</code></pre>
                 <span class="badge ok">story ok</span>
               </div>
               
-              <div class="hint">The source is portrait while the box is 16 by 9, so `objectFit` has something to do here.
-A source that already matches the shape of its box looks the same either way.</div>
-              <pre><code>const Default = () =&gt; &lt;Image alt=&quot;&quot; src=&quot;https://picsum.photos/640/800&quot; /&gt;;</code></pre>
+              
+              <pre><code>const Default = () =&gt; &lt;Image alt=&quot;&quot; src=&quot;https://picsum.photos/640/360&quot; /&gt;;</code></pre>
               
             </div>
             <div class="note ok">
@@ -14804,6 +14805,35 @@ A source that already matches the shape of its box looks the same either way.</d
     sizes=&quot;(max-width: 37.5rem) 640px, 50vw&quot;
     src=&quot;https://picsum.photos/1280/720&quot;
     srcSet=&quot;https://picsum.photos/640/360 640w, https://picsum.photos/1280/720 1280w&quot; /&gt;;</code></pre>
+              
+            </div>
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Contained Image</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const ContainedImage = () =&gt; &lt;Image alt=&quot;&quot; fit=&quot;contain&quot; src=&quot;https://picsum.photos/640/800&quot; /&gt;;</code></pre>
+              
+            </div>
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Contained Image Comparison</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const ContainedImageComparison = ({ aspectRatio, src }) =&gt; (
+  &lt;Row gap=&quot;x-large&quot;&gt;
+    &lt;Column&gt;
+      &lt;Image alt=&quot;&quot; aspectRatio={aspectRatio} src={src} /&gt;
+    &lt;/Column&gt;
+    &lt;Column&gt;
+      &lt;Image alt=&quot;&quot; aspectRatio={aspectRatio} fit=&quot;contain&quot; src={src} /&gt;
+    &lt;/Column&gt;
+  &lt;/Row&gt;
+);</code></pre>
               
             </div>
             <div class="note ok">
@@ -14856,8 +14886,10 @@ Use `alt=&quot;&quot;` for decorative images – images that add little to the n
 Non-decorative images need a text description.
 
 Leaving out `aspectRatio` falls back to the default ratio; no value preserves the proportions of the source file.
-Leave `objectFit` to the default of `cover` unless important objects in the image disappear or the cropping does not look right.
-Setting it to `contain` keeps the whole image in view at the cost of empty space beside or above it.
+
+Leave `fit` unset to keep the default of `cover` unless important objects in the image disappear or the cropping does not look right.
+Setting `fit` to `contain` keeps the whole image in view at the cost of empty space beside or above it.
+
 Do not set `loading=&quot;lazy&quot;` on an image in the first screenful of the page: there it delays the largest image in the viewport.
 
 ### How to write
@@ -14880,6 +14912,17 @@ Don’t forget to still include the required `src` attribute.
 
 &lt;Canvas of={ImageStories.ResponsiveImages} /&gt;
 
+### Contained image
+
+Setting `fit` to `contain` ensures that the entire image is visible within its container, even if it means leaving empty space around it.
+This is useful when you want to avoid cropping important parts of the image.
+
+&lt;Canvas of={ImageStories.ContainedImage} /&gt;
+
+Side by side, the default crops the same image to fill the box.
+
+&lt;Canvas of={ImageStories.ContainedImageComparison} /&gt;
+
 ### Lazy loading
 
 Set the `loading` attribute (see [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#loading)) to `lazy` and the browser will wait to load the image until it is close to the viewport.
@@ -14900,9 +14943,9 @@ An Image fills the width of its container and always has an aspect ratio, so the
 
 Every Image should be shown in one of the [available aspect ratios](/docs/brand-design-tokens-aspect-ratio--docs).
 The default is 16:9.
-If the intrinsic dimensions of the source do not match an aspect ratio, the image is cropped to cover the intended area by default.
+If the intrinsic dimensions of the image do not match an aspect ratio, the image is cropped to cover the intended area by default.
 The crop is taken from the centre, so the middle of a photograph is what survives a ratio it was not made for.
-Setting `objectFit` to `contain` keeps the whole source in view inside that same area instead.
+Setting `fit` to `contain` keeps the whole image in view inside that same area instead.
 
 Alternate text is displayed in italics.
 When a file fails to load, its description then reads as a stand-in rather than as a stray sentence in the surrounding copy.
@@ -34147,7 +34190,7 @@ wrap?: boolean = false</code></pre>
                 </div>
                 <pre><code>import { Avatar, Heading, StandaloneLink } from '@amsterdam/design-system-react';
 import { Row } from '@amsterdam/design-system-react/src';
-import { PencilIcon } from '@amsterdam/design-system-react-icons';</code></pre>
+import { EditIcon } from '@amsterdam/design-system-react-icons';</code></pre>
               </div>
           
           
@@ -34214,7 +34257,7 @@ import { PencilIcon } from '@amsterdam/design-system-react-icons';</code></pre>
       &lt;Heading key={1} level={3}&gt;
         Kerngegevens
       &lt;/Heading&gt;,
-      &lt;StandaloneLink href=&quot;#&quot; icon={PencilIcon} key={2}&gt;
+      &lt;StandaloneLink href=&quot;#&quot; icon={EditIcon} key={2}&gt;
         Gegevens wijzigen
       &lt;/StandaloneLink&gt;,
     ]}&lt;/Row&gt;;</code></pre>
