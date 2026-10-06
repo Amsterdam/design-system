@@ -143,6 +143,37 @@ describe('ImageSlider', () => {
     expect(slides[1]).not.toHaveAttribute('aria-hidden')
   })
 
+  it('keeps following the IntersectionObserver after clicking the thumbnail of the current slide', async () => {
+    const user = userEvent.setup()
+
+    type ObserverCallback = ConstructorParameters<typeof IntersectionObserver>[0]
+
+    let reportIntersection: ObserverCallback = () => {}
+
+    vi.mocked(window.IntersectionObserver).mockImplementationOnce(function (callback: ObserverCallback) {
+      reportIntersection = callback
+
+      return { disconnect: vi.fn(), observe: vi.fn(), unobserve: vi.fn() } as unknown as IntersectionObserver
+    })
+
+    const { container, getAllByRole } = render(<ImageSlider images={images} />)
+
+    const tabs = getAllByRole('tab')
+    const slides = container.querySelectorAll('.ams-image-slider__slide')
+
+    // The current slide is already in view, so this click does not scroll and no scrollend event follows.
+    await user.click(tabs[0])
+
+    act(() =>
+      reportIntersection(
+        [{ isIntersecting: true, target: slides[1] } as unknown as IntersectionObserverEntry],
+        {} as IntersectionObserver,
+      ),
+    )
+
+    expect(tabs[1]).toHaveAttribute('aria-selected', 'true')
+  })
+
   it('scrolls to the next image when clicking the next button', async () => {
     const user = userEvent.setup()
 
