@@ -9137,7 +9137,7 @@
           "name": "Horizontal Layout",
           "error": {
             "name": "SyntaxError",
-            "message": "Expected render to be an arrow function or function expression\n  121 |   argTypes: Default.argTypes,\n  122 |   decorators: [wrapInInlineSizeQueryContainer(undefined, { inlineSize: '56rem', maxInlineSize: '100%' })],\n> 123 |   render: Default.render,\n      |           ^^^^^^^^^^^^^^\n  124 | }\n  125 |\n  126 | /**"
+            "message": "Expected render to be an arrow function or function expression\n  120 |   argTypes: Default.argTypes,\n  121 |   decorators: [wrapInInlineSizeQueryContainer(undefined, { inlineSize: '56rem', maxInlineSize: '100%' })],\n> 122 |   render: Default.render,\n      |           ^^^^^^^^^^^^^^\n  123 | }\n  124 |\n  125 | /**"
           }
         },
         {
@@ -12482,6 +12482,6 @@
   },
   "meta": {
     "docgen": "react-component-meta",
-    "durationMs": 5068
+    "durationMs": 3083
   }
 }
