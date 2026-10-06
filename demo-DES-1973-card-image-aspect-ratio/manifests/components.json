@@ -7929,13 +7929,10 @@
             "required": false,
             "type": {
               "name": "enum",
-              "raw": "\"contain\" | \"cover\"",
+              "raw": "\"contain\"",
               "value": [
                 {
                   "value": "\"contain\""
-                },
-                {
-                  "value": "\"cover\""
                 }
               ]
             },
@@ -9016,13 +9013,10 @@
                 "required": false,
                 "type": {
                   "name": "enum",
-                  "raw": "\"contain\" | \"cover\"",
+                  "raw": "\"contain\"",
                   "value": [
                     {
                       "value": "\"contain\""
-                    },
-                    {
-                      "value": "\"cover\""
                     }
                   ]
                 },
@@ -12488,6 +12482,6 @@
   },
   "meta": {
     "docgen": "react-component-meta",
-    "durationMs": 4342
+    "durationMs": 5068
   }
 }
