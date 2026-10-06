@@ -10,8 +10,12 @@ import { forwardRef } from 'react'
 
 import { FormFieldStatusCharacterCount } from './FormFieldStatusCharacterCount'
 
-// The root announces every part composed inside it, so `role` is not a consumer option.
-export type FormFieldStatusProps = Readonly<PropsWithChildren<Omit<HTMLAttributes<HTMLDivElement>, 'role'>>>
+type LiveRegionAttributes = 'aria-atomic' | 'aria-live' | 'aria-relevant' | 'role'
+
+// The root announces every part composed inside it, so its live-region semantics are not consumer options.
+export type FormFieldStatusProps = Readonly<
+  PropsWithChildren<Omit<HTMLAttributes<HTMLDivElement>, LiveRegionAttributes>>
+>
 
 const FormFieldStatusRoot = forwardRef(
   ({ children, className, ...restProps }: FormFieldStatusProps, ref: ForwardedRef<HTMLDivElement>) => (

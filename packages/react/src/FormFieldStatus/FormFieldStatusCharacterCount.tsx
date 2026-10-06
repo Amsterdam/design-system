@@ -14,6 +14,9 @@ import type { FormatCharacterCountOverLimitText, FormatCharacterCountText } from
 import { Icon } from '../Icon'
 import { formatCharacterCountOverLimitTextNl, formatCharacterCountTextNl } from './formatCharacterCountText'
 
+// The root is the only live region, so a part takes no live-region semantics of its own.
+type LiveRegionAttributes = 'aria-atomic' | 'aria-live' | 'aria-relevant' | 'role'
+
 export type FormFieldStatusCharacterCountProps = {
   /**
    * Returns the text that reports how far the value exceeds the maximum length.
@@ -31,7 +34,7 @@ export type FormFieldStatusCharacterCountProps = {
   readonly length: number
   /** The maximum length of the field’s value. */
   readonly maxLength: number
-} & Readonly<HTMLAttributes<HTMLDivElement>>
+} & Readonly<Omit<HTMLAttributes<HTMLDivElement>, LiveRegionAttributes>>
 
 /**
  * Counts the characters of a field’s value towards the maximum it allows, and says how far a longer value exceeds it.
