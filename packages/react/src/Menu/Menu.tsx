@@ -11,6 +11,7 @@ import { forwardRef, useId } from 'react'
 
 import { useCollapsible } from '../common/useCollapsible'
 import { IconButton } from '../IconButton/IconButton'
+import { MenuContext } from './MenuContext'
 import { MenuItem } from './MenuItem'
 import { MenuLink } from './MenuLink'
 
@@ -121,9 +122,11 @@ export const MenuRoot = forwardRef<HTMLElement, MenuProps>(
             svg={isExpanded ? ChevronDoubleBackwardIcon : ChevronDoubleForwardIcon}
           />
         )}
-        <ul className="ams-menu__list" id={isExpandable ? menuListId : undefined}>
-          {children}
-        </ul>
+        <MenuContext.Provider value={{ hidesSubmenu: Boolean(inWideWindow && !expandable) }}>
+          <ul className="ams-menu__list" id={isExpandable ? menuListId : undefined}>
+            {children}
+          </ul>
+        </MenuContext.Provider>
       </Tag>
     )
   },

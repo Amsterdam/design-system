@@ -199,6 +199,49 @@ describe('Menu', () => {
     expect(component).toHaveAttribute('data-test', 'data-test')
   })
 
+  it('warns about a submenu that a wide Menu can never show', () => {
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {})
+
+    render(
+      <Menu inWideWindow>
+        <Menu.Item href="#" label="Projecten">
+          <Menu.Link href="#">Overzicht</Menu.Link>
+        </Menu.Item>
+      </Menu>,
+    )
+
+    expect(warn).toHaveBeenCalledTimes(1)
+    expect(warn).toHaveBeenCalledWith(expect.stringContaining('Set `expandable`'))
+
+    warn.mockRestore()
+  })
+
+  it('does not warn about a submenu that the Menu can show', () => {
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {})
+
+    render(
+      <>
+        <Menu>
+          <Menu.Item href="#" label="Projecten">
+            <Menu.Link href="#">Overzicht</Menu.Link>
+          </Menu.Item>
+        </Menu>
+        <Menu expandable inWideWindow>
+          <Menu.Item href="#" label="Projecten">
+            <Menu.Link href="#">Overzicht</Menu.Link>
+          </Menu.Item>
+        </Menu>
+        <Menu inWideWindow>
+          <Menu.Item href="#" label="Projecten" />
+        </Menu>
+      </>,
+    )
+
+    expect(warn).not.toHaveBeenCalled()
+
+    warn.mockRestore()
+  })
+
   it('renders a nested submenu structure', () => {
     render(
       <Menu>

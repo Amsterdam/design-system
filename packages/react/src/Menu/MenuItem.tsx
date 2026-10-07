@@ -6,11 +6,12 @@
 import type { AnchorHTMLAttributes, ElementType, ForwardedRef, PropsWithChildren, ReactNode } from 'react'
 
 import { clsx } from 'clsx'
-import { Children, forwardRef } from 'react'
+import { Children, forwardRef, useContext, useEffect } from 'react'
 
 import type { IconProps } from '../Icon'
 
 import { Icon } from '../Icon'
+import { MenuContext } from './MenuContext'
 
 export type MenuItemProps = {
   /** The icon to display for the menu item. Use the filled variant for top-level items. */
@@ -37,6 +38,16 @@ export const MenuItem = forwardRef(
     const Tag = linkComponent || 'a'
     const submenuChildren = Children.toArray(children)
     const hasSubmenu = submenuChildren.length > 0
+    const { hidesSubmenu } = useContext(MenuContext)
+
+    // A wide Menu shows a submenu only while it is expanded, so without `expandable` these links cannot be reached.
+    useEffect(() => {
+      if (hasSubmenu && hidesSubmenu) {
+        console.warn(
+          'A Menu Item has a submenu, but its Menu cannot be expanded, so the submenu stays hidden in a wide window. Set `expandable` on the Menu with `inWideWindow`.',
+        )
+      }
+    }, [hasSubmenu, hidesSubmenu])
 
     return (
       <li className="ams-menu__item">
