@@ -281,3 +281,15 @@ export const WithPagination: StoryObj = {
     )
   },
 }
+
+// Snapshots the table beside the wide Menu with submenus, where the body column is at its tightest.
+// Interim: the Menu belongs to the shared Page Layout rather than to a page type, so this story can go once
+// the internal templates decide whether their Menu has submenus by default.
+export const WithSubmenus: StoryObj = {
+  ...SortingWithSelect,
+  parameters: {
+    ...SortingWithSelect.parameters,
+    chromatic: { modes: { '1160px': { viewport: 1160 } } },
+    menuWithSubmenus: true,
+  },
+}
