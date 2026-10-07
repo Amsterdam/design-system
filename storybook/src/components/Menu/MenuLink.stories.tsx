@@ -9,7 +9,7 @@ import { PieChartFillIcon } from '@amsterdam/design-system-react-icons'
 import { Menu } from '@amsterdam/design-system-react/src'
 
 import { childrenArgType, hrefArgType, linkComponentArgType } from '#storybook/_common/argTypes'
-import { requiredIconArgType } from '#storybook/_common/iconArgTypes'
+import { iconArgType } from '#storybook/_common/iconArgTypes'
 
 const meta = {
   title: 'Components/Navigation/Menu',
@@ -17,7 +17,7 @@ const meta = {
   argTypes: {
     children: childrenArgType('The link text.'),
     href: hrefArgType,
-    icon: requiredIconArgType,
+    icon: iconArgType('PieChartFillIcon'),
     linkComponent: linkComponentArgType,
   },
   decorators: [
