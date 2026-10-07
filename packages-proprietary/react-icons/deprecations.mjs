@@ -16,6 +16,8 @@ export const deprecatedIcons = {
   Cogwheel: { removeOnOrAfter: '2026-05-01', replacement: 'Settings' },
   CogwheelFill: { removeOnOrAfter: '2026-05-01', replacement: 'SettingsFill' },
   HandWithEuroCoin: { removeOnOrAfter: '2026-05-01', replacement: 'PersonsWithEuroCoin' },
+  Pencil: { removeOnOrAfter: '2027-04-02', replacement: 'Edit' },
+  PencilFill: { removeOnOrAfter: '2027-04-02', replacement: 'EditFill' },
   PersonCircle: { removeOnOrAfter: '2026-07-09', replacement: 'UserAccount' },
   PersonCircleFill: { removeOnOrAfter: '2026-07-09', replacement: 'UserAccountFill' },
   TrashBin: { removeOnOrAfter: '2026-07-09', replacement: 'Delete' },

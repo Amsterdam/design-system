@@ -106,11 +106,58 @@ const ArabicCalendar = (props: CalendarProps) => (
 
 The same pattern applies to the Date Picker, which also takes `rangeStartAccessibleName` and `rangeEndAccessibleName` in range mode.
 
+It also applies to a [Known Date Input](/docs/components-forms-known-date-input--docs), where a wrapper sets the labels and the order of the fields:
+
+```tsx
+import type { KnownDateInputProps } from "@amsterdam/design-system-react";
+
+import { KnownDateInput } from "@amsterdam/design-system-react";
+
+const AmericanKnownDateInput = (props: KnownDateInputProps) => (
+  <KnownDateInput {...props}>
+    <KnownDateInput.Month label="Month" />
+    <KnownDateInput.Day label="Day" />
+    <KnownDateInput.Year label="Year" />
+  </KnownDateInput>
+);
+```
+
+### Supply the text yourself
+
+Not every component that writes its own text can generate it from a locale.
+A [Form Field Status](/docs/components-forms-form-field-status--docs) reports on a number, and languages differ in word order and in how they count, so it takes the sentence from you rather than a locale to build one with.
+
+Its character count has two formatter props.
+`formatText` receives the current and the maximum length, and `formatOverLimitText` receives how far the value exceeds the maximum.
+Both return the string to display, and both default to Dutch.
+
+```tsx
+<FormFieldStatus lang="en">
+  <FormFieldStatus.CharacterCount
+    formatOverLimitText={formatCharacterCountOverLimitTextEn}
+    formatText={formatCharacterCountTextEn}
+    length={15}
+    maxLength={10}
+  />
+</FormFieldStatus>
+```
+
+Formatters for each tested locale are exported, so the example above needs no function of its own.
+Write your own where a language needs something they do not do: a different word order, or a plural rule that `Intl.PluralRules` resolves.
+
+Because the text is the component's own rather than yours, it inherits the language of the page around it.
+Set `lang` to the language you formatted in whenever the two differ, as above, so screen readers pronounce it correctly.
+The count sits in a live region, so a wrong `lang` is heard on every update rather than read once.
+
 ### Native form controls
 
 Native form controls render some of their text themselves.
 For example, `<input type="time">` orders and formats its hour and minute fields according to the browser’s own locale, not the page’s `lang` or `dir`.
 This is browser behaviour that pages cannot override.
+
+The [Date Input](/docs/components-forms-date-input--docs) has the same limitation: it wraps `<input type="date">`, so the browser decides the order of its day, month and year segments from its own locale, not from `lang`.
+The [Known Date Input](/docs/components-forms-known-date-input--docs) has no such control to render, so it has no such limitation.
+Its day, month and year are separate fields that appear in the order you place them in markup, so you set that order yourself to match the language you write the surrounding labels in.
 
 ### Mirror directional icons
 
@@ -120,7 +167,3 @@ The design system’s own directional icons handle this automatically: each carr
 
 The [Calendar](/docs/components-navigation-calendar--docs) and [Date Picker](/docs/components-forms-date-picker--docs) navigation chevrons are one example.
 When you supply your own directional icon anywhere, give it the same attribute so it mirrors as well.
-
-## Relevant WCAG requirements
-
-- [WCAG 3.1.2](https://www.w3.org/TR/WCAG22/#language-of-parts): indicate the language of any passage or phrase that differs from the page’s default language

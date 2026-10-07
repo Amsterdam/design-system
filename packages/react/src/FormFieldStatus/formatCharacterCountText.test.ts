@@ -6,6 +6,12 @@
 import { describe, expect, it } from 'vitest'
 
 import {
+  formatCharacterCountOverLimitTextAr,
+  formatCharacterCountOverLimitTextDe,
+  formatCharacterCountOverLimitTextEn,
+  formatCharacterCountOverLimitTextFr,
+  formatCharacterCountOverLimitTextNl,
+  formatCharacterCountOverLimitTextTr,
   formatCharacterCountTextAr,
   formatCharacterCountTextDe,
   formatCharacterCountTextEn,
@@ -59,5 +65,41 @@ describe('formatCharacterCountText', () => {
 
   it('formats the count in Turkish', () => {
     expect(formatCharacterCountTextTr(7, 10)).toBe('10 karakterden 7')
+  })
+})
+
+describe('formatCharacterCountOverLimitText', () => {
+  // The noun agrees with the excess rather than with the maximum, so the categories are exercised again.
+  it('formats the excess in Arabic with number–noun agreement', () => {
+    expect(formatCharacterCountOverLimitTextAr(1)).toBe('1 حرف زيادة') // one
+    expect(formatCharacterCountOverLimitTextAr(2)).toBe('2 حرفين زيادة') // two
+    expect(formatCharacterCountOverLimitTextAr(5)).toBe('5 أحرف زيادة') // few
+    expect(formatCharacterCountOverLimitTextAr(11)).toBe('11 حرفًا زيادة') // many
+    expect(formatCharacterCountOverLimitTextAr(100)).toBe('100 حرف زيادة') // other
+  })
+
+  it('formats the excess in German', () => {
+    expect(formatCharacterCountOverLimitTextDe(1)).toBe('1 Zeichen zu viel')
+    expect(formatCharacterCountOverLimitTextDe(5)).toBe('5 Zeichen zu viel')
+  })
+
+  it('formats the excess in English with a singular for one character', () => {
+    expect(formatCharacterCountOverLimitTextEn(1)).toBe('1 character too many')
+    expect(formatCharacterCountOverLimitTextEn(5)).toBe('5 characters too many')
+  })
+
+  it('formats the excess in French with a singular below two characters', () => {
+    expect(formatCharacterCountOverLimitTextFr(1)).toBe('1 caractère de trop')
+    expect(formatCharacterCountOverLimitTextFr(5)).toBe('5 caractères de trop')
+  })
+
+  it('formats the excess in Dutch with a singular for one character', () => {
+    expect(formatCharacterCountOverLimitTextNl(1)).toBe('1 teken te veel')
+    expect(formatCharacterCountOverLimitTextNl(5)).toBe('5 tekens te veel')
+  })
+
+  it('formats the excess in Turkish', () => {
+    expect(formatCharacterCountOverLimitTextTr(1)).toBe('1 karakter fazla')
+    expect(formatCharacterCountOverLimitTextTr(5)).toBe('5 karakter fazla')
   })
 })

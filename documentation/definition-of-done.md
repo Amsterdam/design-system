@@ -8,6 +8,8 @@
 
 #### Required accessibility checks
 
+These checks are part of how we meet [WCAG 2.2 Level AA](https://designsystem.amsterdam/?path=/docs/docs-guidelines-accessibility--docs), the version and level the design system targets.
+
 - Focus outline is visible for interactive components.
 - Content does not overflow or get cut off on smaller screens.
 - Native pointer (mouse), keyboard, and touch interactions work. For example, you can tab to interactive elements and you can pinch to zoom.

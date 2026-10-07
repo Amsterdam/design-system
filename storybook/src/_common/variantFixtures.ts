@@ -80,7 +80,10 @@ export const fixtureValuesFor = (argType: StrictInputType): PropFixture | undefi
 
   if (fixture) {
     if (argType.type?.name === 'enum') {
-      return mergeEnumWithFixture(fixture, argType.type.value)
+      return mergeEnumWithFixture(
+        fixture,
+        argType.type.value.filter((value): value is string | number => value !== null),
+      )
     }
     return fixture
   }

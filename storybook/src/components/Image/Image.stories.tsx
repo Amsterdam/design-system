@@ -5,7 +5,7 @@
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-import { Image } from '@amsterdam/design-system-react/src'
+import { Column, Image, Row } from '@amsterdam/design-system-react/src'
 import { aspectRatioOptions } from '@amsterdam/design-system-react/src/common/types'
 
 import { maximiseInlineSize } from '#storybook/_common/decorators'
@@ -20,6 +20,13 @@ const meta = {
         type: 'select',
       },
       options: [undefined, ...aspectRatioOptions],
+    },
+    fit: {
+      control: {
+        labels: { undefined: 'default (cover)' },
+        type: 'radio',
+      },
+      options: [undefined, 'contain'],
     },
     src: {
       description: 'The url for the image.',
@@ -49,6 +56,34 @@ export const ResponsiveImages: Story = {
     src: 'https://picsum.photos/1280/720',
     srcSet: 'https://picsum.photos/640/360 640w, https://picsum.photos/1280/720 1280w',
   },
+}
+
+export const ContainedImage: Story = {
+  args: {
+    alt: '',
+    fit: 'contain',
+    src: 'https://picsum.photos/640/800',
+  },
+}
+
+export const ContainedImageComparison: Story = {
+  args: {
+    alt: '',
+    src: 'https://picsum.photos/640/800',
+  },
+  parameters: {
+    controls: { include: ['aspectRatio', 'src'] },
+  },
+  render: ({ aspectRatio, src }) => (
+    <Row gap="x-large">
+      <Column>
+        <Image alt="" aspectRatio={aspectRatio} src={src} />
+      </Column>
+      <Column>
+        <Image alt="" aspectRatio={aspectRatio} fit="contain" src={src} />
+      </Column>
+    </Row>
+  ),
 }
 
 export const LazyLoading: Story = {

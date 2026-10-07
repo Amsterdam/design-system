@@ -10,4 +10,9 @@ const SvgPencil = (props: SVGProps<SVGSVGElement>) => (
     <path d="M11.415 21.5H21v-1.993h-9.585z" />
   </svg>
 )
+
+/**
+ * @deprecated The ‘Pencil’ icon will be removed on or after 2027-04-02.
+ * Use ‘Edit’ instead.
+ */
 export default SvgPencil
