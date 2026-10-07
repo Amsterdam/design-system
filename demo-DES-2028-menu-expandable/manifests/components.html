@@ -620,13 +620,13 @@
 <header>
   <div class="wrap">
     <h1>Manifest Debugger</h1>
-    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">15/90 API errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">15/90 infos</a><a class="filter-pill" data-k="no-api" href="#filter-no-api">17/90 without API description</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">1/312 story errors</a><a class="filter-pill info" data-k="story-warnings" href="#filter-story-warnings">46/312 incomplete snippets</a><a class="filter-pill ok" data-k="docs" href="#filter-docs">127 docs ok</a></div>
+    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">15/90 API errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">15/90 infos</a><a class="filter-pill" data-k="no-api" href="#filter-no-api">17/90 without API description</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">1/314 story errors</a><a class="filter-pill info" data-k="story-warnings" href="#filter-story-warnings">48/314 incomplete snippets</a><a class="filter-pill ok" data-k="docs" href="#filter-docs">127 docs ok</a></div>
   </div>
 </header>
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>4.0s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>3.5s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -19161,31 +19161,31 @@ accessibleName?: string = &#39;Hoofdmenu&#39;
 
 /**
  * The accessible text for the button when the menu is expanded.
- * Ignored unless `collapsible` and `inWideWindow` are both `true`.
+ * Ignored unless `expandable` and `inWideWindow` are both `true`.
  */
 collapseButtonLabel?: string = &#39;Klap menu in&#39;
 
 /**
- * Whether the wide-window menu can be expanded and collapsed.
- */
-collapsible?: boolean = false
-
-/**
  * Whether the wide-window menu is initially expanded.
- * Ignored unless `collapsible` and `inWideWindow` are both `true`. Also ignored when `expanded` is provided.
+ * Ignored unless `expandable` and `inWideWindow` are both `true`. Also ignored when `expanded` is provided.
  */
 defaultExpanded?: boolean = false
 
 /**
+ * Whether the wide-window menu can be expanded and collapsed.
+ */
+expandable?: boolean = false
+
+/**
  * The accessible text for the button when the menu is collapsed.
- * Ignored unless `collapsible` and `inWideWindow` are both `true`.
+ * Ignored unless `expandable` and `inWideWindow` are both `true`.
  */
 expandButtonLabel?: string = &#39;Klap menu uit&#39;
 
 /**
  * Whether the wide-window menu is expanded.
  * When provided, the component is controlled and internal state is ignored.
- * Ignored unless `collapsible` and `inWideWindow` are both `true`.
+ * Ignored unless `expandable` and `inWideWindow` are both `true`.
  */
 expanded?: boolean
 
@@ -19196,7 +19196,7 @@ inWideWindow?: boolean
 
 /**
  * Callback fired when the wide-window menu is expanded or collapsed. Receives the new expanded state.
- * Ignored unless `collapsible` and `inWideWindow` are both `true`.
+ * Ignored unless `expandable` and `inWideWindow` are both `true`.
  */
 onToggle?: (expanded: boolean) =&gt; void</code></pre>
           </div>
@@ -19237,22 +19237,22 @@ import { Menu } from '@amsterdam/design-system-react/src';</code></pre>
             </div>
             <div class="note ok">
               <div class="row">
-                <span class="ex-name">Collapsible</span>
+                <span class="ex-name">Expandable</span>
                 <span class="badge info">incomplete example</span>
               </div>
               
               
-              <pre><code>const Collapsible = () =&gt; &lt;Menu inWideWindow={false} collapsible&gt;{Default.args?.children}&lt;/Menu&gt;;</code></pre>
+              <pre><code>const Expandable = () =&gt; &lt;Menu inWideWindow={false} expandable&gt;{Default.args?.children}&lt;/Menu&gt;;</code></pre>
               <div class="snippet-warning">Incomplete snippet: `Default` could not be resolved statically.</div>
             </div>
             <div class="note ok">
               <div class="row">
-                <span class="ex-name">Collapsible Expanded</span>
+                <span class="ex-name">Expanded</span>
                 <span class="badge info">incomplete example</span>
               </div>
               
               
-              <pre><code>const CollapsibleExpanded = () =&gt; &lt;Menu inWideWindow={false} collapsible defaultExpanded&gt;{Default.args?.children}&lt;/Menu&gt;;</code></pre>
+              <pre><code>const Expanded = () =&gt; &lt;Menu inWideWindow={false} defaultExpanded expandable&gt;{Default.args?.children}&lt;/Menu&gt;;</code></pre>
               <div class="snippet-warning">Incomplete snippet: `Default` could not be resolved statically.</div>
             </div>
         </div>
@@ -19327,7 +19327,7 @@ Do not use this component anywhere other than the Page Header and the side of th
 
 ### How to use
 
-Set `collapsible` on the wide-window instance when users need room for a second level of navigation.
+Set `expandable` on the wide-window instance when users need room for a second level of navigation.
 It adds a button that widens the Menu, which gives the links the horizontal layout again.
 Start the Menu out wide with `defaultExpanded`, or pass `expanded` together with `onToggle` when the parent should own the state.
 
@@ -19339,17 +19339,17 @@ Use filled icons for the links.
 
 See the [Internal Home Page](/story/pages-internal-home-page--default) template for a full-page example.
 
-### Collapsible
+### Expandable
 
 A Menu that users can widen themselves.
 
-&lt;Canvas of={MenuStories.Collapsible} /&gt;
+&lt;Canvas of={MenuStories.Expandable} /&gt;
 
 ### Expanded
 
 The same Menu, wide from the start.
 
-&lt;Canvas of={MenuStories.CollapsibleExpanded} /&gt;
+&lt;Canvas of={MenuStories.Expanded} /&gt;
 
 ## Design
 
@@ -19363,7 +19363,7 @@ In a wide window, the menu is 8rem wide.
 It adds whitespace at the top to align with the baseline of Page Header.
 The icon is larger and positioned above the label.
 
-When `collapsible` is enabled, the wide Menu shows an icon-only button at the top end.
+When `expandable` is enabled, the wide Menu shows an icon-only button at the top end.
 Its default state keeps the narrow column and the vertical link layout.
 Expanded, the Menu is 12rem wide and the links return to the horizontal layout, with the label next to the icon.
 The links follow the width of the Menu rather than that of the window, so an application that gives the Menu another width gets the layout that fits it.
@@ -19379,7 +19379,7 @@ In the wide layout the links do stretch, since the column is barely wider than t
 
 Without `inWideWindow` the Menu renders a `div`, because it then sits inside the `nav` element of the [Page Header](/docs/components-containers-page-header--docs).
 With the prop it renders a `nav` of its own, named by a visually hidden heading that `accessibleName` fills.
-With `collapsible`, the icon-only button is named through `expandButtonLabel` and `collapseButtonLabel`.
+With `expandable`, the icon-only button is named through `expandButtonLabel` and `collapseButtonLabel`.
 Its accessible name changes with the action, because the button widens and narrows the Menu rather than exposing hidden content.
 
 That name defaults to ‘Hoofdmenu’, and so does the `navigationLabel` of the Page Header.
@@ -24041,7 +24041,7 @@ The visual arrangement and the reading order cannot drift apart here, which is t
       <div class="badges">
         <label for="c-58-components-containers-page-props" class="badge ok as-toggle">1 prop type</label>
         
-        <label for="c-58-components-containers-page-stories" class="badge ok as-toggle">2 stories · 2 incomplete</label>
+        <label for="c-58-components-containers-page-stories" class="badge ok as-toggle">3 stories · 3 incomplete</label>
         <label for="c-58-components-containers-page-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
@@ -24133,31 +24133,17 @@ import { SettingsFillIcon } from '@amsterdam/design-system-react-icons';</code><
               </div>
               
               
-              <pre><code>const WithMenu = () =&gt; &lt;Page withMenu&gt;
-    &lt;SkipLink className=&quot;ams-page__area--skip-link&quot; href=&quot;#inhoud&quot;&gt;Direct naar inhoud
-              &lt;/SkipLink&gt;
-    &lt;PageHeader
-        brandName=&quot;Page Header&quot;
-        className=&quot;ams-page__area--header&quot;
-        noMenuButtonOnWideWindow&gt;
-        &lt;Menu&gt;
-            &lt;Menu.Link href=&quot;#&quot; icon={&lt;SettingsFillIcon /&gt;}&gt;Menu item
-                          &lt;/Menu.Link&gt;
-        &lt;/Menu&gt;
-    &lt;/PageHeader&gt;
-    &lt;Menu className=&quot;ams-page__area--menu&quot; inWideWindow&gt;
-        &lt;Menu.Link href=&quot;#&quot; icon={&lt;SettingsFillIcon /&gt;}&gt;Menu item
-                    &lt;/Menu.Link&gt;
-    &lt;/Menu&gt;
-    &lt;main className=&quot;ams-page__area--body&quot; id=&quot;inhoud&quot;&gt;
-        {children}
-    &lt;/main&gt;
-    &lt;PageFooter className=&quot;ams-page__area--footer&quot;&gt;
-        &lt;PageFooter.Menu&gt;
-            &lt;PageFooter.MenuLink href=&quot;/&quot;&gt;Page Footer Menu&lt;/PageFooter.MenuLink&gt;
-        &lt;/PageFooter.Menu&gt;
-    &lt;/PageFooter&gt;
-&lt;/Page&gt;;</code></pre>
+              <pre><code>const WithMenu = (args) =&gt; renderPageWithMenu(args);</code></pre>
+              <div class="snippet-warning">Incomplete snippet: `PageBody` could not be resolved statically.</div>
+            </div>
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">With Expandable Menu</span>
+                <span class="badge info">incomplete example</span>
+              </div>
+              
+              
+              <pre><code>const WithExpandableMenu = (args) =&gt; renderPageWithMenu(args, true);</code></pre>
               <div class="snippet-warning">Incomplete snippet: `PageBody` could not be resolved statically.</div>
             </div>
         </div>
@@ -24229,6 +24215,7 @@ This is an alternative to the approach using Link Lists, which is appropriate fo
 
 We can’t display the example here, as it requires Compact Mode to be enabled, which affects the example for the public Home Page template.
 Open the [full example page](/story/components-containers-page--with-menu) or see the [Home Page](/story/pages-internal-home-page--default) template.
+Open the [expandable Menu example page](/story/components-containers-page--with-expandable-menu) to see the same layout with the wide Menu set to `expandable`.
 
 ## Features
 
@@ -37887,7 +37874,7 @@ onToggle?: (expanded: boolean) =&gt; void</code></pre>
       <div class="badges">
         <span class="badge">no API description</span>
         
-        <label for="c-82-pages-internal-table-page-stories" class="badge ok as-toggle">2 stories · 2 incomplete</label>
+        <label for="c-82-pages-internal-table-page-stories" class="badge ok as-toggle">3 stories · 3 incomplete</label>
         <label for="c-82-pages-internal-table-page-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
@@ -38030,6 +38017,51 @@ onToggle?: (expanded: boolean) =&gt; void</code></pre>
             totalPages={totalPaginationPages}
           /&gt;
         &lt;/Row&gt;
+      &lt;/Grid.Cell&gt;
+    &lt;/Grid&gt;
+  )
+};</code></pre>
+              <div class="snippet-warning">Incomplete snippet: `...commonMeta` could not be resolved statically.</div>
+            </div>
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">With Expanded Menu</span>
+                <span class="badge info">incomplete example</span>
+              </div>
+              
+              
+              <pre><code>const WithExpandedMenu = () =&gt; {
+  const sortOrder = (params.get(&#39;sort&#39;) ?? &#39;straat-asc&#39;) as SortOrder
+  const addresses = sortAddresses(bagAddresses.slice(0, 30), sortOrder)
+
+  return (
+    &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+      &lt;Grid.Cell appearance=&quot;transparent&quot; span=&quot;all&quot;&gt;
+        &lt;Heading level={1}&gt;Vergunninghouders 2026/2027&lt;/Heading&gt;
+      &lt;/Grid.Cell&gt;
+      &lt;Grid.Cell span=&quot;all&quot;&gt;
+        {/* Position the Heading and Select next to each other to save space. */}
+        &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; className=&quot;ams-mb-m&quot; wrap&gt;
+          {/* Use a Heading instead of a Caption to allow a form in between. */}
+          &lt;Heading level={2}&gt;Gegevens per adres&lt;/Heading&gt;
+          &lt;form onSubmit={handleSortSubmit}&gt;
+            &lt;Row alignVertical=&quot;center&quot; wrap&gt;
+              &lt;Label htmlFor=&quot;sort&quot;&gt;Sorteren op&lt;/Label&gt;
+              {/* Submitting the form on change avoids a separate submit button (see handleSortChange). */}
+              &lt;Select defaultValue={sortOrder} id=&quot;sort&quot; name=&quot;sort&quot; onChange={handleSortChange}&gt;
+                {sortSelectOptions}
+              &lt;/Select&gt;
+            &lt;/Row&gt;
+          &lt;/form&gt;
+        &lt;/Row&gt;
+        &lt;Table&gt;
+          {/* Repeat the heading non-visually in the Caption for accessibility. */}
+          &lt;Table.Caption className=&quot;ams-visually-hidden&quot;&gt;Gegevens per adres&lt;/Table.Caption&gt;
+          &lt;Table.Header&gt;
+            &lt;AddressTableHeaderRow /&gt;
+          &lt;/Table.Header&gt;
+          &lt;AddressTableBody addresses={addresses} /&gt;
+        &lt;/Table&gt;
       &lt;/Grid.Cell&gt;
     &lt;/Grid&gt;
   )
