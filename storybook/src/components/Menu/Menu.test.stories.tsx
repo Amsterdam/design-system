@@ -55,8 +55,7 @@ export const WideExpandable: Story = {
   },
   play: async ({ canvas, userEvent }) => {
     const menu = canvas.getByRole('navigation', { name: 'Hoofdmenu' })
-    // The class only drives the container query; check the link layout it produces, since that is
-    // the behaviour the acceptance criteria describe.
+    // Check the link layout itself, because that is the behaviour users notice when the Menu expands.
     const firstLink = canvas.getByRole('link', { name: 'Dashboard' })
 
     expect(getComputedStyle(firstLink).flexDirection).toBe('column')
