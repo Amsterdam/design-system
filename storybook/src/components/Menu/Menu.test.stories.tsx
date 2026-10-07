@@ -40,6 +40,25 @@ const renderMenu = (args: Story['args']) => (
   </Menu>
 )
 
+const renderMenuWithSubmenu = (args: Story['args']) => (
+  <Menu {...args}>
+    <Menu.Link href="#" icon={<SvgPieChartFill />}>
+      Dashboard
+    </Menu.Link>
+    <Menu.Item href="#" icon={<SvgPieChartFill />} label="Projecten">
+      <Menu.Link href="#">Overzicht</Menu.Link>
+      <Menu.Link href="#">Planning</Menu.Link>
+      <Menu.Link href="#">Team</Menu.Link>
+    </Menu.Item>
+    <Menu.Link href="#" icon={<SvgPieChartFill />}>
+      Rapportages
+    </Menu.Link>
+    <Menu.Link className="hover" href="#" icon={<SvgPieChartFill />}>
+      Instellingen
+    </Menu.Link>
+  </Menu>
+)
+
 export const Test: Story = {
   render: renderMenu,
   tags: ['!dev', '!autodocs', '!manifest'],
@@ -92,5 +111,47 @@ export const WideExpanded: Story = {
     fixedInWideWindow: true,
   },
   render: renderMenu,
+  tags: ['!dev', '!autodocs', '!manifest'],
+}
+
+export const WideWithSubmenu: Story = {
+  args: {
+    expandable: true,
+    inWideWindow: true,
+  },
+  parameters: {
+    fixedInWideWindow: true,
+  },
+  play: async ({ canvas }) => {
+    const hiddenSubmenuLink = canvas.getByRole('link', { hidden: true, name: 'Overzicht' })
+
+    await expect(hiddenSubmenuLink).not.toBeVisible()
+  },
+  render: renderMenuWithSubmenu,
+  tags: ['!dev', '!autodocs', '!manifest'],
+}
+
+export const WideWithSubmenuExpanded: Story = {
+  args: {
+    defaultExpanded: true,
+    expandable: true,
+    inWideWindow: true,
+  },
+  parameters: {
+    fixedInWideWindow: true,
+  },
+  play: async ({ canvas }) => {
+    await expect(canvas.getAllByRole('list')).toHaveLength(2)
+    await expect(canvas.getByRole('link', { name: 'Overzicht' })).toBeVisible()
+  },
+  render: renderMenuWithSubmenu,
+  tags: ['!dev', '!autodocs', '!manifest'],
+}
+
+export const NarrowWithSubmenu: Story = {
+  parameters: {
+    chromatic: { modes: { '400px': { viewport: 400 } } },
+  },
+  render: renderMenuWithSubmenu,
   tags: ['!dev', '!autodocs', '!manifest'],
 }

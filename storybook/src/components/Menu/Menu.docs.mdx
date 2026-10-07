@@ -7,6 +7,7 @@ import { StatusBadge } from "#storybook/_components/StatusBadge/StatusBadge.tsx"
 import tokens from "#tokens/components/ams/menu.tokens.json";
 
 import * as MenuStories from "./Menu.stories.tsx";
+import * as MenuItemStories from "./MenuItem.stories.tsx";
 import * as MenuLinkStories from "./MenuLink.stories.tsx";
 
 <StatusBadge
@@ -30,10 +31,20 @@ On the page for the Story, you can change the size of the preview with the relat
 
 ## Subcomponents
 
+### Item
+
+Use this subcomponent when a first-level menu entry also needs submenu links.
+`label` names the parent link and `children` hold nested `Menu.Link` elements.
+
+<Canvas of={MenuItemStories.Item} />
+
+<Controls of={MenuItemStories.Item} />
+
 ### Link
 
-Each link in the Menu can be given a target url, a label and one of our [icons](/docs/brand-assets-icons--docs).
-Use the filled variant.
+Top-level links in the Menu usually combine a target url, a label and one of our [icons](/docs/brand-assets-icons--docs).
+Use the filled variant there.
+Submenu links usually need text only.
 
 <Canvas of={MenuLinkStories.Link} />
 
@@ -57,13 +68,18 @@ Do not use this component anywhere other than the Page Header and the side of th
 
 ### How to use
 
-Set `expandable` on the wide-window instance when users need room for a second level of navigation.
-It adds a button that widens the Menu, which gives the links the horizontal layout again.
+Set `expandable` on the wide-window instance when the Menu needs room for a second level of navigation.
+It adds a button that widens the Menu, which shows the links in the horizontal layout.
 Start the Menu out wide with `defaultExpanded`, or pass `expanded` together with `onToggle` when the parent should own the state.
+
+Use `Menu.Item` for a top-level entry that owns submenu links.
+Its `label` names the parent link, and its children are the nested `Menu.Link` items.
+In wide windows a Menu with a submenu requires `expandable` to be set, because the submenus are only visible while the Menu is expanded.
 
 ### How to write
 
-Use filled icons for the links.
+Use filled icons for top-level links.
+Submenu links usually only need text.
 
 ## Examples
 
@@ -81,6 +97,12 @@ The same Menu, wide from the start.
 
 <Canvas of={MenuStories.Expanded} />
 
+### With submenu
+
+A Menu with one top-level item that contains submenu links.
+
+<Canvas of={MenuStories.WithSubmenu} />
+
 ## Design
 
 The menu has a blue background.
@@ -95,7 +117,8 @@ The icon is larger and positioned above the label.
 
 When `expandable` is enabled, the wide Menu shows an icon-only button at the top end.
 Its default state keeps the narrow column and the vertical link layout.
-Expanded, the Menu is `14rem` wide and the links return to the horizontal layout, with the label next to the icon.
+Expanded, the Menu is wider and the links return to the horizontal layout, with the label next to the icon.
+The submenu is visible in a narrow or medium window and in an expanded Menu, and hidden in the narrower column, which has no room for it.
 
 In narrow and medium windows the Menu reaches both edges of the window by cancelling the horizontal padding of the Page Header with a negative margin of the same size.
 That ties the component to the one context it is used in, which is accepted here: it is the only way for a band of colour to span the window while the links stay aligned with the content around them.
@@ -108,6 +131,7 @@ In the wide layout the links do stretch, since the column is barely wider than t
 
 Without `inWideWindow` the Menu renders a `div`, because it then sits inside the `nav` element of the [Page Header](/docs/components-containers-page-header--docs).
 With the prop it renders a `nav` of its own, named by a visually hidden heading that `accessibleName` fills.
+A submenu is a nested `ul` inside the parent item’s `li`, so the list structure stays valid without JavaScript interaction.
 With `expandable`, the icon-only button is named through `expandButtonLabel` and `collapseButtonLabel`.
 The button reports through `aria-expanded` whether the Menu is expanded.
 
