@@ -134,6 +134,7 @@ With the prop it renders a `nav` of its own, named by a visually hidden heading 
 A submenu is a nested `ul` inside the parent item’s `li`, so the list structure stays valid without JavaScript interaction.
 With `expandable`, the icon-only button is named through `expandButtonLabel` and `collapseButtonLabel`.
 The button reports through `aria-expanded` whether the Menu is expanded, which in a Menu with submenus also shows and hides their links.
+Without scripting the button cannot work, so it is hidden and the submenus stay visible in the narrow column.
 
 That name defaults to ‘Hoofdmenu’, and so does the `navigationLabel` of the Page Header.
 A wide window shows both navigations, so give one of the two another name.
