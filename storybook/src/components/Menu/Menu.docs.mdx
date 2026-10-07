@@ -58,7 +58,7 @@ Do not use this component anywhere other than the Page Header and the side of th
 
 ### How to use
 
-Set `collapsible` on the wide-window instance when users need room for a second level of navigation.
+Set `expandable` on the wide-window instance when users need room for a second level of navigation.
 It adds a button that widens the Menu, which gives the links the horizontal layout again.
 Start the Menu out wide with `defaultExpanded`, or pass `expanded` together with `onToggle` when the parent should own the state.
 
@@ -70,17 +70,17 @@ Use filled icons for the links.
 
 See the [Internal Home Page](/story/pages-internal-home-page--default) template for a full-page example.
 
-### Collapsible
+### Expandable
 
 A Menu that users can widen themselves.
 
-<Canvas of={MenuStories.Collapsible} />
+<Canvas of={MenuStories.Expandable} />
 
 ### Expanded
 
 The same Menu, wide from the start.
 
-<Canvas of={MenuStories.CollapsibleExpanded} />
+<Canvas of={MenuStories.Expanded} />
 
 ## Design
 
@@ -94,7 +94,7 @@ In a wide window, the menu is 8rem wide.
 It adds whitespace at the top to align with the baseline of Page Header.
 The icon is larger and positioned above the label.
 
-When `collapsible` is enabled, the wide Menu shows an icon-only button at the top end.
+When `expandable` is enabled, the wide Menu shows an icon-only button at the top end.
 Its default state keeps the narrow column and the vertical link layout.
 Expanded, the Menu is 12rem wide and the links return to the horizontal layout, with the label next to the icon.
 The links follow the width of the Menu rather than that of the window, so an application that gives the Menu another width gets the layout that fits it.
@@ -110,7 +110,7 @@ In the wide layout the links do stretch, since the column is barely wider than t
 
 Without `inWideWindow` the Menu renders a `div`, because it then sits inside the `nav` element of the [Page Header](/docs/components-containers-page-header--docs).
 With the prop it renders a `nav` of its own, named by a visually hidden heading that `accessibleName` fills.
-With `collapsible`, the icon-only button is named through `expandButtonLabel` and `collapseButtonLabel`.
+With `expandable`, the icon-only button is named through `expandButtonLabel` and `collapseButtonLabel`.
 Its accessible name changes with the action, because the button widens and narrows the Menu rather than exposing hidden content.
 
 That name defaults to ‘Hoofdmenu’, and so does the `navigationLabel` of the Page Header.
