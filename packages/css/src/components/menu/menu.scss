@@ -114,15 +114,25 @@
   );
 
   @media (min-width: $ams-breakpoint-wide) {
-    // The narrow column of a Menu that is not expanded has no room for a second level.
     :where(.ams-menu:not(.ams-menu--expanded)) & {
-      display: none;
+      padding-inline-start: 0; // The links of this column are centred.
+
+      // The narrow column of a Menu that is not expanded has no room for a second level.
+      // Without scripting nothing can expand the Menu, so its links stay visible there.
+      @media (scripting: enabled) {
+        display: none;
+      }
     }
   }
 }
 
 .ams-menu__expand-button {
   justify-self: end;
+
+  // The button does nothing without scripting.
+  @media (scripting: none) {
+    display: none;
+  }
 }
 
 .ams-menu__link {
