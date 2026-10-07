@@ -91,6 +91,7 @@ $ams-menu-vertical-breakpoint: 9rem;
 
 .ams-menu--expandable {
   @media (min-width: $ams-breakpoint-wide) {
+    align-content: start;
     display: grid;
     gap: var(--ams-menu-list-gap);
   }
