@@ -7,6 +7,7 @@ import { StatusBadge } from "#storybook/_components/StatusBadge/StatusBadge.tsx"
 import tokens from "#tokens/components/ams/menu.tokens.json";
 
 import * as MenuStories from "./Menu.stories.tsx";
+import * as MenuItemStories from "./MenuItem.stories.tsx";
 import * as MenuLinkStories from "./MenuLink.stories.tsx";
 
 <StatusBadge
@@ -30,10 +31,20 @@ On the page for the Story, you can change the size of the preview with the relat
 
 ## Subcomponents
 
+### Item
+
+Use this subcomponent when a first-level menu entry also needs submenu links.
+`label` names the parent link and `children` hold the nested `Menu.Link` and `Menu.Item` elements.
+
+<Canvas of={MenuItemStories.Item} />
+
+<Controls of={MenuItemStories.Item} />
+
 ### Link
 
-Each link in the Menu can be given a target url, a label and one of our [icons](/docs/brand-assets-icons--docs).
-Use the filled variant.
+Top-level links in the Menu usually combine a target url, a label and one of our [icons](/docs/brand-assets-icons--docs).
+Use the filled variant there.
+Submenu links usually need text only.
 
 <Canvas of={MenuLinkStories.Link} />
 
@@ -55,13 +66,36 @@ They should offer navigation using the Page Header only.
 
 Do not use this component anywhere other than the Page Header and the side of the Page.
 
+### How to use
+
+Use `Menu.Item` for an entry that owns submenu links.
+Its `label` names the parent link, and its children are the nested `Menu.Link` items.
+Nest a `Menu.Item` in another one for a deeper level, and stop at three levels.
+A Menu with a submenu is wider in a wide window, to make room for those levels.
+
+Set `collapsible` when submenu items should be shown and hidden one section at a time.
+Each submenu then gets its own caret button, labelled with `showAccessibleLabel` and `hideAccessibleLabel` followed by the parent label.
+
 ### How to write
 
-Use filled icons for the links.
+Use filled icons for top-level links.
+Submenu links usually only need text.
 
 ## Examples
 
 See the [Internal Home Page](/story/pages-internal-home-page--default) template for a full-page example.
+
+### With submenu
+
+A Menu with one top-level item that contains submenu links.
+
+<Canvas of={MenuStories.WithSubmenu} />
+
+### With multiple levels
+
+A Menu with a submenu inside a submenu.
+
+<Canvas of={MenuStories.WithMultipleLevels} />
 
 ## Design
 
@@ -70,10 +104,18 @@ Links have a white icon and a label.
 
 In a narrow window, the menu occupies the full width.
 The icon and label of the link sit next to each other.
+An item with submenu links adds a caret button after its link.
 
 In a wide window, the menu has a maximum width of 8rem.
 It adds whitespace at the top to align with the baseline of Page Header.
 The icon is larger and positioned above the label.
+
+A Menu with a submenu has a wider fixed width there instead, and its links keep the horizontal layout, with the label next to the icon.
+A submenu indents its links past the icon of the item above it, and each deeper level indents a little further.
+
+When `collapsible` is enabled, each item with a submenu shows a caret button.
+Collapsed items hide their nested list.
+Expanded items rotate the caret and show the nested links.
 
 In narrow and medium windows the Menu reaches both edges of the window by cancelling the horizontal padding of the Page Header with a negative margin of the same size.
 That ties the component to the one context it is used in, which is accepted here: it is the only way for a band of colour to span the window while the links stay aligned with the content around them.
@@ -86,6 +128,11 @@ In the wide layout the links do stretch, since the column is barely wider than t
 
 Without `inWideWindow` the Menu renders a `div`, because it then sits inside the `nav` element of the [Page Header](/docs/components-containers-page-header--docs).
 With the prop it renders a `nav` of its own, named by a visually hidden heading that `accessibleName` fills.
+A submenu is a nested `ul` inside the parent item’s `li`, so the list structure stays valid without JavaScript interaction.
+With `collapsible`, each submenu button reports its state with `aria-expanded` and points to its nested list with `aria-controls`.
+Its accessible name combines `showAccessibleLabel` or `hideAccessibleLabel` with the string `label` of the parent item.
+When a submenu closes while focus is inside it, focus returns to that submenu button.
+Without scripting that button cannot work, so it is hidden and every submenu stays visible.
 
 That name defaults to ‘Hoofdmenu’, and so does the `navigationLabel` of the Page Header.
 A wide window shows both navigations, so give one of the two another name.
