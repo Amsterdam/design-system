@@ -61,8 +61,8 @@ describe('Menu', () => {
     expect(button).not.toBeInTheDocument()
   })
 
-  it('renders a toggle button when collapsible in a wide window', () => {
-    render(<Menu collapsible inWideWindow />)
+  it('renders a toggle button when expandable in a wide window', () => {
+    render(<Menu expandable inWideWindow />)
 
     const button = screen.getByRole('button', { name: 'Klap menu uit' })
 
@@ -71,7 +71,7 @@ describe('Menu', () => {
   })
 
   it('adds the expanded class when defaultExpanded is true', () => {
-    const { container } = render(<Menu collapsible defaultExpanded inWideWindow />)
+    const { container } = render(<Menu defaultExpanded expandable inWideWindow />)
 
     const component = container.querySelector(':only-child')
     const button = screen.getByRole('button', { name: 'Klap menu in' })
@@ -81,7 +81,7 @@ describe('Menu', () => {
   })
 
   it('toggles the expanded state when the button is clicked', () => {
-    const { container } = render(<Menu collapsible inWideWindow />)
+    const { container } = render(<Menu expandable inWideWindow />)
 
     const component = container.querySelector(':only-child')
     const expandButton = screen.getByRole('button', { name: 'Klap menu uit' })
@@ -104,7 +104,7 @@ describe('Menu', () => {
   it('calls onToggle with the new expanded state when the button is clicked', () => {
     const onToggle = vi.fn()
 
-    render(<Menu collapsible inWideWindow onToggle={onToggle} />)
+    render(<Menu expandable inWideWindow onToggle={onToggle} />)
 
     const button = screen.getByRole('button', { name: 'Klap menu uit' })
 
@@ -117,7 +117,7 @@ describe('Menu', () => {
   })
 
   it('respects the expanded prop when false', () => {
-    const { container } = render(<Menu collapsible expanded={false} inWideWindow />)
+    const { container } = render(<Menu expandable expanded={false} inWideWindow />)
 
     const component = container.querySelector(':only-child')
     const button = screen.getByRole('button', { name: 'Klap menu uit' })
@@ -127,7 +127,7 @@ describe('Menu', () => {
   })
 
   it('respects the expanded prop when true', () => {
-    const { container } = render(<Menu collapsible expanded inWideWindow />)
+    const { container } = render(<Menu expandable expanded inWideWindow />)
 
     const component = container.querySelector(':only-child')
     const button = screen.getByRole('button', { name: 'Klap menu in' })
@@ -137,7 +137,7 @@ describe('Menu', () => {
   })
 
   it('does not toggle internally when controlled', () => {
-    const { container } = render(<Menu collapsible expanded={false} inWideWindow />)
+    const { container } = render(<Menu expandable expanded={false} inWideWindow />)
 
     const component = container.querySelector(':only-child')
     const button = screen.getByRole('button', { name: 'Klap menu uit' })

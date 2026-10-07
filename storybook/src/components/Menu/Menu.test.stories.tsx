@@ -45,9 +45,9 @@ export const Test: Story = {
   tags: ['!dev', '!autodocs', '!manifest'],
 }
 
-export const WideCollapsible: Story = {
+export const WideExpandable: Story = {
   args: {
-    collapsible: true,
+    expandable: true,
     inWideWindow: true,
   },
   parameters: {
@@ -80,10 +80,10 @@ export const WideCollapsible: Story = {
   tags: ['!dev', '!autodocs', '!manifest'],
 }
 
-export const WideCollapsibleExpanded: Story = {
+export const WideExpanded: Story = {
   args: {
-    collapsible: true,
     defaultExpanded: true,
+    expandable: true,
     inWideWindow: true,
   },
   parameters: {

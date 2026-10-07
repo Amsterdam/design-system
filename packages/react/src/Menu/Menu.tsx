@@ -22,38 +22,38 @@ export type MenuProps = {
   readonly accessibleName?: string
   /**
    * The accessible text for the button when the menu is expanded.
-   * Ignored unless `collapsible` and `inWideWindow` are both `true`.
+   * Ignored unless `expandable` and `inWideWindow` are both `true`.
    * @default Klap menu in
    */
   readonly collapseButtonLabel?: string
   /**
-   * Whether the wide-window menu can be expanded and collapsed.
-   * @default false
-   */
-  readonly collapsible?: boolean
-  /**
    * Whether the wide-window menu is initially expanded.
-   * Ignored unless `collapsible` and `inWideWindow` are both `true`. Also ignored when `expanded` is provided.
+   * Ignored unless `expandable` and `inWideWindow` are both `true`. Also ignored when `expanded` is provided.
    * @default false
    */
   readonly defaultExpanded?: boolean
   /**
+   * Whether the wide-window menu can be expanded and collapsed.
+   * @default false
+   */
+  readonly expandable?: boolean
+  /**
    * The accessible text for the button when the menu is collapsed.
-   * Ignored unless `collapsible` and `inWideWindow` are both `true`.
+   * Ignored unless `expandable` and `inWideWindow` are both `true`.
    * @default Klap menu uit
    */
   readonly expandButtonLabel?: string
   /**
    * Whether the wide-window menu is expanded.
    * When provided, the component is controlled and internal state is ignored.
-   * Ignored unless `collapsible` and `inWideWindow` are both `true`.
+   * Ignored unless `expandable` and `inWideWindow` are both `true`.
    */
   readonly expanded?: boolean
   /** Hides the component on narrow windows. */
   readonly inWideWindow?: boolean
   /**
    * Callback fired when the wide-window menu is expanded or collapsed. Receives the new expanded state.
-   * Ignored unless `collapsible` and `inWideWindow` are both `true`.
+   * Ignored unless `expandable` and `inWideWindow` are both `true`.
    */
   readonly onToggle?: (expanded: boolean) => void
 } & Readonly<PropsWithChildren<HTMLAttributes<HTMLElement>>>
@@ -65,8 +65,8 @@ export const MenuRoot = forwardRef<HTMLElement, MenuProps>(
       children,
       className,
       collapseButtonLabel = 'Klap menu in',
-      collapsible = false,
       defaultExpanded = false,
+      expandable = false,
       expandButtonLabel = 'Klap menu uit',
       expanded,
       inWideWindow,
@@ -78,12 +78,12 @@ export const MenuRoot = forwardRef<HTMLElement, MenuProps>(
     // In a medium or narrow window, the Menu is a child of the `nav` of Page Header.
     // In a wide window, we render a `nav` element and the related accessibility features.
     const Tag = (inWideWindow ? 'nav' : 'div') as ElementType
-    const isCollapsible = Boolean(collapsible && inWideWindow)
+    const isExpandable = Boolean(expandable && inWideWindow)
 
     const accessibleLabelId = useId()
     const [isExpanded, toggle] = useCollapsible({
       defaultValue: defaultExpanded,
-      gate: isCollapsible,
+      gate: isExpandable,
       onToggle,
       value: expanded,
     })
@@ -95,8 +95,8 @@ export const MenuRoot = forwardRef<HTMLElement, MenuProps>(
         className={clsx(
           'ams-menu',
           inWideWindow && 'ams-menu--in-wide-window',
-          isCollapsible && 'ams-menu--collapsible',
-          isCollapsible && isExpanded && 'ams-menu--expanded',
+          isExpandable && 'ams-menu--expandable',
+          isExpandable && isExpanded && 'ams-menu--expanded',
           className,
         )}
         ref={ref}
@@ -106,9 +106,9 @@ export const MenuRoot = forwardRef<HTMLElement, MenuProps>(
             {accessibleName}
           </h2>
         )}
-        {isCollapsible && (
+        {isExpandable && (
           <IconButton
-            className="ams-menu__button"
+            className="ams-menu__expand-button"
             color="inverse"
             label={isExpanded ? collapseButtonLabel : expandButtonLabel}
             onClick={toggle}
