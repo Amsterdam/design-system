@@ -9,18 +9,20 @@ import type { Meta } from '@storybook/react-vite'
 import { PageLayout } from './PageLayout'
 
 type InternalPageParameters = {
+  readonly menuWithSubmenus?: boolean
   readonly wideMenuProps?: MenuProps
 } & Meta['parameters']
 
 export const commonMeta = {
   decorators: [
     // Every internal template renders inside the same Page Layout, so each story supplies the page body only.
-    // A story can pass `wideMenuProps` as a parameter for the Menu beside the page.
+    // A story can pass `wideMenuProps` as a parameter for the Menu beside the page,
+    // and `menuWithSubmenus` to give both Menus a second level of navigation.
     (Story, context) => {
-      const { wideMenuProps } = context.parameters as InternalPageParameters
+      const { menuWithSubmenus, wideMenuProps } = context.parameters as InternalPageParameters
 
       return (
-        <PageLayout wideMenuProps={wideMenuProps}>
+        <PageLayout menuWithSubmenus={menuWithSubmenus} wideMenuProps={wideMenuProps}>
           <Story />
         </PageLayout>
       )
