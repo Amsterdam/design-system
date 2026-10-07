@@ -12,7 +12,8 @@
 /**
  * CSS Custom properties cannot be used in container queries.
  * A size query reads the content box, so the Menu measures its inline size minus its inline padding:
- * roughly 6.6rem when collapsed and 10.6rem when expanded. This value separates those two.
+ * between 6.5rem and 7rem when collapsed and between 10.5rem and 11rem when expanded, depending on the mode.
+ * This value separates those two.
  */
 $ams-menu-vertical-breakpoint: 9rem;
 
