@@ -12,9 +12,9 @@ import { describe, expect, it } from 'vitest'
 
 import { Menu } from './Menu'
 
-describe('MenuLink', () => {
+describe('MenuItem', () => {
   it('renders', () => {
-    const { container } = render(<Menu.Link href="#" icon={DocumentIcon} />)
+    const { container } = render(<Menu.Item href="#" icon={DocumentIcon} label="Projecten" />)
 
     const listItem = screen.getByRole('listitem')
     const link = screen.getByRole('link')
@@ -25,11 +25,11 @@ describe('MenuLink', () => {
     expect(link).toBeInTheDocument()
     expect(link).toBeVisible()
     expect(icon).toBeInTheDocument()
-    expect(icon).not.toBeVisible() // The icon is hidden by default, and only shown when the CSS loads.
+    expect(icon).not.toBeVisible()
   })
 
   it('renders a design system BEM class name', () => {
-    render(<Menu.Link href="#" icon={DocumentIcon} />)
+    render(<Menu.Item href="#" icon={DocumentIcon} label="Projecten" />)
 
     const component = screen.getByRole('link')
 
@@ -37,17 +37,47 @@ describe('MenuLink', () => {
   })
 
   it('renders an extra class name', () => {
-    render(<Menu.Link className="extra" href="#" icon={DocumentIcon} />)
+    render(<Menu.Item className="extra" href="#" icon={DocumentIcon} label="Projecten" />)
 
     const component = screen.getByRole('link')
 
     expect(component).toHaveClass('ams-menu__link extra')
   })
 
+  it('renders a nested submenu', () => {
+    render(
+      <Menu.Item href="#" icon={DocumentIcon} label="Projecten">
+        <Menu.Link href="#">Overzicht</Menu.Link>
+        <Menu.Link href="#">Planning</Menu.Link>
+      </Menu.Item>,
+    )
+
+    const lists = screen.getAllByRole('list')
+    const items = screen.getAllByRole('listitem')
+    const links = screen.getAllByRole('link')
+
+    expect(lists).toHaveLength(1)
+    expect(items).toHaveLength(3)
+    expect(links).toHaveLength(3)
+  })
+
+  it('does not render an empty submenu for falsey children', () => {
+    render(
+      <Menu.Item href="#" icon={DocumentIcon} label="Projecten">
+        {false}
+        {null}
+      </Menu.Item>,
+    )
+
+    const lists = screen.queryAllByRole('list')
+
+    expect(lists).toHaveLength(0)
+  })
+
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLAnchorElement>()
 
-    render(<Menu.Link href="#" icon={DocumentIcon} ref={ref} />)
+    render(<Menu.Item href="#" icon={DocumentIcon} label="Projecten" ref={ref} />)
 
     const component = screen.getByRole('link')
 
@@ -55,7 +85,7 @@ describe('MenuLink', () => {
   })
 
   it('shows a custom icon', () => {
-    render(<Menu.Link href="#" icon={<StarIcon className="test-class" />} />)
+    render(<Menu.Item href="#" icon={<StarIcon className="test-class" />} label="Projecten" />)
 
     const component = screen.getByRole('link')
     const icon = component.querySelector('.test-class')
@@ -64,23 +94,15 @@ describe('MenuLink', () => {
   })
 
   it('passes additional props', () => {
-    render(<Menu.Link aria-hidden="false" data-test="data-test" href="#" icon={DocumentIcon} id="id" />)
+    render(
+      <Menu.Item aria-hidden="false" data-test="data-test" href="#" icon={DocumentIcon} id="id" label="Projecten" />,
+    )
 
     const component = screen.getByRole('link')
 
     expect(component).toHaveAttribute('aria-hidden', 'false')
     expect(component).toHaveAttribute('id', 'id')
     expect(component).toHaveAttribute('data-test', 'data-test')
-  })
-
-  it('renders without an icon', () => {
-    const { container } = render(<Menu.Link href="#">Overzicht</Menu.Link>)
-
-    const component = screen.getByRole('link')
-    const icon = container.querySelector('svg')
-
-    expect(component).toBeInTheDocument()
-    expect(icon).not.toBeInTheDocument()
   })
 
   it('renders a custom link component', () => {
@@ -90,7 +112,7 @@ describe('MenuLink', () => {
       </a>
     )
 
-    render(<Menu.Link href="/test" icon={DocumentIcon} linkComponent={CustomLink} />)
+    render(<Menu.Item href="/test" icon={DocumentIcon} label="Projecten" linkComponent={CustomLink} />)
 
     const component = screen.getByRole('link')
 
@@ -102,7 +124,7 @@ describe('MenuLink', () => {
   it('forwards the ref to an intrinsic link component', () => {
     const ref = createRef<HTMLAnchorElement>()
 
-    render(<Menu.Link href="/test" icon={DocumentIcon} linkComponent="a" ref={ref} />)
+    render(<Menu.Item href="/test" icon={DocumentIcon} label="Projecten" linkComponent="a" ref={ref} />)
 
     expect(ref.current).toBe(screen.getByRole('link'))
   })
@@ -115,7 +137,7 @@ describe('MenuLink', () => {
       },
     )
 
-    render(<Menu.Link href="/test" icon={DocumentIcon} linkComponent={CustomLink} ref={ref} />)
+    render(<Menu.Item href="/test" icon={DocumentIcon} label="Projecten" linkComponent={CustomLink} ref={ref} />)
 
     expect(ref.current).toBeNull()
   })

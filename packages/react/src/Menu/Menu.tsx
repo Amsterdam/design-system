@@ -11,6 +11,7 @@ import { forwardRef, useId } from 'react'
 
 import { useCollapsible } from '../common/useCollapsible'
 import { IconButton } from '../IconButton/IconButton'
+import { MenuItem } from './MenuItem'
 import { MenuLink } from './MenuLink'
 
 export type MenuProps = {
@@ -135,4 +136,7 @@ MenuRoot.displayName = 'Menu'
  *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-navigation-menu--docs Menu docs at Amsterdam Design System}
  */
-export const Menu = Object.assign(MenuRoot, { Link: MenuLink })
+export const Menu = Object.assign(MenuRoot, {
+  Item: MenuItem,
+  Link: MenuLink,
+})
