@@ -281,3 +281,15 @@ export const WithPagination: StoryObj = {
     )
   },
 }
+
+// Snapshots the table with the wide Menu expanded, where the body column is at its tightest.
+// Interim: Menu state belongs to the shared Page Layout rather than to a page type, so this story can go once
+// the internal templates decide whether they use the expandable Menu by default.
+export const WithExpandedMenu: StoryObj = {
+  ...SortingWithSelect,
+  parameters: {
+    ...SortingWithSelect.parameters,
+    chromatic: { modes: { '1160px': { viewport: 1160 } } },
+    wideMenuProps: { defaultExpanded: true, expandable: true },
+  },
+}
