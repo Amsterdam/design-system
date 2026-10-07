@@ -76,6 +76,14 @@
   }
 }
 
+// A Menu with a submenu needs room for it, so it trades the narrow column for a wider one.
+.ams-menu:where(:has(.ams-menu__submenu)) {
+  @media (min-width: $ams-breakpoint-wide) {
+    inline-size: var(--ams-menu-vi-wide-with-submenu-inline-size);
+    max-inline-size: none;
+  }
+}
+
 .ams-menu__list {
   @include reset-ul;
 
@@ -89,11 +97,46 @@
   }
 }
 
+.ams-menu__item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+
+  @media (min-width: $ams-breakpoint-wide) {
+    :where(.ams-menu:not(:has(.ams-menu__submenu))) & {
+      display: block;
+    }
+  }
+}
+
+.ams-menu__submenu {
+  @include reset-ul;
+
+  grid-column: 1 / -1;
+
+  // Indents the links past the label of their parent: the width of its icon, the gap beside it, and the indent itself.
+  padding-inline-start: calc(
+    var(--ams-icon-font-size) + var(--ams-menu-link-gap) + var(--ams-menu-submenu-padding-inline-start)
+  );
+}
+
+// A link below the first level has no icon, so a deeper submenu indents by the indent alone.
+.ams-menu__submenu .ams-menu__submenu {
+  padding-inline-start: var(--ams-menu-submenu-padding-inline-start);
+}
+
+.ams-menu__item--collapsed > .ams-menu__submenu {
+  // Without scripting nothing can expand the item, so its links stay visible.
+  @media (scripting: enabled) {
+    display: none;
+  }
+}
+
 .ams-menu__link {
   align-items: flex-start;
   color: var(--ams-menu-link-color);
   display: inline-flex; // Inline display prevents an excessive hit area next to the link text.
   gap: var(--ams-menu-link-gap);
+  justify-self: start;
   outline-offset: var(--ams-menu-link-outline-offset);
   padding-block: var(--ams-menu-link-padding-block);
   padding-inline: var(--ams-menu-link-padding-inline);
@@ -113,15 +156,38 @@
   }
 
   @media (min-width: $ams-breakpoint-wide) {
-    align-items: center;
-    display: flex; // The links do stretch in the vertical layout of Menu.
-    flex-direction: column;
-    gap: var(--ams-menu-link-wide-gap /* @deprecated */, var(--ams-menu-link-vi-wide-gap));
-    text-align: center;
+    // A Menu with a submenu keeps the horizontal layout. `:where()` leaves the specificity of the selector as it was.
+    :where(.ams-menu:not(:has(.ams-menu__submenu))) & {
+      align-items: center;
+      display: flex; // The links do stretch in the vertical layout of Menu.
+      flex-direction: column;
+      gap: var(--ams-menu-link-wide-gap /* @deprecated */, var(--ams-menu-link-vi-wide-gap));
+      text-align: center;
 
-    .ams-menu__icon {
-      --ams-icon-font-size: var(--ams-icon-heading-2-font-size);
-      --ams-icon-line-height: var(--ams-icon-heading-2-line-height);
+      .ams-menu__icon {
+        --ams-icon-font-size: var(--ams-icon-heading-2-font-size);
+        --ams-icon-line-height: var(--ams-icon-heading-2-line-height);
+      }
     }
   }
+}
+
+.ams-menu__button {
+  justify-self: end;
+
+  // The button does nothing without scripting.
+  @media (scripting: none) {
+    display: none;
+  }
+}
+
+.ams-menu__button svg {
+  @media (prefers-reduced-motion: no-preference) {
+    transition: rotate var(--ams-menu-button-icon-transition-duration)
+      var(--ams-menu-button-icon-transition-timing-function);
+  }
+}
+
+.ams-menu__button[aria-expanded="true"] svg {
+  rotate: -180deg;
 }
