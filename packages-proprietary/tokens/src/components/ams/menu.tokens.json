@@ -68,7 +68,10 @@
             "value": 8,
             "unit": "rem"
           },
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "nl.amsterdam.hint": "Must be a single value: it sets a longhand property, which takes only one."
+          }
         },
         "padding-block": {
           "$deprecated": "Use `ams.menu.vi-wide.padding-block-start` and `ams.menu.vi-wide.padding-block-end` instead. Will be removed on or after 2027-02-25.",
@@ -97,6 +100,18 @@
           "$extensions": {
             "nl.amsterdam.subtype": "space",
             "nl.amsterdam.type": "dimension"
+          }
+        },
+        "with-submenu": {
+          "inline-size": {
+            "$value": {
+              "value": 16,
+              "unit": "rem"
+            },
+            "$type": "dimension",
+            "$extensions": {
+              "nl.amsterdam.hint": "Must be a single value: it sets a longhand property, which takes only one."
+            }
           }
         }
       },
@@ -190,12 +205,35 @@
           }
         }
       },
+      "submenu": {
+        "padding-inline-start": {
+          "$value": "{ams.space.m}",
+          "$extensions": {
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
+          }
+        }
+      },
       "list": {
         "gap": {
           "$value": "{ams.space.m}",
           "$extensions": {
             "nl.amsterdam.subtype": "space",
             "nl.amsterdam.type": "dimension"
+          }
+        }
+      },
+      "button": {
+        "icon": {
+          "transition-duration": {
+            "$value": "0.3s",
+            "$type": "duration"
+          },
+          "transition-timing-function": {
+            "$value": "ease",
+            "$extensions": {
+              "nl.amsterdam.type": "transitionTimingFunction"
+            }
           }
         }
       }

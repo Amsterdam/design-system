@@ -7,14 +7,23 @@ import type { Meta } from '@storybook/react-vite'
 
 import { PageLayout } from './PageLayout'
 
+type InternalPageParameters = {
+  readonly menuWithSubmenus?: boolean
+} & Meta['parameters']
+
 export const commonMeta = {
   decorators: [
     // Every internal template renders inside the same Page Layout, so each story supplies the page body only.
-    (Story) => (
-      <PageLayout>
-        <Story />
-      </PageLayout>
-    ),
+    // A story can pass `menuWithSubmenus` as a parameter to give both Menus more levels of navigation.
+    (Story, context) => {
+      const { menuWithSubmenus } = context.parameters as InternalPageParameters
+
+      return (
+        <PageLayout menuWithSubmenus={menuWithSubmenus}>
+          <Story />
+        </PageLayout>
+      )
+    },
   ],
   parameters: {
     // Snapshot at the maximum Page width with a menu (`ams.page.with-menu.max-inline-size`, 120rem)

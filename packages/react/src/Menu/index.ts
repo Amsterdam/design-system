@@ -5,4 +5,5 @@
 
 export { Menu } from './Menu'
 export type { MenuProps } from './Menu'
+export type { MenuItemProps } from './MenuItem'
 export type { MenuLinkProps } from './MenuLink'

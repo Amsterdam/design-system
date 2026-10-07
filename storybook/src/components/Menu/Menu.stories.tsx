@@ -3,8 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-import type { ReactElement } from 'react'
+import type { Decorator, Meta, StoryObj } from '@storybook/react-vite'
 
 import {
   BarChartFillIcon,
@@ -48,10 +47,78 @@ const menuItems = [
   },
 ]
 
-const withInWideWindowArg = (StoryFn: () => ReactElement) => {
+const defaultMenuChildren = menuItems.map(({ text, ...restProps }) => (
+  <Menu.Link {...restProps} key={text}>
+    {text}
+  </Menu.Link>
+))
+
+const menuWithSubmenuChildren = [
+  <Menu.Link href="#" icon={<PieChartFillIcon />} key="Dashboard">
+    Dashboard
+  </Menu.Link>,
+  <Menu.Item defaultExpanded href="#" icon={<FolderFillIcon />} key="Projecten" label="Projecten">
+    <Menu.Link href="#" key="Overzicht">
+      Overzicht
+    </Menu.Link>
+    <Menu.Link href="#" key="Planning">
+      Planning
+    </Menu.Link>
+    <Menu.Link href="#" key="Team">
+      Team
+    </Menu.Link>
+  </Menu.Item>,
+  <Menu.Link href="#" icon={<DocumentsFillIcon />} key="Rapportages">
+    Rapportages
+  </Menu.Link>,
+  <Menu.Link href="#" icon={<BarChartFillIcon />} key="Analyses">
+    Analyses
+  </Menu.Link>,
+  <Menu.Link href="#" icon={<SettingsFillIcon />} key="Instellingen">
+    Instellingen
+  </Menu.Link>,
+]
+
+const menuWithMultipleLevelsChildren = [
+  <Menu.Link href="#" icon={<PieChartFillIcon />} key="Dashboard">
+    Dashboard
+  </Menu.Link>,
+  <Menu.Item defaultExpanded href="#" icon={<FolderFillIcon />} key="Projecten" label="Projecten">
+    <Menu.Link href="#" key="Overzicht">
+      Overzicht
+    </Menu.Link>
+    <Menu.Item defaultExpanded href="#" key="Planning" label="Planning">
+      <Menu.Link href="#" key="Mijlpalen">
+        Mijlpalen
+      </Menu.Link>
+      <Menu.Link href="#" key="Capaciteit">
+        Capaciteit
+      </Menu.Link>
+    </Menu.Item>
+    <Menu.Link href="#" key="Team">
+      Team
+    </Menu.Link>
+  </Menu.Item>,
+  <Menu.Item href="#" icon={<DocumentsFillIcon />} key="Rapportages" label="Rapportages">
+    <Menu.Link href="#" key="Maandrapportages">
+      Maandrapportages
+    </Menu.Link>
+    <Menu.Link href="#" key="Jaarrapportages">
+      Jaarrapportages
+    </Menu.Link>
+  </Menu.Item>,
+  <Menu.Link href="#" icon={<SettingsFillIcon />} key="Instellingen">
+    Instellingen
+  </Menu.Link>,
+]
+
+const withInWideWindowArg: Decorator = (StoryFn, context) => {
   const [, updateArgs] = useArgs()
+  const isFixed = Boolean(context.parameters['fixedInWideWindow'])
 
   useEffect(() => {
+    if (isFixed) return undefined
+
     if (typeof window === 'undefined' || !window.matchMedia) return undefined
 
     const mq = window.matchMedia(`(min-width: ${BREAKPOINTS.wide})`)
@@ -64,7 +131,7 @@ const withInWideWindowArg = (StoryFn: () => ReactElement) => {
     mq.addEventListener('change', onChange)
 
     return () => mq.removeEventListener('change', onChange)
-  }, [updateArgs])
+  }, [isFixed, updateArgs])
 
   return <StoryFn />
 }
@@ -87,6 +154,7 @@ const meta = {
     },
   },
   subcomponents: {
+    'Menu.Item': Menu.Item,
     'Menu.Link': Menu.Link,
   },
 } satisfies Meta<typeof Menu>
@@ -97,10 +165,20 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
-    children: menuItems.map(({ text, ...restProps }) => (
-      <Menu.Link {...restProps} key={text}>
-        {text}
-      </Menu.Link>
-    )),
+    children: defaultMenuChildren,
+  },
+}
+
+export const WithSubmenu: Story = {
+  args: {
+    children: menuWithSubmenuChildren,
+    collapsible: true,
+  },
+}
+
+export const WithMultipleLevels: Story = {
+  args: {
+    children: menuWithMultipleLevelsChildren,
+    collapsible: true,
   },
 }

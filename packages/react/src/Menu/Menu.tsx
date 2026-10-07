@@ -8,6 +8,8 @@ import type { ElementType, HTMLAttributes, PropsWithChildren } from 'react'
 import { clsx } from 'clsx'
 import { forwardRef, useId } from 'react'
 
+import { MenuContext } from './MenuContext'
+import { MenuItem } from './MenuItem'
 import { MenuLink } from './MenuLink'
 
 export type MenuProps = {
@@ -17,12 +19,39 @@ export type MenuProps = {
    * @default Hoofdmenu
    */
   readonly accessibleName?: string
+  /**
+   * Whether items with a submenu can be expanded and collapsed.
+   * @default false
+   */
+  readonly collapsible?: boolean
+  /**
+   * An accessible phrase used in the toggle button label when a submenu is expanded.
+   * @default Verberg submenu van
+   */
+  readonly hideAccessibleLabel?: string
   /** Hides the component on narrow windows. */
   readonly inWideWindow?: boolean
+  /**
+   * An accessible phrase used in the toggle button label when a submenu is collapsed.
+   * @default Toon submenu van
+   */
+  readonly showAccessibleLabel?: string
 } & Readonly<PropsWithChildren<HTMLAttributes<HTMLElement>>>
 
 export const MenuRoot = forwardRef<HTMLElement, MenuProps>(
-  ({ accessibleName = 'Hoofdmenu', children, className, inWideWindow, ...restProps }, ref) => {
+  (
+    {
+      accessibleName = 'Hoofdmenu',
+      children,
+      className,
+      collapsible = false,
+      hideAccessibleLabel = 'Verberg submenu van',
+      inWideWindow,
+      showAccessibleLabel = 'Toon submenu van',
+      ...restProps
+    },
+    ref,
+  ) => {
     // In a medium or narrow window, the Menu is a child of the `nav` of Page Header.
     // In a wide window, we render a `nav` element and the related accessibility features.
     const Tag = (inWideWindow ? 'nav' : 'div') as ElementType
@@ -33,7 +62,7 @@ export const MenuRoot = forwardRef<HTMLElement, MenuProps>(
       <Tag
         {...restProps}
         aria-labelledby={inWideWindow ? accessibleLabelId : undefined}
-        className={clsx('ams-menu', inWideWindow && `ams-menu--in-wide-window`, className)}
+        className={clsx('ams-menu', inWideWindow && 'ams-menu--in-wide-window', className)}
         ref={ref}
       >
         {inWideWindow && (
@@ -41,7 +70,9 @@ export const MenuRoot = forwardRef<HTMLElement, MenuProps>(
             {accessibleName}
           </h2>
         )}
-        <ul className="ams-menu__list">{children}</ul>
+        <MenuContext.Provider value={{ collapsible, hideAccessibleLabel, showAccessibleLabel }}>
+          <ul className="ams-menu__list">{children}</ul>
+        </MenuContext.Provider>
       </Tag>
     )
   },
@@ -54,4 +85,7 @@ MenuRoot.displayName = 'Menu'
  *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-navigation-menu--docs Menu docs at Amsterdam Design System}
  */
-export const Menu = Object.assign(MenuRoot, { Link: MenuLink })
+export const Menu = Object.assign(MenuRoot, {
+  Item: MenuItem,
+  Link: MenuLink,
+})
