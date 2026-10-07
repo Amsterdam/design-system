@@ -626,7 +626,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>5.2s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>5.1s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -19824,7 +19824,8 @@ Without `inWideWindow` the Menu renders a `div`, because it then sits inside the
 With the prop it renders a `nav` of its own, named by a visually hidden heading that `accessibleName` fills.
 A submenu is a nested `ul` inside the parent item’s `li`, so the list structure stays valid without JavaScript interaction.
 With `expandable`, the icon-only button is named through `expandButtonLabel` and `collapseButtonLabel`.
-Its accessible name changes with the action, because the button widens and narrows the Menu rather than exposing hidden content.
+The button reports through `aria-expanded` whether the Menu is expanded, which in a Menu with submenus also shows and hides their links.
+Without scripting the button cannot work, so it is hidden and the submenus stay visible in the narrow column.
 
 That name defaults to ‘Hoofdmenu’, and so does the `navigationLabel` of the Page Header.
 A wide window shows both navigations, so give one of the two another name.
