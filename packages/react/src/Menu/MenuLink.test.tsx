@@ -73,6 +73,16 @@ describe('MenuLink', () => {
     expect(component).toHaveAttribute('data-test', 'data-test')
   })
 
+  it('renders without an icon', () => {
+    const { container } = render(<Menu.Link href="#">Overzicht</Menu.Link>)
+
+    const component = screen.getByRole('link')
+    const icon = container.querySelector('svg')
+
+    expect(component).toBeInTheDocument()
+    expect(icon).not.toBeInTheDocument()
+  })
+
   it('renders a custom link component', () => {
     const CustomLink = ({ children, ...props }: AnchorHTMLAttributes<HTMLAnchorElement>) => (
       <a {...props} data-custom="true">
