@@ -3,18 +3,28 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { MenuProps } from '@amsterdam/design-system-react'
 import type { Meta } from '@storybook/react-vite'
 
 import { PageLayout } from './PageLayout'
 
+type InternalPageParameters = {
+  readonly wideMenuProps?: MenuProps
+} & Meta['parameters']
+
 export const commonMeta = {
   decorators: [
     // Every internal template renders inside the same Page Layout, so each story supplies the page body only.
-    (Story) => (
-      <PageLayout>
-        <Story />
-      </PageLayout>
-    ),
+    // A story can pass `wideMenuProps` as a parameter for the Menu beside the page.
+    (Story, context) => {
+      const { wideMenuProps } = context.parameters as InternalPageParameters
+
+      return (
+        <PageLayout wideMenuProps={wideMenuProps}>
+          <Story />
+        </PageLayout>
+      )
+    },
   ],
   parameters: {
     // Snapshot at the maximum Page width with a menu (`ams.page.with-menu.max-inline-size`, 120rem)

@@ -3,6 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { MenuProps } from '@amsterdam/design-system-react'
 import type { HTMLAttributes, PropsWithChildren } from 'react'
 
 import { Page, PageFooter, PageHeader, SkipLink } from '@amsterdam/design-system-react'
@@ -10,9 +11,11 @@ import { UserAccountIcon } from '@amsterdam/design-system-react-icons'
 
 import { MenuWithItems } from './MenuWithItems'
 
-type PageLayoutProps = PropsWithChildren<HTMLAttributes<HTMLDivElement>>
+type PageLayoutProps = {
+  readonly wideMenuProps?: MenuProps
+} & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
-export const PageLayout = ({ children, ...restProps }: PageLayoutProps) => (
+export const PageLayout = ({ children, wideMenuProps, ...restProps }: PageLayoutProps) => (
   // withMenu lays the Page out as a grid with a column for the Menu beside the header, the body and the footer.
   // The rules for those areas select direct children of the Page only, so each child below needs its own
   // ams-page__area class and none of them may be wrapped in another element.
@@ -44,7 +47,8 @@ export const PageLayout = ({ children, ...restProps }: PageLayoutProps) => (
       <MenuWithItems />
     </PageHeader>
     {/* The same Menu for wide windows, in the menu column of the Page. inWideWindow shows one of the two. */}
-    <MenuWithItems className="ams-page__area--menu" inWideWindow />
+    {/* Props reach this Menu only, because the one in the Page Header ignores `expandable`. */}
+    <MenuWithItems {...wideMenuProps} className="ams-page__area--menu" inWideWindow />
     {/* The main element lives here rather than in the templates: an area class only works on a direct child. */}
     <main className="ams-page__area--body" id="inhoud">
       {children}
