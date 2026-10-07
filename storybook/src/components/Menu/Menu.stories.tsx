@@ -107,17 +107,17 @@ export const Default: Story = {
   },
 }
 
-export const Collapsible: Story = {
+export const Expandable: Story = {
   args: {
     children: Default.args?.children,
-    collapsible: true,
+    expandable: true,
   },
 }
 
-export const CollapsibleExpanded: Story = {
+export const Expanded: Story = {
   args: {
     children: Default.args?.children,
-    collapsible: true,
     defaultExpanded: true,
+    expandable: true,
   },
 }
