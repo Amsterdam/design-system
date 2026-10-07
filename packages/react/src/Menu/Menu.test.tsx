@@ -3,6 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
+import { DocumentIcon } from '@amsterdam/design-system-react-icons'
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 import { describe, expect, it } from 'vitest'
@@ -95,5 +96,24 @@ describe('Menu', () => {
     expect(component).toHaveAttribute('aria-hidden', 'false')
     expect(component).toHaveAttribute('id', 'id')
     expect(component).toHaveAttribute('data-test', 'data-test')
+  })
+
+  it('renders a nested submenu structure', () => {
+    render(
+      <Menu>
+        <Menu.Item href="#" icon={DocumentIcon} label="Projecten">
+          <Menu.Link href="#">Overzicht</Menu.Link>
+          <Menu.Link href="#">Planning</Menu.Link>
+        </Menu.Item>
+      </Menu>,
+    )
+
+    const lists = screen.getAllByRole('list')
+    const items = screen.getAllByRole('listitem')
+    const links = screen.getAllByRole('link')
+
+    expect(lists).toHaveLength(2)
+    expect(items).toHaveLength(3)
+    expect(links).toHaveLength(3)
   })
 })
