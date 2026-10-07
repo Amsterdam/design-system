@@ -205,6 +205,15 @@
           }
         }
       },
+      "submenu": {
+        "padding-inline-start": {
+          "$value": "{ams.space.m}",
+          "$extensions": {
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
+          }
+        }
+      },
       "list": {
         "gap": {
           "$value": "{ams.space.m}",
