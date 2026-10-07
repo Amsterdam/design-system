@@ -104,6 +104,20 @@
   }
 }
 
+.ams-menu__submenu {
+  @include reset-ul;
+
+  // Indents the links past the label of their parent: the width of its icon, the gap beside it, and the indent itself.
+  padding-inline-start: calc(1em + var(--ams-menu-link-gap) + var(--ams-menu-submenu-padding-inline-start));
+
+  @media (min-width: $ams-breakpoint-wide) {
+    // The narrow column of a Menu that is not expanded has no room for a second level.
+    :where(.ams-menu:not(.ams-menu--expanded)) & {
+      display: none;
+    }
+  }
+}
+
 .ams-menu__expand-button {
   justify-self: end;
 }
