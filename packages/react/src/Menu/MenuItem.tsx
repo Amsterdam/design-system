@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { AnchorHTMLAttributes, ElementType, ForwardedRef, PropsWithChildren, ReactNode } from 'react'
+import type { AnchorHTMLAttributes, ElementType, ForwardedRef, PropsWithChildren } from 'react'
 
 import { clsx } from 'clsx'
 import { Children, forwardRef, useContext, useEffect } from 'react'
@@ -16,8 +16,8 @@ import { MenuContext } from './MenuContext'
 export type MenuItemProps = {
   /** The icon to display for the menu item. Use the filled variant for top-level items. */
   readonly icon?: IconProps['svg']
-  /** The text or inline content for the link. */
-  readonly label: ReactNode
+  /** The text for the link. */
+  readonly label: string
   /**
    * The React component or intrinsic element to use for the link.
    * Refs are forwarded only to a plain anchor (the default, or `linkComponent="a"`), not to any other `linkComponent`.
