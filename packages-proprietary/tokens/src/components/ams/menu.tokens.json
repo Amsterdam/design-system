@@ -214,7 +214,7 @@
           }
         }
       },
-      "button": {
+      "toggle-button": {
         "icon": {
           "expanded-rotate": {
             "$value": "-180deg"
