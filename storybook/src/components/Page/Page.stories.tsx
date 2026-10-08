@@ -99,8 +99,8 @@ export const WithMenu: Story = {
   render: (args) => renderPageWithMenu(args),
 }
 
+// Takes over everything of `WithMenu`, so the two stories cannot drift apart.
 export const WithExpandableMenu: Story = {
-  args: WithMenu.args,
-  globals: WithMenu.globals,
+  ...WithMenu,
   render: (args) => renderPageWithMenu(args, true),
 }
