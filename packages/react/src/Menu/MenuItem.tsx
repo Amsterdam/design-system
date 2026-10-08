@@ -70,7 +70,7 @@ export const MenuItem = forwardRef(
     const hasSubmenu = submenuChildren.length > 0
     const { collapsible, hideAccessibleLabel, showAccessibleLabel, showsSubmenu } = useContext(MenuContext)
     const panelId = useId()
-    const itemRef = useRef<HTMLLIElement>(null)
+    const submenuRef = useRef<HTMLUListElement>(null)
     const buttonRef = useRef<HTMLButtonElement>(null)
     const isExpandable = collapsible && hasSubmenu && showsSubmenu
 
@@ -83,12 +83,8 @@ export const MenuItem = forwardRef(
 
     // When collapsing, if focus is inside the submenu that's about to be hidden, move it to the toggle button.
     const moveFocusToToggleButton = (nextIsExpanded: boolean) => {
-      if (!nextIsExpanded && itemRef.current && document.activeElement instanceof HTMLElement) {
-        const submenu = itemRef.current.querySelector('.ams-menu__submenu')
-
-        if (submenu?.contains(document.activeElement)) {
-          buttonRef.current?.focus()
-        }
+      if (!nextIsExpanded && submenuRef.current?.contains(document.activeElement)) {
+        buttonRef.current?.focus()
       }
     }
 
@@ -105,7 +101,6 @@ export const MenuItem = forwardRef(
           isExpandable && 'ams-menu__item--collapsible',
           isExpandable && !isExpanded && 'ams-menu__item--collapsed',
         )}
-        ref={itemRef}
       >
         <Tag
           {...restProps}
@@ -128,7 +123,7 @@ export const MenuItem = forwardRef(
           />
         )}
         {hasSubmenu && (
-          <ul className="ams-menu__submenu" id={isExpandable ? panelId : undefined}>
+          <ul className="ams-menu__submenu" id={isExpandable ? panelId : undefined} ref={submenuRef}>
             {submenuChildren}
           </ul>
         )}
