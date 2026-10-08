@@ -5,7 +5,7 @@
 
 // A steady rotation signals that loading is under way.
 // Users who prefer reduced motion get a slower rotation, so the ring does not look frozen.
-.ams-spinner {
+.ams-spinner::before {
   animation: var(--ams-spinner-reduced-motion-animation);
 
   @media (prefers-reduced-motion: no-preference) {

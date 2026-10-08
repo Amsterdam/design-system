@@ -6,34 +6,44 @@
 @use "animation";
 
 .ams-spinner {
-  --ams-line-height: var(--ams-spinner-line-height);
-
-  aspect-ratio: 1;
-  block-size: 1em;
-  border-block-end-color: var(--ams-spinner-track-border-color);
-  border-block-start-color: var(--ams-spinner-accent-border-color);
-  border-inline-end-color: var(--ams-spinner-track-border-color);
-  border-inline-start-color: var(--ams-spinner-track-border-color);
-  border-radius: 50%;
-  border-style: solid;
-  border-width: var(--ams-spinner-border-width);
-  box-sizing: border-box;
-  display: inline-block;
+  align-items: baseline;
+  align-self: baseline; // Aligns the spinner with text in flex or grid context
+  display: inline-flex; // Reserves the line height around the ring
+  flex-wrap: nowrap;
   font-size: var(--ams-spinner-font-size);
-  margin-block: calc((var(--ams-line-height) - 1) * 0.5em);
-  vertical-align: middle;
+  line-height: var(--ams-spinner-line-height);
 
-  @media (forced-colors: active) {
-    border-block-end-color: GrayText;
-    border-block-start-color: Highlight;
-    border-inline-end-color: GrayText;
-    border-inline-start-color: GrayText;
+  &::before {
+    aspect-ratio: 1;
+    block-size: 1cap; // The ring is as tall as an uppercase letter and stands on the baseline.
+    border-block-end-color: var(--ams-spinner-track-border-color);
+    border-block-start-color: var(--ams-spinner-accent-border-color);
+    border-inline-end-color: var(--ams-spinner-track-border-color);
+    border-inline-start-color: var(--ams-spinner-track-border-color);
+    border-radius: 50%;
+    border-style: solid;
+    border-width: var(--ams-spinner-border-width);
+    box-sizing: border-box;
+    content: "";
+
+    @media (forced-colors: active) {
+      border-block-end-color: GrayText;
+      border-block-start-color: Highlight;
+      border-inline-end-color: GrayText;
+      border-inline-start-color: GrayText;
+    }
+  }
+
+  &::after {
+    content: "\00200B"; // This zero width space enables baseline alignment.
   }
 }
 
 .ams-spinner--large {
-  --ams-line-height: var(--ams-spinner-large-line-height);
-
-  border-width: var(--ams-spinner-large-border-width);
   font-size: var(--ams-spinner-large-font-size);
+  line-height: var(--ams-spinner-large-line-height);
+
+  &::before {
+    border-width: var(--ams-spinner-large-border-width);
+  }
 }

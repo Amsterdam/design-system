@@ -31,7 +31,7 @@
       },
       "border-width": {
         "$value": {
-          "value": 0.1875,
+          "value": 0.125,
           "unit": "rem"
         },
         "$type": "dimension",
@@ -39,7 +39,7 @@
       },
       "font-size": {
         "$value": "{ams.typography.body-text.font-size}",
-        "$description": "The diameter of a Spinner. It matches the size of body text.",
+        "$description": "The font size that the Spinner is sized from. It matches the size of body text.",
         "$extensions": {
           "nl.amsterdam.type": "fontSize"
         }
@@ -55,7 +55,7 @@
       "large": {
         "border-width": {
           "$value": {
-            "value": 0.25,
+            "value": 0.125,
             "unit": "rem"
           },
           "$type": "dimension",
@@ -63,7 +63,7 @@
         },
         "font-size": {
           "$value": "{ams.typography.body-text.large.font-size}",
-          "$description": "The diameter of a large Spinner. It matches the size of large body text.",
+          "$description": "The font size that a large Spinner is sized from. It matches the size of large body text.",
           "$extensions": {
             "nl.amsterdam.type": "fontSize"
           }
