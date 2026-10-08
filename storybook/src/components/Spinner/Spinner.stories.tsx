@@ -5,7 +5,7 @@
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-import { Button, Spinner, spinnerSizes } from '@amsterdam/design-system-react/src'
+import { Button, Paragraph, Spinner, spinnerSizes } from '@amsterdam/design-system-react/src'
 
 const meta = {
   title: 'Components/Feedback/Spinner',
@@ -32,13 +32,24 @@ export const LoadingResults: Story = {
   ),
 }
 
+export const NextToText: Story = {
+  parameters: {
+    controls: { exclude: ['size'] },
+  },
+  render: () => (
+    <Paragraph>
+      <Spinner /> Uw aanvraag wordt verwerkt
+    </Paragraph>
+  ),
+}
+
 export const InButton: Story = {
   parameters: {
     controls: { exclude: ['size'] },
   },
   render: () => (
     <Button>
-      <Spinner size="small" /> Versturen
+      <Spinner /> Versturen
     </Button>
   ),
 }

@@ -45,11 +45,10 @@ Remove the Spinner and show the result or an error as soon as loading is finishe
 Consider waiting a short moment before showing the Spinner.
 This prevents the Spinner from briefly appearing when loading finishes almost immediately.
 
-Choose a size that fits the situation:
+Without a size, a Spinner is as tall as the text next to it.
+Use it next to text or inside a button.
 
-- <b>Small:</b> for use next to text or inside a button.
-- <b>Medium:</b> for a standalone element, such as a card or panel.
-- <b>Large:</b> for a loading state that covers a page or a large part of a page.
+Use the large size next to large body text, or for a loading state that needs more attention.
 
 A Spinner is decorative and hidden from screen readers, so it does not announce anything itself.
 The region containing the Spinner announces the loading state instead.
@@ -92,8 +91,9 @@ A Spinner does not have a fixed duration or children.
 It is one self-contained element that only shows that something is loading.
 It does not show how much of the process is finished or what the content will look like.
 
-There are three sizes: small, medium, and large.
-This allows the same component to be used for inline, card level and page level loading states without changing its meaning.
+A Spinner is as tall as the letters of body text and reserves the same line height.
+This way it fits next to text without changing the height of the line.
+There is also a large size, which matches large body text.
 
 ## Design
 

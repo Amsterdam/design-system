@@ -29,58 +29,52 @@
           }
         }
       },
-      "small": {
-        "block-size": {
-          "$value": {
-            "value": 1.5,
-            "unit": "rem"
-          },
-          "$type": "dimension",
-          "$description": "The diameter of a small Spinner."
+      "border-width": {
+        "$value": {
+          "value": 0.1875,
+          "unit": "rem"
         },
+        "$type": "dimension",
+        "$description": "The border width of a Spinner."
+      },
+      "font-size": {
+        "$value": "{ams.typography.body-text.font-size}",
+        "$description": "The diameter of a Spinner. It matches the size of body text.",
+        "$extensions": {
+          "nl.amsterdam.type": "fontSize"
+        }
+      },
+      "line-height": {
+        "$value": "{ams.typography.body-text.line-height}",
+        "$description": "The height of the space a Spinner reserves. It matches the line height of body text.",
+        "$extensions": {
+          "nl.amsterdam.subtype": "lineHeight",
+          "nl.amsterdam.type": "number"
+        }
+      },
+      "large": {
         "border-width": {
           "$value": {
             "value": 0.25,
             "unit": "rem"
           },
           "$type": "dimension",
-          "$description": "The border width of a small Spinner."
-        }
-      },
-      "medium": {
-        "block-size": {
-          "$value": {
-            "value": 4,
-            "unit": "rem"
-          },
-          "$type": "dimension",
-          "$description": "The diameter of a medium Spinner."
-        },
-        "border-width": {
-          "$value": {
-            "value": 0.375,
-            "unit": "rem"
-          },
-          "$type": "dimension",
-          "$description": "The border width of a medium Spinner."
-        }
-      },
-      "large": {
-        "block-size": {
-          "$value": {
-            "value": 6,
-            "unit": "rem"
-          },
-          "$type": "dimension",
-          "$description": "The diameter of a large Spinner."
-        },
-        "border-width": {
-          "$value": {
-            "value": 0.5,
-            "unit": "rem"
-          },
-          "$type": "dimension",
           "$description": "The border width of a large Spinner."
+        },
+        "font-size": {
+          "$value": "{ams.typography.body-text.large.font-size}",
+          "$description": "The diameter of a large Spinner. It matches the size of large body text.",
+          "$extensions": {
+            "nl.amsterdam.type": "fontSize"
+          }
+        },
+        "line-height": {
+          "$value": "{ams.typography.body-text.large.line-height}",
+          "$description": "The height of the space a large Spinner reserves. It matches the line height of large body text.",
+          "$extensions": {
+            "nl.amsterdam.subtype": "lineHeight",
+            "nl.amsterdam.type": "number"
+          }
         }
       }
     }

@@ -27,20 +27,12 @@ describe('Spinner', () => {
     expect(component).toHaveClass('ams-spinner')
   })
 
-  it('renders the medium size by default', () => {
+  it('renders without a size modifier by default', () => {
     const { container } = render(<Spinner />)
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('ams-spinner--medium')
-  })
-
-  it('renders the small size', () => {
-    const { container } = render(<Spinner size="small" />)
-
-    const component = container.querySelector(':only-child')
-
-    expect(component).toHaveClass('ams-spinner--small')
+    expect(component).not.toHaveClass('ams-spinner--large')
   })
 
   it('renders the large size', () => {
