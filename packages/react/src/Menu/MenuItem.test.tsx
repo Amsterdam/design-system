@@ -3,12 +3,12 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { AnchorHTMLAttributes } from 'react'
+import type { AnchorHTMLAttributes, ComponentProps } from 'react'
 
 import { DocumentIcon, StarIcon } from '@amsterdam/design-system-react-icons'
-import { render, screen } from '@testing-library/react'
+import { fireEvent, render, screen } from '@testing-library/react'
 import { createRef, forwardRef } from 'react'
-import { describe, expect, it } from 'vitest'
+import { describe, expect, it, vi } from 'vitest'
 
 import { Menu } from './Menu'
 
@@ -140,5 +140,161 @@ describe('MenuItem', () => {
     render(<Menu.Item href="/test" icon={DocumentIcon} label="Projecten" linkComponent={CustomLink} ref={ref} />)
 
     expect(ref.current).toBeNull()
+  })
+
+  describe('when collapsible', () => {
+    const renderCollapsible = (
+      itemProps: Partial<ComponentProps<typeof Menu.Item>> = {},
+      menuProps: Partial<ComponentProps<typeof Menu>> = {},
+    ) =>
+      render(
+        <Menu collapsible {...menuProps}>
+          <Menu.Item href="#" label="Projecten" {...itemProps}>
+            <Menu.Link href="#child">Overzicht</Menu.Link>
+          </Menu.Item>
+        </Menu>,
+      )
+
+    it('does not render a toggle button when there is no submenu', () => {
+      render(
+        <Menu collapsible>
+          <Menu.Item href="#" label="Projecten" />
+        </Menu>,
+      )
+
+      expect(screen.queryByRole('button', { name: /Toon submenu van|Verberg submenu van/ })).not.toBeInTheDocument()
+    })
+
+    it('is collapsed by default and toggles when uncontrolled', () => {
+      renderCollapsible()
+
+      const item = screen.getByRole('link', { name: 'Projecten' }).closest('li')
+      const button = screen.getByRole('button', { name: 'Toon submenu van Projecten' })
+
+      expect(item).toBeInTheDocument()
+      expect(item).toHaveClass('ams-menu__item--collapsed')
+      expect(button).toHaveAttribute('aria-expanded', 'false')
+
+      fireEvent.click(button)
+
+      expect(item).not.toHaveClass('ams-menu__item--collapsed')
+      expect(button).toHaveAttribute('aria-expanded', 'true')
+      expect(button).toHaveAccessibleName('Verberg submenu van Projecten')
+
+      fireEvent.click(button)
+
+      expect(item).toHaveClass('ams-menu__item--collapsed')
+      expect(button).toHaveAttribute('aria-expanded', 'false')
+    })
+
+    it('honours defaultExpanded', () => {
+      renderCollapsible({ defaultExpanded: true })
+
+      const item = screen.getByRole('link', { name: 'Projecten' }).closest('li')
+      const button = screen.getByRole('button', { name: 'Verberg submenu van Projecten' })
+
+      expect(item).toBeInTheDocument()
+      expect(item).not.toHaveClass('ams-menu__item--collapsed')
+      expect(button).toHaveAttribute('aria-expanded', 'true')
+    })
+
+    it('links the toggle button to the submenu via aria-controls', () => {
+      renderCollapsible()
+
+      const item = screen.getByRole('link', { name: 'Projecten' }).closest('li')
+      const button = screen.getByRole('button', { name: 'Toon submenu van Projecten' })
+      const submenuId = button.getAttribute('aria-controls')
+      const submenu = item?.querySelector('.ams-menu__submenu')
+
+      expect(submenuId).toBeTruthy()
+      expect(submenu).toHaveAttribute('id', submenuId)
+    })
+
+    it('calls onToggle with the new expanded state', () => {
+      const onToggle = vi.fn()
+
+      renderCollapsible({ onToggle })
+
+      const button = screen.getByRole('button', { name: 'Toon submenu van Projecten' })
+
+      fireEvent.click(button)
+      fireEvent.click(button)
+
+      expect(onToggle).toHaveBeenCalledTimes(2)
+      expect(onToggle).toHaveBeenNthCalledWith(1, true)
+      expect(onToggle).toHaveBeenNthCalledWith(2, false)
+    })
+
+    it('uses custom accessible label phrases', () => {
+      renderCollapsible({}, { hideAccessibleLabel: 'Hide', showAccessibleLabel: 'Show' })
+
+      const button = screen.getByRole('button', { name: 'Show Projecten' })
+
+      fireEvent.click(button)
+
+      expect(button).toHaveAccessibleName('Hide Projecten')
+    })
+
+    it('respects the expanded prop in controlled mode', () => {
+      renderCollapsible({ expanded: true })
+
+      const item = screen.getByRole('link', { name: 'Projecten' }).closest('li')
+      const button = screen.getByRole('button', { name: 'Verberg submenu van Projecten' })
+
+      expect(item).toBeInTheDocument()
+      expect(item).not.toHaveClass('ams-menu__item--collapsed')
+      expect(button).toHaveAttribute('aria-expanded', 'true')
+    })
+
+    it('does not toggle internally in controlled mode', () => {
+      renderCollapsible({ expanded: false })
+
+      const item = screen.getByRole('link', { name: 'Projecten' }).closest('li')
+      const button = screen.getByRole('button', { name: 'Toon submenu van Projecten' })
+
+      fireEvent.click(button)
+
+      expect(item).toBeInTheDocument()
+      expect(item).toHaveClass('ams-menu__item--collapsed')
+      expect(button).toHaveAttribute('aria-expanded', 'false')
+    })
+
+    it('calls onToggle with the desired next state in controlled mode', () => {
+      const onToggle = vi.fn()
+
+      renderCollapsible({ expanded: false, onToggle })
+
+      fireEvent.click(screen.getByRole('button', { name: 'Toon submenu van Projecten' }))
+
+      expect(onToggle).toHaveBeenCalledTimes(1)
+      expect(onToggle).toHaveBeenCalledWith(true)
+      expect(screen.getByRole('link', { name: 'Projecten' }).closest('li')).toHaveClass('ams-menu__item--collapsed')
+    })
+
+    it('moves focus to the toggle button when collapsing hides the focused submenu link', () => {
+      renderCollapsible({ defaultExpanded: true })
+
+      const button = screen.getByRole('button', { name: 'Verberg submenu van Projecten' })
+      const nestedLink = screen.getByRole('link', { name: 'Overzicht' })
+
+      nestedLink.focus()
+      expect(nestedLink).toHaveFocus()
+
+      fireEvent.click(button)
+
+      expect(button).toHaveFocus()
+    })
+
+    it('keeps focus on the toggle button when collapsing without focused submenu content', () => {
+      renderCollapsible({ defaultExpanded: true })
+
+      const button = screen.getByRole('button', { name: 'Verberg submenu van Projecten' })
+
+      button.focus()
+
+      fireEvent.click(button)
+
+      expect(button).toHaveFocus()
+    })
   })
 })
