@@ -216,9 +216,6 @@
       },
       "toggle-button": {
         "icon": {
-          "expanded-rotate": {
-            "$value": "-180deg"
-          },
           "transition-duration": {
             "$value": "0.3s",
             "$type": "duration"
