@@ -57,14 +57,17 @@ export const WideExpandable: Story = {
     const menu = canvas.getByRole('navigation', { name: 'Hoofdmenu' })
     // Check the link layout itself, because that is the behaviour users notice when the Menu expands.
     const firstLink = canvas.getByRole('link', { name: 'Dashboard' })
+    const expandButton = canvas.getByRole('button', { name: 'Klap menu uit' })
 
     expect(getComputedStyle(firstLink).flexDirection).toBe('column')
+    await expect(expandButton).toHaveAttribute('aria-expanded', 'false')
 
-    await userEvent.click(canvas.getByRole('button', { name: 'Klap menu uit' }))
+    await userEvent.click(expandButton)
 
     const collapseButton = canvas.getByRole('button', { name: 'Klap menu in' })
 
     await expect(menu).toHaveClass('ams-menu--expanded')
+    await expect(collapseButton).toHaveAttribute('aria-expanded', 'true')
     await expect(collapseButton).toBeInTheDocument()
     expect(getComputedStyle(firstLink).flexDirection).toBe('row')
 
@@ -72,7 +75,7 @@ export const WideExpandable: Story = {
     await userEvent.click(collapseButton)
 
     await expect(menu).not.toHaveClass('ams-menu--expanded')
-    await expect(canvas.getByRole('button', { name: 'Klap menu uit' })).toBeInTheDocument()
+    await expect(canvas.getByRole('button', { name: 'Klap menu uit' })).toHaveAttribute('aria-expanded', 'false')
     expect(getComputedStyle(firstLink).flexDirection).toBe('column')
   },
   render: renderMenu,
