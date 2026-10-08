@@ -11,6 +11,7 @@ import { forwardRef, useEffect, useId, useLayoutEffect, useRef } from 'react'
 
 import { useCollapsible } from '../common/useCollapsible'
 import { IconButton } from '../IconButton/IconButton'
+import { MenuContext } from './MenuContext'
 import { MenuItem } from './MenuItem'
 import { MenuLink } from './MenuLink'
 
@@ -27,6 +28,11 @@ export type MenuProps = {
    * @default Klap menu in
    */
   readonly collapseButtonLabel?: string
+  /**
+   * Whether menu items with nested links can be expanded and collapsed.
+   * @default false
+   */
+  readonly collapsible?: boolean
   /**
    * Whether the wide-window menu is initially expanded.
    * Ignored unless `inWideWindow` is `true`. Also ignored when `expanded` is provided.
@@ -50,6 +56,11 @@ export type MenuProps = {
    * Ignored unless `inWideWindow` is `true`.
    */
   readonly expanded?: boolean
+  /**
+   * An accessible phrase used in a submenu toggle button label when a submenu is expanded.
+   * @default Verberg submenu van
+   */
+  readonly hideAccessibleLabel?: string
   /** Hides the component on narrow windows. */
   readonly inWideWindow?: boolean
   /**
@@ -57,6 +68,11 @@ export type MenuProps = {
    * Ignored unless `expandable` and `inWideWindow` are both `true`.
    */
   readonly onToggle?: (expanded: boolean) => void
+  /**
+   * An accessible phrase used in a submenu toggle button label when a submenu is collapsed.
+   * @default Toon submenu van
+   */
+  readonly showAccessibleLabel?: string
 } & Readonly<PropsWithChildren<HTMLAttributes<HTMLElement>>>
 
 // A layout effect runs before the browser hides the submenus, while a link in one of them still has focus.
@@ -70,12 +86,15 @@ export const MenuRoot = forwardRef<HTMLElement, MenuProps>(
       children,
       className,
       collapseButtonLabel = 'Klap menu in',
+      collapsible = false,
       defaultExpanded = false,
       expandable = false,
       expandButtonLabel = 'Klap menu uit',
       expanded,
+      hideAccessibleLabel = 'Verberg submenu van',
       inWideWindow,
       onToggle,
+      showAccessibleLabel = 'Toon submenu van',
       ...restProps
     },
     ref,
@@ -108,6 +127,8 @@ export const MenuRoot = forwardRef<HTMLElement, MenuProps>(
       if (link instanceof HTMLElement && link !== document.activeElement) link.focus()
     }, [inWideWindow, isExpanded])
 
+    const showsSubmenu = Boolean(!inWideWindow || (isExpandable && isExpanded))
+
     return (
       <Tag
         {...restProps}
@@ -138,9 +159,11 @@ export const MenuRoot = forwardRef<HTMLElement, MenuProps>(
             svg={isExpanded ? ChevronDoubleBackwardIcon : ChevronDoubleForwardIcon}
           />
         )}
-        <ul className="ams-menu__list" id={isExpandable ? menuListId : undefined} ref={listRef}>
-          {children}
-        </ul>
+        <MenuContext.Provider value={{ collapsible, hideAccessibleLabel, showAccessibleLabel, showsSubmenu }}>
+          <ul className="ams-menu__list" id={isExpandable ? menuListId : undefined} ref={listRef}>
+            {children}
+          </ul>
+        </MenuContext.Provider>
       </Tag>
     )
   },
