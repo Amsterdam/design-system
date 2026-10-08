@@ -626,7 +626,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>5.6s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>5.7s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -19869,8 +19869,10 @@ The icon is larger and positioned above the label.
 
 When `expandable` is enabled, the wide Menu shows an icon-only button at the top end.
 Its default state keeps the narrow column and the vertical link layout.
-Expanded, the Menu is wider and the links return to the horizontal layout, with the label next to the icon.
+Expanded, the Menu is `14rem` wide and the links return to the horizontal layout, with the label next to the icon.
 The submenu is visible in a narrow or medium window and in an expanded Menu, and hidden in the narrower column, which has no room for it.
+Its links are indented by a small space, so they start at about half the width of the icon of their parent.
+Keeping room for the labels matters more there than aligning them with the label of the parent.
 With `collapsible`, each submenu toggle button sits at the end of the same row as its parent link.
 Its chevron turns when that submenu is expanded.
 Each toggle button expands or collapses only its own submenu.
