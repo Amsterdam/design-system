@@ -67,6 +67,8 @@ describe('Menu', () => {
     const button = screen.getByRole('button', { name: 'Klap menu uit' })
 
     expect(button).toBeInTheDocument()
+    expect(button).toHaveAttribute('aria-controls')
+    expect(button).toHaveAttribute('aria-expanded', 'false')
     expect(button).not.toHaveAttribute('aria-pressed')
   })
 
@@ -78,6 +80,7 @@ describe('Menu', () => {
 
     expect(component).toHaveClass('ams-menu--expanded')
     expect(button).toBeInTheDocument()
+    expect(button).toHaveAttribute('aria-expanded', 'true')
   })
 
   it('toggles the expanded state when the button is clicked', () => {
@@ -94,6 +97,7 @@ describe('Menu', () => {
 
     expect(component).toHaveClass('ams-menu--expanded')
     expect(collapseButton).toBeInTheDocument()
+    expect(collapseButton).toHaveAttribute('aria-expanded', 'true')
 
     fireEvent.click(collapseButton)
 
@@ -124,6 +128,7 @@ describe('Menu', () => {
 
     expect(component).not.toHaveClass('ams-menu--expanded')
     expect(button).toBeInTheDocument()
+    expect(button).toHaveAttribute('aria-expanded', 'false')
   })
 
   it('respects the expanded prop when true', () => {
@@ -134,6 +139,7 @@ describe('Menu', () => {
 
     expect(component).toHaveClass('ams-menu--expanded')
     expect(button).toBeInTheDocument()
+    expect(button).toHaveAttribute('aria-expanded', 'true')
   })
 
   it('does not toggle internally when controlled', () => {
