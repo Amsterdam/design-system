@@ -105,7 +105,7 @@
         "expanded": {
           "inline-size": {
             "$value": {
-              "value": 12,
+              "value": 14,
               "unit": "rem"
             },
             "$type": "dimension",
