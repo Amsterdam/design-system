@@ -53,7 +53,7 @@ describe('Menu', () => {
     expect(component).toHaveClass('ams-menu--in-wide-window')
   })
 
-  it('does not render a toggle button by default', () => {
+  it('does not render an expand button by default', () => {
     render(<Menu inWideWindow />)
 
     const button = screen.queryByRole('button', { name: 'Klap menu uit' })
@@ -61,7 +61,7 @@ describe('Menu', () => {
     expect(button).not.toBeInTheDocument()
   })
 
-  it('renders a toggle button when expandable in a wide window', () => {
+  it('renders an expand button when expandable in a wide window', () => {
     render(<Menu expandable inWideWindow />)
 
     const button = screen.getByRole('button', { name: 'Klap menu uit' })
