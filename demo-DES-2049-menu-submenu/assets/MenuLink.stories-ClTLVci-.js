@@ -1,7 +1,0 @@
-import{n as e,r as t}from"./rolldown-runtime-DkW27tQK.js";import{t as n}from"./jsx-runtime-ATHzeHXA.js";import{F as r,K as i}from"./index.esm-AVY4e8gu.js";import{n as a,t as o}from"./Menu-CjpaGP_Q.js";import{n as s,r as c}from"./useViewportHasMinWidth-p3rGIlmn.js";import{f as l,m as u,r as d,u as f}from"./argTypes-Diu0Wtb4.js";import{n as p,t as m}from"./iconArgTypes-DhT83Kj2.js";var h=t({Link:()=>v,__namedExportsOrder:()=>y,default:()=>_}),g,_,v,y;function b(){return(b=e((()=>{i(),a(),s(),l(),p(),g=n(),_={title:`Components/Navigation/Menu`,component:o.Link,argTypes:{children:d(`The link text.`),href:f,icon:m(`PieChartFillIcon`),linkComponent:u},decorators:[e=>{let t=c(`wide`);return(0,g.jsx)(o,{inWideWindow:t,children:(0,g.jsx)(e,{})})}],parameters:{themes:{options:[`Compact`,`Compact Lo-fi`]}},render:({children:e,...t})=>(0,g.jsx)(o.Link,{...t,children:e}),tags:[`!manifest`]},v={args:{children:`Dashboard`,href:`#`,icon:(0,g.jsx)(r,{})}},y=[`Link`],v.parameters={...v.parameters,docs:{...v.parameters?.docs,source:{originalSource:`{
-  args: {
-    children: 'Dashboard',
-    href: '#',
-    icon: <PieChartFillIcon />
-  }
-}`,...v.parameters?.docs?.source}}}})))()}export{h as n,b as r,v as t};
