@@ -141,10 +141,11 @@
   }
 }
 
+.ams-menu__expand-button,
 .ams-menu__toggle-button {
   justify-self: end;
 
-  // The button does nothing without scripting.
+  // The buttons do nothing without scripting.
   @media (scripting: none) {
     display: none;
   }
@@ -159,15 +160,6 @@
 
 .ams-menu__toggle-button[aria-expanded="true"] svg {
   rotate: -180deg;
-}
-
-.ams-menu__expand-button {
-  justify-self: end;
-
-  // The button does nothing without scripting.
-  @media (scripting: none) {
-    display: none;
-  }
 }
 
 .ams-menu__link {
