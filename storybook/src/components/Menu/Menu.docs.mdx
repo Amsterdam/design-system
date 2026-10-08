@@ -117,8 +117,10 @@ The icon is larger and positioned above the label.
 
 When `expandable` is enabled, the wide Menu shows an icon-only button at the top end.
 Its default state keeps the narrow column and the vertical link layout.
-Expanded, the Menu is wider and the links return to the horizontal layout, with the label next to the icon.
+Expanded, the Menu is `14rem` wide and the links return to the horizontal layout, with the label next to the icon.
 The submenu is visible in a narrow or medium window and in an expanded Menu, and hidden in the narrower column, which has no room for it.
+Its links are indented by a small space, so they start at about half the width of the icon of their parent.
+Keeping room for the labels matters more there than aligning them with the label of the parent.
 
 In narrow and medium windows the Menu reaches both edges of the window by cancelling the horizontal padding of the Page Header with a negative margin of the same size.
 That ties the component to the one context it is used in, which is accepted here: it is the only way for a band of colour to span the window while the links stay aligned with the content around them.
