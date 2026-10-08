@@ -119,4 +119,14 @@ describe('MenuLink', () => {
 
     expect(ref.current).toBeNull()
   })
+
+  it('renders children that are not a plain string', () => {
+    render(
+      <Menu.Link href="#" icon={DocumentIcon}>
+        Dossiers (<span>3</span>)
+      </Menu.Link>,
+    )
+
+    expect(screen.getByRole('link')).toHaveTextContent('Dossiers (3)')
+  })
 })
