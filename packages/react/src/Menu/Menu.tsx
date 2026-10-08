@@ -81,6 +81,8 @@ export const MenuRoot = forwardRef<HTMLElement, MenuProps>(
     const isExpandable = Boolean(expandable && inWideWindow)
 
     const accessibleLabelId = useId()
+    const menuListId = useId()
+
     const [isExpanded, toggle] = useCollapsible({
       defaultValue: defaultExpanded,
       gate: isExpandable,
@@ -108,6 +110,8 @@ export const MenuRoot = forwardRef<HTMLElement, MenuProps>(
         )}
         {isExpandable && (
           <IconButton
+            aria-controls={menuListId}
+            aria-expanded={isExpanded}
             className="ams-menu__expand-button"
             color="inverse"
             label={isExpanded ? collapseButtonLabel : expandButtonLabel}
@@ -116,7 +120,9 @@ export const MenuRoot = forwardRef<HTMLElement, MenuProps>(
             svg={isExpanded ? ChevronDoubleBackwardIcon : ChevronDoubleForwardIcon}
           />
         )}
-        <ul className="ams-menu__list">{children}</ul>
+        <ul className="ams-menu__list" id={isExpandable ? menuListId : undefined}>
+          {children}
+        </ul>
       </Tag>
     )
   },
