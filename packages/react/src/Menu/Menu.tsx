@@ -29,6 +29,11 @@ export type MenuProps = {
    */
   readonly collapseButtonLabel?: string
   /**
+   * Whether menu items with nested links can be expanded and collapsed.
+   * @default false
+   */
+  readonly collapsible?: boolean
+  /**
    * Whether the wide-window menu is initially expanded.
    * Ignored unless `expandable` and `inWideWindow` are both `true`. Also ignored when `expanded` is provided.
    * @default false
@@ -51,6 +56,11 @@ export type MenuProps = {
    * Ignored unless `expandable` and `inWideWindow` are both `true`.
    */
   readonly expanded?: boolean
+  /**
+   * An accessible phrase used in a submenu toggle button label when a submenu is expanded.
+   * @default Verberg submenu van
+   */
+  readonly hideAccessibleLabel?: string
   /** Hides the component on narrow windows. */
   readonly inWideWindow?: boolean
   /**
@@ -58,6 +68,11 @@ export type MenuProps = {
    * Ignored unless `expandable` and `inWideWindow` are both `true`.
    */
   readonly onToggle?: (expanded: boolean) => void
+  /**
+   * An accessible phrase used in a submenu toggle button label when a submenu is collapsed.
+   * @default Toon submenu van
+   */
+  readonly showAccessibleLabel?: string
 } & Readonly<PropsWithChildren<HTMLAttributes<HTMLElement>>>
 
 export const MenuRoot = forwardRef<HTMLElement, MenuProps>(
@@ -67,12 +82,15 @@ export const MenuRoot = forwardRef<HTMLElement, MenuProps>(
       children,
       className,
       collapseButtonLabel = 'Klap menu in',
+      collapsible = false,
       defaultExpanded = false,
       expandable = false,
       expandButtonLabel = 'Klap menu uit',
       expanded,
+      hideAccessibleLabel = 'Verberg submenu van',
       inWideWindow,
       onToggle,
+      showAccessibleLabel = 'Toon submenu van',
       ...restProps
     },
     ref,
@@ -91,6 +109,9 @@ export const MenuRoot = forwardRef<HTMLElement, MenuProps>(
       onToggle,
       value: expanded,
     })
+
+    const hidesSubmenu = Boolean(inWideWindow && !expandable)
+    const showsSubmenu = Boolean(!inWideWindow || (isExpandable && isExpanded))
 
     return (
       <Tag
@@ -122,7 +143,9 @@ export const MenuRoot = forwardRef<HTMLElement, MenuProps>(
             svg={isExpanded ? ChevronDoubleBackwardIcon : ChevronDoubleForwardIcon}
           />
         )}
-        <MenuContext.Provider value={{ hidesSubmenu: Boolean(inWideWindow && !expandable) }}>
+        <MenuContext.Provider
+          value={{ collapsible, hideAccessibleLabel, hidesSubmenu, showAccessibleLabel, showsSubmenu }}
+        >
           <ul className="ams-menu__list" id={isExpandable ? menuListId : undefined}>
             {children}
           </ul>
