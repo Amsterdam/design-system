@@ -15,7 +15,8 @@
 
   &::before {
     aspect-ratio: 1;
-    block-size: 1cap; // The ring is as tall as an uppercase letter and stands on the baseline.
+    /* stylelint-disable-next-line plugin/use-baseline -- Progressive enhancement. */
+    block-size: round(1cap, 2px); // The ring is as tall as an uppercase letter and stands on the baseline.
     border-block-end-color: var(--ams-spinner-track-border-color);
     border-block-start-color: var(--ams-spinner-accent-border-color);
     border-inline-end-color: var(--ams-spinner-track-border-color);
