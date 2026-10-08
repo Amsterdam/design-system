@@ -158,7 +158,7 @@
 }
 
 .ams-menu__toggle-button[aria-expanded="true"] svg {
-  rotate: var(--ams-menu-toggle-button-icon-expanded-rotate);
+  rotate: -180deg;
 }
 
 .ams-menu__expand-button {
