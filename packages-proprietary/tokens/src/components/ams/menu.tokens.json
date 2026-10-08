@@ -207,7 +207,7 @@
       },
       "submenu": {
         "padding-inline-start": {
-          "$value": "{ams.space.m}",
+          "$value": "{ams.space.s}",
           "$extensions": {
             "nl.amsterdam.subtype": "space",
             "nl.amsterdam.type": "dimension"

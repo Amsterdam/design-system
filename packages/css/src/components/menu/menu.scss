@@ -108,10 +108,8 @@
 .ams-menu__submenu {
   @include reset-ul;
 
-  // Indents the links past the label of their parent: the width of its icon, the gap beside it, and the indent itself.
-  padding-inline-start: calc(
-    var(--ams-icon-font-size) + var(--ams-menu-link-gap) + var(--ams-menu-submenu-padding-inline-start)
-  );
+  // The submenu starts slightly before its parent’s label; preserving horizontal room matters more here than strict label alignment.
+  padding-inline-start: var(--ams-menu-submenu-padding-inline-start);
 
   @media (min-width: $ams-breakpoint-wide) {
     :where(.ams-menu:not(.ams-menu--expanded)) & {
