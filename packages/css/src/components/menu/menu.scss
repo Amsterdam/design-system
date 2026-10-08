@@ -152,13 +152,13 @@
 
 .ams-menu__toggle-button svg {
   @media (prefers-reduced-motion: no-preference) {
-    transition: rotate var(--ams-menu-button-icon-transition-duration)
-      var(--ams-menu-button-icon-transition-timing-function);
+    transition: rotate var(--ams-menu-toggle-button-icon-transition-duration)
+      var(--ams-menu-toggle-button-icon-transition-timing-function);
   }
 }
 
 .ams-menu__toggle-button[aria-expanded="true"] svg {
-  rotate: var(--ams-menu-button-icon-expanded-rotate);
+  rotate: var(--ams-menu-toggle-button-icon-expanded-rotate);
 }
 
 .ams-menu__expand-button {
