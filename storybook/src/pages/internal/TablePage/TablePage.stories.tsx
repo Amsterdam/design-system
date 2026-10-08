@@ -20,6 +20,7 @@ const meta = {
   parameters: pageParameters(
     'Helps users work through large sets of data, with the sorting, filtering, and paging state ' +
       'kept in the URL so a particular view can be bookmarked or shared.',
+    { currentPageId: 'rapportages-vergunninghouders' },
   ),
 } satisfies Meta
 
