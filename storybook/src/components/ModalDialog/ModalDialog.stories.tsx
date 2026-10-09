@@ -5,7 +5,6 @@
 
 import type { ModalDialogProps } from '@amsterdam/design-system-react/src'
 import type { Decorator, Meta, StoryObj } from '@storybook/react-vite'
-import type { ButtonHTMLAttributes } from 'react'
 
 import {
   ActionGroup,
@@ -245,23 +244,12 @@ export const Controlled: Story = {
   render: (args) => <ControlledExample {...args} />,
 }
 
-/* Stands in for the close button of another organisation, as a plain HTML button. */
-const CloseButton = ({
-  className,
-  label,
-  onClick,
-}: { readonly label: string } & ButtonHTMLAttributes<HTMLButtonElement>) => (
-  <button className={className} onClick={onClick} type="button">
-    {label}
-  </button>
-)
-
 export const WithCloseButtonComponent: Story = {
   args: {
     'aria-labelledby': 'ams-modal-dialog-close-button-component-heading',
     children: (
       <>
-        <ModalDialog.Header closeButtonComponent={CloseButton}>
+        <ModalDialog.Header closeButtonComponent="button">
           <Heading id="ams-modal-dialog-close-button-component-heading" level={1} size="level-2">
             Status van uw aanvraag
           </Heading>
@@ -274,33 +262,6 @@ export const WithCloseButtonComponent: Story = {
     id: 'ams-modal-dialog-close-button-component',
   },
   decorators: [openButtonDecorator],
-  parameters: {
-    docs: {
-      source: {
-        // The generated source would print the component as an empty function.
-        code: `const CloseButton = ({ className, label, onClick }) => (
-  <button className={className} onClick={onClick} type="button">
-    {label}
-  </button>
-)
-
-<ModalDialog
-  aria-labelledby="ams-modal-dialog-close-button-component-heading"
-  id="ams-modal-dialog-close-button-component"
->
-  <ModalDialog.Header closeButtonComponent={CloseButton}>
-    <Heading id="ams-modal-dialog-close-button-component-heading" level={1} size="level-2">
-      Status van uw aanvraag
-    </Heading>
-  </ModalDialog.Header>
-  <ModalDialog.Body>
-    <Paragraph>Een medewerker beoordeelt uw aanvraag. U krijgt binnen 8 weken bericht.</Paragraph>
-  </ModalDialog.Body>
-</ModalDialog>`,
-        language: 'tsx',
-      },
-    },
-  },
   // Keep this example out of the component manifest: websites for the City of Amsterdam must use the default close button.
   tags: ['!manifest'],
 }

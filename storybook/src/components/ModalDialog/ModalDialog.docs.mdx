@@ -111,10 +111,11 @@ Don’t render the dialog conditionally: unmounting it while open skips the `clo
 
 Pass a component to the `closeButtonComponent` prop of the Header to replace the close button with one of your own.
 Websites for the City of Amsterdam must use the default button.
-This example uses a plain HTML button.
+This example uses the plain HTML `button` element.
 
-The component receives the same props as the default [Icon Button](/docs/components-buttons-icon-button--docs), including `label`, the name of the button.
-It must pass `className` and `onClick` on to the button it renders.
+The component receives `className`, `onClick`, and `type="button"`.
+The accessible name is passed as `children`.
+Render those `children` in the button.
 The class places the button next to the heading, and the click handler closes the dialog.
 
 A close button taller than one line of the heading pushes a subtitle down.
