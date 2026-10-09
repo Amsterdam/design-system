@@ -262,7 +262,7 @@ importers:
         version: 17.16.0(supports-color@10.2.2)(typescript@6.0.3)
       stylelint-config-standard-scss:
         specifier: 17.0.0
-        version: 17.0.0(postcss@8.5.28)(stylelint@17.16.0(supports-color@10.2.2)(typescript@6.0.3))
+        version: 17.0.0(postcss@8.5.29)(stylelint@17.16.0(supports-color@10.2.2)(typescript@6.0.3))
       stylelint-order:
         specifier: 8.1.1
         version: 8.1.1(stylelint@17.16.0(supports-color@10.2.2)(typescript@6.0.3))
@@ -325,8 +325,8 @@ importers:
         specifier: 3.0.0
         version: 3.0.0
       postcss:
-        specifier: 8.5.28
-        version: 8.5.28
+        specifier: 8.5.29
+        version: 8.5.29
       style-dictionary:
         specifier: 5.5.5
         version: 5.5.5(tslib@2.8.1)
@@ -356,8 +356,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages-proprietary/react-icons
       '@babel/runtime':
-        specifier: 7.29.7
-        version: 7.29.7
+        specifier: 7.29.10
+        version: 7.29.10
       clsx:
         specifier: 2.1.1
         version: 2.1.1
@@ -535,8 +535,8 @@ importers:
   stylelint:
     dependencies:
       postcss:
-        specifier: 8.5.28
-        version: 8.5.28
+        specifier: 8.5.29
+        version: 8.5.29
     devDependencies:
       stylelint:
         specifier: 17.16.0
@@ -671,8 +671,8 @@ packages:
     peerDependencies:
       '@babel/core': ^7.0.0-0
 
-  '@babel/runtime@7.29.7':
-    resolution: {integrity: sha512-Nq8OhGWiZIZGV6hLHoyAKLLcJihP/xFeBMGJoUrxTX2psI8dCifzLhZISFb+VWS3wFMRDmCGw5R+dOySCqPLhw==}
+  '@babel/runtime@7.29.10':
+    resolution: {integrity: sha512-NpugTzbKgGrNe45Ui32cN8vCFFMxVtP/9rtfwv0nP5FRDAjvYBxJcLVpYA9mr1jxP6cnIT7x9LUzuDTbWYYNRA==}
     engines: {node: '>=6.9.0'}
 
   '@babel/template@7.29.7':
@@ -4709,6 +4709,11 @@ packages:
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
 
+  nanoid@3.3.20:
+    resolution: {integrity: sha512-uKdg2G3GNCKQn9byYOpxbGqrT2fGO5KRt5J/8b3pok8rT6qxGWF6hxMyJiEYtAf+FVyYuD9hRaDqX5uPFYJ4ZQ==}
+    engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
+    hasBin: true
+
   nanospinner@1.2.2:
     resolution: {integrity: sha512-Zt/AmG6qRU3e+WnzGGLuMCEAO/dAu45stNbHY223tUxldaDAeE+FxSPsd9Q+j+paejmm0ZbrNVs5Sraqy3dRxA==}
 
@@ -5031,12 +5036,12 @@ packages:
   postcss-value-parser@4.2.0:
     resolution: {integrity: sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ==}
 
-  postcss@8.5.27:
-    resolution: {integrity: sha512-79Iho8QeYyooJ8e9lCRyTVlyTAkS/kXBYKff6TMzS3kEWGQ8Ds5UEtXpGrSUDLUWok6QTvxeYy0GO8fopHnaSA==}
-    engines: {node: ^10 || ^12 || >=14}
-
   postcss@8.5.28:
     resolution: {integrity: sha512-RRuzqDtt5Y9h3quz5hWhK+TPnsmVs6WwSU6LkJMeY4HstUEDuYTG8UJSdawMRzmzAtV+KEoG8N3Qg2qLy5vM/A==}
+    engines: {node: ^10 || ^12 || >=14}
+
+  postcss@8.5.29:
+    resolution: {integrity: sha512-49cGhUbXj8Qenv0iTMxA1cFBzxXoctpC9Ujd77t1WcbJIr6nF/eI7g/8MgxrYldFRuAXvja7xQRwavoW7kgrxQ==}
     engines: {node: ^10 || ^12 || >=14}
 
   prelude-ls@1.2.1:
@@ -5424,6 +5429,10 @@ packages:
 
   source-map-js@1.2.1:
     resolution: {integrity: sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA==}
+    engines: {node: '>=0.10.0'}
+
+  source-map-js@1.2.2:
+    resolution: {integrity: sha512-KGj/8Y43x35aZVDtt+J4mK1hoLGHULMYfSkODJNQjNDC3oW1PqPoxMwo0pLUsWM/UEGzON/NxeHywEfNXNP3Vw==}
     engines: {node: '>=0.10.0'}
 
   source-map-support@0.5.21:
@@ -6437,7 +6446,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@babel/runtime@7.29.7': {}
+  '@babel/runtime@7.29.10': {}
 
   '@babel/template@7.29.7':
     dependencies:
@@ -7628,7 +7637,7 @@ snapshots:
   '@testing-library/dom@10.4.2':
     dependencies:
       '@babel/code-frame': 7.29.7
-      '@babel/runtime': 7.29.7
+      '@babel/runtime': 7.29.10
       '@types/aria-query': 5.0.4
       aria-query: 5.3.0
       dom-accessibility-api: 0.5.16
@@ -7659,7 +7668,7 @@ snapshots:
 
   '@testing-library/react@16.3.3(@testing-library/dom@10.4.2)(@types/react-dom@18.3.7(@types/react@18.3.31))(@types/react@18.3.31)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
-      '@babel/runtime': 7.29.7
+      '@babel/runtime': 7.29.10
       '@testing-library/dom': 10.4.2
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
@@ -7849,8 +7858,8 @@ snapshots:
 
   '@typescript-eslint/project-service@8.70.0(supports-color@10.2.2)(typescript@6.0.3)':
     dependencies:
-      '@typescript-eslint/tsconfig-utils': 8.70.0(typescript@6.0.3)
-      '@typescript-eslint/types': 8.70.0
+      '@typescript-eslint/tsconfig-utils': 8.71.0(typescript@6.0.3)
+      '@typescript-eslint/types': 8.71.0
       debug: 4.4.3(supports-color@10.2.2)
       typescript: 6.0.3
     transitivePeerDependencies:
@@ -10697,6 +10706,8 @@ snapshots:
 
   nanoid@3.3.18: {}
 
+  nanoid@3.3.20: {}
+
   nanospinner@1.2.2:
     dependencies:
       picocolors: 1.1.1
@@ -11088,36 +11099,36 @@ snapshots:
 
   postcss-resolve-nested-selector@0.1.6: {}
 
-  postcss-safe-parser@7.1.0(postcss@8.5.28):
+  postcss-safe-parser@7.1.0(postcss@8.5.29):
     dependencies:
-      postcss: 8.5.28
+      postcss: 8.5.29
 
-  postcss-scss@4.0.9(postcss@8.5.28):
+  postcss-scss@4.0.9(postcss@8.5.29):
     dependencies:
-      postcss: 8.5.28
+      postcss: 8.5.29
 
   postcss-selector-parser@7.1.6:
     dependencies:
       cssesc: 3.0.0
       util-deprecate: 1.0.2
 
-  postcss-sorting@10.0.0(postcss@8.5.27):
+  postcss-sorting@10.0.0(postcss@8.5.29):
     dependencies:
-      postcss: 8.5.27
+      postcss: 8.5.29
 
   postcss-value-parser@4.2.0: {}
-
-  postcss@8.5.27:
-    dependencies:
-      nanoid: 3.3.18
-      picocolors: 1.1.1
-      source-map-js: 1.2.1
 
   postcss@8.5.28:
     dependencies:
       nanoid: 3.3.18
       picocolors: 1.1.1
       source-map-js: 1.2.1
+
+  postcss@8.5.29:
+    dependencies:
+      nanoid: 3.3.20
+      picocolors: 1.1.1
+      source-map-js: 1.2.2
 
   prelude-ls@1.2.1: {}
 
@@ -11586,6 +11597,8 @@ snapshots:
 
   source-map-js@1.2.1: {}
 
+  source-map-js@1.2.2: {}
+
   source-map-support@0.5.21:
     dependencies:
       buffer-from: 1.1.2
@@ -11782,26 +11795,26 @@ snapshots:
     transitivePeerDependencies:
       - tslib
 
-  stylelint-config-recommended-scss@17.0.1(postcss@8.5.28)(stylelint@17.16.0(supports-color@10.2.2)(typescript@6.0.3)):
+  stylelint-config-recommended-scss@17.0.1(postcss@8.5.29)(stylelint@17.16.0(supports-color@10.2.2)(typescript@6.0.3)):
     dependencies:
-      postcss-scss: 4.0.9(postcss@8.5.28)
+      postcss-scss: 4.0.9(postcss@8.5.29)
       stylelint: 17.16.0(supports-color@10.2.2)(typescript@6.0.3)
       stylelint-config-recommended: 18.0.0(stylelint@17.16.0(supports-color@10.2.2)(typescript@6.0.3))
       stylelint-scss: 7.2.0(stylelint@17.16.0(supports-color@10.2.2)(typescript@6.0.3))
     optionalDependencies:
-      postcss: 8.5.28
+      postcss: 8.5.29
 
   stylelint-config-recommended@18.0.0(stylelint@17.16.0(supports-color@10.2.2)(typescript@6.0.3)):
     dependencies:
       stylelint: 17.16.0(supports-color@10.2.2)(typescript@6.0.3)
 
-  stylelint-config-standard-scss@17.0.0(postcss@8.5.28)(stylelint@17.16.0(supports-color@10.2.2)(typescript@6.0.3)):
+  stylelint-config-standard-scss@17.0.0(postcss@8.5.29)(stylelint@17.16.0(supports-color@10.2.2)(typescript@6.0.3)):
     dependencies:
       stylelint: 17.16.0(supports-color@10.2.2)(typescript@6.0.3)
-      stylelint-config-recommended-scss: 17.0.1(postcss@8.5.28)(stylelint@17.16.0(supports-color@10.2.2)(typescript@6.0.3))
+      stylelint-config-recommended-scss: 17.0.1(postcss@8.5.29)(stylelint@17.16.0(supports-color@10.2.2)(typescript@6.0.3))
       stylelint-config-standard: 40.0.0(stylelint@17.16.0(supports-color@10.2.2)(typescript@6.0.3))
     optionalDependencies:
-      postcss: 8.5.28
+      postcss: 8.5.29
 
   stylelint-config-standard@40.0.0(stylelint@17.16.0(supports-color@10.2.2)(typescript@6.0.3)):
     dependencies:
@@ -11810,8 +11823,8 @@ snapshots:
 
   stylelint-order@8.1.1(stylelint@17.16.0(supports-color@10.2.2)(typescript@6.0.3)):
     dependencies:
-      postcss: 8.5.27
-      postcss-sorting: 10.0.0(postcss@8.5.27)
+      postcss: 8.5.29
+      postcss-sorting: 10.0.0(postcss@8.5.29)
       stylelint: 17.16.0(supports-color@10.2.2)(typescript@6.0.3)
 
   stylelint-plugin-defensive-css@2.9.7(stylelint@17.16.0(supports-color@10.2.2)(typescript@6.0.3)):
@@ -11823,7 +11836,7 @@ snapshots:
     dependencies:
       css-tree: 3.2.1
       is-plain-object: 5.1.0
-      postcss: 8.5.27
+      postcss: 8.5.29
       postcss-value-parser: 4.2.0
       stylelint: 17.16.0(supports-color@10.2.2)(typescript@6.0.3)
 
@@ -11880,8 +11893,8 @@ snapshots:
       micromatch: 4.0.8
       normalize-path: 3.0.0
       picocolors: 1.1.1
-      postcss: 8.5.28
-      postcss-safe-parser: 7.1.0(postcss@8.5.28)
+      postcss: 8.5.29
+      postcss-safe-parser: 7.1.0(postcss@8.5.29)
       postcss-selector-parser: 7.1.6
       postcss-value-parser: 4.2.0
       string-width: 8.2.2
