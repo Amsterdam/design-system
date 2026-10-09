@@ -7,7 +7,7 @@ import type { AnchorHTMLAttributes, ElementType, ForwardedRef, PropsWithChildren
 
 import { ChevronDownIcon } from '@amsterdam/design-system-react-icons'
 import { clsx } from 'clsx'
-import { Children, forwardRef, useContext, useEffect, useId, useRef } from 'react'
+import { Children, forwardRef, useContext, useEffect, useId, useLayoutEffect, useRef } from 'react'
 
 import type { IconProps } from '../Icon'
 
@@ -44,6 +44,10 @@ export type MenuItemProps = {
    */
   readonly onToggle?: (expanded: boolean) => void
 } & Readonly<PropsWithChildren<AnchorHTMLAttributes<HTMLAnchorElement>>>
+
+// A layout effect runs before the browser hides a collapsed submenu, while a link in it still has focus.
+/* v8 ignore next -- React 18 and older warn about a layout effect on the server */
+const useBrowserLayoutEffect = typeof window === 'undefined' ? useEffect : useLayoutEffect
 
 /**
  * A menu item that can contain a nested submenu.
@@ -91,18 +95,13 @@ export const MenuItem = forwardRef(
       }
     }, [hasSubmenu, hidesSubmenu])
 
-    // When collapsing, if focus is inside the submenu that's about to be hidden, move it to the toggle button.
-    const moveFocusToToggleButton = (nextIsExpanded: boolean) => {
-      if (!nextIsExpanded && submenuRef.current?.contains(document.activeElement)) {
+    // Moves focus out of a submenu that collapses, so it never disappears into hidden content.
+    // An effect covers every way to collapse: the button, or a parent that sets `expanded`.
+    useBrowserLayoutEffect(() => {
+      if (!isExpanded && submenuRef.current?.contains(document.activeElement)) {
         buttonRef.current?.focus()
       }
-    }
-
-    // Restore focus before toggling, so focus never disappears into hidden content.
-    const handleToggle = () => {
-      moveFocusToToggleButton(!isExpanded)
-      toggle()
-    }
+    }, [isExpanded])
 
     return (
       <li
@@ -127,7 +126,7 @@ export const MenuItem = forwardRef(
             className="ams-menu__toggle-button"
             color="inverse"
             label={`${isExpanded ? hideAccessibleLabel : showAccessibleLabel} ${label}`}
-            onClick={handleToggle}
+            onClick={toggle}
             ref={buttonRef}
             svg={ChevronDownIcon}
           />
