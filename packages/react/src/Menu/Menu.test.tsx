@@ -260,4 +260,46 @@ describe('Menu', () => {
     expect(items).toHaveLength(3)
     expect(links).toHaveLength(3)
   })
+
+  it('keeps submenu rendering unchanged when not collapsible', () => {
+    render(
+      <Menu>
+        <Menu.Item href="#" label="Projecten">
+          <Menu.Link href="#">Overzicht</Menu.Link>
+        </Menu.Item>
+      </Menu>,
+    )
+
+    const item = screen.getByRole('link', { name: 'Projecten' }).closest('li')
+    const submenu = screen.getAllByRole('list')[1]
+
+    expect(item).toBeInTheDocument()
+    expect(screen.queryByRole('button', { name: /Toon submenu van|Verberg submenu van/ })).not.toBeInTheDocument()
+    expect(item).not.toHaveClass('ams-menu__item--collapsed')
+    expect(submenu).not.toHaveAttribute('id')
+  })
+
+  it('does not render submenu toggles in a wide Menu that is not expanded', () => {
+    render(
+      <Menu collapsible expandable inWideWindow>
+        <Menu.Item href="#" label="Projecten">
+          <Menu.Link href="#">Overzicht</Menu.Link>
+        </Menu.Item>
+      </Menu>,
+    )
+
+    expect(screen.queryByRole('button', { name: /Toon submenu van|Verberg submenu van/ })).not.toBeInTheDocument()
+  })
+
+  it('renders submenu toggles in a wide Menu that is expanded', () => {
+    render(
+      <Menu collapsible defaultExpanded expandable inWideWindow>
+        <Menu.Item href="#" label="Projecten">
+          <Menu.Link href="#">Overzicht</Menu.Link>
+        </Menu.Item>
+      </Menu>,
+    )
+
+    expect(screen.getByRole('button', { name: 'Toon submenu van Projecten' })).toBeInTheDocument()
+  })
 })

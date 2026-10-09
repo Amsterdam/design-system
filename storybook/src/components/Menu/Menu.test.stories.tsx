@@ -59,6 +59,36 @@ const renderMenuWithSubmenu = (args: Story['args']) => (
   </Menu>
 )
 
+const renderMenuWithCollapsibleSubmenu = (
+  args: Story['args'],
+  itemProps: { defaultExpanded?: boolean; expanded?: boolean } = {},
+) => (
+  <Menu {...args}>
+    <Menu.Link href="#" icon={<SvgPieChartFill />}>
+      Dashboard
+    </Menu.Link>
+    <Menu.Item
+      defaultExpanded={itemProps.defaultExpanded}
+      expanded={itemProps.expanded}
+      href="#"
+      icon={<SvgPieChartFill />}
+      label="Projecten"
+    >
+      <Menu.Link aria-current="page" href="#">
+        Overzicht
+      </Menu.Link>
+      <Menu.Link href="#">Planning</Menu.Link>
+      <Menu.Link href="#">Team</Menu.Link>
+    </Menu.Item>
+    <Menu.Link href="#" icon={<SvgPieChartFill />}>
+      Rapportages
+    </Menu.Link>
+    <Menu.Link className="hover" href="#" icon={<SvgPieChartFill />}>
+      Instellingen
+    </Menu.Link>
+  </Menu>
+)
+
 export const Test: Story = {
   render: renderMenu,
   tags: ['!dev', '!autodocs', '!manifest'],
@@ -145,6 +175,74 @@ export const WideWithSubmenuExpanded: Story = {
     await expect(canvas.getByRole('link', { name: 'Overzicht' })).toBeVisible()
   },
   render: renderMenuWithSubmenu,
+  tags: ['!dev', '!autodocs', '!manifest'],
+}
+
+export const CollapsibleCollapsed: Story = {
+  args: {
+    collapsible: true,
+  },
+  parameters: {
+    chromatic: { modes: { '400px': { viewport: 400 } } },
+  },
+  play: async ({ canvas }) => {
+    const button = canvas.getByRole('button', { name: 'Toon submenu van Projecten' })
+
+    await expect(button).toHaveAttribute('aria-expanded', 'false')
+    await expect(canvas.getByRole('link', { hidden: true, name: 'Overzicht' })).not.toBeVisible()
+  },
+  render: (args) => renderMenuWithCollapsibleSubmenu(args),
+  tags: ['!dev', '!autodocs', '!manifest'],
+}
+
+export const CollapsibleExpanded: Story = {
+  args: {
+    collapsible: true,
+  },
+  parameters: {
+    chromatic: { modes: { '400px': { viewport: 400 } } },
+  },
+  play: async ({ canvas }) => {
+    const button = canvas.getByRole('button', { name: 'Verberg submenu van Projecten' })
+
+    await expect(button).toHaveAttribute('aria-expanded', 'true')
+    await expect(canvas.getByRole('link', { name: 'Overzicht' })).toBeVisible()
+  },
+  render: (args) => renderMenuWithCollapsibleSubmenu(args, { defaultExpanded: true }),
+  tags: ['!dev', '!autodocs', '!manifest'],
+}
+
+export const WideCollapsibleExpanded: Story = {
+  args: {
+    collapsible: true,
+    defaultExpanded: true,
+    expandable: true,
+    inWideWindow: true,
+  },
+  parameters: {
+    fixedInWideWindow: true,
+  },
+  play: async ({ canvas }) => {
+    await expect(canvas.getByRole('button', { name: 'Toon submenu van Projecten' })).toBeInTheDocument()
+  },
+  render: (args) => renderMenuWithCollapsibleSubmenu(args),
+  tags: ['!dev', '!autodocs', '!manifest'],
+}
+
+export const WideCollapsibleNotExpanded: Story = {
+  args: {
+    collapsible: true,
+    expandable: true,
+    inWideWindow: true,
+  },
+  parameters: {
+    fixedInWideWindow: true,
+  },
+  play: async ({ canvas }) => {
+    await expect(canvas.queryByRole('button', { name: /Toon submenu van|Verberg submenu van/ })).not.toBeInTheDocument()
+    await expect(canvas.getByRole('link', { hidden: true, name: 'Overzicht' })).not.toBeVisible()
+  },
+  render: (args) => renderMenuWithCollapsibleSubmenu(args),
   tags: ['!dev', '!autodocs', '!manifest'],
 }
 

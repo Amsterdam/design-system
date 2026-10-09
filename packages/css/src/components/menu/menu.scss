@@ -124,13 +124,42 @@
   }
 }
 
-.ams-menu__expand-button {
+.ams-menu__item--collapsible {
+  align-items: start;
+  column-gap: var(--ams-menu-item-gap);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+
+  > .ams-menu__submenu {
+    grid-column: 1 / -1;
+  }
+}
+
+.ams-menu__item--collapsed > .ams-menu__submenu {
+  @media (scripting: enabled) {
+    display: none;
+  }
+}
+
+.ams-menu__expand-button,
+.ams-menu__toggle-button {
   justify-self: end;
 
-  // The button does nothing without scripting.
+  // The buttons do nothing without scripting.
   @media (scripting: none) {
     display: none;
   }
+}
+
+.ams-menu__toggle-button svg {
+  @media (prefers-reduced-motion: no-preference) {
+    transition: rotate var(--ams-menu-toggle-button-icon-transition-duration)
+      var(--ams-menu-toggle-button-icon-transition-timing-function);
+  }
+}
+
+.ams-menu__toggle-button[aria-expanded="true"] svg {
+  rotate: -180deg;
 }
 
 .ams-menu__link {
@@ -171,4 +200,14 @@
       }
     }
   }
+}
+
+// These two rules follow the base rules of the link and the button, which Stylelint requires of a more specific selector.
+.ams-menu__item--collapsible > .ams-menu__link {
+  justify-self: start;
+}
+
+.ams-menu__item--collapsible > .ams-menu__toggle-button {
+  // Aligns the button with the first line of the label, which starts lower because of link block padding.
+  margin-block-start: var(--ams-menu-link-padding-block);
 }
