@@ -7,9 +7,14 @@ on:
 permissions:
   contents: write
 
+# A newer push to main supersedes the one in flight, so cancel stale runs to
+# avoid blocking deployment of the latest release.
+concurrency:
+  group: deploy-production-storybook-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build-and-deploy:
-    concurrency: ci-${{ github.ref }}
     runs-on: ubuntu-latest
     # A hung run would hold the concurrency lock above and block deploys of newer commits.
     timeout-minutes: 30
