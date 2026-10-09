@@ -11,6 +11,12 @@ on:
 permissions:
   contents: read
 
+# A newer push to main supersedes the one in flight: the later commit contains
+# the earlier one, so cancelling saves snapshots without losing a baseline.
+concurrency:
+  group: deploy-production-chromatic-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   chromatic:
     name: Run Chromatic

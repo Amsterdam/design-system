@@ -21,7 +21,7 @@ permissions:
 # contains the earlier one, so cancelling saves snapshots without losing a
 # baseline.
 concurrency:
-  group: ${{ github.workflow }}
+  group: deploy-acceptance-chromatic-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
