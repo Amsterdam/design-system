@@ -8,9 +8,9 @@ import type { ForwardedRef } from 'react'
 import { SearchIcon } from '@amsterdam/design-system-react-icons'
 import { forwardRef, useContext } from 'react'
 
-import type { ButtonProps } from '../Button'
+import type { ButtonProps } from '../Button/Button'
 
-import { Button } from '../Button'
+import { Button } from '../Button/Button'
 import { SearchFieldContext } from './SearchFieldContext'
 
 type SearchFieldButtonProps = Omit<ButtonProps, 'icon' | 'iconBefore' | 'iconOnly' | 'variant'>

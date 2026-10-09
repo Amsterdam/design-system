@@ -8,7 +8,7 @@ import type { ForwardedRef, InputHTMLAttributes, PropsWithChildren } from 'react
 import { clsx } from 'clsx'
 import { forwardRef, useEffect, useId, useImperativeHandle, useRef } from 'react'
 
-import type { IconProps } from '../Icon'
+import type { IconProps } from '../Icon/Icon'
 
 import CheckboxIcon from './CheckboxIcon'
 

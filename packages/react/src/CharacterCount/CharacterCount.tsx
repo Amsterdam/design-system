@@ -6,11 +6,11 @@
 import type { ForwardedRef, HTMLAttributes } from 'react'
 
 import { clsx } from 'clsx'
-import { forwardRef } from 'react'
+import { forwardRef, useEffect } from 'react'
 
-import type { FormatCharacterCountText } from './formatCharacterCountText'
+import type { FormatCharacterCountText } from '../FormFieldStatus/formatCharacterCountText'
 
-import { formatCharacterCountTextNl } from './formatCharacterCountText'
+import { formatCharacterCountTextNl } from '../FormFieldStatus/formatCharacterCountText'
 
 export type CharacterCountProps = {
   /**
@@ -28,22 +28,32 @@ export type CharacterCountProps = {
 /**
  * Shows how many characters remain within a specified limit as the user types.
  *
+ * @deprecated Compose a `FormFieldStatus.CharacterCount` inside a `FormFieldStatus` instead.
+ * The ‘CharacterCount’ component will be removed on or after 2027-05-01.
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-character-count--docs Character Count docs at Amsterdam Design System}
  */
 export const CharacterCount = forwardRef(
   (
     { className, formatText = formatCharacterCountTextNl, length, maxLength, ...restProps }: CharacterCountProps,
     ref: ForwardedRef<HTMLDivElement>,
-  ) => (
-    <div
-      {...restProps}
-      className={clsx('ams-character-count', length > maxLength && 'ams-character-count--error', className)}
-      ref={ref}
-      role="status"
-    >
-      {formatText(length, maxLength)}
-    </div>
-  ),
+  ) => {
+    useEffect(() => {
+      console.warn(
+        '@deprecated Character Count has been replaced. Compose a `FormFieldStatus.CharacterCount` inside a `FormFieldStatus` instead.',
+      )
+    }, [])
+
+    return (
+      <div
+        {...restProps}
+        className={clsx('ams-character-count', length > maxLength && 'ams-character-count--error', className)}
+        ref={ref}
+        role="status"
+      >
+        {formatText(length, maxLength)}
+      </div>
+    )
+  },
 )
 
 CharacterCount.displayName = 'CharacterCount'

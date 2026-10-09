@@ -27,7 +27,7 @@
     "build": "tsc --project ./tsconfig.build.json && rollup -c",
     "build:watch": "rollup -c --watch",
     "clean:dist": "rimraf dist/ tsconfig.build.tsbuildinfo",
-    "generate-logos": "svgr --config-file src/Logo/svgr.config.mjs ../../packages-proprietary/assets/logo/*-logo.svg --out-dir src/Logo/brands && prettier --write src/Logo/brands && eslint src/Logo/brands --fix",
+    "generate-logos": "svgr --config-file src/Logo/svgr.config.mjs ../../packages-proprietary/assets/logo/*-logo.svg --out-dir src/Logo/brands --no-index && prettier --write src/Logo/brands && eslint src/Logo/brands --fix",
     "lint": "tsc --noEmit --project ./tsconfig.json",
     "test": "vitest run --coverage",
     "watch:test": "vitest"
@@ -40,7 +40,7 @@
   ],
   "dependencies": {
     "@amsterdam/design-system-react-icons": "workspace:*",
-    "@babel/runtime": "7.29.7",
+    "@babel/runtime": "7.29.10",
     "clsx": "2.1.1"
   },
   "devDependencies": {
@@ -57,14 +57,14 @@
     "@testing-library/user-event": "14.6.7",
     "@types/react": "18.3.31",
     "@types/react-dom": "18.3.7",
-    "@vitejs/plugin-react": "6.1.1",
+    "@vitejs/plugin-react": "6.1.2",
     "@vitest/coverage-v8": "5.0.3",
     "eslint-plugin-react": "7.37.5",
     "eslint-plugin-react-hooks": "7.1.1",
     "jsdom": "26.1.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
-    "rollup": "4.63.6",
+    "rollup": "4.64.2",
     "rollup-plugin-dts": "6.5.1",
     "rollup-plugin-node-externals": "9.0.1",
     "rollup-plugin-node-polyfills": "0.2.1",

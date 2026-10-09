@@ -8,16 +8,14 @@ import type { ComponentType, ForwardedRef, SVGProps } from 'react'
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
 
-import {
-  AmsterdamEnglishLogo,
-  AmsterdamLogo,
-  GgdAmsterdamInspectieLogo,
-  GgdAmsterdamLogo,
-  MuseumWeespLogo,
-  StadsarchiefLogo,
-  StadsbankVanLeningLogo,
-  VgaVerzekeringenLogo,
-} from './brands'
+import AmsterdamEnglishLogo from './brands/AmsterdamEnglishLogo'
+import AmsterdamLogo from './brands/AmsterdamLogo'
+import GgdAmsterdamInspectieLogo from './brands/GgdAmsterdamInspectieLogo'
+import GgdAmsterdamLogo from './brands/GgdAmsterdamLogo'
+import MuseumWeespLogo from './brands/MuseumWeespLogo'
+import StadsarchiefLogo from './brands/StadsarchiefLogo'
+import StadsbankVanLeningLogo from './brands/StadsbankVanLeningLogo'
+import VgaVerzekeringenLogo from './brands/VgaVerzekeringenLogo'
 
 export const logoBrands = [
   'amsterdam',

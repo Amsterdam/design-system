@@ -9,11 +9,11 @@ import { ChevronDownIcon } from '@amsterdam/design-system-react-icons'
 import { clsx } from 'clsx'
 import { forwardRef, useContext, useEffect, useId, useRef } from 'react'
 
-import type { IconProps } from '../Icon'
+import type { IconProps } from '../Icon/Icon'
 
 import { useCollapsible } from '../common/useCollapsible'
-import { Heading } from '../Heading'
-import { Icon } from '../Icon'
+import { Heading } from '../Heading/Heading'
+import { Icon } from '../Icon/Icon'
 import { AccordionContext } from './AccordionContext'
 
 export type AccordionSectionProps = {

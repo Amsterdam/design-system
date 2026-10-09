@@ -7,7 +7,7 @@ import { clsx } from 'clsx'
 
 import type { PageHeaderProps } from './PageHeader'
 
-import { Logo } from '../Logo'
+import { Logo } from '../Logo/Logo'
 
 type LogoLinkContentProps = {
   readonly brandNameFullOrShort?: PageHeaderProps['brandName'] | PageHeaderProps['brandNameShort']
