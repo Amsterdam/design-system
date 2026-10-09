@@ -55,6 +55,12 @@ They should offer navigation using the Page Header only.
 
 Do not use this component anywhere other than the Page Header and the side of the Page.
 
+### How to use
+
+Set `expandable` on the wide-window instance when users need room for a second level of navigation.
+It adds a button that widens the Menu, which gives the links the horizontal layout again.
+Start the Menu out wide with `defaultExpanded`, or pass `expanded` together with `onToggle` when the parent should own the state.
+
 ### How to write
 
 Use filled icons for the links.
@@ -62,6 +68,18 @@ Use filled icons for the links.
 ## Examples
 
 See the [Internal Home Page](/story/pages-internal-home-page--default) template for a full-page example.
+
+### Expandable
+
+A Menu that users can widen themselves.
+
+<Canvas of={MenuStories.Expandable} />
+
+### Expanded
+
+The same Menu, wide from the start.
+
+<Canvas of={MenuStories.Expanded} />
 
 ## Design
 
@@ -75,6 +93,10 @@ In a wide window, the menu has a maximum width of 8rem.
 It adds whitespace at the top to align with the baseline of Page Header.
 The icon is larger and positioned above the label.
 
+When `expandable` is enabled, the wide Menu shows an icon-only button at the top end.
+Its default state keeps the narrow column and the vertical link layout.
+Expanded, the Menu is `14rem` wide and the links return to the horizontal layout, with the label next to the icon.
+
 In narrow and medium windows the Menu reaches both edges of the window by cancelling the horizontal padding of the Page Header with a negative margin of the same size.
 That ties the component to the one context it is used in, which is accepted here: it is the only way for a band of colour to span the window while the links stay aligned with the content around them.
 Where that padding grows to clear a display cutout, the margin grows with it, so the blue still runs to the physical edge of the screen while the links move in.
@@ -86,6 +108,8 @@ In the wide layout the links do stretch, since the column is barely wider than t
 
 Without `inWideWindow` the Menu renders a `div`, because it then sits inside the `nav` element of the [Page Header](/docs/components-containers-page-header--docs).
 With the prop it renders a `nav` of its own, named by a visually hidden heading that `accessibleName` fills.
+With `expandable`, the icon-only button is named through `expandButtonLabel` and `collapseButtonLabel`.
+The button reports through `aria-expanded` whether the Menu is expanded.
 
 That name defaults to ‘Hoofdmenu’, and so does the `navigationLabel` of the Page Header.
 A wide window shows both navigations, so give one of the two another name.

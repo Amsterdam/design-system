@@ -3,9 +3,9 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { render, screen } from '@testing-library/react'
+import { fireEvent, render, screen } from '@testing-library/react'
 import { createRef } from 'react'
-import { describe, expect, it } from 'vitest'
+import { describe, expect, it, vi } from 'vitest'
 
 import { Menu } from './Menu'
 
@@ -51,6 +51,107 @@ describe('Menu', () => {
     const component = container.querySelector(':only-child')
 
     expect(component).toHaveClass('ams-menu--in-wide-window')
+  })
+
+  it('does not render an expand button by default', () => {
+    render(<Menu inWideWindow />)
+
+    const button = screen.queryByRole('button', { name: 'Klap menu uit' })
+
+    expect(button).not.toBeInTheDocument()
+  })
+
+  it('renders an expand button when expandable in a wide window', () => {
+    render(<Menu expandable inWideWindow />)
+
+    const button = screen.getByRole('button', { name: 'Klap menu uit' })
+
+    expect(button).toBeInTheDocument()
+    expect(button).toHaveAttribute('aria-controls')
+    expect(button).toHaveAttribute('aria-expanded', 'false')
+    expect(button).not.toHaveAttribute('aria-pressed')
+  })
+
+  it('adds the expanded class when defaultExpanded is true', () => {
+    const { container } = render(<Menu defaultExpanded expandable inWideWindow />)
+
+    const component = container.querySelector(':only-child')
+    const button = screen.getByRole('button', { name: 'Klap menu in' })
+
+    expect(component).toHaveClass('ams-menu--expanded')
+    expect(button).toBeInTheDocument()
+    expect(button).toHaveAttribute('aria-expanded', 'true')
+  })
+
+  it('toggles the expanded state when the button is clicked', () => {
+    const { container } = render(<Menu expandable inWideWindow />)
+
+    const component = container.querySelector(':only-child')
+    const expandButton = screen.getByRole('button', { name: 'Klap menu uit' })
+
+    expect(component).not.toHaveClass('ams-menu--expanded')
+
+    fireEvent.click(expandButton)
+
+    const collapseButton = screen.getByRole('button', { name: 'Klap menu in' })
+
+    expect(component).toHaveClass('ams-menu--expanded')
+    expect(collapseButton).toBeInTheDocument()
+    expect(collapseButton).toHaveAttribute('aria-expanded', 'true')
+
+    fireEvent.click(collapseButton)
+
+    expect(component).not.toHaveClass('ams-menu--expanded')
+    expect(screen.getByRole('button', { name: 'Klap menu uit' })).toBeInTheDocument()
+  })
+
+  it('calls onToggle with the new expanded state when the button is clicked', () => {
+    const onToggle = vi.fn()
+
+    render(<Menu expandable inWideWindow onToggle={onToggle} />)
+
+    const button = screen.getByRole('button', { name: 'Klap menu uit' })
+
+    fireEvent.click(button)
+    fireEvent.click(button)
+
+    expect(onToggle).toHaveBeenCalledTimes(2)
+    expect(onToggle).toHaveBeenNthCalledWith(1, true)
+    expect(onToggle).toHaveBeenNthCalledWith(2, false)
+  })
+
+  it('respects the expanded prop when false', () => {
+    const { container } = render(<Menu expandable expanded={false} inWideWindow />)
+
+    const component = container.querySelector(':only-child')
+    const button = screen.getByRole('button', { name: 'Klap menu uit' })
+
+    expect(component).not.toHaveClass('ams-menu--expanded')
+    expect(button).toBeInTheDocument()
+    expect(button).toHaveAttribute('aria-expanded', 'false')
+  })
+
+  it('respects the expanded prop when true', () => {
+    const { container } = render(<Menu expandable expanded inWideWindow />)
+
+    const component = container.querySelector(':only-child')
+    const button = screen.getByRole('button', { name: 'Klap menu in' })
+
+    expect(component).toHaveClass('ams-menu--expanded')
+    expect(button).toBeInTheDocument()
+    expect(button).toHaveAttribute('aria-expanded', 'true')
+  })
+
+  it('does not toggle internally when controlled', () => {
+    const { container } = render(<Menu expandable expanded={false} inWideWindow />)
+
+    const component = container.querySelector(':only-child')
+    const button = screen.getByRole('button', { name: 'Klap menu uit' })
+
+    fireEvent.click(button)
+
+    expect(component).not.toHaveClass('ams-menu--expanded')
+    expect(screen.getByRole('button', { name: 'Klap menu uit' })).toBeInTheDocument()
   })
 
   it('supports ForwardRef in React', () => {

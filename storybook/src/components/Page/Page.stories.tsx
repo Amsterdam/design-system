@@ -27,6 +27,7 @@ const meta = {
 export default meta
 
 type Story = StoryObj<typeof meta>
+type PageWithMenuStoryArgs = NonNullable<Story['args']>
 
 const PageBody = () => (
   <Grid paddingVertical="x-large">
@@ -34,6 +35,34 @@ const PageBody = () => (
       <Heading level={1}>Page Body</Heading>
     </Grid.Cell>
   </Grid>
+)
+
+const renderPageWithMenu = ({ children, ...args }: PageWithMenuStoryArgs, expandable = false) => (
+  <Page {...args}>
+    <SkipLink className="ams-page__area--skip-link" href="#inhoud">
+      Direct naar inhoud
+    </SkipLink>
+    <PageHeader brandName="Page Header" className="ams-page__area--header" noMenuButtonOnWideWindow>
+      <Menu>
+        <Menu.Link href="#" icon={<SettingsFillIcon />}>
+          Menu item
+        </Menu.Link>
+      </Menu>
+    </PageHeader>
+    <Menu className="ams-page__area--menu" expandable={expandable} inWideWindow>
+      <Menu.Link href="#" icon={<SettingsFillIcon />}>
+        Menu item
+      </Menu.Link>
+    </Menu>
+    <main className="ams-page__area--body" id="inhoud">
+      {children}
+    </main>
+    <PageFooter className="ams-page__area--footer">
+      <PageFooter.Menu>
+        <PageFooter.MenuLink href="/">Page Footer Menu</PageFooter.MenuLink>
+      </PageFooter.Menu>
+    </PageFooter>
+  </Page>
 )
 
 export const Default: Story = {
@@ -67,31 +96,11 @@ export const WithMenu: Story = {
   globals: {
     theme: 'Compact',
   },
-  render: ({ children, ...args }) => (
-    <Page {...args}>
-      <SkipLink className="ams-page__area--skip-link" href="#inhoud">
-        Direct naar inhoud
-      </SkipLink>
-      <PageHeader brandName="Page Header" className="ams-page__area--header" noMenuButtonOnWideWindow>
-        <Menu>
-          <Menu.Link href="#" icon={<SettingsFillIcon />}>
-            Menu item
-          </Menu.Link>
-        </Menu>
-      </PageHeader>
-      <Menu className="ams-page__area--menu" inWideWindow>
-        <Menu.Link href="#" icon={<SettingsFillIcon />}>
-          Menu item
-        </Menu.Link>
-      </Menu>
-      <main className="ams-page__area--body" id="inhoud">
-        {children}
-      </main>
-      <PageFooter className="ams-page__area--footer">
-        <PageFooter.Menu>
-          <PageFooter.MenuLink href="/">Page Footer Menu</PageFooter.MenuLink>
-        </PageFooter.Menu>
-      </PageFooter>
-    </Page>
-  ),
+  render: (args) => renderPageWithMenu(args),
+}
+
+// Takes over everything of `WithMenu`, so the two stories cannot drift apart.
+export const WithExpandableMenu: Story = {
+  ...WithMenu,
+  render: (args) => renderPageWithMenu(args, true),
 }
