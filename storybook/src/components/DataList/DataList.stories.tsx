@@ -182,7 +182,7 @@ export const CompositeValue: Story = {
 export const WithHeader: Story = {
   render: (args) => (
     <Column>
-      <Row align="between" alignVertical="end" wrap>
+      <Row align="between" alignVertical="center" wrap>
         <Heading level={2}>Magere Brug</Heading>
         <ActionGroup>
           <StandaloneLink href="#" icon={PencilIcon}>
@@ -209,7 +209,7 @@ export const FormReview: Story = {
         // Group each heading row with its list, keeping a medium gap within each group and a larger gap between groups.
         return (
           <Column key={name}>
-            <Row align="between" alignVertical="end" wrap>
+            <Row align="between" alignVertical="center" wrap>
               <Heading level={2}>Persoon {index + 1}</Heading>
               <ActionGroup>
                 <Button icon={TrashBinIcon} iconBefore variant="secondary">
