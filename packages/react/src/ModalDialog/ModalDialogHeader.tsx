@@ -22,19 +22,21 @@ export type ModalDialogHeaderProps = {
   readonly closeButtonAccessibleName?: string
   /**
    * The React component to use for the button that dismisses the Modal Dialog.
-   * It receives the same props as the default Icon Button.
-   * Pass `className` and `onClick` on to the button it renders.
+   * It receives `className`, `onClick`, `type`, and the accessible name as `children`.
+   * Pass those props on to the button it renders.
    * Websites for the City of Amsterdam must use the default button.
    */
   readonly closeButtonComponent?: ElementType
   /**
    * An icon for the button that dismisses the Modal Dialog, to display instead of the default cross.
+   * Applies to the default close button only.
    * Websites for the City of Amsterdam must use the default icon.
    */
   readonly closeButtonIcon?: IconProps['svg']
   /**
    * The size of the button that dismisses the Modal Dialog.
    * Match it to the size of the Heading in the Header.
+   * Applies to the default close button only.
    * @default heading-2
    */
   readonly closeButtonSize?: Extract<IconProps['size'], `heading-${number}`>
@@ -58,19 +60,25 @@ export const ModalDialogHeader = forwardRef(
     }: ModalDialogHeaderProps,
     ref: ForwardedRef<HTMLElement>,
   ) => {
-    const CloseButton = closeButtonComponent || IconButton
+    const CloseButton = closeButtonComponent
 
     return (
       <header {...restProps} className={clsx('ams-modal-dialog__header', className)} ref={ref}>
         {children}
-        <CloseButton
-          className="ams-modal-dialog__close-button"
-          label={closeButtonAccessibleName}
-          onClick={closeModalDialog}
-          size={closeButtonSize}
-          svg={closeButtonIcon}
-          type="button"
-        />
+        {CloseButton ? (
+          <CloseButton className="ams-modal-dialog__close-button" onClick={closeModalDialog} type="button">
+            {closeButtonAccessibleName}
+          </CloseButton>
+        ) : (
+          <IconButton
+            className="ams-modal-dialog__close-button"
+            label={closeButtonAccessibleName}
+            onClick={closeModalDialog}
+            size={closeButtonSize}
+            svg={closeButtonIcon}
+            type="button"
+          />
+        )}
       </header>
     )
   },
