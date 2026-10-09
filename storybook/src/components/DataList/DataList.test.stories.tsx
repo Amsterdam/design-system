@@ -7,7 +7,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import type { ComponentProps } from 'react'
 
 import { Column, Link, Paragraph, StandaloneLink } from '@amsterdam/design-system-react'
-import { PencilIcon, TrashBinIcon } from '@amsterdam/design-system-react-icons'
+import { DeleteIcon, EditIcon } from '@amsterdam/design-system-react-icons'
 import { DataList } from '@amsterdam/design-system-react/src'
 
 import { renderComponentVariants } from '#storybook/_common/renderComponentVariants'
@@ -61,7 +61,7 @@ export const Test: Story = {
         <DataList.Label>Bouwjaar</DataList.Label>
         <DataList.Value>1934</DataList.Value>
         <DataList.Actions>
-          <StandaloneLink href="#" icon={PencilIcon}>
+          <StandaloneLink href="#" icon={EditIcon}>
             Wijzigen<span className="ams-visually-hidden"> bouwjaar</span>
           </StandaloneLink>
         </DataList.Actions>
@@ -86,7 +86,7 @@ export const Test: Story = {
           </Column>
         </DataList.Value>
         <DataList.Actions>
-          <StandaloneLink href="#" icon={PencilIcon}>
+          <StandaloneLink href="#" icon={EditIcon}>
             Wijzigen<span className="ams-visually-hidden"> toelichting</span>
           </StandaloneLink>
         </DataList.Actions>
@@ -97,10 +97,10 @@ export const Test: Story = {
         <DataList.Label>Foto</DataList.Label>
         <DataList.Value>brug-voorzijde.jpg</DataList.Value>
         <DataList.Actions>
-          <StandaloneLink href="#" icon={PencilIcon}>
+          <StandaloneLink href="#" icon={EditIcon}>
             Wijzigen<span className="ams-visually-hidden"> foto</span>
           </StandaloneLink>
-          <StandaloneLink href="#" icon={TrashBinIcon}>
+          <StandaloneLink href="#" icon={DeleteIcon}>
             Verwijderen<span className="ams-visually-hidden"> foto</span>
           </StandaloneLink>
         </DataList.Actions>
@@ -111,10 +111,10 @@ export const Test: Story = {
         <DataList.Label>Telefoonnummer</DataList.Label>
         <DataList.Value>0612345678</DataList.Value>
         <DataList.Actions>
-          <StandaloneLink href="#" icon={PencilIcon}>
+          <StandaloneLink href="#" icon={EditIcon}>
             Wijzigen<span className="ams-visually-hidden"> telefoonnummer</span>
           </StandaloneLink>
-          <StandaloneLink href="#" icon={TrashBinIcon}>
+          <StandaloneLink href="#" icon={DeleteIcon}>
             Verwijderen<span className="ams-visually-hidden"> telefoonnummer</span>
           </StandaloneLink>
         </DataList.Actions>

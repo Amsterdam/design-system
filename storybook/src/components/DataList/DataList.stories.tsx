@@ -16,7 +16,7 @@ import {
   Row,
   StandaloneLink,
 } from '@amsterdam/design-system-react'
-import { PencilIcon, TrashBinIcon } from '@amsterdam/design-system-react-icons'
+import { DeleteIcon, EditIcon } from '@amsterdam/design-system-react-icons'
 import { DataList } from '@amsterdam/design-system-react/src'
 import { dataListOrientations, dataListTermsWidths } from '@amsterdam/design-system-react/src/DataList/DataList'
 import { Fragment } from 'react'
@@ -110,7 +110,7 @@ export const Actions: Story = {
         <DataList.Label>Voornaam</DataList.Label>
         <DataList.Value>Johan</DataList.Value>
         <DataList.Actions>
-          <StandaloneLink href="#" icon={PencilIcon}>
+          <StandaloneLink href="#" icon={EditIcon}>
             Wijzigen<span className="ams-visually-hidden"> voornaam</span>
           </StandaloneLink>
         </DataList.Actions>
@@ -119,7 +119,7 @@ export const Actions: Story = {
         <DataList.Label>Achternaam</DataList.Label>
         <DataList.Value>Cruijff</DataList.Value>
         <DataList.Actions>
-          <StandaloneLink href="#" icon={PencilIcon}>
+          <StandaloneLink href="#" icon={EditIcon}>
             Wijzigen<span className="ams-visually-hidden"> achternaam</span>
           </StandaloneLink>
         </DataList.Actions>
@@ -128,10 +128,10 @@ export const Actions: Story = {
         <DataList.Label>Telefoonnummer</DataList.Label>
         <DataList.Value>06 12345678</DataList.Value>
         <DataList.Actions>
-          <StandaloneLink href="#" icon={PencilIcon}>
+          <StandaloneLink href="#" icon={EditIcon}>
             Wijzigen<span className="ams-visually-hidden"> telefoonnummer</span>
           </StandaloneLink>
-          <StandaloneLink href="#" icon={TrashBinIcon}>
+          <StandaloneLink href="#" icon={DeleteIcon}>
             Verwijderen<span className="ams-visually-hidden"> telefoonnummer</span>
           </StandaloneLink>
         </DataList.Actions>
@@ -185,7 +185,7 @@ export const WithHeader: Story = {
       <Row align="between" alignVertical="center" wrap>
         <Heading level={2}>Magere Brug</Heading>
         <ActionGroup>
-          <StandaloneLink href="#" icon={PencilIcon}>
+          <StandaloneLink href="#" icon={EditIcon}>
             Wijzigen<span className="ams-visually-hidden"> Magere Brug</span>
           </StandaloneLink>
         </ActionGroup>
@@ -212,7 +212,7 @@ export const FormReview: Story = {
             <Row align="between" alignVertical="center" wrap>
               <Heading level={2}>Persoon {index + 1}</Heading>
               <ActionGroup>
-                <Button icon={TrashBinIcon} iconBefore variant="secondary">
+                <Button icon={DeleteIcon} iconBefore variant="secondary">
                   Verwijderen<span className="ams-visually-hidden"> {person}</span>
                 </Button>
               </ActionGroup>
@@ -222,7 +222,7 @@ export const FormReview: Story = {
                 <DataList.Label>Naam</DataList.Label>
                 <DataList.Value>{name}</DataList.Value>
                 <DataList.Actions>
-                  <StandaloneLink href="#" icon={PencilIcon}>
+                  <StandaloneLink href="#" icon={EditIcon}>
                     Wijzigen<span className="ams-visually-hidden"> naam van {person}</span>
                   </StandaloneLink>
                 </DataList.Actions>
@@ -231,7 +231,7 @@ export const FormReview: Story = {
                 <DataList.Label>Geboortedatum</DataList.Label>
                 <DataList.Value>{birthDate}</DataList.Value>
                 <DataList.Actions>
-                  <StandaloneLink href="#" icon={PencilIcon}>
+                  <StandaloneLink href="#" icon={EditIcon}>
                     Wijzigen<span className="ams-visually-hidden"> geboortedatum van {person}</span>
                   </StandaloneLink>
                 </DataList.Actions>
@@ -247,7 +247,7 @@ export const FormReview: Story = {
                   ))}
                 </DataList.Value>
                 <DataList.Actions>
-                  <StandaloneLink href="#" icon={PencilIcon}>
+                  <StandaloneLink href="#" icon={EditIcon}>
                     Wijzigen<span className="ams-visually-hidden"> adres van {person}</span>
                   </StandaloneLink>
                 </DataList.Actions>
