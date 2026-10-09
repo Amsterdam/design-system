@@ -95,7 +95,9 @@ export const MenuWithItems = ({ currentPageId, currentSectionId, ...restProps }:
   return (
     // A wide Menu shows its submenus only while it is expanded, so an open submenu expands it as well.
     // The Menu in the Page Header ignores `defaultExpanded`.
-    <Menu defaultExpanded={menuItems.some(startsOpen)} {...restProps}>
+    // A Menu reads `defaultExpanded` only when it mounts. The key mounts a new one when a router changes the page,
+    // so the Menu opens at the new place as well.
+    <Menu defaultExpanded={menuItems.some(startsOpen)} key={currentPageId ?? currentSectionId} {...restProps}>
       {menuItems.map((item) => {
         const { href, icon, id, submenu, text } = item
 
