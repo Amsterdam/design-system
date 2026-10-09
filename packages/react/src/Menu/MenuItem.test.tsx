@@ -285,6 +285,28 @@ describe('MenuItem', () => {
       expect(button).toHaveFocus()
     })
 
+    it('moves focus to the toggle button when a parent collapses the submenu with the focused link', () => {
+      const { rerender } = render(
+        <Menu collapsible>
+          <Menu.Item expanded href="#" label="Projecten">
+            <Menu.Link href="#child">Overzicht</Menu.Link>
+          </Menu.Item>
+        </Menu>,
+      )
+
+      screen.getByRole('link', { name: 'Overzicht' }).focus()
+
+      rerender(
+        <Menu collapsible>
+          <Menu.Item expanded={false} href="#" label="Projecten">
+            <Menu.Link href="#child">Overzicht</Menu.Link>
+          </Menu.Item>
+        </Menu>,
+      )
+
+      expect(screen.getByRole('button', { name: 'Toon submenu van Projecten' })).toHaveFocus()
+    })
+
     it('keeps focus on the toggle button when collapsing without focused submenu content', () => {
       renderCollapsible({ defaultExpanded: true })
 

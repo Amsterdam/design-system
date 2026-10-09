@@ -44,9 +44,9 @@ They should offer navigation using the Page Header only.
     Direct naar inhoud
   </SkipLink>
   <PageHeader className="ams-page__area--header" noMenuButtonOnWideWindow>
-    <Menu />
+    <Menu collapsible />
   </PageHeader>
-  <Menu className="ams-page__area--menu" inWideWindow />
+  <Menu className="ams-page__area--menu" collapsible expandable inWideWindow />
   <main className="ams-page__area--body" id="inhoud">
     <Grid />
   </main>
@@ -68,7 +68,15 @@ The component must be rendered twice.
    This is for wide windows, where the menu is positioned to the side.
    The `inWideWindow` prop ensures that only one of both components is present at all times.
 
-Make sure that both menus have the same items.
+Make sure that both menus have the same first-level and second-level items.
+
+Set `collapsible` on both Menu instances when first-level items include submenu links.
+That adds a button per submenu so users can open and close sections as needed.
+
+For the wide-window Menu, set `expandable` so second-level links are available in wide layouts.
+Set `defaultExpanded` only when the current page sits in a submenu, or when a page specifically benefits from opening with more room for horizontal labels.
+
+When a submenu contains the current page, set `defaultExpanded` on that `Menu.Item` and mark the current `Menu.Link` with `aria-current="page"`.
 
 ## Landmarks
 
