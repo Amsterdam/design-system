@@ -13,8 +13,8 @@ import type { IconProps } from '../Icon'
 import { Icon } from '../Icon'
 
 export type MenuLinkProps = {
-  /** The icon to display for the menu icon. Use the filled variant. */
-  readonly icon: IconProps['svg']
+  /** The icon to display for the menu link. Use the filled variant for top-level items. */
+  readonly icon?: IconProps['svg']
   /**
    * The React component or intrinsic element to use for the link.
    * Refs are forwarded only to a plain anchor (the default, or `linkComponent="a"`), not to any other `linkComponent`.
@@ -38,7 +38,7 @@ export const MenuLink = forwardRef(
           className={clsx('ams-menu__link', className)}
           {...((!linkComponent || linkComponent === 'a') && { ref })}
         >
-          <Icon className="ams-menu__icon" svg={icon} />
+          {icon && <Icon className="ams-menu__icon" svg={icon} />}
           {children}
         </Tag>
       </li>

@@ -3,6 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
+import { DocumentIcon } from '@amsterdam/design-system-react-icons'
 import { fireEvent, render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 import { describe, expect, it, vi } from 'vitest'
@@ -196,5 +197,67 @@ describe('Menu', () => {
     expect(component).toHaveAttribute('aria-hidden', 'false')
     expect(component).toHaveAttribute('id', 'id')
     expect(component).toHaveAttribute('data-test', 'data-test')
+  })
+
+  it('warns about a submenu that a wide Menu can never show', () => {
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {})
+
+    render(
+      <Menu inWideWindow>
+        <Menu.Item href="#" label="Projecten">
+          <Menu.Link href="#">Overzicht</Menu.Link>
+        </Menu.Item>
+      </Menu>,
+    )
+
+    expect(warn).toHaveBeenCalledTimes(1)
+    expect(warn).toHaveBeenCalledWith(expect.stringContaining('Set `expandable`'))
+
+    warn.mockRestore()
+  })
+
+  it('does not warn about a submenu that the Menu can show', () => {
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {})
+
+    render(
+      <>
+        <Menu>
+          <Menu.Item href="#" label="Projecten">
+            <Menu.Link href="#">Overzicht</Menu.Link>
+          </Menu.Item>
+        </Menu>
+        <Menu expandable inWideWindow>
+          <Menu.Item href="#" label="Projecten">
+            <Menu.Link href="#">Overzicht</Menu.Link>
+          </Menu.Item>
+        </Menu>
+        <Menu inWideWindow>
+          <Menu.Item href="#" label="Projecten" />
+        </Menu>
+      </>,
+    )
+
+    expect(warn).not.toHaveBeenCalled()
+
+    warn.mockRestore()
+  })
+
+  it('renders a nested submenu structure', () => {
+    render(
+      <Menu>
+        <Menu.Item href="#" icon={DocumentIcon} label="Projecten">
+          <Menu.Link href="#">Overzicht</Menu.Link>
+          <Menu.Link href="#">Planning</Menu.Link>
+        </Menu.Item>
+      </Menu>,
+    )
+
+    const lists = screen.getAllByRole('list')
+    const items = screen.getAllByRole('listitem')
+    const links = screen.getAllByRole('link')
+
+    expect(lists).toHaveLength(2)
+    expect(items).toHaveLength(3)
+    expect(links).toHaveLength(3)
   })
 })

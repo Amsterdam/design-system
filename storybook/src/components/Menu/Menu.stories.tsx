@@ -47,6 +47,38 @@ const menuItems = [
   },
 ]
 
+const defaultMenuChildren = menuItems.map(({ text, ...restProps }) => (
+  <Menu.Link {...restProps} key={text}>
+    {text}
+  </Menu.Link>
+))
+
+const menuWithSubmenuChildren = [
+  <Menu.Link href="#" icon={<PieChartFillIcon />} key="Dashboard">
+    Dashboard
+  </Menu.Link>,
+  <Menu.Item href="#" icon={<FolderFillIcon />} key="Projecten" label="Projecten">
+    <Menu.Link href="#" key="Overzicht">
+      Overzicht
+    </Menu.Link>
+    <Menu.Link href="#" key="Planning">
+      Planning
+    </Menu.Link>
+    <Menu.Link href="#" key="Team">
+      Team
+    </Menu.Link>
+  </Menu.Item>,
+  <Menu.Link href="#" icon={<DocumentsFillIcon />} key="Rapportages">
+    Rapportages
+  </Menu.Link>,
+  <Menu.Link href="#" icon={<BarChartFillIcon />} key="Analyses">
+    Analyses
+  </Menu.Link>,
+  <Menu.Link href="#" icon={<SettingsFillIcon />} key="Instellingen">
+    Instellingen
+  </Menu.Link>,
+]
+
 const withInWideWindowArg: Decorator = (StoryFn, context) => {
   const [, updateArgs] = useArgs()
   const isFixed = Boolean(context.parameters['fixedInWideWindow'])
@@ -89,6 +121,7 @@ const meta = {
     },
   },
   subcomponents: {
+    'Menu.Item': Menu.Item,
     'Menu.Link': Menu.Link,
   },
 } satisfies Meta<typeof Menu>
@@ -99,24 +132,28 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
-    children: menuItems.map(({ text, ...restProps }) => (
-      <Menu.Link {...restProps} key={text}>
-        {text}
-      </Menu.Link>
-    )),
+    children: defaultMenuChildren,
   },
 }
 
 export const Expandable: Story = {
   args: {
-    children: Default.args?.children,
+    children: defaultMenuChildren,
     expandable: true,
   },
 }
 
 export const Expanded: Story = {
   args: {
-    children: Default.args?.children,
+    children: defaultMenuChildren,
+    defaultExpanded: true,
+    expandable: true,
+  },
+}
+
+export const WithSubmenu: Story = {
+  args: {
+    children: menuWithSubmenuChildren,
     defaultExpanded: true,
     expandable: true,
   },

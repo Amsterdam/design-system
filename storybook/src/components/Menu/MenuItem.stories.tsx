@@ -5,7 +5,7 @@
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-import { PieChartFillIcon } from '@amsterdam/design-system-react-icons'
+import { FolderFillIcon } from '@amsterdam/design-system-react-icons'
 import { Menu } from '@amsterdam/design-system-react/src'
 import useViewportHasMinWidth from '@amsterdam/design-system-react/src/common/useViewportHasMinWidth'
 
@@ -14,11 +14,11 @@ import { iconArgType } from '#storybook/_common/iconArgTypes'
 
 const meta = {
   title: 'Components/Navigation/Menu',
-  component: Menu.Link,
+  component: Menu.Item,
   argTypes: {
-    children: childrenArgType('The link text.'),
     href: hrefArgType,
-    icon: iconArgType('PieChartFillIcon'),
+    icon: iconArgType('FolderFillIcon'),
+    label: childrenArgType('The link text for the top-level item.'),
     linkComponent: linkComponentArgType,
   },
   decorators: [
@@ -27,7 +27,7 @@ const meta = {
       const inWideWindow = useViewportHasMinWidth('wide')
 
       return (
-        <Menu inWideWindow={inWideWindow}>
+        <Menu defaultExpanded expandable inWideWindow={inWideWindow}>
           <Story />
         </Menu>
       )
@@ -38,18 +38,28 @@ const meta = {
       options: ['Compact', 'Compact Lo-fi'],
     },
   },
-  render: ({ children, ...args }) => <Menu.Link {...args}>{children}</Menu.Link>,
   tags: ['!manifest'],
-} satisfies Meta<typeof Menu.Link>
+} satisfies Meta<typeof Menu.Item>
 
 export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const Link: Story = {
+export const Item: Story = {
   args: {
-    children: 'Dashboard',
+    children: [
+      <Menu.Link href="#" key="Overzicht">
+        Overzicht
+      </Menu.Link>,
+      <Menu.Link href="#" key="Planning">
+        Planning
+      </Menu.Link>,
+      <Menu.Link href="#" key="Team">
+        Team
+      </Menu.Link>,
+    ],
     href: '#',
-    icon: <PieChartFillIcon />,
+    icon: <FolderFillIcon />,
+    label: 'Projecten',
   },
 }
