@@ -9,6 +9,10 @@ on:
     types: [reopened]
     branches-ignore: [main]
 
+concurrency:
+  group: deploy-acceptance-storybook-${{ github.ref }}
+  cancel-in-progress: true
+
 permissions:
   contents: write
   deployments: write
@@ -18,7 +22,6 @@ env:
 
 jobs:
   build-and-deploy:
-    concurrency: ci-${{ github.ref }}
     runs-on: ubuntu-latest
     # A hung run would hold the concurrency lock above and block deploys of newer commits.
     timeout-minutes: 30
