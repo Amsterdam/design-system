@@ -1,1 +1,0 @@
-import{n as e}from"./rolldown-runtime-DkW27tQK.js";import{G as t,W as n}from"./index.esm-BKoBEYTi.js";var r,i;function a(){return(a=e((()=>{t(),r=e=>({control:{labels:{undefined:e?`${e} (default)`:`none`},type:`select`},mapping:n,options:[void 0,...Object.keys(n).filter(t=>t!==e)]}),i={control:{type:`select`},mapping:n,options:Object.keys(n)}})))()}export{a as n,i as r,r as t};
