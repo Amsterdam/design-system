@@ -121,8 +121,6 @@ A close button taller than one line of the heading pushes a subtitle down.
 The heading and the button share the first row of the Header.
 That row grows to fit the button.
 
-The page behind the dialog only stops scrolling when the `body` element has the [`ams-body` class](/docs/utilities-css-body--docs).
-
 <Canvas of={ModalDialogStories.WithCloseButtonComponent} />
 
 ## Features
@@ -169,6 +167,7 @@ A scrolling Body takes keyboard focus in its own right, so someone navigating by
 Chromium and Firefox already make an overflowing scroll container focusable; Safari does not, so the component makes the Body focusable itself.
 
 Scrolling of the page behind the dialog is suppressed while it is open.
+For this to work, the `body` element needs the [`ams-body` class](/docs/utilities-css-body--docs).
 Opening a modal does not lock scrolling on its own, and iOS Safari still needs JavaScript for a guarantee, so a gesture over the backdrop there can move the page underneath.
 
 Note that a modal dialog requires JavaScript: without it, the dialog stays closed and its content stays hidden.
