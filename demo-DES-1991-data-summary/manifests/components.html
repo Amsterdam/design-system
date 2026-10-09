@@ -626,7 +626,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>5.2s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>4.1s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -5920,7 +5920,7 @@ termsWidth?: &quot;narrow&quot; | &quot;medium&quot; | &quot;wide&quot;</code></
 } from '@amsterdam/design-system-react';
 import { DataList } from '@amsterdam/design-system-react/src';
 import { Fragment } from 'react';
-import { PencilIcon, TrashBinIcon } from '@amsterdam/design-system-react-icons';</code></pre>
+import { EditIcon, DeleteIcon } from '@amsterdam/design-system-react-icons';</code></pre>
               </div>
           
           
@@ -6013,7 +6013,7 @@ import { PencilIcon, TrashBinIcon } from '@amsterdam/design-system-react-icons';
         &lt;DataList.Label&gt;Voornaam&lt;/DataList.Label&gt;
         &lt;DataList.Value&gt;Johan&lt;/DataList.Value&gt;
         &lt;DataList.Actions&gt;
-          &lt;StandaloneLink href=&quot;#&quot; icon={PencilIcon}&gt;
+          &lt;StandaloneLink href=&quot;#&quot; icon={EditIcon}&gt;
             Wijzigen&lt;span className=&quot;ams-visually-hidden&quot;&gt; voornaam&lt;/span&gt;
           &lt;/StandaloneLink&gt;
         &lt;/DataList.Actions&gt;
@@ -6022,7 +6022,7 @@ import { PencilIcon, TrashBinIcon } from '@amsterdam/design-system-react-icons';
         &lt;DataList.Label&gt;Achternaam&lt;/DataList.Label&gt;
         &lt;DataList.Value&gt;Cruijff&lt;/DataList.Value&gt;
         &lt;DataList.Actions&gt;
-          &lt;StandaloneLink href=&quot;#&quot; icon={PencilIcon}&gt;
+          &lt;StandaloneLink href=&quot;#&quot; icon={EditIcon}&gt;
             Wijzigen&lt;span className=&quot;ams-visually-hidden&quot;&gt; achternaam&lt;/span&gt;
           &lt;/StandaloneLink&gt;
         &lt;/DataList.Actions&gt;
@@ -6031,10 +6031,10 @@ import { PencilIcon, TrashBinIcon } from '@amsterdam/design-system-react-icons';
         &lt;DataList.Label&gt;Telefoonnummer&lt;/DataList.Label&gt;
         &lt;DataList.Value&gt;06 12345678&lt;/DataList.Value&gt;
         &lt;DataList.Actions&gt;
-          &lt;StandaloneLink href=&quot;#&quot; icon={PencilIcon}&gt;
+          &lt;StandaloneLink href=&quot;#&quot; icon={EditIcon}&gt;
             Wijzigen&lt;span className=&quot;ams-visually-hidden&quot;&gt; telefoonnummer&lt;/span&gt;
           &lt;/StandaloneLink&gt;
-          &lt;StandaloneLink href=&quot;#&quot; icon={TrashBinIcon}&gt;
+          &lt;StandaloneLink href=&quot;#&quot; icon={DeleteIcon}&gt;
             Verwijderen&lt;span className=&quot;ams-visually-hidden&quot;&gt; telefoonnummer&lt;/span&gt;
           &lt;/StandaloneLink&gt;
         &lt;/DataList.Actions&gt;
@@ -6093,10 +6093,10 @@ import { PencilIcon, TrashBinIcon } from '@amsterdam/design-system-react-icons';
               
               
               <pre><code>const WithHeader = () =&gt; &lt;Column&gt;
-    &lt;Row align=&quot;between&quot; alignVertical=&quot;end&quot; wrap&gt;
+    &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; wrap&gt;
         &lt;Heading level={2}&gt;Magere Brug&lt;/Heading&gt;
         &lt;ActionGroup&gt;
-            &lt;StandaloneLink href=&quot;#&quot; icon={PencilIcon}&gt;Wijzigen&lt;span className=&quot;ams-visually-hidden&quot;&gt;Magere Brug&lt;/span&gt;
+            &lt;StandaloneLink href=&quot;#&quot; icon={EditIcon}&gt;Wijzigen&lt;span className=&quot;ams-visually-hidden&quot;&gt;Magere Brug&lt;/span&gt;
             &lt;/StandaloneLink&gt;
         &lt;/ActionGroup&gt;
     &lt;/Row&gt;
@@ -6136,10 +6136,10 @@ import { PencilIcon, TrashBinIcon } from '@amsterdam/design-system-react-icons';
       // Group each heading row with its list, keeping a medium gap within each group and a larger gap between groups.
       return (
         &lt;Column key={name}&gt;
-          &lt;Row align=&quot;between&quot; alignVertical=&quot;end&quot; wrap&gt;
+          &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; wrap&gt;
             &lt;Heading level={2}&gt;Persoon {index + 1}&lt;/Heading&gt;
             &lt;ActionGroup&gt;
-              &lt;Button icon={TrashBinIcon} iconBefore variant=&quot;secondary&quot;&gt;
+              &lt;Button icon={DeleteIcon} iconBefore variant=&quot;secondary&quot;&gt;
                 Verwijderen&lt;span className=&quot;ams-visually-hidden&quot;&gt; {person}&lt;/span&gt;
               &lt;/Button&gt;
             &lt;/ActionGroup&gt;
@@ -6149,7 +6149,7 @@ import { PencilIcon, TrashBinIcon } from '@amsterdam/design-system-react-icons';
               &lt;DataList.Label&gt;Naam&lt;/DataList.Label&gt;
               &lt;DataList.Value&gt;{name}&lt;/DataList.Value&gt;
               &lt;DataList.Actions&gt;
-                &lt;StandaloneLink href=&quot;#&quot; icon={PencilIcon}&gt;
+                &lt;StandaloneLink href=&quot;#&quot; icon={EditIcon}&gt;
                   Wijzigen&lt;span className=&quot;ams-visually-hidden&quot;&gt; naam van {person}&lt;/span&gt;
                 &lt;/StandaloneLink&gt;
               &lt;/DataList.Actions&gt;
@@ -6158,7 +6158,7 @@ import { PencilIcon, TrashBinIcon } from '@amsterdam/design-system-react-icons';
               &lt;DataList.Label&gt;Geboortedatum&lt;/DataList.Label&gt;
               &lt;DataList.Value&gt;{birthDate}&lt;/DataList.Value&gt;
               &lt;DataList.Actions&gt;
-                &lt;StandaloneLink href=&quot;#&quot; icon={PencilIcon}&gt;
+                &lt;StandaloneLink href=&quot;#&quot; icon={EditIcon}&gt;
                   Wijzigen&lt;span className=&quot;ams-visually-hidden&quot;&gt; geboortedatum van {person}&lt;/span&gt;
                 &lt;/StandaloneLink&gt;
               &lt;/DataList.Actions&gt;
@@ -6174,7 +6174,7 @@ import { PencilIcon, TrashBinIcon } from '@amsterdam/design-system-react-icons';
                 ))}
               &lt;/DataList.Value&gt;
               &lt;DataList.Actions&gt;
-                &lt;StandaloneLink href=&quot;#&quot; icon={PencilIcon}&gt;
+                &lt;StandaloneLink href=&quot;#&quot; icon={EditIcon}&gt;
                   Wijzigen&lt;span className=&quot;ams-visually-hidden&quot;&gt; adres van {person}&lt;/span&gt;
                 &lt;/StandaloneLink&gt;
               &lt;/DataList.Actions&gt;
@@ -6284,7 +6284,7 @@ Add the label of the item as visually hidden text to tell them apart.
 A value takes rich content: several lines of text, an address, a paragraph, a link, or an image.
 Wrap its parts in a [Column](/docs/components-layout-column--docs) to stack them with space between them.
 Separate the lines of an address with line breaks instead.
-Text with inline markup, such as a link in a sentence, stays on one line.
+Text with inline markup, such as a link in a sentence, needs no wrapper: it flows and wraps as a single run of text.
 
 &lt;Canvas of={DataListStories.CompositeValue} /&gt;
 
