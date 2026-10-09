@@ -17,7 +17,9 @@ env:
   RAW_BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
 
 concurrency:
-  group: deploy-acceptance-storybook-${{ github.ref }}
+  # Group deployable runs by source branch across push and pull_request events,
+  # and isolate skipped Dependabot runs so they cannot cancel real deployments.
+  group: deploy-acceptance-storybook-${{ github.actor == 'dependabot[bot]' && format('skip-{0}', github.run_id) || format('branch-{0}', github.head_ref || github.ref_name) }}
   cancel-in-progress: true
 
 jobs:
