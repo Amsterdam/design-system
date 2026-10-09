@@ -9,16 +9,16 @@ on:
     types: [reopened]
     branches-ignore: [main]
 
-concurrency:
-  group: deploy-acceptance-storybook-${{ github.ref }}
-  cancel-in-progress: true
-
 permissions:
   contents: write
   deployments: write
 
 env:
   RAW_BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
+
+concurrency:
+  group: deploy-acceptance-storybook-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build-and-deploy:
