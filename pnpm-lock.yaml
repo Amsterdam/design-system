@@ -468,6 +468,12 @@ importers:
       '@amsterdam/design-system-tokens':
         specifier: workspace:*
         version: link:../packages-proprietary/tokens
+      '@gemeente-denhaag/button':
+        specifier: 3.2.0
+        version: 3.2.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@gemeente-denhaag/design-tokens-components':
+        specifier: 5.1.0
+        version: 5.1.0
       '@linus_janns/storybook-addon-html':
         specifier: 9.0.0
         version: 9.0.0(storybook@10.6.1(@types/react@18.3.31)(prettier@3.9.9)(react@18.3.1))
@@ -498,6 +504,12 @@ importers:
       '@types/react-dom':
         specifier: 18.3.7
         version: 18.3.7(@types/react@18.3.31)
+      '@utrecht/button-react':
+        specifier: 3.0.3
+        version: 3.0.3(@babel/runtime@7.29.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@utrecht/design-tokens':
+        specifier: 7.0.0
+        version: 7.0.0
       '@vitejs/plugin-react':
         specifier: 6.1.1
         version: 6.1.1(vite@8.3.2(@types/node@26.2.0)(esbuild@0.28.1)(sass@1.105.1)(terser@5.47.1)(yaml@2.9.0))
@@ -1020,6 +1032,25 @@ packages:
   '@eslint/plugin-kit@0.7.3':
     resolution: {integrity: sha512-IkO+/KEUvwbVpiURZg+P7zF74z5Jxe0UgJxVni+RtoHQ6IZieXaO02kmadomap/q+l6bc/jdPGGqTjhuZnuz1Q==}
     engines: {node: ^20.19.0 || ^22.13.0 || >=24}
+
+  '@fontsource-variable/noto-sans@5.2.10':
+    resolution: {integrity: sha512-wyFgKkFu7jki5kEL8qv7avjQ8rxHX0J/nhLWvbR9T0hOH1HRKZEvb9EW9lMjZfWHHfEzKkYf5J+NadwgCS7TXA==}
+
+  '@gemeente-denhaag/button@3.2.0':
+    resolution: {integrity: sha512-wl64XP9ER92qwQEUSZ1fWV98cnCgddMizR06iIqEjypcx/j/0/uDzzOxFeeuNHRXLCroyz2TciIM7Ti1o+O1vw==}
+    peerDependencies:
+      react: 18 || 19
+      react-dom: 18 || 19
+
+  '@gemeente-denhaag/design-tokens-components@5.1.0':
+    resolution: {integrity: sha512-giww3ewSJ6/J4kW3ononfm8hzrH7yR4b5AyZGS6BOA2z4AmlgOvYrqP4wW7UTBDYq+crnp4lI+CWO3vQ/LVJHw==}
+    deprecated: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+
+  '@gemeente-denhaag/icons@4.3.0':
+    resolution: {integrity: sha512-ysB69oXGCEU7W/ZIM1e9KckZ2YiRqvyCMd/2gri1RNNYYMIgJPg10HJ3Ii3WARbR7Lh6OO41iIH4RINE22elpw==}
+    peerDependencies:
+      react: 18 || 19
+      react-dom: 18 || 19
 
   '@humanfs/core@0.19.2':
     resolution: {integrity: sha512-UhXNm+CFMWcbChXywFwkmhqjs3PRCmcSa/hfBgLIb7oQ5HNb1wS0icWsGtSAUNgefHeI+eBrA8I1fxmbHsGdvA==}
@@ -2556,6 +2587,19 @@ packages:
     resolution: {integrity: sha512-nAB74NfSNKknqQ1RrYj6uz8FcXEomu/MATJZxh/x+BArzN2U3JbOYC0APYzUIGhVY3m5hRxA8VPNdPBoG8txlA==}
     cpu: [x64]
     os: [win32]
+
+  '@utrecht/button-css@4.0.1':
+    resolution: {integrity: sha512-FUGMLlIu8p5aRtZrUgPk7KnHUnVaTcwS7dYhCOGGHqau7MUf8I41hKfp1gc77ptxgNAgw3s8EA1vmeH8UdON9w==}
+
+  '@utrecht/button-react@3.0.3':
+    resolution: {integrity: sha512-uinooD8Ybc+qFL4OBkj0mt8MXB8EMuFKM2OQ+ENvWvvnJDJm2FhEVyvV81G64SFlXEZvOaWQeKPlR1Ka4wE2kA==}
+    peerDependencies:
+      '@babel/runtime': '*'
+      react: ^18.0.0 || ^19.0.0
+      react-dom: ^18.0.0 || ^19.0.0
+
+  '@utrecht/design-tokens@7.0.0':
+    resolution: {integrity: sha512-UKYQ04oYTCX+7MC7jjgThKZNvXNCjG0Bt1zWFGbTMsVcucXZRG5ktZMcfD/dR76WkPgbmg/2wXdZEn9DwLxkqg==}
 
   '@valibot/to-json-schema@1.7.1':
     resolution: {integrity: sha512-3qkmU6KXWh8GIThEAW3kuRHPQBMjWkKy+Ppz3WkUucx53DTpOa6siMn4xDGSOhlVyMrDaJTCTMLYPZVAIk1P0A==}
@@ -6742,6 +6786,23 @@ snapshots:
       '@eslint/core': 1.2.1
       levn: 0.4.1
 
+  '@fontsource-variable/noto-sans@5.2.10': {}
+
+  '@gemeente-denhaag/button@3.2.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      '@gemeente-denhaag/icons': 4.3.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      clsx: 2.1.1
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+
+  '@gemeente-denhaag/design-tokens-components@5.1.0': {}
+
+  '@gemeente-denhaag/icons@4.3.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      clsx: 2.1.1
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+
   '@humanfs/core@0.19.2':
     dependencies:
       '@humanfs/types': 0.15.0
@@ -7849,8 +7910,8 @@ snapshots:
 
   '@typescript-eslint/project-service@8.70.0(supports-color@10.2.2)(typescript@6.0.3)':
     dependencies:
-      '@typescript-eslint/tsconfig-utils': 8.70.0(typescript@6.0.3)
-      '@typescript-eslint/types': 8.70.0
+      '@typescript-eslint/tsconfig-utils': 8.71.0(typescript@6.0.3)
+      '@typescript-eslint/types': 8.71.0
       debug: 4.4.3(supports-color@10.2.2)
       typescript: 6.0.3
     transitivePeerDependencies:
@@ -8128,6 +8189,20 @@ snapshots:
 
   '@unrs/resolver-binding-win32-x64-msvc@1.12.2':
     optional: true
+
+  '@utrecht/button-css@4.0.1': {}
+
+  '@utrecht/button-react@3.0.3(@babel/runtime@7.29.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      '@babel/runtime': 7.29.7
+      '@utrecht/button-css': 4.0.1
+      clsx: 2.1.1
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+
+  '@utrecht/design-tokens@7.0.0':
+    dependencies:
+      '@fontsource-variable/noto-sans': 5.2.10
 
   '@valibot/to-json-schema@1.7.1(valibot@1.4.2(typescript@6.0.3))':
     dependencies:
