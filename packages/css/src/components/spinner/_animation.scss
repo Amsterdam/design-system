@@ -1,0 +1,20 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+// A steady rotation signals that loading is under way.
+// Users who prefer reduced motion get a slower rotation, so the ring does not look frozen.
+.ams-spinner {
+  animation: var(--ams-spinner-reduced-motion-animation);
+
+  @media (prefers-reduced-motion: no-preference) {
+    animation: var(--ams-spinner-animation);
+  }
+}
+
+@keyframes ams-spinner-rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
