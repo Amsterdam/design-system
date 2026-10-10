@@ -76,27 +76,34 @@
   grid-template-columns: repeat(5, minmax(0, 1fr));
 }
 
-.ams-image-slider__thumbnail {
-  @include reset-button;
-
-  aspect-ratio: var(--ams-image-aspect-ratio); // Use the same default aspect ratio as the Image component
+.ams-image-slider__thumbnail-image {
+  aspect-ratio: var(--ams-image-aspect-ratio);
   background-color: var(--ams-image-slider-thumbnails-thumbnail-background-color);
   background-position: var(--ams-image-slider-thumbnails-thumbnail-background-position);
   background-repeat: no-repeat; // Invisible with a covering image; allows modes to move the image out of view
   background-size: cover;
-  cursor: var(--ams-image-slider-thumbnails-thumbnail-cursor);
+  display: block;
+  inline-size: 100%;
   opacity: var(--ams-image-slider-thumbnails-thumbnail-opacity);
-  outline-offset: var(--ams-image-slider-thumbnails-thumbnail-outline-offset);
 
   @media (hover: hover) {
-    &:hover {
+    .ams-image-slider__thumbnail:hover & {
       opacity: var(--ams-image-slider-thumbnails-thumbnail-hover-opacity);
     }
   }
 }
 
-.ams-image-slider__thumbnail--in-view {
+.ams-image-slider__thumbnail--in-view .ams-image-slider__thumbnail-image {
   opacity: var(--ams-image-slider-thumbnails-thumbnail-in-view-opacity);
+}
+
+.ams-image-slider__thumbnail {
+  @include reset-button;
+
+  cursor: var(--ams-image-slider-thumbnails-thumbnail-cursor);
+  display: block;
+  inline-size: 100%;
+  outline-offset: var(--ams-image-slider-thumbnails-thumbnail-outline-offset);
 }
 
 .ams-image-slider__figure {

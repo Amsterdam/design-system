@@ -12,7 +12,9 @@ import { Image } from '../Image/Image'
 
 type ImageSliderSlideProps = {
   readonly currentSlideId: number
+  readonly id: string
   readonly index: number
+  readonly tabId: string
 } & Readonly<ImageSliderImageProps>
 
 /**
@@ -26,17 +28,24 @@ export const ImageSliderSlide = ({
   caption,
   className,
   currentSlideId,
+  id,
   index,
   sizes,
   src,
   srcSet,
+  tabId,
   ...restProps
 }: ImageSliderSlideProps) => {
   const isCurrentSlide = index === currentSlideId
 
   const slideProps = {
     'aria-hidden': isCurrentSlide ? undefined : true,
+    'aria-labelledby': tabId,
+    'aria-roledescription': 'slide',
     className: clsx('ams-image-slider__slide', className),
+    id,
+    role: 'tabpanel',
+    tabIndex: isCurrentSlide ? 0 : -1,
   }
 
   const imageProps = { alt, aspectRatio, sizes, src, srcSet }
@@ -47,7 +56,9 @@ export const ImageSliderSlide = ({
       <Figure.Caption className="ams-image-slider__caption">{caption}</Figure.Caption>
     </Figure>
   ) : (
-    <Image {...restProps} {...imageProps} {...slideProps} />
+    <div {...restProps} {...slideProps}>
+      <Image {...imageProps} />
+    </div>
   )
 }
 
