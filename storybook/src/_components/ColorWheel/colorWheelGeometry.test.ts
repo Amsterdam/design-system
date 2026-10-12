@@ -34,7 +34,7 @@ describe('ringRadii', () => {
     expect(ringRadii(3)[0]).toBe(ringRadii(2)[1])
   })
 
-  it('gives the ring of main colours more than three times the width of a tint ring', () => {
+  it('gives the ring of main colours more than three times the width of a ring of tints or shades', () => {
     const width = (ringIndex: number) => ringRadii(ringIndex)[1] - ringRadii(ringIndex)[0]
 
     expect(width(2)).toBeGreaterThan(3 * width(1))

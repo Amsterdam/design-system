@@ -6,7 +6,7 @@
 export type PaletteColor = {
   readonly cmyk: string
   readonly hex: string
-  /** The tints have no name. */
+  /** The tints and shades have no name. */
   readonly name?: string
   readonly oklch: string
   readonly rgb: string
@@ -16,7 +16,7 @@ export type ColourGroupId = 'blue' | 'green' | 'red' | 'yellow'
 
 export type ColourGroup = {
   readonly name: string
-  /** From the centre outwards: lightest tint, two light tints, four main colours, two dark tints, darkest tint. Each ring runs clockwise. */
+  /** From the centre outwards: lightest tint, two light tints, four main colours, two dark shades, darkest shade. Each ring runs clockwise. */
   readonly rings: readonly [
     readonly PaletteColor[],
     readonly PaletteColor[],

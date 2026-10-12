@@ -5,7 +5,7 @@
 
 /** Angles are in degrees, clockwise from twelve o’clock. Coordinates are relative to the centre of the wheel. */
 
-/** Where each ring starts and ends, measured on the wheel in Figma with the outer radius at 100. The main colours have a much wider ring than the tints. */
+/** Where each ring starts and ends, measured on the wheel in Figma with the outer radius at 100. The main colours have a much wider ring than the tints and shades. */
 const RING_EDGES = [38.8, 46.3, 54.1, 84.5, 92.4, 100] as const
 
 export const CENTRE_RADIUS = RING_EDGES[0]

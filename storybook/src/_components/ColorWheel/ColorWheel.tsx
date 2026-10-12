@@ -151,8 +151,8 @@ const GroupDetails = ({ id }: { readonly id: GroupId }) => {
   return (
     <>
       <ColourList colours={main} heading="Main colours" />
-      <ColourList colours={[...lightest, ...light]} heading="Lighter tints" />
-      <ColourList colours={[...dark, ...darkest]} heading="Darker tints" />
+      <ColourList colours={[...lightest, ...light]} heading="Tints" />
+      <ColourList colours={[...dark, ...darkest]} heading="Shades" />
     </>
   )
 }
