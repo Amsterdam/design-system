@@ -6,7 +6,7 @@
 import type { KeyboardEvent } from 'react'
 
 import { clsx } from 'clsx'
-import { useId, useState } from 'react'
+import { Fragment, useId, useState } from 'react'
 
 import type { ColourGroupId, PaletteColor } from './colorWheelData'
 
@@ -116,13 +116,24 @@ const ColourList = ({ colours, heading }: { readonly colours: readonly PaletteCo
       {colours.map(({ cmyk, hex, name, oklch, rgb }) => (
         <li className="_ams-color-wheel-item" key={hex}>
           <span className="_ams-color-wheel-sample" style={{ backgroundColor: hex }} />
-          <span>
-            <span className="_ams-color-wheel-name">{name ?? hex}</span>
-            {name && <span className="_ams-color-wheel-hex">{hex}</span>}
-            <span className="_ams-color-wheel-values">
-              RGB {rgb} · CMYK {cmyk} · OKLCH {oklch}
-            </span>
-          </span>
+          <div className="_ams-color-wheel-text">
+            {name && <span className="_ams-color-wheel-name">{name}</span>}
+            <dl className="_ams-color-wheel-codes">
+              {(
+                [
+                  ['Hex', hex],
+                  ['RGB', rgb],
+                  ['CMYK', cmyk],
+                  ['OKLCH', oklch],
+                ] as const
+              ).map(([term, value]) => (
+                <Fragment key={term}>
+                  <dt className="_ams-color-wheel-term">{term}</dt>
+                  <dd className="_ams-color-wheel-code">{value}</dd>
+                </Fragment>
+              ))}
+            </dl>
+          </div>
         </li>
       ))}
     </ul>
