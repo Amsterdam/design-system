@@ -23,8 +23,9 @@
 }
 
 ._ams-color-wheel-segment {
-  stroke: rgb(0 0 0 / 12.5%);
-  stroke-width: 0.25;
+  stroke: var(--ams-color-background);
+  stroke-width: 0.1875rem;
+  vector-effect: non-scaling-stroke;
 }
 
 ._ams-color-wheel-outline {
