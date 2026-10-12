@@ -6,6 +6,7 @@
 ._ams-color-wheel {
   align-items: start;
   color: var(--ams-color-text);
+  container: color-wheel / inline-size;
   display: grid;
   font-family: var(--ams-typography-font-family);
   font-size: 1rem;
@@ -118,4 +119,10 @@
 ._ams-color-wheel-code {
   margin-block: 0 !important;
   margin-inline: 0 !important;
+}
+
+@container color-wheel (width < 26rem) {
+  ._ams-color-wheel-codes {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
 }
