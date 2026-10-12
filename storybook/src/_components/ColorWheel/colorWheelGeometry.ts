@@ -5,9 +5,11 @@
 
 /** Angles are in degrees, clockwise from twelve o’clock. Coordinates are relative to the centre of the wheel. */
 
-export const CENTRE_RADIUS = 38
-export const OUTER_RADIUS = 100
-export const RING_COUNT = 5
+/** Where each ring starts and ends, measured on the wheel in Figma with the outer radius at 100. The main colours have a much wider ring than the tints. */
+const RING_EDGES = [38.8, 46.3, 54.1, 84.5, 92.4, 100] as const
+
+export const CENTRE_RADIUS = RING_EDGES[0]
+export const OUTER_RADIUS = RING_EDGES[RING_EDGES.length - 1]
 
 const round = (value: number) => Math.round(value * 1000) / 1000
 
@@ -28,11 +30,7 @@ export const ringSlice = (innerRadius: number, outerRadius: number, start: numbe
   `M ${pointAt(outerRadius, start)} A ${outerRadius} ${outerRadius} 0 ${largeArcFlag(start, end)} 1 ${pointAt(outerRadius, end)} L ${pointAt(innerRadius, end)} A ${innerRadius} ${innerRadius} 0 ${largeArcFlag(start, end)} 0 ${pointAt(innerRadius, start)} Z`
 
 /** The inner and outer radius of a ring, counting from the centre outwards. */
-export const ringRadii = (ringIndex: number) => {
-  const width = (OUTER_RADIUS - CENTRE_RADIUS) / RING_COUNT
-
-  return [CENTRE_RADIUS + ringIndex * width, CENTRE_RADIUS + (ringIndex + 1) * width] as const
-}
+export const ringRadii = (ringIndex: number) => [RING_EDGES[ringIndex], RING_EDGES[ringIndex + 1]] as const
 
 /** Divides a quarter of the wheel, starting at `quadrantStart`, over the given number of segments. */
 export const segmentAngles = (quadrantStart: number, count: number, index: number) => {

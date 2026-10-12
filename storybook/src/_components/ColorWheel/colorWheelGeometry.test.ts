@@ -5,15 +5,7 @@
 
 import { describe, expect, it } from 'vitest'
 
-import {
-  CENTRE_RADIUS,
-  OUTER_RADIUS,
-  pieSlice,
-  RING_COUNT,
-  ringRadii,
-  ringSlice,
-  segmentAngles,
-} from './colorWheelGeometry'
+import { CENTRE_RADIUS, OUTER_RADIUS, pieSlice, ringRadii, ringSlice, segmentAngles } from './colorWheelGeometry'
 
 describe('pieSlice', () => {
   it('draws a quarter disc clockwise from twelve to three o’clock', () => {
@@ -34,11 +26,20 @@ describe('ringSlice', () => {
 describe('ringRadii', () => {
   it('starts at the centre disc and ends at the outer edge', () => {
     expect(ringRadii(0)[0]).toBe(CENTRE_RADIUS)
-    expect(ringRadii(RING_COUNT - 1)[1]).toBeCloseTo(OUTER_RADIUS)
+    expect(ringRadii(4)[1]).toBe(OUTER_RADIUS)
   })
 
   it('lets each ring start where the previous one ends', () => {
-    expect(ringRadii(1)[0]).toBeCloseTo(ringRadii(0)[1])
+    expect(ringRadii(1)[0]).toBe(ringRadii(0)[1])
+    expect(ringRadii(3)[0]).toBe(ringRadii(2)[1])
+  })
+
+  it('gives the ring of main colours more than three times the width of a tint ring', () => {
+    const width = (ringIndex: number) => ringRadii(ringIndex)[1] - ringRadii(ringIndex)[0]
+
+    expect(width(2)).toBeGreaterThan(3 * width(1))
+    expect(width(0)).toBeCloseTo(width(1), 0)
+    expect(width(3)).toBeCloseTo(width(4), 0)
   })
 })
 
