@@ -29,9 +29,9 @@ export type ColourGroup = {
 /** From light to dark. */
 export const neutralColours: readonly PaletteColor[] = [
   { cmyk: '0/0/0/0', hex: '#ffffff', name: 'White', oklch: '100% 0 0', rgb: '255/255/255' },
-  { cmyk: '0/0/0/11', hex: '#e8e8e8', name: 'Light grey', oklch: '93.1% 0 0', rgb: '232/232/232' },
-  { cmyk: '0/0/0/33', hex: '#bebebe', name: 'Medium grey', oklch: '80.2% 0 0', rgb: '190/190/190' },
-  { cmyk: '0/0/0/66', hex: '#767676', name: 'Dark grey', oklch: '56.6% 0 0', rgb: '118/118/118' },
+  { cmyk: '0/0/0/11', hex: '#e8e8e8', name: 'Platinum', oklch: '93.1% 0 0', rgb: '232/232/232' },
+  { cmyk: '0/0/0/33', hex: '#bebebe', name: 'Silver', oklch: '80.2% 0 0', rgb: '190/190/190' },
+  { cmyk: '0/0/0/66', hex: '#767676', name: 'Steel', oklch: '56.6% 0 0', rgb: '118/118/118' },
   { cmyk: '0/0/0/100', hex: '#202020', name: 'Black', oklch: '24.4% 0 0', rgb: '32/32/32' },
 ]
 
