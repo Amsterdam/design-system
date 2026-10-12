@@ -5,9 +5,13 @@
 
 ._ams-color-wheel {
   align-items: start;
+  color: var(--ams-color-text);
   display: grid;
+  font-family: var(--ams-typography-font-family);
+  font-size: 1rem;
   gap: 2rem;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
+  line-height: var(--ams-typography-body-text-line-height);
 }
 
 ._ams-color-wheel-chart {
