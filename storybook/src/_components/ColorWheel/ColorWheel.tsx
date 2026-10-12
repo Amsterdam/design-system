@@ -6,7 +6,7 @@
 import type { KeyboardEvent } from 'react'
 
 import { clsx } from 'clsx'
-import { Fragment, useId, useState } from 'react'
+import { Fragment, useEffect, useId, useRef, useState } from 'react'
 
 import type { ColourGroupId, PaletteColor } from './colorWheelData'
 
@@ -165,16 +165,40 @@ type ColorWheelProps = {
 /**
  * Approximates the colour wheel of the new palette.
  * Select a group in the wheel to list its colours next to it.
+ * Clicking anywhere outside the wheel and the list clears the selection.
  */
-export const ColorWheel = ({ defaultGroup = 'neutral' }: ColorWheelProps) => {
+export const ColorWheel = ({ defaultGroup }: ColorWheelProps) => {
   const headingId = useId()
   const panelId = useId()
-  const [selected, setSelected] = useState<GroupId>(defaultGroup)
+  const [selected, setSelected] = useState<GroupId | null>(defaultGroup ?? null)
   const [focusVisible, setFocusVisible] = useState<GroupId | null>(null)
+  const chartRef = useRef<SVGSVGElement>(null)
+  const detailsRef = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    const handlePointerDown = ({ target }: PointerEvent) => {
+      if (!(target instanceof Element)) return
+
+      const insideGroup = target.closest('._ams-color-wheel-group') && chartRef.current?.contains(target)
+      const insideDetails = detailsRef.current?.contains(target)
+
+      if (!insideGroup && !insideDetails) setSelected(null)
+    }
+
+    document.addEventListener('pointerdown', handlePointerDown)
+
+    return () => document.removeEventListener('pointerdown', handlePointerDown)
+  }, [])
 
   return (
     <div className={clsx('_ams-color-wheel', 'sb-unstyled')}>
-      <svg aria-label="Colour groups" className="_ams-color-wheel-chart" role="group" viewBox="-104 -104 208 208">
+      <svg
+        aria-label="Colour groups"
+        className="_ams-color-wheel-chart"
+        ref={chartRef}
+        role="group"
+        viewBox="-104 -104 208 208"
+      >
         {groupIds.map((id) => (
           <Group
             id={id}
@@ -189,15 +213,33 @@ export const ColorWheel = ({ defaultGroup = 'neutral' }: ColorWheelProps) => {
           {focusVisible && (
             <path className="_ams-color-wheel-outline _ams-color-wheel-outline--focus" d={groupOutline(focusVisible)} />
           )}
-          <path className="_ams-color-wheel-outline _ams-color-wheel-outline--halo" d={groupOutline(selected)} />
-          <path className="_ams-color-wheel-outline _ams-color-wheel-outline--selected" d={groupOutline(selected)} />
+          {selected && (
+            <>
+              <path className="_ams-color-wheel-outline _ams-color-wheel-outline--halo" d={groupOutline(selected)} />
+              <path
+                className="_ams-color-wheel-outline _ams-color-wheel-outline--selected"
+                d={groupOutline(selected)}
+              />
+            </>
+          )}
         </g>
       </svg>
-      <section aria-labelledby={headingId} className="_ams-color-wheel-details" id={panelId}>
-        <h3 className="_ams-color-wheel-heading" id={headingId}>
-          {groupName(selected)}
-        </h3>
-        <GroupDetails id={selected} />
+      <section
+        aria-labelledby={selected ? headingId : undefined}
+        className="_ams-color-wheel-details"
+        id={panelId}
+        ref={detailsRef}
+      >
+        {selected ? (
+          <>
+            <h3 className="_ams-color-wheel-heading" id={headingId}>
+              {groupName(selected)}
+            </h3>
+            <GroupDetails id={selected} />
+          </>
+        ) : (
+          <p className="_ams-color-wheel-hint">Select a part of the wheel to list its colours.</p>
+        )}
       </section>
     </div>
   )
