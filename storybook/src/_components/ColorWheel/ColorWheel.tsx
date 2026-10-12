@@ -115,8 +115,11 @@ const ColourList = ({ colours, heading }: { readonly colours: readonly PaletteCo
     <ul className="_ams-color-wheel-list">
       {colours.map(({ cmyk, hex, name, oklch, rgb }) => (
         <li className="_ams-color-wheel-item" key={hex}>
-          <span className="_ams-color-wheel-sample" style={{ backgroundColor: hex }} />
-          <div className="_ams-color-wheel-text">
+          <span
+            className={clsx('_ams-color-wheel-sample', hex === '#ffffff' && '_ams-color-wheel-sample--white')}
+            style={{ backgroundColor: hex }}
+          />
+          <div>
             {name && <span className="_ams-color-wheel-name">{name}</span>}
             <dl className="_ams-color-wheel-codes">
               {(
