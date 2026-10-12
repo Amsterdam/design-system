@@ -46,9 +46,9 @@ export const colourGroups: Record<ColourGroupId, ColourGroup> = {
       ],
       [
         { cmyk: '75/90/0/0', hex: '#502389', name: 'Indigo', oklch: '38% 0.159 298.6', rgb: '80/35/137' },
-        { cmyk: '100/80/0/0', hex: '#004699', name: 'Dark blue', oklch: '41.1% 0.149 257.6', rgb: '0/70/153' },
-        { cmyk: '100/40/0/0', hex: '#0072c9', name: 'Deep blue', oklch: '54.7% 0.159 251.1', rgb: '0/114/201' },
-        { cmyk: '100/0/0/0', hex: '#009de6', name: 'Blue', oklch: '66.4% 0.152 240', rgb: '0/157/230' },
+        { cmyk: '100/80/0/0', hex: '#004699', name: 'Blue', oklch: '41.1% 0.149 257.6', rgb: '0/70/153' },
+        { cmyk: '100/40/0/0', hex: '#0072c9', name: 'Denim', oklch: '54.7% 0.159 251.1', rgb: '0/114/201' },
+        { cmyk: '100/0/0/0', hex: '#009de6', name: 'Cyan', oklch: '66.4% 0.152 240', rgb: '0/157/230' },
       ],
       [
         { cmyk: '90/90/0/10', hex: '#222e7d', oklch: '34.5% 0.134 271', rgb: '34/46/125' },
@@ -66,10 +66,10 @@ export const colourGroups: Record<ColourGroupId, ColourGroup> = {
         { cmyk: '30/0/60/0', hex: '#bcd964', oklch: '84% 0.147 121.2', rgb: '188/217/100' },
       ],
       [
-        { cmyk: '95/0/50/0', hex: '#039795', name: 'Turquoise', oklch: '61.2% 0.104 193.1', rgb: '3/151/149' },
-        { cmyk: '90/0/100/0', hex: '#00893c', name: 'Dark green', oklch: '55% 0.153 149.6', rgb: '0/137/60' },
-        { cmyk: '65/0/100/0', hex: '#5fae1e', name: 'Apple green', oklch: '67.4% 0.186 135.1', rgb: '95/174/30' },
-        { cmyk: '40/0/100/0', hex: '#bed200', name: 'Green', oklch: '82% 0.188 116.5', rgb: '190/210/0' },
+        { cmyk: '95/0/50/0', hex: '#039795', name: 'Teal', oklch: '61.2% 0.104 193.1', rgb: '3/151/149' },
+        { cmyk: '90/0/100/0', hex: '#00893c', name: 'Green', oklch: '55% 0.153 149.6', rgb: '0/137/60' },
+        { cmyk: '65/0/100/0', hex: '#5fae1e', name: 'Apple', oklch: '67.4% 0.186 135.1', rgb: '95/174/30' },
+        { cmyk: '40/0/100/0', hex: '#bed200', name: 'Lime', oklch: '82% 0.188 116.5', rgb: '190/210/0' },
       ],
       [
         { cmyk: '100/0/70/20', hex: '#007857', oklch: '50.8% 0.106 165.8', rgb: '0/120/87' },
@@ -88,8 +88,8 @@ export const colourGroups: Record<ColourGroupId, ColourGroup> = {
       ],
       [
         { cmyk: '0/100/100/0', hex: '#ec0000', name: 'Red', oklch: '59.2% 0.243 29.2', rgb: '236/0/0' },
-        { cmyk: '0/100/0/0', hex: '#e50082', name: 'Pink', oklch: '60% 0.245 357.1', rgb: '229/0/130' },
-        { cmyk: '25/100/0/0', hex: '#c3007d', name: 'Light purple', oklch: '53.7% 0.223 351.2', rgb: '195/0/125' },
+        { cmyk: '0/100/0/0', hex: '#e50082', name: 'Magenta', oklch: '60% 0.245 357.1', rgb: '229/0/130' },
+        { cmyk: '25/100/0/0', hex: '#c3007d', name: 'Raspberry', oklch: '53.7% 0.223 351.2', rgb: '195/0/125' },
         { cmyk: '50/100/0/0', hex: '#a00078', name: 'Purple', oklch: '47.2% 0.202 343.2', rgb: '160/0/120' },
       ],
       [
@@ -109,9 +109,9 @@ export const colourGroups: Record<ColourGroupId, ColourGroup> = {
       ],
       [
         { cmyk: '0/5/100/0', hex: '#ffe600', name: 'Yellow', oklch: '91.7% 0.192 101.4', rgb: '255/230/0' },
-        { cmyk: '0/30/100/0', hex: '#ffbc00', name: 'Golden yellow', oklch: '83.5% 0.172 82.6', rgb: '255/188/0' },
+        { cmyk: '0/30/100/0', hex: '#ffbc00', name: 'Amber', oklch: '83.5% 0.172 82.6', rgb: '255/188/0' },
         { cmyk: '0/50/100/0', hex: '#ff9100', name: 'Orange', oklch: '75.9% 0.177 60.6', rgb: '255/145/0' },
-        { cmyk: '0/75/100/0', hex: '#f64900', name: 'Orange red', oklch: '64.9% 0.218 36.8', rgb: '246/73/0' },
+        { cmyk: '0/75/100/0', hex: '#f64900', name: 'Tangelo', oklch: '64.9% 0.218 36.8', rgb: '246/73/0' },
       ],
       [
         { cmyk: '0/10/100/30', hex: '#d9b200', oklch: '77.6% 0.159 92.9', rgb: '217/178/0' },
