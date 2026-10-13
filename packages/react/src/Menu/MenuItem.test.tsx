@@ -142,13 +142,13 @@ describe('MenuItem', () => {
     expect(ref.current).toBeNull()
   })
 
-  describe('when collapsible', () => {
+  describe('with collapsible submenus', () => {
     const renderCollapsible = (
       itemProps: Partial<ComponentProps<typeof Menu.Item>> = {},
       menuProps: Partial<ComponentProps<typeof Menu>> = {},
     ) =>
       render(
-        <Menu collapsible {...menuProps}>
+        <Menu collapsibleSubmenus {...menuProps}>
           <Menu.Item href="#" label="Projecten" {...itemProps}>
             <Menu.Link href="#child">Overzicht</Menu.Link>
           </Menu.Item>
@@ -157,7 +157,7 @@ describe('MenuItem', () => {
 
     it('does not render a toggle button when there is no submenu', () => {
       render(
-        <Menu collapsible>
+        <Menu collapsibleSubmenus>
           <Menu.Item href="#" label="Projecten" />
         </Menu>,
       )
@@ -287,7 +287,7 @@ describe('MenuItem', () => {
 
     it('moves focus to the toggle button when a parent collapses the submenu with the focused link', () => {
       const { rerender } = render(
-        <Menu collapsible>
+        <Menu collapsibleSubmenus>
           <Menu.Item expanded href="#" label="Projecten">
             <Menu.Link href="#child">Overzicht</Menu.Link>
           </Menu.Item>
@@ -297,7 +297,7 @@ describe('MenuItem', () => {
       screen.getByRole('link', { name: 'Overzicht' }).focus()
 
       rerender(
-        <Menu collapsible>
+        <Menu collapsibleSubmenus>
           <Menu.Item expanded={false} href="#" label="Projecten">
             <Menu.Link href="#child">Overzicht</Menu.Link>
           </Menu.Item>

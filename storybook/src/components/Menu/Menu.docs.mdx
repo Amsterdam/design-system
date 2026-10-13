@@ -85,7 +85,7 @@ In an expanded wide Menu, submenus are visible.
 To keep navigation safe in every layout, let the parent link lead to a page that lists the links of its submenu.
 That way no page is reachable through a submenu alone.
 
-Set `collapsible` to add submenu toggle buttons for items with nested links.
+Set `collapsibleSubmenus` to add submenu toggle buttons for items with nested links.
 In a Menu that is not expanded, those toggle buttons are hidden, because the submenus are hidden there as well.
 
 Use `showAccessibleLabel` and `hideAccessibleLabel` to localise the toggle button name.
@@ -143,7 +143,7 @@ Expanded, the Menu is `14rem` wide and the links return to the horizontal layout
 The submenu is visible in a narrow or medium window and in an expanded Menu, and hidden in the narrower column, which has no room for it.
 Its links are indented by a small space, so they start at about half the width of the icon of their parent.
 Keeping room for the labels matters more there than aligning them with the label of the parent.
-With `collapsible`, each submenu toggle button sits at the end of the same row as its parent link.
+With `collapsibleSubmenus`, each submenu toggle button sits at the end of the same row as its parent link.
 Its chevron turns when that submenu is expanded.
 Each toggle button expands or collapses only its own submenu.
 
@@ -163,7 +163,7 @@ With `expandable`, the icon-only button is named through `expandButtonLabel` and
 The button reports through `aria-expanded` whether the Menu is expanded, which in a Menu with submenus also shows and hides their links.
 Without scripting the button cannot work, so it is hidden and the submenus stay visible in the narrow column.
 If focus is inside a submenu when the Menu stops being expanded, focus moves to the link of that item.
-With `collapsible`, each submenu toggle button uses icon-only button text from `showAccessibleLabel` and `hideAccessibleLabel`, combined with the item label.
+With `collapsibleSubmenus`, each submenu toggle button uses icon-only button text from `showAccessibleLabel` and `hideAccessibleLabel`, combined with the item label.
 Each submenu toggle button links to its submenu using `aria-controls`, and reports state with `aria-expanded`.
 If focus is inside a submenu when it collapses, focus moves to that submenu toggle button.
 Without scripting, submenu toggle buttons are hidden and collapsed submenus are shown.
