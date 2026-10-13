@@ -280,6 +280,26 @@ export const WideCollapsibleExpanded: Story = {
   tags: ['!dev', '!autodocs', '!manifest'],
 }
 
+export const WideCollapsibleAlwaysExpanded: Story = {
+  args: {
+    collapsible: true,
+    expanded: true,
+    inWideWindow: true,
+  },
+  parameters: {
+    fixedInWideWindow: true,
+  },
+  play: async ({ canvas }) => {
+    const menu = canvas.getByRole('navigation', { name: 'Hoofdmenu' })
+
+    await expect(menu).toHaveClass('ams-menu--expanded')
+    await expect(canvas.queryByRole('button', { name: /Klap menu uit|Klap menu in/ })).not.toBeInTheDocument()
+    await expect(canvas.getByRole('button', { name: 'Toon submenu van Projecten' })).toBeInTheDocument()
+  },
+  render: (args) => renderMenuWithCollapsibleSubmenu(args),
+  tags: ['!dev', '!autodocs', '!manifest'],
+}
+
 export const WideCollapsibleNotExpanded: Story = {
   args: {
     collapsible: true,
