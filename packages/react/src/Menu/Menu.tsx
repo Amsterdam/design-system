@@ -28,12 +28,12 @@ export type MenuProps = {
   readonly collapseButtonLabel?: string
   /**
    * Whether the wide-window menu is initially expanded.
-   * Ignored unless `expandable` and `inWideWindow` are both `true`. Also ignored when `expanded` is provided.
+   * Ignored unless `inWideWindow` is `true`. Also ignored when `expanded` is provided.
    * @default false
    */
   readonly defaultExpanded?: boolean
   /**
-   * Whether the wide-window menu can be expanded and collapsed.
+   * Whether the wide-window menu renders an expand button for users to widen and narrow it.
    * @default false
    */
   readonly expandable?: boolean
@@ -46,7 +46,7 @@ export type MenuProps = {
   /**
    * Whether the wide-window menu is expanded.
    * When provided, the component is controlled and internal state is ignored.
-   * Ignored unless `expandable` and `inWideWindow` are both `true`.
+   * Ignored unless `inWideWindow` is `true`.
    */
   readonly expanded?: boolean
   /** Hides the component on narrow windows. */
@@ -85,7 +85,7 @@ export const MenuRoot = forwardRef<HTMLElement, MenuProps>(
 
     const [isExpanded, toggle] = useCollapsible({
       defaultValue: defaultExpanded,
-      gate: isExpandable,
+      gate: Boolean(inWideWindow),
       onToggle,
       value: expanded,
     })
@@ -98,7 +98,7 @@ export const MenuRoot = forwardRef<HTMLElement, MenuProps>(
           'ams-menu',
           inWideWindow && 'ams-menu--in-wide-window',
           isExpandable && 'ams-menu--expandable',
-          isExpandable && isExpanded && 'ams-menu--expanded',
+          inWideWindow && isExpanded && 'ams-menu--expanded',
           className,
         )}
         ref={ref}

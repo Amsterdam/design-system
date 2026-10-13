@@ -83,6 +83,15 @@ describe('Menu', () => {
     expect(button).toHaveAttribute('aria-expanded', 'true')
   })
 
+  it('adds the expanded class when defaultExpanded is true without expandable', () => {
+    const { container } = render(<Menu defaultExpanded inWideWindow />)
+
+    const component = container.querySelector(':only-child')
+
+    expect(component).toHaveClass('ams-menu--expanded')
+    expect(screen.queryByRole('button')).not.toBeInTheDocument()
+  })
+
   it('toggles the expanded state when the button is clicked', () => {
     const { container } = render(<Menu expandable inWideWindow />)
 
@@ -140,6 +149,33 @@ describe('Menu', () => {
     expect(component).toHaveClass('ams-menu--expanded')
     expect(button).toBeInTheDocument()
     expect(button).toHaveAttribute('aria-expanded', 'true')
+  })
+
+  it('respects the expanded prop when true without expandable', () => {
+    const { container } = render(<Menu expanded inWideWindow />)
+
+    const component = container.querySelector(':only-child')
+
+    expect(component).toHaveClass('ams-menu--expanded')
+    expect(screen.queryByRole('button')).not.toBeInTheDocument()
+  })
+
+  it('ignores defaultExpanded without inWideWindow', () => {
+    const { container } = render(<Menu defaultExpanded />)
+
+    const component = container.querySelector(':only-child')
+
+    expect(component).not.toHaveClass('ams-menu--expanded')
+    expect(screen.queryByRole('button')).not.toBeInTheDocument()
+  })
+
+  it('ignores expanded without inWideWindow', () => {
+    const { container } = render(<Menu expanded />)
+
+    const component = container.querySelector(':only-child')
+
+    expect(component).not.toHaveClass('ams-menu--expanded')
+    expect(screen.queryByRole('button')).not.toBeInTheDocument()
   })
 
   it('does not toggle internally when controlled', () => {
