@@ -121,3 +121,10 @@ export const Expanded: Story = {
     expandable: true,
   },
 }
+
+export const AlwaysWide: Story = {
+  args: {
+    children: Default.args?.children,
+    expanded: true,
+  },
+}
