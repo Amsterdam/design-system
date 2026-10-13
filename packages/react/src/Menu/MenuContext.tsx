@@ -12,15 +12,12 @@ type MenuContextValue = {
   hideAccessibleLabel: string
   /** The accessible phrase for a submenu toggle in the collapsed state. */
   showAccessibleLabel: string
-  /** Whether submenu links are currently visible in this Menu layout and state. */
-  showsSubmenu: boolean
 }
 
 const defaultValues: MenuContextValue = {
   collapsible: false,
   hideAccessibleLabel: 'Verberg submenu van',
   showAccessibleLabel: 'Toon submenu van',
-  showsSubmenu: true,
 }
 
 export const MenuContext = createContext(defaultValues)

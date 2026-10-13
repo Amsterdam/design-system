@@ -127,8 +127,6 @@ export const MenuRoot = forwardRef<HTMLElement, MenuProps>(
       if (link instanceof HTMLElement && link !== document.activeElement) link.focus()
     }, [inWideWindow, isExpanded])
 
-    const showsSubmenu = Boolean(!inWideWindow || (isExpandable && isExpanded))
-
     return (
       <Tag
         {...restProps}
@@ -159,7 +157,7 @@ export const MenuRoot = forwardRef<HTMLElement, MenuProps>(
             svg={isExpanded ? ChevronDoubleBackwardIcon : ChevronDoubleForwardIcon}
           />
         )}
-        <MenuContext.Provider value={{ collapsible, hideAccessibleLabel, showAccessibleLabel, showsSubmenu }}>
+        <MenuContext.Provider value={{ collapsible, hideAccessibleLabel, showAccessibleLabel }}>
           <ul className="ams-menu__list" id={isExpandable ? menuListId : undefined} ref={listRef}>
             {children}
           </ul>
