@@ -620,13 +620,13 @@
 <header>
   <div class="wrap">
     <h1>Manifest Debugger</h1>
-    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">15/91 API errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">15/91 infos</a><a class="filter-pill" data-k="no-api" href="#filter-no-api">18/91 without API description</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">1/318 story errors</a><a class="filter-pill info" data-k="story-warnings" href="#filter-story-warnings">48/318 incomplete snippets</a><a class="filter-pill ok" data-k="docs" href="#filter-docs">128 docs ok</a></div>
+    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">15/91 API errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">15/91 infos</a><a class="filter-pill" data-k="no-api" href="#filter-no-api">18/91 without API description</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">1/319 story errors</a><a class="filter-pill info" data-k="story-warnings" href="#filter-story-warnings">49/319 incomplete snippets</a><a class="filter-pill ok" data-k="docs" href="#filter-docs">128 docs ok</a></div>
   </div>
 </header>
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>4.5s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>5.1s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -19502,7 +19502,7 @@ The component cannot make up for that on its own, so what the highlight conveys 
       <div class="badges">
         <label for="c-51-components-navigation-menu-props" class="badge ok as-toggle">8 prop types</label>
         
-        <label for="c-51-components-navigation-menu-stories" class="badge ok as-toggle">3 stories · 3 incomplete</label>
+        <label for="c-51-components-navigation-menu-stories" class="badge ok as-toggle">4 stories · 4 incomplete</label>
         <label for="c-51-components-navigation-menu-docs" class="badge ok as-toggle">1 doc</label>
         <label for="c-51-components-navigation-menu-subcomponents" class="badge ok as-toggle">1 subcomponent</label>
       </div>
@@ -19547,12 +19547,12 @@ collapseButtonLabel?: string = &#39;Klap menu in&#39;
 
 /**
  * Whether the wide-window menu is initially expanded.
- * Ignored unless `expandable` and `inWideWindow` are both `true`. Also ignored when `expanded` is provided.
+ * Ignored unless `inWideWindow` is `true`. Also ignored when `expanded` is provided.
  */
 defaultExpanded?: boolean = false
 
 /**
- * Whether the wide-window menu can be expanded and collapsed.
+ * Whether the wide-window menu renders an expand button for users to widen and narrow it.
  */
 expandable?: boolean = false
 
@@ -19565,7 +19565,7 @@ expandButtonLabel?: string = &#39;Klap menu uit&#39;
 /**
  * Whether the wide-window menu is expanded.
  * When provided, the component is controlled and internal state is ignored.
- * Ignored unless `expandable` and `inWideWindow` are both `true`.
+ * Ignored unless `inWideWindow` is `true`.
  */
 expanded?: boolean
 
@@ -19633,6 +19633,16 @@ import { Menu } from '@amsterdam/design-system-react/src';</code></pre>
               
               
               <pre><code>const Expanded = () =&gt; &lt;Menu inWideWindow={false} defaultExpanded expandable&gt;{Default.args?.children}&lt;/Menu&gt;;</code></pre>
+              <div class="snippet-warning">Incomplete snippet: `Default` could not be resolved statically.</div>
+            </div>
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Always Wide</span>
+                <span class="badge info">incomplete example</span>
+              </div>
+              
+              
+              <pre><code>const AlwaysWide = () =&gt; &lt;Menu inWideWindow={false} expanded&gt;{Default.args?.children}&lt;/Menu&gt;;</code></pre>
               <div class="snippet-warning">Incomplete snippet: `Default` could not be resolved statically.</div>
             </div>
         </div>
@@ -19706,9 +19716,15 @@ Do not use this component anywhere other than the Page Header and the side of th
 
 ### How to use
 
-Set `expandable` on the wide-window instance when users need room for a second level of navigation.
-It adds a button that widens the Menu, which gives the links the horizontal layout again.
-Start the Menu out wide with `defaultExpanded`, or pass `expanded` together with `onToggle` when the parent should own the state.
+The Menu beside the page, the one with `inWideWindow`, has three setups:
+
+- A narrow column. This is the default.
+- Always wide. Pass `expanded` without `expandable`.
+- Widened by the user. Set `expandable`.
+
+`expandable` adds a button that widens and narrows the Menu.
+A wide Menu gives the links the horizontal layout again.
+Start an expandable Menu out wide with `defaultExpanded`, or pass `expanded` together with `onToggle` when the parent should own the state.
 
 ### How to write
 
@@ -19726,9 +19742,15 @@ A Menu that users can widen themselves.
 
 ### Expanded
 
-The same Menu, wide from the start.
+The user-expandable Menu, wide from the start.
 
 &lt;Canvas of={MenuStories.Expanded} /&gt;
+
+### Always wide
+
+A Menu in a wide window that starts wide without an expand button.
+
+&lt;Canvas of={MenuStories.AlwaysWide} /&gt;
 
 ## Design
 
@@ -19758,7 +19780,7 @@ In the wide layout the links do stretch, since the column is barely wider than t
 Without `inWideWindow` the Menu renders a `div`, because it then sits inside the `nav` element of the [Page Header](/docs/components-containers-page-header--docs).
 With the prop it renders a `nav` of its own, named by a visually hidden heading that `accessibleName` fills.
 With `expandable`, the icon-only button is named through `expandButtonLabel` and `collapseButtonLabel`.
-Its accessible name changes with the action, because the button widens and narrows the Menu rather than exposing hidden content.
+The button reports through `aria-expanded` whether the Menu is expanded.
 
 That name defaults to ‘Hoofdmenu’, and so does the `navigationLabel` of the Page Header.
 A wide window shows both navigations, so give one of the two another name.
