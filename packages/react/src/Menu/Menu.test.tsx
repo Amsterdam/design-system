@@ -334,4 +334,22 @@ describe('Menu', () => {
 
     expect(screen.getByRole('button', { name: 'Toon submenu van Projecten' })).toBeInTheDocument()
   })
+
+  it('moves focus to the link of an item when a parent collapses the Menu with focus on its submenu toggle', () => {
+    const menu = (expanded: boolean) => (
+      <Menu collapsibleSubmenus expanded={expanded} inWideWindow>
+        <Menu.Item href="#" label="Projecten">
+          <Menu.Link href="#child">Overzicht</Menu.Link>
+        </Menu.Item>
+      </Menu>
+    )
+
+    const { rerender } = render(menu(true))
+
+    screen.getByRole('button', { name: 'Toon submenu van Projecten' }).focus()
+
+    rerender(menu(false))
+
+    expect(screen.getByRole('link', { name: 'Projecten' })).toHaveFocus()
+  })
 })
