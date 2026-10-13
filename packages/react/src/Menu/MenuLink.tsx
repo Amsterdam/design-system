@@ -10,7 +10,7 @@ import { forwardRef } from 'react'
 
 import type { IconProps } from '../Icon/Icon'
 
-import { Icon } from '../Icon'
+import { Icon } from '../Icon/Icon'
 
 export type MenuLinkProps = {
   /** The icon to display for the menu link. Use the filled variant for top-level items. */
