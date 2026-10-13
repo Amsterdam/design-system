@@ -310,16 +310,17 @@ describe('Menu', () => {
     expect(submenu).not.toHaveAttribute('id')
   })
 
-  it('does not render submenu toggles in a wide Menu that is not expanded', () => {
+  it('renders submenu toggles in a wide Menu that is always expanded without expandable', () => {
     render(
-      <Menu collapsible expandable inWideWindow>
+      <Menu collapsible expanded inWideWindow>
         <Menu.Item href="#" label="Projecten">
           <Menu.Link href="#">Overzicht</Menu.Link>
         </Menu.Item>
       </Menu>,
     )
 
-    expect(screen.queryByRole('button', { name: /Toon submenu van|Verberg submenu van/ })).not.toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'Toon submenu van Projecten' })).toBeInTheDocument()
+    expect(screen.queryByRole('button', { name: /Klap menu uit|Klap menu in/ })).not.toBeInTheDocument()
   })
 
   it('renders submenu toggles in a wide Menu that is expanded', () => {
