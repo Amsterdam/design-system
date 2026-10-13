@@ -620,13 +620,13 @@
 <header>
   <div class="wrap">
     <h1>Manifest Debugger</h1>
-    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">16/92 API errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">16/92 infos</a><a class="filter-pill" data-k="no-api" href="#filter-no-api">18/92 without API description</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">1/323 story errors</a><a class="filter-pill info" data-k="story-warnings" href="#filter-story-warnings">51/323 incomplete snippets</a><a class="filter-pill ok" data-k="docs" href="#filter-docs">128 docs ok</a></div>
+    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">16/92 API errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">16/92 infos</a><a class="filter-pill" data-k="no-api" href="#filter-no-api">18/92 without API description</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">1/325 story errors</a><a class="filter-pill info" data-k="story-warnings" href="#filter-story-warnings">53/325 incomplete snippets</a><a class="filter-pill ok" data-k="docs" href="#filter-docs">129 docs ok</a></div>
   </div>
 </header>
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>4.8s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>3.3s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -19549,7 +19549,7 @@ collapseButtonLabel?: string = &#39;Klap menu in&#39;
 /**
  * Whether menu items with nested links can be expanded and collapsed.
  */
-collapsible?: boolean = false
+collapsibleSubmenus?: boolean = false
 
 /**
  * Whether the wide-window menu is initially expanded.
@@ -19710,7 +19710,7 @@ import { Menu } from '@amsterdam/design-system-react/src';</code></pre>
               </div>
               
               
-              <pre><code>const CollapsibleSubmenu = () =&gt; &lt;Menu inWideWindow={false} collapsible defaultExpanded expandable&gt;{[
+              <pre><code>const CollapsibleSubmenu = () =&gt; &lt;Menu inWideWindow={false} collapsibleSubmenus defaultExpanded expandable&gt;{[
       &lt;Menu.Link href=&quot;#&quot; icon={&lt;PieChartFillIcon /&gt;} key=&quot;Dashboard&quot;&gt;
         Dashboard
       &lt;/Menu.Link&gt;,
@@ -19836,7 +19836,7 @@ In an expanded wide Menu, submenus are visible.
 To keep navigation safe in every layout, let the parent link lead to a page that lists the links of its submenu.
 That way no page is reachable through a submenu alone.
 
-Set `collapsible` to add submenu toggle buttons for items with nested links.
+Set `collapsibleSubmenus` to add submenu toggle buttons for items with nested links.
 In a Menu that is not expanded, those toggle buttons are hidden, because the submenus are hidden there as well.
 
 Use `showAccessibleLabel` and `hideAccessibleLabel` to localise the toggle button name.
@@ -19900,7 +19900,7 @@ Expanded, the Menu is `14rem` wide and the links return to the horizontal layout
 The submenu is visible in a narrow or medium window and in an expanded Menu, and hidden in the narrower column, which has no room for it.
 Its links are indented by a small space, so they start at about half the width of the icon of their parent.
 Keeping room for the labels matters more there than aligning them with the label of the parent.
-With `collapsible`, each submenu toggle button sits at the end of the same row as its parent link.
+With `collapsibleSubmenus`, each submenu toggle button sits at the end of the same row as its parent link.
 Its chevron turns when that submenu is expanded.
 Each toggle button expands or collapses only its own submenu.
 
@@ -19919,7 +19919,7 @@ A submenu is a nested `ul` inside the parent item’s `li`, so the list structur
 With `expandable`, the icon-only button is named through `expandButtonLabel` and `collapseButtonLabel`.
 The button reports through `aria-expanded` whether the Menu is expanded, which in a Menu with submenus also shows and hides their links.
 Without scripting the button cannot work, so it is hidden and the submenus stay visible in the narrow column.
-With `collapsible`, each submenu toggle button uses icon-only button text from `showAccessibleLabel` and `hideAccessibleLabel`, combined with the item label.
+With `collapsibleSubmenus`, each submenu toggle button uses icon-only button text from `showAccessibleLabel` and `hideAccessibleLabel`, combined with the item label.
 Each submenu toggle button links to its submenu using `aria-controls`, and reports state with `aria-expanded`.
 If focus is inside a submenu when it collapses, focus moves to that submenu toggle button.
 Without scripting, submenu toggle buttons are hidden and collapsed submenus are shown.
@@ -19958,14 +19958,14 @@ A wide window shows both navigations, so give one of the two another name.
           <pre><code>Component: ../packages/react/src/index.ts::Menu (react-component-meta)</code></pre>
           <pre><code>/**
  * Whether the nested submenu is initially expanded.
- * Ignored when the parent `Menu` is not `collapsible`, when there is no submenu, or when `expanded` is provided.
+ * Ignored when the parent `Menu` does not have `collapsibleSubmenus`, when there is no submenu, or when `expanded` is provided.
  */
 defaultExpanded?: boolean = false
 
 /**
  * Whether the nested submenu is expanded.
  * When provided, the component is controlled and internal state is ignored.
- * Ignored when the parent `Menu` is not `collapsible` or when there is no submenu.
+ * Ignored when the parent `Menu` does not have `collapsibleSubmenus` or when there is no submenu.
  */
 expanded?: boolean
 
@@ -19987,7 +19987,7 @@ linkComponent?: ElementType | undefined
 
 /**
  * Callback fired when the nested submenu is expanded or collapsed. Receives the new expanded state.
- * Ignored when the parent `Menu` is not `collapsible` or when there is no submenu.
+ * Ignored when the parent `Menu` does not have `collapsibleSubmenus` or when there is no submenu.
  */
 onToggle?: (expanded: boolean) =&gt; void</code></pre>
     </div>
@@ -20785,8 +20785,8 @@ closeButtonSize?: &quot;heading-1&quot; | &quot;heading-2&quot; | &quot;heading-
       <div class="badges">
         <label for="c-54-pages-internal-navigation-models-err" class="badge err as-toggle">API error</label>
         <label for="c-54-pages-internal-navigation-models-info" class="badge info as-toggle">1 info</label>
-        <label for="c-54-pages-internal-navigation-models-stories" class="badge ok as-toggle">3 stories · 3 incomplete</label>
-        
+        <label for="c-54-pages-internal-navigation-models-stories" class="badge ok as-toggle">5 stories · 5 incomplete</label>
+        <label for="c-54-pages-internal-navigation-models-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -20800,7 +20800,7 @@ closeButtonSize?: &quot;heading-1&quot; | &quot;heading-2&quot; | &quot;heading-
   <input id="c-54-pages-internal-navigation-models-err" class="tg tg-err" type="checkbox" hidden />
   <input id="c-54-pages-internal-navigation-models-info" class="tg tg-info" type="checkbox" hidden />
   <input id="c-54-pages-internal-navigation-models-stories" class="tg tg-stories" type="checkbox" hidden />
-  
+  <input id="c-54-pages-internal-navigation-models-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -20811,13 +20811,13 @@ closeButtonSize?: &quot;heading-1&quot; | &quot;heading-2&quot; | &quot;heading-
     <div class="note err">
       <div class="note-title">API error</div>
       <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
-  15 | const details = exampleParagraph()
-  16 |
-&gt; 17 | const meta = {
+  19 | const currentSection = navigationItems.find(({ id }) =&gt; id === &#39;rapportages&#39;)
+  20 |
+&gt; 21 | const meta = {
      | ^
-  18 |   ...commonMeta,
-  19 |   title: &#39;Pages/Internal/Navigation Models&#39;,
-  20 |   parameters: pageParameters(
+  22 |   ...commonMeta,
+  23 |   title: &#39;Pages/Internal/Navigation Models&#39;,
+  24 |   parameters: pageParameters(
 
 ./src/pages/internal/NavigationModels/NavigationModels.stories.tsx:
 /**
@@ -20827,14 +20827,18 @@ closeButtonSize?: &quot;heading-1&quot; | &quot;heading-2&quot; | &quot;heading-
 
 import type { Meta, StoryObj } from &#39;@storybook/react-vite&#39;
 
-import { Grid, Heading, Paragraph } from &#39;@amsterdam/design-system-react&#39;
+import { Grid, Heading, LinkList, Paragraph, TableOfContents } from &#39;@amsterdam/design-system-react&#39;
 
 import { exampleParagraph } from &#39;#storybook/_common/exampleContent&#39;
 
 import { commonMeta, pageParameters } from &#39;../common/commonMeta&#39;
+import { navigationItems } from &#39;../common/navigationItems&#39;
 
 const summary = exampleParagraph()
 const details = exampleParagraph()
+
+// The examples in the page body read the same links as the Menu, so both always offer the same pages.
+const currentSection = navigationItems.find(({ id }) =&gt; id === &#39;rapportages&#39;)
 
 const meta = {
   ...commonMeta,
@@ -20862,14 +20866,9 @@ export default meta
 
 type Story = StoryObj&lt;typeof meta&gt;
 
-export const AlwaysWide: Story = {
+// The application keeps the Menu wide: there is no button to narrow it. Every submenu is open, and stays open.
+export const AlwaysWideOpenSubmenus: Story = {
   parameters: {
-    chromatic: {
-      modes: {
-        &#39;1160px&#39;: { viewport: 1160 },
-        &#39;1920px&#39;: { viewport: 1920 },
-      },
-    },
     navigation: {
       headerMenu: {
         navigationDepth: 2,
@@ -20882,14 +20881,10 @@ export const AlwaysWide: Story = {
   },
 }
 
-export const AlwaysWideCollapsible: Story = {
+// The application keeps the Menu wide: there is no button to narrow it. `collapsible` is about the submenus only:
+// each one gets a button to show and hide it.
+export const AlwaysWideCollapsibleSubmenus: Story = {
   parameters: {
-    chromatic: {
-      modes: {
-        &#39;1160px&#39;: { viewport: 1160 },
-        &#39;1920px&#39;: { viewport: 1920 },
-      },
-    },
     navigation: {
       headerMenu: {
         collapsible: true,
@@ -20904,6 +20899,7 @@ export const AlwaysWideCollapsible: Story = {
   },
 }
 
+// `expandable` gives the Menu a button to widen and narrow it, and `collapsible` gives each submenu a button of its own.
 export const WidenedByUser: Story = {
   parameters: {
     chromatic: {
@@ -20926,6 +20922,62 @@ export const WidenedByUser: Story = {
     },
   },
 }
+
+// The Menu shows the first level only, so the links of the current section move into the page.
+// A page the Menu has no link to marks its section there, and itself in the Table of Contents.
+export const NarrowWithTableOfContents: Story = {
+  parameters: {
+    currentSectionId: &#39;rapportages&#39;,
+  },
+  render: () =&gt; (
+    &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+      &lt;Grid.Cell appearance=&quot;transparent&quot; span=&quot;all&quot;&gt;
+        &lt;Heading level={1}&gt;Vergunninghouders 2026/2027&lt;/Heading&gt;
+      &lt;/Grid.Cell&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 3, wide: 4 }}&gt;
+        {/* The heading names the section, which gives this navigation a name of its own next to the Menu. */}
+        &lt;TableOfContents heading={currentSection?.text}&gt;
+          &lt;TableOfContents.List&gt;
+            {currentSection?.submenu?.map(({ href, id, text }) =&gt; (
+              &lt;TableOfContents.Link
+                aria-current={id === &#39;rapportages-vergunninghouders&#39; ? &#39;page&#39; : undefined}
+                href={href}
+                key={id}
+                label={text}
+              /&gt;
+            ))}
+          &lt;/TableOfContents.List&gt;
+        &lt;/TableOfContents&gt;
+      &lt;/Grid.Cell&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 5, wide: 8 }}&gt;
+        &lt;Paragraph&gt;{summary}&lt;/Paragraph&gt;
+      &lt;/Grid.Cell&gt;
+    &lt;/Grid&gt;
+  ),
+}
+
+// The Menu shows the first level only, and its link leads to this page, which lists the pages of the section.
+export const NarrowWithSectionOverview: Story = {
+  parameters: {
+    currentPageId: &#39;rapportages&#39;,
+  },
+  render: () =&gt; (
+    &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+      &lt;Grid.Cell appearance=&quot;transparent&quot; span=&quot;all&quot;&gt;
+        &lt;Heading level={1}&gt;{currentSection?.text}&lt;/Heading&gt;
+      &lt;/Grid.Cell&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 5, wide: 8 }}&gt;
+        &lt;LinkList&gt;
+          {currentSection?.submenu?.map(({ href, id, text }) =&gt; (
+            &lt;LinkList.Link href={href} key={id}&gt;
+              {text}
+            &lt;/LinkList.Link&gt;
+          ))}
+        &lt;/LinkList&gt;
+      &lt;/Grid.Cell&gt;
+    &lt;/Grid&gt;
+  ),
+}
 </code></pre></div>
     </div>
         </div>
@@ -20947,18 +20999,18 @@ export const WidenedByUser: Story = {
                 <div class="row">
                   <span class="ex-name">Imports</span>
                 </div>
-                <pre><code>import { Grid, Heading, Paragraph } from '@amsterdam/design-system-react';</code></pre>
+                <pre><code>import { Grid, Heading, LinkList, Paragraph, TableOfContents } from '@amsterdam/design-system-react';</code></pre>
               </div>
           
           
             <div class="note ok">
               <div class="row">
-                <span class="ex-name">Always Wide</span>
+                <span class="ex-name">Always Wide Open Submenus</span>
                 <span class="badge info">incomplete example</span>
               </div>
               
               
-              <pre><code>const AlwaysWide = () =&gt; (
+              <pre><code>const AlwaysWideOpenSubmenus = () =&gt; (
   &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
     &lt;Grid.Cell appearance=&quot;transparent&quot; span=&quot;all&quot;&gt;
       &lt;Heading level={1}&gt;Vergunninghouders 2026/2027&lt;/Heading&gt;
@@ -20975,12 +21027,12 @@ export const WidenedByUser: Story = {
             </div>
             <div class="note ok">
               <div class="row">
-                <span class="ex-name">Always Wide Collapsible</span>
+                <span class="ex-name">Always Wide Collapsible Submenus</span>
                 <span class="badge info">incomplete example</span>
               </div>
               
               
-              <pre><code>const AlwaysWideCollapsible = () =&gt; (
+              <pre><code>const AlwaysWideCollapsibleSubmenus = () =&gt; (
   &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
     &lt;Grid.Cell appearance=&quot;transparent&quot; span=&quot;all&quot;&gt;
       &lt;Heading level={1}&gt;Vergunninghouders 2026/2027&lt;/Heading&gt;
@@ -21017,8 +21069,144 @@ export const WidenedByUser: Story = {
 );</code></pre>
               <div class="snippet-warning">Incomplete snippet: `...commonMeta` could not be resolved statically.</div>
             </div>
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Narrow With Table Of Contents</span>
+                <span class="badge info">incomplete example</span>
+              </div>
+              
+              
+              <pre><code>const NarrowWithTableOfContents = () =&gt; (
+  &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+    &lt;Grid.Cell appearance=&quot;transparent&quot; span=&quot;all&quot;&gt;
+      &lt;Heading level={1}&gt;Vergunninghouders 2026/2027&lt;/Heading&gt;
+    &lt;/Grid.Cell&gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 3, wide: 4 }}&gt;
+      {/* The heading names the section, which gives this navigation a name of its own next to the Menu. */}
+      &lt;TableOfContents heading={currentSection?.text}&gt;
+        &lt;TableOfContents.List&gt;
+          {currentSection?.submenu?.map(({ href, id, text }) =&gt; (
+            &lt;TableOfContents.Link
+              aria-current={id === &#39;rapportages-vergunninghouders&#39; ? &#39;page&#39; : undefined}
+              href={href}
+              key={id}
+              label={text}
+            /&gt;
+          ))}
+        &lt;/TableOfContents.List&gt;
+      &lt;/TableOfContents&gt;
+    &lt;/Grid.Cell&gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 5, wide: 8 }}&gt;
+      &lt;Paragraph&gt;{summary}&lt;/Paragraph&gt;
+    &lt;/Grid.Cell&gt;
+  &lt;/Grid&gt;
+);</code></pre>
+              <div class="snippet-warning">Incomplete snippet: `...commonMeta` could not be resolved statically.</div>
+            </div>
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Narrow With Section Overview</span>
+                <span class="badge info">incomplete example</span>
+              </div>
+              
+              
+              <pre><code>const NarrowWithSectionOverview = () =&gt; (
+  &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+    &lt;Grid.Cell appearance=&quot;transparent&quot; span=&quot;all&quot;&gt;
+      &lt;Heading level={1}&gt;{currentSection?.text}&lt;/Heading&gt;
+    &lt;/Grid.Cell&gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 5, wide: 8 }}&gt;
+      &lt;LinkList&gt;
+        {currentSection?.submenu?.map(({ href, id, text }) =&gt; (
+          &lt;LinkList.Link href={href} key={id}&gt;
+            {text}
+          &lt;/LinkList.Link&gt;
+        ))}
+      &lt;/LinkList&gt;
+    &lt;/Grid.Cell&gt;
+  &lt;/Grid&gt;
+);</code></pre>
+              <div class="snippet-warning">Incomplete snippet: `...commonMeta` could not be resolved statically.</div>
+            </div>
         </div>
     
+        <div class="panel panel-docs">
+          
+          
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Docs</span>
+                <span class="badge ok">doc ok</span>
+              </div>
+              <div class="hint">./src/pages/internal/NavigationModels/NavigationModels.docs.mdx</div>
+              <div>## Anatomy This schematic shows the default sections for this page type and how the grids ...</div>
+              <div class="mdx-content"><pre><code>{/* @license CC0-1.0 */}
+
+import { Description, Meta, Title } from &quot;@storybook/addon-docs/blocks&quot;;
+
+import { PageAnatomy } from &quot;#storybook/_components/PageAnatomy/PageAnatomy&quot;;
+import { StatusBadge } from &quot;#storybook/_components/StatusBadge/StatusBadge&quot;;
+
+import { anatomyLabels } from &quot;./anatomyLabels.ts&quot;;
+import * as NavigationModelStories from &quot;./NavigationModels.stories&quot;;
+
+&lt;Meta of={NavigationModelStories} /&gt;
+
+&lt;StatusBadge
+  description=&quot;These navigation models are exploratory and may change as design and implementation guidance evolves.&quot;
+  status=&quot;experimental&quot;
+/&gt;
+
+&lt;Title /&gt;
+
+&lt;Description of={NavigationModelStories} /&gt;
+
+## Anatomy
+
+This schematic shows the default sections for this page type and how the grids and vertical space work.
+
+&lt;PageAnatomy labels={anatomyLabels} menu mode=&quot;compact&quot; of={NavigationModelStories} story=&quot;WidenedByUser&quot; /&gt;
+
+## Usage guidelines
+
+### When to use
+
+Use this page to compare navigation models with the same shell, links and content, so only navigation decisions differ.
+
+## Variants
+
+### Always wide, open submenus
+
+The application keeps the Menu wide, and every submenu is open.
+
+### Always wide, collapsible submenus
+
+The application keeps the Menu wide, and each submenu has a button to show and hide it.
+The submenu that holds the current page starts open.
+
+### Widened by user
+
+The Menu has a button that lets users widen and narrow it.
+It starts wide here, because the current page is in a submenu.
+
+### Narrow with Table of Contents
+
+The Menu stays a narrow column and shows the first level only.
+A Table of Contents in the page body lists the pages of the current section.
+
+### Narrow with section overview
+
+The Menu stays a narrow column and shows the first level only.
+Its link leads to a page that lists the pages of the section.
+
+## See also
+
+- [Menu](/docs/components-navigation-menu--docs) – the navigation component used in each model.
+- [Table of Contents](/docs/components-navigation-table-of-contents--docs) – section navigation for the narrow-column model.
+- [Page structure](/docs/pages-guidelines-page-structure--docs) – the shared shell all internal pages use.
+</code></pre></div>
+            </div>
+        </div>
     
   </div>
 </article>
@@ -48068,8 +48256,8 @@ No component wraps this pattern yet, so the Grid carries the busy state and the 
       <div class="badges">
         <label for="c-error-8-pages-internal-navigation-models-err" class="badge err as-toggle">API error</label>
         <label for="c-error-8-pages-internal-navigation-models-info" class="badge info as-toggle">1 info</label>
-        <label for="c-error-8-pages-internal-navigation-models-stories" class="badge ok as-toggle">3 stories · 3 incomplete</label>
-        
+        <label for="c-error-8-pages-internal-navigation-models-stories" class="badge ok as-toggle">5 stories · 5 incomplete</label>
+        <label for="c-error-8-pages-internal-navigation-models-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -48083,7 +48271,7 @@ No component wraps this pattern yet, so the Grid carries the busy state and the 
   <input id="c-error-8-pages-internal-navigation-models-err" class="tg tg-err" type="checkbox" hidden />
   <input id="c-error-8-pages-internal-navigation-models-info" class="tg tg-info" type="checkbox" hidden />
   <input id="c-error-8-pages-internal-navigation-models-stories" class="tg tg-stories" type="checkbox" hidden />
-  
+  <input id="c-error-8-pages-internal-navigation-models-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -48094,13 +48282,13 @@ No component wraps this pattern yet, so the Grid carries the busy state and the 
     <div class="note err">
       <div class="note-title">API error</div>
       <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
-  15 | const details = exampleParagraph()
-  16 |
-&gt; 17 | const meta = {
+  19 | const currentSection = navigationItems.find(({ id }) =&gt; id === &#39;rapportages&#39;)
+  20 |
+&gt; 21 | const meta = {
      | ^
-  18 |   ...commonMeta,
-  19 |   title: &#39;Pages/Internal/Navigation Models&#39;,
-  20 |   parameters: pageParameters(
+  22 |   ...commonMeta,
+  23 |   title: &#39;Pages/Internal/Navigation Models&#39;,
+  24 |   parameters: pageParameters(
 
 ./src/pages/internal/NavigationModels/NavigationModels.stories.tsx:
 /**
@@ -48110,14 +48298,18 @@ No component wraps this pattern yet, so the Grid carries the busy state and the 
 
 import type { Meta, StoryObj } from &#39;@storybook/react-vite&#39;
 
-import { Grid, Heading, Paragraph } from &#39;@amsterdam/design-system-react&#39;
+import { Grid, Heading, LinkList, Paragraph, TableOfContents } from &#39;@amsterdam/design-system-react&#39;
 
 import { exampleParagraph } from &#39;#storybook/_common/exampleContent&#39;
 
 import { commonMeta, pageParameters } from &#39;../common/commonMeta&#39;
+import { navigationItems } from &#39;../common/navigationItems&#39;
 
 const summary = exampleParagraph()
 const details = exampleParagraph()
+
+// The examples in the page body read the same links as the Menu, so both always offer the same pages.
+const currentSection = navigationItems.find(({ id }) =&gt; id === &#39;rapportages&#39;)
 
 const meta = {
   ...commonMeta,
@@ -48145,14 +48337,9 @@ export default meta
 
 type Story = StoryObj&lt;typeof meta&gt;
 
-export const AlwaysWide: Story = {
+// The application keeps the Menu wide: there is no button to narrow it. Every submenu is open, and stays open.
+export const AlwaysWideOpenSubmenus: Story = {
   parameters: {
-    chromatic: {
-      modes: {
-        &#39;1160px&#39;: { viewport: 1160 },
-        &#39;1920px&#39;: { viewport: 1920 },
-      },
-    },
     navigation: {
       headerMenu: {
         navigationDepth: 2,
@@ -48165,14 +48352,10 @@ export const AlwaysWide: Story = {
   },
 }
 
-export const AlwaysWideCollapsible: Story = {
+// The application keeps the Menu wide: there is no button to narrow it. `collapsible` is about the submenus only:
+// each one gets a button to show and hide it.
+export const AlwaysWideCollapsibleSubmenus: Story = {
   parameters: {
-    chromatic: {
-      modes: {
-        &#39;1160px&#39;: { viewport: 1160 },
-        &#39;1920px&#39;: { viewport: 1920 },
-      },
-    },
     navigation: {
       headerMenu: {
         collapsible: true,
@@ -48187,6 +48370,7 @@ export const AlwaysWideCollapsible: Story = {
   },
 }
 
+// `expandable` gives the Menu a button to widen and narrow it, and `collapsible` gives each submenu a button of its own.
 export const WidenedByUser: Story = {
   parameters: {
     chromatic: {
@@ -48209,6 +48393,62 @@ export const WidenedByUser: Story = {
     },
   },
 }
+
+// The Menu shows the first level only, so the links of the current section move into the page.
+// A page the Menu has no link to marks its section there, and itself in the Table of Contents.
+export const NarrowWithTableOfContents: Story = {
+  parameters: {
+    currentSectionId: &#39;rapportages&#39;,
+  },
+  render: () =&gt; (
+    &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+      &lt;Grid.Cell appearance=&quot;transparent&quot; span=&quot;all&quot;&gt;
+        &lt;Heading level={1}&gt;Vergunninghouders 2026/2027&lt;/Heading&gt;
+      &lt;/Grid.Cell&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 3, wide: 4 }}&gt;
+        {/* The heading names the section, which gives this navigation a name of its own next to the Menu. */}
+        &lt;TableOfContents heading={currentSection?.text}&gt;
+          &lt;TableOfContents.List&gt;
+            {currentSection?.submenu?.map(({ href, id, text }) =&gt; (
+              &lt;TableOfContents.Link
+                aria-current={id === &#39;rapportages-vergunninghouders&#39; ? &#39;page&#39; : undefined}
+                href={href}
+                key={id}
+                label={text}
+              /&gt;
+            ))}
+          &lt;/TableOfContents.List&gt;
+        &lt;/TableOfContents&gt;
+      &lt;/Grid.Cell&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 5, wide: 8 }}&gt;
+        &lt;Paragraph&gt;{summary}&lt;/Paragraph&gt;
+      &lt;/Grid.Cell&gt;
+    &lt;/Grid&gt;
+  ),
+}
+
+// The Menu shows the first level only, and its link leads to this page, which lists the pages of the section.
+export const NarrowWithSectionOverview: Story = {
+  parameters: {
+    currentPageId: &#39;rapportages&#39;,
+  },
+  render: () =&gt; (
+    &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+      &lt;Grid.Cell appearance=&quot;transparent&quot; span=&quot;all&quot;&gt;
+        &lt;Heading level={1}&gt;{currentSection?.text}&lt;/Heading&gt;
+      &lt;/Grid.Cell&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 5, wide: 8 }}&gt;
+        &lt;LinkList&gt;
+          {currentSection?.submenu?.map(({ href, id, text }) =&gt; (
+            &lt;LinkList.Link href={href} key={id}&gt;
+              {text}
+            &lt;/LinkList.Link&gt;
+          ))}
+        &lt;/LinkList&gt;
+      &lt;/Grid.Cell&gt;
+    &lt;/Grid&gt;
+  ),
+}
 </code></pre></div>
     </div>
         </div>
@@ -48230,18 +48470,18 @@ export const WidenedByUser: Story = {
                 <div class="row">
                   <span class="ex-name">Imports</span>
                 </div>
-                <pre><code>import { Grid, Heading, Paragraph } from '@amsterdam/design-system-react';</code></pre>
+                <pre><code>import { Grid, Heading, LinkList, Paragraph, TableOfContents } from '@amsterdam/design-system-react';</code></pre>
               </div>
           
           
             <div class="note ok">
               <div class="row">
-                <span class="ex-name">Always Wide</span>
+                <span class="ex-name">Always Wide Open Submenus</span>
                 <span class="badge info">incomplete example</span>
               </div>
               
               
-              <pre><code>const AlwaysWide = () =&gt; (
+              <pre><code>const AlwaysWideOpenSubmenus = () =&gt; (
   &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
     &lt;Grid.Cell appearance=&quot;transparent&quot; span=&quot;all&quot;&gt;
       &lt;Heading level={1}&gt;Vergunninghouders 2026/2027&lt;/Heading&gt;
@@ -48258,12 +48498,12 @@ export const WidenedByUser: Story = {
             </div>
             <div class="note ok">
               <div class="row">
-                <span class="ex-name">Always Wide Collapsible</span>
+                <span class="ex-name">Always Wide Collapsible Submenus</span>
                 <span class="badge info">incomplete example</span>
               </div>
               
               
-              <pre><code>const AlwaysWideCollapsible = () =&gt; (
+              <pre><code>const AlwaysWideCollapsibleSubmenus = () =&gt; (
   &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
     &lt;Grid.Cell appearance=&quot;transparent&quot; span=&quot;all&quot;&gt;
       &lt;Heading level={1}&gt;Vergunninghouders 2026/2027&lt;/Heading&gt;
@@ -48300,8 +48540,144 @@ export const WidenedByUser: Story = {
 );</code></pre>
               <div class="snippet-warning">Incomplete snippet: `...commonMeta` could not be resolved statically.</div>
             </div>
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Narrow With Table Of Contents</span>
+                <span class="badge info">incomplete example</span>
+              </div>
+              
+              
+              <pre><code>const NarrowWithTableOfContents = () =&gt; (
+  &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+    &lt;Grid.Cell appearance=&quot;transparent&quot; span=&quot;all&quot;&gt;
+      &lt;Heading level={1}&gt;Vergunninghouders 2026/2027&lt;/Heading&gt;
+    &lt;/Grid.Cell&gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 3, wide: 4 }}&gt;
+      {/* The heading names the section, which gives this navigation a name of its own next to the Menu. */}
+      &lt;TableOfContents heading={currentSection?.text}&gt;
+        &lt;TableOfContents.List&gt;
+          {currentSection?.submenu?.map(({ href, id, text }) =&gt; (
+            &lt;TableOfContents.Link
+              aria-current={id === &#39;rapportages-vergunninghouders&#39; ? &#39;page&#39; : undefined}
+              href={href}
+              key={id}
+              label={text}
+            /&gt;
+          ))}
+        &lt;/TableOfContents.List&gt;
+      &lt;/TableOfContents&gt;
+    &lt;/Grid.Cell&gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 5, wide: 8 }}&gt;
+      &lt;Paragraph&gt;{summary}&lt;/Paragraph&gt;
+    &lt;/Grid.Cell&gt;
+  &lt;/Grid&gt;
+);</code></pre>
+              <div class="snippet-warning">Incomplete snippet: `...commonMeta` could not be resolved statically.</div>
+            </div>
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Narrow With Section Overview</span>
+                <span class="badge info">incomplete example</span>
+              </div>
+              
+              
+              <pre><code>const NarrowWithSectionOverview = () =&gt; (
+  &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+    &lt;Grid.Cell appearance=&quot;transparent&quot; span=&quot;all&quot;&gt;
+      &lt;Heading level={1}&gt;{currentSection?.text}&lt;/Heading&gt;
+    &lt;/Grid.Cell&gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 5, wide: 8 }}&gt;
+      &lt;LinkList&gt;
+        {currentSection?.submenu?.map(({ href, id, text }) =&gt; (
+          &lt;LinkList.Link href={href} key={id}&gt;
+            {text}
+          &lt;/LinkList.Link&gt;
+        ))}
+      &lt;/LinkList&gt;
+    &lt;/Grid.Cell&gt;
+  &lt;/Grid&gt;
+);</code></pre>
+              <div class="snippet-warning">Incomplete snippet: `...commonMeta` could not be resolved statically.</div>
+            </div>
         </div>
     
+        <div class="panel panel-docs">
+          
+          
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Docs</span>
+                <span class="badge ok">doc ok</span>
+              </div>
+              <div class="hint">./src/pages/internal/NavigationModels/NavigationModels.docs.mdx</div>
+              <div>## Anatomy This schematic shows the default sections for this page type and how the grids ...</div>
+              <div class="mdx-content"><pre><code>{/* @license CC0-1.0 */}
+
+import { Description, Meta, Title } from &quot;@storybook/addon-docs/blocks&quot;;
+
+import { PageAnatomy } from &quot;#storybook/_components/PageAnatomy/PageAnatomy&quot;;
+import { StatusBadge } from &quot;#storybook/_components/StatusBadge/StatusBadge&quot;;
+
+import { anatomyLabels } from &quot;./anatomyLabels.ts&quot;;
+import * as NavigationModelStories from &quot;./NavigationModels.stories&quot;;
+
+&lt;Meta of={NavigationModelStories} /&gt;
+
+&lt;StatusBadge
+  description=&quot;These navigation models are exploratory and may change as design and implementation guidance evolves.&quot;
+  status=&quot;experimental&quot;
+/&gt;
+
+&lt;Title /&gt;
+
+&lt;Description of={NavigationModelStories} /&gt;
+
+## Anatomy
+
+This schematic shows the default sections for this page type and how the grids and vertical space work.
+
+&lt;PageAnatomy labels={anatomyLabels} menu mode=&quot;compact&quot; of={NavigationModelStories} story=&quot;WidenedByUser&quot; /&gt;
+
+## Usage guidelines
+
+### When to use
+
+Use this page to compare navigation models with the same shell, links and content, so only navigation decisions differ.
+
+## Variants
+
+### Always wide, open submenus
+
+The application keeps the Menu wide, and every submenu is open.
+
+### Always wide, collapsible submenus
+
+The application keeps the Menu wide, and each submenu has a button to show and hide it.
+The submenu that holds the current page starts open.
+
+### Widened by user
+
+The Menu has a button that lets users widen and narrow it.
+It starts wide here, because the current page is in a submenu.
+
+### Narrow with Table of Contents
+
+The Menu stays a narrow column and shows the first level only.
+A Table of Contents in the page body lists the pages of the current section.
+
+### Narrow with section overview
+
+The Menu stays a narrow column and shows the first level only.
+Its link leads to a page that lists the pages of the section.
+
+## See also
+
+- [Menu](/docs/components-navigation-menu--docs) – the navigation component used in each model.
+- [Table of Contents](/docs/components-navigation-table-of-contents--docs) – section navigation for the narrow-column model.
+- [Page structure](/docs/pages-guidelines-page-structure--docs) – the shared shell all internal pages use.
+</code></pre></div>
+            </div>
+        </div>
     
   </div>
 </article>
