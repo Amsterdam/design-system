@@ -57,9 +57,15 @@ Do not use this component anywhere other than the Page Header and the side of th
 
 ### How to use
 
-Set `expandable` on the wide-window instance when users need room for a second level of navigation.
-It adds a button that widens the Menu, which gives the links the horizontal layout again.
-Start the Menu out wide with `defaultExpanded`, or pass `expanded` together with `onToggle` when the parent should own the state.
+The Menu beside the page, the one with `inWideWindow`, has three setups:
+
+- A narrow column. This is the default.
+- Always wide. Pass `expanded` without `expandable`.
+- Widened by the user. Set `expandable`.
+
+`expandable` adds a button that widens and narrows the Menu.
+A wide Menu gives the links the horizontal layout again.
+Start an expandable Menu out wide with `defaultExpanded`, or pass `expanded` together with `onToggle` when the parent should own the state.
 
 ### How to write
 
@@ -77,9 +83,15 @@ A Menu that users can widen themselves.
 
 ### Expanded
 
-The same Menu, wide from the start.
+The user-expandable Menu, wide from the start.
 
 <Canvas of={MenuStories.Expanded} />
+
+### Always wide
+
+A Menu in a wide window that starts wide without an expand button.
+
+<Canvas of={MenuStories.AlwaysWide} />
 
 ## Design
 
