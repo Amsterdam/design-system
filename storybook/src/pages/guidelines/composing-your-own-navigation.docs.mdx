@@ -1,0 +1,189 @@
+{/* @license CC0-1.0 */}
+
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Pages/Guidelines/Composing your own navigation" />
+
+# Composing your own navigation
+
+Internal websites navigate in more ways than one Menu component can decide for them.
+The design system offers the parts and a set of working models, and leaves the choice to the team that understands their website best.
+
+Every model here uses the shell from [Page structure](/docs/pages-guidelines-page-structure--docs): a Menu in the Page Header for narrow and medium windows, and the same Menu beside the page in a wide window.
+
+## Decice what fits your website
+
+To come to a model that fits your website, answer these questions as a guide to the parts you need and how to put them together.
+
+1. **How many levels?** Try to keep it to one or two, and no more than three.
+2. **Where should each level live?** In the Menu, in the body of the page, or on a page of its own.
+3. **Who sets the width of the Menu beside the page?** The application, the current page or the user?
+
+## The links
+
+A Menu with one level holds a `Menu.Link` per page.
+A Menu with two levels holds a `Menu.Item` for each link that has a submenu.
+
+```tsx
+const links = (
+  <>
+    <Menu.Link href="/dashboard" icon={<PieChartFillIcon />}>
+      Dashboard
+    </Menu.Link>
+    <Menu.Item href="/rapportages" icon={<DocumentsFillIcon />} label="Rapportages">
+      <Menu.Link href="/rapportages/vergunninghouders">Vergunninghouders</Menu.Link>
+      <Menu.Link href="/rapportages/maandrapportages">Maandrapportages</Menu.Link>
+    </Menu.Item>
+  </>
+);
+```
+
+The snippets below show the two Menus in their place in the Page, and pass them these links.
+The other children of the Page are left out.
+
+## One level
+
+### The Menu alone
+
+The Menu is a narrow column of icons with a label.
+See the [Internal Home Page](/story/pages-internal-home-page--default).
+
+It takes the least room and has nothing to learn.
+It fits a website whose pages all sit on one level.
+
+```tsx
+<Page withMenu>
+  <PageHeader className="ams-page__area--header" noMenuButtonOnWideWindow>
+    <Menu>{links}</Menu>
+  </PageHeader>
+  <Menu className="ams-page__area--menu" inWideWindow>
+    {links}
+  </Menu>
+</Page>
+```
+
+## Two levels in the Menu
+
+A wide Menu shows its submenus; the narrow column does not.
+The Menu in the Page Header always shows them.
+
+### Always wide, open submenus
+
+The application keeps the Menu wide, and every submenu is open.
+See [Always wide, open submenus](/story/pages-internal-navigation-models--always-wide-open-submenus).
+
+Users see every page at once and nothing moves.
+It costs `14rem` of the width of every page, and the Menu grows long with more than a few submenus.
+
+```tsx
+<Page withMenu>
+  <PageHeader className="ams-page__area--header" noMenuButtonOnWideWindow>
+    <Menu>{links}</Menu>
+  </PageHeader>
+  <Menu className="ams-page__area--menu" expanded inWideWindow>
+    {links}
+  </Menu>
+</Page>
+```
+
+### Always wide, collapsible submenus
+
+The application keeps the Menu wide, and each submenu has a button to show and hide it.
+See [Always wide, collapsible submenus](/story/pages-internal-navigation-models--always-wide-collapsible-submenus).
+
+The Menu stays short with many submenus.
+It costs the same `14rem`, and a submenu that is closed hides its links.
+
+```tsx
+<Page withMenu>
+  <PageHeader className="ams-page__area--header" noMenuButtonOnWideWindow>
+    <Menu collapsibleSubmenus>{links}</Menu>
+  </PageHeader>
+  <Menu className="ams-page__area--menu" collapsibleSubmenus expanded inWideWindow>
+    {links}
+  </Menu>
+</Page>
+```
+
+### Widened by the user
+
+The Menu has a button that lets users widen and narrow it.
+See [Widened by user](/story/pages-internal-navigation-models--widened-by-user).
+
+Users who know the website keep the room for their work.
+While the Menu is narrow, nothing shows that a link has a submenu, and the page shifts each time the Menu changes width.
+
+```tsx
+<Page withMenu>
+  <PageHeader className="ams-page__area--header" noMenuButtonOnWideWindow>
+    <Menu collapsibleSubmenus>{links}</Menu>
+  </PageHeader>
+  <Menu className="ams-page__area--menu" collapsibleSubmenus expandable inWideWindow>
+    {links}
+  </Menu>
+</Page>
+```
+
+Start the Menu out wide with `defaultExpanded` on a page that sits in a submenu, so users see where they are.
+
+## Lower levels in the page
+
+The Menu stays a narrow column with one level, and the page carries the rest.
+
+### A Table of Contents for the section
+
+A [Table of Contents](/docs/components-navigation-table-of-contents--docs) in the body lists the pages of the current section.
+See [Narrow with Table of Contents](/story/pages-internal-navigation-models--narrow-with-table-of-contents).
+
+It can nest further levels, and users see the sibling pages while they read.
+It costs a column of the page, and in a narrow window the list sits above the content.
+
+```tsx
+<TableOfContents heading="Rapportages">
+  <TableOfContents.List>
+    <TableOfContents.Link aria-current="page" href="/rapportages/vergunninghouders" label="Vergunninghouders" />
+    <TableOfContents.Link href="/rapportages/maandrapportages" label="Maandrapportages" />
+  </TableOfContents.List>
+</TableOfContents>
+```
+
+### A section page
+
+The link in the Menu leads to a page that lists the pages of its section.
+See [Narrow with section overview](/story/pages-internal-navigation-models--narrow-with-section-overview).
+
+It needs no extra navigation at all.
+It costs a click, and a page in the section does not show its sibling pages.
+
+### Tabs in the page
+
+A vertical [Tab Navigation](/docs/components-navigation-tab-navigation--docs) shows the sections, and a horizontal one the pages of the current section.
+See the [Internal Navigation Page](/docs/pages-internal-navigation-page--docs), which is experimental: the two Tab Navigations stack above the content in a narrow window.
+
+## Rules that apply to every model
+
+1. A link with a submenu leads to a page that lists the pages below it, so no page is reachable through a submenu alone.
+2. The submenu or the section of the current page is open.
+   With `collapsibleSubmenus`, set `defaultExpanded` on its `Menu.Item`.
+3. The link to the current page has `aria-current="page"`.
+   The Menu has no visual style for it yet.
+4. What a user closes stays closed while they navigate.
+   The application keeps that state: pass `expanded` and `onToggle`.
+5. The Menu in the Page Header and the Menu beside the page offer the same links.
+6. Each navigation landmark on the page has a name of its own.
+   The Menu beside the page is called ‘Hoofdmenu’ unless you set `accessibleName`; a Table of Contents takes its name from its `heading`.
+
+A button that shows and hides a submenu follows the [disclosure pattern for navigation](https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-navigation-hybrid/) of the ARIA Authoring Practices Guide.
+
+## Something else
+
+Where your website asks for a model we do not show, such as a second column beside the Menu, build it from these parts.
+The rules above are there so it comes out consistent with the rest, not to keep the set closed.
+
+Tell us what you built and what you had to invent for it.
+
+## See also
+
+- [Page structure](/docs/pages-guidelines-page-structure--docs) – the shell every internal page shares.
+- [Navigation Models](/docs/pages-internal-navigation-models--docs) – the models above as working pages.
+- [Menu](/docs/components-navigation-menu--docs) – the component and its props.
