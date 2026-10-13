@@ -141,6 +141,18 @@
   }
 }
 
+// The narrow column of a Menu that is not expanded hides its submenus, so a toggle button would control nothing there.
+// The item then lays out its link as it does without `collapsible`.
+@media (min-width: $ams-breakpoint-wide) {
+  :where(.ams-menu:not(.ams-menu--expanded)) .ams-menu__item--collapsible {
+    display: block;
+  }
+
+  :where(.ams-menu:not(.ams-menu--expanded)) .ams-menu__item--collapsible > .ams-menu__toggle-button {
+    display: none;
+  }
+}
+
 .ams-menu__expand-button,
 .ams-menu__toggle-button {
   justify-self: end;
