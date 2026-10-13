@@ -187,7 +187,7 @@ export const AlwaysWide: Story = {
 export const CollapsibleSubmenu: Story = {
   args: {
     children: collapsibleMenuChildren,
-    collapsible: true,
+    collapsibleSubmenus: true,
     defaultExpanded: true,
     expandable: true,
   },

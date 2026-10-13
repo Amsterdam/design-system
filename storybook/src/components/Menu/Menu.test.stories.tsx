@@ -198,7 +198,7 @@ export const WideWithSubmenuExpanded: Story = {
 
 export const CollapsibleCollapsed: Story = {
   args: {
-    collapsible: true,
+    collapsibleSubmenus: true,
   },
   parameters: {
     chromatic: { modes: { '400px': { viewport: 400 } } },
@@ -215,7 +215,7 @@ export const CollapsibleCollapsed: Story = {
 
 export const CollapsibleExpanded: Story = {
   args: {
-    collapsible: true,
+    collapsibleSubmenus: true,
   },
   parameters: {
     chromatic: { modes: { '400px': { viewport: 400 } } },
@@ -232,7 +232,7 @@ export const CollapsibleExpanded: Story = {
 
 export const WideCollapsibleExpanded: Story = {
   args: {
-    collapsible: true,
+    collapsibleSubmenus: true,
     defaultExpanded: true,
     expandable: true,
     inWideWindow: true,
@@ -249,7 +249,7 @@ export const WideCollapsibleExpanded: Story = {
 
 export const WideCollapsibleAlwaysExpanded: Story = {
   args: {
-    collapsible: true,
+    collapsibleSubmenus: true,
     expanded: true,
     inWideWindow: true,
   },
@@ -269,7 +269,7 @@ export const WideCollapsibleAlwaysExpanded: Story = {
 
 export const WideCollapsibleNotExpanded: Story = {
   args: {
-    collapsible: true,
+    collapsibleSubmenus: true,
     expandable: true,
     inWideWindow: true,
   },

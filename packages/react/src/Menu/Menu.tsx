@@ -32,7 +32,7 @@ export type MenuProps = {
    * Whether menu items with nested links can be expanded and collapsed.
    * @default false
    */
-  readonly collapsible?: boolean
+  readonly collapsibleSubmenus?: boolean
   /**
    * Whether the wide-window menu is initially expanded.
    * Ignored unless `inWideWindow` is `true`. Also ignored when `expanded` is provided.
@@ -86,7 +86,7 @@ export const MenuRoot = forwardRef<HTMLElement, MenuProps>(
       children,
       className,
       collapseButtonLabel = 'Klap menu in',
-      collapsible = false,
+      collapsibleSubmenus = false,
       defaultExpanded = false,
       expandable = false,
       expandButtonLabel = 'Klap menu uit',
@@ -157,7 +157,7 @@ export const MenuRoot = forwardRef<HTMLElement, MenuProps>(
             svg={isExpanded ? ChevronDoubleBackwardIcon : ChevronDoubleForwardIcon}
           />
         )}
-        <MenuContext.Provider value={{ collapsible, hideAccessibleLabel, showAccessibleLabel }}>
+        <MenuContext.Provider value={{ collapsibleSubmenus, hideAccessibleLabel, showAccessibleLabel }}>
           <ul className="ams-menu__list" id={isExpandable ? menuListId : undefined} ref={listRef}>
             {children}
           </ul>
