@@ -626,7 +626,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>5.2s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>5.4s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -19548,7 +19548,7 @@ collapseButtonLabel?: string = &#39;Klap menu in&#39;
 /**
  * Whether menu items with nested links can be expanded and collapsed.
  */
-collapsible?: boolean = false
+collapsibleSubmenus?: boolean = false
 
 /**
  * Whether the wide-window menu is initially expanded.
@@ -19709,7 +19709,7 @@ import { Menu } from '@amsterdam/design-system-react/src';</code></pre>
               </div>
               
               
-              <pre><code>const CollapsibleSubmenu = () =&gt; &lt;Menu inWideWindow={false} collapsible defaultExpanded expandable&gt;{[
+              <pre><code>const CollapsibleSubmenu = () =&gt; &lt;Menu inWideWindow={false} collapsibleSubmenus defaultExpanded expandable&gt;{[
       &lt;Menu.Link href=&quot;#&quot; icon={&lt;PieChartFillIcon /&gt;} key=&quot;Dashboard&quot;&gt;
         Dashboard
       &lt;/Menu.Link&gt;,
@@ -19835,7 +19835,7 @@ In an expanded wide Menu, submenus are visible.
 To keep navigation safe in every layout, let the parent link lead to a page that lists the links of its submenu.
 That way no page is reachable through a submenu alone.
 
-Set `collapsible` to add submenu toggle buttons for items with nested links.
+Set `collapsibleSubmenus` to add submenu toggle buttons for items with nested links.
 In a Menu that is not expanded, those toggle buttons are hidden, because the submenus are hidden there as well.
 
 Use `showAccessibleLabel` and `hideAccessibleLabel` to localise the toggle button name.
@@ -19899,7 +19899,7 @@ Expanded, the Menu is `14rem` wide and the links return to the horizontal layout
 The submenu is visible in a narrow or medium window and in an expanded Menu, and hidden in the narrower column, which has no room for it.
 Its links are indented by a small space, so they start at about half the width of the icon of their parent.
 Keeping room for the labels matters more there than aligning them with the label of the parent.
-With `collapsible`, each submenu toggle button sits at the end of the same row as its parent link.
+With `collapsibleSubmenus`, each submenu toggle button sits at the end of the same row as its parent link.
 Its chevron turns when that submenu is expanded.
 Each toggle button expands or collapses only its own submenu.
 
@@ -19918,7 +19918,7 @@ A submenu is a nested `ul` inside the parent item’s `li`, so the list structur
 With `expandable`, the icon-only button is named through `expandButtonLabel` and `collapseButtonLabel`.
 The button reports through `aria-expanded` whether the Menu is expanded, which in a Menu with submenus also shows and hides their links.
 Without scripting the button cannot work, so it is hidden and the submenus stay visible in the narrow column.
-With `collapsible`, each submenu toggle button uses icon-only button text from `showAccessibleLabel` and `hideAccessibleLabel`, combined with the item label.
+With `collapsibleSubmenus`, each submenu toggle button uses icon-only button text from `showAccessibleLabel` and `hideAccessibleLabel`, combined with the item label.
 Each submenu toggle button links to its submenu using `aria-controls`, and reports state with `aria-expanded`.
 If focus is inside a submenu when it collapses, focus moves to that submenu toggle button.
 Without scripting, submenu toggle buttons are hidden and collapsed submenus are shown.
@@ -19957,14 +19957,14 @@ A wide window shows both navigations, so give one of the two another name.
           <pre><code>Component: ../packages/react/src/index.ts::Menu (react-component-meta)</code></pre>
           <pre><code>/**
  * Whether the nested submenu is initially expanded.
- * Ignored when the parent `Menu` is not `collapsible`, when there is no submenu, or when `expanded` is provided.
+ * Ignored when the parent `Menu` does not have `collapsibleSubmenus`, when there is no submenu, or when `expanded` is provided.
  */
 defaultExpanded?: boolean = false
 
 /**
  * Whether the nested submenu is expanded.
  * When provided, the component is controlled and internal state is ignored.
- * Ignored when the parent `Menu` is not `collapsible` or when there is no submenu.
+ * Ignored when the parent `Menu` does not have `collapsibleSubmenus` or when there is no submenu.
  */
 expanded?: boolean
 
@@ -19986,7 +19986,7 @@ linkComponent?: ElementType | undefined
 
 /**
  * Callback fired when the nested submenu is expanded or collapsed. Receives the new expanded state.
- * Ignored when the parent `Menu` is not `collapsible` or when there is no submenu.
+ * Ignored when the parent `Menu` does not have `collapsibleSubmenus` or when there is no submenu.
  */
 onToggle?: (expanded: boolean) =&gt; void</code></pre>
     </div>
