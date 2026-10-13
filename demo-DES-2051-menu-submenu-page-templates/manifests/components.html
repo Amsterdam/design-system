@@ -620,13 +620,13 @@
 <header>
   <div class="wrap">
     <h1>Manifest Debugger</h1>
-    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">16/92 API errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">16/92 infos</a><a class="filter-pill" data-k="no-api" href="#filter-no-api">18/92 without API description</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">1/325 story errors</a><a class="filter-pill info" data-k="story-warnings" href="#filter-story-warnings">53/325 incomplete snippets</a><a class="filter-pill ok" data-k="docs" href="#filter-docs">129 docs ok</a></div>
+    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">16/92 API errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">16/92 infos</a><a class="filter-pill" data-k="no-api" href="#filter-no-api">18/92 without API description</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">1/325 story errors</a><a class="filter-pill info" data-k="story-warnings" href="#filter-story-warnings">53/325 incomplete snippets</a><a class="filter-pill ok" data-k="docs" href="#filter-docs">130 docs ok</a></div>
   </div>
 </header>
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>5.3s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>4.4s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -63055,6 +63055,8 @@ Make sure that both menus offer the same links.
 The Menu beside the page can be set up as a narrow column, always wide, or widened by the user.
 Choose a setup that fits the information architecture of the application.
 
+For guidance on choosing a navigation model, see [Composing your own navigation](/docs/pages-guidelines-composing-your-own-navigation--docs).
+
 ## Landmarks
 
 A landmark is not always a section itself.
@@ -63096,10 +63098,227 @@ Compact Mode already sets the type down a step, and a second reduction would lea
   aria-label="Docs">
   <div class="head">
     <div class="title">
+      <h2><span class="status-dot dot-ok"></span> Pages/Guidelines/Composing your own navigation</h2>
+      <div class="badges">
+        
+        <label for="doc-32-pages-guidelines-composing-your-own-navigation-docs-content" class="badge ok as-toggle">view content</label>
+      </div>
+    </div>
+    <div class="meta" title="./src/pages/guidelines/composing-your-own-navigation.docs.mdx">pages-guidelines-composing-your-own-navigation--docs · ./src/pages/guidelines/composing-your-own-navigation.docs.mdx</div>
+    <div># Composing your own navigation Internal websites navigate in more ways than one Menu can ...</div>
+  </div>
+
+  <!-- Hidden toggles must be siblings BEFORE .panels -->
+  
+  <input id="doc-32-pages-guidelines-composing-your-own-navigation-docs-content" class="tg tg-content" type="checkbox" hidden />
+
+  <div class="panels">
+    
+    
+        <div class="panel panel-content">
+          <div class="mdx-content">
+            <pre><code>{/* @license CC0-1.0 */}
+
+import { Meta } from &quot;@storybook/addon-docs/blocks&quot;;
+
+&lt;Meta title=&quot;Pages/Guidelines/Composing your own navigation&quot; /&gt;
+
+# Composing your own navigation
+
+Internal websites navigate in more ways than one Menu can decide for them.
+The design system offers the parts and a set of working models, and leaves the choice to the team that knows the website.
+
+Every model here uses the shell from [Page structure](/docs/pages-guidelines-page-structure--docs): a Menu in the Page Header for narrow and medium windows, and the same Menu beside the page in a wide window.
+
+## The order to decide in
+
+1. **How many levels.** Count the level in the Menu, then each level below it.
+2. **Where each level lives.** In the Menu, in the body of the page, or on a page of its own.
+3. **Who sets the width of the Menu beside the page.** The application, or the user.
+
+## The links
+
+A Menu with one level holds a `Menu.Link` per page.
+A Menu with two levels holds a `Menu.Item` for each link that has a submenu.
+
+```tsx
+const links = (
+  &lt;&gt;
+    &lt;Menu.Link href=&quot;/dashboard&quot; icon={&lt;PieChartFillIcon /&gt;}&gt;
+      Dashboard
+    &lt;/Menu.Link&gt;
+    &lt;Menu.Item href=&quot;/rapportages&quot; icon={&lt;DocumentsFillIcon /&gt;} label=&quot;Rapportages&quot;&gt;
+      &lt;Menu.Link href=&quot;/rapportages/vergunninghouders&quot;&gt;Vergunninghouders&lt;/Menu.Link&gt;
+      &lt;Menu.Link href=&quot;/rapportages/maandrapportages&quot;&gt;Maandrapportages&lt;/Menu.Link&gt;
+    &lt;/Menu.Item&gt;
+  &lt;/&gt;
+);
+```
+
+The snippets below show the two Menus in their place in the Page, and pass them these links.
+The other children of the Page are left out.
+
+## One level
+
+### The Menu alone
+
+The Menu is a narrow column of icons with a label.
+See the [Internal Home Page](/story/pages-internal-home-page--default).
+
+It takes the least room and has nothing to learn.
+It fits a website whose pages all sit on one level.
+
+```tsx
+&lt;Page withMenu&gt;
+  &lt;PageHeader className=&quot;ams-page__area--header&quot; noMenuButtonOnWideWindow&gt;
+    &lt;Menu&gt;{links}&lt;/Menu&gt;
+  &lt;/PageHeader&gt;
+  &lt;Menu className=&quot;ams-page__area--menu&quot; inWideWindow&gt;
+    {links}
+  &lt;/Menu&gt;
+&lt;/Page&gt;
+```
+
+## Two levels in the Menu
+
+A wide Menu shows its submenus; the narrow column does not.
+The Menu in the Page Header always shows them.
+
+### Always wide, open submenus
+
+The application keeps the Menu wide, and every submenu is open.
+See [Always wide, open submenus](/story/pages-internal-navigation-models--always-wide-open-submenus).
+
+Users see every page at once and nothing moves.
+It costs `14rem` of the width of every page, and the Menu grows long with more than a few submenus.
+
+```tsx
+&lt;Page withMenu&gt;
+  &lt;PageHeader className=&quot;ams-page__area--header&quot; noMenuButtonOnWideWindow&gt;
+    &lt;Menu&gt;{links}&lt;/Menu&gt;
+  &lt;/PageHeader&gt;
+  &lt;Menu className=&quot;ams-page__area--menu&quot; expanded inWideWindow&gt;
+    {links}
+  &lt;/Menu&gt;
+&lt;/Page&gt;
+```
+
+### Always wide, collapsible submenus
+
+The application keeps the Menu wide, and each submenu has a button to show and hide it.
+See [Always wide, collapsible submenus](/story/pages-internal-navigation-models--always-wide-collapsible-submenus).
+
+The Menu stays short with many submenus.
+It costs the same `14rem`, and a submenu that is closed hides its links.
+
+```tsx
+&lt;Page withMenu&gt;
+  &lt;PageHeader className=&quot;ams-page__area--header&quot; noMenuButtonOnWideWindow&gt;
+    &lt;Menu collapsibleSubmenus&gt;{links}&lt;/Menu&gt;
+  &lt;/PageHeader&gt;
+  &lt;Menu className=&quot;ams-page__area--menu&quot; collapsibleSubmenus expanded inWideWindow&gt;
+    {links}
+  &lt;/Menu&gt;
+&lt;/Page&gt;
+```
+
+### Widened by the user
+
+The Menu has a button that lets users widen and narrow it.
+See [Widened by user](/story/pages-internal-navigation-models--widened-by-user).
+
+Users who know the website keep the room for their work.
+While the Menu is narrow, nothing shows that a link has a submenu, and the page shifts each time the Menu changes width.
+
+```tsx
+&lt;Page withMenu&gt;
+  &lt;PageHeader className=&quot;ams-page__area--header&quot; noMenuButtonOnWideWindow&gt;
+    &lt;Menu collapsibleSubmenus&gt;{links}&lt;/Menu&gt;
+  &lt;/PageHeader&gt;
+  &lt;Menu className=&quot;ams-page__area--menu&quot; collapsibleSubmenus expandable inWideWindow&gt;
+    {links}
+  &lt;/Menu&gt;
+&lt;/Page&gt;
+```
+
+Start the Menu out wide with `defaultExpanded` on a page that sits in a submenu, so users see where they are.
+
+## Lower levels in the page
+
+The Menu stays a narrow column with one level, and the page carries the rest.
+
+### A Table of Contents for the section
+
+A [Table of Contents](/docs/components-navigation-table-of-contents--docs) in the body lists the pages of the current section.
+See [Narrow with Table of Contents](/story/pages-internal-navigation-models--narrow-with-table-of-contents).
+
+It can nest further levels, and users see the sibling pages while they read.
+It costs a column of the page, and in a narrow window the list sits above the content.
+
+```tsx
+&lt;TableOfContents heading=&quot;Rapportages&quot;&gt;
+  &lt;TableOfContents.List&gt;
+    &lt;TableOfContents.Link aria-current=&quot;page&quot; href=&quot;/rapportages/vergunninghouders&quot; label=&quot;Vergunninghouders&quot; /&gt;
+    &lt;TableOfContents.Link href=&quot;/rapportages/maandrapportages&quot; label=&quot;Maandrapportages&quot; /&gt;
+  &lt;/TableOfContents.List&gt;
+&lt;/TableOfContents&gt;
+```
+
+### A section page
+
+The link in the Menu leads to a page that lists the pages of its section.
+See [Narrow with section overview](/story/pages-internal-navigation-models--narrow-with-section-overview).
+
+It needs no extra navigation at all.
+It costs a click, and a page in the section does not show its sibling pages.
+
+### Tabs in the page
+
+A vertical [Tab Navigation](/docs/components-navigation-tab-navigation--docs) shows the sections, and a horizontal one the pages of the current section.
+See the [Internal Navigation Page](/docs/pages-internal-navigation-page--docs), which is experimental: the two Tab Navigations stack above the content in a narrow window.
+
+## Rules that apply to every model
+
+1. A link with a submenu leads to a page that lists the pages below it, so no page is reachable through a submenu alone.
+2. The submenu or the section of the current page is open.
+   With `collapsibleSubmenus`, set `defaultExpanded` on its `Menu.Item`.
+3. The link to the current page has `aria-current=&quot;page&quot;`.
+   The Menu has no visual style for it yet.
+4. What a user closes stays closed while they navigate.
+   The application keeps that state: pass `expanded` and `onToggle`.
+5. The Menu in the Page Header and the Menu beside the page offer the same links.
+6. Each navigation landmark on the page has a name of its own.
+   The Menu beside the page is called ‘Hoofdmenu’ unless you set `accessibleName`; a Table of Contents takes its name from its `heading`.
+
+A button that shows and hides a submenu follows the [disclosure pattern for navigation](https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-navigation-hybrid/) of the ARIA Authoring Practices Guide.
+
+## Something else
+
+Where your website asks for a model we do not show, such as a second column beside the Menu, build it from these parts.
+The rules above are there so it comes out consistent with the rest, not to keep the set closed.
+
+Tell us what you built and what you had to invent for it.
+
+## See also
+
+- [Page structure](/docs/pages-guidelines-page-structure--docs) – the shell every internal page shares.
+- [Navigation Models](/docs/pages-internal-navigation-models--docs) – the models above as working pages.
+- [Menu](/docs/components-navigation-menu--docs) – the component and its props.
+</code></pre>
+          </div>
+        </div>
+  </div>
+</article>
+<article
+  class="card is-doc no-doc-error"
+  role="listitem"
+  aria-label="Docs">
+  <div class="head">
+    <div class="title">
       <h2><span class="status-dot dot-ok"></span> Pages/Guidelines/Layout and spacing</h2>
       <div class="badges">
         
-        <label for="doc-32-pages-guidelines-layout-and-spacing-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-33-pages-guidelines-layout-and-spacing-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/pages/guidelines/layout-and-spacing.docs.mdx">pages-guidelines-layout-and-spacing--docs · ./src/pages/guidelines/layout-and-spacing.docs.mdx</div>
@@ -63108,7 +63327,7 @@ Compact Mode already sets the type down a step, and a second reduction would lea
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-32-pages-guidelines-layout-and-spacing-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-33-pages-guidelines-layout-and-spacing-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -63320,7 +63539,7 @@ These layouts require **4 columns** for each Card, which can be achieved with a 
       <h2><span class="status-dot dot-ok"></span> Pages/Guidelines/Reading the anatomy</h2>
       <div class="badges">
         
-        <label for="doc-33-pages-guidelines-reading-the-anatomy-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-34-pages-guidelines-reading-the-anatomy-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/pages/guidelines/reading-the-anatomy.docs.mdx">pages-guidelines-reading-the-anatomy--docs · ./src/pages/guidelines/reading-the-anatomy.docs.mdx</div>
@@ -63329,7 +63548,7 @@ These layouts require **4 columns** for each Card, which can be achieved with a 
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-33-pages-guidelines-reading-the-anatomy-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-34-pages-guidelines-reading-the-anatomy-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -63378,7 +63597,7 @@ It all happens per Grid variant, because a run that fills a phone from top to bo
       <h2><span class="status-dot dot-ok"></span> Pages/Guidelines/Composing your own page</h2>
       <div class="badges">
         
-        <label for="doc-34-pages-guidelines-composing-your-own-page-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-35-pages-guidelines-composing-your-own-page-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/pages/guidelines/composing-your-own-page.docs.mdx">pages-guidelines-composing-your-own-page--docs · ./src/pages/guidelines/composing-your-own-page.docs.mdx</div>
@@ -63387,7 +63606,7 @@ It all happens per Grid variant, because a run that fills a phone from top to bo
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-34-pages-guidelines-composing-your-own-page-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-35-pages-guidelines-composing-your-own-page-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -63460,7 +63679,7 @@ Tell us what you built and what you had to invent for it, and we will look at ta
       <h2><span class="status-dot dot-ok"></span> Pages/Public/Introduction</h2>
       <div class="badges">
         
-        <label for="doc-35-pages-public-introduction-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-36-pages-public-introduction-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/pages/public/Introduction.docs.mdx">pages-public-introduction--docs · ./src/pages/public/Introduction.docs.mdx</div>
@@ -63469,7 +63688,7 @@ Tell us what you built and what you had to invent for it, and we will look at ta
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-35-pages-public-introduction-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-36-pages-public-introduction-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -63522,7 +63741,7 @@ Both differences are covered where the rules are: [Page structure](/docs/pages-g
       <h2><span class="status-dot dot-ok"></span> Pages/Internal/Introduction</h2>
       <div class="badges">
         
-        <label for="doc-36-pages-internal-introduction-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-37-pages-internal-introduction-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/pages/internal/Introduction.docs.mdx">pages-internal-introduction--docs · ./src/pages/internal/Introduction.docs.mdx</div>
@@ -63531,7 +63750,7 @@ Both differences are covered where the rules are: [Page structure](/docs/pages-g
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-36-pages-internal-introduction-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-37-pages-internal-introduction-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
