@@ -626,7 +626,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>3.3s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>5.3s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -20881,17 +20881,17 @@ export const AlwaysWideOpenSubmenus: Story = {
   },
 }
 
-// The application keeps the Menu wide: there is no button to narrow it. `collapsible` is about the submenus only:
-// each one gets a button to show and hide it.
+// The application keeps the Menu wide: there is no button to narrow it.
+// `collapsibleSubmenus` leaves the Menu itself alone: each submenu gets a button to show and hide it.
 export const AlwaysWideCollapsibleSubmenus: Story = {
   parameters: {
     navigation: {
       headerMenu: {
-        collapsible: true,
+        collapsibleSubmenus: true,
         navigationDepth: 2,
       },
       wideMenu: {
-        collapsible: true,
+        collapsibleSubmenus: true,
         expanded: true,
         navigationDepth: 2,
       },
@@ -20899,7 +20899,8 @@ export const AlwaysWideCollapsibleSubmenus: Story = {
   },
 }
 
-// `expandable` gives the Menu a button to widen and narrow it, and `collapsible` gives each submenu a button of its own.
+// `expandable` gives the Menu a button to widen and narrow it.
+// `collapsibleSubmenus` gives each submenu a button of its own.
 export const WidenedByUser: Story = {
   parameters: {
     chromatic: {
@@ -20910,11 +20911,11 @@ export const WidenedByUser: Story = {
     },
     navigation: {
       headerMenu: {
-        collapsible: true,
+        collapsibleSubmenus: true,
         navigationDepth: 2,
       },
       wideMenu: {
-        collapsible: true,
+        collapsibleSubmenus: true,
         expandable: true,
         expandForCurrentSubmenu: true,
         navigationDepth: 2,
@@ -48352,17 +48353,17 @@ export const AlwaysWideOpenSubmenus: Story = {
   },
 }
 
-// The application keeps the Menu wide: there is no button to narrow it. `collapsible` is about the submenus only:
-// each one gets a button to show and hide it.
+// The application keeps the Menu wide: there is no button to narrow it.
+// `collapsibleSubmenus` leaves the Menu itself alone: each submenu gets a button to show and hide it.
 export const AlwaysWideCollapsibleSubmenus: Story = {
   parameters: {
     navigation: {
       headerMenu: {
-        collapsible: true,
+        collapsibleSubmenus: true,
         navigationDepth: 2,
       },
       wideMenu: {
-        collapsible: true,
+        collapsibleSubmenus: true,
         expanded: true,
         navigationDepth: 2,
       },
@@ -48370,7 +48371,8 @@ export const AlwaysWideCollapsibleSubmenus: Story = {
   },
 }
 
-// `expandable` gives the Menu a button to widen and narrow it, and `collapsible` gives each submenu a button of its own.
+// `expandable` gives the Menu a button to widen and narrow it.
+// `collapsibleSubmenus` gives each submenu a button of its own.
 export const WidenedByUser: Story = {
   parameters: {
     chromatic: {
@@ -48381,11 +48383,11 @@ export const WidenedByUser: Story = {
     },
     navigation: {
       headerMenu: {
-        collapsible: true,
+        collapsibleSubmenus: true,
         navigationDepth: 2,
       },
       wideMenu: {
-        collapsible: true,
+        collapsibleSubmenus: true,
         expandable: true,
         expandForCurrentSubmenu: true,
         navigationDepth: 2,
