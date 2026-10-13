@@ -94,3 +94,21 @@ export const WideExpanded: Story = {
   render: renderMenu,
   tags: ['!dev', '!autodocs', '!manifest'],
 }
+
+export const WideAlwaysExpanded: Story = {
+  args: {
+    expanded: true,
+    inWideWindow: true,
+  },
+  parameters: {
+    fixedInWideWindow: true,
+  },
+  play: async ({ canvas }) => {
+    const menu = canvas.getByRole('navigation', { name: 'Hoofdmenu' })
+
+    await expect(menu).toHaveClass('ams-menu--expanded')
+    await expect(canvas.queryByRole('button', { name: /Klap menu uit|Klap menu in/ })).not.toBeInTheDocument()
+  },
+  render: renderMenu,
+  tags: ['!dev', '!autodocs', '!manifest'],
+}
