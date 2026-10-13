@@ -80,7 +80,10 @@ Start an expandable Menu out wide with `defaultExpanded`, or pass `expanded` tog
 
 Use `Menu.Item` for a top-level entry that owns submenu links.
 Its `label` names the parent link, and its children are the nested `Menu.Link` items.
-In wide windows a Menu with a submenu requires `expandable` to be set, because the submenus are only visible while the Menu is expanded.
+In the narrow column, only the first level is visible.
+In an expanded wide Menu, submenus are visible.
+To keep navigation safe in every layout, let the parent link lead to a page that lists the links of its submenu.
+That way no page is reachable through a submenu alone.
 
 ### How to write
 
