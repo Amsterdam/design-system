@@ -292,7 +292,7 @@ describe('Menu', () => {
     expect(link).toHaveFocus()
   })
 
-  it('keeps submenu rendering unchanged when not collapsible', () => {
+  it('keeps submenu rendering unchanged without collapsible submenus', () => {
     render(
       <Menu>
         <Menu.Item href="#" label="Projecten">
@@ -312,7 +312,7 @@ describe('Menu', () => {
 
   it('renders submenu toggles in a wide Menu that is always expanded without expandable', () => {
     render(
-      <Menu collapsible expanded inWideWindow>
+      <Menu collapsibleSubmenus expanded inWideWindow>
         <Menu.Item href="#" label="Projecten">
           <Menu.Link href="#">Overzicht</Menu.Link>
         </Menu.Item>
@@ -325,7 +325,7 @@ describe('Menu', () => {
 
   it('renders submenu toggles in a wide Menu that is expanded', () => {
     render(
-      <Menu collapsible defaultExpanded expandable inWideWindow>
+      <Menu collapsibleSubmenus defaultExpanded expandable inWideWindow>
         <Menu.Item href="#" label="Projecten">
           <Menu.Link href="#">Overzicht</Menu.Link>
         </Menu.Item>

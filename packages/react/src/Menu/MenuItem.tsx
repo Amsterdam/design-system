@@ -19,14 +19,14 @@ import { MenuContext } from './MenuContext'
 export type MenuItemProps = {
   /**
    * Whether the nested submenu is initially expanded.
-   * Ignored when the parent `Menu` is not `collapsible`, when there is no submenu, or when `expanded` is provided.
+   * Ignored when the parent `Menu` does not have `collapsibleSubmenus`, when there is no submenu, or when `expanded` is provided.
    * @default false
    */
   readonly defaultExpanded?: boolean
   /**
    * Whether the nested submenu is expanded.
    * When provided, the component is controlled and internal state is ignored.
-   * Ignored when the parent `Menu` is not `collapsible` or when there is no submenu.
+   * Ignored when the parent `Menu` does not have `collapsibleSubmenus` or when there is no submenu.
    */
   readonly expanded?: boolean
   /** The icon to display for the menu item. Use the filled variant for top-level items. */
@@ -40,7 +40,7 @@ export type MenuItemProps = {
   readonly linkComponent?: ElementType
   /**
    * Callback fired when the nested submenu is expanded or collapsed. Receives the new expanded state.
-   * Ignored when the parent `Menu` is not `collapsible` or when there is no submenu.
+   * Ignored when the parent `Menu` does not have `collapsibleSubmenus` or when there is no submenu.
    */
   readonly onToggle?: (expanded: boolean) => void
 } & Readonly<PropsWithChildren<AnchorHTMLAttributes<HTMLAnchorElement>>>
@@ -72,11 +72,11 @@ export const MenuItem = forwardRef(
     const Tag = linkComponent || 'a'
     const submenuChildren = Children.toArray(children)
     const hasSubmenu = submenuChildren.length > 0
-    const { collapsible, hideAccessibleLabel, showAccessibleLabel } = useContext(MenuContext)
+    const { collapsibleSubmenus, hideAccessibleLabel, showAccessibleLabel } = useContext(MenuContext)
     const panelId = useId()
     const submenuRef = useRef<HTMLUListElement>(null)
     const buttonRef = useRef<HTMLButtonElement>(null)
-    const isExpandable = collapsible && hasSubmenu
+    const isExpandable = collapsibleSubmenus && hasSubmenu
 
     const [isExpanded, toggle] = useCollapsible({
       defaultValue: defaultExpanded,
