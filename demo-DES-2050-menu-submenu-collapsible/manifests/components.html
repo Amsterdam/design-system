@@ -626,7 +626,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>3.4s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>5.2s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -19836,7 +19836,7 @@ To keep navigation safe in every layout, let the parent link lead to a page that
 That way no page is reachable through a submenu alone.
 
 Set `collapsible` to add submenu toggle buttons for items with nested links.
-In a Menu that is not expanded, those toggle buttons are absent because submenus are hidden there.
+In a Menu that is not expanded, those toggle buttons are hidden, because the submenus are hidden there as well.
 
 Use `showAccessibleLabel` and `hideAccessibleLabel` to localise the toggle button name.
 
@@ -19957,14 +19957,14 @@ A wide window shows both navigations, so give one of the two another name.
           <pre><code>Component: ../packages/react/src/index.ts::Menu (react-component-meta)</code></pre>
           <pre><code>/**
  * Whether the nested submenu is initially expanded.
- * Ignored when the parent `Menu` is not `collapsible`, when there is no submenu, when the Menu currently hides submenus, or when `expanded` is provided.
+ * Ignored when the parent `Menu` is not `collapsible`, when there is no submenu, or when `expanded` is provided.
  */
 defaultExpanded?: boolean = false
 
 /**
  * Whether the nested submenu is expanded.
  * When provided, the component is controlled and internal state is ignored.
- * Ignored when the parent `Menu` is not `collapsible`, when there is no submenu, or when the Menu currently hides submenus.
+ * Ignored when the parent `Menu` is not `collapsible` or when there is no submenu.
  */
 expanded?: boolean
 
@@ -19986,7 +19986,7 @@ linkComponent?: ElementType | undefined
 
 /**
  * Callback fired when the nested submenu is expanded or collapsed. Receives the new expanded state.
- * Ignored when the parent `Menu` is not `collapsible`, when there is no submenu, or when the Menu currently hides submenus.
+ * Ignored when the parent `Menu` is not `collapsible` or when there is no submenu.
  */
 onToggle?: (expanded: boolean) =&gt; void</code></pre>
     </div>
