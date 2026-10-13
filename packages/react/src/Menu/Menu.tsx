@@ -7,7 +7,7 @@ import type { ElementType, HTMLAttributes, PropsWithChildren } from 'react'
 
 import { ChevronDoubleBackwardIcon, ChevronDoubleForwardIcon } from '@amsterdam/design-system-react-icons'
 import { clsx } from 'clsx'
-import { forwardRef, useId } from 'react'
+import { forwardRef, useEffect, useId, useLayoutEffect, useRef } from 'react'
 
 import { useCollapsible } from '../common/useCollapsible'
 import { IconButton } from '../IconButton/IconButton'
@@ -59,6 +59,10 @@ export type MenuProps = {
   readonly onToggle?: (expanded: boolean) => void
 } & Readonly<PropsWithChildren<HTMLAttributes<HTMLElement>>>
 
+// A layout effect runs before the browser hides the submenus, while a link in one of them still has focus.
+/* v8 ignore next -- React 18 and older warn about a layout effect on the server */
+const useBrowserLayoutEffect = typeof window === 'undefined' ? useEffect : useLayoutEffect
+
 export const MenuRoot = forwardRef<HTMLElement, MenuProps>(
   (
     {
@@ -91,6 +95,19 @@ export const MenuRoot = forwardRef<HTMLElement, MenuProps>(
       value: expanded,
     })
 
+    const listRef = useRef<HTMLUListElement>(null)
+
+    // A wide Menu that is not expanded hides its submenus. When a parent collapses the Menu through `expanded`
+    // while something in a submenu has focus, focus moves to the link of that item, which stays visible.
+    useBrowserLayoutEffect(() => {
+      if (!inWideWindow || isExpanded) return
+
+      const item = Array.from(listRef.current?.children ?? []).find((child) => child.contains(document.activeElement))
+      const link = item?.firstElementChild
+
+      if (link instanceof HTMLElement && link !== document.activeElement) link.focus()
+    }, [inWideWindow, isExpanded])
+
     return (
       <Tag
         {...restProps}
@@ -121,7 +138,7 @@ export const MenuRoot = forwardRef<HTMLElement, MenuProps>(
             svg={isExpanded ? ChevronDoubleBackwardIcon : ChevronDoubleForwardIcon}
           />
         )}
-        <ul className="ams-menu__list" id={isExpandable ? menuListId : undefined}>
+        <ul className="ams-menu__list" id={isExpandable ? menuListId : undefined} ref={listRef}>
           {children}
         </ul>
       </Tag>

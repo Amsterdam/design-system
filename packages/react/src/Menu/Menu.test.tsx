@@ -253,4 +253,42 @@ describe('Menu', () => {
     expect(items).toHaveLength(3)
     expect(links).toHaveLength(3)
   })
+
+  it('moves focus to the link of an item when a parent collapses the Menu with focus in its submenu', () => {
+    const menu = (expanded: boolean) => (
+      <Menu expanded={expanded} inWideWindow>
+        <Menu.Item href="#" label="Projecten">
+          <Menu.Link href="#child">Overzicht</Menu.Link>
+        </Menu.Item>
+      </Menu>
+    )
+
+    const { rerender } = render(menu(true))
+
+    screen.getByRole('link', { name: 'Overzicht' }).focus()
+
+    rerender(menu(false))
+
+    expect(screen.getByRole('link', { name: 'Projecten' })).toHaveFocus()
+  })
+
+  it('keeps focus on a top-level link when a parent collapses the Menu', () => {
+    const menu = (expanded: boolean) => (
+      <Menu expanded={expanded} inWideWindow>
+        <Menu.Link href="#">Dashboard</Menu.Link>
+        <Menu.Item href="#" label="Projecten">
+          <Menu.Link href="#child">Overzicht</Menu.Link>
+        </Menu.Item>
+      </Menu>
+    )
+
+    const { rerender } = render(menu(true))
+
+    const link = screen.getByRole('link', { name: 'Dashboard' })
+    link.focus()
+
+    rerender(menu(false))
+
+    expect(link).toHaveFocus()
+  })
 })
