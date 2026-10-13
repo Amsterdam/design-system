@@ -1,8 +1,6 @@
-import { logoIndexTemplate } from './logoIndexTemplate.mjs'
 import { logoTemplate } from './logoTemplate.mjs'
 
 export default {
-  indexTemplate: logoIndexTemplate,
   jsxRuntime: 'automatic',
   ref: true,
   svgoConfig: {

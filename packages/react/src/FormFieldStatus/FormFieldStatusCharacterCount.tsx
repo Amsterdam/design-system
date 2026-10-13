@@ -12,7 +12,7 @@ import { forwardRef } from 'react'
 import type { FormatCharacterCountOverLimitText, FormatCharacterCountText } from './formatCharacterCountText'
 import type { LiveRegionAttributes } from './FormFieldStatus'
 
-import { Icon } from '../Icon'
+import { Icon } from '../Icon/Icon'
 import { formatCharacterCountOverLimitTextNl, formatCharacterCountTextNl } from './formatCharacterCountText'
 
 export type FormFieldStatusCharacterCountProps = {

@@ -7,7 +7,7 @@ import type { AnchorHTMLAttributes, ElementType, ForwardedRef, PropsWithChildren
 
 import { forwardRef } from 'react'
 
-import type { IconProps } from '../Icon'
+import type { IconProps } from '../Icon/Icon'
 
 import { MenuItem } from './MenuItem'
 

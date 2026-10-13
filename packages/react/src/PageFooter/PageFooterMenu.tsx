@@ -8,7 +8,7 @@ import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
 
-import type { HeadingProps } from '../Heading'
+import type { HeadingProps } from '../Heading/Heading'
 
 import { getHeadingTag } from '../Heading/getHeadingTag'
 

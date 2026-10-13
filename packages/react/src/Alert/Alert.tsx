@@ -9,13 +9,13 @@ import { ErrorFillIcon, InfoFillIcon, SuccessFillIcon, WarningFillIcon } from '@
 import { clsx } from 'clsx'
 import { forwardRef, useId } from 'react'
 
-import type { HeadingProps } from '../Heading'
-import type { IconProps } from '../Icon'
+import type { HeadingProps } from '../Heading/Heading'
+import type { IconProps } from '../Icon/Icon'
 
-import { Heading } from '../Heading'
-import { Icon } from '../Icon'
-import { IconButton } from '../IconButton'
-import { Row } from '../Row'
+import { Heading } from '../Heading/Heading'
+import { Icon } from '../Icon/Icon'
+import { IconButton } from '../IconButton/IconButton'
+import { Row } from '../Row/Row'
 
 type Severity = 'error' | 'success' | 'warning'
 

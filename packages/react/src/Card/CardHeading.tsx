@@ -8,9 +8,9 @@ import type { ForwardedRef } from 'react'
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
 
-import type { HeadingProps } from '../Heading'
+import type { HeadingProps } from '../Heading/Heading'
 
-import { Heading } from '../Heading'
+import { Heading } from '../Heading/Heading'
 
 /**
  * The heading within a Card, containing the link to the associated page.

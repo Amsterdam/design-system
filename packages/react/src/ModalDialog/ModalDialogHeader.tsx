@@ -8,9 +8,9 @@ import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
 
-import type { IconProps } from '../Icon'
+import type { IconProps } from '../Icon/Icon'
 
-import { IconButton } from '../IconButton'
+import { IconButton } from '../IconButton/IconButton'
 import { closeModalDialog } from './modalDialogActions'
 
 export type ModalDialogHeaderProps = {
