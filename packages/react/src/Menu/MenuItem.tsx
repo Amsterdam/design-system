@@ -7,10 +7,11 @@ import type { AnchorHTMLAttributes, ElementType, ForwardedRef, PropsWithChildren
 
 import { ChevronDownIcon } from '@amsterdam/design-system-react-icons'
 import { clsx } from 'clsx'
-import { Children, forwardRef, useContext, useEffect, useId, useLayoutEffect, useRef } from 'react'
+import { Children, forwardRef, useContext, useId, useRef } from 'react'
 
 import type { IconProps } from '../Icon/Icon'
 
+import { useBrowserLayoutEffect } from '../common/useBrowserLayoutEffect'
 import { useCollapsible } from '../common/useCollapsible'
 import { Icon } from '../Icon/Icon'
 import { IconButton } from '../IconButton/IconButton'
@@ -44,10 +45,6 @@ export type MenuItemProps = {
    */
   readonly onToggle?: (expanded: boolean) => void
 } & Readonly<PropsWithChildren<AnchorHTMLAttributes<HTMLAnchorElement>>>
-
-// A layout effect runs before the browser hides a collapsed submenu, while a link in it still has focus.
-/* v8 ignore next -- React 18 and older warn about a layout effect on the server */
-const useBrowserLayoutEffect = typeof window === 'undefined' ? useEffect : useLayoutEffect
 
 /**
  * A menu item that can contain a nested submenu.

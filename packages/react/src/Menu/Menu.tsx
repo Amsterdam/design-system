@@ -7,8 +7,9 @@ import type { ElementType, HTMLAttributes, PropsWithChildren } from 'react'
 
 import { ChevronDoubleBackwardIcon, ChevronDoubleForwardIcon } from '@amsterdam/design-system-react-icons'
 import { clsx } from 'clsx'
-import { forwardRef, useEffect, useId, useLayoutEffect, useRef } from 'react'
+import { forwardRef, useId, useRef } from 'react'
 
+import { useBrowserLayoutEffect } from '../common/useBrowserLayoutEffect'
 import { useCollapsible } from '../common/useCollapsible'
 import { IconButton } from '../IconButton/IconButton'
 import { MenuContext } from './MenuContext'
@@ -74,10 +75,6 @@ export type MenuProps = {
    */
   readonly showAccessibleLabel?: string
 } & Readonly<PropsWithChildren<HTMLAttributes<HTMLElement>>>
-
-// A layout effect runs before the browser hides the submenus, while a link in one of them still has focus.
-/* v8 ignore next -- React 18 and older warn about a layout effect on the server */
-const useBrowserLayoutEffect = typeof window === 'undefined' ? useEffect : useLayoutEffect
 
 export const MenuRoot = forwardRef<HTMLElement, MenuProps>(
   (
