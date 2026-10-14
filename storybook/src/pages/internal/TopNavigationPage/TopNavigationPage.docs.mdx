@@ -1,0 +1,87 @@
+{/* @license CC0-1.0 */}
+
+import { Description, Meta, Title } from "@storybook/addon-docs/blocks";
+
+import { PageAnatomy } from "#storybook/_components/PageAnatomy/PageAnatomy";
+import { StatusBadge } from "#storybook/_components/StatusBadge/StatusBadge";
+
+import { anatomyLabels } from "./anatomyLabels.ts";
+import * as TopNavigationPageStories from "./TopNavigationPage.stories";
+
+<Meta of={TopNavigationPageStories} />
+
+<StatusBadge
+  description="In the With section tabs variant, a narrow window can stack two horizontal tab rows above the content. The mobile design is still being explored."
+  status="experimental"
+/>
+
+<Title />
+
+<Description of={TopNavigationPageStories} />
+
+## Anatomy
+
+This schematic shows the default sections for this page type and how the grids and vertical space work.
+
+<PageAnatomy labels={anatomyLabels} mode="compact" of={TopNavigationPageStories} />
+
+## Usage guidelines
+
+### When to use
+
+Use this template where first-level sections fit in a bar below the Page Header, and where each section has one to three levels below it.
+This model works best with 3 to 7 links in the top bar.
+Choose it for applications that people use on a desktop or a laptop all or most of the time.
+
+### When not to use
+
+Use a page with a [Menu](/docs/components-navigation-menu--docs) beside it when the first-level sections do not fit in the bar, or when there are more than three levels below it.
+
+Avoid this model when many users work on a phone or a tablet.
+In a narrow window, both navigations come before the content and take up much of the screen.
+
+## Variants
+
+### Default
+
+A top bar with the first level of navigation.
+A collapsible [Table of Contents](/docs/components-navigation-table-of-contents--docs) beside the content for levels below it.
+
+In a narrow window, the Table of Contents sits above the content, with the current section open.
+
+### With section tabs
+
+A top bar with the first level of navigation.
+A vertical [Tab Navigation](/docs/components-navigation-tab-navigation--docs) beside the content when the section has one level below it.
+
+In a narrow window, the vertical Tab Navigation turns horizontal too, so two rows of tabs scroll sideways above the content.
+Use this variant only where users rarely work in a narrow window.
+
+## Structure
+
+Use a [Tab Navigation](/docs/components-navigation-tab-navigation--docs) in a Grid between the Page Header and the content area for first-level navigation.
+Mark the link to the current section with `aria-current="true"`.
+
+Render deeper levels in a sidebar beside the content.
+For deep trees, use a collapsible [Table of Contents](/docs/components-navigation-table-of-contents--docs) and keep the current section expanded.
+For one level below the top bar, use a vertical [Tab Navigation](/docs/components-navigation-tab-navigation--docs).
+
+Keep the sidebar navigation outside `main`.
+Use `<Grid.Subgrid as="main">` for the content area so the content stays aligned to the same columns as the rest of the page.
+
+Keep each navigation landmark named and distinct.
+On this page, the top bar is `Hoofdmenu`, and the sidebar navigation is named by its own heading or `accessibleName`.
+
+## Accessibility
+
+The link to the current page carries `aria-current="page"` in the sidebar navigation.
+The link to its top-level section in the bar carries `aria-current="true"`.
+
+The [Breadcrumb](/docs/components-navigation-breadcrumb--docs) sits in the first cell inside `main`.
+The [Skip Link](/docs/components-navigation-skip-link--docs) targets the content `main` directly.
+
+## See also
+
+- [Tab Navigation](/docs/components-navigation-tab-navigation--docs) – the top bar and the one-level section variant.
+- [Table of Contents](/docs/components-navigation-table-of-contents--docs) – nested section and page navigation.
+- [Navigation Page](/docs/pages-internal-navigation-page--docs) – another internal model and its narrow-window trade-off.
