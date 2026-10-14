@@ -1,0 +1,28 @@
+{
+  "ams": {
+    "animations": {
+      "transitions": {
+        "duration": {
+          "$type": "duration",
+          "$value": "0.3s",
+          "$description": "Duration used for transitions."
+        },
+        "timing-function": {
+          "$type": "transitionTimingFunction",
+          "$value": "ease",
+          "$description": "Timing function used for transitions."
+        }
+      },
+      "rotation": {
+        "start-angle": {
+          "$value": "0deg",
+          "$description": "Starting angle of a rotation."
+        },
+        "end-angle": {
+          "$value": "-180deg",
+          "$description": "Ending angle of a rotation."
+        }
+      }
+    }
+  }
+}
