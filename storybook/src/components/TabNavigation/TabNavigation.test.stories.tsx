@@ -24,6 +24,9 @@ export const Test: Story = {
     <div className="_ams-tests-grid">
       <TabNavigation>
         <TabNavigation.List>
+          <TabNavigation.Link aria-current="true" href="#">
+            Projecten
+          </TabNavigation.Link>
           <TabNavigation.Link aria-current="page" href="#">
             Gegevens
           </TabNavigation.Link>
@@ -38,6 +41,9 @@ export const Test: Story = {
       </TabNavigation>
       <TabNavigation orientation="vertical">
         <TabNavigation.List>
+          <TabNavigation.Link aria-current="true" href="#">
+            Projecten
+          </TabNavigation.Link>
           <TabNavigation.Link aria-current="page" href="#">
             Gegevens
           </TabNavigation.Link>
