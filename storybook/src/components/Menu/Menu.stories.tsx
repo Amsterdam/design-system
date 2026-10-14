@@ -114,14 +114,6 @@ export const Expandable: Story = {
   },
 }
 
-export const Expanded: Story = {
-  args: {
-    children: Default.args?.children,
-    defaultExpanded: true,
-    expandable: true,
-  },
-}
-
 export const AlwaysWide: Story = {
   args: {
     children: Default.args?.children,
