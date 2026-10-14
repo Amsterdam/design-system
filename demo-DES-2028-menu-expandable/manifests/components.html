@@ -620,13 +620,13 @@
 <header>
   <div class="wrap">
     <h1>Manifest Debugger</h1>
-    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">15/91 API errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">15/91 infos</a><a class="filter-pill" data-k="no-api" href="#filter-no-api">18/91 without API description</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">1/319 story errors</a><a class="filter-pill info" data-k="story-warnings" href="#filter-story-warnings">49/319 incomplete snippets</a><a class="filter-pill ok" data-k="docs" href="#filter-docs">128 docs ok</a></div>
+    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">15/91 API errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">15/91 infos</a><a class="filter-pill" data-k="no-api" href="#filter-no-api">18/91 without API description</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">1/318 story errors</a><a class="filter-pill info" data-k="story-warnings" href="#filter-story-warnings">48/318 incomplete snippets</a><a class="filter-pill ok" data-k="docs" href="#filter-docs">128 docs ok</a></div>
   </div>
 </header>
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>5.2s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>5.1s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -19502,7 +19502,7 @@ The component cannot make up for that on its own, so what the highlight conveys 
       <div class="badges">
         <label for="c-51-components-navigation-menu-props" class="badge ok as-toggle">8 prop types</label>
         
-        <label for="c-51-components-navigation-menu-stories" class="badge ok as-toggle">4 stories · 4 incomplete</label>
+        <label for="c-51-components-navigation-menu-stories" class="badge ok as-toggle">3 stories · 3 incomplete</label>
         <label for="c-51-components-navigation-menu-docs" class="badge ok as-toggle">1 doc</label>
         <label for="c-51-components-navigation-menu-subcomponents" class="badge ok as-toggle">1 subcomponent</label>
       </div>
@@ -19627,16 +19627,6 @@ import { Menu } from '@amsterdam/design-system-react/src';</code></pre>
             </div>
             <div class="note ok">
               <div class="row">
-                <span class="ex-name">Expanded</span>
-                <span class="badge info">incomplete example</span>
-              </div>
-              
-              
-              <pre><code>const Expanded = () =&gt; &lt;Menu inWideWindow={false} defaultExpanded expandable&gt;{Default.args?.children}&lt;/Menu&gt;;</code></pre>
-              <div class="snippet-warning">Incomplete snippet: `Default` could not be resolved statically.</div>
-            </div>
-            <div class="note ok">
-              <div class="row">
                 <span class="ex-name">Always Wide</span>
                 <span class="badge info">incomplete example</span>
               </div>
@@ -19739,12 +19729,6 @@ See the [Internal Home Page](/story/pages-internal-home-page--default) template 
 A Menu that users can widen themselves.
 
 &lt;Canvas of={MenuStories.Expandable} /&gt;
-
-### Expanded
-
-The user-expandable Menu, wide from the start.
-
-&lt;Canvas of={MenuStories.Expanded} /&gt;
 
 ### Always wide
 
