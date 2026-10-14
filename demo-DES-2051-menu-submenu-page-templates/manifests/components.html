@@ -626,7 +626,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>4.4s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>4.3s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -19919,6 +19919,7 @@ A submenu is a nested `ul` inside the parent item’s `li`, so the list structur
 With `expandable`, the icon-only button is named through `expandButtonLabel` and `collapseButtonLabel`.
 The button reports through `aria-expanded` whether the Menu is expanded, which in a Menu with submenus also shows and hides their links.
 Without scripting the button cannot work, so it is hidden and the submenus stay visible in the narrow column.
+If focus is inside a submenu when the Menu stops being expanded, focus moves to the link of that item.
 With `collapsibleSubmenus`, each submenu toggle button uses icon-only button text from `showAccessibleLabel` and `hideAccessibleLabel`, combined with the item label.
 Each submenu toggle button links to its submenu using `aria-controls`, and reports state with `aria-expanded`.
 If focus is inside a submenu when it collapses, focus moves to that submenu toggle button.
@@ -21166,7 +21167,10 @@ import * as NavigationModelStories from &quot;./NavigationModels.stories&quot;;
 
 This schematic shows the default sections for this page type and how the grids and vertical space work.
 
-&lt;PageAnatomy labels={anatomyLabels} menu mode=&quot;compact&quot; of={NavigationModelStories} story=&quot;WidenedByUser&quot; /&gt;
+&lt;PageAnatomy labels={anatomyLabels} menu mode=&quot;compact&quot; of={NavigationModelStories} story=&quot;NarrowWithSectionOverview&quot; /&gt;
+
+The drawing shows the section overview, where the Menu is a narrow column.
+A Menu that is wide takes `14rem` beside the page instead, which leaves the Grid less room.
 
 ## Usage guidelines
 
@@ -48638,7 +48642,10 @@ import * as NavigationModelStories from &quot;./NavigationModels.stories&quot;;
 
 This schematic shows the default sections for this page type and how the grids and vertical space work.
 
-&lt;PageAnatomy labels={anatomyLabels} menu mode=&quot;compact&quot; of={NavigationModelStories} story=&quot;WidenedByUser&quot; /&gt;
+&lt;PageAnatomy labels={anatomyLabels} menu mode=&quot;compact&quot; of={NavigationModelStories} story=&quot;NarrowWithSectionOverview&quot; /&gt;
+
+The drawing shows the section overview, where the Menu is a narrow column.
+A Menu that is wide takes `14rem` beside the page instead, which leaves the Grid less room.
 
 ## Usage guidelines
 
@@ -63105,7 +63112,7 @@ Compact Mode already sets the type down a step, and a second reduction would lea
       </div>
     </div>
     <div class="meta" title="./src/pages/guidelines/composing-your-own-navigation.docs.mdx">pages-guidelines-composing-your-own-navigation--docs · ./src/pages/guidelines/composing-your-own-navigation.docs.mdx</div>
-    <div># Composing your own navigation Internal websites navigate in more ways than one Menu can ...</div>
+    <div># Composing your own navigation Internal websites navigate in more ways than one Menu comp...</div>
   </div>
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
@@ -63125,16 +63132,18 @@ import { Meta } from &quot;@storybook/addon-docs/blocks&quot;;
 
 # Composing your own navigation
 
-Internal websites navigate in more ways than one Menu can decide for them.
-The design system offers the parts and a set of working models, and leaves the choice to the team that knows the website.
+Internal websites navigate in more ways than one Menu component can decide for them.
+The design system offers the parts and a set of working models, and leaves the choice to the team that understands their website best.
 
 Every model here uses the shell from [Page structure](/docs/pages-guidelines-page-structure--docs): a Menu in the Page Header for narrow and medium windows, and the same Menu beside the page in a wide window.
 
-## The order to decide in
+## Decice what fits your website
 
-1. **How many levels.** Count the level in the Menu, then each level below it.
-2. **Where each level lives.** In the Menu, in the body of the page, or on a page of its own.
-3. **Who sets the width of the Menu beside the page.** The application, or the user.
+To come to a model that fits your website, answer these questions as a guide to the parts you need and how to put them together.
+
+1. **How many levels?** Try to keep it to one or two, and no more than three.
+2. **Where should each level live?** In the Menu, in the body of the page, or on a page of its own.
+3. **Who sets the width of the Menu beside the page?** The application, the current page or the user?
 
 ## The links
 
