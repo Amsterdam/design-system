@@ -112,3 +112,36 @@ export const WideAlwaysExpanded: Story = {
   render: renderMenu,
   tags: ['!dev', '!autodocs', '!manifest'],
 }
+
+export const WideExpandableLongLabel: Story = {
+  args: {
+    expandable: true,
+    inWideWindow: true,
+  },
+  parameters: {
+    fixedInWideWindow: true,
+  },
+  play: async ({ canvas }) => {
+    const menu = canvas.getByRole('navigation', { name: 'Hoofdmenu' })
+    const expandButton = canvas.getByRole('button', { name: 'Klap menu uit' })
+
+    // Below the wide breakpoint the Menu is hidden, and both boxes would measure 0.
+    await expect(menu).toBeVisible()
+
+    const menuRect = menu.getBoundingClientRect()
+    const buttonRect = expandButton.getBoundingClientRect()
+
+    expect(buttonRect.right).toBeLessThanOrEqual(menuRect.right)
+  },
+  render: (args) => (
+    <Menu {...args}>
+      <Menu.Link href="#" icon={<SvgPieChartFill />}>
+        Omgevingsvergunningaanvragen
+      </Menu.Link>
+      <Menu.Link href="#" icon={<SvgPieChartFill />}>
+        Projecten
+      </Menu.Link>
+    </Menu>
+  ),
+  tags: ['!dev', '!autodocs', '!manifest'],
+}
