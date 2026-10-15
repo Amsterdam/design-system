@@ -19,9 +19,14 @@ import * as DescriptionListStories from "./DescriptionList.stories.tsx";
 
 ## Subcomponents
 
-The Term, Description, and Section subcomponents make up a Description List.
-Term and Description render the `<dt>` and `<dd>` elements, and a Section groups a term with its descriptions.
+The Term, Description, and Item subcomponents make up a Description List.
+Term and Description render the `<dt>` and `<dd>` elements, and an Item groups a term with its descriptions.
 None of them has props of its own; the examples on this page show them in place.
+
+Item was previously called Section.
+`DescriptionList.Section`, the `.ams-description-list__section` class and the `ams.description-list.section.margin-block-end` token are deprecated.
+Use `DescriptionList.Item`, `.ams-description-list__item` and `ams.description-list.item.margin-block-end` instead.
+The old names keep working and will be removed on or after 16 April 2027.
 
 ## Usage guidelines
 
@@ -52,13 +57,13 @@ Resize the following example to see the Description List adapt its layout to the
 ### Multiple descriptions
 
 A term can have several descriptions.
-Descriptions have the same spacing as sections because they usually include longer text.
+Descriptions have the same spacing as items because they usually include longer text.
 
 <Canvas of={DescriptionListStories.MultipleDescriptions} />
 
 ### Multiple terms
 
-If several terms have the same description, place them in a `DescriptionList.Section` component for a correct grid layout.
+If several terms have the same description, place them in a `DescriptionList.Item` component for a correct grid layout.
 The terms are positioned closely together.
 
 <Canvas of={DescriptionListStories.MultipleTerms} />
@@ -67,7 +72,7 @@ The terms are positioned closely together.
 
 Do not group multiple terms with several descriptions.
 This type of content is too complicated and will distort the layout.
-Use distinct sections instead, or find an alternative to a Description List.
+Use distinct items instead, or find an alternative to a Description List.
 
 ### Rich description
 
@@ -99,7 +104,7 @@ The term is set in bold text, and its line lengths are balanced so it does not e
 
 A Description List renders `dl`, `dt`, and `dd` elements.
 These tie each term to its descriptions in the markup instead of only through the layout, which is the kind of relationship [WCAG 1.3.1](https://www.w3.org/TR/WCAG22/#info-and-relationships) asks to be made available.
-A Section renders a `div` around one group, which HTML permits inside a `dl`.
+An Item renders a `div` around one group, which HTML permits inside a `dl`.
 
 Screen readers expose description lists in noticeably different ways: the number of items they report, the context they give for a term or a description, and the commands available to move through the list all vary.
 The component leaves the native elements alone rather than adding `term` and `definition` roles, because overriding them changes how VoiceOver announces the list.
