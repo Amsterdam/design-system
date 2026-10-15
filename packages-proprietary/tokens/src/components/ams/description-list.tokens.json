@@ -123,11 +123,21 @@
           }
         }
       },
-      "section": {
+      "item": {
         "margin-block-end": {
           "$value": "{ams.space.m}",
           "$extensions": {
             "nl.amsterdam.hint": "Must be a single value: it sets a longhand property, which takes only one.",
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
+          }
+        }
+      },
+      "section": {
+        "margin-block-end": {
+          "$deprecated": "Use `ams.description-list.item.margin-block-end` instead. Will be removed on or after 2027-04-16.",
+          "$value": "{ams.description-list.item.margin-block-end}",
+          "$extensions": {
             "nl.amsterdam.subtype": "space",
             "nl.amsterdam.type": "dimension"
           }
