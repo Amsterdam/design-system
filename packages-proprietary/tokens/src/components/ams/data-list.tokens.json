@@ -29,7 +29,7 @@
         }
       },
       "row-gap": {
-        "$value": "{ams.space.s}",
+        "$value": "{ams.data-list.item.padding-block-end}",
         "$extensions": {
           "nl.amsterdam.hint": "The whitespace between the separator of an item and the key of the next one. Must be a single value: it sets a longhand property, which takes only one.",
           "nl.amsterdam.subtype": "space",
@@ -106,13 +106,11 @@
           "$extensions": {
             "nl.amsterdam.type": "fontWeight"
           }
-        }
-      },
-      "actions": {
-        "padding-block-start": {
+        },
+        "margin-block-end": {
           "$value": "{ams.space.s}",
           "$extensions": {
-            "nl.amsterdam.hint": "Only applies when the actions sit below their value. Must be a single value: it sets a longhand property, which takes only one.",
+            "nl.amsterdam.hint": "Only applies when actions follow the value and the value sits below its key. Must be a single value: it sets a longhand property, which takes only one.",
             "nl.amsterdam.subtype": "space",
             "nl.amsterdam.type": "dimension"
           }
