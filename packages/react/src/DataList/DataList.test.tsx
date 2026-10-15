@@ -71,11 +71,11 @@ describe('DataList', () => {
     }),
   )
 
-  it('renders its items, labels, values and actions', () => {
+  it('renders its items, keys, values and actions', () => {
     render(
       <DataList>
         <DataList.Item>
-          <DataList.Label>Geboortedatum</DataList.Label>
+          <DataList.Key>Geboortedatum</DataList.Key>
           <DataList.Value>1 januari 1990</DataList.Value>
           <DataList.Actions>
             <a href="#">Wijzigen</a>

@@ -29,19 +29,19 @@ const meta = {
   args: {
     children: [
       <DataList.Item key={1}>
-        <DataList.Label>Naam</DataList.Label>
+        <DataList.Key>Naam</DataList.Key>
         <DataList.Value>Magere Brug</DataList.Value>
       </DataList.Item>,
       <DataList.Item key={2}>
-        <DataList.Label>Type</DataList.Label>
+        <DataList.Key>Type</DataList.Key>
         <DataList.Value>Ophaalbrug</DataList.Value>
       </DataList.Item>,
       <DataList.Item key={3}>
-        <DataList.Label>Bouwjaar</DataList.Label>
+        <DataList.Key>Bouwjaar</DataList.Key>
         <DataList.Value>1934</DataList.Value>
       </DataList.Item>,
       <DataList.Item key={4}>
-        <DataList.Label>Ligging</DataList.Label>
+        <DataList.Key>Ligging</DataList.Key>
         <DataList.Value>Over de Amstel, tussen de Kerkstraat en de Nieuwe Kerkstraat</DataList.Value>
       </DataList.Item>,
     ],
@@ -66,7 +66,7 @@ const meta = {
   subcomponents: {
     'DataList.Actions': DataList.Actions,
     'DataList.Item': DataList.Item,
-    'DataList.Label': DataList.Label,
+    'DataList.Key': DataList.Key,
     'DataList.Value': DataList.Value,
   },
 } satisfies Meta<typeof DataList>
@@ -81,15 +81,15 @@ export const Orientation: Story = {
   args: {
     children: [
       <DataList.Item key={1}>
-        <DataList.Label>Naam</DataList.Label>
+        <DataList.Key>Naam</DataList.Key>
         <DataList.Value>Magere Brug</DataList.Value>
       </DataList.Item>,
       <DataList.Item key={2}>
-        <DataList.Label>Type</DataList.Label>
+        <DataList.Key>Type</DataList.Key>
         <DataList.Value>Ophaalbrug</DataList.Value>
       </DataList.Item>,
       <DataList.Item key={3}>
-        <DataList.Label>Bouwjaar</DataList.Label>
+        <DataList.Key>Bouwjaar</DataList.Key>
         <DataList.Value>1934</DataList.Value>
       </DataList.Item>,
     ],
@@ -107,7 +107,7 @@ export const Actions: Story = {
   args: {
     children: [
       <DataList.Item key={1}>
-        <DataList.Label>Voornaam</DataList.Label>
+        <DataList.Key>Voornaam</DataList.Key>
         <DataList.Value>Johan</DataList.Value>
         <DataList.Actions>
           <StandaloneLink href="#" icon={EditIcon}>
@@ -116,7 +116,7 @@ export const Actions: Story = {
         </DataList.Actions>
       </DataList.Item>,
       <DataList.Item key={2}>
-        <DataList.Label>Achternaam</DataList.Label>
+        <DataList.Key>Achternaam</DataList.Key>
         <DataList.Value>Cruijff</DataList.Value>
         <DataList.Actions>
           <StandaloneLink href="#" icon={EditIcon}>
@@ -125,7 +125,7 @@ export const Actions: Story = {
         </DataList.Actions>
       </DataList.Item>,
       <DataList.Item key={3}>
-        <DataList.Label>Telefoonnummer</DataList.Label>
+        <DataList.Key>Telefoonnummer</DataList.Key>
         <DataList.Value>06 12345678</DataList.Value>
         <DataList.Actions>
           <StandaloneLink href="#" icon={EditIcon}>
@@ -137,7 +137,7 @@ export const Actions: Story = {
         </DataList.Actions>
       </DataList.Item>,
       <DataList.Item key={4}>
-        <DataList.Label>Burgerservicenummer</DataList.Label>
+        <DataList.Key>Burgerservicenummer</DataList.Key>
         <DataList.Value>123456782</DataList.Value>
       </DataList.Item>,
     ],
@@ -148,7 +148,7 @@ export const CompositeValue: Story = {
   args: {
     children: [
       <DataList.Item key={1}>
-        <DataList.Label>Adres</DataList.Label>
+        <DataList.Key>Adres</DataList.Key>
         <DataList.Value>
           Amstel 1
           <br />
@@ -156,7 +156,7 @@ export const CompositeValue: Story = {
         </DataList.Value>
       </DataList.Item>,
       <DataList.Item key={2}>
-        <DataList.Label>Toelichting</DataList.Label>
+        <DataList.Key>Toelichting</DataList.Key>
         <DataList.Value>
           <Column gap="small">
             <Paragraph>
@@ -167,7 +167,7 @@ export const CompositeValue: Story = {
         </DataList.Value>
       </DataList.Item>,
       <DataList.Item key={3}>
-        <DataList.Label>Foto’s</DataList.Label>
+        <DataList.Key>Foto’s</DataList.Key>
         <DataList.Value>
           <Column gap="small">
             <Image alt="De Magere Brug over de Amstel" aspectRatio="4:3" src="https://picsum.photos/id/164/1280/960" />
@@ -219,7 +219,7 @@ export const FormReview: Story = {
             </Row>
             <DataList {...args}>
               <DataList.Item>
-                <DataList.Label>Naam</DataList.Label>
+                <DataList.Key>Naam</DataList.Key>
                 <DataList.Value>{name}</DataList.Value>
                 <DataList.Actions>
                   <StandaloneLink href="#" icon={EditIcon}>
@@ -228,7 +228,7 @@ export const FormReview: Story = {
                 </DataList.Actions>
               </DataList.Item>
               <DataList.Item>
-                <DataList.Label>Geboortedatum</DataList.Label>
+                <DataList.Key>Geboortedatum</DataList.Key>
                 <DataList.Value>{birthDate}</DataList.Value>
                 <DataList.Actions>
                   <StandaloneLink href="#" icon={EditIcon}>
@@ -237,7 +237,7 @@ export const FormReview: Story = {
                 </DataList.Actions>
               </DataList.Item>
               <DataList.Item>
-                <DataList.Label>Adres</DataList.Label>
+                <DataList.Key>Adres</DataList.Key>
                 <DataList.Value>
                   {address.map((line, index) => (
                     <Fragment key={line}>

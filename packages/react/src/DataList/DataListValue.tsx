@@ -11,7 +11,7 @@ import { forwardRef } from 'react'
 export type DataListValueProps = PropsWithChildren<HTMLAttributes<HTMLElement>>
 
 /**
- * The data itself, paired with its label in an item of a Data List.
+ * The data itself, paired with its key in an item of a Data List.
  *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-containers-data-list--docs Data List docs at Amsterdam Design System}
  */

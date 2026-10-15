@@ -10,7 +10,7 @@ import { forwardRef } from 'react'
 
 import { DataListActions } from './DataListActions'
 import { DataListItem } from './DataListItem'
-import { DataListLabel } from './DataListLabel'
+import { DataListKey } from './DataListKey'
 import { DataListValue } from './DataListValue'
 
 export const dataListOrientations = ['horizontal', 'vertical'] as const
@@ -20,11 +20,11 @@ type DataListTermsWidth = (typeof dataListTermsWidths)[number]
 
 export type DataListProps = {
   /**
-   * Whether a label and its value sit side by side in a wide enough container, or always below each other.
+   * Whether a key and its value sit side by side in a wide enough container, or always below each other.
    * @default horizontal
    */
   readonly orientation?: DataListOrientation
-  /** The width of the column containing the labels. */
+  /** The width of the column containing the keys. */
   readonly termsWidth?: DataListTermsWidth
 } & Readonly<PropsWithChildren<HTMLAttributes<HTMLDListElement>>>
 
@@ -51,13 +51,13 @@ const DataListRoot = forwardRef(
 DataListRoot.displayName = 'DataList'
 
 /**
- * An overview of data, presenting each label with its value on a line of its own.
+ * An overview of data, presenting each key with its value on a line of its own.
  *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-containers-data-list--docs Data List docs at Amsterdam Design System}
  */
 export const DataList = Object.assign(DataListRoot, {
   Actions: DataListActions,
   Item: DataListItem,
-  Label: DataListLabel,
+  Key: DataListKey,
   Value: DataListValue,
 })

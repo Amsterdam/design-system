@@ -9,44 +9,39 @@ import { describe, expect, it } from 'vitest'
 
 import { DataList } from './DataList'
 
-describe('DataListLabel', () => {
+describe('DataListKey', () => {
   it('renders', () => {
-    render(<DataList.Label>Test</DataList.Label>)
+    render(<DataList.Key>Test</DataList.Key>)
 
     const component = screen.getByRole('term')
 
     expect(component).toBeInTheDocument()
     expect(component).toBeVisible()
+    expect(component.tagName).toBe('DT')
   })
 
   it('renders a design system BEM class name', () => {
-    render(<DataList.Label>Test</DataList.Label>)
+    render(<DataList.Key>Test</DataList.Key>)
 
-    const component = screen.getByRole('term')
-
-    expect(component).toHaveClass('ams-data-list__label')
+    expect(screen.getByRole('term')).toHaveClass('ams-data-list__key')
   })
 
   it('renders an extra class name', () => {
-    render(<DataList.Label className="extra">Test</DataList.Label>)
+    render(<DataList.Key className="extra">Test</DataList.Key>)
 
-    const component = screen.getByRole('term')
-
-    expect(component).toHaveClass('ams-data-list__label extra')
+    expect(screen.getByRole('term')).toHaveClass('ams-data-list__key extra')
   })
 
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLElement>()
 
-    render(<DataList.Label ref={ref}>Test</DataList.Label>)
+    render(<DataList.Key ref={ref}>Test</DataList.Key>)
 
-    const component = screen.getByRole('term')
-
-    expect(ref.current).toBe(component)
+    expect(ref.current).toBe(screen.getByRole('term'))
   })
 
   it('passes additional props', () => {
-    render(<DataList.Label aria-hidden="false" data-test="data-test" id="id" />)
+    render(<DataList.Key aria-hidden="false" data-test="data-test" id="id" />)
 
     const component = screen.getByRole('term')
 

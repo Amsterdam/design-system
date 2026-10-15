@@ -29,7 +29,7 @@ type DataListProps = ComponentProps<typeof DataList>
  * Wrapper used by the single Chromatic ‘Test’ story:
  * - first render example is identical to the original Test story (container context will fallback to Page or none)
  * - then render example in a narrow container-query context
- * - then render example in the narrowest container that still places labels and values side by side
+ * - then render example in the narrowest container that still places keys and values side by side
  */
 const DataListWithContainerQueryExamples = (props: DataListProps) => (
   <>
@@ -50,15 +50,15 @@ const DataListWithContainerQueryExamples = (props: DataListProps) => (
 export const Test: Story = {
   args: {
     children: [
-      // Label and value only
+      // Key and value only
       <DataList.Item key={1}>
-        <DataList.Label>Naam</DataList.Label>
+        <DataList.Key>Naam</DataList.Key>
         <DataList.Value>Magere Brug</DataList.Value>
       </DataList.Item>,
 
-      // Label, value and one action
+      // Key, value and one action
       <DataList.Item key={2}>
-        <DataList.Label>Bouwjaar</DataList.Label>
+        <DataList.Key>Bouwjaar</DataList.Key>
         <DataList.Value>1934</DataList.Value>
         <DataList.Actions>
           <StandaloneLink href="#" icon={EditIcon}>
@@ -67,9 +67,9 @@ export const Test: Story = {
         </DataList.Actions>
       </DataList.Item>,
 
-      // Long label and value, which both wrap
+      // Long key and value, which both wrap
       <DataList.Item key={3}>
-        <DataList.Label>Bijzonderheden aan de constructie van de brug</DataList.Label>
+        <DataList.Key>Bijzonderheden aan de constructie van de brug</DataList.Key>
         <DataList.Value>
           De brug is een dubbele ophaalbrug van Azobé-hout, met twee doorvaartopeningen en een middenpijler in de
           Amstel.
@@ -78,7 +78,7 @@ export const Test: Story = {
 
       // Composite value
       <DataList.Item key={4}>
-        <DataList.Label>Toelichting</DataList.Label>
+        <DataList.Key>Toelichting</DataList.Key>
         <DataList.Value>
           <Column gap="small">
             <Paragraph>De brug is afgesloten voor gemotoriseerd verkeer.</Paragraph>
@@ -94,7 +94,7 @@ export const Test: Story = {
 
       // Two actions
       <DataList.Item key={5}>
-        <DataList.Label>Foto</DataList.Label>
+        <DataList.Key>Foto</DataList.Key>
         <DataList.Value>brug-voorzijde.jpg</DataList.Value>
         <DataList.Actions>
           <StandaloneLink href="#" icon={EditIcon}>
@@ -108,7 +108,7 @@ export const Test: Story = {
 
       // Two actions beside a value without break opportunities
       <DataList.Item key={6}>
-        <DataList.Label>Telefoonnummer</DataList.Label>
+        <DataList.Key>Telefoonnummer</DataList.Key>
         <DataList.Value>0612345678</DataList.Value>
         <DataList.Actions>
           <StandaloneLink href="#" icon={EditIcon}>
