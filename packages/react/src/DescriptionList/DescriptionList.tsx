@@ -9,6 +9,7 @@ import { clsx } from 'clsx'
 import { forwardRef } from 'react'
 
 import { DescriptionListDescription } from './DescriptionListDescription'
+import { DescriptionListItem } from './DescriptionListItem'
 import { DescriptionListSection } from './DescriptionListSection'
 import { DescriptionListTerm } from './DescriptionListTerm'
 
@@ -51,6 +52,8 @@ DescriptionListRoot.displayName = 'DescriptionList'
  */
 export const DescriptionList = Object.assign(DescriptionListRoot, {
   Description: DescriptionListDescription,
+  Item: DescriptionListItem,
+  /** @deprecated Use `DescriptionList.Item` instead. Will be removed on or after 2027-04-16. */
   Section: DescriptionListSection,
   Term: DescriptionListTerm,
 })
