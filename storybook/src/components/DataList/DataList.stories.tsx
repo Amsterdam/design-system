@@ -7,7 +7,6 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import {
   ActionGroup,
-  Button,
   Column,
   Heading,
   Image,
@@ -19,7 +18,6 @@ import {
 import { DeleteIcon, EditIcon } from '@amsterdam/design-system-react-icons'
 import { DataList } from '@amsterdam/design-system-react/src'
 import { dataListOrientations } from '@amsterdam/design-system-react/src/DataList/DataList'
-import { Fragment } from 'react'
 
 import { wrapInInlineSizeQueryContainer } from '#storybook/_common/decorators'
 
@@ -186,76 +184,6 @@ export const WithHeader: Story = {
         </ActionGroup>
       </Row>
       <DataList {...args} />
-    </Column>
-  ),
-}
-
-const people = [
-  { address: ['Amstel 1', '1011 PN Amsterdam'], birthDate: '5 januari 1978', name: 'Sara Philipsen' },
-  { address: ['Weesperplein 8', '1018 XA Amsterdam'], birthDate: '12 maart 1981', name: 'Kees de Vries' },
-]
-
-export const FormReview: Story = {
-  render: (args) => (
-    <Column gap="x-large">
-      {people.map(({ address, birthDate, name }, index) => {
-        const person = `persoon ${index + 1}`
-
-        // Group each heading row with its list, keeping a medium gap within each group and a larger gap between groups.
-        return (
-          <Column key={name}>
-            <Row align="between" alignVertical="center" wrap>
-              <Heading level={2}>Persoon {index + 1}</Heading>
-              <ActionGroup>
-                <Button icon={DeleteIcon} iconBefore variant="secondary">
-                  Verwijderen<span className="ams-visually-hidden"> {person}</span>
-                </Button>
-              </ActionGroup>
-            </Row>
-            <DataList {...args}>
-              <DataList.Item>
-                <DataList.Key>Naam</DataList.Key>
-                <DataList.Value>{name}</DataList.Value>
-                <DataList.Actions>
-                  <StandaloneLink href="#" icon={EditIcon}>
-                    Wijzigen<span className="ams-visually-hidden"> naam van {person}</span>
-                  </StandaloneLink>
-                </DataList.Actions>
-              </DataList.Item>
-              <DataList.Item>
-                <DataList.Key>Geboortedatum</DataList.Key>
-                <DataList.Value>{birthDate}</DataList.Value>
-                <DataList.Actions>
-                  <StandaloneLink href="#" icon={EditIcon}>
-                    Wijzigen<span className="ams-visually-hidden"> geboortedatum van {person}</span>
-                  </StandaloneLink>
-                </DataList.Actions>
-              </DataList.Item>
-              <DataList.Item>
-                <DataList.Key>Adres</DataList.Key>
-                <DataList.Value>
-                  {address.map((line, index) => (
-                    <Fragment key={line}>
-                      {index > 0 && <br />}
-                      {line}
-                    </Fragment>
-                  ))}
-                </DataList.Value>
-                <DataList.Actions>
-                  <StandaloneLink href="#" icon={EditIcon}>
-                    Wijzigen<span className="ams-visually-hidden"> adres van {person}</span>
-                  </StandaloneLink>
-                </DataList.Actions>
-              </DataList.Item>
-            </DataList>
-          </Column>
-        )
-      })}
-      <Row>
-        <ActionGroup>
-          <Button>Verzenden</Button>
-        </ActionGroup>
-      </Row>
     </Column>
   ),
 }
