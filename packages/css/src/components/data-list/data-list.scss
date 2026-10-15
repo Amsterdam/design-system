@@ -58,15 +58,14 @@ $ams-data-list-breakpoint: 32rem;
   }
 
   // Every item follows the columns of the list, so values line up whatever actions an item has.
-  // Child combinators keep these rules off a Data List nested in a value.
-  .ams-data-list:not(.ams-data-list--vertical) > .ams-data-list__item {
+  .ams-data-list:not(.ams-data-list--vertical) .ams-data-list__item {
     align-items: start;
     display: grid;
     grid-column: 1 / -1;
     grid-template-columns: subgrid;
   }
 
-  .ams-data-list:not(.ams-data-list--vertical) > .ams-data-list__item > .ams-data-list__key {
+  .ams-data-list:not(.ams-data-list--vertical) .ams-data-list__key {
     grid-column-start: 1;
     margin-block-end: 0;
 
@@ -79,12 +78,12 @@ $ams-data-list-breakpoint: 32rem;
     );
   }
 
-  .ams-data-list:not(.ams-data-list--vertical) > .ams-data-list__item > .ams-data-list__value {
+  .ams-data-list:not(.ams-data-list--vertical) .ams-data-list__value {
     grid-column-start: 2;
     margin-block-end: 0;
   }
 
-  .ams-data-list:not(.ams-data-list--vertical) > .ams-data-list__item > .ams-data-list__actions {
+  .ams-data-list:not(.ams-data-list--vertical) .ams-data-list__actions {
     grid-column-start: 3;
     grid-row-start: 1;
   }
