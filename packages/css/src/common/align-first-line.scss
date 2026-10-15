@@ -1,0 +1,17 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+/**
+ * Levels the first line of an element with the first line of the element beside it,
+ * where the two use different line heights.
+ * Half the difference in computed line heights goes above the element with the shorter
+ * line box, which centres it against the taller one.
+ * Pass font sizes as tokens in relative units, and line heights as unitless numbers.
+ */
+
+@mixin align-first-line($font-size, $line-height, $reference-font-size, $reference-line-height) {
+  /* stylelint-disable-next-line defensive-css/no-fixed-sizes -- The rule cannot resolve Sass parameters; the tokens passed in are relative units. */
+  padding-block-start: calc(($reference-font-size * $reference-line-height - $font-size * $line-height) / 2);
+}
