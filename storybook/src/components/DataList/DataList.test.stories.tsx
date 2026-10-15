@@ -6,13 +6,13 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import type { ComponentProps } from 'react'
 
-import { Column, Link, Paragraph, Row, StandaloneLink } from '@amsterdam/design-system-react'
-import { DeleteIcon, EditIcon } from '@amsterdam/design-system-react-icons'
+import { Button, Column, Heading, Link, Paragraph, Row, StandaloneLink } from '@amsterdam/design-system-react'
+import { EditIcon } from '@amsterdam/design-system-react-icons'
 import { DataList } from '@amsterdam/design-system-react/src'
 
 import { renderComponentVariants } from '#storybook/_common/renderComponentVariants'
 
-import { default as dataListMeta } from './DataList.stories'
+import { default as dataListMeta, InternalActions } from './DataList.stories'
 
 const meta = {
   ...dataListMeta,
@@ -30,22 +30,47 @@ type DataListProps = ComponentProps<typeof DataList>
  * - first render example is identical to the original Test story (container context will fallback to Page or none)
  * - then render example in a narrow container-query context
  * - then render example in the narrowest container that still places keys and values side by side
+ * - then a list without actions, a heading row above a list, and the internal actions with the Compact Mode class
  */
-const DataListWithContainerQueryExamples = (props: DataListProps) => (
-  <>
-    <DataList {...props} />
-
-    {/* Data List in a narrow container */}
-    <div className="ams-query-container-inline-size" style={{ inlineSize: '31.99rem' }}>
+const DataListWithContainerQueryExamples = (props: DataListProps) => {
+  return (
+    <Column>
       <DataList {...props} />
-    </div>
 
-    {/* Data List in the narrowest horizontal container */}
-    <div className="ams-query-container-inline-size" style={{ inlineSize: '32rem' }}>
-      <DataList {...props} />
-    </div>
-  </>
-)
+      {/* Data List in a narrow container */}
+      <div className="ams-query-container-inline-size" style={{ inlineSize: '31.99rem' }}>
+        <DataList {...props} />
+      </div>
+
+      {/* Data List in the narrowest horizontal container */}
+      <div className="ams-query-container-inline-size" style={{ inlineSize: '32rem' }}>
+        <DataList {...props} />
+      </div>
+      <DataList {...props}>
+        <DataList.Item>
+          <DataList.Key>Naam</DataList.Key>
+          <DataList.Value>Magere Brug</DataList.Value>
+        </DataList.Item>
+        <DataList.Item>
+          <DataList.Key>Type</DataList.Key>
+          <DataList.Value>Ophaalbrug</DataList.Value>
+        </DataList.Item>
+      </DataList>
+      <section>
+        <Row align="between" alignVertical="center" className="ams-mb-s" wrap>
+          <Heading level={2}>Magere Brug</Heading>
+          <Button icon={EditIcon} iconBefore variant="secondary">
+            Wijzigen<span className="ams-visually-hidden"> Magere Brug</span>
+          </Button>
+        </Row>
+        <DataList {...props} />
+      </section>
+      <Column className="ams-theme--compact">
+        <DataList {...props} {...InternalActions.args} />
+      </Column>
+    </Column>
+  )
+}
 
 export const Test: Story = {
   args: {
@@ -98,12 +123,12 @@ export const Test: Story = {
         <DataList.Value>brug-voorzijde.jpg</DataList.Value>
         <DataList.Actions>
           <Row wrap>
-            <StandaloneLink href="#" icon={EditIcon}>
+            <Button variant="tertiary">
               Wijzigen<span className="ams-visually-hidden"> foto</span>
-            </StandaloneLink>
-            <StandaloneLink href="#" icon={DeleteIcon}>
+            </Button>
+            <Button variant="tertiary">
               Verwijderen<span className="ams-visually-hidden"> foto</span>
-            </StandaloneLink>
+            </Button>
           </Row>
         </DataList.Actions>
       </DataList.Item>,
@@ -114,12 +139,12 @@ export const Test: Story = {
         <DataList.Value>0612345678</DataList.Value>
         <DataList.Actions>
           <Row wrap>
-            <StandaloneLink href="#" icon={EditIcon}>
+            <Button variant="tertiary">
               Wijzigen<span className="ams-visually-hidden"> telefoonnummer</span>
-            </StandaloneLink>
-            <StandaloneLink href="#" icon={DeleteIcon}>
+            </Button>
+            <Button variant="tertiary">
               Verwijderen<span className="ams-visually-hidden"> telefoonnummer</span>
-            </StandaloneLink>
+            </Button>
           </Row>
         </DataList.Actions>
       </DataList.Item>,

@@ -47,7 +47,7 @@ Add Actions only when the reader can change or remove that value, whether that t
 ### How to write
 
 Keep keys short and write them without a colon.
-Write an action as the change it makes, such as ‘Wijzigen’, and add the key of its item as visually hidden text so the accessible name stays unique.
+Write an action as the change it makes, such as ‘Wijzigen’, and include its key in the accessible name so repeated actions stay unique.
 
 ## Examples
 
@@ -67,14 +67,32 @@ Use this when the values are long.
 
 ### Actions
 
-An item can offer one or more actions on its value, such as a link to the step of a form where that value is entered or a button that opens a dialog to edit the value directly.
-The text, the icon, and the type of each action are yours to choose: pass Standalone Links, Links, or Buttons.
-Actions renders its children directly; use a [Row](/docs/components-layout-row--docs) with wrapping to arrange multiple actions.
+An item can offer one or more actions on its value.
+Use a [Button](/docs/components-buttons-button--docs) for an action on the current page, such as editing in place, deleting, or adding an item.
+On public websites, use a text-only tertiary Button at the end of an item.
 
-Repeated actions read as a list of identical links to anyone who navigates by links alone.
-Add the key of the item as visually hidden text to tell them apart.
+Give every action within an item the same treatment: all with an icon or all without one.
+Actions renders its children directly; use a [Row](/docs/components-layout-row--docs) with wrapping to arrange multiple actions.
+Give repeated actions unique accessible names by adding the key as visually hidden text to the visible label.
 
 <Canvas of={DataListStories.Actions} />
+
+### Navigation
+
+Use a [Standalone Link](/docs/components-navigation-standalone-link--docs) when an action opens another page, such as returning to a question in a form.
+Do not use a link to delete an item or change the current page.
+
+<Canvas of={DataListStories.Navigation} />
+
+### Internal actions
+
+Show only an icon when its meaning is immediately clear, or when frequent users of an internal application can learn it.
+Otherwise, give the action a visible text label.
+Our [icon guidelines](/docs/brand-assets-icons--docs#functional-icons) distinguish universal from learnable icons; Edit and Delete are learnable icons.
+Use an [Icon Button](/docs/components-buttons-icon-button--docs) aligned with the surrounding text, and give its `label` prop a unique accessible name, such as ‘Wijzigen telefoonnummer’.
+
+Open the [internal actions example](/story/components-containers-data-list--internal-actions), which is only available in Compact Mode.
+It is not embedded here because the mode also affects the other examples on this page.
 
 ### Composite value
 
@@ -87,8 +105,11 @@ Text with inline markup, such as a link in a sentence, needs no wrapper: it flow
 
 ### With header
 
-Introduce a Data List with a [Heading](/docs/components-text-heading--docs) and one or more actions in an [Action Group](/docs/components-layout-action-group--docs), laid out in a [Row](/docs/components-layout-row--docs) above the list.
+Introduce a Data List with a [Heading](/docs/components-text-heading--docs) and an action, laid out in a [Row](/docs/components-layout-row--docs) above the list.
 Use this when a group of data needs a title, or an action that applies to the whole group.
+Use a secondary Button with an icon for a group action on the current page.
+A group action that opens another page stays a Standalone Link.
+Add `ams-mb-s` to the heading row to separate it from the list below a level 2 Heading.
 
 <Canvas of={DataListStories.WithHeader} />
 
@@ -117,12 +138,13 @@ When no item has actions, the actions track collapses but its gutter remains.
 A Data List renders `dl`, `dt`, and `dd` elements.
 This keeps each key paired with its value in the markup instead of only through the layout.
 
-Actions renders a second `dd`, so its links and buttons are announced in the context of the key they act on.
-Give repeated actions a unique accessible name with the `ams-visually-hidden` helper.
-Use visually hidden text rather than `aria-label`, because browsers do not reliably translate that attribute.
+Actions renders a second `dd` for its links and buttons.
+Give repeated actions a unique accessible name that includes the key they act on.
+For visible text labels, add the key with the `ams-visually-hidden` helper rather than `aria-label`, because browsers do not reliably translate that attribute.
+For Icon Buttons, put the complete accessible name in the `label` prop.
 
 When you compose a heading row above a Data List, the action in that row applies to the whole group.
-Give that action the name of the group as visually hidden text, such as ‘Wijzigen Magere Brug’.
+Include the name of the group in its accessible name, such as ‘Wijzigen Magere Brug’.
 
 ## See also
 

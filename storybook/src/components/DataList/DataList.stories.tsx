@@ -6,9 +6,10 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import {
-  ActionGroup,
+  Button,
   Column,
   Heading,
+  IconButton,
   Image,
   Link,
   Paragraph,
@@ -101,18 +102,18 @@ export const Actions: Story = {
         <DataList.Key>Voornaam</DataList.Key>
         <DataList.Value>Johan</DataList.Value>
         <DataList.Actions>
-          <StandaloneLink href="#" icon={EditIcon}>
+          <Button variant="tertiary">
             Wijzigen<span className="ams-visually-hidden"> voornaam</span>
-          </StandaloneLink>
+          </Button>
         </DataList.Actions>
       </DataList.Item>,
       <DataList.Item key={2}>
         <DataList.Key>Achternaam</DataList.Key>
         <DataList.Value>Cruijff</DataList.Value>
         <DataList.Actions>
-          <StandaloneLink href="#" icon={EditIcon}>
+          <Button variant="tertiary">
             Wijzigen<span className="ams-visually-hidden"> achternaam</span>
-          </StandaloneLink>
+          </Button>
         </DataList.Actions>
       </DataList.Item>,
       <DataList.Item key={3}>
@@ -120,12 +121,12 @@ export const Actions: Story = {
         <DataList.Value>06 12345678</DataList.Value>
         <DataList.Actions>
           <Row wrap>
-            <StandaloneLink href="#" icon={EditIcon}>
+            <Button variant="tertiary">
               Wijzigen<span className="ams-visually-hidden"> telefoonnummer</span>
-            </StandaloneLink>
-            <StandaloneLink href="#" icon={DeleteIcon}>
+            </Button>
+            <Button variant="tertiary">
               Verwijderen<span className="ams-visually-hidden"> telefoonnummer</span>
-            </StandaloneLink>
+            </Button>
           </Row>
         </DataList.Actions>
       </DataList.Item>,
@@ -174,16 +175,50 @@ export const CompositeValue: Story = {
 
 export const WithHeader: Story = {
   render: (args) => (
-    <Column>
-      <Row align="between" alignVertical="center" wrap>
+    <>
+      <Row align="between" alignVertical="center" className="ams-mb-s" wrap>
         <Heading level={2}>Magere Brug</Heading>
-        <ActionGroup>
-          <StandaloneLink href="#" icon={EditIcon}>
-            Wijzigen<span className="ams-visually-hidden"> Magere Brug</span>
-          </StandaloneLink>
-        </ActionGroup>
+        <Button icon={EditIcon} iconBefore variant="secondary">
+          Wijzigen<span className="ams-visually-hidden"> Magere Brug</span>
+        </Button>
       </Row>
       <DataList {...args} />
-    </Column>
+    </>
   ),
+}
+
+export const Navigation: Story = {
+  args: {
+    children: (
+      <DataList.Item>
+        <DataList.Key>Telefoonnummer</DataList.Key>
+        <DataList.Value>06 12345678</DataList.Value>
+        <DataList.Actions>
+          <StandaloneLink href="#" icon={EditIcon}>
+            Wijzigen<span className="ams-visually-hidden"> telefoonnummer</span>
+          </StandaloneLink>
+        </DataList.Actions>
+      </DataList.Item>
+    ),
+  },
+}
+
+export const InternalActions: Story = {
+  args: {
+    children: (
+      <DataList.Item>
+        <DataList.Key>Telefoonnummer</DataList.Key>
+        <DataList.Value>06 12345678</DataList.Value>
+        <DataList.Actions>
+          <Row alignVertical="center" wrap>
+            <IconButton label="Wijzigen telefoonnummer" svg={EditIcon} />
+            <IconButton label="Verwijderen telefoonnummer" svg={DeleteIcon} />
+          </Row>
+        </DataList.Actions>
+      </DataList.Item>
+    ),
+  },
+  parameters: {
+    themes: { options: ['Compact', 'Compact Lo-fi'] },
+  },
 }
