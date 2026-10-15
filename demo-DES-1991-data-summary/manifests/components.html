@@ -620,13 +620,13 @@
 <header>
   <div class="wrap">
     <h1>Manifest Debugger</h1>
-    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">15/92 API errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">15/92 infos</a><a class="filter-pill" data-k="no-api" href="#filter-no-api">18/92 without API description</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">1/321 story errors</a><a class="filter-pill info" data-k="story-warnings" href="#filter-story-warnings">44/321 incomplete snippets</a><a class="filter-pill ok" data-k="docs" href="#filter-docs">129 docs ok</a></div>
+    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">15/92 API errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">15/92 infos</a><a class="filter-pill" data-k="no-api" href="#filter-no-api">18/92 without API description</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">1/322 story errors</a><a class="filter-pill info" data-k="story-warnings" href="#filter-story-warnings">44/322 incomplete snippets</a><a class="filter-pill ok" data-k="docs" href="#filter-docs">129 docs ok</a></div>
   </div>
 </header>
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>5.3s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>5.2s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -5854,16 +5854,16 @@ The `as` prop can render an `article` or a `section` instead, which does reach a
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> DataList</h2>
       <div class="badges">
-        <label for="c-18-components-containers-data-list-props" class="badge ok as-toggle">2 prop types</label>
+        <label for="c-18-components-containers-data-list-props" class="badge ok as-toggle">1 prop type</label>
         
-        <label for="c-18-components-containers-data-list-stories" class="badge ok as-toggle">7 stories</label>
+        <label for="c-18-components-containers-data-list-stories" class="badge ok as-toggle">8 stories</label>
         <label for="c-18-components-containers-data-list-docs" class="badge ok as-toggle">1 doc</label>
         <label for="c-18-components-containers-data-list-subcomponents" class="badge ok as-toggle">4 subcomponents</label>
       </div>
     </div>
     <div class="meta" title="./src/components/DataList/DataList.stories.tsx">components-containers-data-list · ./src/components/DataList/DataList.stories.tsx</div>
     
-    <div class="hint">An overview of data, presenting each label with its value on a line of its own.</div>
+    <div class="hint">A collection of details that describe one specific thing, person, or concept.</div>
     <div class="kv"><span class="chip">see: {@link https://designsystem.amsterdam/?path=/docs/components-containers-data-list--docs Data List docs at Amsterdam Design System}</span></div>
   </div>
 
@@ -5883,19 +5883,14 @@ The `as` prop can render an `article` or a `section` instead, which does reach a
           <div class="note ok">
             <div class="row">
               <span class="ex-name">Prop types <small>(react-component-meta)</small></span>
-              <span class="badge ok">2 prop types</span>
+              <span class="badge ok">1 prop type</span>
             </div>
             <pre><code>Component: ../packages/react/src/index.ts::DataList</code></pre>
             <pre><code>Props:</code></pre>
             <pre><code>/**
- * Whether a label and its value sit side by side in a wide enough container, or always below each other.
+ * Set to vertical to place every value below its key, regardless of the container width. The orientation is horizontal by default and only applies in a wide enough container.
  */
-orientation?: &quot;horizontal&quot; | &quot;vertical&quot; = &#39;horizontal&#39;
-
-/**
- * The width of the column containing the labels.
- */
-termsWidth?: &quot;narrow&quot; | &quot;medium&quot; | &quot;wide&quot;</code></pre>
+orientation?: &quot;vertical&quot;</code></pre>
           </div>
         </div>
     
@@ -5907,19 +5902,8 @@ termsWidth?: &quot;narrow&quot; | &quot;medium&quot; | &quot;wide&quot;</code></
                 <div class="row">
                   <span class="ex-name">Imports</span>
                 </div>
-                <pre><code>import {
-  ActionGroup,
-  Button,
-  Column,
-  Heading,
-  Image,
-  Link,
-  Paragraph,
-  Row,
-  StandaloneLink,
-} from '@amsterdam/design-system-react';
+                <pre><code>import { Button, Column, Heading, IconButton, Image, Link, Paragraph, Row, StandaloneLink } from '@amsterdam/design-system-react';
 import { DataList } from '@amsterdam/design-system-react/src';
-import { Fragment } from 'react';
 import { EditIcon, DeleteIcon } from '@amsterdam/design-system-react-icons';</code></pre>
               </div>
           
@@ -5933,19 +5917,19 @@ import { EditIcon, DeleteIcon } from '@amsterdam/design-system-react-icons';</co
               
               <pre><code>const Default = () =&gt; &lt;DataList&gt;{[
       &lt;DataList.Item key={1}&gt;
-        &lt;DataList.Label&gt;Naam&lt;/DataList.Label&gt;
+        &lt;DataList.Key&gt;Naam&lt;/DataList.Key&gt;
         &lt;DataList.Value&gt;Magere Brug&lt;/DataList.Value&gt;
       &lt;/DataList.Item&gt;,
       &lt;DataList.Item key={2}&gt;
-        &lt;DataList.Label&gt;Type&lt;/DataList.Label&gt;
+        &lt;DataList.Key&gt;Type&lt;/DataList.Key&gt;
         &lt;DataList.Value&gt;Ophaalbrug&lt;/DataList.Value&gt;
       &lt;/DataList.Item&gt;,
       &lt;DataList.Item key={3}&gt;
-        &lt;DataList.Label&gt;Bouwjaar&lt;/DataList.Label&gt;
+        &lt;DataList.Key&gt;Bouwjaar&lt;/DataList.Key&gt;
         &lt;DataList.Value&gt;1934&lt;/DataList.Value&gt;
       &lt;/DataList.Item&gt;,
       &lt;DataList.Item key={4}&gt;
-        &lt;DataList.Label&gt;Ligging&lt;/DataList.Label&gt;
+        &lt;DataList.Key&gt;Ligging&lt;/DataList.Key&gt;
         &lt;DataList.Value&gt;Over de Amstel, tussen de Kerkstraat en de Nieuwe Kerkstraat&lt;/DataList.Value&gt;
       &lt;/DataList.Item&gt;,
     ]}&lt;/DataList&gt;;</code></pre>
@@ -5960,15 +5944,15 @@ import { EditIcon, DeleteIcon } from '@amsterdam/design-system-react-icons';</co
               
               <pre><code>const Orientation = () =&gt; &lt;DataList&gt;{[
       &lt;DataList.Item key={1}&gt;
-        &lt;DataList.Label&gt;Naam&lt;/DataList.Label&gt;
+        &lt;DataList.Key&gt;Naam&lt;/DataList.Key&gt;
         &lt;DataList.Value&gt;Magere Brug&lt;/DataList.Value&gt;
       &lt;/DataList.Item&gt;,
       &lt;DataList.Item key={2}&gt;
-        &lt;DataList.Label&gt;Type&lt;/DataList.Label&gt;
+        &lt;DataList.Key&gt;Type&lt;/DataList.Key&gt;
         &lt;DataList.Value&gt;Ophaalbrug&lt;/DataList.Value&gt;
       &lt;/DataList.Item&gt;,
       &lt;DataList.Item key={3}&gt;
-        &lt;DataList.Label&gt;Bouwjaar&lt;/DataList.Label&gt;
+        &lt;DataList.Key&gt;Bouwjaar&lt;/DataList.Key&gt;
         &lt;DataList.Value&gt;1934&lt;/DataList.Value&gt;
       &lt;/DataList.Item&gt;,
     ]}&lt;/DataList&gt;;</code></pre>
@@ -5983,19 +5967,19 @@ import { EditIcon, DeleteIcon } from '@amsterdam/design-system-react-icons';</co
               
               <pre><code>const Stacked = () =&gt; &lt;DataList orientation=&quot;vertical&quot;&gt;{[
       &lt;DataList.Item key={1}&gt;
-        &lt;DataList.Label&gt;Naam&lt;/DataList.Label&gt;
+        &lt;DataList.Key&gt;Naam&lt;/DataList.Key&gt;
         &lt;DataList.Value&gt;Magere Brug&lt;/DataList.Value&gt;
       &lt;/DataList.Item&gt;,
       &lt;DataList.Item key={2}&gt;
-        &lt;DataList.Label&gt;Type&lt;/DataList.Label&gt;
+        &lt;DataList.Key&gt;Type&lt;/DataList.Key&gt;
         &lt;DataList.Value&gt;Ophaalbrug&lt;/DataList.Value&gt;
       &lt;/DataList.Item&gt;,
       &lt;DataList.Item key={3}&gt;
-        &lt;DataList.Label&gt;Bouwjaar&lt;/DataList.Label&gt;
+        &lt;DataList.Key&gt;Bouwjaar&lt;/DataList.Key&gt;
         &lt;DataList.Value&gt;1934&lt;/DataList.Value&gt;
       &lt;/DataList.Item&gt;,
       &lt;DataList.Item key={4}&gt;
-        &lt;DataList.Label&gt;Ligging&lt;/DataList.Label&gt;
+        &lt;DataList.Key&gt;Ligging&lt;/DataList.Key&gt;
         &lt;DataList.Value&gt;Over de Amstel, tussen de Kerkstraat en de Nieuwe Kerkstraat&lt;/DataList.Value&gt;
       &lt;/DataList.Item&gt;,
     ]}&lt;/DataList&gt;;</code></pre>
@@ -6010,37 +5994,39 @@ import { EditIcon, DeleteIcon } from '@amsterdam/design-system-react-icons';</co
               
               <pre><code>const Actions = () =&gt; &lt;DataList&gt;{[
       &lt;DataList.Item key={1}&gt;
-        &lt;DataList.Label&gt;Voornaam&lt;/DataList.Label&gt;
+        &lt;DataList.Key&gt;Voornaam&lt;/DataList.Key&gt;
         &lt;DataList.Value&gt;Johan&lt;/DataList.Value&gt;
         &lt;DataList.Actions&gt;
-          &lt;StandaloneLink href=&quot;#&quot; icon={EditIcon}&gt;
+          &lt;Button variant=&quot;tertiary&quot;&gt;
             Wijzigen&lt;span className=&quot;ams-visually-hidden&quot;&gt; voornaam&lt;/span&gt;
-          &lt;/StandaloneLink&gt;
+          &lt;/Button&gt;
         &lt;/DataList.Actions&gt;
       &lt;/DataList.Item&gt;,
       &lt;DataList.Item key={2}&gt;
-        &lt;DataList.Label&gt;Achternaam&lt;/DataList.Label&gt;
+        &lt;DataList.Key&gt;Achternaam&lt;/DataList.Key&gt;
         &lt;DataList.Value&gt;Cruijff&lt;/DataList.Value&gt;
         &lt;DataList.Actions&gt;
-          &lt;StandaloneLink href=&quot;#&quot; icon={EditIcon}&gt;
+          &lt;Button variant=&quot;tertiary&quot;&gt;
             Wijzigen&lt;span className=&quot;ams-visually-hidden&quot;&gt; achternaam&lt;/span&gt;
-          &lt;/StandaloneLink&gt;
+          &lt;/Button&gt;
         &lt;/DataList.Actions&gt;
       &lt;/DataList.Item&gt;,
       &lt;DataList.Item key={3}&gt;
-        &lt;DataList.Label&gt;Telefoonnummer&lt;/DataList.Label&gt;
+        &lt;DataList.Key&gt;Telefoonnummer&lt;/DataList.Key&gt;
         &lt;DataList.Value&gt;06 12345678&lt;/DataList.Value&gt;
         &lt;DataList.Actions&gt;
-          &lt;StandaloneLink href=&quot;#&quot; icon={EditIcon}&gt;
-            Wijzigen&lt;span className=&quot;ams-visually-hidden&quot;&gt; telefoonnummer&lt;/span&gt;
-          &lt;/StandaloneLink&gt;
-          &lt;StandaloneLink href=&quot;#&quot; icon={DeleteIcon}&gt;
-            Verwijderen&lt;span className=&quot;ams-visually-hidden&quot;&gt; telefoonnummer&lt;/span&gt;
-          &lt;/StandaloneLink&gt;
+          &lt;Row wrap&gt;
+            &lt;Button variant=&quot;tertiary&quot;&gt;
+              Wijzigen&lt;span className=&quot;ams-visually-hidden&quot;&gt; telefoonnummer&lt;/span&gt;
+            &lt;/Button&gt;
+            &lt;Button variant=&quot;tertiary&quot;&gt;
+              Verwijderen&lt;span className=&quot;ams-visually-hidden&quot;&gt; telefoonnummer&lt;/span&gt;
+            &lt;/Button&gt;
+          &lt;/Row&gt;
         &lt;/DataList.Actions&gt;
       &lt;/DataList.Item&gt;,
       &lt;DataList.Item key={4}&gt;
-        &lt;DataList.Label&gt;Burgerservicenummer&lt;/DataList.Label&gt;
+        &lt;DataList.Key&gt;Burgerservicenummer&lt;/DataList.Key&gt;
         &lt;DataList.Value&gt;123456782&lt;/DataList.Value&gt;
       &lt;/DataList.Item&gt;,
     ]}&lt;/DataList&gt;;</code></pre>
@@ -6055,7 +6041,7 @@ import { EditIcon, DeleteIcon } from '@amsterdam/design-system-react-icons';</co
               
               <pre><code>const CompositeValue = () =&gt; &lt;DataList&gt;{[
       &lt;DataList.Item key={1}&gt;
-        &lt;DataList.Label&gt;Adres&lt;/DataList.Label&gt;
+        &lt;DataList.Key&gt;Adres&lt;/DataList.Key&gt;
         &lt;DataList.Value&gt;
           Amstel 1
           &lt;br /&gt;
@@ -6063,7 +6049,7 @@ import { EditIcon, DeleteIcon } from '@amsterdam/design-system-react-icons';</co
         &lt;/DataList.Value&gt;
       &lt;/DataList.Item&gt;,
       &lt;DataList.Item key={2}&gt;
-        &lt;DataList.Label&gt;Toelichting&lt;/DataList.Label&gt;
+        &lt;DataList.Key&gt;Toelichting&lt;/DataList.Key&gt;
         &lt;DataList.Value&gt;
           &lt;Column gap=&quot;small&quot;&gt;
             &lt;Paragraph&gt;
@@ -6074,7 +6060,7 @@ import { EditIcon, DeleteIcon } from '@amsterdam/design-system-react-icons';</co
         &lt;/DataList.Value&gt;
       &lt;/DataList.Item&gt;,
       &lt;DataList.Item key={3}&gt;
-        &lt;DataList.Label&gt;Foto’s&lt;/DataList.Label&gt;
+        &lt;DataList.Key&gt;Foto’s&lt;/DataList.Key&gt;
         &lt;DataList.Value&gt;
           &lt;Column gap=&quot;small&quot;&gt;
             &lt;Image alt=&quot;De Magere Brug over de Amstel&quot; aspectRatio=&quot;4:3&quot; src=&quot;https://picsum.photos/id/164/1280/960&quot; /&gt;
@@ -6092,104 +6078,68 @@ import { EditIcon, DeleteIcon } from '@amsterdam/design-system-react-icons';</co
               </div>
               
               
-              <pre><code>const WithHeader = () =&gt; &lt;Column&gt;
-    &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; wrap&gt;
+              <pre><code>const WithHeader = () =&gt; &lt;&gt;
+    &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; className=&quot;ams-mb-s&quot; wrap&gt;
         &lt;Heading level={2}&gt;Magere Brug&lt;/Heading&gt;
-        &lt;ActionGroup&gt;
-            &lt;StandaloneLink href=&quot;#&quot; icon={EditIcon}&gt;Wijzigen&lt;span className=&quot;ams-visually-hidden&quot;&gt;Magere Brug&lt;/span&gt;
-            &lt;/StandaloneLink&gt;
-        &lt;/ActionGroup&gt;
+        &lt;Button icon={EditIcon} iconBefore variant=&quot;secondary&quot;&gt;Wijzigen&lt;span className=&quot;ams-visually-hidden&quot;&gt;Magere Brug&lt;/span&gt;
+        &lt;/Button&gt;
     &lt;/Row&gt;
     &lt;DataList&gt;{[
           &lt;DataList.Item key={1}&gt;
-            &lt;DataList.Label&gt;Naam&lt;/DataList.Label&gt;
+            &lt;DataList.Key&gt;Naam&lt;/DataList.Key&gt;
             &lt;DataList.Value&gt;Magere Brug&lt;/DataList.Value&gt;
           &lt;/DataList.Item&gt;,
           &lt;DataList.Item key={2}&gt;
-            &lt;DataList.Label&gt;Type&lt;/DataList.Label&gt;
+            &lt;DataList.Key&gt;Type&lt;/DataList.Key&gt;
             &lt;DataList.Value&gt;Ophaalbrug&lt;/DataList.Value&gt;
           &lt;/DataList.Item&gt;,
           &lt;DataList.Item key={3}&gt;
-            &lt;DataList.Label&gt;Bouwjaar&lt;/DataList.Label&gt;
+            &lt;DataList.Key&gt;Bouwjaar&lt;/DataList.Key&gt;
             &lt;DataList.Value&gt;1934&lt;/DataList.Value&gt;
           &lt;/DataList.Item&gt;,
           &lt;DataList.Item key={4}&gt;
-            &lt;DataList.Label&gt;Ligging&lt;/DataList.Label&gt;
+            &lt;DataList.Key&gt;Ligging&lt;/DataList.Key&gt;
             &lt;DataList.Value&gt;Over de Amstel, tussen de Kerkstraat en de Nieuwe Kerkstraat&lt;/DataList.Value&gt;
           &lt;/DataList.Item&gt;,
         ]}&lt;/DataList&gt;
-&lt;/Column&gt;;</code></pre>
+&lt;/&gt;;</code></pre>
               
             </div>
             <div class="note ok">
               <div class="row">
-                <span class="ex-name">Form Review</span>
+                <span class="ex-name">Navigation</span>
                 <span class="badge ok">story ok</span>
               </div>
               
               
-              <pre><code>const FormReview = (args) =&gt; (
-  &lt;Column gap=&quot;x-large&quot;&gt;
-    {people.map(({ address, birthDate, name }, index) =&gt; {
-      const person = `persoon ${index + 1}`
-
-      // Group each heading row with its list, keeping a medium gap within each group and a larger gap between groups.
-      return (
-        &lt;Column key={name}&gt;
-          &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; wrap&gt;
-            &lt;Heading level={2}&gt;Persoon {index + 1}&lt;/Heading&gt;
-            &lt;ActionGroup&gt;
-              &lt;Button icon={DeleteIcon} iconBefore variant=&quot;secondary&quot;&gt;
-                Verwijderen&lt;span className=&quot;ams-visually-hidden&quot;&gt; {person}&lt;/span&gt;
-              &lt;/Button&gt;
-            &lt;/ActionGroup&gt;
-          &lt;/Row&gt;
-          &lt;DataList {...args}&gt;
-            &lt;DataList.Item&gt;
-              &lt;DataList.Label&gt;Naam&lt;/DataList.Label&gt;
-              &lt;DataList.Value&gt;{name}&lt;/DataList.Value&gt;
-              &lt;DataList.Actions&gt;
-                &lt;StandaloneLink href=&quot;#&quot; icon={EditIcon}&gt;
-                  Wijzigen&lt;span className=&quot;ams-visually-hidden&quot;&gt; naam van {person}&lt;/span&gt;
-                &lt;/StandaloneLink&gt;
-              &lt;/DataList.Actions&gt;
-            &lt;/DataList.Item&gt;
-            &lt;DataList.Item&gt;
-              &lt;DataList.Label&gt;Geboortedatum&lt;/DataList.Label&gt;
-              &lt;DataList.Value&gt;{birthDate}&lt;/DataList.Value&gt;
-              &lt;DataList.Actions&gt;
-                &lt;StandaloneLink href=&quot;#&quot; icon={EditIcon}&gt;
-                  Wijzigen&lt;span className=&quot;ams-visually-hidden&quot;&gt; geboortedatum van {person}&lt;/span&gt;
-                &lt;/StandaloneLink&gt;
-              &lt;/DataList.Actions&gt;
-            &lt;/DataList.Item&gt;
-            &lt;DataList.Item&gt;
-              &lt;DataList.Label&gt;Adres&lt;/DataList.Label&gt;
-              &lt;DataList.Value&gt;
-                {address.map((line, index) =&gt; (
-                  &lt;Fragment key={line}&gt;
-                    {index &gt; 0 &amp;&amp; &lt;br /&gt;}
-                    {line}
-                  &lt;/Fragment&gt;
-                ))}
-              &lt;/DataList.Value&gt;
-              &lt;DataList.Actions&gt;
-                &lt;StandaloneLink href=&quot;#&quot; icon={EditIcon}&gt;
-                  Wijzigen&lt;span className=&quot;ams-visually-hidden&quot;&gt; adres van {person}&lt;/span&gt;
-                &lt;/StandaloneLink&gt;
-              &lt;/DataList.Actions&gt;
-            &lt;/DataList.Item&gt;
-          &lt;/DataList&gt;
-        &lt;/Column&gt;
-      )
-    })}
-    &lt;Row&gt;
-      &lt;ActionGroup&gt;
-        &lt;Button&gt;Verzenden&lt;/Button&gt;
-      &lt;/ActionGroup&gt;
-    &lt;/Row&gt;
-  &lt;/Column&gt;
-);</code></pre>
+              <pre><code>const Navigation = () =&gt; &lt;DataList&gt;(&lt;DataList.Item&gt;
+      &lt;DataList.Key&gt;Telefoonnummer&lt;/DataList.Key&gt;
+      &lt;DataList.Value&gt;06 12345678&lt;/DataList.Value&gt;
+      &lt;DataList.Actions&gt;
+        &lt;StandaloneLink href=&quot;#&quot; icon={EditIcon}&gt;
+          Wijzigen&lt;span className=&quot;ams-visually-hidden&quot;&gt; telefoonnummer&lt;/span&gt;
+        &lt;/StandaloneLink&gt;
+      &lt;/DataList.Actions&gt;
+    &lt;/DataList.Item&gt;)&lt;/DataList&gt;;</code></pre>
+              
+            </div>
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Internal Actions</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const InternalActions = () =&gt; &lt;DataList&gt;(&lt;DataList.Item&gt;
+      &lt;DataList.Key&gt;Telefoonnummer&lt;/DataList.Key&gt;
+      &lt;DataList.Value&gt;06 12345678&lt;/DataList.Value&gt;
+      &lt;DataList.Actions&gt;
+        &lt;Row alignVertical=&quot;center&quot; wrap&gt;
+          &lt;IconButton label=&quot;Wijzigen telefoonnummer&quot; svg={EditIcon} /&gt;
+          &lt;IconButton label=&quot;Verwijderen telefoonnummer&quot; svg={DeleteIcon} /&gt;
+        &lt;/Row&gt;
+      &lt;/DataList.Actions&gt;
+    &lt;/DataList.Item&gt;)&lt;/DataList&gt;;</code></pre>
               
             </div>
         </div>
@@ -6203,7 +6153,7 @@ import { EditIcon, DeleteIcon } from '@amsterdam/design-system-react-icons';</co
                 <span class="badge ok">doc ok</span>
               </div>
               <div class="hint">./src/components/DataList/DataList.docs.mdx</div>
-              <div>## Subcomponents The Item, Label, Value, and Actions subcomponents make up a Data List. An...</div>
+              <div>## Subcomponents The Item, Key, Value, and Actions subcomponents make up a Data List. An I...</div>
               <div class="mdx-content"><pre><code>{/* @license CC0-1.0 */}
 
 import { Canvas, Controls, Description, Meta, Primary, Title } from &quot;@storybook/addon-docs/blocks&quot;;
@@ -6225,59 +6175,80 @@ import * as DataListStories from &quot;./DataList.stories.tsx&quot;;
 
 ## Subcomponents
 
-The Item, Label, Value, and Actions subcomponents make up a Data List.
-An Item groups one label with its value, Label and Value render the `&lt;dt&gt;` and `&lt;dd&gt;` elements, and Actions holds the links or buttons that act on that value.
+The Item, Key, Value, and Actions subcomponents make up a Data List.
+An Item groups one key with its value, Key and Value render the `&lt;dt&gt;` and `&lt;dd&gt;` elements, and Actions holds the links or buttons that act on that value.
 None of them has props of its own; the examples on this page show them in place.
 
 ## Usage guidelines
 
 ### When to use
 
-- To show a set of data that a reader checks or scans, such as the details of an object, a case, or a person.
-- To let a reader review the answers they gave in a form before they submit it.
+To show a set of data that a reader checks or scans, such as the details of an object, a case, or a person.
+
+To let a reader review the answers they gave in a form before they submit it.
 
 ### When not to use
 
-- For data that is compared across rows or columns: use a [Table](/docs/components-containers-table--docs).
-- For terms and their meanings, such as a glossary: use a [Description List](/docs/components-text-description-list--docs).
-- For values to suggest while someone types in a field: despite the name, a Data List is unrelated to the HTML [`datalist` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/datalist).
+For data that is compared across rows or columns: use a [Table](/docs/components-containers-table--docs).
+
+For terms and their meanings, such as a glossary: use a [Description List](/docs/components-text-description-list--docs).
+
+For values to suggest while someone types in a field: despite the name, a Data List is unrelated to the HTML [`datalist` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/datalist).
 
 ### How to use
 
-Give every item a Label and a Value.
+Give every item a Key and a Value.
 Add Actions only when the reader can change or remove that value, whether that takes them elsewhere or happens in place.
 
 ### How to write
 
-Keep labels short and write them without a colon.
-Write an action as the change it makes, such as ‘Wijzigen’, and add the label of its item as visually hidden text so the accessible name stays unique.
+Keep keys short and write them without a colon.
+Write an action as the change it makes, such as ‘Wijzigen’, and include its key in the accessible name so repeated actions stay unique.
 
 ## Examples
 
 ### Orientation
 
-A label and its value sit side by side, and stack as soon as the container gets too narrow for both.
+A key and its value sit side by side, and stack as soon as the container gets too narrow for both.
 Resize the following example to see the Data List adapt its layout to the available width.
 
 &lt;Canvas of={DataListStories.Orientation} /&gt;
 
 ### Stacked
 
-Set the orientation to ‘vertical’ to place every value below its label, however wide the container is.
-Use this when the values are long, or when the list sits in a narrow column of a wider page.
+Set the orientation to ‘vertical’ to place every value below its key, however wide the container is.
+Use this when the values are long.
 
 &lt;Canvas of={DataListStories.Stacked} /&gt;
 
 ### Actions
 
-An item can offer one or more actions on its value, such as a link to the step of a form where that value is entered or a button that opens a dialog to edit the value directly.
-The text, the icon, and the type of each action are yours to choose: pass Standalone Links, Links, or Buttons.
-An [Action Group](/docs/components-layout-action-group--docs) lays them out, so links and buttons line up and wrap when they run out of room.
+An item can offer one or more actions on its value.
+Use a [Button](/docs/components-buttons-button--docs) for an action on the current page, such as editing in place, deleting, or adding an item.
+On public websites, use a text-only tertiary Button at the end of an item.
 
-Repeated actions read as a list of identical links to anyone who navigates by links alone.
-Add the label of the item as visually hidden text to tell them apart.
+Give every action within an item the same treatment: all with an icon or all without one.
+Actions renders its children directly; use a [Row](/docs/components-layout-row--docs) with wrapping to arrange multiple actions.
+Give repeated actions unique accessible names by adding the key as visually hidden text to the visible label.
 
 &lt;Canvas of={DataListStories.Actions} /&gt;
+
+### Navigation
+
+Use a [Standalone Link](/docs/components-navigation-standalone-link--docs) when an action opens another page, such as returning to a question in a form.
+Do not use a link to delete an item or change the current page.
+
+&lt;Canvas of={DataListStories.Navigation} /&gt;
+
+### Internal actions
+
+Show only an icon when its meaning is immediately clear, or when frequent users of an internal application can learn it.
+Otherwise, give the action a visible text label.
+Our [icon guidelines](/docs/brand-assets-icons--docs#functional-icons) distinguish universal from learnable icons; Edit and Delete are learnable icons.
+Use an [Icon Button](/docs/components-buttons-icon-button--docs) aligned with the surrounding text, and give its `label` prop a unique accessible name, such as ‘Wijzigen telefoonnummer’.
+
+Open the [internal actions example](/story/components-containers-data-list--internal-actions), which is only available in Compact Mode.
+It is not embedded here because the mode also affects the other examples on this page.
 
 ### Composite value
 
@@ -6290,50 +6261,46 @@ Text with inline markup, such as a link in a sentence, needs no wrapper: it flow
 
 ### With header
 
-Introduce a Data List with a [Heading](/docs/components-text-heading--docs) and one or more actions in an [Action Group](/docs/components-layout-action-group--docs), laid out in a [Row](/docs/components-layout-row--docs) above the list.
+Introduce a Data List with a [Heading](/docs/components-text-heading--docs) and an action, laid out in a [Row](/docs/components-layout-row--docs) above the list.
 Use this when a group of data needs a title, or an action that applies to the whole group.
+Use a secondary Button with an icon for a group action on the current page.
+A group action that opens another page stays a Standalone Link.
+Add `ams-mb-s` to the heading row to separate it from the list below a level 2 Heading.
 
 &lt;Canvas of={DataListStories.WithHeader} /&gt;
 
-### Form review
-
-A summary of the answers in a form is an application of Data List rather than a component of its own.
-Combine it with an action per item that returns to the matching question, and a button that submits the form.
-
-Group data about several subjects by repeating the same header pattern above each Data List.
-
-&lt;Canvas of={DataListStories.FormReview} /&gt;
-
 ## Features
 
-Labels and values wrap and hyphenate, so long content stays inside the column instead of overflowing it.
-Below the breakpoint every value moves under its label, which keeps a Data List free of horizontal scroll on narrow screens.
+Keys and values wrap and hyphenate.
+Below the breakpoint every value moves under its key.
 
 ## Design
 
 Items are separated by a line between them, which runs the full width of the list.
-The whitespace above and below that line is the same, so the line sits between two items rather than belonging to one.
+The whitespace above and below that line is the same by default, so the line sits between two items rather than belonging to one.
 
-Labels use heading typography and values use body text, which gives the two different line heights.
-Side by side, a label therefore gets half of that difference as extra space above it, so its first line sits level with the first line of its value.
+Keys use heading typography and values use body text, which gives the two different line heights.
+Side by side, a key therefore gets half of that difference as extra space above it, so its first line sits level with the first line of its value.
 
-Labels and values sit next to each other when their [query container](/docs/utilities-css-query-container--docs) is wide enough (at least `32rem`).
-All items then share the same columns, so labels, values, and actions line up across the list.
-By default the column for the labels is at most `15rem` wide, and at most 30% of the list.
-Set `termsWidth` to `narrow`, `medium`, or `wide` when a ratio between labels and values serves the content better.
-The column for the actions takes at most a quarter of the list, so several actions wrap when they do not fit next to each other.
+Keys and values sit next to each other when their [query container](/docs/utilities-css-query-container--docs) is wide enough (at least `32rem`).
+All items then share the same columns, so keys, values, and actions line up across the list.
+The key column fits its content with a limit of `15rem` or 30% of the list, whichever is smaller.
+The actions column fits its content with a limit of a quarter of the list.
+Min-content sizing can exceed these limits.
+When no item has actions, the actions track collapses but its gutter remains.
 
 ## Accessibility
 
 A Data List renders `dl`, `dt`, and `dd` elements.
-This keeps each label paired with its value in the markup instead of only through the layout.
+This keeps each key paired with its value in the markup instead of only through the layout.
 
-Actions renders a second `dd`, so its links and buttons are announced in the context of the label they act on.
-Give repeated actions a unique accessible name with the `ams-visually-hidden` helper.
-Use visually hidden text rather than `aria-label`, because browsers do not reliably translate that attribute.
+Actions renders a second `dd` for its links and buttons.
+Give repeated actions a unique accessible name that includes the key they act on.
+For visible text labels, add the key with the `ams-visually-hidden` helper rather than `aria-label`, because browsers do not reliably translate that attribute.
+For Icon Buttons, put the complete accessible name in the `label` prop.
 
 When you compose a heading row above a Data List, the action in that row applies to the whole group.
-Give that action the name of the group as visually hidden text, such as ‘Verwijderen persoon 1’.
+Include the name of the group in its accessible name, such as ‘Wijzigen Magere Brug’.
 
 ## See also
 
@@ -6375,7 +6342,7 @@ Give that action the name of the group as visually hidden text, such as ‘Verwi
       </div>
       <div class="hint">/home/runner/work/design-system/design-system/packages/react/src/index.ts</div>
       
-      <div class="hint">Groups a label with its value, and optionally one or more actions, within a Data List.</div>
+      <div class="hint">Groups a key with its value, and optionally one or more actions, within a Data List.</div>
       <div class="kv"><span class="chip">see: {@link https://designsystem.amsterdam/?path=/docs/components-containers-data-list--docs Data List docs at Amsterdam Design System}</span></div>
       <pre><code>import { DataList } from &#39;@amsterdam/design-system-react/src&#39;;</code></pre>
       
@@ -6385,7 +6352,7 @@ Give that action the name of the group as visually hidden text, such as ‘Verwi
   
     <div class="note ok">
       <div class="row">
-        <span class="ex-name">DataList.Label</span>
+        <span class="ex-name">DataList.Key</span>
         <span class="badge ">
           no API description
         </span>
@@ -6409,7 +6376,7 @@ Give that action the name of the group as visually hidden text, such as ‘Verwi
       </div>
       <div class="hint">/home/runner/work/design-system/design-system/packages/react/src/index.ts</div>
       
-      <div class="hint">The data itself, paired with its label in an item of a Data List.</div>
+      <div class="hint">The data itself, paired with its key in an item of a Data List.</div>
       <div class="kv"><span class="chip">see: {@link https://designsystem.amsterdam/?path=/docs/components-containers-data-list--docs Data List docs at Amsterdam Design System}</span></div>
       <pre><code>import { DataList } from &#39;@amsterdam/design-system-react/src&#39;;</code></pre>
       
@@ -7356,6 +7323,7 @@ Use a Description List for pairs of terms and descriptions, such as a glossary.
 
 Use a [Table](/docs/components-containers-table--docs) to compare multiple items by the same properties.
 Use an [Unordered List](/docs/components-text-unordered-list--docs) or [Ordered List](/docs/components-text-ordered-list--docs) for items without a term.
+Use a [Data List](/docs/components-containers-data-list--docs) to show the properties of a subject, such as a person, an object or a concept.
 
 ### How to use
 
@@ -7429,7 +7397,7 @@ The component leaves the native elements alone rather than adding `term` and `de
 
 ## See also
 
-- [Data List](/docs/components-containers-data-list--docs) – pairs labels with values instead of terms with meanings, and separates them by a line.
+- [Data List](/docs/components-containers-data-list--docs) – pairs keys with values instead of terms with meanings, and separates them by a line.
 - [Prose](/docs/utilities-css-prose--docs) – applies the recommended vertical spacing for editorial content.
 
 ## Design tokens
@@ -38193,6 +38161,15 @@ Use the `align` prop to match the alignment of the column’s cells.
 &lt;Controls of={TableHeaderCellStories.HeaderCell} /&gt;
 
 ## Usage guidelines
+
+### When to use
+
+Use a Table to compare several subjects, such as people, objects or concepts, by the same properties.
+Each row holds one subject and each column one property.
+
+### When not to use
+
+Use a [Data List](/docs/components-containers-data-list--docs) to show the properties of a single subject.
 
 ### How to use
 
