@@ -55,15 +55,18 @@ describe('DataListActions', () => {
     render(
       <DataList.Actions>
         <a href="#">Wijzigen</a>
-        <a href="#">Verwijderen</a>
+        <button type="button">Verwijderen</button>
       </DataList.Actions>,
     )
 
-    const component = screen.getByRole('group')
+    const component = screen.getByRole('definition')
 
     expect(component.children).toHaveLength(2)
+    expect(component.children[0].tagName).toBe('A')
+    expect(component.children[1].tagName).toBe('BUTTON')
+    expect(screen.queryByRole('group')).not.toBeInTheDocument()
     expect(screen.getByRole('link', { name: 'Wijzigen' })).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: 'Verwijderen' })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'Verwijderen' })).toBeInTheDocument()
   })
 
   it('distinguishes repeated actions with visually hidden text', () => {

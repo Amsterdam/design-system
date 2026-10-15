@@ -6,7 +6,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import type { ComponentProps } from 'react'
 
-import { Column, Link, Paragraph, StandaloneLink } from '@amsterdam/design-system-react'
+import { Column, Link, Paragraph, Row, StandaloneLink } from '@amsterdam/design-system-react'
 import { DeleteIcon, EditIcon } from '@amsterdam/design-system-react-icons'
 import { DataList } from '@amsterdam/design-system-react/src'
 
@@ -97,12 +97,14 @@ export const Test: Story = {
         <DataList.Key>Foto</DataList.Key>
         <DataList.Value>brug-voorzijde.jpg</DataList.Value>
         <DataList.Actions>
-          <StandaloneLink href="#" icon={EditIcon}>
-            Wijzigen<span className="ams-visually-hidden"> foto</span>
-          </StandaloneLink>
-          <StandaloneLink href="#" icon={DeleteIcon}>
-            Verwijderen<span className="ams-visually-hidden"> foto</span>
-          </StandaloneLink>
+          <Row wrap>
+            <StandaloneLink href="#" icon={EditIcon}>
+              Wijzigen<span className="ams-visually-hidden"> foto</span>
+            </StandaloneLink>
+            <StandaloneLink href="#" icon={DeleteIcon}>
+              Verwijderen<span className="ams-visually-hidden"> foto</span>
+            </StandaloneLink>
+          </Row>
         </DataList.Actions>
       </DataList.Item>,
 
@@ -111,12 +113,14 @@ export const Test: Story = {
         <DataList.Key>Telefoonnummer</DataList.Key>
         <DataList.Value>0612345678</DataList.Value>
         <DataList.Actions>
-          <StandaloneLink href="#" icon={EditIcon}>
-            Wijzigen<span className="ams-visually-hidden"> telefoonnummer</span>
-          </StandaloneLink>
-          <StandaloneLink href="#" icon={DeleteIcon}>
-            Verwijderen<span className="ams-visually-hidden"> telefoonnummer</span>
-          </StandaloneLink>
+          <Row wrap>
+            <StandaloneLink href="#" icon={EditIcon}>
+              Wijzigen<span className="ams-visually-hidden"> telefoonnummer</span>
+            </StandaloneLink>
+            <StandaloneLink href="#" icon={DeleteIcon}>
+              Verwijderen<span className="ams-visually-hidden"> telefoonnummer</span>
+            </StandaloneLink>
+          </Row>
         </DataList.Actions>
       </DataList.Item>,
     ],

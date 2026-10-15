@@ -121,12 +121,14 @@ export const Actions: Story = {
         <DataList.Key>Telefoonnummer</DataList.Key>
         <DataList.Value>06 12345678</DataList.Value>
         <DataList.Actions>
-          <StandaloneLink href="#" icon={EditIcon}>
-            Wijzigen<span className="ams-visually-hidden"> telefoonnummer</span>
-          </StandaloneLink>
-          <StandaloneLink href="#" icon={DeleteIcon}>
-            Verwijderen<span className="ams-visually-hidden"> telefoonnummer</span>
-          </StandaloneLink>
+          <Row wrap>
+            <StandaloneLink href="#" icon={EditIcon}>
+              Wijzigen<span className="ams-visually-hidden"> telefoonnummer</span>
+            </StandaloneLink>
+            <StandaloneLink href="#" icon={DeleteIcon}>
+              Verwijderen<span className="ams-visually-hidden"> telefoonnummer</span>
+            </StandaloneLink>
+          </Row>
         </DataList.Actions>
       </DataList.Item>,
       <DataList.Item key={4}>
