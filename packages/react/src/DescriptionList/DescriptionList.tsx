@@ -53,6 +53,7 @@ DescriptionListRoot.displayName = 'DescriptionList'
 export const DescriptionList = Object.assign(DescriptionListRoot, {
   Description: DescriptionListDescription,
   Item: DescriptionListItem,
+  /** @deprecated Use `DescriptionList.Item` instead. Will be removed on or after 2027-04-16. */
   Section: DescriptionListSection,
   Term: DescriptionListTerm,
 })
