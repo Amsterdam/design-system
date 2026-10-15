@@ -17,6 +17,7 @@
           }
         },
         "outline-offset": {
+          "$deprecated": "The scroller is no longer focusable, so it has no outline to offset. Will be removed on or after 2027-04-16.",
           "$value": "{ams.focus.outline-offset}",
           "$extensions": {
             "nl.amsterdam.subtype": "space",

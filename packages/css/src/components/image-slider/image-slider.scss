@@ -24,7 +24,7 @@
   grid-auto-flow: column;
   grid-column: 1/-1;
   grid-row: 1;
-  outline-offset: var(--ams-image-slider-scroller-outline-offset);
+  outline-offset: var(--ams-image-slider-scroller-outline-offset); /* @deprecated */
   /* stylelint-disable-next-line defensive-css/require-scrollbar-gutter -- The scrollbar is hidden. */
   overflow-x: auto;
   /* stylelint-disable-next-line plugin/use-baseline -- Progressive enhancement. */
