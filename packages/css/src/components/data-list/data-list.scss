@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-@use "../../common/align-first-line" as *;
+@use "../../common/align-first-lines" as *;
 @use "../../common/hyphenation" as *;
 @use "../../common/resets" as *;
 @use "../../common/text-rendering" as *;
@@ -85,7 +85,7 @@ $ams-data-list-breakpoint: 32rem;
     margin-block-end: 0;
 
     // Align labels with values, which use body text line heights rather than heading ones.
-    @include align-first-line(
+    @include align-first-lines(
       $font-size: var(--ams-data-list-label-font-size),
       $line-height: var(--ams-data-list-label-line-height),
       $reference-font-size: var(--ams-data-list-font-size),

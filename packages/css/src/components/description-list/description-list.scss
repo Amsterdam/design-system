@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-@use "../../common/align-first-line" as *;
+@use "../../common/align-first-lines" as *;
 @use "../../common/hyphenation" as *;
 @use "../../common/resets" as *;
 @use "../../common/text-rendering" as *;
@@ -98,7 +98,7 @@ $ams-description-list-breakpoint: 32rem;
     // Align Terms with Descriptions, which use body text line heights rather than heading ones.
     // Not for Terms that follow a Term, or which are the last child.
     &:not(& + &, :last-child) {
-      @include align-first-line(
+      @include align-first-lines(
         $font-size: var(--ams-description-list-term-font-size),
         $line-height: var(--ams-description-list-term-line-height),
         $reference-font-size: var(--ams-description-list-font-size),

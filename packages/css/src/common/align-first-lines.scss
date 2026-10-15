@@ -11,7 +11,7 @@
  * Pass font sizes as tokens in relative units, and line heights as unitless numbers.
  */
 
-@mixin align-first-line($font-size, $line-height, $reference-font-size, $reference-line-height) {
+@mixin align-first-lines($font-size, $line-height, $reference-font-size, $reference-line-height) {
   /* stylelint-disable-next-line defensive-css/no-fixed-sizes -- The rule cannot resolve Sass parameters; the tokens passed in are relative units. */
   padding-block-start: calc(($reference-font-size * $reference-line-height - $font-size * $line-height) / 2);
 }
