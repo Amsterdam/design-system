@@ -54,33 +54,33 @@ $ams-data-list-breakpoint: 32rem;
 
 // Below this width every item stacks, so a Data List never forces horizontal scroll.
 @container ams-query-container-inline-size (inline-size >= #{$ams-data-list-breakpoint}) {
-  .ams-data-list--horizontal {
+  .ams-data-list:not(.ams-data-list--vertical) {
     column-gap: var(--ams-data-list-vi-medium-column-gap);
     grid-template-columns: var(--ams-data-list-vi-medium-grid-template-columns);
   }
 
-  .ams-data-list--horizontal.ams-data-list--narrow {
+  .ams-data-list:not(.ams-data-list--vertical).ams-data-list--narrow {
     grid-template-columns: var(--ams-data-list-vi-medium-narrow-grid-template-columns);
   }
 
-  .ams-data-list--horizontal.ams-data-list--medium {
+  .ams-data-list:not(.ams-data-list--vertical).ams-data-list--medium {
     grid-template-columns: var(--ams-data-list-vi-medium-medium-grid-template-columns);
   }
 
-  .ams-data-list--horizontal.ams-data-list--wide {
+  .ams-data-list:not(.ams-data-list--vertical).ams-data-list--wide {
     grid-template-columns: var(--ams-data-list-vi-medium-wide-grid-template-columns);
   }
 
   // Every item follows the columns of the list, so values line up whatever actions an item has.
   // Child combinators keep these rules off a Data List nested in a value.
-  .ams-data-list--horizontal > .ams-data-list__item {
+  .ams-data-list:not(.ams-data-list--vertical) > .ams-data-list__item {
     align-items: start;
     display: grid;
     grid-column: 1 / -1;
     grid-template-columns: subgrid;
   }
 
-  .ams-data-list--horizontal > .ams-data-list__item > .ams-data-list__key {
+  .ams-data-list:not(.ams-data-list--vertical) > .ams-data-list__item > .ams-data-list__key {
     grid-column-start: 1;
     margin-block-end: 0;
 
@@ -93,11 +93,11 @@ $ams-data-list-breakpoint: 32rem;
     );
   }
 
-  .ams-data-list--horizontal > .ams-data-list__item > .ams-data-list__value {
+  .ams-data-list:not(.ams-data-list--vertical) > .ams-data-list__item > .ams-data-list__value {
     grid-column-start: 2;
   }
 
-  .ams-data-list--horizontal > .ams-data-list__item > .ams-data-list__actions {
+  .ams-data-list:not(.ams-data-list--vertical) > .ams-data-list__item > .ams-data-list__actions {
     grid-column-start: 3;
     grid-row-start: 1;
     padding-block-start: 0;

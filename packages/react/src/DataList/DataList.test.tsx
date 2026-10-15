@@ -32,7 +32,7 @@ describe('DataList', () => {
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('ams-data-list ams-data-list--horizontal extra')
+    expect(component).toHaveClass('ams-data-list extra', { exact: true })
   })
 
   it('renders a description list element', () => {
@@ -43,12 +43,12 @@ describe('DataList', () => {
     expect(component?.tagName).toBe('DL')
   })
 
-  it('renders the class name for the horizontal orientation by default', () => {
+  it('renders no orientation modifier by default', () => {
     const { container } = render(<DataList />)
 
     const component = container.querySelector(':only-child')
 
-    expect(component).toHaveClass('ams-data-list--horizontal')
+    expect(component).toHaveClass('ams-data-list', { exact: true })
   })
 
   dataListOrientations.map((orientation) =>

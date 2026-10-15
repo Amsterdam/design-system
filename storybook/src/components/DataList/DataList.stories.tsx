@@ -52,7 +52,7 @@ const meta = {
         labels: { undefined: 'horizontal (default)' },
         type: 'radio',
       },
-      options: [undefined, ...dataListOrientations.filter((orientation) => orientation !== 'horizontal')],
+      options: [undefined, ...dataListOrientations],
     },
     termsWidth: {
       control: {
