@@ -18,7 +18,7 @@ import {
 } from '@amsterdam/design-system-react'
 import { DeleteIcon, EditIcon } from '@amsterdam/design-system-react-icons'
 import { DataList } from '@amsterdam/design-system-react/src'
-import { dataListOrientations, dataListTermsWidths } from '@amsterdam/design-system-react/src/DataList/DataList'
+import { dataListOrientations } from '@amsterdam/design-system-react/src/DataList/DataList'
 import { Fragment } from 'react'
 
 import { wrapInInlineSizeQueryContainer } from '#storybook/_common/decorators'
@@ -53,13 +53,6 @@ const meta = {
         type: 'radio',
       },
       options: [undefined, ...dataListOrientations],
-    },
-    termsWidth: {
-      control: {
-        labels: { undefined: 'default' },
-        type: 'radio',
-      },
-      options: [undefined, ...dataListTermsWidths],
     },
   },
   decorators: [wrapInInlineSizeQueryContainer()],

@@ -46,34 +46,10 @@
           }
         },
         "grid-template-columns": {
-          "$value": "minmax(0, min(15rem, 30%)) minmax(0, 1fr) fit-content(25%)",
-          "$description": "Three columns that every item shares: the key, the value, and the optional actions. The key column takes at most 15rem, and at most 30% of the list. The actions column takes at most a quarter of the list, beyond which its actions wrap, and collapses when no item has actions.",
+          "$value": "fit-content(min(15rem, 30%)) minmax(0, 1fr) fit-content(25%)",
+          "$description": "Three columns that every item shares: the key, the value, and the optional actions. The key column fits its content with a limit of 15rem or 30% of the list, whichever is smaller. The actions column fits its content with a limit of a quarter of the list, and collapses when no item has actions. Min-content sizing can exceed these limits.",
           "$extensions": {
             "nl.amsterdam.type": "gridTemplateColumns"
-          }
-        },
-        "narrow": {
-          "grid-template-columns": {
-            "$value": "minmax(0, 1fr) minmax(0, 4fr) fit-content(25%)",
-            "$extensions": {
-              "nl.amsterdam.type": "gridTemplateColumns"
-            }
-          }
-        },
-        "medium": {
-          "grid-template-columns": {
-            "$value": "minmax(0, 1fr) minmax(0, 2fr) fit-content(25%)",
-            "$extensions": {
-              "nl.amsterdam.type": "gridTemplateColumns"
-            }
-          }
-        },
-        "wide": {
-          "grid-template-columns": {
-            "$value": "minmax(0, 1fr) minmax(0, 1fr) fit-content(25%)",
-            "$extensions": {
-              "nl.amsterdam.type": "gridTemplateColumns"
-            }
           }
         }
       },

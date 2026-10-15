@@ -7,7 +7,7 @@ import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 import { describe, expect, it } from 'vitest'
 
-import { DataList, dataListOrientations, dataListTermsWidths } from './DataList'
+import { DataList, dataListOrientations } from './DataList'
 
 describe('DataList', () => {
   it('renders', () => {
@@ -58,16 +58,6 @@ describe('DataList', () => {
       const component = container.querySelector(':only-child')
 
       expect(component).toHaveClass(`ams-data-list--${orientation}`)
-    }),
-  )
-
-  dataListTermsWidths.map((width) =>
-    it(`renders the class name for the ‘${width}’ terms column width`, () => {
-      const { container } = render(<DataList termsWidth={width} />)
-
-      const component = container.querySelector(':only-child')
-
-      expect(component).toHaveClass(`ams-data-list--${width}`)
     }),
   )
 

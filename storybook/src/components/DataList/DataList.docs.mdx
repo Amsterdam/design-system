@@ -100,8 +100,8 @@ Group data about several subjects by repeating the same header pattern above eac
 
 ## Features
 
-Keys and values wrap and hyphenate, so long content stays inside the column instead of overflowing it.
-Below the breakpoint every value moves under its key, which keeps a Data List free of horizontal scroll on narrow screens.
+Keys and values wrap and hyphenate.
+Below the breakpoint every value moves under its key.
 
 ## Design
 
@@ -113,9 +113,10 @@ Side by side, a key therefore gets half of that difference as extra space above 
 
 Keys and values sit next to each other when their [query container](/docs/utilities-css-query-container--docs) is wide enough (at least `32rem`).
 All items then share the same columns, so keys, values, and actions line up across the list.
-By default the column for the keys is at most `15rem` wide, and at most 30% of the list.
-Set `termsWidth` to `narrow`, `medium`, or `wide` when a ratio between keys and values serves the content better.
-The column for the actions takes at most a quarter of the list, so several actions wrap when they do not fit next to each other.
+The key column fits its content with a limit of `15rem` or 30% of the list, whichever is smaller.
+The actions column fits its content with a limit of a quarter of the list.
+Min-content sizing can exceed these limits.
+When no item has actions, the actions track collapses but its gutter remains.
 
 ## Accessibility
 
