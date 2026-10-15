@@ -81,6 +81,7 @@
     align-content: start;
     display: grid;
     gap: var(--ams-menu-list-gap);
+    grid-template-columns: minmax(0, 1fr); // Keeps a long label from widening the column past the Menu.
   }
 }
 
