@@ -38,7 +38,7 @@ const DataListRoot = forwardRef(
 DataListRoot.displayName = 'DataList'
 
 /**
- * An overview of data, presenting each key with its value on a line of its own.
+ * A collection of details that describe one specific thing, person, or concept.
  *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-containers-data-list--docs Data List docs at Amsterdam Design System}
  */
