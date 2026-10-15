@@ -4,13 +4,20 @@
  */
 
 @use "../../common/align-first-line" as *;
-@use "../../common/breakpoint" as *;
 @use "../../common/hyphenation" as *;
 @use "../../common/resets" as *;
 @use "../../common/text-rendering" as *;
 
+/**
+ * CSS Custom properties cannot be used in container queries.
+ * We resort to Sass variables for our breakpoint values.
+ */
+
+/** The container width at which Description List toggles its orientation. */
+$ams-description-list-breakpoint: 32rem;
+
 @mixin horizontal-orientation {
-  @container ams-query-container-inline-size (inline-size >= #{$ams-container-breakpoint-term-and-value}) {
+  @container ams-query-container-inline-size (inline-size >= #{$ams-description-list-breakpoint}) {
     @content;
   }
 }

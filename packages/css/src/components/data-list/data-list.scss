@@ -4,10 +4,12 @@
  */
 
 @use "../../common/align-first-line" as *;
-@use "../../common/breakpoint" as *;
 @use "../../common/hyphenation" as *;
 @use "../../common/resets" as *;
 @use "../../common/text-rendering" as *;
+
+/** The container width at which Data List places each label beside its value. */
+$ams-data-list-breakpoint: 32rem;
 
 .ams-data-list {
   @include reset-dl;
@@ -51,7 +53,7 @@
 }
 
 // Below this width every item stacks, so a Data List never forces horizontal scroll.
-@container ams-query-container-inline-size (inline-size >= #{$ams-container-breakpoint-term-and-value}) {
+@container ams-query-container-inline-size (inline-size >= #{$ams-data-list-breakpoint}) {
   .ams-data-list--horizontal {
     column-gap: var(--ams-data-list-vi-medium-column-gap);
     grid-template-columns: var(--ams-data-list-vi-medium-grid-template-columns);
