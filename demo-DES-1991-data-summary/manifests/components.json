@@ -716,7 +716,7 @@
         {
           "id": "components-containers-data-list--actions",
           "name": "Actions",
-          "snippet": "const Actions = () => <DataList>{[\n      <DataList.Item key={1}>\n        <DataList.Key>Voornaam</DataList.Key>\n        <DataList.Value>Johan</DataList.Value>\n        <DataList.Actions>\n          <Button variant=\"tertiary\">\n            Wijzigen<span className=\"ams-visually-hidden\"> voornaam</span>\n          </Button>\n        </DataList.Actions>\n      </DataList.Item>,\n      <DataList.Item key={2}>\n        <DataList.Key>Achternaam</DataList.Key>\n        <DataList.Value>Cruijff</DataList.Value>\n        <DataList.Actions>\n          <Button icon={<EditIcon />} iconBefore variant=\"tertiary\">\n            Wijzigen<span className=\"ams-visually-hidden\"> achternaam</span>\n          </Button>\n        </DataList.Actions>\n      </DataList.Item>,\n      <DataList.Item key={3}>\n        <DataList.Key>Telefoonnummer</DataList.Key>\n        <DataList.Value>06 12345678</DataList.Value>\n        <DataList.Actions>\n          <Row wrap>\n            <Button variant=\"tertiary\">\n              Wijzigen<span className=\"ams-visually-hidden\"> telefoonnummer</span>\n            </Button>\n            <Button icon={<DeleteIcon />} iconBefore variant=\"tertiary\">\n              Verwijderen<span className=\"ams-visually-hidden\"> telefoonnummer</span>\n            </Button>\n          </Row>\n        </DataList.Actions>\n      </DataList.Item>,\n      <DataList.Item key={4}>\n        <DataList.Key>Burgerservicenummer</DataList.Key>\n        <DataList.Value>123456782</DataList.Value>\n      </DataList.Item>,\n    ]}</DataList>;"
+          "snippet": "const Actions = () => <DataList>{[\n      <DataList.Item key={1}>\n        <DataList.Key>Voornaam</DataList.Key>\n        <DataList.Value>Johan</DataList.Value>\n        <DataList.Actions>\n          <Button variant=\"tertiary\">\n            Wijzigen<span className=\"ams-visually-hidden\"> voornaam</span>\n          </Button>\n        </DataList.Actions>\n      </DataList.Item>,\n      <DataList.Item key={2}>\n        <DataList.Key>Achternaam</DataList.Key>\n        <DataList.Value>Cruijff</DataList.Value>\n        <DataList.Actions>\n          <Button variant=\"tertiary\">\n            Wijzigen<span className=\"ams-visually-hidden\"> achternaam</span>\n          </Button>\n        </DataList.Actions>\n      </DataList.Item>,\n      <DataList.Item key={3}>\n        <DataList.Key>Telefoonnummer</DataList.Key>\n        <DataList.Value>06 12345678</DataList.Value>\n        <DataList.Actions>\n          <Row wrap>\n            <Button variant=\"tertiary\">\n              Wijzigen<span className=\"ams-visually-hidden\"> telefoonnummer</span>\n            </Button>\n            <Button variant=\"tertiary\">\n              Verwijderen<span className=\"ams-visually-hidden\"> telefoonnummer</span>\n            </Button>\n          </Row>\n        </DataList.Actions>\n      </DataList.Item>,\n      <DataList.Item key={4}>\n        <DataList.Key>Burgerservicenummer</DataList.Key>\n        <DataList.Value>123456782</DataList.Value>\n      </DataList.Item>,\n    ]}</DataList>;"
         },
         {
           "id": "components-containers-data-list--composite-value",
@@ -739,7 +739,7 @@
           "snippet": "const InternalActions = () => <DataList>(<DataList.Item>\n      <DataList.Key>Telefoonnummer</DataList.Key>\n      <DataList.Value>06 12345678</DataList.Value>\n      <DataList.Actions>\n        <Row alignVertical=\"center\" wrap>\n          <IconButton label=\"Wijzigen telefoonnummer\" svg={EditIcon} />\n          <IconButton label=\"Verwijderen telefoonnummer\" svg={DeleteIcon} />\n        </Row>\n      </DataList.Actions>\n    </DataList.Item>)</DataList>;"
         }
       ],
-      "import": "import { Button, Column, Heading, IconButton, Image, Link, Paragraph, Row, StandaloneLink } from '@amsterdam/design-system-react';\nimport { DataList } from '@amsterdam/design-system-react/src';\nimport { DeleteIcon, EditIcon } from '@amsterdam/design-system-react-icons';",
+      "import": "import { Button, Column, Heading, IconButton, Image, Link, Paragraph, Row, StandaloneLink } from '@amsterdam/design-system-react';\nimport { DataList } from '@amsterdam/design-system-react/src';\nimport { EditIcon, DeleteIcon } from '@amsterdam/design-system-react-icons';",
       "docs": {
         "components-containers-data-list--docs": {
           "id": "components-containers-data-list--docs",
@@ -12841,6 +12841,6 @@
   },
   "meta": {
     "docgen": "react-component-meta",
-    "durationMs": 5434
+    "durationMs": 4246
   }
 }
