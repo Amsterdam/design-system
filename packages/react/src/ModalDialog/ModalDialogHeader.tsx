@@ -16,13 +16,16 @@ export type ModalDialogHeaderProps = {
   /**
    * The accessible name of the button that dismisses the Modal Dialog.
    * Will be announced by screen readers.
+   * A custom close button renders it as its visible label.
    * @default Sluiten
    */
   readonly closeButtonAccessibleName?: string
   /**
    * The React component to use for the button that dismisses the Modal Dialog.
-   * It receives `className`, `onClick`, `type`, and the accessible name as `children`.
-   * Pass those props on to the button it renders.
+   * Receives only `className`, `onClick`, `type="button"` and the accessible name as `children`.
+   * Apply `className`, `onClick` and `type` to its button; render `children` as its visible label.
+   * Merge `className` with its own classes; wrap the component to set other props.
+   * `closeButtonIcon` and `closeButtonSize` apply only to the default button.
    * Websites for the City of Amsterdam must use the default button.
    */
   readonly closeButtonComponent?: ElementType
