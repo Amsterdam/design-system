@@ -18,6 +18,7 @@ $ams-data-list-breakpoint: 32rem;
   display: grid;
   font-family: var(--ams-data-list-font-family);
   font-size: var(--ams-data-list-font-size);
+  grid-template-columns: minmax(0, 1fr);
   line-height: var(--ams-data-list-line-height);
   row-gap: var(--ams-data-list-row-gap);
 
