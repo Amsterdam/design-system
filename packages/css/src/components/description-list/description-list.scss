@@ -85,8 +85,6 @@ $ams-description-list-breakpoint: 32rem;
   font-weight: var(--ams-description-list-term-font-weight);
   line-height: var(--ams-description-list-term-line-height);
   margin-block-end: var(--ams-description-list-term-margin-block-end);
-
-  /* stylelint-disable-next-line plugin/use-baseline -- Unbalanced line lengths in non-supporting browsers are acceptable */
   text-wrap: var(--ams-description-list-term-text-wrap);
 
   @include horizontal-orientation {
