@@ -66,9 +66,16 @@ Use this when the values are long.
 
 <Canvas of={DataListStories.Stacked} />
 
-### Actions
+### Form flow actions
 
 An item can offer one or more actions on its value.
+Use a [Standalone Link](/docs/components-navigation-standalone-link--docs) when an action opens another page, such as returning to a question in a [Form Flow](/docs/pages-public-form-flow--docs).
+Do not use a link to delete an item or change the current page.
+
+<Canvas of={DataListStories.FormFlowActions} />
+
+### In-place actions
+
 Use a [Button](/docs/components-buttons-button--docs) for an action on the current page, such as editing in place, deleting, or adding an item.
 On public websites, use a text-only tertiary Button at the end of an item.
 
@@ -76,23 +83,16 @@ Give every action within an item the same treatment: all with an icon or all wit
 Actions renders its children directly; use a [Row](/docs/components-layout-row--docs) with wrapping to arrange multiple actions.
 Give repeated actions unique accessible names by adding the key as visually hidden text to the visible label.
 
-<Canvas of={DataListStories.Actions} />
+<Canvas of={DataListStories.InPlaceActions} />
 
-### Navigation
-
-Use a [Standalone Link](/docs/components-navigation-standalone-link--docs) when an action opens another page, such as returning to a question in a form.
-Do not use a link to delete an item or change the current page.
-
-<Canvas of={DataListStories.Navigation} />
-
-### Internal actions
+### Learnable in-place actions
 
 Show only an icon when its meaning is immediately clear, or when frequent users of an internal application can learn it.
 Otherwise, give the action a visible text label.
 Our [icon guidelines](/docs/brand-assets-icons--docs#functional-icons) distinguish universal from learnable icons; Edit and Delete are learnable icons.
 Use an [Icon Button](/docs/components-buttons-icon-button--docs) aligned with the surrounding text, and give its `label` prop a unique accessible name, such as ‘Wijzigen telefoonnummer’.
 
-Open the [internal actions example](/story/components-containers-data-list--internal-actions), which is only available in Compact Mode.
+Open the [learnable in-place actions example](/story/components-containers-data-list--learnable-in-place-actions), which is only available in Compact Mode.
 It is not embedded here because the mode also affects the other examples on this page.
 
 ### Composite value

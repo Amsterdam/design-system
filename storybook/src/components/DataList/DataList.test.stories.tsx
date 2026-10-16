@@ -12,7 +12,7 @@ import { DataList } from '@amsterdam/design-system-react/src'
 
 import { renderComponentVariants } from '#storybook/_common/renderComponentVariants'
 
-import { default as dataListMeta, InternalActions } from './DataList.stories'
+import { default as dataListMeta, LearnableInPlaceActions } from './DataList.stories'
 
 const meta = {
   ...dataListMeta,
@@ -31,7 +31,7 @@ type DataListProps = ComponentProps<typeof DataList>
  * - then render example in a narrow container-query context
  * - then render example in the narrowest container that still places keys and values side by side
  * - then a horizontal list with an image-leading value
- * - then a list without actions, a heading row above a list, and the internal actions with the Compact Mode class
+ * - then a list without actions, a heading row above a list, and the learnable in-place actions with the Compact Mode class
  */
 const DataListWithContainerQueryExamples = (props: DataListProps) => {
   return (
@@ -77,7 +77,7 @@ const DataListWithContainerQueryExamples = (props: DataListProps) => {
         <DataList {...props} />
       </section>
       <Column className="ams-theme--compact">
-        <DataList {...props} {...InternalActions.args} />
+        <DataList {...props} {...LearnableInPlaceActions.args} />
       </Column>
     </Column>
   )

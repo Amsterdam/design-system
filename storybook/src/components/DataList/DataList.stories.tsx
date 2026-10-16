@@ -95,7 +95,23 @@ export const Stacked: Story = {
   },
 }
 
-export const Actions: Story = {
+export const FormFlowActions: Story = {
+  args: {
+    children: (
+      <DataList.Item>
+        <DataList.Key>Telefoonnummer</DataList.Key>
+        <DataList.Value>06 12345678</DataList.Value>
+        <DataList.Actions>
+          <StandaloneLink href="#" icon={EditIcon}>
+            Wijzigen<span className="ams-visually-hidden"> telefoonnummer</span>
+          </StandaloneLink>
+        </DataList.Actions>
+      </DataList.Item>
+    ),
+  },
+}
+
+export const InPlaceActions: Story = {
   args: {
     children: [
       <DataList.Item key={1}>
@@ -135,6 +151,26 @@ export const Actions: Story = {
         <DataList.Value>123456782</DataList.Value>
       </DataList.Item>,
     ],
+  },
+}
+
+export const LearnableInPlaceActions: Story = {
+  args: {
+    children: (
+      <DataList.Item>
+        <DataList.Key>Telefoonnummer</DataList.Key>
+        <DataList.Value>06 12345678</DataList.Value>
+        <DataList.Actions>
+          <Row alignVertical="center" wrap>
+            <IconButton label="Wijzigen telefoonnummer" svg={EditIcon} />
+            <IconButton label="Verwijderen telefoonnummer" svg={DeleteIcon} />
+          </Row>
+        </DataList.Actions>
+      </DataList.Item>
+    ),
+  },
+  parameters: {
+    themes: { options: ['Compact', 'Compact Lo-fi'] },
   },
 }
 
@@ -185,40 +221,4 @@ export const WithHeader: Story = {
       <DataList {...args} />
     </>
   ),
-}
-
-export const Navigation: Story = {
-  args: {
-    children: (
-      <DataList.Item>
-        <DataList.Key>Telefoonnummer</DataList.Key>
-        <DataList.Value>06 12345678</DataList.Value>
-        <DataList.Actions>
-          <StandaloneLink href="#" icon={EditIcon}>
-            Wijzigen<span className="ams-visually-hidden"> telefoonnummer</span>
-          </StandaloneLink>
-        </DataList.Actions>
-      </DataList.Item>
-    ),
-  },
-}
-
-export const InternalActions: Story = {
-  args: {
-    children: (
-      <DataList.Item>
-        <DataList.Key>Telefoonnummer</DataList.Key>
-        <DataList.Value>06 12345678</DataList.Value>
-        <DataList.Actions>
-          <Row alignVertical="center" wrap>
-            <IconButton label="Wijzigen telefoonnummer" svg={EditIcon} />
-            <IconButton label="Verwijderen telefoonnummer" svg={DeleteIcon} />
-          </Row>
-        </DataList.Actions>
-      </DataList.Item>
-    ),
-  },
-  parameters: {
-    themes: { options: ['Compact', 'Compact Lo-fi'] },
-  },
 }
