@@ -626,7 +626,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>4.7s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>3.6s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -59975,13 +59975,13 @@ This replaces the deprecated `legacyBehavior` and `passHref` props, which are no
 
 ## React Router
 
-For React Router, wrap [the useLinkClickHandler hook](https://reactrouter.com/en/main/hooks/use-link-click-handler) in a hook that returns a link component, like so:
+For React Router, wrap [the useLinkClickHandler hook](https://reactrouter.com/api/hooks/useLinkClickHandler) in a hook that returns a link component, like so:
 
 {/* prettier-ignore */}
 ```jsx
 import { Link } from &quot;@amsterdam/design-system-react&quot;
 import { useCallback } from &quot;react&quot;
-import { useHref, useLinkClickHandler } from &quot;react-router-dom&quot;
+import { useHref, useLinkClickHandler } from &quot;react-router&quot;
 
 const useReactRouterLink = (to) =&gt; {
   const href = useHref(to)
