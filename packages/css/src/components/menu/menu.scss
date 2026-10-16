@@ -76,6 +76,21 @@
   }
 }
 
+.ams-menu--expandable {
+  @media (min-width: $ams-breakpoint-wide) {
+    align-content: start;
+    display: grid;
+    gap: var(--ams-menu-list-gap);
+  }
+}
+
+.ams-menu--expanded {
+  @media (min-width: $ams-breakpoint-wide) {
+    inline-size: var(--ams-menu-vi-wide-expanded-inline-size);
+    max-inline-size: none;
+  }
+}
+
 .ams-menu__list {
   @include reset-ul;
 
@@ -87,6 +102,10 @@
   @media (min-width: $ams-breakpoint-wide) {
     gap: var(--ams-menu-list-gap);
   }
+}
+
+.ams-menu__expand-button {
+  justify-self: end;
 }
 
 .ams-menu__link {
@@ -113,15 +132,18 @@
   }
 
   @media (min-width: $ams-breakpoint-wide) {
-    align-items: center;
-    display: flex; // The links do stretch in the vertical layout of Menu.
-    flex-direction: column;
-    gap: var(--ams-menu-link-wide-gap /* @deprecated */, var(--ams-menu-link-vi-wide-gap));
-    text-align: center;
+    // An expanded Menu keeps the horizontal layout. `:where()` leaves the specificity of the selector as it was.
+    :where(.ams-menu:not(.ams-menu--expanded)) & {
+      align-items: center;
+      display: flex; // The links do stretch in the vertical layout of Menu.
+      flex-direction: column;
+      gap: var(--ams-menu-link-wide-gap /* @deprecated */, var(--ams-menu-link-vi-wide-gap));
+      text-align: center;
 
-    .ams-menu__icon {
-      --ams-icon-font-size: var(--ams-icon-heading-2-font-size);
-      --ams-icon-line-height: var(--ams-icon-heading-2-line-height);
+      .ams-menu__icon {
+        --ams-icon-font-size: var(--ams-icon-heading-2-font-size);
+        --ams-icon-line-height: var(--ams-icon-heading-2-line-height);
+      }
     }
   }
 }
