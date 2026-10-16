@@ -20,7 +20,7 @@
     "node": "^24.15.0",
     "pnpm": "^12"
   },
-  "packageManager": "pnpm@12.5.1+sha512.e3f305bc784a2bc89f5ad3b6138889470fae8d2af5f36b61216ec91c2c3d64089775f9de38aac331044ea40f245cb0d5666392dfdf65824e1907ef6a2c62de5f",
+  "packageManager": "pnpm@12.14.0",
   "scripts": {
     "build": "pnpm -r run build",
     "clean:dist": "pnpm -r run clean:dist",
@@ -58,7 +58,7 @@
     "@typescript-eslint/parser": "8.71.2",
     "@vitest/eslint-plugin": "1.6.27",
     "baseline-browser-mapping": "2.11.29",
-    "eslint": "10.11.0",
+    "eslint": "10.12.0",
     "eslint-config-prettier": "10.1.8",
     "eslint-import-resolver-typescript": "4.4.5",
     "eslint-plugin-baseline-js": "0.7.5",
