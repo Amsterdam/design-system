@@ -6,12 +6,11 @@
 import type { ElementType, ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 
 import { clsx } from 'clsx'
-import { forwardRef } from 'react'
+import { forwardRef, useImperativeHandle, useRef } from 'react'
 
-import type { IconProps } from '../Icon'
+import type { IconProps } from '../Icon/Icon'
 
-import { IconButton } from '../IconButton'
-import { closeModalDialog } from './modalDialogActions'
+import { IconButton } from '../IconButton/IconButton'
 
 export type ModalDialogHeaderProps = {
   /**
@@ -60,20 +59,25 @@ export const ModalDialogHeader = forwardRef(
     }: ModalDialogHeaderProps,
     ref: ForwardedRef<HTMLElement>,
   ) => {
+    const innerRef = useRef<HTMLElement>(null)
+
+    useImperativeHandle(ref, () => innerRef.current as HTMLElement)
+
+    const handleClose = () => innerRef.current?.closest('dialog')?.close()
     const CloseButton = closeButtonComponent
 
     return (
-      <header {...restProps} className={clsx('ams-modal-dialog__header', className)} ref={ref}>
+      <header {...restProps} className={clsx('ams-modal-dialog__header', className)} ref={innerRef}>
         {children}
         {CloseButton ? (
-          <CloseButton className="ams-modal-dialog__close-button" onClick={closeModalDialog} type="button">
+          <CloseButton className="ams-modal-dialog__close-button" onClick={handleClose} type="button">
             {closeButtonAccessibleName}
           </CloseButton>
         ) : (
           <IconButton
             className="ams-modal-dialog__close-button"
             label={closeButtonAccessibleName}
-            onClick={closeModalDialog}
+            onClick={handleClose}
             size={closeButtonSize}
             svg={closeButtonIcon}
             type="button"

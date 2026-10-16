@@ -152,6 +152,26 @@ describe('ModalDialogHeader', () => {
       expect(closeMock).toHaveBeenCalledOnce()
     })
 
+    it('closes the dialog when a custom close button calls onClick without an event', () => {
+      const closeMock = vi.fn()
+      HTMLDialogElement.prototype.close = closeMock
+      const CloseButton = ({ onClick }: { readonly onClick: () => void }) => (
+        <button onClick={() => onClick()} type="button">
+          Close
+        </button>
+      )
+
+      render(
+        <dialog open>
+          <ModalDialogHeader closeButtonComponent={CloseButton} />
+        </dialog>,
+      )
+
+      fireEvent.click(screen.getByRole('button', { name: 'Close' }))
+
+      expect(closeMock).toHaveBeenCalledOnce()
+    })
+
     it('does not pass IconButton-only props to a custom close button', () => {
       render(
         <ModalDialogHeader
