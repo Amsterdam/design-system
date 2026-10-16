@@ -205,6 +205,29 @@
           }
         }
       },
+      "item": {
+        "gap": {
+          "$value": "{ams.space.xs}",
+          "$extensions": {
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
+          }
+        }
+      },
+      "toggle-button": {
+        "icon": {
+          "transition-duration": {
+            "$value": "0.3s",
+            "$type": "duration"
+          },
+          "transition-timing-function": {
+            "$value": "ease",
+            "$extensions": {
+              "nl.amsterdam.type": "transitionTimingFunction"
+            }
+          }
+        }
+      },
       "submenu": {
         "padding-inline-start": {
           "$value": "{ams.space.s}",
