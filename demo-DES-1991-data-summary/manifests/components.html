@@ -626,7 +626,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>5.2s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>5.4s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -5904,7 +5904,7 @@ orientation?: &quot;vertical&quot;</code></pre>
                 </div>
                 <pre><code>import { Button, Column, Heading, IconButton, Image, Link, Paragraph, Row, StandaloneLink } from '@amsterdam/design-system-react';
 import { DataList } from '@amsterdam/design-system-react/src';
-import { EditIcon, DeleteIcon } from '@amsterdam/design-system-react-icons';</code></pre>
+import { DeleteIcon, EditIcon } from '@amsterdam/design-system-react-icons';</code></pre>
               </div>
           
           
@@ -6006,7 +6006,7 @@ import { EditIcon, DeleteIcon } from '@amsterdam/design-system-react-icons';</co
         &lt;DataList.Key&gt;Achternaam&lt;/DataList.Key&gt;
         &lt;DataList.Value&gt;Cruijff&lt;/DataList.Value&gt;
         &lt;DataList.Actions&gt;
-          &lt;Button variant=&quot;tertiary&quot;&gt;
+          &lt;Button icon={&lt;EditIcon /&gt;} iconBefore variant=&quot;tertiary&quot;&gt;
             Wijzigen&lt;span className=&quot;ams-visually-hidden&quot;&gt; achternaam&lt;/span&gt;
           &lt;/Button&gt;
         &lt;/DataList.Actions&gt;
@@ -6019,7 +6019,7 @@ import { EditIcon, DeleteIcon } from '@amsterdam/design-system-react-icons';</co
             &lt;Button variant=&quot;tertiary&quot;&gt;
               Wijzigen&lt;span className=&quot;ams-visually-hidden&quot;&gt; telefoonnummer&lt;/span&gt;
             &lt;/Button&gt;
-            &lt;Button variant=&quot;tertiary&quot;&gt;
+            &lt;Button icon={&lt;DeleteIcon /&gt;} iconBefore variant=&quot;tertiary&quot;&gt;
               Verwijderen&lt;span className=&quot;ams-visually-hidden&quot;&gt; telefoonnummer&lt;/span&gt;
             &lt;/Button&gt;
           &lt;/Row&gt;
@@ -6281,6 +6281,7 @@ The whitespace above and below that line is the same by default, so the line sit
 
 Keys use heading typography and values use body text, which gives the two different line heights.
 Side by side, a key therefore gets half of that difference as extra space above it, so its first line sits level with the first line of its value.
+Keys, values, and actions align on their first text baseline, so a Button&#39;s padding does not push its text below the key and value.
 
 Keys and values sit next to each other when their [query container](/docs/utilities-css-query-container--docs) is wide enough (at least `32rem`).
 All items then share the same columns, so keys, values, and actions line up across the list.
