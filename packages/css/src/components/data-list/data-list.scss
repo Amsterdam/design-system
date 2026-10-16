@@ -70,7 +70,8 @@ $ams-data-list-breakpoint: 32rem;
     grid-column-start: 1;
     margin-block-end: 0;
 
-    // Align keys with values, which use body text line heights rather than heading ones.
+    // Vertically align keys with values.
+    // Keys use heading line heights, while values use those of body text.
     @include align-first-lines(
       $font-size: var(--ams-data-list-key-font-size),
       $line-height: var(--ams-data-list-key-line-height),
