@@ -626,7 +626,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>4.1s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>5.7s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -20811,7 +20811,9 @@ The Body holds the main content of the dialog and has no props of its own; the e
 ### Header
 
 The Header contains the title of the dialog and always renders a button to dismiss it.
-Pass `closeButtonAccessibleName` to translate the name of that button for screen readers, and `closeButtonSize` to match the button to the size of your Heading.
+Pass `closeButtonAccessibleName` to translate the name of that button.
+The default button uses it as screen reader text; a custom close button renders it as its visible label.
+Use `closeButtonSize` to match the default button to the size of your Heading; it does not apply to a custom component.
 Any content you add to the Header – a [Heading](/docs/components-text-heading--docs), a subtitle, or both – stacks to the left of the close button.
 
 &lt;Canvas of={ModalDialogHeaderStories.Header} /&gt;
@@ -20892,6 +20894,28 @@ Don’t render the dialog conditionally: unmounting it while open skips the `clo
 
 &lt;Canvas of={ModalDialogStories.Controlled} /&gt;
 
+### Replacing the close button
+
+Pass a component to the `closeButtonComponent` prop of the Header to replace the close button with one of your own.
+Websites for the City of Amsterdam must use the default button.
+This example uses the plain HTML `button` element.
+
+The component receives `className`, `onClick`, `type=&quot;button&quot;` and the accessible name as `children`.
+Apply `className`, `onClick` and `type` to the button, and render `children` in it as its visible label.
+The class places the button next to the heading, and the click handler closes the dialog.
+Merge `className` with any classes of its own.
+The Header passes no other props, so wrap the component to set props such as `appearance`.
+`closeButtonIcon` and `closeButtonSize` do not apply to a custom component.
+Give the button a visible focus indicator and a target large enough to use.
+A custom component that shows only an icon hides its text with the `ams-visually-hidden` class.
+
+The heading and the button share the first row of the Header.
+That row grows to fit the button.
+A close button taller than one line of the heading pushes a subtitle down.
+A shorter button sits at the top of the row, not centred on the heading.
+
+&lt;Canvas of={ModalDialogStories.WithCloseButtonComponent} /&gt;
+
 ## Features
 
 The Modal Dialog is a [query container](/docs/utilities-css-query-container--docs) for inline size, so elements inside it can adapt their appearance to the width of the dialog.
@@ -20936,6 +20960,7 @@ A scrolling Body takes keyboard focus in its own right, so someone navigating by
 Chromium and Firefox already make an overflowing scroll container focusable; Safari does not, so the component makes the Body focusable itself.
 
 Scrolling of the page behind the dialog is suppressed while it is open.
+For this to work, the `body` element needs the [`ams-body` class](/docs/utilities-css-body--docs).
 Opening a modal does not lock scrolling on its own, and iOS Safari still needs JavaScript for a guarantee, so a gesture over the backdrop there can move the page underneath.
 
 Note that a modal dialog requires JavaScript: without it, the dialog stays closed and its content stays hidden.
@@ -20993,7 +21018,7 @@ Note that a modal dialog requires JavaScript: without it, the dialog stays close
       <div class="row">
         <span class="ex-name">ModalDialog.Header</span>
         <span class="badge ok">
-          3 prop types
+          4 prop types
         </span>
       </div>
       <div class="hint">/home/runner/work/design-system/design-system/packages/react/src/index.ts</div>
@@ -21008,11 +21033,23 @@ Note that a modal dialog requires JavaScript: without it, the dialog stays close
           <pre><code>/**
  * The accessible name of the button that dismisses the Modal Dialog.
  * Will be announced by screen readers.
+ * A custom close button renders it as its visible label.
  */
 closeButtonAccessibleName?: string = &#39;Sluiten&#39;
 
 /**
+ * The React component to use for the button that dismisses the Modal Dialog.
+ * Receives only `className`, `onClick`, `type=&quot;button&quot;` and the accessible name as `children`.
+ * Apply `className`, `onClick` and `type` to its button; render `children` as its visible label.
+ * Merge `className` with its own classes; wrap the component to set other props.
+ * `closeButtonIcon` and `closeButtonSize` apply only to the default button.
+ * Websites for the City of Amsterdam must use the default button.
+ */
+closeButtonComponent?: ElementType | undefined
+
+/**
  * An icon for the button that dismisses the Modal Dialog, to display instead of the default cross.
+ * Applies to the default close button only.
  * Websites for the City of Amsterdam must use the default icon.
  */
 closeButtonIcon?: IconSvg | undefined
@@ -21020,6 +21057,7 @@ closeButtonIcon?: IconSvg | undefined
 /**
  * The size of the button that dismisses the Modal Dialog.
  * Match it to the size of the Heading in the Header.
+ * Applies to the default close button only.
  */
 closeButtonSize?: &quot;heading-1&quot; | &quot;heading-2&quot; | &quot;heading-3&quot; | &quot;heading-4&quot; | &quot;heading-5&quot; = &#39;heading-2&#39;</code></pre>
     </div>
