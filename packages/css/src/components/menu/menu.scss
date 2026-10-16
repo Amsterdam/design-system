@@ -81,6 +81,7 @@
     align-content: start;
     display: grid;
     gap: var(--ams-menu-list-gap);
+    grid-template-columns: minmax(0, 1fr); // Keeps a long label from widening the column past the Menu.
   }
 }
 
@@ -104,8 +105,32 @@
   }
 }
 
+.ams-menu__submenu {
+  @include reset-ul;
+
+  // The submenu starts slightly before its parent’s label; preserving horizontal room matters more here than strict label alignment.
+  padding-inline-start: var(--ams-menu-submenu-padding-inline-start);
+
+  @media (min-width: $ams-breakpoint-wide) {
+    :where(.ams-menu:not(.ams-menu--expanded)) & {
+      padding-inline-start: 0; // The links of this column are centred.
+
+      // The narrow column of a Menu that is not expanded has no room for a second level.
+      // Without scripting nothing can expand the Menu, so its links stay visible there.
+      @media (scripting: enabled) {
+        display: none;
+      }
+    }
+  }
+}
+
 .ams-menu__expand-button {
   justify-self: end;
+
+  // The button does nothing without scripting.
+  @media (scripting: none) {
+    display: none;
+  }
 }
 
 .ams-menu__link {
