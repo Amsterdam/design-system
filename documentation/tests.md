@@ -15,6 +15,7 @@ Unit tests are written using [Vitest](https://vitest.dev) and [React Testing Lib
 All components must have their own unit tests, which are located in a separate file named `component.test.tsx`.
 The unit tests must cover 100% of the statements, branches, functions and lines of the React package.
 A pull request that lowers any of these percentages fails the tests.
+[Unit tests](unit-tests.md) says which tests each component needs, how to write them, and how to title them.
 
 ## Interaction tests
 

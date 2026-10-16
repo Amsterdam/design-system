@@ -61,27 +61,34 @@ Write TSDoc as [documentation/writing.md](../../documentation/writing.md) sets o
 
 ## Unit tests
 
-Config: `vitest.config.ts` (jsdom, excludes `**/dist/**`). Every component must cover at minimum:
+Config: `vitest.config.ts` (jsdom, excludes `**/dist/**`).
+Follow [documentation/unit-tests.md](../../documentation/unit-tests.md) for which tests to write, how to write them, and how to title them.
+Every component and subcomponent starts with these five tests, in this order:
 
 ```tsx
 describe('ComponentName', () => {
   it('renders', () => {
     /* ... */
   })
-  it('renders a design system BEM class name', () => {
+  it('renders the design system class name', () => {
     /* ... */
   })
   it('renders an extra class name', () => {
     /* ... */
   })
-  it('supports ForwardRef in React', () => {
+  it('forwards the ref', () => {
     /* ... */
   })
-  // Additional prop and edge-case tests
+  it('passes additional props', () => {
+    /* ... */
+  })
+  // Tests per characteristic, in the order of the guide
 })
 ```
 
-Use semantic queries only: `getByRole`, `getByLabelText`, `getByText`. Never `getByTestId`.
+Use semantic queries: `getByRole`, `getByLabelText`, `getByText`.
+Use `container.querySelector(':only-child')` only for a root element without a role.
+Never use `getByTestId`.
 
 Run from the repository root:
 

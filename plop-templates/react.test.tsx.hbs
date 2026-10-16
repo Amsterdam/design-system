@@ -29,7 +29,7 @@ describe('{{pascalCase name}}', () => {
     expect(component).toBeVisible()
   })
 
-  it('renders a design system BEM class name', () => {
+  it('renders the design system class name', () => {
     {{#if role}}
     render(<{{pascalCase name}} />)
 
@@ -57,7 +57,7 @@ describe('{{pascalCase name}}', () => {
     expect(component).toHaveClass('ams-{{kebabCase name}} extra')
   })
 
-  it('supports ForwardRef in React', () => {
+  it('forwards the ref', () => {
     const ref = createRef<{{ type }}>()
 
     {{#if role}}
@@ -71,5 +71,20 @@ describe('{{pascalCase name}}', () => {
     {{/if}}
 
     expect(ref.current).toBe(component)
+  })
+
+  it('passes additional props', () => {
+    {{#if role}}
+    render(<{{pascalCase name}} data-test="data-test" id="id" />)
+
+    const component = screen.getByRole('{{role}}')
+    {{else}}
+    const { container } = render(<{{pascalCase name}} data-test="data-test" id="id" />)
+
+    const component = container.querySelector(':only-child')
+    {{/if}}
+
+    expect(component).toHaveAttribute('data-test', 'data-test')
+    expect(component).toHaveAttribute('id', 'id')
   })
 })
