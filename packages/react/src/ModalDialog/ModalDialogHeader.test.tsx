@@ -172,21 +172,25 @@ describe('ModalDialogHeader', () => {
       expect(closeMock).toHaveBeenCalledOnce()
     })
 
-    it('does not pass IconButton-only props to a custom close button', () => {
+    it('passes only the className, onClick, type and accessible name to a custom close button', () => {
+      const CloseButton = vi.fn(({ children }: { children: string }) => <button>{children}</button>)
+
       render(
         <ModalDialogHeader
           closeButtonAccessibleName="Close"
-          closeButtonComponent="button"
+          closeButtonComponent={CloseButton}
           closeButtonIcon={<svg />}
           closeButtonSize="heading-5"
         />,
       )
 
-      const button = screen.getByRole('button', { name: 'Close' })
-
-      expect(button).not.toHaveAttribute('label')
-      expect(button).not.toHaveAttribute('size')
-      expect(button.querySelector('svg')).not.toBeInTheDocument()
+      expect(CloseButton).toHaveBeenCalledOnce()
+      expect(CloseButton.mock.calls[0][0]).toEqual({
+        children: 'Close',
+        className: 'ams-modal-dialog__close-button',
+        onClick: expect.any(Function),
+        type: 'button',
+      })
     })
   })
 })
