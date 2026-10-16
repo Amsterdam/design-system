@@ -65,7 +65,7 @@ export const WithMenu: Story = {
     withMenu: true,
   },
   parameters: {
-    // A Menu may only be used in Compact Mode. These options limit the theme toolbar to Compact Mode
+    // A Menu should only be used in Compact Mode. These options limit the theme toolbar to Compact Mode
     // and its Lo-fi variant.
     themes: { options: ['Compact', 'Compact Lo-fi'] },
   },
