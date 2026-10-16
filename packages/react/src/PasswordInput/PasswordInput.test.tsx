@@ -8,7 +8,7 @@ import userEvent from '@testing-library/user-event'
 import { createRef, useState } from 'react'
 import { describe, expect, it } from 'vitest'
 
-import { Label } from '../Label'
+import { Label } from '../Label/Label'
 import { PasswordInput } from './PasswordInput'
 
 describe('PasswordInput', () => {

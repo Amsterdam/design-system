@@ -12,7 +12,7 @@ import {
 
 import type { DatePickerProps } from './DatePicker'
 
-import { IconButton } from '../IconButton'
+import { IconButton } from '../IconButton/IconButton'
 
 export type DatePickerHeaderProps = {
   /** The `id` connecting the month caption to the grid’s accessible name. */

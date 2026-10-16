@@ -24,6 +24,7 @@ However, barrel files have 2 potential pitfalls:
 2. If a component imports from a sibling component, using a barrel file for this import can lead to cyclical dependencies.
 
 We can avoid this last pitfall by adhering to the following code convention: barrel file imports should only be used to import from a package, not within one.
+ESLint enforces this in `packages/react/src`, where an import of a barrel file is an error.
 
 To illustrate: If the `Accordion` React component needs the `HeadingProps` type from the `Heading` React component, it should import it like this:
 
