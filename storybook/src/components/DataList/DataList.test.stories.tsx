@@ -6,7 +6,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import type { ComponentProps } from 'react'
 
-import { Button, Column, Heading, Link, Paragraph, Row, StandaloneLink } from '@amsterdam/design-system-react'
+import { Button, Column, Heading, Image, Link, Paragraph, Row, StandaloneLink } from '@amsterdam/design-system-react'
 import { EditIcon } from '@amsterdam/design-system-react-icons'
 import { DataList } from '@amsterdam/design-system-react/src'
 
@@ -30,6 +30,7 @@ type DataListProps = ComponentProps<typeof DataList>
  * - first render example is identical to the original Test story (container context will fallback to Page or none)
  * - then render example in a narrow container-query context
  * - then render example in the narrowest container that still places keys and values side by side
+ * - then a horizontal list with an image-leading value
  * - then a list without actions, a heading row above a list, and the internal actions with the Compact Mode class
  */
 const DataListWithContainerQueryExamples = (props: DataListProps) => {
@@ -45,6 +46,16 @@ const DataListWithContainerQueryExamples = (props: DataListProps) => {
       {/* Data List in the narrowest horizontal container */}
       <div className="ams-query-container-inline-size" style={{ inlineSize: '32rem' }}>
         <DataList {...props} />
+      </div>
+      <div className="ams-query-container-inline-size" style={{ inlineSize: '32rem' }}>
+        <DataList>
+          <DataList.Item>
+            <DataList.Key>Foto</DataList.Key>
+            <DataList.Value>
+              <Image alt="De Magere Brug over de Amstel" aspectRatio="4:3" src="https://picsum.photos/id/164/320/240" />
+            </DataList.Value>
+          </DataList.Item>
+        </DataList>
       </div>
       <DataList {...props}>
         <DataList.Item>
