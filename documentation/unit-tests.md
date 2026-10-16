@@ -8,6 +8,8 @@ For the other kinds of tests, see [tests.md](tests.md).
 
 Unit tests live next to the component, in `packages/react/src/<Name>/<Name>.test.tsx`.
 Each subcomponent has its own test file, such as `AccordionSection.test.tsx`.
+Do not split the tests of one component over several files.
+If a file grows long, check whether some of its tests belong to a subcomponent and move them there.
 They use [Vitest](https://vitest.dev) and [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/).
 Run them with `pnpm --filter @amsterdam/design-system-react test`.
 
@@ -28,6 +30,7 @@ Every component and subcomponent has these five tests, first in its file and in 
 ### Tests per characteristic
 
 After the baseline, add tests for each characteristic the component has, in the order of this list.
+Within a characteristic, test the default first, then each option in the order the source declares it, then the edge cases.
 A characteristic applies when the component’s source shows it.
 The titles are patterns: replace the parts in angle brackets.
 
@@ -109,6 +112,7 @@ Vitest prints a test as its `describe` path followed by its `it` title, so toget
 
 - The root `describe` names the subject by its `displayName`, such as `Accordion` or `Accordion.Section`.
   For a hook or a function, use its name, such as `useCollapsible`.
+- Use a nested `describe` only for tests that share their setup or a mode, not to label a characteristic.
 - A nested `describe` names a prop (`invalid`), a mode (`when controlled`) or a part (`close button`).
   It starts with a lowercase letter and does not use the word “state”.
 
