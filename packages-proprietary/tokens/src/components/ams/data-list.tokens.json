@@ -1,0 +1,121 @@
+{
+  "ams": {
+    "data-list": {
+      "color": {
+        "$value": "{ams.color.text.default}",
+        "$extensions": {
+          "nl.amsterdam.type": "color"
+        }
+      },
+      "font-family": {
+        "$value": "{ams.typography.font-family}",
+        "$extensions": {
+          "nl.amsterdam.type": "fontFamily"
+        }
+      },
+      "font-size": {
+        "$value": "{ams.typography.body-text.font-size}",
+        "$extensions": {
+          "nl.amsterdam.hint": "Applies to values only; keys set their own font size. Must be a single value: it is used in a calculation, which two values would invalidate.",
+          "nl.amsterdam.type": "fontSize"
+        }
+      },
+      "line-height": {
+        "$value": "{ams.typography.body-text.line-height}",
+        "$extensions": {
+          "nl.amsterdam.hint": "Applies to values only; keys set their own line height. Must be a single value: it is used in a calculation, which two values would invalidate.",
+          "nl.amsterdam.subtype": "lineHeight",
+          "nl.amsterdam.type": "number"
+        }
+      },
+      "row-gap": {
+        "$value": "{ams.data-list.item.padding-block-end}",
+        "$extensions": {
+          "nl.amsterdam.hint": "The whitespace between the separator of an item and the key of the next one. Must be a single value: it sets a longhand property, which takes only one.",
+          "nl.amsterdam.subtype": "space",
+          "nl.amsterdam.type": "dimension"
+        }
+      },
+      "vi-medium": {
+        "column-gap": {
+          "$value": "{ams.space.l}",
+          "$extensions": {
+            "nl.amsterdam.hint": "Must be a single value: it sets a longhand property, which takes only one.",
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
+          }
+        },
+        "grid-template-columns": {
+          "$value": "fit-content(min(15rem, 30%)) minmax(0, 1fr) fit-content(25%)",
+          "$description": "Three columns that every item shares: the key, the value, and the optional actions. The key column fits its content with a limit of 15rem or 30% of the list, whichever is smaller. The actions column fits its content with a limit of a quarter of the list, and collapses when no item has actions. Min-content sizing can exceed these limits.",
+          "$extensions": {
+            "nl.amsterdam.type": "gridTemplateColumns"
+          }
+        }
+      },
+      "item": {
+        "border-block-end": {
+          "$value": "{ams.border.width.s} solid {ams.color.separator}",
+          "$extensions": {
+            "nl.amsterdam.type": "border"
+          }
+        },
+        "padding-block-end": {
+          "$value": "{ams.space.s}",
+          "$extensions": {
+            "nl.amsterdam.hint": "The whitespace between the content of an item and its separator. Must be a single value: it sets a longhand property, which takes only one.",
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
+          }
+        }
+      },
+      "key": {
+        "font-size": {
+          "$value": "{ams.typography.heading.4.font-size}",
+          "$extensions": {
+            "nl.amsterdam.hint": "Must be a single value: it is used in a calculation, which two values would invalidate.",
+            "nl.amsterdam.type": "fontSize"
+          }
+        },
+        "font-weight": {
+          "$value": "{ams.typography.heading.font-weight}",
+          "$extensions": {
+            "nl.amsterdam.type": "fontWeight"
+          }
+        },
+        "line-height": {
+          "$value": "{ams.typography.heading.4.line-height}",
+          "$extensions": {
+            "nl.amsterdam.hint": "Must be a single value: it is used in a calculation, which two values would invalidate.",
+            "nl.amsterdam.subtype": "lineHeight",
+            "nl.amsterdam.type": "number"
+          }
+        },
+        "margin-block-end": {
+          "$value": "{ams.space.xs}",
+          "$extensions": {
+            "nl.amsterdam.hint": "Only applies when the key sits above its value. Must be a single value: it sets a longhand property, which takes only one.",
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
+          }
+        }
+      },
+      "value": {
+        "font-weight": {
+          "$value": "{ams.typography.body-text.font-weight}",
+          "$extensions": {
+            "nl.amsterdam.type": "fontWeight"
+          }
+        },
+        "margin-block-end": {
+          "$value": "{ams.space.s}",
+          "$extensions": {
+            "nl.amsterdam.hint": "Only applies when actions follow the value and the value sits below its key. Must be a single value: it sets a longhand property, which takes only one.",
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
+          }
+        }
+      }
+    }
+  }
+}
