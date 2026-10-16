@@ -86,8 +86,8 @@ Write one sentence per line, so that later edits produce small diffs.
 - **How** — the approach and the key considerations.
   This is where alternatives you rejected, deliberate omissions, and anything unusual belong.
   Mention what you left out of scope, and say so plainly.
-  If GitHub Copilot wrote or edited part of the change, state that here and name the parts it touched, as the [GitHub Copilot usage rules](https://github.com/Amsterdam/development-standards/blob/main/internal/github-copilot.md) require.
-  The reviewer uses it to know where to check tests and bias.
+  If GitHub Copilot wrote or edited part of the change, say so here with "GitHub Copilot wrote or edited part of this change.", as the [GitHub Copilot usage rules](https://github.com/Amsterdam/development-standards/blob/main/internal/github-copilot.md) require.
+  The rules ask for no more than that, so there is no need to list the parts it touched.
 - **Checklist** — tick only what is genuinely done or genuinely not applicable.
   An unticked box is a useful signal; a wrongly ticked one is a false one.
   Do not tick the Chromatic box before `/chromatic test` has run and passed, unless the diff has no visual surface at all.
