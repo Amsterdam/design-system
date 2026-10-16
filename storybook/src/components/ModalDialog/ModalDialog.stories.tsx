@@ -243,3 +243,25 @@ export const Controlled: Story = {
   },
   render: (args) => <ControlledExample {...args} />,
 }
+
+export const WithCloseButtonComponent: Story = {
+  args: {
+    'aria-labelledby': 'ams-modal-dialog-close-button-component-heading',
+    children: (
+      <>
+        <ModalDialog.Header closeButtonComponent="button">
+          <Heading id="ams-modal-dialog-close-button-component-heading" level={1} size="level-2">
+            Status van uw aanvraag
+          </Heading>
+        </ModalDialog.Header>
+        <ModalDialog.Body>
+          <Paragraph>Een medewerker beoordeelt uw aanvraag. U krijgt binnen 8 weken bericht.</Paragraph>
+        </ModalDialog.Body>
+      </>
+    ),
+    id: 'ams-modal-dialog-close-button-component',
+  },
+  decorators: [openButtonDecorator],
+  // Keep this example out of the component manifest: websites for the City of Amsterdam must use the default close button.
+  tags: ['!manifest'],
+}
