@@ -148,22 +148,6 @@ export const Test: Story = {
           </Row>
         </DataList.Actions>
       </DataList.Item>,
-      <DataList.Item key={7}>
-        <DataList.Key>Bereikbaarheid</DataList.Key>
-        <DataList.Value>
-          De brug is afgesloten voor gemotoriseerd verkeer. Fietsers en voetgangers kunnen er wel overheen.
-        </DataList.Value>
-        <DataList.Actions>
-          <Row wrap>
-            <Button variant="tertiary">
-              Wijzigen<span className="ams-visually-hidden"> bereikbaarheid</span>
-            </Button>
-            <Button variant="tertiary">
-              Verwijderen<span className="ams-visually-hidden"> bereikbaarheid</span>
-            </Button>
-          </Row>
-        </DataList.Actions>
-      </DataList.Item>,
       <DataList.Item key={8}>
         <DataList.Key>Zaakreferentie</DataList.Key>
         <DataList.Value>ZAAK20261016A7F3C92E6B1048D58C2F01A49D7E603B5F8A216C9D04E7B32A65F098C1D34E6B</DataList.Value>

@@ -59,7 +59,7 @@ $ams-data-list-breakpoint: 32rem;
 
     // Every item follows the columns of the list, so values line up whatever actions an item has.
     .ams-data-list__item {
-      align-items: first baseline;
+      align-items: start;
       display: grid;
       grid-column: 1 / -1;
       grid-template-columns: subgrid;
