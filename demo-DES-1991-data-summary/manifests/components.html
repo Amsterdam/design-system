@@ -626,7 +626,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>5.5s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>4.2s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -5987,12 +5987,30 @@ import { EditIcon, DeleteIcon } from '@amsterdam/design-system-react-icons';</co
             </div>
             <div class="note ok">
               <div class="row">
-                <span class="ex-name">Actions</span>
+                <span class="ex-name">Form Flow Actions</span>
                 <span class="badge ok">story ok</span>
               </div>
               
               
-              <pre><code>const Actions = () =&gt; &lt;DataList&gt;{[
+              <pre><code>const FormFlowActions = () =&gt; &lt;DataList&gt;(&lt;DataList.Item&gt;
+      &lt;DataList.Key&gt;Telefoonnummer&lt;/DataList.Key&gt;
+      &lt;DataList.Value&gt;06 12345678&lt;/DataList.Value&gt;
+      &lt;DataList.Actions&gt;
+        &lt;StandaloneLink href=&quot;#&quot; icon={EditIcon}&gt;
+          Wijzigen&lt;span className=&quot;ams-visually-hidden&quot;&gt; telefoonnummer&lt;/span&gt;
+        &lt;/StandaloneLink&gt;
+      &lt;/DataList.Actions&gt;
+    &lt;/DataList.Item&gt;)&lt;/DataList&gt;;</code></pre>
+              
+            </div>
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">In Place Actions</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const InPlaceActions = () =&gt; &lt;DataList&gt;{[
       &lt;DataList.Item key={1}&gt;
         &lt;DataList.Key&gt;Voornaam&lt;/DataList.Key&gt;
         &lt;DataList.Value&gt;Johan&lt;/DataList.Value&gt;
@@ -6030,6 +6048,25 @@ import { EditIcon, DeleteIcon } from '@amsterdam/design-system-react-icons';</co
         &lt;DataList.Value&gt;123456782&lt;/DataList.Value&gt;
       &lt;/DataList.Item&gt;,
     ]}&lt;/DataList&gt;;</code></pre>
+              
+            </div>
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Learnable In Place Actions</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const LearnableInPlaceActions = () =&gt; &lt;DataList&gt;(&lt;DataList.Item&gt;
+      &lt;DataList.Key&gt;Telefoonnummer&lt;/DataList.Key&gt;
+      &lt;DataList.Value&gt;06 12345678&lt;/DataList.Value&gt;
+      &lt;DataList.Actions&gt;
+        &lt;Row alignVertical=&quot;center&quot; wrap&gt;
+          &lt;IconButton label=&quot;Wijzigen telefoonnummer&quot; svg={EditIcon} /&gt;
+          &lt;IconButton label=&quot;Verwijderen telefoonnummer&quot; svg={DeleteIcon} /&gt;
+        &lt;/Row&gt;
+      &lt;/DataList.Actions&gt;
+    &lt;/DataList.Item&gt;)&lt;/DataList&gt;;</code></pre>
               
             </div>
             <div class="note ok">
@@ -6103,43 +6140,6 @@ import { EditIcon, DeleteIcon } from '@amsterdam/design-system-react-icons';</co
           &lt;/DataList.Item&gt;,
         ]}&lt;/DataList&gt;
 &lt;/&gt;;</code></pre>
-              
-            </div>
-            <div class="note ok">
-              <div class="row">
-                <span class="ex-name">Navigation</span>
-                <span class="badge ok">story ok</span>
-              </div>
-              
-              
-              <pre><code>const Navigation = () =&gt; &lt;DataList&gt;(&lt;DataList.Item&gt;
-      &lt;DataList.Key&gt;Telefoonnummer&lt;/DataList.Key&gt;
-      &lt;DataList.Value&gt;06 12345678&lt;/DataList.Value&gt;
-      &lt;DataList.Actions&gt;
-        &lt;StandaloneLink href=&quot;#&quot; icon={EditIcon}&gt;
-          Wijzigen&lt;span className=&quot;ams-visually-hidden&quot;&gt; telefoonnummer&lt;/span&gt;
-        &lt;/StandaloneLink&gt;
-      &lt;/DataList.Actions&gt;
-    &lt;/DataList.Item&gt;)&lt;/DataList&gt;;</code></pre>
-              
-            </div>
-            <div class="note ok">
-              <div class="row">
-                <span class="ex-name">Internal Actions</span>
-                <span class="badge ok">story ok</span>
-              </div>
-              
-              
-              <pre><code>const InternalActions = () =&gt; &lt;DataList&gt;(&lt;DataList.Item&gt;
-      &lt;DataList.Key&gt;Telefoonnummer&lt;/DataList.Key&gt;
-      &lt;DataList.Value&gt;06 12345678&lt;/DataList.Value&gt;
-      &lt;DataList.Actions&gt;
-        &lt;Row alignVertical=&quot;center&quot; wrap&gt;
-          &lt;IconButton label=&quot;Wijzigen telefoonnummer&quot; svg={EditIcon} /&gt;
-          &lt;IconButton label=&quot;Verwijderen telefoonnummer&quot; svg={DeleteIcon} /&gt;
-        &lt;/Row&gt;
-      &lt;/DataList.Actions&gt;
-    &lt;/DataList.Item&gt;)&lt;/DataList&gt;;</code></pre>
               
             </div>
         </div>
@@ -6222,9 +6222,16 @@ Use this when the values are long.
 
 &lt;Canvas of={DataListStories.Stacked} /&gt;
 
-### Actions
+### Form flow actions
 
 An item can offer one or more actions on its value.
+Use a [Standalone Link](/docs/components-navigation-standalone-link--docs) when an action opens another page, such as returning to a question in a [Form Flow](/docs/pages-public-form-flow--docs).
+Do not use a link to delete an item or change the current page.
+
+&lt;Canvas of={DataListStories.FormFlowActions} /&gt;
+
+### In-place actions
+
 Use a [Button](/docs/components-buttons-button--docs) for an action on the current page, such as editing in place, deleting, or adding an item.
 On public websites, use a text-only tertiary Button at the end of an item.
 
@@ -6232,23 +6239,16 @@ Give every action within an item the same treatment: all with an icon or all wit
 Actions renders its children directly; use a [Row](/docs/components-layout-row--docs) with wrapping to arrange multiple actions.
 Give repeated actions unique accessible names by adding the key as visually hidden text to the visible label.
 
-&lt;Canvas of={DataListStories.Actions} /&gt;
+&lt;Canvas of={DataListStories.InPlaceActions} /&gt;
 
-### Navigation
-
-Use a [Standalone Link](/docs/components-navigation-standalone-link--docs) when an action opens another page, such as returning to a question in a form.
-Do not use a link to delete an item or change the current page.
-
-&lt;Canvas of={DataListStories.Navigation} /&gt;
-
-### Internal actions
+### Learnable in-place actions
 
 Show only an icon when its meaning is immediately clear, or when frequent users of an internal application can learn it.
 Otherwise, give the action a visible text label.
 Our [icon guidelines](/docs/brand-assets-icons--docs#functional-icons) distinguish universal from learnable icons; Edit and Delete are learnable icons.
 Use an [Icon Button](/docs/components-buttons-icon-button--docs) aligned with the surrounding text, and give its `label` prop a unique accessible name, such as ‘Wijzigen telefoonnummer’.
 
-Open the [internal actions example](/story/components-containers-data-list--internal-actions), which is only available in Compact Mode.
+Open the [learnable in-place actions example](/story/components-containers-data-list--learnable-in-place-actions), which is only available in Compact Mode.
 It is not embedded here because the mode also affects the other examples on this page.
 
 ### Composite value
@@ -6282,7 +6282,6 @@ The whitespace above and below that line is the same by default, so the line sit
 
 Keys use heading typography and values use body text, which gives the two different line heights.
 Side by side, a key therefore gets half of that difference as extra space above it, so its first line sits level with the first line of its value.
-Keys, values, and actions align on their first text baseline, so a Button&#39;s padding does not push its text below the key and value.
 
 Keys and values sit next to each other when their [query container](/docs/utilities-css-query-container--docs) is wide enough (at least `32rem`).
 All items then share the same columns, so keys, values, and actions line up across the list.
@@ -58888,13 +58887,13 @@ Faster and cheaper to build and iterate with.
 
 &lt;InlineList&gt;
   &lt;InlineList.Item&gt;
-    &lt;strong&gt;68&lt;/strong&gt; components
+    &lt;strong&gt;70&lt;/strong&gt; components
   &lt;/InlineList.Item&gt;
   &lt;InlineList.Item&gt;
     &lt;strong&gt;220+&lt;/strong&gt; icons
   &lt;/InlineList.Item&gt;
   &lt;InlineList.Item&gt;
-    &lt;strong&gt;1300+&lt;/strong&gt; design tokens
+    &lt;strong&gt;1400+&lt;/strong&gt; design tokens
   &lt;/InlineList.Item&gt;
   &lt;InlineList.Item&gt;
     &lt;strong&gt;35&lt;/strong&gt; templates
@@ -58903,7 +58902,7 @@ Faster and cheaper to build and iterate with.
     &lt;strong&gt;3&lt;/strong&gt; modes
   &lt;/InlineList.Item&gt;
   &lt;InlineList.Item&gt;
-    &lt;strong&gt;1500+&lt;/strong&gt; tests
+    &lt;strong&gt;1700+&lt;/strong&gt; tests
   &lt;/InlineList.Item&gt;
 &lt;/InlineList&gt;
 
