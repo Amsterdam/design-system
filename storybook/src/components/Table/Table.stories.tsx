@@ -14,6 +14,7 @@ const meta = {
   subcomponents: {
     'Table.Cell': Table.Cell,
     'Table.HeaderCell': Table.HeaderCell,
+    'Table.SortableHeaderCell': Table.SortableHeaderCell,
   },
 } satisfies Meta<typeof Table>
 
