@@ -6,6 +6,7 @@
 @use "../../common/hyphenation" as *;
 @use "../../common/resets" as *;
 @use "../../common/text-rendering" as *;
+@use "../../common/transition" as *;
 
 .ams-table-of-contents {
   display: flex;
@@ -75,14 +76,18 @@
 }
 
 .ams-table-of-contents__button svg {
-  @media (prefers-reduced-motion: no-preference) {
-    transition: rotate var(--ams-table-of-contents-button-icon-transition-duration)
-      var(--ams-table-of-contents-button-icon-transition-timing-function);
-  }
-}
+  rotate: var(--ams-animations-rotation-start-angle);
 
-.ams-table-of-contents__button[aria-expanded="true"] svg {
-  rotate: -180deg;
+  [aria-expanded="true"] & {
+    rotate: var(--ams-animations-rotation-end-angle);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    @include transition;
+
+    transition-duration: var(--ams-table-of-contents-button-icon-transition-duration);
+    transition-timing-function: var(--ams-table-of-contents-button-icon-transition-timing-function);
+  }
 }
 
 .ams-table-of-contents__item--collapsed > .ams-table-of-contents__list {
