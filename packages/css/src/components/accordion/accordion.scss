@@ -5,6 +5,7 @@
 
 @use "../../common/hyphenation" as *;
 @use "../../common/resets" as *;
+@use "../../common/transition" as *;
 @use "../../common/text-rendering" as *;
 
 .ams-accordion {
@@ -43,19 +44,15 @@
 }
 
 .ams-accordion__icon svg {
-  rotate: 0deg;
+  rotate: var(--ams-animations-rotation-start-angle);
 
   [aria-expanded="true"] & {
-    rotate: -180deg;
+    rotate: var(--ams-animations-rotation-end-angle);
   }
 
   @media (prefers-reduced-motion: no-preference) {
-    transition: rotate 0.3s ease;
+    @include transition;
   }
-}
-
-.ams-accordion__button[aria-expanded="true"] svg {
-  rotate: -180deg;
 }
 
 .ams-accordion__panel {

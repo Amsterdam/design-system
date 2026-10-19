@@ -6,6 +6,7 @@
 @use "../../common/breakpoint" as *;
 @use "../../common/print-exact" as *;
 @use "../../common/resets" as *;
+@use "../../common/transition" as *;
 
 @mixin indicator {
   display: grid;
@@ -197,15 +198,17 @@
 /* Icon */
 
 .ams-progress-list__icon svg {
-  rotate: 0deg;
+  rotate: var(--ams-animations-rotation-start-angle);
 
   [aria-expanded="true"] & {
-    rotate: -180deg;
+    rotate: var(--ams-animations-rotation-end-angle);
   }
 
   @media (prefers-reduced-motion: no-preference) {
-    transition: rotate var(--ams-progress-list-icon-transition-duration)
-      var(--ams-progress-list-icon-transition-timing-function);
+    @include transition;
+
+    transition-duration: var(--ams-progress-list-icon-transition-duration);
+    transition-timing-function: var(--ams-progress-list-icon-transition-timing-function);
   }
 }
 
