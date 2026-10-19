@@ -1,0 +1,14 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+/*
+ * Applies a transition to a CSS property, defaulting to rotate,
+ * using shared duration and timing tokens.
+ */
+@mixin transition($property: rotate) {
+  transition-duration: var(--ams-animations-transitions-duration);
+  transition-property: $property;
+  transition-timing-function: var(--ams-animations-transitions-timing-function);
+}
