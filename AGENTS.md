@@ -160,10 +160,9 @@ Package filter names: `@amsterdam/design-system-tokens`, `@amsterdam/design-syst
 Human contributors and agents should both follow the conventions in [documentation/git.md](documentation/git.md): branch from `develop`, use branch names like `feat/DES-178-introduce-checkbox-component`, and describe each commit as that file sets out.
 Disclose GitHub Copilot only when it wrote or edited part of a commit, with the trailer `Co-authored-by: Copilot <175728472+Copilot@users.noreply.github.com>` that [documentation/git.md](documentation/git.md#disclose-github-copilot) sets out.
 
-Read [.agents/skills/pull-request/SKILL.md](.agents/skills/pull-request/SKILL.md) before writing a pull request title or description.
 One rule agents break without noticing: `feat`, `fix` and `chore` are the only types the "Check PR title" workflow accepts — never `docs`, `refactor`, `test`, `ci`, `style`, `build`, `perf`, or `revert`.
 
 ## Reviewing as an agent
 
-Read [.agents/skills/code-review/SKILL.md](.agents/skills/code-review/SKILL.md) before commenting on a diff, alongside the `AGENTS.md` of every package it touches.
+When you review a diff, also read the `AGENTS.md` of every package it touches.
 Our review culture, which applies to agents too, is in [documentation/code-reviews.md](documentation/code-reviews.md).
