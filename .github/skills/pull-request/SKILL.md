@@ -37,6 +37,9 @@ A documentation change is `chore` unless it documents a component, in which case
 
 The deciding question for `chore` versus `fix` is not how large the change is, but whether someone installing the package would notice.
 
+This three-type restriction is for the pull request title alone: it is what Release Please reads and what becomes the squash commit on `develop`.
+A commit inside your branch is free to use any Conventional Commits type, as [commit-message/SKILL.md](../commit-message/SKILL.md) explains.
+
 ### Scope
 
 The scope is optional, and goes in parentheses.
