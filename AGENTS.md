@@ -65,7 +65,7 @@ Before making changes in a given layer, read the relevant package `AGENTS.md` an
 
 These rules override common agent defaults and apply across the repository:
 
-- **Never use npm or yarn** — always use `pnpm` (see commands in [README.md](README.md)).
+- **Never use npm or yarn** — always use `pnpm` (see Common commands below, and [Local development](CONTRIBUTING.md#computer-local-development) in the contributing guide).
 - **Never add `import React from 'react'`** — the JSX transform handles this automatically.
 - **Never weaken TypeScript safety** — avoid `any`, do not disable strict checks, and use `import type` for type-only imports.
 - **Never hardcode design values** (colors, spacing, typography, radii, shadows) — use a CSS custom property backed by tokens; add or update tokens first if needed.
@@ -167,5 +167,3 @@ One rule agents break without noticing: `feat`, `fix` and `chore` are the only t
 
 Read [.github/skills/code-review/SKILL.md](.github/skills/code-review/SKILL.md) before commenting on a diff, alongside the `AGENTS.md` of every package it touches.
 Our review culture, which applies to agents too, is in [documentation/code-reviews.md](documentation/code-reviews.md).
-
-Before marking work complete, cross-check the full definition-of-done checklist in [documentation/definition-of-done.md](documentation/definition-of-done.md).
