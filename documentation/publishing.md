@@ -80,7 +80,7 @@ The subject is what a reader of the changelog sees, so write it for someone who 
 - Start with a capital letter and use the imperative mood, as in ‘Correct the aspect ratio for the image’.
 - Leave out the full stop at the end.
 - Describe the outcome, not the mechanics: ‘Show a placeholder background while the image loads’ tells more than ‘Add a CSS background-color declaration’.
-- Keep it to one line.
+- Keep it to one line, and as short as you can: aim for 80 characters.
 
 ```text
 fix(Avatar): Correct the aspect ratio for the image

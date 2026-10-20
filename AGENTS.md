@@ -21,7 +21,7 @@ Follow these priorities in order:
 5. **Performance and maintainability** — simple and readable over clever.
 
 - Search for an existing pattern (component, token, story, mixin) before inventing one, and use Grid, Column, and Row instead of raw `<div>` elements with inline styles in Storybook stories.
-- One sentence per line applies to `.md`, `.mdx`, and TSDoc only, never to a pull request description, review comment, issue, or ticket.
+- One sentence per line applies to `.md`, `.mdx`, and TSDoc only, never to a commit body, pull request description, review comment, issue, or ticket.
 - Never invent a file, command, configuration option, or API; state the uncertainty instead of guessing.
 - When a user instruction conflicts with a rule here or in a package `AGENTS.md`, say so rather than silently following either.
 - On an ambiguous task ("improve performance", "add validation"), ask rather than assume new behaviour, UX, or scope.

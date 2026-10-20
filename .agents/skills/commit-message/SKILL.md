@@ -20,4 +20,4 @@ This file adds only what an agent gets wrong.
 - One commit changes one thing.
   Split a commit that carries a fix and a rename, so the branch reads as steps.
 - A commit body is prose, so [the writing skill](../writing/SKILL.md) applies to it.
-  It wraps to a width, though, where our documentation goes one sentence per line.
+  Write each paragraph on one line: don't wrap it by hand, and don't break it into one sentence per line.
