@@ -40,13 +40,9 @@ The deciding question for `chore` versus `fix` is not how large the change is, b
 ### Scope
 
 The scope is optional, and goes in parentheses.
-It becomes a bold prefix in the changelog, and changelog entries sort alphabetically by it, so it groups a component's history together.
-
-- **A component**: its display name in Title Case, spaces and all — `fix(Avatar)`, `feat(Modal Dialog)`, `fix(Table of Contents)`, `feat(Field Set)`.
-- **Two to five components**: separate them with commas — `fix(Ordered List, Unordered List)`.
-- **More than five, or none in particular**: leave the scope out.
-- **A package or topic**: lowercase — `chore(deps)`, `chore(deps-dev)`, `chore(docs)`, `chore(ci)`, `chore(css)`, `chore(tokens)`, `chore(assets)`.
-  `Storybook` and `React` are conventionally capitalised.
+Which one to pick and how to spell it is in [publishing.md](../../../documentation/publishing.md#adding-a-scope).
+Nothing enforces it: the "Check PR title" workflow validates the type only.
+A component keeps the spaces of its name, as in `fix(Table of Contents)`.
 
 ### Subject
 

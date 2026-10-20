@@ -35,18 +35,42 @@ This will cause a major version bump in both packages on release and add its des
 
 ### Adding a scope
 
-If the change involves just one component, include its name in parentheses to show it as the scope of the PR, like this:
+A scope tells the reader of a changelog which part of the design system changed.
+It becomes a prefix of the entry, and entries sort alphabetically, so a consistent scope groups the history of a component:
 
 ```text
 fix(Avatar): Correct the aspect ratio for the image
 ```
 
-The changelog for this PR will display the scope as a prefix, so it will read: “**Avatar**: Correct the aspect ratio for the image.”
-There’s no need to repeat the component name in the rest of the PR title.
-Changelog entries are sorted alphabetically, which helps group changes for the same component.
+That entry reads “**Avatar**: Correct the aspect ratio for the image.”
+There’s no need to repeat the scope in the rest of the title.
 
-For changes that impact 2 to 5 components, separate their names with commas.
-Other scopes, like `docs`, are allowed, as is omitting it.
+We recommend the conventions below.
+The ‘Check PR title’ workflow validates the type of a title, never its scope.
+
+#### Choosing a scope
+
+Take the first row that fits the change:
+
+| The change concerns                        | Scope                            | Example                               |
+| ------------------------------------------ | -------------------------------- | ------------------------------------- |
+| 1 component                                | Its name                         | `fix(Avatar)`                         |
+| 2 to 5 components                          | Their names, separated by commas | `fix(Ordered List, Unordered List)`   |
+| More than 5 components, or none of them    | None                             | `feat: Add a skip link to every page` |
+| A package, but no component in particular  | The name of the package          | `chore(Storybook)`                    |
+| Documentation that isn’t about a component | `docs`                           | `chore(docs)`                         |
+| A dependency                               | `deps` or `deps-dev`             | `chore(deps)`                         |
+| A workflow                                 | `ci`                             | `chore(ci)`                           |
+| The configuration of a tool                | The name of the tool             | `chore(ESLint)`                       |
+
+#### Spelling a scope
+
+Write a component as its documentation page names it, in title case and with spaces: `Description List`, not `DescriptionList`.
+
+Write a package as we write it in prose elsewhere in this file: `Tokens`, `CSS`, `React`, `Assets`, `React Icons`, and `Storybook`.
+
+Keep our own topics lowercase, such as `docs`, `deps`, `ci`, and `tests`.
+Give a third-party tool the spelling it uses itself, such as `ESLint`, `Stylelint`, and `TypeScript`.
 
 ## How to create a release
 
