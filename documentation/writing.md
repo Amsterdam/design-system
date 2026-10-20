@@ -33,16 +33,16 @@ Practice was evenly split when we wrote this down, so this rule is a decision.
 Write the `.md` and `.mdx` files in this repository, and the TSDoc on anything we export, one sentence per line.
 This keeps diffs small and reviews focused on the sentences that actually changed.
 A pull request description, a review comment, an issue, or a ticket is not documentation, even when it is Markdown: write it the way that reads well in the tool.
-A comment that explains code to whoever edits it wraps to a width instead, as a commit body does.
+A comment that explains code to whoever edits it wraps to a width instead.
 
-| Prose                                                        | Line treatment              |
-| ------------------------------------------------------------ | --------------------------- |
-| `.md` and `.mdx` files                                       | One sentence per line       |
-| TSDoc on anything we export                                  | One sentence per line       |
-| A comment inside an implementation                           | Wrap to a width             |
-| A commit body                                                | Wrap to about 72 characters |
-| A token `$description`                                       | No line rule                |
-| A pull request description, review comment, issue, or ticket | No line rule                |
+| Prose                                                        | Line treatment         |
+| ------------------------------------------------------------ | ---------------------- |
+| `.md` and `.mdx` files                                       | One sentence per line  |
+| TSDoc on anything we export                                  | One sentence per line  |
+| A comment inside an implementation                           | Wrap to a width        |
+| A commit body                                                | One paragraph per line |
+| A token `$description`                                       | No line rule           |
+| A pull request description, review comment, issue, or ticket | No line rule           |
 
 TSDoc sits on the first side because react-docgen renders it onto the Storybook page and into IDE tooltips, as [component docs](./component-docs.md#the-component-tsdoc) sets out.
 A comment above an effect or a selector is read in the editor only, so a width wrap serves it better.
