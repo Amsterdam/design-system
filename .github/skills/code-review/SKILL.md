@@ -29,7 +29,9 @@ A change is only correct if it stays generic, accessible, and reusable across an
    It tracks `main`, so it knows the released API only: a component, property, or variant the pull request itself adds will be absent from it, and that absence is not a finding.
    Use it to check what the branch _consumes_, not what the branch _introduces_.
    If the server is unavailable to you, or you cannot verify a claim through it, say so instead of asserting it — a confidently wrong review comment costs the author more time than no comment at all.
-3. Read the pull request title and description first, so you review the change the author intended to make.
+3. Read the pull request title and description for the author's stated intent, then check it against the diff.
+   In practice the description trails the code, and a later push can leave it stale, so the diff is the source of truth.
+   Say so when they disagree.
 
 ## Rank findings before you write them
 
