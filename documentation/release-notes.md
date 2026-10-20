@@ -254,7 +254,7 @@ Cut it and let the page prove the point.
 
 Concretely:
 
-- Write Markdown with one sentence per line, as everywhere in this repository.
+- Write one sentence per line, as [for all our documentation](./writing.md#one-sentence-per-line).
 - Keep sentences short and simple.
   Avoid compound sentences: two independent clauses joined by ‘and’, ‘but’ or ‘so’ are two sentences.
   Split them.
