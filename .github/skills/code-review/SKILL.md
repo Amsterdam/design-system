@@ -24,11 +24,9 @@ A change is only correct if it stays generic, accessible, and reusable across an
    | `storybook/**`                   | [storybook/AGENTS.md](../../../storybook/AGENTS.md)                |
 
 2. Check a component's real API before claiming anything about it.
-   Call the design system MCP server, `docs-list` and then `docs-show`, to confirm that a property, variant, or component exists.
-   It is a public Streamable HTTP endpoint at `https://main--68db9df886b46f139748c074.chromatic.com/mcp`.
-   It tracks `main`, so it knows the released API only: a component, property, or variant the pull request itself adds will be absent from it, and that absence is not a finding.
-   Use it to check what the branch _consumes_, not what the branch _introduces_.
-   If the server is unavailable to you, or you cannot verify a claim through it, say so instead of asserting it — a confidently wrong review comment costs the author more time than no comment at all.
+   Read its source and its docs page in the head branch, such as `packages/react/src/<Name>/<Name>.tsx` and `storybook/src/components/<Name>/<Name>.docs.mdx`: they hold both the API the branch consumes and the API it introduces.
+   The design system MCP server, through `docs-list` and `docs-show`, knows the released API only, so use it, if you have it, for what lives outside this repository.
+   If you cannot verify a claim, say so instead of asserting it: a confidently wrong review comment costs the author more time than no comment at all.
 3. Read the pull request title and description for the author's stated intent, then check it against the diff.
    In practice the description trails the code, and a later push can leave it stale, so the diff is the source of truth.
    Say so when they disagree.
