@@ -72,6 +72,25 @@ Write a package as we write it in prose elsewhere in this file: `Tokens`, `CSS`,
 Keep our own topics lowercase, such as `docs`, `deps`, `ci`, and `tests`.
 Give a third-party tool the spelling it uses itself, such as `ESLint`, `Stylelint`, and `TypeScript`.
 
+### Writing the subject
+
+The subject is what a reader of the changelog sees, so write it for someone who didn’t read the code.
+
+- Write in English, without jargon.
+- Start with a capital letter and use the imperative mood, as in ‘Correct the aspect ratio for the image’.
+- Leave out the full stop at the end.
+- Describe the outcome, not the mechanics: ‘Show a placeholder background while the image loads’ tells more than ‘Add a CSS background-color declaration’.
+- Keep it to one line.
+
+```text
+fix(Avatar): Correct the aspect ratio for the image
+feat(Modal Dialog): Add Modal Dialog component and repurpose Dialog for short messages
+fix(Ordered List, Unordered List): Only style a list that is directly nested in a list item
+feat(Progress List)!: Make collapsing and expanding steps optional
+chore(docs): Clarify what the Baseline linter cannot check in token values
+chore(deps): Install minor updates
+```
+
 ## How to create a release
 
 ### Merge into the main branch

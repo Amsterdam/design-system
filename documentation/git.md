@@ -143,8 +143,8 @@ A trade-off you made, an alternative you rejected, or a reason that the code doe
 
 ### Keep it short
 
-Keep the subject on one line, under 72 characters where you can.
-Wrap the lines of the body at about the same width.
+Keep the subject on one line.
+Wrap the lines of the body at about 72 characters.
 
 ### Disclose GitHub Copilot
 

@@ -49,25 +49,11 @@ A component keeps the spaces of its name, as in `fix(Table of Contents)`.
 
 ### Subject
 
-- English, no jargon, understandable to someone who did not read the code.
-- Start with a capital letter, in the imperative mood: "Correct the aspect ratio for the image", "Only style a list that is directly nested in a list item".
-- No full stop at the end.
-- Do not repeat the scope in the subject.
-  `fix(Avatar): Correct the Avatar aspect ratio` wastes the reader's first three words.
-- Describe the outcome, not the mechanics.
-  "Show a placeholder background while the image loads" beats "Add a CSS background-color declaration".
-- Keep it to one line; most of ours stay under 80 characters.
+Write it as [publishing.md](../../../documentation/publishing.md#writing-the-subject) sets out, with its examples.
+Two things agents get wrong:
 
-### Examples
-
-```text
-fix(Avatar): Correct the aspect ratio for the image
-feat(Modal Dialog): Add Modal Dialog component and repurpose Dialog for short messages
-fix(Ordered List, Unordered List): Only style a list that is directly nested in a list item
-feat(Progress List)!: Make collapsing and expanding steps optional
-chore(docs): Clarify what the Baseline linter cannot check in token values
-chore(deps): Install minor updates
-```
+- Repeating the scope: `fix(Avatar): Correct the Avatar aspect ratio` wastes the reader's first three words.
+- Describing the mechanics: "Add a CSS background-color declaration" repeats the diff, where "Show a placeholder background while the image loads" says what changed.
 
 ## The description
 
