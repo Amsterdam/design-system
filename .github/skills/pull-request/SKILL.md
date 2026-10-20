@@ -74,7 +74,8 @@ chore(deps): Install minor updates
 
 Follow [.github/pull_request_template.md](../../pull_request_template.md).
 Keep every heading it defines, in its order, and keep the checklist.
-Write one sentence per line, so that later edits produce small diffs.
+Write the text itself as [the writing skill](../writing/SKILL.md) prescribes.
+A description is not documentation, so it does not go one sentence per line.
 
 - **Links** — documentation pages, the story in the branch deploy, related issues or discussions.
   Leave the section's placeholder in place rather than inventing a link you have not seen.

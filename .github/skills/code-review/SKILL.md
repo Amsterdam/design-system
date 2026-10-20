@@ -56,6 +56,7 @@ These are the mistakes that actually recur here, per layer.
 - Changes to generated output under any `dist/`, or to generated assets under `packages-proprietary/assets/logo/` and `.../icons/`.
 - Scope creep: refactors, abstractions, or renames the task did not ask for.
   Flag these even when the code is good.
+- Prose that doesn't follow [the writing skill](../writing/SKILL.md): hedging, a duplicated claim, em dashes (`—`), or a `rather than` construction are the common AI tells.
 
 **Tokens and CSS**
 
