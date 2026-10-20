@@ -25,7 +25,8 @@ A change is only correct if it stays generic, accessible, and reusable across an
 
 2. Check a component's real API before claiming anything about it.
    Read its source and its docs page in the head branch, such as `packages/react/src/<Name>/<Name>.tsx` and `storybook/src/components/<Name>/<Name>.docs.mdx`: they hold both the API the branch consumes and the API it introduces.
-   The design system MCP server, through `docs-list` and `docs-show`, knows the released API only, so use it, if you have it, for what lives outside this repository.
+   The design system MCP server, through `docs-list` and `docs-show`, can find components and stories faster: the hosted one knows the released API only, and a local one serves the working branch while `pnpm run watch:storybook` runs.
+   Use it if you have it, but the source in the branch decides.
    If you cannot verify a claim, say so instead of asserting it: a confidently wrong review comment costs the author more time than no comment at all.
 3. Read the pull request title and description for the author's stated intent, then check it against the diff.
    In practice the description trails the code, and a later push can leave it stale, so the diff is the source of truth.
