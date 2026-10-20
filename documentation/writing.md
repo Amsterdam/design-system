@@ -49,7 +49,6 @@ A comment above an effect or a selector is read in the editor only, so a width w
 
 ## Writing style
 
-These patterns come from the review comments on generated documentation that [DES-2038](https://gemeente-amsterdam.atlassian.net/browse/DES-2038) collected.
 They apply to every row of the table, whatever its line treatment.
 
 - **Drop a contrast that adds nothing.** ‘The parts wrap onto a second line rather than staying on one line’ says one thing twice. Write what happens.

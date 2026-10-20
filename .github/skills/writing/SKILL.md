@@ -12,7 +12,7 @@ Our writing rules are in [documentation/writing.md](../../../documentation/writi
 Read them there.
 This file adds only what an agent gets wrong.
 
-- The style covers prose that never enters the repository too, such as a pull request description, a review comment, or a Jira ticket.
+- The style covers prose that never enters the repository too, such as a pull request description, a review comment, an issue, or a ticket.
 - One sentence per line covers less than that.
   Check the table before you reformat anything: a comment inside an implementation and a commit body wrap to a width instead.
 - British English is for prose only.
