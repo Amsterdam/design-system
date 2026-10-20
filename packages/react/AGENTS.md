@@ -48,6 +48,7 @@ export const ComponentName = forwardRef(/* … */)
 ```
 
 See [documentation/component-docs.md](../../documentation/component-docs.md) for the full convention.
+Write TSDoc as [documentation/writing.md](../../documentation/writing.md) sets out: British English, and one sentence per line.
 
 ## File locations
 

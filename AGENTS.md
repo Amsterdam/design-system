@@ -21,7 +21,7 @@ Follow these priorities in order:
 5. **Performance and maintainability** — simple and readable over clever.
 
 - Search for an existing pattern (component, token, story, mixin) before inventing one, and use Grid, Column, and Row instead of raw `<div>` elements with inline styles in Storybook stories.
-- Write Markdown one sentence per line, to keep diffs small.
+- One sentence per line applies to `.md`, `.mdx`, and TSDoc only, never to a pull request description, review comment, issue, or ticket.
 - Never invent a file, command, configuration option, or API; state the uncertainty instead of guessing.
 - When a user instruction conflicts with a rule here or in a package `AGENTS.md`, say so rather than silently following either.
 - On an ambiguous task ("improve performance", "add validation"), ask rather than assume new behaviour, UX, or scope.
@@ -97,6 +97,7 @@ Creating files by hand means following the naming table above and each package's
 - Quality checklist covering accessibility, tests, clean implementation, documentation, and licensing: [definition-of-done.md](documentation/definition-of-done.md) — cross-check it before submitting work.
 - Testing: [tests.md](documentation/tests.md)
 - Component docs: [component-docs.md](documentation/component-docs.md) and [storybook.md](documentation/storybook.md)
+- Writing, for every kind of prose: [writing.md](documentation/writing.md)
 - Page templates: [page-anatomy.md](documentation/page-anatomy.md)
 - Git, reviews, releases: [git.md](documentation/git.md), [code-reviews.md](documentation/code-reviews.md), [publishing.md](documentation/publishing.md)
 - Release notes: [release-notes.md](documentation/release-notes.md)

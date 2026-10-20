@@ -22,8 +22,7 @@ If a utility ever gains a React component, migrate it to the TSDoc approach at t
 
 ## Formatting
 
-Write Markdown with one sentence per line.
-This keeps diffs small and reviews focused on the sentences that actually changed.
+Write documentation one sentence per line, and follow our [writing style](./writing.md).
 
 Use sentence case for headings.
 Write component names in title case to help readers recognise them, e.g. ‘Card’ or ‘Form Field’.
