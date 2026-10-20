@@ -71,13 +71,13 @@ chore(deps): Install minor updates
 
 ## The description
 
-Follow [.github/pull_request_template.md](../../pull_request_template.md).
+Follow [.github/pull_request_template.md](../../../.github/pull_request_template.md).
 Keep every heading it defines, in its order.
 Write the text itself as [the writing skill](../writing/SKILL.md) prescribes.
 A description is not documentation, so it does not go one sentence per line.
 
 - **Links** — the documentation pages and stories in the branch deploy that the change affects, related issues, and discussions.
-  Link them before the deploy exists, because its address follows from the branch name, as [the workflows README](../../workflows/README.md) describes: drop the type prefix up to the first slash, and put `demo-` in its place.
+  Link them before the deploy exists, because its address follows from the branch name, as [the workflows README](../../../.github/workflows/README.md) describes: drop the type prefix up to the first slash, and put `demo-` in its place.
   Branch `feat/DES-1959-file-component` deploys to `https://designsystem.amsterdam/demo-DES-1959-file-component/`, so its File Card page is `https://designsystem.amsterdam/demo-DES-1959-file-component/?path=/docs/components-forms-file-card--docs`.
   Take the `path` from the Storybook title: `/docs/<title>--docs` for a page and `/story/<title>--<story>` for a story, both in kebab case.
   Never invent any other link, and never fabricate an issue identifier; take it from the branch name if it is there.
