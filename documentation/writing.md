@@ -49,11 +49,16 @@ A comment above an effect or a selector is read in the editor only, so a width w
 
 ## Writing style
 
-They apply to every row of the table, whatever its line treatment.
+These patterns apply to every row of the table, whatever its line treatment.
 
+- **Lead with the point.** Put the subject and what it does first, as in ‘Both NL Design System and gov.uk recommend this pattern for these dates’.
 - **Drop a contrast that adds nothing.** ‘The parts wrap onto a second line rather than staying on one line’ says one thing twice. Write what happens.
 - **State a fact once.** ‘a date the user has to look up, a date that they don’t already know’ repeats itself within the sentence.
 - **Drop the hedge in front of a rule without exceptions.** ‘You should try to make sure the `lang` attribute is in effect’ is ‘Make sure the `lang` attribute is in effect’.
 - **Delete a sentence that adds nothing.** Don’t shorten it, remove it.
 - **Reuse the word we already have.** A label and its input is a ‘field’, because that is what Field wraps. A second word for the same thing costs the reader.
-- **Use no em dashes.** A comma, a colon, a full stop or an _en_ dash does the same work.
+- **Give a second idea a sentence of its own.** ‘…, which is what makes an example date above the fields possible there’ hangs a new idea on the end of a sentence.
+- **Use no em dashes.** A comma, a colon, a full stop, or an _en_ dash does the same work.
+
+Where these rules say nothing, follow the [GOV.UK style guide](https://www.gov.uk/guidance/style-guide), which is also in British English.
+Where the two differ, these rules win.
