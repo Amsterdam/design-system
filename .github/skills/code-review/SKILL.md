@@ -24,7 +24,7 @@ A change is only correct if it stays generic, accessible, and reusable across an
    | `storybook/**`                   | [storybook/AGENTS.md](../../../storybook/AGENTS.md)                |
 
 2. Check a component's real API before claiming anything about it.
-   Call the design system MCP server — `list-all-documentation`, then `get-documentation` — to confirm that a property, variant, or component exists.
+   Call the design system MCP server, `docs-list` and then `docs-show`, to confirm that a property, variant, or component exists.
    It is a public Streamable HTTP endpoint at `https://main--68db9df886b46f139748c074.chromatic.com/mcp`.
    It tracks `main`, so it knows the released API only: a component, property, or variant the pull request itself adds will be absent from it, and that absence is not a finding.
    Use it to check what the branch _consumes_, not what the branch _introduces_.
