@@ -72,7 +72,7 @@ chore(deps): Install minor updates
 ## The description
 
 Follow [.github/pull_request_template.md](../../pull_request_template.md).
-Keep every heading it defines, in its order, and keep the checklist.
+Keep every heading it defines, in its order.
 Write the text itself as [the writing skill](../writing/SKILL.md) prescribes.
 A description is not documentation, so it does not go one sentence per line.
 
@@ -90,9 +90,11 @@ A description is not documentation, so it does not go one sentence per line.
   Mention what you left out of scope, and say so plainly.
   If GitHub Copilot wrote or edited part of the change, say so here with "GitHub Copilot wrote or edited part of this change.", as the [GitHub Copilot usage rules](https://github.com/Amsterdam/development-standards/blob/main/internal/github-copilot.md) require.
   The rules ask for no more than that, so there is no need to list the parts it touched.
-- **Checklist** — tick only what is genuinely done or genuinely not applicable.
+- **Checklist** — remove the items the change has no surface for, and tick only what is done.
+  A `chore` often needs none of the test, documentation, story, export, Chromatic, or screen reader items.
+  A `feat` or `fix` without a visual change drops Chromatic, and one that changes no markup, ARIA, or behaviour drops the screen reader tests.
+  Tick the Chromatic item only after `/chromatic test` has passed, and leave the screen reader items to the person who ran them.
   An unticked box is a useful signal; a wrongly ticked one is a false one.
-  Do not tick the Chromatic box before `/chromatic test` has run and passed, unless the diff has no visual surface at all.
 - **Additional notes** — steps to reproduce, test data, and the parts where you specifically want feedback.
 
 Where the diff is unremarkable — a dependency bump, a typo — a short description is the right description.
