@@ -80,7 +80,7 @@ A description is not documentation, so it does not go one sentence per line.
   Link them before the deploy exists, because its address follows from the branch name: drop the type prefix up to the first slash, and put `demo-` in its place.
   Branch `feat/DES-1959-file-component` deploys to `https://designsystem.amsterdam/demo-DES-1959-file-component/`, so its File Card page is `https://designsystem.amsterdam/demo-DES-1959-file-component/?path=/docs/components-forms-file-card--docs`.
   Take the `path` from the Storybook title: `/docs/<title>--docs` for a page and `/story/<title>--<story>` for a story, both in kebab case.
-  Never invent any other link, and never fabricate a Jira identifier; take it from the branch name if it is there.
+  Never invent any other link, and never fabricate an issue identifier; take it from the branch name if it is there.
 - **What** — the changes, as a short list.
   The reviewer can read the diff; give them the shape of it.
 - **Why** — why the change is necessary.

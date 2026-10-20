@@ -69,7 +69,7 @@ The names of the groups are:
 - `fix` for bug fixes
 - `chore` for any other work, e.g. documentation or configuration
 
-The type of the Jira issue usually points to the group: a Story to `feat`, a Bug to `fix`, and a Task to `chore`.
+The type of the issue usually points to the group: a feature or story to `feat`, a bug to `fix`, and a task to `chore`.
 
 Conclude the group label with a forward slash ‘/’.
 Git applications use that convention to visually group branches.
