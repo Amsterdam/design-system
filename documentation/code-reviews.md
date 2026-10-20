@@ -136,3 +136,7 @@ We steer AI reviewers from files in the repository, so the guidance travels with
 - [agent-workarounds.md](./agent-workarounds.md) is the parking lot for patterns we have seen but not yet turned into a rule.
 
 When a review comment from an agent is wrong in the same way twice, that is a signal to change one of these files rather than to correct the agent again.
+
+Our documentation holds the rules, and these files point to it.
+A skill adds only what agents get wrong, and an `AGENTS.md` restates a rule only when agents break it without doubting themselves.
+Change a rule in the documentation first, then check the files that point to it.
