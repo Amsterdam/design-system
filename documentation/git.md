@@ -104,6 +104,58 @@ Read more in [this classic article](https://cbea.ms/git-commit/).
 
 The goal is that anyone can quickly scan the progress of a branch based on the commit messages.
 
+### Use a type and a scope
+
+We prefer [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) for the commits in a branch, in the form `type(scope): Subject`.
+We don’t enforce this, and contributors are free to follow their own conventions.
+
+Every type of the specification is available here, so `docs`, `refactor`, `test`, `ci`, `style`, `build`, and `perf` are fine alongside `feat`, `fix`, and `chore`.
+The restriction to those last 3 types applies to the title of a pull request, which becomes the single commit on `develop` after a squash merge.
+Release Please never reads the commits inside a branch, so their types are free.
+See [Conventional commits](./publishing.md#conventional-commits) for what the pull request title has to do.
+
+Use `fix` for a commit that corrects an earlier commit in the same branch.
+This includes a correction to documentation.
+
+The title of the pull request already names what the branch is about, so you do not have to repeat that scope in every commit.
+Name the part that the commit changes instead, such as `CSS`, `Tokens`, `docs`, or `tests`, or a single file, such as `data-list.scss`.
+When the branch covers several components, name the one that the commit touches.
+Spell a scope as you would in [the title of a pull request](./publishing.md#adding-a-scope).
+
+In a branch about Data List, that reads:
+
+```text
+feat(CSS): Align the keys and values by their first baseline
+test(React): Cover a list without actions
+fix(docs): Correct the default that an earlier commit documented
+fix(data-list.scss): Restore the gap that an earlier commit removed
+```
+
+### Add a body when the subject isn’t enough
+
+A commit that speaks for itself needs no body.
+Adding a file or wiring a new prop through: the subject and the diff already say everything.
+
+Write a body when a reviewer would otherwise ask why.
+A trade-off you made, an alternative you rejected, or a reason that the code doesn’t show belongs there.
+
+### Keep it short
+
+Keep the subject on one line, under 72 characters where you can.
+Wrap the lines of the body at about the same width.
+
+### Disclose GitHub Copilot
+
+If GitHub Copilot wrote or edited part of a commit, end its message with this trailer:
+
+```text
+Co-authored-by: Copilot <175728472+Copilot@users.noreply.github.com>
+```
+
+**Note**: the number is the account id of GitHub’s Copilot bot and is the same for everyone.
+
+The [GitHub Copilot usage rules](https://github.com/Amsterdam/development-standards/blob/main/internal/github-copilot.md) also require the pull request description to say so.
+
 ## Tidy up your branch
 
 The commits in your branch should reflect the conceptual steps of the implementation process.
