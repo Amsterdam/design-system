@@ -68,7 +68,7 @@ These rules override common agent defaults and apply across the repository:
 - **Never use npm or yarn** — always use `pnpm` (see Common commands below, and [Local development](CONTRIBUTING.md#computer-local-development) in the contributing guide).
 - **Never add `import React from 'react'`** — the JSX transform handles this automatically.
 - **Never weaken TypeScript safety** — avoid `any`, do not disable strict checks, and use `import type` for type-only imports.
-- **Never hardcode design values** (colors, spacing, typography, radii, shadows) — use a CSS custom property backed by tokens; add or update tokens first if needed.
+- **Never hardcode design values** (colours, spacing, typography, radii, shadows) — use a CSS custom property backed by tokens; add or update tokens first if needed.
   This applies everywhere: SCSS, Storybook stories (no inline `style` props with raw `px`/`rem`/hex values), and React components.
 - **Never add backwards-compatibility fallbacks** (`@supports`, polyfills, feature detection) unless the task explicitly requests them.
 - **Never bypass accessibility** — do not use `aria-label` for screen reader-only text; use the `ams-visually-hidden` helper instead, and never remove focus outlines or rely on colour alone to convey meaning.
@@ -86,7 +86,7 @@ Agents scoped to a single directory may only load the local file, so the reinfor
 - **Any other visual-only adjustment** — component CSS in `packages/css`, using existing tokens.
 - **Behaviour or markup that keeps the visual contract** — React only, reusing existing CSS classes.
 - **A new visual variant or structural markup** — CSS and React together, so the class contract stays aligned, plus stories covering the variants.
-- **A new component** — `pnpm run plop`, which scaffolds every package with the right naming, license headers, and boilerplate; see [plopfile.mjs](plopfile.mjs) and [plop-templates/](plop-templates/).
+- **A new component** — `pnpm run plop`, which scaffolds every package with the right naming, licence headers, and boilerplate; see [plopfile.mjs](plopfile.mjs) and [plop-templates/](plop-templates/).
 
 Only create a new component when asked, or when reuse of an existing one clearly conflicts with its documented intent.
 Creating files by hand means following the naming table above and each package's file location table, then registering the component in `packages/css/src/components/index.scss` and `packages/react/src/index.ts`.
@@ -109,9 +109,9 @@ ESLint, Stylelint, and Prettier are authoritative for code style; consult [eslin
 
 ## Licensing
 
-Every new source file must start with the appropriate license header.
+Every new source file must start with the appropriate licence header.
 Do not introduce alternative or file-local licensing schemes.
-Token `.tokens.json` files have no license header (they are plain JSON).
+Token `.tokens.json` files have no licence header (they are plain JSON).
 A `SKILL.md` file is the one exception to "start with": its YAML front matter has to come first to parse, so the header goes directly below it.
 
 **Code files** (`.ts`, `.tsx`, `.scss`, `.js`):

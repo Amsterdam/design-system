@@ -54,7 +54,7 @@ To export all icons from our [Figma Library](https://www.figma.com/community/fil
 4. Copy these files over to the `icons` folder.
 5. If any new or updated icons are directional, add `data-directional="true"` to the root `<svg>` element of each.
    See [Right-to-left (RTL) mirroring](#right-to-left-rtl-mirroring) for the classification criteria.
-6. Run the following command to optimize them:
+6. Run the following command to optimise them:
 
 ```sh
 pnpm run optimize-icons
