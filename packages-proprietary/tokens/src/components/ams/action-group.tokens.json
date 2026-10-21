@@ -7,6 +7,42 @@
           "nl.amsterdam.subtype": "space",
           "nl.amsterdam.type": "dimension"
         }
+      },
+      "x-small": {
+        "gap": {
+          "$value": "{ams.space.xs}",
+          "$extensions": {
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
+          }
+        }
+      },
+      "small": {
+        "gap": {
+          "$value": "{ams.space.s}",
+          "$extensions": {
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
+          }
+        }
+      },
+      "large": {
+        "gap": {
+          "$value": "{ams.space.l}",
+          "$extensions": {
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
+          }
+        }
+      },
+      "x-large": {
+        "gap": {
+          "$value": "{ams.space.xl}",
+          "$extensions": {
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
+          }
+        }
       }
     }
   }

@@ -7,7 +7,7 @@ import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 import { describe, expect, it } from 'vitest'
 
-import { ActionGroup } from './ActionGroup'
+import { ActionGroup, actionGroupGapSizes } from './ActionGroup'
 
 describe('ActionGroup', () => {
   it('renders', () => {
@@ -33,6 +33,29 @@ describe('ActionGroup', () => {
     const component = screen.getByRole('group')
 
     expect(component).toHaveClass('ams-action-group extra')
+  })
+
+  it.each(actionGroupGapSizes)('renders with %s gap', (gap) => {
+    render(<ActionGroup className="extra" gap={gap} />)
+
+    const component = screen.getByRole('group')
+
+    expect(component).toHaveClass('ams-action-group', `ams-action-group--gap-${gap}`, 'extra')
+    expect(component).not.toHaveAttribute('gap')
+  })
+
+  it('keeps the default class name when gap is omitted', () => {
+    render(<ActionGroup />)
+
+    expect(screen.getByRole('group')).toHaveAttribute('class', 'ams-action-group')
+  })
+
+  it('removes the gap modifier when gap becomes undefined', () => {
+    const { rerender } = render(<ActionGroup gap="small" />)
+
+    rerender(<ActionGroup gap={undefined} />)
+
+    expect(screen.getByRole('group')).toHaveAttribute('class', 'ams-action-group')
   })
 
   it('supports ForwardRef in React', () => {

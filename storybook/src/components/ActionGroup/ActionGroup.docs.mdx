@@ -39,6 +39,13 @@ Resize the pink rectangle to see this in action.
 
 <Canvas of={ActionGroupStories.Stacked} />
 
+### Stacked with a small gap
+
+This trial compares a smaller gap for wrapped actions, prompted by the Data List review in #2966.
+It is a candidate for design review, not an approved use case for smaller spacing.
+
+<Canvas of={ActionGroupStories.StackedWithSmallGap} />
+
 ### With Link
 
 An action that involves navigation should be a link.
@@ -49,7 +56,16 @@ An action that involves navigation should be a link.
 
 Putting the primary action first keeps the order of Buttons consistent on both narrow and wide screens: if the Buttons do not fit next to each other, they get stacked vertically with the primary action on top.
 
+The trial `gap` prop offers `none`, `x-small`, `small`, `large`, and `x-large`, matching Row and Column.
+Omit it to keep the existing medium gap.
+In this trial, it sets both the space between actions on a line and the space between wrapped rows.
+
 ## Design
+
+Medium spacing follows the principle that equal or similar components, such as Buttons and Standalone Links, sit a medium space apart.
+The final set of sizes, including whether to offer `none`, remains open.
+Whether `gap` should change both directions or only the gap between wrapped rows also remains open.
+The designer's question remains unanswered: in what case would a small gap be better?
 
 Sighted users will read the primary action first, in line with the natural reading order.
 The same goes for users of screen readers, who will hear the primary action first, and users of a keyboard, who will focus the primary action first.

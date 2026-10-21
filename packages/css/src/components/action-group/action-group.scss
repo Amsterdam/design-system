@@ -13,3 +13,23 @@
     flex: auto;
   }
 }
+
+.ams-action-group--gap-none {
+  gap: 0;
+}
+
+.ams-action-group--gap-x-small {
+  gap: var(--ams-action-group-x-small-gap);
+}
+
+.ams-action-group--gap-small {
+  gap: var(--ams-action-group-small-gap);
+}
+
+.ams-action-group--gap-large {
+  gap: var(--ams-action-group-large-gap);
+}
+
+.ams-action-group--gap-x-large {
+  gap: var(--ams-action-group-x-large-gap);
+}

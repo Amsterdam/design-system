@@ -8,6 +8,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { Button, StandaloneLink } from '@amsterdam/design-system-react'
 import { DownloadIcon } from '@amsterdam/design-system-react-icons'
 import { ActionGroup } from '@amsterdam/design-system-react/src'
+import { actionGroupGapSizes } from '@amsterdam/design-system-react/src/ActionGroup/ActionGroup'
 
 const meta = {
   title: 'Components/Layout/Action Group',
@@ -19,6 +20,15 @@ const meta = {
         Stoppen
       </Button>,
     ],
+  },
+  argTypes: {
+    gap: {
+      control: {
+        labels: { undefined: 'medium (default)' },
+        type: 'select',
+      },
+      options: [undefined, ...actionGroupGapSizes],
+    },
   },
 } satisfies Meta<typeof ActionGroup>
 
@@ -40,6 +50,13 @@ export const Stacked: Story = {
     style: {
       inlineSize: '16rem',
     },
+  },
+}
+
+export const StackedWithSmallGap: Story = {
+  args: {
+    ...Stacked.args,
+    gap: 'small',
   },
 }
 
