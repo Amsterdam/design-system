@@ -1,6 +1,6 @@
 <!-- @license CC0-1.0 -->
 
-# Describe the pull request
+# (Summarise the change in a few words, without a type or scope)
 
 Thank you for contributing to the project!
 Please use this template to help us handle your PR smoothly.
