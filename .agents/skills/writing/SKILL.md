@@ -1,6 +1,6 @@
 ---
 name: writing
-description: Write British English prose in the Amsterdam Design System: documentation pages, TSDoc, commit bodies, pull request descriptions, and review comments. Use this whenever you write more than a line of prose here, or review someone else's.
+description: "Write British English prose in the Amsterdam Design System: documentation pages, TSDoc, commit bodies, pull request descriptions, and review comments. Use this whenever you write more than a line of prose here, or review someone else's."
 license: CC0-1.0
 ---
 
