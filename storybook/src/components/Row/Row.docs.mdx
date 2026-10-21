@@ -29,13 +29,13 @@ Wrap a Row around a set of elements that need the same amount of white space bet
 
 Items in the row can be aligned horizontally in several ways:
 
-- **Center**: center items within the row.
-- **End**: align items to the end of the row. This is the right side in left-to-right languages.
-- **Space Between**: distribute whitespace between items.
-- **Space Around**: distribute whitespace around items.
-- **Space Evenly**: distribute whitespace evenly around items.
+- `center` – centre items within the row.
+- `end` – align items to the end of the row. This is the right side in left-to-right languages.
+- `between` – distribute whitespace between items.
+- `around` – distribute whitespace around items.
+- `evenly` – distribute whitespace evenly around items.
 
-By default, items align to the **start** of the row – the left side in right-to-left languages.
+By default, items align to the `start` of the row – the left side in left-to-right languages.
 This option has no class name or prop value.
 
 We left out the word ‘space’ from the values for the alignment prop, e.g. `align="around"`.
@@ -68,15 +68,15 @@ This example shows a right-aligned link next to a heading.
 
 Items in the row can be aligned vertically in several ways:
 
-- **Start**: align items to the top of the row.
-- **Center**: align items to the middle of the row.
-- **End**: align items to the bottom of the row.
-- **Baseline**: align items to their common text baseline.
+- `start` – align items to the top of the row.
+- `center` – align items to the middle of the row.
+- `end` – align items to the bottom of the row.
+- `baseline` – align items to their common text baseline.
 
-By default, items **stretch** to the height of the row.
+By default, items `stretch` to the height of the row.
 This option has no class name or prop value.
 
-This example centers three items vertically.
+This example centres three items vertically.
 
 <Canvas of={RowStories.VerticalAlignment} />
 

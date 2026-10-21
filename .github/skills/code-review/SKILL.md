@@ -51,7 +51,7 @@ These are the mistakes that actually recur here, per layer.
 
 **Any file**
 
-- A new source file without its license header: `@license EUPL-1.2+` for `.ts`, `.tsx`, `.scss` and `.js`, `@license CC0-1.0` for `.md` and `.mdx`.
+- A new source file without its licence header: `@license EUPL-1.2+` for `.ts`, `.tsx`, `.scss` and `.js`, `@license CC0-1.0` for `.md` and `.mdx`.
   Token `.tokens.json` files carry none.
 - Markdown or MDX prose that is not one sentence per line.
 - Changes to generated output under any `dist/`, or to generated assets under `packages-proprietary/assets/logo/` and `.../icons/`.

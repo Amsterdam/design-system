@@ -14,7 +14,7 @@ This is a security risk.
 For instance, if Action X is tagged as 'v1.0.0', pointing to commit A, and a malicious actor takes over the Action X repository,
 they can add harmful code in commit B.
 They could then change the 'v1.0.0' tag to point to commit B instead.
-If you use 'action-x@v1.0.0' in your workflow, you would download code from commit A one day and from commit B the next, without realizing it.
+If you use 'action-x@v1.0.0' in your workflow, you would download code from commit A one day and from commit B the next, without realising it.
 
 Commit hashes refer to specific commits, giving you more confidence about the version of the Action you are downloading.
 While it is not impossible to generate the same hash with different content, it is very difficult.

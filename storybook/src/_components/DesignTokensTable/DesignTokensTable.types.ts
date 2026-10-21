@@ -15,7 +15,7 @@ export type DimensionValue = {
 export type ShadowValue = {
   /** The blur radius of the shadow. */
   blur: DimensionValue | string
-  /** The shadow colour as a CSS color string. */
+  /** The shadow colour as a CSS colour string. */
   color: string
   /** Whether the shadow is inset. */
   inset?: boolean
