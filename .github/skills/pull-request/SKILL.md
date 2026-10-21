@@ -60,6 +60,7 @@ Two things agents get wrong:
 Follow [.github/pull_request_template.md](../../pull_request_template.md).
 Keep its first line, the licence comment.
 Keep every heading it defines, in its order.
+Replace the placeholder of the first heading with a short summary of the change in plain words: no type or scope, and it doesn't have to repeat the title.
 Write the text itself as [the writing skill](../writing/SKILL.md) prescribes.
 A description is not documentation, so it does not go one sentence per line.
 
