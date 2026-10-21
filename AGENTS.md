@@ -8,7 +8,7 @@ Do not add application-specific logic, domain defaults, or assumptions about how
 This file is a thin layer over the official documentation and the per-package `AGENTS.md` files.
 Use it for cross-cutting priorities and "never do" rules; go to those sources for detail.
 
-Reviewing a diff, writing a pull request, writing a commit message, and writing prose each have their own instructions in [.agents/skills](.agents/skills); read the matching `SKILL.md` in full before you start.
+Reviewing a diff, writing a pull request, writing a commit message, and writing prose each have their own instructions in [.github/skills](.github/skills); read the matching `SKILL.md` in full before you start.
 
 ## Agent priorities
 
