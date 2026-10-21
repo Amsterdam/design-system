@@ -63,6 +63,7 @@ Keep every heading it defines, in its order.
 Replace the placeholder of the first heading with a short summary of the change in plain words: no type or scope, and it doesn't have to repeat the title.
 Write the text itself as [the writing skill](../writing/SKILL.md) prescribes.
 A description is not documentation, so it does not go one sentence per line.
+Leave a blank line before and after each heading and block, as [Markdown spacing](../../../documentation/writing.md#markdown-spacing) sets out.
 
 - **Links** — the documentation pages and stories in the branch deploy that the change affects, related issues, and discussions.
   Link them before the deploy exists, because its address follows from the branch name, as [the workflows README](../../workflows/README.md) describes: drop the type prefix up to the first slash, and put `demo-` in its place.
