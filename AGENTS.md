@@ -104,7 +104,7 @@ Creating files by hand means following the naming table above and each package's
 - Storybook home page figures: [introduction-statistics.md](documentation/introduction-statistics.md)
 
 Run the most specific relevant lint and test commands for the package you touched before falling back to the full `pnpm run lint` and `pnpm run test`.
-Update the README, Storybook docs, and tests whenever behaviour, APIs, or visual contracts change.
+Update Storybook docs and tests whenever behaviour, APIs, or visual contracts change; see the [CSS package's README rules](packages/css/AGENTS.md#readme) for README requirements.
 ESLint, Stylelint, and Prettier are authoritative for code style; consult [eslint.config.mjs](eslint.config.mjs), [.stylelintrc.json](.stylelintrc.json), and [.prettierrc.json](.prettierrc.json) rather than restating their rules.
 
 ## Licensing
