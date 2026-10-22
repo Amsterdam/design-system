@@ -63,13 +63,14 @@
     }
 
     // The current link keeps its stroke instead: an underline as well would look odd.
-    &:hover:not([aria-current="page"]) {
+    &:hover:not([aria-current="page"], [aria-current="true"]) {
       box-shadow: var(--ams-tab-navigation-link-hover-box-shadow);
       text-decoration-line: var(--ams-tab-navigation-link-hover-text-decoration-line);
     }
   }
 
-  &[aria-current="page"] {
+  &[aria-current="page"],
+  &[aria-current="true"] {
     box-shadow: var(--ams-tab-navigation-link-current-box-shadow);
     font-weight: var(--ams-tab-navigation-link-current-font-weight);
 
@@ -80,12 +81,13 @@
 
   @media (min-width: $ams-breakpoint-medium) {
     @media (hover: hover) {
-      .ams-tab-navigation--vertical &:hover:not([aria-current="page"]) {
+      .ams-tab-navigation--vertical &:hover:not([aria-current="page"], [aria-current="true"]) {
         box-shadow: var(--ams-tab-navigation-link-vertical-hover-box-shadow);
       }
     }
 
-    .ams-tab-navigation--vertical &[aria-current="page"] {
+    .ams-tab-navigation--vertical &[aria-current="page"],
+    .ams-tab-navigation--vertical &[aria-current="true"] {
       box-shadow: var(--ams-tab-navigation-link-vertical-current-box-shadow);
     }
   }
