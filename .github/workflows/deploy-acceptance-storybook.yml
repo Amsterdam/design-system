@@ -111,6 +111,7 @@ jobs:
         with:
           step: start
           token: ${{ secrets.GITHUB_TOKEN }}
+          ref: ${{ env.SOURCE_SHA }}
           env: demo-${{ env.BRANCH_NAME }}
 
       - name: Push to pages branch
