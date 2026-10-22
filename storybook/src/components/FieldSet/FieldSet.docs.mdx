@@ -56,6 +56,13 @@ Make sure to add `aria-required` to <em>all</em> form elements in the Field Set 
 
 <Canvas of={FieldSetStories.WithHint} />
 
+### With Heading in Legend
+
+If the Field Set holds the only question on the page, its Legend serves as the main heading as well.
+Set `legendIsPageHeading` to include an `h1` element to reflect this.
+
+<Canvas of={FieldSetStories.WithHeadingInLegend} />
+
 ### With validation
 
 A Field Set can indicate whether any of the inputs it contains has a validation error.
@@ -76,13 +83,6 @@ The Field Set itself keeps its appearance: the legend and the labels stay in the
 Each control inside shows that it is unavailable in its own way, so a [Text Input](/docs/components-forms-text-input--docs) takes the same grey fill and grey text it has when it is disabled on its own.
 
 <Canvas of={FieldSetStories.Disabled} />
-
-### With Heading in Legend
-
-If the Field Set holds the only question on the page, its Legend serves as the main heading as well.
-Set `legendIsPageHeading` to include an `h1` element to reflect this.
-
-<Canvas of={FieldSetStories.WithHeadingInLegend} />
 
 ### With a nested Field Set
 

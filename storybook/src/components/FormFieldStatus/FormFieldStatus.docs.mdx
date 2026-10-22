@@ -66,17 +66,23 @@ Set `lang` on the component, or on an element containing it, when that language 
 
 ## Examples
 
+### Status text
+
+Anything passed as children is announced as it stands, for a status that counts nothing.
+
+<Canvas of={FormFieldStatusStories.StatusText} />
+
 ### Over the limit
 
 Past the limit the count carries on, and a second line reports how far the value exceeds it.
 
 <Canvas of={FormFieldStatusStories.OverLimit} />
 
-### Status text
+### In a Field
 
-Anything passed as children is announced as it stands, for a status that counts nothing.
+Type in the Text Area below to see and hear the status update in context.
 
-<Canvas of={FormFieldStatusStories.StatusText} />
+<Canvas of={FormFieldStatusStories.InAField} />
 
 ### Translated text
 
@@ -86,12 +92,6 @@ The Arabic formatters apply Arabic number–noun agreement.
 See the [Localisation guide](/docs/docs-guidelines-localisation--docs) for the tested locales.
 
 <Canvas of={FormFieldStatusStories.Translated} />
-
-### In a Field
-
-Type in the Text Area below to see and hear the status update in context.
-
-<Canvas of={FormFieldStatusStories.InAField} />
 
 ## Features
 
