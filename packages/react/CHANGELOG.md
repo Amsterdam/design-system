@@ -16,6 +16,14 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * **Known Date Input:** Introduce as separate component ([#2944](https://github.com/Amsterdam/design-system/issues/2944)) ([a8caa94](https://github.com/Amsterdam/design-system/commit/a8caa94d09288c23edc158542c82feb8f730b7b8))
 * **Modal Dialog:** Allow a custom component for the close button ([#3015](https://github.com/Amsterdam/design-system/issues/3015)) ([d6a4d33](https://github.com/Amsterdam/design-system/commit/d6a4d333a8fb5acdea448ae7484d3adfb1a42b27))
 
+### Deprecations
+
+The following remain available during deprecation and will be removed on or after 25 April 2027:
+
+- `CharacterCount`: compose a `FormFieldStatus.CharacterCount` inside a `FormFieldStatus` instead.
+- `DescriptionList.Section`: use `DescriptionList.Item` instead.
+- `DescriptionListSectionProps`: use `DescriptionListItemProps` instead.
+
 ## [4.4.0](https://github.com/Amsterdam/design-system/compare/design-system-react-v4.3.0...design-system-react-v4.4.0) (2026-08-08)
 
 

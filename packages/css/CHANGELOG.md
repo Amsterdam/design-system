@@ -16,6 +16,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * **Known Date Input:** Introduce as separate component ([#2944](https://github.com/Amsterdam/design-system/issues/2944)) ([a8caa94](https://github.com/Amsterdam/design-system/commit/a8caa94d09288c23edc158542c82feb8f730b7b8))
 * **Tokens:** Split two-value spacing tokens into start and end ([#2953](https://github.com/Amsterdam/design-system/issues/2953)) ([9d33baf](https://github.com/Amsterdam/design-system/commit/9d33bafea6d6436b42c73d7e1732d75bdedceeb8))
 
+### Deprecations
+
+The following remain available during deprecation and will be removed on or after 25 April 2027:
+
+- `.ams-character-count` and `.ams-character-count--error`: migrate to `.ams-form-field-status`, with `.ams-form-field-status__character-count` for the count and `.ams-form-field-status__error` for the separate over-limit message.
+- `.ams-description-list__section`: use `.ams-description-list__item` instead.
+
 ## [4.4.0](https://github.com/Amsterdam/design-system/compare/design-system-css-v4.3.0...design-system-css-v4.4.0) (2026-08-08)
 
 

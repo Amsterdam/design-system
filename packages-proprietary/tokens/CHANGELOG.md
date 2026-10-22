@@ -22,6 +22,30 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * **deps:** Bump postcss from 8.5.29 to 8.5.30 in the patch-and-minor-dependencies group ([#3025](https://github.com/Amsterdam/design-system/issues/3025)) ([d1a9e03](https://github.com/Amsterdam/design-system/commit/d1a9e0379ed8f55974c0f60ff152bf9d364cd7d6))
 * **Icon Button:** Draw the contrast hover background from the text colour ([#3004](https://github.com/Amsterdam/design-system/issues/3004)) ([9cccaca](https://github.com/Amsterdam/design-system/commit/9cccacad87590cad16b225221ca4ad5b5a31531e))
 
+### Deprecations
+
+The following remain available during deprecation and will be removed on or after 25 April 2027:
+
+| Deprecated token                                  | Replacement                                                                                                       |
+| ------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| `ams.character-count.color`                       | `ams.form-field-status.color`                                                                                     |
+| `ams.character-count.font-family`                 | `ams.form-field-status.font-family`                                                                               |
+| `ams.character-count.font-size`                   | `ams.form-field-status.font-size`                                                                                 |
+| `ams.character-count.font-weight`                 | `ams.form-field-status.font-weight`                                                                               |
+| `ams.character-count.line-height`                 | `ams.form-field-status.line-height`                                                                               |
+| `ams.character-count.error.color`                 | `ams.form-field-status.error.color`                                                                               |
+| `ams.description-list.section.margin-block-end`   | `ams.description-list.item.margin-block-end`                                                                      |
+| `ams.dialog.header.padding-block`                 | `ams.dialog.header.padding-block-start` and `ams.dialog.header.padding-block-end`                                 |
+| `ams.dialog.header.vi-medium.padding-block`       | `ams.dialog.header.vi-medium.padding-block-start` and `ams.dialog.header.vi-medium.padding-block-end`             |
+| `ams.dialog.footer.padding-block`                 | `ams.dialog.footer.padding-block-start` and `ams.dialog.footer.padding-block-end`                                 |
+| `ams.dialog.footer.vi-medium.padding-block`       | `ams.dialog.footer.vi-medium.padding-block-start` and `ams.dialog.footer.vi-medium.padding-block-end`             |
+| `ams.modal-dialog.body.padding-block`             | `ams.modal-dialog.body.padding-block-start` and `ams.modal-dialog.body.padding-block-end`                         |
+| `ams.modal-dialog.body.vi-medium.padding-block`   | `ams.modal-dialog.body.vi-medium.padding-block-start` and `ams.modal-dialog.body.vi-medium.padding-block-end`     |
+| `ams.modal-dialog.footer.padding-block`           | `ams.modal-dialog.footer.padding-block-start` and `ams.modal-dialog.footer.padding-block-end`                     |
+| `ams.modal-dialog.footer.vi-medium.padding-block` | `ams.modal-dialog.footer.vi-medium.padding-block-start` and `ams.modal-dialog.footer.vi-medium.padding-block-end` |
+| `ams.menu.vi-wide.padding-block`                  | `ams.menu.vi-wide.padding-block-start` and `ams.menu.vi-wide.padding-block-end`                                   |
+| `ams.select.padding-inline`                       | `ams.select.padding-inline-start` and `ams.select.padding-inline-end`                                             |
+
 ## [4.3.0](https://github.com/Amsterdam/design-system/compare/design-system-tokens-v4.2.0...design-system-tokens-v4.3.0) (2026-08-08)
 
 
