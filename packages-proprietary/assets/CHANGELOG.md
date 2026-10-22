@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.7.0](https://github.com/Amsterdam/design-system/compare/design-system-assets-v2.6.0...design-system-assets-v2.7.0) (2026-10-22)
+
+
+### Features
+
+* **icons:** Rename ‘pencil’ icon to ‘edit’ to allow usage without label ([#3000](https://github.com/Amsterdam/design-system/issues/3000)) ([772f93f](https://github.com/Amsterdam/design-system/commit/772f93f417ff65efbd83102df36d2395aa65b0d3))
+
 ## [2.6.0](https://github.com/Amsterdam/design-system/compare/design-system-assets-v2.5.0...design-system-assets-v2.6.0) (2026-08-08)
 
 
