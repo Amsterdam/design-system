@@ -6,7 +6,7 @@ on:
   push:
     branches-ignore: [main]
   pull_request:
-    types: [reopened]
+    types: [opened, reopened]
     branches-ignore: [main]
 
 permissions:
@@ -22,7 +22,7 @@ jobs:
       cancel-in-progress: true
     runs-on: ubuntu-latest
     timeout-minutes: 30
-    if: ${{ github.actor != 'dependabot[bot]' }}
+    if: ${{ github.actor != 'dependabot[bot]' && (github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository) }}
     outputs:
       branch_name: ${{ steps.branch.outputs.branch_name }}
       source_sha: ${{ steps.source.outputs.sha }}
