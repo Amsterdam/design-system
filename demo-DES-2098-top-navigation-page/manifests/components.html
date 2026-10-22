@@ -620,13 +620,13 @@
 <header>
   <div class="wrap">
     <h1>Manifest Debugger</h1>
-    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">15/92 API errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">15/92 infos</a><a class="filter-pill" data-k="no-api" href="#filter-no-api">18/92 without API description</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">1/316 story errors</a><a class="filter-pill info" data-k="story-warnings" href="#filter-story-warnings">44/316 incomplete snippets</a><a class="filter-pill ok" data-k="docs" href="#filter-docs">129 docs ok</a></div>
+    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">15/93 API errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">15/93 infos</a><a class="filter-pill" data-k="no-api" href="#filter-no-api">18/93 without API description</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">1/324 story errors</a><a class="filter-pill info" data-k="story-warnings" href="#filter-story-warnings">44/324 incomplete snippets</a><a class="filter-pill ok" data-k="docs" href="#filter-docs">130 docs ok</a></div>
   </div>
 </header>
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>5.2s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>5.4s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -5840,6 +5840,555 @@ The `as` prop can render an `article` or a `section` instead, which does reach a
   </div>
 </article>
 <article
+  id="components-containers-data-list"
+  class="card 
+  no-error
+  no-info
+  no-story-error
+  no-story-warning
+  
+  no-doc-error"
+  role="listitem"
+  aria-label="DataList">
+  <div class="head">
+    <div class="title">
+      <h2><span class="status-dot dot-ok"></span> DataList</h2>
+      <div class="badges">
+        <label for="c-18-components-containers-data-list-props" class="badge ok as-toggle">1 prop type</label>
+        
+        <label for="c-18-components-containers-data-list-stories" class="badge ok as-toggle">8 stories</label>
+        <label for="c-18-components-containers-data-list-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-18-components-containers-data-list-subcomponents" class="badge ok as-toggle">4 subcomponents</label>
+      </div>
+    </div>
+    <div class="meta" title="./src/components/DataList/DataList.stories.tsx">components-containers-data-list · ./src/components/DataList/DataList.stories.tsx</div>
+    
+    <div class="hint">A collection of details that describe one specific thing, person, or concept.</div>
+    <div class="kv"><span class="chip">see: {@link https://designsystem.amsterdam/?path=/docs/components-containers-data-list--docs Data List docs at Amsterdam Design System}</span></div>
+  </div>
+
+  <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
+  
+  
+  <input id="c-18-components-containers-data-list-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-18-components-containers-data-list-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-18-components-containers-data-list-subcomponents" class="tg tg-subcomponents" type="checkbox" hidden />
+  <input id="c-18-components-containers-data-list-props" class="tg tg-props" type="checkbox" hidden />
+
+  <div class="panels">
+    
+    
+    
+        <div class="panel panel-props">
+          <div class="note ok">
+            <div class="row">
+              <span class="ex-name">Prop types <small>(react-component-meta)</small></span>
+              <span class="badge ok">1 prop type</span>
+            </div>
+            <pre><code>Component: ../packages/react/src/index.ts::DataList</code></pre>
+            <pre><code>Props:</code></pre>
+            <pre><code>/**
+ * Set to vertical to place every value below its key, regardless of the container width. The orientation is horizontal by default and only applies in a wide enough container.
+ */
+orientation?: &quot;vertical&quot;</code></pre>
+          </div>
+        </div>
+    
+        <div class="panel panel-stories">
+          
+          
+          
+          <div class="note ok">
+                <div class="row">
+                  <span class="ex-name">Imports</span>
+                </div>
+                <pre><code>import { Button, Column, Heading, IconButton, Image, Link, Paragraph, Row, StandaloneLink } from '@amsterdam/design-system-react';
+import { DataList } from '@amsterdam/design-system-react/src';
+import { EditIcon, DeleteIcon } from '@amsterdam/design-system-react-icons';</code></pre>
+              </div>
+          
+          
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Default</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const Default = () =&gt; &lt;DataList&gt;{[
+      &lt;DataList.Item key={1}&gt;
+        &lt;DataList.Key&gt;Naam&lt;/DataList.Key&gt;
+        &lt;DataList.Value&gt;Magere Brug&lt;/DataList.Value&gt;
+      &lt;/DataList.Item&gt;,
+      &lt;DataList.Item key={2}&gt;
+        &lt;DataList.Key&gt;Type&lt;/DataList.Key&gt;
+        &lt;DataList.Value&gt;Ophaalbrug&lt;/DataList.Value&gt;
+      &lt;/DataList.Item&gt;,
+      &lt;DataList.Item key={3}&gt;
+        &lt;DataList.Key&gt;Bouwjaar&lt;/DataList.Key&gt;
+        &lt;DataList.Value&gt;1934&lt;/DataList.Value&gt;
+      &lt;/DataList.Item&gt;,
+      &lt;DataList.Item key={4}&gt;
+        &lt;DataList.Key&gt;Ligging&lt;/DataList.Key&gt;
+        &lt;DataList.Value&gt;Over de Amstel, tussen de Kerkstraat en de Nieuwe Kerkstraat&lt;/DataList.Value&gt;
+      &lt;/DataList.Item&gt;,
+    ]}&lt;/DataList&gt;;</code></pre>
+              
+            </div>
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Orientation</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const Orientation = () =&gt; &lt;DataList&gt;{[
+      &lt;DataList.Item key={1}&gt;
+        &lt;DataList.Key&gt;Naam&lt;/DataList.Key&gt;
+        &lt;DataList.Value&gt;Magere Brug&lt;/DataList.Value&gt;
+      &lt;/DataList.Item&gt;,
+      &lt;DataList.Item key={2}&gt;
+        &lt;DataList.Key&gt;Type&lt;/DataList.Key&gt;
+        &lt;DataList.Value&gt;Ophaalbrug&lt;/DataList.Value&gt;
+      &lt;/DataList.Item&gt;,
+      &lt;DataList.Item key={3}&gt;
+        &lt;DataList.Key&gt;Bouwjaar&lt;/DataList.Key&gt;
+        &lt;DataList.Value&gt;1934&lt;/DataList.Value&gt;
+      &lt;/DataList.Item&gt;,
+    ]}&lt;/DataList&gt;;</code></pre>
+              
+            </div>
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Stacked</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const Stacked = () =&gt; &lt;DataList orientation=&quot;vertical&quot;&gt;{[
+      &lt;DataList.Item key={1}&gt;
+        &lt;DataList.Key&gt;Naam&lt;/DataList.Key&gt;
+        &lt;DataList.Value&gt;Magere Brug&lt;/DataList.Value&gt;
+      &lt;/DataList.Item&gt;,
+      &lt;DataList.Item key={2}&gt;
+        &lt;DataList.Key&gt;Type&lt;/DataList.Key&gt;
+        &lt;DataList.Value&gt;Ophaalbrug&lt;/DataList.Value&gt;
+      &lt;/DataList.Item&gt;,
+      &lt;DataList.Item key={3}&gt;
+        &lt;DataList.Key&gt;Bouwjaar&lt;/DataList.Key&gt;
+        &lt;DataList.Value&gt;1934&lt;/DataList.Value&gt;
+      &lt;/DataList.Item&gt;,
+      &lt;DataList.Item key={4}&gt;
+        &lt;DataList.Key&gt;Ligging&lt;/DataList.Key&gt;
+        &lt;DataList.Value&gt;Over de Amstel, tussen de Kerkstraat en de Nieuwe Kerkstraat&lt;/DataList.Value&gt;
+      &lt;/DataList.Item&gt;,
+    ]}&lt;/DataList&gt;;</code></pre>
+              
+            </div>
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Form Flow Actions</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const FormFlowActions = () =&gt; &lt;DataList&gt;(&lt;DataList.Item&gt;
+      &lt;DataList.Key&gt;Telefoonnummer&lt;/DataList.Key&gt;
+      &lt;DataList.Value&gt;06 12345678&lt;/DataList.Value&gt;
+      &lt;DataList.Actions&gt;
+        &lt;StandaloneLink href=&quot;#&quot; icon={EditIcon}&gt;
+          Wijzigen&lt;span className=&quot;ams-visually-hidden&quot;&gt; telefoonnummer&lt;/span&gt;
+        &lt;/StandaloneLink&gt;
+      &lt;/DataList.Actions&gt;
+    &lt;/DataList.Item&gt;)&lt;/DataList&gt;;</code></pre>
+              
+            </div>
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">In Place Actions</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const InPlaceActions = () =&gt; &lt;DataList&gt;{[
+      &lt;DataList.Item key={1}&gt;
+        &lt;DataList.Key&gt;Voornaam&lt;/DataList.Key&gt;
+        &lt;DataList.Value&gt;Johan&lt;/DataList.Value&gt;
+        &lt;DataList.Actions&gt;
+          &lt;Button variant=&quot;tertiary&quot;&gt;
+            Wijzigen&lt;span className=&quot;ams-visually-hidden&quot;&gt; voornaam&lt;/span&gt;
+          &lt;/Button&gt;
+        &lt;/DataList.Actions&gt;
+      &lt;/DataList.Item&gt;,
+      &lt;DataList.Item key={2}&gt;
+        &lt;DataList.Key&gt;Achternaam&lt;/DataList.Key&gt;
+        &lt;DataList.Value&gt;Cruijff&lt;/DataList.Value&gt;
+        &lt;DataList.Actions&gt;
+          &lt;Button variant=&quot;tertiary&quot;&gt;
+            Wijzigen&lt;span className=&quot;ams-visually-hidden&quot;&gt; achternaam&lt;/span&gt;
+          &lt;/Button&gt;
+        &lt;/DataList.Actions&gt;
+      &lt;/DataList.Item&gt;,
+      &lt;DataList.Item key={3}&gt;
+        &lt;DataList.Key&gt;Telefoonnummer&lt;/DataList.Key&gt;
+        &lt;DataList.Value&gt;06 12345678&lt;/DataList.Value&gt;
+        &lt;DataList.Actions&gt;
+          &lt;Row wrap&gt;
+            &lt;Button variant=&quot;tertiary&quot;&gt;
+              Wijzigen&lt;span className=&quot;ams-visually-hidden&quot;&gt; telefoonnummer&lt;/span&gt;
+            &lt;/Button&gt;
+            &lt;Button variant=&quot;tertiary&quot;&gt;
+              Verwijderen&lt;span className=&quot;ams-visually-hidden&quot;&gt; telefoonnummer&lt;/span&gt;
+            &lt;/Button&gt;
+          &lt;/Row&gt;
+        &lt;/DataList.Actions&gt;
+      &lt;/DataList.Item&gt;,
+      &lt;DataList.Item key={4}&gt;
+        &lt;DataList.Key&gt;Burgerservicenummer&lt;/DataList.Key&gt;
+        &lt;DataList.Value&gt;123456782&lt;/DataList.Value&gt;
+      &lt;/DataList.Item&gt;,
+    ]}&lt;/DataList&gt;;</code></pre>
+              
+            </div>
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Learnable In Place Actions</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const LearnableInPlaceActions = () =&gt; &lt;DataList&gt;(&lt;DataList.Item&gt;
+      &lt;DataList.Key&gt;Telefoonnummer&lt;/DataList.Key&gt;
+      &lt;DataList.Value&gt;06 12345678&lt;/DataList.Value&gt;
+      &lt;DataList.Actions&gt;
+        &lt;Row alignVertical=&quot;center&quot; wrap&gt;
+          &lt;IconButton label=&quot;Wijzigen telefoonnummer&quot; svg={EditIcon} /&gt;
+          &lt;IconButton label=&quot;Verwijderen telefoonnummer&quot; svg={DeleteIcon} /&gt;
+        &lt;/Row&gt;
+      &lt;/DataList.Actions&gt;
+    &lt;/DataList.Item&gt;)&lt;/DataList&gt;;</code></pre>
+              
+            </div>
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Composite Value</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const CompositeValue = () =&gt; &lt;DataList&gt;{[
+      &lt;DataList.Item key={1}&gt;
+        &lt;DataList.Key&gt;Adres&lt;/DataList.Key&gt;
+        &lt;DataList.Value&gt;
+          Amstel 1
+          &lt;br /&gt;
+          1011 PN Amsterdam
+        &lt;/DataList.Value&gt;
+      &lt;/DataList.Item&gt;,
+      &lt;DataList.Item key={2}&gt;
+        &lt;DataList.Key&gt;Toelichting&lt;/DataList.Key&gt;
+        &lt;DataList.Value&gt;
+          &lt;Column gap=&quot;small&quot;&gt;
+            &lt;Paragraph&gt;
+              De brug is afgesloten voor gemotoriseerd verkeer. Fietsers en voetgangers kunnen er wel overheen.
+            &lt;/Paragraph&gt;
+            &lt;Link href=&quot;#&quot;&gt;Bekijk de omleidingsroute&lt;/Link&gt;
+          &lt;/Column&gt;
+        &lt;/DataList.Value&gt;
+      &lt;/DataList.Item&gt;,
+      &lt;DataList.Item key={3}&gt;
+        &lt;DataList.Key&gt;Foto’s&lt;/DataList.Key&gt;
+        &lt;DataList.Value&gt;
+          &lt;Column gap=&quot;small&quot;&gt;
+            &lt;Image alt=&quot;De Magere Brug over de Amstel&quot; aspectRatio=&quot;4:3&quot; src=&quot;https://picsum.photos/id/164/1280/960&quot; /&gt;
+            &lt;Image alt=&quot;De leuning van de Magere Brug&quot; aspectRatio=&quot;4:3&quot; src=&quot;https://picsum.photos/id/122/1280/960&quot; /&gt;
+          &lt;/Column&gt;
+        &lt;/DataList.Value&gt;
+      &lt;/DataList.Item&gt;,
+    ]}&lt;/DataList&gt;;</code></pre>
+              
+            </div>
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">With Header</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const WithHeader = () =&gt; &lt;&gt;
+    &lt;Row align=&quot;between&quot; alignVertical=&quot;center&quot; className=&quot;ams-mb-s&quot; wrap&gt;
+        &lt;Heading level={2}&gt;Magere Brug&lt;/Heading&gt;
+        &lt;Button icon={EditIcon} iconBefore variant=&quot;secondary&quot;&gt;Wijzigen&lt;span className=&quot;ams-visually-hidden&quot;&gt;Magere Brug&lt;/span&gt;
+        &lt;/Button&gt;
+    &lt;/Row&gt;
+    &lt;DataList&gt;{[
+          &lt;DataList.Item key={1}&gt;
+            &lt;DataList.Key&gt;Naam&lt;/DataList.Key&gt;
+            &lt;DataList.Value&gt;Magere Brug&lt;/DataList.Value&gt;
+          &lt;/DataList.Item&gt;,
+          &lt;DataList.Item key={2}&gt;
+            &lt;DataList.Key&gt;Type&lt;/DataList.Key&gt;
+            &lt;DataList.Value&gt;Ophaalbrug&lt;/DataList.Value&gt;
+          &lt;/DataList.Item&gt;,
+          &lt;DataList.Item key={3}&gt;
+            &lt;DataList.Key&gt;Bouwjaar&lt;/DataList.Key&gt;
+            &lt;DataList.Value&gt;1934&lt;/DataList.Value&gt;
+          &lt;/DataList.Item&gt;,
+          &lt;DataList.Item key={4}&gt;
+            &lt;DataList.Key&gt;Ligging&lt;/DataList.Key&gt;
+            &lt;DataList.Value&gt;Over de Amstel, tussen de Kerkstraat en de Nieuwe Kerkstraat&lt;/DataList.Value&gt;
+          &lt;/DataList.Item&gt;,
+        ]}&lt;/DataList&gt;
+&lt;/&gt;;</code></pre>
+              
+            </div>
+        </div>
+    
+        <div class="panel panel-docs">
+          
+          
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Docs</span>
+                <span class="badge ok">doc ok</span>
+              </div>
+              <div class="hint">./src/components/DataList/DataList.docs.mdx</div>
+              <div>## Subcomponents The Item, Key, Value, and Actions subcomponents make up a Data List. An I...</div>
+              <div class="mdx-content"><pre><code>{/* @license CC0-1.0 */}
+
+import { Canvas, Controls, Description, Meta, Primary, Title } from &quot;@storybook/addon-docs/blocks&quot;;
+
+import { DesignTokensTable } from &quot;#storybook/_components/DesignTokensTable/DesignTokensTable&quot;;
+import dataListTokens from &quot;#tokens/components/ams/data-list.tokens.json&quot;;
+
+import * as DataListStories from &quot;./DataList.stories.tsx&quot;;
+
+&lt;Meta of={DataListStories} /&gt;
+
+&lt;Title /&gt;
+
+&lt;Description of={DataListStories} /&gt;
+
+&lt;Primary /&gt;
+
+&lt;Controls /&gt;
+
+## Subcomponents
+
+The Item, Key, Value, and Actions subcomponents make up a Data List.
+An Item groups one key with its value, Key and Value render the `&lt;dt&gt;` and `&lt;dd&gt;` elements, and Actions holds the links or buttons that act on that value.
+None of them has props of its own; the examples on this page show them in place.
+
+## Usage guidelines
+
+### When to use
+
+To show a set of data that a reader checks or scans, such as the details of an object, a case, or a person.
+
+To let a reader review the answers they gave in a form before they submit it.
+
+### When not to use
+
+For data that is compared across rows or columns: use a [Table](/docs/components-containers-table--docs).
+
+For terms and their meanings, such as a glossary: use a [Description List](/docs/components-text-description-list--docs).
+
+For values to suggest while someone types in a field: despite the name, a Data List is unrelated to the HTML [`datalist` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/datalist).
+
+### How to use
+
+Give every item a Key and a Value.
+Add Actions only when the reader can change or remove that value, whether that takes them elsewhere or happens in place.
+Do not nest a Data List inside another Data List.
+
+### How to write
+
+Keep keys short and write them without a colon.
+Write an action as the change it makes, such as ‘Wijzigen’, and include its key in the accessible name so repeated actions stay unique.
+
+## Examples
+
+### Orientation
+
+A key and its value sit side by side, and stack as soon as the container gets too narrow for both.
+Resize the following example to see the Data List adapt its layout to the available width.
+
+&lt;Canvas of={DataListStories.Orientation} /&gt;
+
+### Stacked
+
+Set the orientation to ‘vertical’ to place every value below its key, however wide the container is.
+Use this when the values are long.
+
+&lt;Canvas of={DataListStories.Stacked} /&gt;
+
+### Form flow actions
+
+An item can offer one or more actions on its value.
+Use a [Standalone Link](/docs/components-navigation-standalone-link--docs) when an action opens another page, such as returning to a question in a [Form Flow](/docs/pages-public-form-flow--docs).
+Do not use a link to delete an item or change the current page.
+
+&lt;Canvas of={DataListStories.FormFlowActions} /&gt;
+
+### In-place actions
+
+Use a [Button](/docs/components-buttons-button--docs) for an action on the current page, such as editing in place, deleting, or adding an item.
+On public websites, use a text-only tertiary Button at the end of an item.
+
+Give every action within an item the same treatment: all with an icon or all without one.
+Actions renders its children directly; use a [Row](/docs/components-layout-row--docs) with wrapping to arrange multiple actions.
+Give repeated actions unique accessible names by adding the key as visually hidden text to the visible label.
+
+&lt;Canvas of={DataListStories.InPlaceActions} /&gt;
+
+### Learnable in-place actions
+
+Show only an icon when its meaning is immediately clear, or when frequent users of an internal application can learn it.
+Otherwise, give the action a visible text label.
+Our [icon guidelines](/docs/brand-assets-icons--docs#functional-icons) distinguish universal from learnable icons; Edit and Delete are learnable icons.
+Use an [Icon Button](/docs/components-buttons-icon-button--docs) aligned with the surrounding text, and give its `label` prop a unique accessible name, such as ‘Wijzigen telefoonnummer’.
+
+Open the [learnable in-place actions example](/story/components-containers-data-list--learnable-in-place-actions), which is only available in Compact Mode.
+It is not embedded here because the mode also affects the other examples on this page.
+
+### Composite value
+
+A value takes rich content: several lines of text, an address, a paragraph, a link, or an image.
+Wrap its parts in a [Column](/docs/components-layout-column--docs) to stack them with space between them.
+Separate the lines of an address with line breaks instead.
+Text with inline markup, such as a link in a sentence, needs no wrapper: it flows and wraps as a single run of text.
+
+&lt;Canvas of={DataListStories.CompositeValue} /&gt;
+
+### With header
+
+Introduce a Data List with a [Heading](/docs/components-text-heading--docs) and an action, laid out in a [Row](/docs/components-layout-row--docs) above the list.
+Use this when a group of data needs a title, or an action that applies to the whole group.
+Use a secondary Button with an icon for a group action on the current page.
+A group action that opens another page stays a Standalone Link.
+Add `ams-mb-s` to the heading row to separate it from the list below a level 2 Heading.
+
+&lt;Canvas of={DataListStories.WithHeader} /&gt;
+
+## Features
+
+Keys and values wrap and hyphenate.
+Below the breakpoint every value moves under its key.
+
+## Design
+
+Items are separated by a line between them, which runs the full width of the list.
+The whitespace above and below that line is the same by default, so the line sits between two items rather than belonging to one.
+
+Keys use heading typography and values use body text, which gives the two different line heights.
+Side by side, a key therefore gets half of that difference as extra space above it, so its first line sits level with the first line of its value.
+
+Keys and values sit next to each other when their [query container](/docs/utilities-css-query-container--docs) is wide enough (at least `32rem`).
+All items then share the same columns, so keys, values, and actions line up across the list.
+The key column fits its content with a limit of `15rem` or 30% of the list, whichever is smaller.
+The actions column fits its content with a limit of a quarter of the list.
+Min-content sizing can exceed these limits.
+When no item has actions, the actions track collapses but its gutter remains.
+
+## Accessibility
+
+A Data List renders `dl`, `dt`, and `dd` elements.
+This keeps each key paired with its value in the markup instead of only through the layout.
+
+Actions renders a second `dd` for its links and buttons.
+Give repeated actions a unique accessible name that includes the key they act on.
+For visible text labels, add the key with the `ams-visually-hidden` helper rather than `aria-label`, because browsers do not reliably translate that attribute.
+For Icon Buttons, put the complete accessible name in the `label` prop.
+
+When you compose a heading row above a Data List, the action in that row applies to the whole group.
+Include the name of the group in its accessible name, such as ‘Wijzigen Magere Brug’.
+
+## See also
+
+- [Description List](/docs/components-text-description-list--docs) – pairs terms with their meanings, without separators or actions.
+- [Table](/docs/components-containers-table--docs) – presents data that is compared across rows and columns.
+
+## Design tokens
+
+&lt;DesignTokensTable tokens={dataListTokens} /&gt;
+</code></pre></div>
+            </div>
+        </div>
+    
+        <div class="panel panel-subcomponents">
+          
+    <div class="note ok">
+      <div class="row">
+        <span class="ex-name">DataList.Actions</span>
+        <span class="badge ">
+          no API description
+        </span>
+      </div>
+      <div class="hint">/home/runner/work/design-system/design-system/packages/react/src/index.ts</div>
+      
+      <div class="hint">Holds the links or buttons that act on the value of an item of a Data List.</div>
+      <div class="kv"><span class="chip">see: {@link https://designsystem.amsterdam/?path=/docs/components-containers-data-list--docs Data List docs at Amsterdam Design System}</span></div>
+      <pre><code>import { DataList } from &#39;@amsterdam/design-system-react/src&#39;;</code></pre>
+      
+      
+      
+    </div>
+  
+    <div class="note ok">
+      <div class="row">
+        <span class="ex-name">DataList.Item</span>
+        <span class="badge ">
+          no API description
+        </span>
+      </div>
+      <div class="hint">/home/runner/work/design-system/design-system/packages/react/src/index.ts</div>
+      
+      <div class="hint">Groups a key with its value, and optionally one or more actions, within a Data List.</div>
+      <div class="kv"><span class="chip">see: {@link https://designsystem.amsterdam/?path=/docs/components-containers-data-list--docs Data List docs at Amsterdam Design System}</span></div>
+      <pre><code>import { DataList } from &#39;@amsterdam/design-system-react/src&#39;;</code></pre>
+      
+      
+      
+    </div>
+  
+    <div class="note ok">
+      <div class="row">
+        <span class="ex-name">DataList.Key</span>
+        <span class="badge ">
+          no API description
+        </span>
+      </div>
+      <div class="hint">/home/runner/work/design-system/design-system/packages/react/src/index.ts</div>
+      
+      <div class="hint">The name of the data an item of a Data List presents.</div>
+      <div class="kv"><span class="chip">see: {@link https://designsystem.amsterdam/?path=/docs/components-containers-data-list--docs Data List docs at Amsterdam Design System}</span></div>
+      <pre><code>import { DataList } from &#39;@amsterdam/design-system-react/src&#39;;</code></pre>
+      
+      
+      
+    </div>
+  
+    <div class="note ok">
+      <div class="row">
+        <span class="ex-name">DataList.Value</span>
+        <span class="badge ">
+          no API description
+        </span>
+      </div>
+      <div class="hint">/home/runner/work/design-system/design-system/packages/react/src/index.ts</div>
+      
+      <div class="hint">The data itself, paired with its key in an item of a Data List.</div>
+      <div class="kv"><span class="chip">see: {@link https://designsystem.amsterdam/?path=/docs/components-containers-data-list--docs Data List docs at Amsterdam Design System}</span></div>
+      <pre><code>import { DataList } from &#39;@amsterdam/design-system-react/src&#39;;</code></pre>
+      
+      
+      
+    </div>
+  
+        </div>
+  </div>
+</article>
+<article
   id="components-forms-date-input"
   class="card 
   no-error
@@ -5854,10 +6403,10 @@ The `as` prop can render an `article` or a `section` instead, which does reach a
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> DateInput</h2>
       <div class="badges">
-        <label for="c-18-components-forms-date-input-props" class="badge ok as-toggle">2 prop types</label>
+        <label for="c-19-components-forms-date-input-props" class="badge ok as-toggle">2 prop types</label>
         
-        <label for="c-18-components-forms-date-input-stories" class="badge ok as-toggle">6 stories</label>
-        <label for="c-18-components-forms-date-input-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-19-components-forms-date-input-stories" class="badge ok as-toggle">6 stories</label>
+        <label for="c-19-components-forms-date-input-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -5870,10 +6419,10 @@ The `as` prop can render an `article` or a `section` instead, which does reach a
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-18-components-forms-date-input-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-18-components-forms-date-input-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-19-components-forms-date-input-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-19-components-forms-date-input-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-18-components-forms-date-input-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-19-components-forms-date-input-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -6154,10 +6703,10 @@ The second matches a partially entered date as well, so a field can turn red whi
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> DatePicker</h2>
       <div class="badges">
-        <label for="c-19-components-forms-date-picker-props" class="badge ok as-toggle">18 prop types</label>
+        <label for="c-20-components-forms-date-picker-props" class="badge ok as-toggle">18 prop types</label>
         
-        <label for="c-19-components-forms-date-picker-stories" class="badge ok as-toggle">5 stories</label>
-        <label for="c-19-components-forms-date-picker-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-20-components-forms-date-picker-stories" class="badge ok as-toggle">5 stories</label>
+        <label for="c-20-components-forms-date-picker-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -6170,10 +6719,10 @@ The second matches a partially entered date as well, so a field can turn red whi
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-19-components-forms-date-picker-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-19-components-forms-date-picker-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-20-components-forms-date-picker-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-20-components-forms-date-picker-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-19-components-forms-date-picker-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-20-components-forms-date-picker-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -6546,10 +7095,10 @@ The month names, weekday names and spoken dates follow `locale`, while the navig
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> DescriptionList</h2>
       <div class="badges">
-        <label for="c-20-components-text-description-list-props" class="badge ok as-toggle">2 prop types</label>
+        <label for="c-21-components-text-description-list-props" class="badge ok as-toggle">2 prop types</label>
         
-        <label for="c-20-components-text-description-list-stories" class="badge ok as-toggle">6 stories</label>
-        <label for="c-20-components-text-description-list-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-21-components-text-description-list-stories" class="badge ok as-toggle">6 stories</label>
+        <label for="c-21-components-text-description-list-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -6562,10 +7111,10 @@ The month names, weekday names and spoken dates follow `locale`, while the navig
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-20-components-text-description-list-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-20-components-text-description-list-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-21-components-text-description-list-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-21-components-text-description-list-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-20-components-text-description-list-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-21-components-text-description-list-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -6670,12 +7219,12 @@ import { Link, Paragraph, UnorderedList } from '@amsterdam/design-system-react';
       &lt;DescriptionList.Description key={2}&gt;
         De naam die een persoon van zijn of haar ouders krijgt
       &lt;/DescriptionList.Description&gt;,
-      &lt;DescriptionList.Section key={3}&gt;
+      &lt;DescriptionList.Item key={3}&gt;
         &lt;DescriptionList.Term&gt;Voornaam&lt;/DescriptionList.Term&gt;
         &lt;DescriptionList.Term&gt;Roepnaam&lt;/DescriptionList.Term&gt;
         &lt;DescriptionList.Term&gt;Bijnaam&lt;/DescriptionList.Term&gt;
         &lt;DescriptionList.Description&gt;De naam waarmee een persoon wordt aangesproken&lt;/DescriptionList.Description&gt;
-      &lt;/DescriptionList.Section&gt;,
+      &lt;/DescriptionList.Item&gt;,
       &lt;DescriptionList.Term key={4}&gt;Geboortedatum&lt;/DescriptionList.Term&gt;,
       &lt;DescriptionList.Description key={5}&gt;De datum waarop een persoon is geboren&lt;/DescriptionList.Description&gt;,
     ]}&lt;/DescriptionList&gt;;</code></pre>
@@ -6739,7 +7288,7 @@ import { Link, Paragraph, UnorderedList } from '@amsterdam/design-system-react';
                 <span class="badge ok">doc ok</span>
               </div>
               <div class="hint">./src/components/DescriptionList/DescriptionList.docs.mdx</div>
-              <div>## Subcomponents The Term, Description, and Section subcomponents make up a Description Li...</div>
+              <div>## Subcomponents The Term, Description, and Item subcomponents make up a Description List....</div>
               <div class="mdx-content"><pre><code>{/* @license CC0-1.0 */}
 
 import { Canvas, Controls, Description, Meta, Primary, Title } from &quot;@storybook/addon-docs/blocks&quot;;
@@ -6761,9 +7310,13 @@ import * as DescriptionListStories from &quot;./DescriptionList.stories.tsx&quot
 
 ## Subcomponents
 
-The Term, Description, and Section subcomponents make up a Description List.
-Term and Description render the `&lt;dt&gt;` and `&lt;dd&gt;` elements, and a Section groups a term with its descriptions.
+The Term, Description, and Item subcomponents make up a Description List.
+Term and Description render the `&lt;dt&gt;` and `&lt;dd&gt;` elements, and an Item groups a term with its descriptions.
 None of them has props of its own; the examples on this page show them in place.
+
+**Note**: Item was previously called Section.
+The Section subcomponent and its classes and tokens are **deprecated**.
+They keep working until their removal on or after 16 April 2027.
 
 ## Usage guidelines
 
@@ -6775,6 +7328,7 @@ Use a Description List for pairs of terms and descriptions, such as a glossary.
 
 Use a [Table](/docs/components-containers-table--docs) to compare multiple items by the same properties.
 Use an [Unordered List](/docs/components-text-unordered-list--docs) or [Ordered List](/docs/components-text-ordered-list--docs) for items without a term.
+Use a [Data List](/docs/components-containers-data-list--docs) to show the properties of a subject, such as a person, an object or a concept.
 
 ### How to use
 
@@ -6794,13 +7348,13 @@ Resize the following example to see the Description List adapt its layout to the
 ### Multiple descriptions
 
 A term can have several descriptions.
-Descriptions have the same spacing as sections because they usually include longer text.
+Descriptions have the same spacing as items because they usually include longer text.
 
 &lt;Canvas of={DescriptionListStories.MultipleDescriptions} /&gt;
 
 ### Multiple terms
 
-If several terms have the same description, place them in a `DescriptionList.Section` component for a correct grid layout.
+If several terms have the same description, place them in a `DescriptionList.Item` component for a correct grid layout.
 The terms are positioned closely together.
 
 &lt;Canvas of={DescriptionListStories.MultipleTerms} /&gt;
@@ -6809,7 +7363,7 @@ The terms are positioned closely together.
 
 Do not group multiple terms with several descriptions.
 This type of content is too complicated and will distort the layout.
-Use distinct sections instead, or find an alternative to a Description List.
+Use distinct items instead, or find an alternative to a Description List.
 
 ### Rich description
 
@@ -6841,13 +7395,14 @@ The term is set in bold text, and its line lengths are balanced so it does not e
 
 A Description List renders `dl`, `dt`, and `dd` elements.
 These tie each term to its descriptions in the markup instead of only through the layout, which is the kind of relationship [WCAG 1.3.1](https://www.w3.org/TR/WCAG22/#info-and-relationships) asks to be made available.
-A Section renders a `div` around one group, which HTML permits inside a `dl`.
+An Item renders a `div` around one group, which HTML permits inside a `dl`.
 
 Screen readers expose description lists in noticeably different ways: the number of items they report, the context they give for a term or a description, and the commands available to move through the list all vary.
 The component leaves the native elements alone rather than adding `term` and `definition` roles, because overriding them changes how VoiceOver announces the list.
 
 ## See also
 
+- [Data List](/docs/components-containers-data-list--docs) – pairs keys with values instead of terms with meanings, and separates them by a line.
 - [Prose](/docs/utilities-css-prose--docs) – applies the recommended vertical spacing for editorial content.
 
 ## Design tokens
@@ -6874,10 +7429,10 @@ The component leaves the native elements alone rather than adding `term` and `de
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> Dialog</h2>
       <div class="badges">
-        <label for="c-21-components-containers-dialog-props" class="badge ok as-toggle">3 prop types</label>
+        <label for="c-22-components-containers-dialog-props" class="badge ok as-toggle">3 prop types</label>
         
-        <label for="c-21-components-containers-dialog-stories" class="badge ok as-toggle">3 stories</label>
-        <label for="c-21-components-containers-dialog-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-22-components-containers-dialog-stories" class="badge ok as-toggle">3 stories</label>
+        <label for="c-22-components-containers-dialog-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -6890,10 +7445,10 @@ The component leaves the native elements alone rather than adding `term` and `de
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-21-components-containers-dialog-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-21-components-containers-dialog-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-22-components-containers-dialog-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-22-components-containers-dialog-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-21-components-containers-dialog-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-22-components-containers-dialog-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -7172,10 +7727,10 @@ Opening a modal does not lock scrolling on its own, and iOS Safari still needs J
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> ErrorMessage</h2>
       <div class="badges">
-        <label for="c-22-components-forms-error-message-props" class="badge ok as-toggle">2 prop types</label>
+        <label for="c-23-components-forms-error-message-props" class="badge ok as-toggle">2 prop types</label>
         
-        <label for="c-22-components-forms-error-message-stories" class="badge ok as-toggle">3 stories</label>
-        <label for="c-22-components-forms-error-message-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-23-components-forms-error-message-stories" class="badge ok as-toggle">3 stories</label>
+        <label for="c-23-components-forms-error-message-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -7188,10 +7743,10 @@ Opening a modal does not lock scrolling on its own, and iOS Safari still needs J
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-22-components-forms-error-message-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-22-components-forms-error-message-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-23-components-forms-error-message-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-23-components-forms-error-message-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-22-components-forms-error-message-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-23-components-forms-error-message-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -7380,10 +7935,10 @@ Announcing it is the job of the field that now describes it, or of an [Invalid F
     <div class="title">
       <h2><span class="status-dot dot-err"></span> EventsOverviewPage</h2>
       <div class="badges">
-        <label for="c-23-pages-public-events-overview-page-err" class="badge err as-toggle">API error</label>
-        <label for="c-23-pages-public-events-overview-page-info" class="badge info as-toggle">1 info</label>
-        <label for="c-23-pages-public-events-overview-page-stories" class="badge ok as-toggle">2 stories · 2 incomplete</label>
-        <label for="c-23-pages-public-events-overview-page-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-24-pages-public-events-overview-page-err" class="badge err as-toggle">API error</label>
+        <label for="c-24-pages-public-events-overview-page-info" class="badge info as-toggle">1 info</label>
+        <label for="c-24-pages-public-events-overview-page-stories" class="badge ok as-toggle">2 stories · 2 incomplete</label>
+        <label for="c-24-pages-public-events-overview-page-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -7394,10 +7949,10 @@ Announcing it is the job of the field that now describes it, or of an [Invalid F
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-23-pages-public-events-overview-page-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-23-pages-public-events-overview-page-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-23-pages-public-events-overview-page-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-23-pages-public-events-overview-page-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-24-pages-public-events-overview-page-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-24-pages-public-events-overview-page-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-24-pages-public-events-overview-page-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-24-pages-public-events-overview-page-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -8886,10 +9441,10 @@ That is what lets a browser or an extension offer to put the activity in a calen
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> Field</h2>
       <div class="badges">
-        <label for="c-24-components-forms-field-props" class="badge ok as-toggle">1 prop type</label>
+        <label for="c-25-components-forms-field-props" class="badge ok as-toggle">1 prop type</label>
         
-        <label for="c-24-components-forms-field-stories" class="badge ok as-toggle">4 stories</label>
-        <label for="c-24-components-forms-field-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-25-components-forms-field-stories" class="badge ok as-toggle">4 stories</label>
+        <label for="c-25-components-forms-field-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -8902,10 +9457,10 @@ That is what lets a browser or an extension offer to put the activity in a calen
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-24-components-forms-field-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-24-components-forms-field-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-25-components-forms-field-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-25-components-forms-field-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-24-components-forms-field-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-25-components-forms-field-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -9165,10 +9720,10 @@ The hidden prefix inside the message is what says that something went wrong.
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> FieldSet</h2>
       <div class="badges">
-        <label for="c-25-components-forms-field-set-props" class="badge ok as-toggle">6 prop types</label>
+        <label for="c-26-components-forms-field-set-props" class="badge ok as-toggle">6 prop types</label>
         
-        <label for="c-25-components-forms-field-set-stories" class="badge ok as-toggle">7 stories</label>
-        <label for="c-25-components-forms-field-set-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-26-components-forms-field-set-stories" class="badge ok as-toggle">7 stories</label>
+        <label for="c-26-components-forms-field-set-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -9181,10 +9736,10 @@ The hidden prefix inside the message is what says that something went wrong.
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-25-components-forms-field-set-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-25-components-forms-field-set-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-26-components-forms-field-set-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-26-components-forms-field-set-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-25-components-forms-field-set-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-26-components-forms-field-set-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -9646,9 +10201,9 @@ Someone moving from one Radio to the next therefore hears which question they ar
       <div class="badges">
         <span class="badge">no API description</span>
         
-        <label for="c-26-components-media-figure-stories" class="badge ok as-toggle">2 stories</label>
-        <label for="c-26-components-media-figure-docs" class="badge ok as-toggle">1 doc</label>
-        <label for="c-26-components-media-figure-subcomponents" class="badge ok as-toggle">1 subcomponent</label>
+        <label for="c-27-components-media-figure-stories" class="badge ok as-toggle">2 stories</label>
+        <label for="c-27-components-media-figure-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-27-components-media-figure-subcomponents" class="badge ok as-toggle">1 subcomponent</label>
       </div>
     </div>
     <div class="meta" title="./src/components/Figure/Figure.stories.tsx">components-media-figure · ./src/components/Figure/Figure.stories.tsx</div>
@@ -9660,9 +10215,9 @@ Someone moving from one Radio to the next therefore hears which question they ar
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-26-components-media-figure-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-26-components-media-figure-docs" class="tg tg-docs" type="checkbox" hidden />
-  <input id="c-26-components-media-figure-subcomponents" class="tg tg-subcomponents" type="checkbox" hidden />
+  <input id="c-27-components-media-figure-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-27-components-media-figure-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-27-components-media-figure-subcomponents" class="tg tg-subcomponents" type="checkbox" hidden />
   
 
   <div class="panels">
@@ -9855,8 +10410,8 @@ color?: &quot;inverse&quot;</code></pre>
       <div class="badges">
         <span class="badge">no API description</span>
         
-        <label for="c-27-components-forms-file-input-stories" class="badge ok as-toggle">5 stories</label>
-        <label for="c-27-components-forms-file-input-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-28-components-forms-file-input-stories" class="badge ok as-toggle">5 stories</label>
+        <label for="c-28-components-forms-file-input-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -9869,8 +10424,8 @@ color?: &quot;inverse&quot;</code></pre>
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-27-components-forms-file-input-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-27-components-forms-file-input-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-28-components-forms-file-input-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-28-components-forms-file-input-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -10074,9 +10629,9 @@ A [File List](/docs/components-forms-file-list--docs) beside the field is how a 
       <div class="badges">
         <span class="badge">no API description</span>
         
-        <label for="c-28-components-forms-file-list-stories" class="badge ok as-toggle">2 stories</label>
-        <label for="c-28-components-forms-file-list-docs" class="badge ok as-toggle">1 doc</label>
-        <label for="c-28-components-forms-file-list-subcomponents" class="badge ok as-toggle">1 subcomponent</label>
+        <label for="c-29-components-forms-file-list-stories" class="badge ok as-toggle">2 stories</label>
+        <label for="c-29-components-forms-file-list-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-29-components-forms-file-list-subcomponents" class="badge ok as-toggle">1 subcomponent</label>
       </div>
     </div>
     <div class="meta" title="./src/components/FileList/FileList.stories.tsx">components-forms-file-list · ./src/components/FileList/FileList.stories.tsx</div>
@@ -10088,9 +10643,9 @@ A [File List](/docs/components-forms-file-list--docs) beside the field is how a 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-28-components-forms-file-list-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-28-components-forms-file-list-docs" class="tg tg-docs" type="checkbox" hidden />
-  <input id="c-28-components-forms-file-list-subcomponents" class="tg tg-subcomponents" type="checkbox" hidden />
+  <input id="c-29-components-forms-file-list-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-29-components-forms-file-list-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-29-components-forms-file-list-subcomponents" class="tg tg-subcomponents" type="checkbox" hidden />
   
 
   <div class="panels">
@@ -10286,9 +10841,9 @@ onDelete?: () =&gt; void</code></pre>
       <div class="badges">
         <span class="badge">no API description</span>
         
-        <label for="c-29-components-forms-form-field-status-stories" class="badge ok as-toggle">5 stories</label>
-        <label for="c-29-components-forms-form-field-status-docs" class="badge ok as-toggle">1 doc</label>
-        <label for="c-29-components-forms-form-field-status-subcomponents" class="badge ok as-toggle">1 subcomponent</label>
+        <label for="c-30-components-forms-form-field-status-stories" class="badge ok as-toggle">5 stories</label>
+        <label for="c-30-components-forms-form-field-status-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-30-components-forms-form-field-status-subcomponents" class="badge ok as-toggle">1 subcomponent</label>
       </div>
     </div>
     <div class="meta" title="./src/components/FormFieldStatus/FormFieldStatus.stories.tsx">components-forms-form-field-status · ./src/components/FormFieldStatus/FormFieldStatus.stories.tsx</div>
@@ -10301,9 +10856,9 @@ Announces what it reports without moving focus, so the user hears it between wor
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-29-components-forms-form-field-status-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-29-components-forms-form-field-status-docs" class="tg tg-docs" type="checkbox" hidden />
-  <input id="c-29-components-forms-form-field-status-subcomponents" class="tg tg-subcomponents" type="checkbox" hidden />
+  <input id="c-30-components-forms-form-field-status-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-30-components-forms-form-field-status-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-30-components-forms-form-field-status-subcomponents" class="tg tg-subcomponents" type="checkbox" hidden />
   
 
   <div class="panels">
@@ -10657,10 +11212,10 @@ maxLength: number</code></pre>
     <div class="title">
       <h2><span class="status-dot dot-err"></span> FormFlow</h2>
       <div class="badges">
-        <label for="c-30-pages-public-form-flow-err" class="badge err as-toggle">API error</label>
-        <label for="c-30-pages-public-form-flow-info" class="badge info as-toggle">1 info</label>
-        <label for="c-30-pages-public-form-flow-stories" class="badge ok as-toggle">5 stories</label>
-        <label for="c-30-pages-public-form-flow-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-31-pages-public-form-flow-err" class="badge err as-toggle">API error</label>
+        <label for="c-31-pages-public-form-flow-info" class="badge info as-toggle">1 info</label>
+        <label for="c-31-pages-public-form-flow-stories" class="badge ok as-toggle">5 stories</label>
+        <label for="c-31-pages-public-form-flow-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -10671,10 +11226,10 @@ maxLength: number</code></pre>
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-30-pages-public-form-flow-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-30-pages-public-form-flow-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-30-pages-public-form-flow-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-30-pages-public-form-flow-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-31-pages-public-form-flow-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-31-pages-public-form-flow-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-31-pages-public-form-flow-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-31-pages-public-form-flow-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -12193,10 +12748,10 @@ An [Invalid Form Alert](/docs/components-forms-invalid-form-alert--docs) takes f
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> Gap</h2>
       <div class="badges">
-        <label for="c-31-utilities-css-gap-props" class="badge ok as-toggle">1 prop type</label>
+        <label for="c-32-utilities-css-gap-props" class="badge ok as-toggle">1 prop type</label>
         
-        <label for="c-31-utilities-css-gap-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-31-utilities-css-gap-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-32-utilities-css-gap-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-32-utilities-css-gap-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -12209,10 +12764,10 @@ An [Invalid Form Alert](/docs/components-forms-invalid-form-alert--docs) takes f
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-31-utilities-css-gap-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-31-utilities-css-gap-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-32-utilities-css-gap-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-32-utilities-css-gap-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-31-utilities-css-gap-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-32-utilities-css-gap-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -12313,11 +12868,11 @@ import * as GapStories from &quot;./Gap.stories.tsx&quot;;
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> Grid</h2>
       <div class="badges">
-        <label for="c-32-components-layout-grid-props" class="badge ok as-toggle">5 prop types</label>
+        <label for="c-33-components-layout-grid-props" class="badge ok as-toggle">5 prop types</label>
         
-        <label for="c-32-components-layout-grid-stories" class="badge ok as-toggle">5 stories</label>
-        <label for="c-32-components-layout-grid-docs" class="badge ok as-toggle">1 doc</label>
-        <label for="c-32-components-layout-grid-subcomponents" class="badge ok as-toggle">2 subcomponents</label>
+        <label for="c-33-components-layout-grid-stories" class="badge ok as-toggle">5 stories</label>
+        <label for="c-33-components-layout-grid-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-33-components-layout-grid-subcomponents" class="badge ok as-toggle">2 subcomponents</label>
       </div>
     </div>
     <div class="meta" title="./src/components/Grid/Grid.stories.tsx">components-layout-grid · ./src/components/Grid/Grid.stories.tsx</div>
@@ -12329,10 +12884,10 @@ import * as GapStories from &quot;./Gap.stories.tsx&quot;;
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-32-components-layout-grid-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-32-components-layout-grid-docs" class="tg tg-docs" type="checkbox" hidden />
-  <input id="c-32-components-layout-grid-subcomponents" class="tg tg-subcomponents" type="checkbox" hidden />
-  <input id="c-32-components-layout-grid-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-33-components-layout-grid-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-33-components-layout-grid-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-33-components-layout-grid-subcomponents" class="tg tg-subcomponents" type="checkbox" hidden />
+  <input id="c-33-components-layout-grid-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -12963,10 +13518,10 @@ start?: GridColumnNumber | GridColumnNumbers | undefined</code></pre>
     <div class="title">
       <h2><span class="status-dot dot-err"></span> HandbookPage</h2>
       <div class="badges">
-        <label for="c-33-pages-public-handbook-page-err" class="badge err as-toggle">API error</label>
-        <label for="c-33-pages-public-handbook-page-info" class="badge info as-toggle">1 info</label>
-        <label for="c-33-pages-public-handbook-page-stories" class="badge ok as-toggle">1 story · 1 incomplete</label>
-        <label for="c-33-pages-public-handbook-page-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-34-pages-public-handbook-page-err" class="badge err as-toggle">API error</label>
+        <label for="c-34-pages-public-handbook-page-info" class="badge info as-toggle">1 info</label>
+        <label for="c-34-pages-public-handbook-page-stories" class="badge ok as-toggle">1 story · 1 incomplete</label>
+        <label for="c-34-pages-public-handbook-page-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -12977,10 +13532,10 @@ start?: GridColumnNumber | GridColumnNumbers | undefined</code></pre>
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-33-pages-public-handbook-page-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-33-pages-public-handbook-page-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-33-pages-public-handbook-page-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-33-pages-public-handbook-page-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-34-pages-public-handbook-page-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-34-pages-public-handbook-page-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-34-pages-public-handbook-page-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-34-pages-public-handbook-page-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -13400,10 +13955,10 @@ The link they just activated therefore keeps focus, where a navigation rebuilt p
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> Heading</h2>
       <div class="badges">
-        <label for="c-34-components-text-heading-props" class="badge ok as-toggle">3 prop types</label>
+        <label for="c-35-components-text-heading-props" class="badge ok as-toggle">3 prop types</label>
         
-        <label for="c-34-components-text-heading-stories" class="badge ok as-toggle">8 stories</label>
-        <label for="c-34-components-text-heading-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-35-components-text-heading-stories" class="badge ok as-toggle">8 stories</label>
+        <label for="c-35-components-text-heading-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -13416,10 +13971,10 @@ The link they just activated therefore keeps focus, where a navigation rebuilt p
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-34-components-text-heading-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-34-components-text-heading-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-35-components-text-heading-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-35-components-text-heading-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-34-components-text-heading-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-35-components-text-heading-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -13741,10 +14296,10 @@ A level 2 Heading shown at the size of a level 4 is still reported as level 2, s
     <div class="title">
       <h2><span class="status-dot dot-err"></span> HomePage</h2>
       <div class="badges">
-        <label for="c-35-pages-public-home-page-err" class="badge err as-toggle">API error</label>
-        <label for="c-35-pages-public-home-page-info" class="badge info as-toggle">1 info</label>
-        <label for="c-35-pages-public-home-page-stories" class="badge ok as-toggle">1 story · 1 incomplete</label>
-        <label for="c-35-pages-public-home-page-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-36-pages-public-home-page-err" class="badge err as-toggle">API error</label>
+        <label for="c-36-pages-public-home-page-info" class="badge info as-toggle">1 info</label>
+        <label for="c-36-pages-public-home-page-stories" class="badge ok as-toggle">1 story · 1 incomplete</label>
+        <label for="c-36-pages-public-home-page-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -13755,10 +14310,10 @@ A level 2 Heading shown at the size of a level 4 is still reported as level 2, s
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-35-pages-public-home-page-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-35-pages-public-home-page-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-35-pages-public-home-page-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-35-pages-public-home-page-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-36-pages-public-home-page-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-36-pages-public-home-page-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-36-pages-public-home-page-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-36-pages-public-home-page-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -14254,10 +14809,10 @@ A screen reader then announces how many Cards the set holds and which one it is 
     <div class="title">
       <h2><span class="status-dot dot-err"></span> HomePage</h2>
       <div class="badges">
-        <label for="c-36-pages-internal-home-page-err" class="badge err as-toggle">API error</label>
-        <label for="c-36-pages-internal-home-page-info" class="badge info as-toggle">1 info</label>
-        <label for="c-36-pages-internal-home-page-stories" class="badge ok as-toggle">1 story · 1 incomplete</label>
-        <label for="c-36-pages-internal-home-page-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-37-pages-internal-home-page-err" class="badge err as-toggle">API error</label>
+        <label for="c-37-pages-internal-home-page-info" class="badge info as-toggle">1 info</label>
+        <label for="c-37-pages-internal-home-page-stories" class="badge ok as-toggle">1 story · 1 incomplete</label>
+        <label for="c-37-pages-internal-home-page-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -14268,10 +14823,10 @@ A screen reader then announces how many Cards the set holds and which one it is 
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-36-pages-internal-home-page-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-36-pages-internal-home-page-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-36-pages-internal-home-page-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-36-pages-internal-home-page-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-37-pages-internal-home-page-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-37-pages-internal-home-page-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-37-pages-internal-home-page-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-37-pages-internal-home-page-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -14517,10 +15072,10 @@ Use this page as the landing page of a backoffice system, where a Menu carries t
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> Icon</h2>
       <div class="badges">
-        <label for="c-37-components-media-icon-props" class="badge ok as-toggle">4 prop types</label>
+        <label for="c-38-components-media-icon-props" class="badge ok as-toggle">4 prop types</label>
         
-        <label for="c-37-components-media-icon-stories" class="badge ok as-toggle">6 stories</label>
-        <label for="c-37-components-media-icon-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-38-components-media-icon-stories" class="badge ok as-toggle">6 stories</label>
+        <label for="c-38-components-media-icon-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -14534,10 +15089,10 @@ Icons communicate a message at a glance and draw attention to important – ofte
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-37-components-media-icon-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-37-components-media-icon-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-38-components-media-icon-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-38-components-media-icon-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-37-components-media-icon-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-38-components-media-icon-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -14835,10 +15390,10 @@ It is decoration for text that carries the meaning, which is why ‘When to use�
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> IconButton</h2>
       <div class="badges">
-        <label for="c-38-components-buttons-icon-button-props" class="badge ok as-toggle">4 prop types</label>
+        <label for="c-39-components-buttons-icon-button-props" class="badge ok as-toggle">4 prop types</label>
         
-        <label for="c-38-components-buttons-icon-button-stories" class="badge ok as-toggle">3 stories</label>
-        <label for="c-38-components-buttons-icon-button-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-39-components-buttons-icon-button-stories" class="badge ok as-toggle">3 stories</label>
+        <label for="c-39-components-buttons-icon-button-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -14851,10 +15406,10 @@ It is decoration for text that carries the meaning, which is why ‘When to use�
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-38-components-buttons-icon-button-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-38-components-buttons-icon-button-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-39-components-buttons-icon-button-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-39-components-buttons-icon-button-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-38-components-buttons-icon-button-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-39-components-buttons-icon-button-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -15050,10 +15605,10 @@ Its `type` defaults to `button` rather than `submit`, so it never submits a form
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> Image</h2>
       <div class="badges">
-        <label for="c-39-components-media-image-props" class="badge ok as-toggle">3 prop types</label>
+        <label for="c-40-components-media-image-props" class="badge ok as-toggle">3 prop types</label>
         
-        <label for="c-39-components-media-image-stories" class="badge ok as-toggle">5 stories</label>
-        <label for="c-39-components-media-image-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-40-components-media-image-stories" class="badge ok as-toggle">5 stories</label>
+        <label for="c-40-components-media-image-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -15066,10 +15621,10 @@ Its `type` defaults to `button` rather than `submit`, so it never submits a form
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-39-components-media-image-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-39-components-media-image-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-40-components-media-image-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-40-components-media-image-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-39-components-media-image-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-40-components-media-image-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -15325,10 +15880,10 @@ Someone reading with a screen magnifier or following a keyboard focus ring does 
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> ImageSlider</h2>
       <div class="badges">
-        <label for="c-40-components-media-image-slider-props" class="badge ok as-toggle">5 prop types</label>
+        <label for="c-41-components-media-image-slider-props" class="badge ok as-toggle">5 prop types</label>
         
-        <label for="c-40-components-media-image-slider-stories" class="badge ok as-toggle">3 stories</label>
-        <label for="c-40-components-media-image-slider-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-41-components-media-image-slider-stories" class="badge ok as-toggle">3 stories</label>
+        <label for="c-41-components-media-image-slider-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -15341,10 +15896,10 @@ Someone reading with a screen magnifier or following a keyboard focus ring does 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-40-components-media-image-slider-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-40-components-media-image-slider-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-41-components-media-image-slider-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-41-components-media-image-slider-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-40-components-media-image-slider-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-41-components-media-image-slider-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -15636,10 +16191,10 @@ Assistive technology therefore announces the thumbnails as tabs without being ab
     <div class="title">
       <h2><span class="status-dot dot-err"></span> InformationPage</h2>
       <div class="badges">
-        <label for="c-41-pages-public-information-page-err" class="badge err as-toggle">API error</label>
-        <label for="c-41-pages-public-information-page-info" class="badge info as-toggle">1 info</label>
-        <label for="c-41-pages-public-information-page-stories" class="badge ok as-toggle">2 stories · 2 incomplete</label>
-        <label for="c-41-pages-public-information-page-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-42-pages-public-information-page-err" class="badge err as-toggle">API error</label>
+        <label for="c-42-pages-public-information-page-info" class="badge info as-toggle">1 info</label>
+        <label for="c-42-pages-public-information-page-stories" class="badge ok as-toggle">2 stories · 2 incomplete</label>
+        <label for="c-42-pages-public-information-page-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -15650,10 +16205,10 @@ Assistive technology therefore announces the thumbnails as tabs without being ab
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-41-pages-public-information-page-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-41-pages-public-information-page-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-41-pages-public-information-page-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-41-pages-public-information-page-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-42-pages-public-information-page-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-42-pages-public-information-page-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-42-pages-public-information-page-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-42-pages-public-information-page-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -16705,10 +17260,10 @@ What a Table and a Figure each take their accessible name from is the part of th
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> InvalidFormAlert</h2>
       <div class="badges">
-        <label for="c-42-components-forms-invalid-form-alert-props" class="badge ok as-toggle">5 prop types</label>
+        <label for="c-43-components-forms-invalid-form-alert-props" class="badge ok as-toggle">5 prop types</label>
         
-        <label for="c-42-components-forms-invalid-form-alert-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-42-components-forms-invalid-form-alert-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-43-components-forms-invalid-form-alert-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-43-components-forms-invalid-form-alert-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -16721,10 +17276,10 @@ What a Table and a Figure each take their accessible name from is the part of th
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-42-components-forms-invalid-form-alert-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-42-components-forms-invalid-form-alert-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-43-components-forms-invalid-form-alert-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-43-components-forms-invalid-form-alert-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-42-components-forms-invalid-form-alert-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-43-components-forms-invalid-form-alert-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -16911,11 +17466,11 @@ Placing the component outside the `form` element, as ‘How to use’ asks, is w
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> KnownDateInput</h2>
       <div class="badges">
-        <label for="c-43-components-forms-known-date-input-props" class="badge ok as-toggle">1 prop type</label>
+        <label for="c-44-components-forms-known-date-input-props" class="badge ok as-toggle">1 prop type</label>
         
-        <label for="c-43-components-forms-known-date-input-stories" class="badge ok as-toggle">5 stories</label>
-        <label for="c-43-components-forms-known-date-input-docs" class="badge ok as-toggle">1 doc</label>
-        <label for="c-43-components-forms-known-date-input-subcomponents" class="badge ok as-toggle">3 subcomponents</label>
+        <label for="c-44-components-forms-known-date-input-stories" class="badge ok as-toggle">5 stories</label>
+        <label for="c-44-components-forms-known-date-input-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-44-components-forms-known-date-input-subcomponents" class="badge ok as-toggle">3 subcomponents</label>
       </div>
     </div>
     <div class="meta" title="./src/components/KnownDateInput/KnownDateInput.stories.tsx">components-forms-known-date-input · ./src/components/KnownDateInput/KnownDateInput.stories.tsx</div>
@@ -16928,10 +17483,10 @@ Typing these separately is easier for known dates than browsing through a date c
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-43-components-forms-known-date-input-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-43-components-forms-known-date-input-docs" class="tg tg-docs" type="checkbox" hidden />
-  <input id="c-43-components-forms-known-date-input-subcomponents" class="tg tg-subcomponents" type="checkbox" hidden />
-  <input id="c-43-components-forms-known-date-input-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-44-components-forms-known-date-input-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-44-components-forms-known-date-input-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-44-components-forms-known-date-input-subcomponents" class="tg tg-subcomponents" type="checkbox" hidden />
+  <input id="c-44-components-forms-known-date-input-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -17295,10 +17850,10 @@ label?: string = &#39;Jaar&#39;</code></pre>
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> Label</h2>
       <div class="badges">
-        <label for="c-44-components-forms-label-props" class="badge ok as-toggle">4 prop types</label>
+        <label for="c-45-components-forms-label-props" class="badge ok as-toggle">4 prop types</label>
         
-        <label for="c-44-components-forms-label-stories" class="badge ok as-toggle">5 stories</label>
-        <label for="c-44-components-forms-label-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-45-components-forms-label-stories" class="badge ok as-toggle">5 stories</label>
+        <label for="c-45-components-forms-label-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -17311,10 +17866,10 @@ label?: string = &#39;Jaar&#39;</code></pre>
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-44-components-forms-label-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-44-components-forms-label-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-45-components-forms-label-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-45-components-forms-label-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-44-components-forms-label-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-45-components-forms-label-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -17541,10 +18096,10 @@ The text then serves as the heading of the page and as the name of the field at 
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> Link</h2>
       <div class="badges">
-        <label for="c-45-components-navigation-link-props" class="badge ok as-toggle">2 prop types</label>
+        <label for="c-46-components-navigation-link-props" class="badge ok as-toggle">2 prop types</label>
         
-        <label for="c-45-components-navigation-link-stories" class="badge ok as-toggle">3 stories</label>
-        <label for="c-45-components-navigation-link-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-46-components-navigation-link-stories" class="badge ok as-toggle">3 stories</label>
+        <label for="c-46-components-navigation-link-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -17557,10 +18112,10 @@ The text then serves as the heading of the page and as the name of the field at 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-45-components-navigation-link-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-45-components-navigation-link-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-46-components-navigation-link-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-46-components-navigation-link-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-45-components-navigation-link-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-46-components-navigation-link-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -17769,9 +18324,9 @@ Opening a new window also takes someone to a context they did not ask for and ca
       <div class="badges">
         <span class="badge">no API description</span>
         
-        <label for="c-46-components-navigation-link-list-stories" class="badge ok as-toggle">5 stories · 3 incomplete</label>
-        <label for="c-46-components-navigation-link-list-docs" class="badge ok as-toggle">1 doc</label>
-        <label for="c-46-components-navigation-link-list-subcomponents" class="badge ok as-toggle">1 subcomponent</label>
+        <label for="c-47-components-navigation-link-list-stories" class="badge ok as-toggle">5 stories · 3 incomplete</label>
+        <label for="c-47-components-navigation-link-list-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-47-components-navigation-link-list-subcomponents" class="badge ok as-toggle">1 subcomponent</label>
       </div>
     </div>
     <div class="meta" title="./src/components/LinkList/LinkList.stories.tsx">components-navigation-link-list · ./src/components/LinkList/LinkList.stories.tsx</div>
@@ -17783,9 +18338,9 @@ Opening a new window also takes someone to a context they did not ask for and ca
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-46-components-navigation-link-list-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-46-components-navigation-link-list-docs" class="tg tg-docs" type="checkbox" hidden />
-  <input id="c-46-components-navigation-link-list-subcomponents" class="tg tg-subcomponents" type="checkbox" hidden />
+  <input id="c-47-components-navigation-link-list-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-47-components-navigation-link-list-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-47-components-navigation-link-list-subcomponents" class="tg tg-subcomponents" type="checkbox" hidden />
   
 
   <div class="panels">
@@ -18093,10 +18648,10 @@ size?: &quot;small&quot; | &quot;large&quot;</code></pre>
     <div class="title">
       <h2><span class="status-dot dot-err"></span> LoadingPage</h2>
       <div class="badges">
-        <label for="c-47-pages-public-loading-page-err" class="badge err as-toggle">API error</label>
-        <label for="c-47-pages-public-loading-page-info" class="badge info as-toggle">1 info</label>
-        <label for="c-47-pages-public-loading-page-stories" class="badge ok as-toggle">3 stories · 3 incomplete</label>
-        <label for="c-47-pages-public-loading-page-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-48-pages-public-loading-page-err" class="badge err as-toggle">API error</label>
+        <label for="c-48-pages-public-loading-page-info" class="badge info as-toggle">1 info</label>
+        <label for="c-48-pages-public-loading-page-stories" class="badge ok as-toggle">3 stories · 3 incomplete</label>
+        <label for="c-48-pages-public-loading-page-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -18107,10 +18662,10 @@ size?: &quot;small&quot; | &quot;large&quot;</code></pre>
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-47-pages-public-loading-page-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-47-pages-public-loading-page-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-47-pages-public-loading-page-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-47-pages-public-loading-page-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-48-pages-public-loading-page-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-48-pages-public-loading-page-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-48-pages-public-loading-page-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-48-pages-public-loading-page-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -18982,10 +19537,10 @@ No component wraps this pattern yet, so the Grid carries the busy state and the 
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> Logo</h2>
       <div class="badges">
-        <label for="c-48-components-media-logo-props" class="badge ok as-toggle">1 prop type</label>
+        <label for="c-49-components-media-logo-props" class="badge ok as-toggle">1 prop type</label>
         
-        <label for="c-48-components-media-logo-stories" class="badge ok as-toggle">2 stories</label>
-        <label for="c-48-components-media-logo-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-49-components-media-logo-stories" class="badge ok as-toggle">2 stories</label>
+        <label for="c-49-components-media-logo-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -18999,10 +19554,10 @@ It has a fixed colour, size, and position and is present on all our websites.</d
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-48-components-media-logo-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-48-components-media-logo-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-49-components-media-logo-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-49-components-media-logo-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-48-components-media-logo-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-49-components-media-logo-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -19174,10 +19729,10 @@ That label is fixed text, not something automatic translation picks up, which is
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> Margin</h2>
       <div class="badges">
-        <label for="c-49-utilities-css-margin-props" class="badge ok as-toggle">1 prop type</label>
+        <label for="c-50-utilities-css-margin-props" class="badge ok as-toggle">1 prop type</label>
         
-        <label for="c-49-utilities-css-margin-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-49-utilities-css-margin-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-50-utilities-css-margin-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-50-utilities-css-margin-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -19190,10 +19745,10 @@ That label is fixed text, not something automatic translation picks up, which is
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-49-utilities-css-margin-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-49-utilities-css-margin-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-50-utilities-css-margin-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-50-utilities-css-margin-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-49-utilities-css-margin-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-50-utilities-css-margin-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -19297,8 +19852,8 @@ import * as MarginStories from &quot;./Margin.stories.tsx&quot;;
       <div class="badges">
         <span class="badge">no API description</span>
         
-        <label for="c-50-components-text-mark-stories" class="badge ok as-toggle">2 stories</label>
-        <label for="c-50-components-text-mark-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-51-components-text-mark-stories" class="badge ok as-toggle">2 stories</label>
+        <label for="c-51-components-text-mark-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -19311,8 +19866,8 @@ import * as MarginStories from &quot;./Margin.stories.tsx&quot;;
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-50-components-text-mark-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-50-components-text-mark-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-51-components-text-mark-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-51-components-text-mark-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -19500,11 +20055,11 @@ The component cannot make up for that on its own, so what the highlight conveys 
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> Menu</h2>
       <div class="badges">
-        <label for="c-51-components-navigation-menu-props" class="badge ok as-toggle">2 prop types</label>
+        <label for="c-52-components-navigation-menu-props" class="badge ok as-toggle">2 prop types</label>
         
-        <label for="c-51-components-navigation-menu-stories" class="badge ok as-toggle">1 story · 1 incomplete</label>
-        <label for="c-51-components-navigation-menu-docs" class="badge ok as-toggle">1 doc</label>
-        <label for="c-51-components-navigation-menu-subcomponents" class="badge ok as-toggle">1 subcomponent</label>
+        <label for="c-52-components-navigation-menu-stories" class="badge ok as-toggle">1 story · 1 incomplete</label>
+        <label for="c-52-components-navigation-menu-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-52-components-navigation-menu-subcomponents" class="badge ok as-toggle">1 subcomponent</label>
       </div>
     </div>
     <div class="meta" title="./src/components/Menu/Menu.stories.tsx">components-navigation-menu · ./src/components/Menu/Menu.stories.tsx</div>
@@ -19516,10 +20071,10 @@ The component cannot make up for that on its own, so what the highlight conveys 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-51-components-navigation-menu-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-51-components-navigation-menu-docs" class="tg tg-docs" type="checkbox" hidden />
-  <input id="c-51-components-navigation-menu-subcomponents" class="tg tg-subcomponents" type="checkbox" hidden />
-  <input id="c-51-components-navigation-menu-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-52-components-navigation-menu-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-52-components-navigation-menu-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-52-components-navigation-menu-subcomponents" class="tg tg-subcomponents" type="checkbox" hidden />
+  <input id="c-52-components-navigation-menu-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -19742,11 +20297,11 @@ linkComponent?: ElementType | undefined</code></pre>
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> Metadata</h2>
       <div class="badges">
-        <label for="c-52-components-text-metadata-props" class="badge ok as-toggle">2 prop types</label>
+        <label for="c-53-components-text-metadata-props" class="badge ok as-toggle">2 prop types</label>
         
-        <label for="c-52-components-text-metadata-stories" class="badge ok as-toggle">4 stories</label>
-        <label for="c-52-components-text-metadata-docs" class="badge ok as-toggle">1 doc</label>
-        <label for="c-52-components-text-metadata-subcomponents" class="badge ok as-toggle">1 subcomponent</label>
+        <label for="c-53-components-text-metadata-stories" class="badge ok as-toggle">4 stories</label>
+        <label for="c-53-components-text-metadata-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-53-components-text-metadata-subcomponents" class="badge ok as-toggle">1 subcomponent</label>
       </div>
     </div>
     <div class="meta" title="./src/components/Metadata/Metadata.stories.tsx">components-text-metadata · ./src/components/Metadata/Metadata.stories.tsx</div>
@@ -19758,10 +20313,10 @@ linkComponent?: ElementType | undefined</code></pre>
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-52-components-text-metadata-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-52-components-text-metadata-docs" class="tg tg-docs" type="checkbox" hidden />
-  <input id="c-52-components-text-metadata-subcomponents" class="tg tg-subcomponents" type="checkbox" hidden />
-  <input id="c-52-components-text-metadata-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-53-components-text-metadata-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-53-components-text-metadata-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-53-components-text-metadata-subcomponents" class="tg tg-subcomponents" type="checkbox" hidden />
+  <input id="c-53-components-text-metadata-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -20017,11 +20572,11 @@ That is what [WCAG 1.3.1](https://www.w3.org/TR/WCAG22/#info-and-relationships) 
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> ModalDialog</h2>
       <div class="badges">
-        <label for="c-53-components-containers-modal-dialog-props" class="badge ok as-toggle">1 prop type</label>
+        <label for="c-54-components-containers-modal-dialog-props" class="badge ok as-toggle">1 prop type</label>
         
-        <label for="c-53-components-containers-modal-dialog-stories" class="badge ok as-toggle">4 stories · 1 incomplete</label>
-        <label for="c-53-components-containers-modal-dialog-docs" class="badge ok as-toggle">1 doc</label>
-        <label for="c-53-components-containers-modal-dialog-subcomponents" class="badge ok as-toggle">3 subcomponents</label>
+        <label for="c-54-components-containers-modal-dialog-stories" class="badge ok as-toggle">4 stories · 1 incomplete</label>
+        <label for="c-54-components-containers-modal-dialog-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-54-components-containers-modal-dialog-subcomponents" class="badge ok as-toggle">3 subcomponents</label>
       </div>
     </div>
     <div class="meta" title="./src/components/ModalDialog/ModalDialog.stories.tsx">components-containers-modal-dialog · ./src/components/ModalDialog/ModalDialog.stories.tsx</div>
@@ -20033,10 +20588,10 @@ That is what [WCAG 1.3.1](https://www.w3.org/TR/WCAG22/#info-and-relationships) 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-53-components-containers-modal-dialog-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-53-components-containers-modal-dialog-docs" class="tg tg-docs" type="checkbox" hidden />
-  <input id="c-53-components-containers-modal-dialog-subcomponents" class="tg tg-subcomponents" type="checkbox" hidden />
-  <input id="c-53-components-containers-modal-dialog-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-54-components-containers-modal-dialog-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-54-components-containers-modal-dialog-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-54-components-containers-modal-dialog-subcomponents" class="tg tg-subcomponents" type="checkbox" hidden />
+  <input id="c-54-components-containers-modal-dialog-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -20256,7 +20811,9 @@ The Body holds the main content of the dialog and has no props of its own; the e
 ### Header
 
 The Header contains the title of the dialog and always renders a button to dismiss it.
-Pass `closeButtonAccessibleName` to translate the name of that button for screen readers, and `closeButtonSize` to match the button to the size of your Heading.
+Pass `closeButtonAccessibleName` to translate the name of that button.
+The default button uses it as screen reader text; a custom close button renders it as its visible label.
+Use `closeButtonSize` to match the default button to the size of your Heading; it does not apply to a custom component.
 Any content you add to the Header – a [Heading](/docs/components-text-heading--docs), a subtitle, or both – stacks to the left of the close button.
 
 &lt;Canvas of={ModalDialogHeaderStories.Header} /&gt;
@@ -20337,6 +20894,28 @@ Don’t render the dialog conditionally: unmounting it while open skips the `clo
 
 &lt;Canvas of={ModalDialogStories.Controlled} /&gt;
 
+### Replacing the close button
+
+Pass a component to the `closeButtonComponent` prop of the Header to replace the close button with one of your own.
+Websites for the City of Amsterdam must use the default button.
+This example uses the plain HTML `button` element.
+
+The component receives `className`, `onClick`, `type=&quot;button&quot;` and the accessible name as `children`.
+Apply `className`, `onClick` and `type` to the button, and render `children` in it as its visible label.
+The class places the button next to the heading, and the click handler closes the dialog.
+Merge `className` with any classes of its own.
+The Header passes no other props, so wrap the component to set props such as `appearance`.
+`closeButtonIcon` and `closeButtonSize` do not apply to a custom component.
+Give the button a visible focus indicator and a target large enough to use.
+A custom component that shows only an icon hides its text with the `ams-visually-hidden` class.
+
+The heading and the button share the first row of the Header.
+That row grows to fit the button.
+A close button taller than one line of the heading pushes a subtitle down.
+A shorter button sits at the top of the row, not centred on the heading.
+
+&lt;Canvas of={ModalDialogStories.WithCloseButtonComponent} /&gt;
+
 ## Features
 
 The Modal Dialog is a [query container](/docs/utilities-css-query-container--docs) for inline size, so elements inside it can adapt their appearance to the width of the dialog.
@@ -20381,6 +20960,7 @@ A scrolling Body takes keyboard focus in its own right, so someone navigating by
 Chromium and Firefox already make an overflowing scroll container focusable; Safari does not, so the component makes the Body focusable itself.
 
 Scrolling of the page behind the dialog is suppressed while it is open.
+For this to work, the `body` element needs the [`ams-body` class](/docs/utilities-css-body--docs).
 Opening a modal does not lock scrolling on its own, and iOS Safari still needs JavaScript for a guarantee, so a gesture over the backdrop there can move the page underneath.
 
 Note that a modal dialog requires JavaScript: without it, the dialog stays closed and its content stays hidden.
@@ -20438,7 +21018,7 @@ Note that a modal dialog requires JavaScript: without it, the dialog stays close
       <div class="row">
         <span class="ex-name">ModalDialog.Header</span>
         <span class="badge ok">
-          3 prop types
+          4 prop types
         </span>
       </div>
       <div class="hint">/home/runner/work/design-system/design-system/packages/react/src/index.ts</div>
@@ -20453,11 +21033,23 @@ Note that a modal dialog requires JavaScript: without it, the dialog stays close
           <pre><code>/**
  * The accessible name of the button that dismisses the Modal Dialog.
  * Will be announced by screen readers.
+ * A custom close button renders it as its visible label.
  */
 closeButtonAccessibleName?: string = &#39;Sluiten&#39;
 
 /**
+ * The React component to use for the button that dismisses the Modal Dialog.
+ * Receives only `className`, `onClick`, `type=&quot;button&quot;` and the accessible name as `children`.
+ * Apply `className`, `onClick` and `type` to its button; render `children` as its visible label.
+ * Merge `className` with its own classes; wrap the component to set other props.
+ * `closeButtonIcon` and `closeButtonSize` apply only to the default button.
+ * Websites for the City of Amsterdam must use the default button.
+ */
+closeButtonComponent?: ElementType | undefined
+
+/**
  * An icon for the button that dismisses the Modal Dialog, to display instead of the default cross.
+ * Applies to the default close button only.
  * Websites for the City of Amsterdam must use the default icon.
  */
 closeButtonIcon?: IconSvg | undefined
@@ -20465,6 +21057,7 @@ closeButtonIcon?: IconSvg | undefined
 /**
  * The size of the button that dismisses the Modal Dialog.
  * Match it to the size of the Heading in the Header.
+ * Applies to the default close button only.
  */
 closeButtonSize?: &quot;heading-1&quot; | &quot;heading-2&quot; | &quot;heading-3&quot; | &quot;heading-4&quot; | &quot;heading-5&quot; = &#39;heading-2&#39;</code></pre>
     </div>
@@ -20487,10 +21080,10 @@ closeButtonSize?: &quot;heading-1&quot; | &quot;heading-2&quot; | &quot;heading-
     <div class="title">
       <h2><span class="status-dot dot-err"></span> NavigationPage</h2>
       <div class="badges">
-        <label for="c-54-pages-public-navigation-page-err" class="badge err as-toggle">API error</label>
-        <label for="c-54-pages-public-navigation-page-info" class="badge info as-toggle">1 info</label>
-        <label for="c-54-pages-public-navigation-page-stories" class="badge ok as-toggle">6 stories · 6 incomplete</label>
-        <label for="c-54-pages-public-navigation-page-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-55-pages-public-navigation-page-err" class="badge err as-toggle">API error</label>
+        <label for="c-55-pages-public-navigation-page-info" class="badge info as-toggle">1 info</label>
+        <label for="c-55-pages-public-navigation-page-stories" class="badge ok as-toggle">6 stories · 6 incomplete</label>
+        <label for="c-55-pages-public-navigation-page-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -20501,10 +21094,10 @@ closeButtonSize?: &quot;heading-1&quot; | &quot;heading-2&quot; | &quot;heading-
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-54-pages-public-navigation-page-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-54-pages-public-navigation-page-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-54-pages-public-navigation-page-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-54-pages-public-navigation-page-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-55-pages-public-navigation-page-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-55-pages-public-navigation-page-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-55-pages-public-navigation-page-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-55-pages-public-navigation-page-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -22681,10 +23274,10 @@ The suffix follows the visible label, so that label stays a contiguous part of t
     <div class="title">
       <h2><span class="status-dot dot-err"></span> NavigationPage</h2>
       <div class="badges">
-        <label for="c-55-pages-internal-navigation-page-err" class="badge err as-toggle">API error</label>
-        <label for="c-55-pages-internal-navigation-page-info" class="badge info as-toggle">1 info</label>
-        <label for="c-55-pages-internal-navigation-page-stories" class="badge ok as-toggle">1 story · 1 incomplete</label>
-        <label for="c-55-pages-internal-navigation-page-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-56-pages-internal-navigation-page-err" class="badge err as-toggle">API error</label>
+        <label for="c-56-pages-internal-navigation-page-info" class="badge info as-toggle">1 info</label>
+        <label for="c-56-pages-internal-navigation-page-stories" class="badge ok as-toggle">1 story · 1 incomplete</label>
+        <label for="c-56-pages-internal-navigation-page-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -22695,10 +23288,10 @@ The suffix follows the visible label, so that label stays a contiguous part of t
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-55-pages-internal-navigation-page-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-55-pages-internal-navigation-page-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-55-pages-internal-navigation-page-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-55-pages-internal-navigation-page-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-56-pages-internal-navigation-page-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-56-pages-internal-navigation-page-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-56-pages-internal-navigation-page-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-56-pages-internal-navigation-page-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -23139,10 +23732,10 @@ That is the cost of the layout recorded above, and the part of this template sti
     <div class="title">
       <h2><span class="status-dot dot-err"></span> NewsOverviewPage</h2>
       <div class="badges">
-        <label for="c-56-pages-public-news-overview-page-err" class="badge err as-toggle">API error</label>
-        <label for="c-56-pages-public-news-overview-page-info" class="badge info as-toggle">1 info</label>
-        <label for="c-56-pages-public-news-overview-page-stories" class="badge ok as-toggle">1 story · 1 incomplete</label>
-        <label for="c-56-pages-public-news-overview-page-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-57-pages-public-news-overview-page-err" class="badge err as-toggle">API error</label>
+        <label for="c-57-pages-public-news-overview-page-info" class="badge info as-toggle">1 info</label>
+        <label for="c-57-pages-public-news-overview-page-stories" class="badge ok as-toggle">1 story · 1 incomplete</label>
+        <label for="c-57-pages-public-news-overview-page-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -23153,10 +23746,10 @@ That is the cost of the layout recorded above, and the part of this template sti
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-56-pages-public-news-overview-page-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-56-pages-public-news-overview-page-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-56-pages-public-news-overview-page-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-56-pages-public-news-overview-page-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-57-pages-public-news-overview-page-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-57-pages-public-news-overview-page-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-57-pages-public-news-overview-page-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-57-pages-public-news-overview-page-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -23886,10 +24479,10 @@ A screen reader then announces how many there are and which one it is on, and ca
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> OrderedList</h2>
       <div class="badges">
-        <label for="c-57-components-text-ordered-list-props" class="badge ok as-toggle">3 prop types</label>
+        <label for="c-58-components-text-ordered-list-props" class="badge ok as-toggle">3 prop types</label>
         
-        <label for="c-57-components-text-ordered-list-stories" class="badge ok as-toggle">6 stories</label>
-        <label for="c-57-components-text-ordered-list-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-58-components-text-ordered-list-stories" class="badge ok as-toggle">6 stories</label>
+        <label for="c-58-components-text-ordered-list-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -23902,10 +24495,10 @@ A screen reader then announces how many there are and which one it is on, and ca
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-57-components-text-ordered-list-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-57-components-text-ordered-list-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-58-components-text-ordered-list-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-58-components-text-ordered-list-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-57-components-text-ordered-list-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-58-components-text-ordered-list-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -24180,8 +24773,8 @@ That is the point of the variant: the sequence still reaches assistive technolog
       <div class="badges">
         <span class="badge">no API description</span>
         
-        <label for="c-58-components-layout-overlap-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-58-components-layout-overlap-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-59-components-layout-overlap-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-59-components-layout-overlap-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -24194,8 +24787,8 @@ That is the point of the variant: the sequence still reaches assistive technolog
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-58-components-layout-overlap-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-58-components-layout-overlap-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-59-components-layout-overlap-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-59-components-layout-overlap-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -24337,10 +24930,10 @@ The visual arrangement and the reading order cannot drift apart here, which is t
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> Page</h2>
       <div class="badges">
-        <label for="c-59-components-containers-page-props" class="badge ok as-toggle">1 prop type</label>
+        <label for="c-60-components-containers-page-props" class="badge ok as-toggle">1 prop type</label>
         
-        <label for="c-59-components-containers-page-stories" class="badge ok as-toggle">2 stories · 2 incomplete</label>
-        <label for="c-59-components-containers-page-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-60-components-containers-page-stories" class="badge ok as-toggle">2 stories · 2 incomplete</label>
+        <label for="c-60-components-containers-page-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -24353,10 +24946,10 @@ The visual arrangement and the reading order cannot drift apart here, which is t
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-59-components-containers-page-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-59-components-containers-page-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-60-components-containers-page-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-60-components-containers-page-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-59-components-containers-page-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-60-components-containers-page-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -24587,9 +25180,9 @@ The children are still announced and reached by keyboard in the order they are w
       <div class="badges">
         <span class="badge">no API description</span>
         
-        <label for="c-60-components-containers-page-footer-stories" class="badge ok as-toggle">3 stories</label>
-        <label for="c-60-components-containers-page-footer-docs" class="badge ok as-toggle">1 doc</label>
-        <label for="c-60-components-containers-page-footer-subcomponents" class="badge ok as-toggle">2 subcomponents</label>
+        <label for="c-61-components-containers-page-footer-stories" class="badge ok as-toggle">3 stories</label>
+        <label for="c-61-components-containers-page-footer-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-61-components-containers-page-footer-subcomponents" class="badge ok as-toggle">2 subcomponents</label>
       </div>
     </div>
     <div class="meta" title="./src/components/PageFooter/PageFooter.stories.tsx">components-containers-page-footer · ./src/components/PageFooter/PageFooter.stories.tsx</div>
@@ -24601,9 +25194,9 @@ The children are still announced and reached by keyboard in the order they are w
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-60-components-containers-page-footer-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-60-components-containers-page-footer-docs" class="tg tg-docs" type="checkbox" hidden />
-  <input id="c-60-components-containers-page-footer-subcomponents" class="tg tg-subcomponents" type="checkbox" hidden />
+  <input id="c-61-components-containers-page-footer-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-61-components-containers-page-footer-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-61-components-containers-page-footer-subcomponents" class="tg tg-subcomponents" type="checkbox" hidden />
   
 
   <div class="panels">
@@ -24936,11 +25529,11 @@ linkComponent?: ElementType | undefined</code></pre>
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> PageHeader</h2>
       <div class="badges">
-        <label for="c-61-components-containers-page-header-props" class="badge ok as-toggle">17 prop types</label>
+        <label for="c-62-components-containers-page-header-props" class="badge ok as-toggle">17 prop types</label>
         
-        <label for="c-61-components-containers-page-header-stories" class="badge ok as-toggle">8 stories</label>
-        <label for="c-61-components-containers-page-header-docs" class="badge ok as-toggle">1 doc</label>
-        <label for="c-61-components-containers-page-header-subcomponents" class="badge ok as-toggle">1 subcomponent</label>
+        <label for="c-62-components-containers-page-header-stories" class="badge ok as-toggle">8 stories</label>
+        <label for="c-62-components-containers-page-header-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-62-components-containers-page-header-subcomponents" class="badge ok as-toggle">1 subcomponent</label>
       </div>
     </div>
     <div class="meta" title="./src/components/PageHeader/PageHeader.stories.tsx">components-containers-page-header · ./src/components/PageHeader/PageHeader.stories.tsx</div>
@@ -24952,10 +25545,10 @@ linkComponent?: ElementType | undefined</code></pre>
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-61-components-containers-page-header-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-61-components-containers-page-header-docs" class="tg tg-docs" type="checkbox" hidden />
-  <input id="c-61-components-containers-page-header-subcomponents" class="tg tg-subcomponents" type="checkbox" hidden />
-  <input id="c-61-components-containers-page-header-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-62-components-containers-page-header-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-62-components-containers-page-header-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-62-components-containers-page-header-subcomponents" class="tg tg-subcomponents" type="checkbox" hidden />
+  <input id="c-62-components-containers-page-header-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -25751,10 +26344,10 @@ linkComponent?: ElementType | undefined</code></pre>
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> Pagination</h2>
       <div class="badges">
-        <label for="c-62-components-navigation-pagination-props" class="badge ok as-toggle">13 prop types</label>
+        <label for="c-63-components-navigation-pagination-props" class="badge ok as-toggle">13 prop types</label>
         
-        <label for="c-62-components-navigation-pagination-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-62-components-navigation-pagination-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-63-components-navigation-pagination-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-63-components-navigation-pagination-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -25767,10 +26360,10 @@ linkComponent?: ElementType | undefined</code></pre>
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-62-components-navigation-pagination-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-62-components-navigation-pagination-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-63-components-navigation-pagination-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-63-components-navigation-pagination-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-62-components-navigation-pagination-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-63-components-navigation-pagination-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -26019,10 +26612,10 @@ If that stylesheet never arrives, the fuller accessible text shows in its place 
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> Paragraph</h2>
       <div class="badges">
-        <label for="c-63-components-text-paragraph-props" class="badge ok as-toggle">2 prop types</label>
+        <label for="c-64-components-text-paragraph-props" class="badge ok as-toggle">2 prop types</label>
         
-        <label for="c-63-components-text-paragraph-stories" class="badge ok as-toggle">5 stories</label>
-        <label for="c-63-components-text-paragraph-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-64-components-text-paragraph-stories" class="badge ok as-toggle">5 stories</label>
+        <label for="c-64-components-text-paragraph-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -26035,10 +26628,10 @@ If that stylesheet never arrives, the fuller accessible text shows in its place 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-63-components-text-paragraph-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-63-components-text-paragraph-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-64-components-text-paragraph-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-64-components-text-paragraph-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-63-components-text-paragraph-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-64-components-text-paragraph-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -26263,10 +26856,10 @@ A lead paragraph and small print are therefore a visual distinction only, and ne
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> PasswordInput</h2>
       <div class="badges">
-        <label for="c-64-components-forms-password-input-props" class="badge ok as-toggle">1 prop type</label>
+        <label for="c-65-components-forms-password-input-props" class="badge ok as-toggle">1 prop type</label>
         
-        <label for="c-64-components-forms-password-input-stories" class="badge ok as-toggle">5 stories</label>
-        <label for="c-64-components-forms-password-input-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-65-components-forms-password-input-stories" class="badge ok as-toggle">5 stories</label>
+        <label for="c-65-components-forms-password-input-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -26279,10 +26872,10 @@ A lead paragraph and small print are therefore a visual distinction only, and ne
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-64-components-forms-password-input-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-64-components-forms-password-input-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-65-components-forms-password-input-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-65-components-forms-password-input-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-64-components-forms-password-input-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-65-components-forms-password-input-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -26530,10 +27123,10 @@ A password is incomplete for most of the time it is being typed, so a `required`
     <div class="title">
       <h2><span class="status-dot dot-err"></span> ProductPage</h2>
       <div class="badges">
-        <label for="c-65-pages-public-product-page-err" class="badge err as-toggle">API error</label>
-        <label for="c-65-pages-public-product-page-info" class="badge info as-toggle">1 info</label>
-        <label for="c-65-pages-public-product-page-stories" class="badge ok as-toggle">1 story · 1 incomplete</label>
-        <label for="c-65-pages-public-product-page-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-66-pages-public-product-page-err" class="badge err as-toggle">API error</label>
+        <label for="c-66-pages-public-product-page-info" class="badge info as-toggle">1 info</label>
+        <label for="c-66-pages-public-product-page-stories" class="badge ok as-toggle">1 story · 1 incomplete</label>
+        <label for="c-66-pages-public-product-page-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -26544,10 +27137,10 @@ A password is incomplete for most of the time it is being typed, so a `required`
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-65-pages-public-product-page-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-65-pages-public-product-page-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-65-pages-public-product-page-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-65-pages-public-product-page-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-66-pages-public-product-page-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-66-pages-public-product-page-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-66-pages-public-product-page-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-66-pages-public-product-page-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -27119,10 +27712,10 @@ The body ends in a [Call to Action Link](/docs/components-navigation-call-to-act
     <div class="title">
       <h2><span class="status-dot dot-err"></span> ProfilePage</h2>
       <div class="badges">
-        <label for="c-66-pages-public-profile-page-err" class="badge err as-toggle">API error</label>
-        <label for="c-66-pages-public-profile-page-info" class="badge info as-toggle">1 info</label>
-        <label for="c-66-pages-public-profile-page-stories" class="badge ok as-toggle">5 stories · 5 incomplete</label>
-        <label for="c-66-pages-public-profile-page-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-67-pages-public-profile-page-err" class="badge err as-toggle">API error</label>
+        <label for="c-67-pages-public-profile-page-info" class="badge info as-toggle">1 info</label>
+        <label for="c-67-pages-public-profile-page-stories" class="badge ok as-toggle">5 stories · 5 incomplete</label>
+        <label for="c-67-pages-public-profile-page-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -27133,10 +27726,10 @@ The body ends in a [Call to Action Link](/docs/components-navigation-call-to-act
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-66-pages-public-profile-page-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-66-pages-public-profile-page-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-66-pages-public-profile-page-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-66-pages-public-profile-page-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-67-pages-public-profile-page-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-67-pages-public-profile-page-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-67-pages-public-profile-page-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-67-pages-public-profile-page-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -30644,11 +31237,11 @@ The Article Page names its equivalent band after its heading, which is what turn
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> ProgressList</h2>
       <div class="badges">
-        <label for="c-67-components-containers-progress-list-props" class="badge ok as-toggle">4 prop types</label>
+        <label for="c-68-components-containers-progress-list-props" class="badge ok as-toggle">4 prop types</label>
         
-        <label for="c-67-components-containers-progress-list-stories" class="badge ok as-toggle">4 stories · 2 incomplete</label>
-        <label for="c-67-components-containers-progress-list-docs" class="badge ok as-toggle">1 doc</label>
-        <label for="c-67-components-containers-progress-list-subcomponents" class="badge ok as-toggle">2 subcomponents</label>
+        <label for="c-68-components-containers-progress-list-stories" class="badge ok as-toggle">4 stories · 2 incomplete</label>
+        <label for="c-68-components-containers-progress-list-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-68-components-containers-progress-list-subcomponents" class="badge ok as-toggle">2 subcomponents</label>
       </div>
     </div>
     <div class="meta" title="./src/components/ProgressList/ProgressList.stories.tsx">components-containers-progress-list · ./src/components/ProgressList/ProgressList.stories.tsx</div>
@@ -30660,10 +31253,10 @@ The Article Page names its equivalent band after its heading, which is what turn
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-67-components-containers-progress-list-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-67-components-containers-progress-list-docs" class="tg tg-docs" type="checkbox" hidden />
-  <input id="c-67-components-containers-progress-list-subcomponents" class="tg tg-subcomponents" type="checkbox" hidden />
-  <input id="c-67-components-containers-progress-list-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-68-components-containers-progress-list-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-68-components-containers-progress-list-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-68-components-containers-progress-list-subcomponents" class="tg tg-subcomponents" type="checkbox" hidden />
+  <input id="c-68-components-containers-progress-list-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -31080,10 +31673,10 @@ status?: &quot;current&quot; | &quot;completed&quot;</code></pre>
     <div class="title">
       <h2><span class="status-dot dot-err"></span> ProjectPage</h2>
       <div class="badges">
-        <label for="c-68-pages-public-project-page-err" class="badge err as-toggle">API error</label>
-        <label for="c-68-pages-public-project-page-info" class="badge info as-toggle">1 info</label>
-        <label for="c-68-pages-public-project-page-stories" class="badge ok as-toggle">2 stories · 2 incomplete</label>
-        <label for="c-68-pages-public-project-page-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-69-pages-public-project-page-err" class="badge err as-toggle">API error</label>
+        <label for="c-69-pages-public-project-page-info" class="badge info as-toggle">1 info</label>
+        <label for="c-69-pages-public-project-page-stories" class="badge ok as-toggle">2 stories · 2 incomplete</label>
+        <label for="c-69-pages-public-project-page-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -31094,10 +31687,10 @@ status?: &quot;current&quot; | &quot;completed&quot;</code></pre>
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-68-pages-public-project-page-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-68-pages-public-project-page-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-68-pages-public-project-page-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-68-pages-public-project-page-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-69-pages-public-project-page-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-69-pages-public-project-page-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-69-pages-public-project-page-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-69-pages-public-project-page-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -33706,8 +34299,8 @@ Images that illustrate what the text already describes take an empty `alt`.
       <div class="badges">
         <span class="badge">no API description</span>
         
-        <label for="c-69-utilities-css-prose-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-69-utilities-css-prose-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-70-utilities-css-prose-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-70-utilities-css-prose-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -33720,8 +34313,8 @@ Images that illustrate what the text already describes take an empty `alt`.
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-69-utilities-css-prose-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-69-utilities-css-prose-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-70-utilities-css-prose-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-70-utilities-css-prose-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -33969,8 +34562,8 @@ import * as ProseStories from &quot;./Prose.stories.tsx&quot;;
       <div class="badges">
         <span class="badge">no API description</span>
         
-        <label for="c-70-utilities-css-query-container-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-70-utilities-css-query-container-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-71-utilities-css-query-container-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-71-utilities-css-query-container-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -33983,8 +34576,8 @@ import * as ProseStories from &quot;./Prose.stories.tsx&quot;;
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-70-utilities-css-query-container-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-70-utilities-css-query-container-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-71-utilities-css-query-container-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-71-utilities-css-query-container-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -34086,10 +34679,10 @@ import * as QueryContainerStories from &quot;./QueryContainer.stories.tsx&quot;;
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> Radio</h2>
       <div class="badges">
-        <label for="c-71-components-forms-radio-props" class="badge ok as-toggle">2 prop types</label>
+        <label for="c-72-components-forms-radio-props" class="badge ok as-toggle">2 prop types</label>
         
-        <label for="c-71-components-forms-radio-stories" class="badge ok as-toggle">5 stories</label>
-        <label for="c-71-components-forms-radio-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-72-components-forms-radio-stories" class="badge ok as-toggle">5 stories</label>
+        <label for="c-72-components-forms-radio-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -34102,10 +34695,10 @@ import * as QueryContainerStories from &quot;./QueryContainer.stories.tsx&quot;;
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-71-components-forms-radio-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-71-components-forms-radio-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-72-components-forms-radio-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-72-components-forms-radio-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-71-components-forms-radio-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-72-components-forms-radio-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -34450,10 +35043,10 @@ Marking every Radio in a failed group as invalid — as ‘How to use’ asks �
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> Row</h2>
       <div class="badges">
-        <label for="c-72-components-layout-row-props" class="badge ok as-toggle">5 prop types</label>
+        <label for="c-73-components-layout-row-props" class="badge ok as-toggle">5 prop types</label>
         
-        <label for="c-72-components-layout-row-stories" class="badge ok as-toggle">7 stories</label>
-        <label for="c-72-components-layout-row-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-73-components-layout-row-stories" class="badge ok as-toggle">7 stories</label>
+        <label for="c-73-components-layout-row-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -34466,10 +35059,10 @@ Marking every Radio in a failed group as invalid — as ‘How to use’ asks �
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-72-components-layout-row-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-72-components-layout-row-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-73-components-layout-row-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-73-components-layout-row-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-72-components-layout-row-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-73-components-layout-row-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -34774,11 +35367,11 @@ Alignment never changes that order.
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> SearchField</h2>
       <div class="badges">
-        <label for="c-73-components-forms-search-field-props" class="badge ok as-toggle">1 prop type</label>
+        <label for="c-74-components-forms-search-field-props" class="badge ok as-toggle">1 prop type</label>
         
-        <label for="c-73-components-forms-search-field-stories" class="badge ok as-toggle">4 stories</label>
-        <label for="c-73-components-forms-search-field-docs" class="badge ok as-toggle">1 doc</label>
-        <label for="c-73-components-forms-search-field-subcomponents" class="badge ok as-toggle">2 subcomponents</label>
+        <label for="c-74-components-forms-search-field-stories" class="badge ok as-toggle">4 stories</label>
+        <label for="c-74-components-forms-search-field-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-74-components-forms-search-field-subcomponents" class="badge ok as-toggle">2 subcomponents</label>
       </div>
     </div>
     <div class="meta" title="./src/components/SearchField/SearchField.stories.tsx">components-forms-search-field · ./src/components/SearchField/SearchField.stories.tsx</div>
@@ -34790,10 +35383,10 @@ Alignment never changes that order.
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-73-components-forms-search-field-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-73-components-forms-search-field-docs" class="tg tg-docs" type="checkbox" hidden />
-  <input id="c-73-components-forms-search-field-subcomponents" class="tg tg-subcomponents" type="checkbox" hidden />
-  <input id="c-73-components-forms-search-field-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-74-components-forms-search-field-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-74-components-forms-search-field-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-74-components-forms-search-field-subcomponents" class="tg tg-subcomponents" type="checkbox" hidden />
+  <input id="c-74-components-forms-search-field-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -35128,10 +35721,10 @@ label?: string = &#39;Zoeken&#39;</code></pre>
     <div class="title">
       <h2><span class="status-dot dot-err"></span> SearchResultsPage</h2>
       <div class="badges">
-        <label for="c-74-pages-public-search-results-page-err" class="badge err as-toggle">API error</label>
-        <label for="c-74-pages-public-search-results-page-info" class="badge info as-toggle">1 info</label>
-        <label for="c-74-pages-public-search-results-page-stories" class="badge ok as-toggle">1 story · 1 incomplete</label>
-        <label for="c-74-pages-public-search-results-page-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-75-pages-public-search-results-page-err" class="badge err as-toggle">API error</label>
+        <label for="c-75-pages-public-search-results-page-info" class="badge info as-toggle">1 info</label>
+        <label for="c-75-pages-public-search-results-page-stories" class="badge ok as-toggle">1 story · 1 incomplete</label>
+        <label for="c-75-pages-public-search-results-page-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -35142,10 +35735,10 @@ label?: string = &#39;Zoeken&#39;</code></pre>
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-74-pages-public-search-results-page-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-74-pages-public-search-results-page-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-74-pages-public-search-results-page-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-74-pages-public-search-results-page-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-75-pages-public-search-results-page-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-75-pages-public-search-results-page-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-75-pages-public-search-results-page-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-75-pages-public-search-results-page-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -35755,10 +36348,10 @@ Highlighting the term inside it leaves the name the link is announced with uncha
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> Select</h2>
       <div class="badges">
-        <label for="c-75-components-forms-select-props" class="badge ok as-toggle">1 prop type</label>
+        <label for="c-76-components-forms-select-props" class="badge ok as-toggle">1 prop type</label>
         
-        <label for="c-75-components-forms-select-stories" class="badge ok as-toggle">6 stories</label>
-        <label for="c-75-components-forms-select-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-76-components-forms-select-stories" class="badge ok as-toggle">6 stories</label>
+        <label for="c-76-components-forms-select-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -35771,10 +36364,10 @@ Highlighting the term inside it leaves the name the link is announced with uncha
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-75-components-forms-select-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-75-components-forms-select-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-76-components-forms-select-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-76-components-forms-select-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-75-components-forms-select-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-76-components-forms-select-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -36090,9 +36683,9 @@ A disabled option is greyed but still announced, so the user hears that a choice
       <div class="badges">
         <span class="badge">no API description</span>
         
-        <label for="c-76-components-feedback-skeleton-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-76-components-feedback-skeleton-docs" class="badge ok as-toggle">1 doc</label>
-        <label for="c-76-components-feedback-skeleton-subcomponents" class="badge ok as-toggle">5 subcomponents</label>
+        <label for="c-77-components-feedback-skeleton-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-77-components-feedback-skeleton-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-77-components-feedback-skeleton-subcomponents" class="badge ok as-toggle">5 subcomponents</label>
       </div>
     </div>
     <div class="meta" title="./src/components/Skeleton/Skeleton.stories.tsx">components-feedback-skeleton · ./src/components/Skeleton/Skeleton.stories.tsx</div>
@@ -36105,9 +36698,9 @@ Compose its parts to mirror the content to come, so the layout barely shifts onc
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-76-components-feedback-skeleton-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-76-components-feedback-skeleton-docs" class="tg tg-docs" type="checkbox" hidden />
-  <input id="c-76-components-feedback-skeleton-subcomponents" class="tg tg-subcomponents" type="checkbox" hidden />
+  <input id="c-77-components-feedback-skeleton-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-77-components-feedback-skeleton-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-77-components-feedback-skeleton-subcomponents" class="tg tg-subcomponents" type="checkbox" hidden />
   
 
   <div class="panels">
@@ -36445,10 +37038,10 @@ rows?: number = 3</code></pre>
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> SkipLink</h2>
       <div class="badges">
-        <label for="c-77-components-navigation-skip-link-props" class="badge ok as-toggle">1 prop type</label>
+        <label for="c-78-components-navigation-skip-link-props" class="badge ok as-toggle">1 prop type</label>
         
-        <label for="c-77-components-navigation-skip-link-stories" class="badge ok as-toggle">3 stories</label>
-        <label for="c-77-components-navigation-skip-link-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-78-components-navigation-skip-link-stories" class="badge ok as-toggle">3 stories</label>
+        <label for="c-78-components-navigation-skip-link-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -36461,10 +37054,10 @@ rows?: number = 3</code></pre>
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-77-components-navigation-skip-link-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-77-components-navigation-skip-link-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-78-components-navigation-skip-link-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-78-components-navigation-skip-link-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-77-components-navigation-skip-link-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-78-components-navigation-skip-link-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -36665,10 +37258,10 @@ The [Utrecht design system](https://github.com/nl-design-system/utrecht/blob/mai
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> Spotlight</h2>
       <div class="badges">
-        <label for="c-78-components-containers-spotlight-props" class="badge ok as-toggle">2 prop types</label>
+        <label for="c-79-components-containers-spotlight-props" class="badge ok as-toggle">2 prop types</label>
         
-        <label for="c-78-components-containers-spotlight-stories" class="badge ok as-toggle">2 stories</label>
-        <label for="c-78-components-containers-spotlight-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-79-components-containers-spotlight-stories" class="badge ok as-toggle">2 stories</label>
+        <label for="c-79-components-containers-spotlight-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -36681,10 +37274,10 @@ The [Utrecht design system](https://github.com/nl-design-system/utrecht/blob/mai
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-78-components-containers-spotlight-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-78-components-containers-spotlight-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-79-components-containers-spotlight-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-79-components-containers-spotlight-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-78-components-containers-spotlight-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-79-components-containers-spotlight-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -36897,10 +37490,10 @@ Which foreground colour to use depends on the highlight colour behind it, since 
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> StandaloneLink</h2>
       <div class="badges">
-        <label for="c-79-components-navigation-standalone-link-props" class="badge ok as-toggle">3 prop types</label>
+        <label for="c-80-components-navigation-standalone-link-props" class="badge ok as-toggle">3 prop types</label>
         
-        <label for="c-79-components-navigation-standalone-link-stories" class="badge ok as-toggle">5 stories</label>
-        <label for="c-79-components-navigation-standalone-link-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-80-components-navigation-standalone-link-stories" class="badge ok as-toggle">5 stories</label>
+        <label for="c-80-components-navigation-standalone-link-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -36913,10 +37506,10 @@ Which foreground colour to use depends on the highlight colour behind it, since 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-79-components-navigation-standalone-link-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-79-components-navigation-standalone-link-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-80-components-navigation-standalone-link-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-80-components-navigation-standalone-link-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-79-components-navigation-standalone-link-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-80-components-navigation-standalone-link-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -37145,8 +37738,8 @@ This is what makes dropping the underline safe here, where an inline [Link](/doc
       <div class="badges">
         <span class="badge">no API description</span>
         
-        <label for="c-80-components-forms-switch-stories" class="badge ok as-toggle">3 stories</label>
-        <label for="c-80-components-forms-switch-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-81-components-forms-switch-stories" class="badge ok as-toggle">3 stories</label>
+        <label for="c-81-components-forms-switch-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -37159,8 +37752,8 @@ This is what makes dropping the underline safe here, where an inline [Link](/doc
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-80-components-forms-switch-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-80-components-forms-switch-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-81-components-forms-switch-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-81-components-forms-switch-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -37360,9 +37953,9 @@ Its focus ring is moved onto the track so the ring surrounds the switch rather t
       <div class="badges">
         <span class="badge">no API description</span>
         
-        <label for="c-81-components-containers-table-stories" class="badge ok as-toggle">4 stories</label>
-        <label for="c-81-components-containers-table-docs" class="badge ok as-toggle">1 doc</label>
-        <label for="c-81-components-containers-table-subcomponents" class="badge ok as-toggle">2 subcomponents</label>
+        <label for="c-82-components-containers-table-stories" class="badge ok as-toggle">4 stories</label>
+        <label for="c-82-components-containers-table-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-82-components-containers-table-subcomponents" class="badge ok as-toggle">2 subcomponents</label>
       </div>
     </div>
     <div class="meta" title="./src/components/Table/Table.stories.tsx">components-containers-table · ./src/components/Table/Table.stories.tsx</div>
@@ -37374,9 +37967,9 @@ Its focus ring is moved onto the track so the ring surrounds the switch rather t
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-81-components-containers-table-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-81-components-containers-table-docs" class="tg tg-docs" type="checkbox" hidden />
-  <input id="c-81-components-containers-table-subcomponents" class="tg tg-subcomponents" type="checkbox" hidden />
+  <input id="c-82-components-containers-table-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-82-components-containers-table-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-82-components-containers-table-subcomponents" class="tg tg-subcomponents" type="checkbox" hidden />
   
 
   <div class="panels">
@@ -37612,6 +38205,15 @@ Use the `align` prop to match the alignment of the column’s cells.
 
 ## Usage guidelines
 
+### When to use
+
+Use a Table to compare several subjects, such as people, objects or concepts, by the same properties.
+Each row holds one subject and each column one property.
+
+### When not to use
+
+Use a [Data List](/docs/components-containers-data-list--docs) to show the properties of a single subject.
+
 ### How to use
 
 Use [Margin](/docs/utilities-css-margin--docs) or [Prose](/docs/utilities-css-prose--docs) to add vertical whitespace.
@@ -37674,6 +38276,7 @@ The container that scrolls is a focusable group, which keeps the columns past it
 
 ## See also
 
+- [Data List](/docs/components-containers-data-list--docs) – presents the data of one subject, which needs no comparison across rows.
 - [Prose](/docs/utilities-css-prose--docs) – applies the recommended vertical spacing for editorial content.
 - [Table Page](/docs/pages-internal-table-page--docs) – various templates for large data tables in internal websites.
 
@@ -37748,11 +38351,11 @@ align?: &quot;center&quot; | &quot;end&quot;</code></pre>
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> TableOfContents</h2>
       <div class="badges">
-        <label for="c-82-components-navigation-table-of-contents-props" class="badge ok as-toggle">5 prop types</label>
+        <label for="c-83-components-navigation-table-of-contents-props" class="badge ok as-toggle">5 prop types</label>
         
-        <label for="c-82-components-navigation-table-of-contents-stories" class="badge ok as-toggle">5 stories</label>
-        <label for="c-82-components-navigation-table-of-contents-docs" class="badge ok as-toggle">1 doc</label>
-        <label for="c-82-components-navigation-table-of-contents-subcomponents" class="badge ok as-toggle">1 subcomponent</label>
+        <label for="c-83-components-navigation-table-of-contents-stories" class="badge ok as-toggle">5 stories</label>
+        <label for="c-83-components-navigation-table-of-contents-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-83-components-navigation-table-of-contents-subcomponents" class="badge ok as-toggle">1 subcomponent</label>
       </div>
     </div>
     <div class="meta" title="./src/components/TableOfContents/TableOfContents.stories.tsx">components-navigation-table-of-contents · ./src/components/TableOfContents/TableOfContents.stories.tsx</div>
@@ -37764,10 +38367,10 @@ align?: &quot;center&quot; | &quot;end&quot;</code></pre>
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-82-components-navigation-table-of-contents-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-82-components-navigation-table-of-contents-docs" class="tg tg-docs" type="checkbox" hidden />
-  <input id="c-82-components-navigation-table-of-contents-subcomponents" class="tg tg-subcomponents" type="checkbox" hidden />
-  <input id="c-82-components-navigation-table-of-contents-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-83-components-navigation-table-of-contents-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-83-components-navigation-table-of-contents-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-83-components-navigation-table-of-contents-subcomponents" class="tg tg-subcomponents" type="checkbox" hidden />
+  <input id="c-83-components-navigation-table-of-contents-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -38185,8 +38788,8 @@ onToggle?: (expanded: boolean) =&gt; void</code></pre>
       <div class="badges">
         <span class="badge">no API description</span>
         
-        <label for="c-83-pages-internal-table-page-stories" class="badge ok as-toggle">2 stories · 2 incomplete</label>
-        <label for="c-83-pages-internal-table-page-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-84-pages-internal-table-page-stories" class="badge ok as-toggle">2 stories · 2 incomplete</label>
+        <label for="c-84-pages-internal-table-page-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -38199,8 +38802,8 @@ onToggle?: (expanded: boolean) =&gt; void</code></pre>
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-83-pages-internal-table-page-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-83-pages-internal-table-page-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-84-pages-internal-table-page-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-84-pages-internal-table-page-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -38445,11 +39048,11 @@ The heading text is duplicated for assistive technology; this is the trade-off f
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> TabNavigation</h2>
       <div class="badges">
-        <label for="c-84-components-navigation-tab-navigation-props" class="badge ok as-toggle">3 prop types</label>
+        <label for="c-85-components-navigation-tab-navigation-props" class="badge ok as-toggle">3 prop types</label>
         
-        <label for="c-84-components-navigation-tab-navigation-stories" class="badge ok as-toggle">4 stories</label>
-        <label for="c-84-components-navigation-tab-navigation-docs" class="badge ok as-toggle">1 doc</label>
-        <label for="c-84-components-navigation-tab-navigation-subcomponents" class="badge ok as-toggle">1 subcomponent</label>
+        <label for="c-85-components-navigation-tab-navigation-stories" class="badge ok as-toggle">4 stories</label>
+        <label for="c-85-components-navigation-tab-navigation-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-85-components-navigation-tab-navigation-subcomponents" class="badge ok as-toggle">1 subcomponent</label>
       </div>
     </div>
     <div class="meta" title="./src/components/TabNavigation/TabNavigation.stories.tsx">components-navigation-tab-navigation · ./src/components/TabNavigation/TabNavigation.stories.tsx</div>
@@ -38461,10 +39064,10 @@ The heading text is duplicated for assistive technology; this is the trade-off f
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-84-components-navigation-tab-navigation-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-84-components-navigation-tab-navigation-docs" class="tg tg-docs" type="checkbox" hidden />
-  <input id="c-84-components-navigation-tab-navigation-subcomponents" class="tg tg-subcomponents" type="checkbox" hidden />
-  <input id="c-84-components-navigation-tab-navigation-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-85-components-navigation-tab-navigation-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-85-components-navigation-tab-navigation-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-85-components-navigation-tab-navigation-subcomponents" class="tg tg-subcomponents" type="checkbox" hidden />
+  <input id="c-85-components-navigation-tab-navigation-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -38819,11 +39422,11 @@ linkComponent?: ElementType | undefined</code></pre>
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> Tabs</h2>
       <div class="badges">
-        <label for="c-85-components-containers-tabs-props" class="badge ok as-toggle">2 prop types</label>
+        <label for="c-86-components-containers-tabs-props" class="badge ok as-toggle">2 prop types</label>
         
-        <label for="c-85-components-containers-tabs-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-85-components-containers-tabs-docs" class="badge ok as-toggle">1 doc</label>
-        <label for="c-85-components-containers-tabs-subcomponents" class="badge ok as-toggle">2 subcomponents</label>
+        <label for="c-86-components-containers-tabs-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-86-components-containers-tabs-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-86-components-containers-tabs-subcomponents" class="badge ok as-toggle">2 subcomponents</label>
       </div>
     </div>
     <div class="meta" title="./src/components/Tabs/Tabs.stories.tsx">components-containers-tabs · ./src/components/Tabs/Tabs.stories.tsx</div>
@@ -38835,10 +39438,10 @@ linkComponent?: ElementType | undefined</code></pre>
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-85-components-containers-tabs-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-85-components-containers-tabs-docs" class="tg tg-docs" type="checkbox" hidden />
-  <input id="c-85-components-containers-tabs-subcomponents" class="tg tg-subcomponents" type="checkbox" hidden />
-  <input id="c-85-components-containers-tabs-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-86-components-containers-tabs-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-86-components-containers-tabs-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-86-components-containers-tabs-subcomponents" class="tg tg-subcomponents" type="checkbox" hidden />
+  <input id="c-86-components-containers-tabs-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -39107,10 +39710,10 @@ id: string</code></pre>
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> TextArea</h2>
       <div class="badges">
-        <label for="c-86-components-forms-text-area-props" class="badge ok as-toggle">2 prop types</label>
+        <label for="c-87-components-forms-text-area-props" class="badge ok as-toggle">2 prop types</label>
         
-        <label for="c-86-components-forms-text-area-stories" class="badge ok as-toggle">8 stories</label>
-        <label for="c-86-components-forms-text-area-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-87-components-forms-text-area-stories" class="badge ok as-toggle">8 stories</label>
+        <label for="c-87-components-forms-text-area-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -39123,10 +39726,10 @@ id: string</code></pre>
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-86-components-forms-text-area-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-86-components-forms-text-area-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-87-components-forms-text-area-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-87-components-forms-text-area-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-86-components-forms-text-area-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-87-components-forms-text-area-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -39414,10 +40017,10 @@ The invalid styling responds to `aria-invalid=&quot;true&quot;` and to the brows
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> TextInput</h2>
       <div class="badges">
-        <label for="c-87-components-forms-text-input-props" class="badge ok as-toggle">2 prop types</label>
+        <label for="c-88-components-forms-text-input-props" class="badge ok as-toggle">2 prop types</label>
         
-        <label for="c-87-components-forms-text-input-stories" class="badge ok as-toggle">11 stories</label>
-        <label for="c-87-components-forms-text-input-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-88-components-forms-text-input-stories" class="badge ok as-toggle">11 stories</label>
+        <label for="c-88-components-forms-text-input-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -39430,10 +40033,10 @@ The invalid styling responds to `aria-invalid=&quot;true&quot;` and to the brows
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-87-components-forms-text-input-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-87-components-forms-text-input-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-88-components-forms-text-input-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-88-components-forms-text-input-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-87-components-forms-text-input-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-88-components-forms-text-input-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -39915,10 +40518,10 @@ Placeholder text is styled but not recommended, and it is not a label: it disapp
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> TimeInput</h2>
       <div class="badges">
-        <label for="c-88-components-forms-time-input-props" class="badge ok as-toggle">1 prop type</label>
+        <label for="c-89-components-forms-time-input-props" class="badge ok as-toggle">1 prop type</label>
         
-        <label for="c-88-components-forms-time-input-stories" class="badge ok as-toggle">5 stories</label>
-        <label for="c-88-components-forms-time-input-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-89-components-forms-time-input-stories" class="badge ok as-toggle">5 stories</label>
+        <label for="c-89-components-forms-time-input-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -39931,10 +40534,10 @@ Placeholder text is styled but not recommended, and it is not a label: it disapp
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-88-components-forms-time-input-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-88-components-forms-time-input-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-89-components-forms-time-input-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-89-components-forms-time-input-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-88-components-forms-time-input-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-89-components-forms-time-input-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -40158,10 +40761,10 @@ The invalid styling responds to `aria-invalid=&quot;true&quot;` and to the brows
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> TopNavigationPage</h2>
       <div class="badges">
-        <label for="c-89-pages-internal-top-navigation-page-props" class="badge ok as-toggle">1 prop type</label>
+        <label for="c-90-pages-internal-top-navigation-page-props" class="badge ok as-toggle">1 prop type</label>
         
-        <label for="c-89-pages-internal-top-navigation-page-stories" class="badge ok as-toggle">2 stories</label>
-        <label for="c-89-pages-internal-top-navigation-page-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-90-pages-internal-top-navigation-page-stories" class="badge ok as-toggle">2 stories</label>
+        <label for="c-90-pages-internal-top-navigation-page-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -40174,10 +40777,10 @@ The invalid styling responds to `aria-invalid=&quot;true&quot;` and to the brows
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-89-pages-internal-top-navigation-page-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-89-pages-internal-top-navigation-page-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-90-pages-internal-top-navigation-page-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-90-pages-internal-top-navigation-page-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-89-pages-internal-top-navigation-page-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-90-pages-internal-top-navigation-page-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -40456,10 +41059,10 @@ The [Skip Link](/docs/components-navigation-skip-link--docs) targets the content
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> UnorderedList</h2>
       <div class="badges">
-        <label for="c-90-components-text-unordered-list-props" class="badge ok as-toggle">3 prop types</label>
+        <label for="c-91-components-text-unordered-list-props" class="badge ok as-toggle">3 prop types</label>
         
-        <label for="c-90-components-text-unordered-list-stories" class="badge ok as-toggle">4 stories</label>
-        <label for="c-90-components-text-unordered-list-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-91-components-text-unordered-list-stories" class="badge ok as-toggle">4 stories</label>
+        <label for="c-91-components-text-unordered-list-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -40472,10 +41075,10 @@ The [Skip Link](/docs/components-navigation-skip-link--docs) targets the content
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-90-components-text-unordered-list-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-90-components-text-unordered-list-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-91-components-text-unordered-list-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-91-components-text-unordered-list-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-90-components-text-unordered-list-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-91-components-text-unordered-list-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -40714,8 +41317,8 @@ That is the point of the variant: the grouping still reaches assistive technolog
       <div class="badges">
         <span class="badge">no API description</span>
         
-        <label for="c-91-utilities-css-visually-hidden-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-91-utilities-css-visually-hidden-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-92-utilities-css-visually-hidden-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-92-utilities-css-visually-hidden-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -40728,8 +41331,8 @@ That is the point of the variant: the grouping still reaches assistive technolog
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-91-utilities-css-visually-hidden-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-91-utilities-css-visually-hidden-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-92-utilities-css-visually-hidden-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-92-utilities-css-visually-hidden-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -58621,13 +59224,13 @@ Faster and cheaper to build and iterate with.
 
 &lt;InlineList&gt;
   &lt;InlineList.Item&gt;
-    &lt;strong&gt;68&lt;/strong&gt; components
+    &lt;strong&gt;70&lt;/strong&gt; components
   &lt;/InlineList.Item&gt;
   &lt;InlineList.Item&gt;
     &lt;strong&gt;220+&lt;/strong&gt; icons
   &lt;/InlineList.Item&gt;
   &lt;InlineList.Item&gt;
-    &lt;strong&gt;1300+&lt;/strong&gt; design tokens
+    &lt;strong&gt;1400+&lt;/strong&gt; design tokens
   &lt;/InlineList.Item&gt;
   &lt;InlineList.Item&gt;
     &lt;strong&gt;35&lt;/strong&gt; templates
@@ -58636,7 +59239,7 @@ Faster and cheaper to build and iterate with.
     &lt;strong&gt;3&lt;/strong&gt; modes
   &lt;/InlineList.Item&gt;
   &lt;InlineList.Item&gt;
-    &lt;strong&gt;1500+&lt;/strong&gt; tests
+    &lt;strong&gt;1700+&lt;/strong&gt; tests
   &lt;/InlineList.Item&gt;
 &lt;/InlineList&gt;
 
@@ -60270,13 +60873,13 @@ This replaces the deprecated `legacyBehavior` and `passHref` props, which are no
 
 ## React Router
 
-For React Router, wrap [the useLinkClickHandler hook](https://reactrouter.com/en/main/hooks/use-link-click-handler) in a hook that returns a link component, like so:
+For React Router, wrap [the useLinkClickHandler hook](https://reactrouter.com/api/hooks/useLinkClickHandler) in a hook that returns a link component, like so:
 
 {/* prettier-ignore */}
 ```jsx
 import { Link } from &quot;@amsterdam/design-system-react&quot;
 import { useCallback } from &quot;react&quot;
-import { useHref, useLinkClickHandler } from &quot;react-router-dom&quot;
+import { useHref, useLinkClickHandler } from &quot;react-router&quot;
 
 const useReactRouterLink = (to) =&gt; {
   const href = useHref(to)
