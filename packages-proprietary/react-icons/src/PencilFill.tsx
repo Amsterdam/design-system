@@ -7,7 +7,7 @@ const SvgPencilFill = (props: SVGProps<SVGSVGElement>) => (
 )
 
 /**
- * @deprecated The ‘PencilFill’ icon will be removed on or after 2027-04-02.
+ * @deprecated The ‘PencilFill’ icon will be removed on or after 2027-04-25.
  * Use ‘EditFill’ instead.
  */
 export default SvgPencilFill
