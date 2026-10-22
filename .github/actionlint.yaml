@@ -1,0 +1,7 @@
+# @license EUPL-1.2+
+# Copyright Gemeente Amsterdam
+
+paths:
+  .github/workflows/{deploy-acceptance-storybook,deploy-production-storybook,remove-acceptance-storybook,remove-stale-demo-directories}.yml:
+    ignore:
+      - '^unexpected key "queue" for "concurrency" section\. expected one of "cancel-in-progress", "group"$'

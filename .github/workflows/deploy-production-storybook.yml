@@ -5,18 +5,14 @@ on:
     branches: [main]
 
 permissions:
-  contents: write
-
-# A newer push to main supersedes the one in flight, so cancel stale runs to
-# avoid blocking deployment of the latest release.
-concurrency:
-  group: deploy-production-storybook-${{ github.ref }}
-  cancel-in-progress: true
+  contents: read
 
 jobs:
-  build-and-deploy:
+  build:
+    concurrency:
+      group: build-production-storybook-${{ github.ref }}
+      cancel-in-progress: true
     runs-on: ubuntu-latest
-    # A hung run would hold the concurrency lock above and block deploys of newer commits.
     timeout-minutes: 30
 
     steps:
@@ -38,11 +34,51 @@ jobs:
       - name: Build packages and Storybook
         run: pnpm build
 
+      - name: Upload Storybook build
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: production-storybook
+          path: storybook/dist
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 1
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+    concurrency:
+      group: gh-pages-writes
+      queue: max
+      cancel-in-progress: false
+    env:
+      RAW_BRANCH_NAME: ${{ github.ref_name }}
+      SOURCE_SHA: ${{ github.sha }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - name: Check out repository for guard script and deploy action
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Check production is still current
+        id: current
+        run: python3 .github/scripts/check_pages_operation.py production
+
+      - name: Download Storybook build
+        if: steps.current.outputs.allowed == 'true'
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: production-storybook
+          path: storybook/dist
+
       - name: Deploy to GitHub Pages
+        if: steps.current.outputs.allowed == 'true'
         uses: JamesIves/github-pages-deploy-action@fa24774553152dd7873cd16ebd8d959b010c5445 # v4.9.0
         with:
           branch: gh-pages
           folder: storybook/dist
+          force: false
           # feature branch directories are prefixed with demo-*
           # these are excluded from this action's default clean
           clean-exclude: demo-*
