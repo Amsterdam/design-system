@@ -94,6 +94,26 @@ All three decide what is stale the same way: a `demo-X` item is stale when no re
 They default to a dry run and apply a grace window so an in-flight deploy is never raced into deletion.
 The supporting scripts live in [`.github/scripts`](../scripts).
 
+## Serialising GitHub Pages writes
+
+Acceptance deployment, production deployment, PR-close deletion and stale-directory cleanup all write to the same `gh-pages` ref.
+They take turns so one job cannot overwrite another job's changes.
+Builds still run in parallel; only publishing and removal wait for each other, and newer builds do not interrupt a write already in progress.
+Deployments do not force-push, production preserves previews, and cleanup is safe to repeat when a directory is already absent.
+
+[`check_pages_operation.py`](../scripts/check_pages_operation.py) checks whether a queued deployment or removal is still needed.
+It prevents older builds from replacing newer previews, closed PRs from being redeployed, and reopened previews from being removed by an earlier close event.
+A push to a branch whose newest PR is closed therefore does not deploy; the run stays green and shows a notice.
+It uses only Python's standard library and reads GitHub state; API errors stop the job rather than risk an incorrect change.
+Its [unit tests](../scripts/test_check_pages_operation.py) run in **Check workflows** without contacting GitHub.
+
+When changing these workflows, keep every `gh-pages` writer in the shared `gh-pages-writes` group, covering checkout through push.
+Keep `queue: max` and `cancel-in-progress: false`: the default queue can discard waiting jobs for unrelated branches.
+GitHub allows up to 100 waiting jobs; if a job fails or is cancelled, check its log and start a current workflow again when appropriate.
+
+[`.github/actionlint.yaml`](../actionlint.yaml) handles a temporary compatibility gap: actionlint 1.7.12 does not yet recognise GitHub's supported `queue` setting.
+It ignores only that specific diagnostic in the four writer workflows; remove the exception when actionlint supports the setting.
+
 ## Notes and gotchas
 
 - **Publish depends on the name “Check build and tests”.**
