@@ -12,7 +12,7 @@ const SvgPencil = (props: SVGProps<SVGSVGElement>) => (
 )
 
 /**
- * @deprecated The ‘Pencil’ icon will be removed on or after 2027-04-02.
+ * @deprecated The ‘Pencil’ icon will be removed on or after 2027-04-25.
  * Use ‘Edit’ instead.
  */
 export default SvgPencil
