@@ -51,7 +51,7 @@ export const InAFieldSet: Story = {
   ),
 }
 
-export const InAFieldSetWithValidation: Story = {
+export const WithValidation: Story = {
   args: {
     autoComplete: 'birth-date',
   },
