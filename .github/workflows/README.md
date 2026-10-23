@@ -17,23 +17,23 @@ Changes reach `main` through a release pull request, which is what triggers the 
 
 ## At a glance
 
-| Workflow                      | Runs when                                                      | Responsible for                                                                                                                            |
-| :---------------------------- | :------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------- |
-| Check build and tests         | Every pull request; push to `main`                             | Build all packages, then run the linters and unit tests. The main quality gate.                                                            |
-| Check visual regressions      | Pull request opened or marked ready; `/chromatic test` comment | Visual regression snapshots through Chromatic.                                                                                             |
-| Check test coverage           | Every pull request                                             | Run the React tests with coverage and post a summary comment.                                                                              |
-| Check bundle size             | Every pull request                                             | Report the compressed size change of the published bundles.                                                                                |
-| Check PR title                | Pull request opened, edited, or synchronized                   | Enforce a Conventional Commit title (`feat`, `fix`, `chore`) so release-please can read it.                                                |
-| Check workflows               | Every pull request                                             | Lint the Actions workflow files themselves with actionlint, including shellcheck on their `run:` scripts.                                  |
-| Deploy acceptance Chromatic   | Push to `develop`                                              | Publish Storybook to Chromatic and accept the snapshots, keeping the baseline on the integration branch current.                           |
-| Deploy acceptance Storybook   | Push to any branch except `main`; pull request reopened        | Build Storybook and publish a per-branch preview to `gh-pages` under `demo-<branch>`. Records a GitHub Deployment and Environment.         |
-| Deploy production Storybook   | Push to `main`                                                 | Build Storybook and publish the live documentation site to the `gh-pages` root.                                                            |
-| Deploy production Chromatic   | Push to `main`                                                 | Publish Storybook to Chromatic and auto-accept the snapshots as the new baseline, keeping the public permalink and its MCP server in sync. |
-| Publish packages              | After “Check build and tests” succeeds on `main`               | Run release-please; if it cuts a release, build and publish the packages to npm.                                                           |
-| Remove acceptance Storybook   | Pull request closed (base is not `main`)                       | Delete that branch’s `demo-<branch>` directory and deactivate its Deployment.                                                              |
-| Remove stale deployments      | Weekly, Sunday 05:00 UTC; manual                               | Delete GitHub Deployment records for `demo-*` whose branch no longer exists.                                                               |
-| Remove stale environments     | Weekly, Sunday 04:00 UTC; manual                               | Delete `demo-*` GitHub Environments whose branch no longer exists.                                                                         |
-| Remove stale demo directories | After a major release; manual                                  | Remove stale `demo-*` directories from the `gh-pages` branch.                                                                              |
+| Workflow                      | Runs when                                                         | Responsible for                                                                                                                            |
+| :---------------------------- | :---------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------- |
+| Check build and tests         | Every pull request; push to `main`                                | Build all packages, then run the linters and unit tests. The main quality gate.                                                            |
+| Check visual regressions      | Pull request opened or marked ready; `/chromatic test` comment    | Visual regression snapshots through Chromatic.                                                                                             |
+| Check test coverage           | Every pull request                                                | Run the React tests with coverage and post a summary comment.                                                                              |
+| Check bundle size             | Every pull request                                                | Report the compressed size change of the published bundles.                                                                                |
+| Check PR title                | Pull request opened, edited, or synchronized                      | Enforce a Conventional Commit title (`feat`, `fix`, `chore`) so release-please can read it.                                                |
+| Check workflows               | Every pull request                                                | Lint the Actions workflow files themselves with actionlint, including shellcheck on their `run:` scripts.                                  |
+| Deploy acceptance Chromatic   | Push to `develop`                                                 | Publish Storybook to Chromatic and accept the snapshots, keeping the baseline on the integration branch current.                           |
+| Deploy acceptance Storybook   | Push to any branch except `main`; pull request opened or reopened | Build Storybook and publish a per-branch preview to `gh-pages` under `demo-<branch>`. Records a GitHub Deployment and Environment.         |
+| Deploy production Storybook   | Push to `main`                                                    | Build Storybook and publish the live documentation site to the `gh-pages` root.                                                            |
+| Deploy production Chromatic   | Push to `main`                                                    | Publish Storybook to Chromatic and auto-accept the snapshots as the new baseline, keeping the public permalink and its MCP server in sync. |
+| Publish packages              | After “Check build and tests” succeeds on `main`                  | Run release-please; if it cuts a release, build and publish the packages to npm.                                                           |
+| Remove acceptance Storybook   | Pull request closed (base is not `main`)                          | Delete that branch’s `demo-<branch>` directory and deactivate its Deployment.                                                              |
+| Remove stale deployments      | Weekly, Sunday 05:00 UTC; manual                                  | Delete GitHub Deployment records for `demo-*` whose branch no longer exists.                                                               |
+| Remove stale environments     | Weekly, Sunday 04:00 UTC; manual                                  | Delete `demo-*` GitHub Environments whose branch no longer exists.                                                                         |
+| Remove stale demo directories | After a major release; manual                                     | Remove stale `demo-*` directories from the `gh-pages` branch.                                                                              |
 
 ## How a change flows through them
 
@@ -45,6 +45,7 @@ The **Check** workflows run together and gate the merge.
 **Check workflows** lints the Actions workflow files themselves.
 
 At the same time, **Deploy acceptance Storybook** publishes a live Storybook preview for the branch at `demo-<branch>` on GitHub Pages.
+Pull request events only build previews for branches in this repository, not forks.
 
 ### Merging to `develop`
 
@@ -93,6 +94,27 @@ That is why there are three scheduled or release-driven removals rather than one
 All three decide what is stale the same way: a `demo-X` item is stale when no remote branch matches `X` after stripping the leading `<prefix>/` segment — exactly the transformation **Deploy acceptance Storybook** uses when it creates the preview.
 They default to a dry run and apply a grace window so an in-flight deploy is never raced into deletion.
 The supporting scripts live in [`.github/scripts`](../scripts).
+
+## Serialising GitHub Pages writes
+
+Acceptance deployment, production deployment, PR-close deletion and stale-directory cleanup all write to the same `gh-pages` ref.
+They take turns so one job cannot overwrite another job's changes.
+Builds still run in parallel; only publishing and removal wait for each other, and newer builds do not interrupt a write already in progress.
+Deployments do not force-push, production preserves previews, and cleanup is safe to repeat when a directory is already absent.
+
+[`check_pages_operation.py`](../scripts/check_pages_operation.py) checks whether a queued deployment or removal is still needed.
+It prevents older builds from replacing newer previews, closed PRs from being redeployed, and reopened previews from being removed by an earlier close event.
+A push to a branch whose newest PR is closed therefore does not deploy; the run stays green and shows a notice.
+Opening a replacement PR or reopening the closed PR triggers a fresh build and deployment, even if the preceding push was skipped.
+It uses only Python's standard library and reads GitHub state; API errors stop the job rather than risk an incorrect change.
+Its [unit tests](../scripts/test_check_pages_operation.py) run in **Check workflows** without contacting GitHub.
+
+When changing these workflows, keep every `gh-pages` writer in the shared `gh-pages-writes` group, covering checkout through push.
+Keep `queue: max` and `cancel-in-progress: false`: the default queue can discard waiting jobs for unrelated branches.
+GitHub allows up to 100 waiting jobs; if a job fails or is cancelled, check its log and start a current workflow again when appropriate.
+
+[`.github/actionlint.yaml`](../actionlint.yaml) handles a temporary compatibility gap: actionlint 1.7.12 does not yet recognise GitHub's supported `queue` setting.
+It ignores only that specific diagnostic in the four writer workflows; remove the exception when actionlint supports the setting.
 
 ## Notes and gotchas
 
