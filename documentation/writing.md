@@ -70,3 +70,9 @@ These patterns apply to every row of the table, whatever its line treatment.
 
 Where these rules say nothing, follow the [GOV.UK style guide](https://www.gov.uk/guidance/style-guide), which is also in British English.
 Where the two differ, these rules win.
+
+## Release announcements
+
+Slack and Teams release announcements are an exception: write in English with a fun, friendly, enthusiastic tone and emoji, and invite celebration and feedback.
+NL Design System discussion messages are another exception: write in Dutch with a friendly, helpful tone.
+See [where and when to announce a release](./publishing.md#announce-the-release).
