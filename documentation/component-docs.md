@@ -67,6 +67,12 @@ Sections are optional: omit any section that has no meaningful content for the c
 4. **Usage guidelines** – an H2 with up to four H3 subsections: ‘When to use’, ‘When not to use’, ‘How to use’, and ‘How to write’.
 5. **Examples** – an H2 with an H3 per variant.
    Each variant has a one-line caption above a `<Canvas of={…} />`.
+   Order the variants by kind, and keep the stories file in the same order:
+   1. the component’s own options, such as type, size or a hint;
+   2. states: invalid, then disabled;
+   3. use with other components, such as ‘In a Field’ or ‘In a Field Set’, directly followed by ‘With validation’;
+   4. translation;
+   5. integration and customisation, such as a controlled component or a custom icon.
 6. **Features** – what the component does for you out of the box: states, keyboard behaviour, responsive behaviour, validation, etc.
    Pair with a Canvas where the feature is visual.
 7. **Design** – notable visual or interaction decisions worth explaining.
