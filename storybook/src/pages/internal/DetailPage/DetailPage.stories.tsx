@@ -21,7 +21,7 @@ import { LinkExternalIcon, PencilIcon, PlusIcon } from '@amsterdam/design-system
 
 import { commonMeta, pageParameters } from '../common/commonMeta'
 import detailPageData from './detailPageData.json'
-import { ObjectInformationDescriptionList } from './ObjectInformationDescriptionList'
+import { ObjectInformationDataList } from './ObjectInformationDataList'
 import { ObjectInformationMap } from './ObjectInformationMap'
 import { ObjectInformationTable } from './ObjectInformationTable'
 
@@ -97,7 +97,7 @@ export const Default: StoryObj = {
                 Algemene informatie
               </Heading>
               <Paragraph>{detailPageData.description}</Paragraph>
-              <ObjectInformationDescriptionList items={detailPageData.basicInformation} />
+              <ObjectInformationDataList items={detailPageData.basicInformation} />
             </Grid.Cell>
             <Grid.Cell className="ams-prose" span="all">
               <Heading id="geschiedenis" level={2}>
@@ -170,7 +170,7 @@ export const Default: StoryObj = {
               Algemene informatie
             </Heading>
             <Paragraph>{detailPageData.description}</Paragraph>
-            <ObjectInformationDescriptionList items={detailPageData.basicInformation} />
+            <ObjectInformationDataList items={detailPageData.basicInformation} />
           </Grid.Cell>
           <Grid.Cell className="ams-prose" span="all">
             <Heading id="geschiedenis" level={2}>
