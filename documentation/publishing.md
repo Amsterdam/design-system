@@ -149,6 +149,18 @@ If a [branch protection rule](https://docs.github.com/en/repositories/configurin
 If you have admin access, you can temporarily disable the rule, merge, and re-enable it.
 Alternatively, create a pull request to merge `main` into `develop`.
 
+### Find deprecations
+
+Compare the previous `chore: release main` commit with `HEAD`, or use `--to <ref>` for another endpoint.
+That commit covers every package, including those it didn’t release.
+
+```sh
+pnpm run deprecations <previous-release-commit> --publication-date <YYYY-MM-DD>
+```
+
+It lists new deprecations, flags new dates less than six months after publication, and reports expired dates.
+Check undated CSS markers against their token or component annotations, and check `StatusBadge` dates in [Storybook docs](../storybook/src) and the [icon registry](../packages-proprietary/react-icons/deprecations.mjs) by hand: neither is scanned.
+
 ### Gotchas
 
 #### Don’t change the PR title
