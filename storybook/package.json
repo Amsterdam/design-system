@@ -23,7 +23,6 @@
   },
   "dependencies": {
     "clsx": "2.1.1",
-    "geojson": "0.5.0",
     "leaflet": "1.9.4",
     "proj4": "2.22.0"
   },
@@ -40,10 +39,9 @@
     "@storybook/addon-links": "10.6.0",
     "@storybook/addon-mcp": "10.6.0",
     "@storybook/mdx2-csf": "1.1.0",
-    "@types/geojson": "7946.0.16",
+    "@storybook/react-vite": "10.6.0",
     "@types/leaflet": "1.9.22",
     "@types/proj4": "2.19.0",
-    "@storybook/react-vite": "10.6.0",
     "@types/react": "18.3.31",
     "@types/react-dom": "18.3.7",
     "@vitejs/plugin-react": "6.1.1",

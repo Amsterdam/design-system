@@ -452,9 +452,6 @@ importers:
       clsx:
         specifier: 2.1.1
         version: 2.1.1
-      geojson:
-        specifier: 0.5.0
-        version: 0.5.0
       leaflet:
         specifier: 1.9.4
         version: 1.9.4
@@ -501,9 +498,6 @@ importers:
       '@storybook/react-vite':
         specifier: 10.6.0
         version: 10.6.0(@types/react-dom@18.3.7(@types/react@18.3.31))(@types/react@18.3.31)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rollup@4.63.5)(storybook@10.6.0(@types/react@18.3.31)(prettier@3.9.9)(react@18.3.1))(supports-color@10.2.2)(typescript@6.0.3)(vite@8.3.0(@types/node@26.6.3)(esbuild@0.28.2)(sass@1.105.0)(yaml@2.9.1))
-      '@types/geojson':
-        specifier: 7946.0.16
-        version: 7946.0.16
       '@types/leaflet':
         specifier: 1.9.22
         version: 1.9.22
@@ -3590,10 +3584,6 @@ packages:
   gensync@1.0.0-beta.2:
     resolution: {integrity: sha512-3hN7NaskYvMDLQY55gnW3NQ+mesEAepTqlg+VEbj7zzqEMBVNhzcGYYeqFo/TlYz6eQiFcp1HcsCZO+nGgS8zg==}
     engines: {node: '>=6.9.0'}
-
-  geojson@0.5.0:
-    resolution: {integrity: sha512-/Bx5lEn+qRF4TfQ5aLu6NH+UKtvIv7Lhc487y/c8BdludrCTpiWf9wyI0RTyqg49MFefIAvFDuEi5Dfd/zgNxQ==}
-    engines: {node: '>= 0.10'}
 
   get-caller-file@2.0.5:
     resolution: {integrity: sha512-DyFP3BM/3YHTQOCUL/w0OZHR0lpKeGrxotcHWcqNEdnltqFwXVfhEBQ94eIo34AfQpo0rGki4cyIiftY06h2Fg==}
@@ -9068,8 +9058,6 @@ snapshots:
   generator-function@2.0.1: {}
 
   gensync@1.0.0-beta.2: {}
-
-  geojson@0.5.0: {}
 
   get-caller-file@2.0.5: {}
 
