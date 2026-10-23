@@ -1,0 +1,55 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+@use "../../common/text-rendering" as *;
+
+.ams-file-card {
+  display: flex;
+  flex-wrap: wrap;
+  font-family: var(--ams-file-card-font-family);
+  font-size: var(--ams-file-card-font-size);
+  font-weight: var(--ams-file-card-font-weight);
+  gap: var(--ams-file-card-gap);
+  line-height: var(--ams-file-card-line-height);
+
+  @include text-rendering;
+}
+
+.ams-file-card__preview {
+  display: grid;
+  flex: 0 0 var(--ams-file-card-preview-flex-basis);
+  place-content: center;
+}
+
+.ams-file-card__image {
+  aspect-ratio: var(--ams-file-card-image-aspect-ratio);
+  inline-size: 100%;
+  object-fit: cover;
+}
+
+.ams-file-card__info {
+  display: flex;
+  flex: 1 1 var(--ams-file-card-info-flex-basis);
+  flex-direction: column;
+
+  // A name without spaces has nowhere to break, so allow one anywhere within it.
+  // Unlike `break-word`, `anywhere` also lets the card become narrower than the longest part of the name.
+  overflow-wrap: anywhere;
+}
+
+.ams-file-card__name {
+  hyphens: manual; // A surrounding list can hyphenate its contents, which would make a line-break hyphen look like part of the file name.
+}
+
+.ams-file-card__metadata {
+  color: var(--ams-file-card-metadata-color);
+}
+
+.ams-file-card__actions {
+  align-self: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ams-file-card-actions-gap);
+}
