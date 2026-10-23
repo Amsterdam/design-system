@@ -1,0 +1,55 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+._ams-object-information-map {
+  block-size: min(66dvh, calc(var(--ams-space-2xl) * 12));
+  border-block: var(--ams-border-width-s) solid var(--ams-color-separator);
+  border-inline: var(--ams-border-width-s) solid var(--ams-color-separator);
+  isolation: isolate;
+  min-block-size: calc(var(--ams-space-2xl) * 6);
+  overflow: hidden;
+  position: relative;
+}
+
+._ams-object-information-map__container {
+  block-size: 100%;
+  inline-size: 100%;
+}
+
+._ams-object-information-map__controls {
+  display: inline-flex;
+  flex-direction: column;
+  gap: var(--ams-space-xs);
+  inset-block-start: var(--ams-space-m);
+  inset-inline-end: var(--ams-space-m);
+  position: absolute;
+  z-index: 1000;
+}
+
+._ams-object-information-map__geometry {
+  fill: var(--ams-color-interactive);
+  fill-opacity: 20%;
+  stroke: var(--ams-color-interactive);
+  stroke-width: var(--ams-border-width-s);
+}
+
+._ams-object-information-map__landmark-marker {
+  background-color: transparent;
+  border-width: 0;
+  margin-block: 0;
+  margin-inline: 0;
+  transform: translate(-50%, -50%);
+}
+
+._ams-object-information-map__landmark-pin {
+  background-color: var(--ams-color-interactive);
+  block-size: var(--ams-space-m);
+  border-color: var(--ams-color-background);
+  border-radius: 50%;
+  border-style: solid;
+  border-width: var(--ams-border-width-s);
+  display: block;
+  inline-size: var(--ams-space-m);
+}
