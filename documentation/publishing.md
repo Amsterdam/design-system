@@ -93,69 +93,119 @@ chore(deps): Install minor updates
 
 ## How to create a release
 
+### Release checklist
+
+Until the merge-back is automated, agree a temporary pause on merges and pushes to `develop` between promotion and merge-back.
+
+1. Prepare: agree the publication date and release scope, identify the previous `chore: release main` commit, and wait for the checks on `develop` to pass.
+2. Write and merge the [release notes](./release-notes.md) into `develop` before promotion, using the planned date and expected package versions.
+3. [Recount the introduction figures](./introduction-statistics.md) and merge any corrections into `develop`.
+4. [Fast-forward `main`](#merge-into-the-main-branch) to the agreed `develop` commit.
+5. [Review the release PR](#review-the-release-pr).
+6. [Approve and merge the release PR](#approve-and-merge-the-release-pr).
+7. Verify every expected package version on npm, its tag and notes in [GitHub releases](https://github.com/Amsterdam/design-system/releases), and the release notes and changed components in [production Storybook](https://designsystem.amsterdam/).
+   Check that the publishing and production deployment workflows succeeded for the release commit.
+8. [Merge back into `develop`](#merge-back-into-develop) and verify the remote branches.
+9. [Announce the release](#announce-the-release) after those checks pass.
+
 ### Merge into the main branch
 
 Locally merge the latest version of `develop` into `main` using a fast-forward merge, and push to the remote:
 
 ```sh
 git checkout main
-git pull
+git fetch origin
+git pull --ff-only origin main
 git merge --ff-only origin/develop
-git push
+git push origin main
 ```
 
-**Optional**: To leave a reviewable record of each promotion, open a draft pull request from `develop` into `main` before the final `git push` to `main`.
-This doesn’t interfere with the release PR that Release Please creates.
-GitHub will mark the pull request as merged automatically when you push.
-
-Pushing to `main` triggers the “Check build and tests” workflow on GitHub. When this workflow completes successfully, it triggers the “Publish packages” workflow.
-On this first run, Release Please opens (or updates) a release PR. The workflow runs again later, after that PR is merged, to create the GitHub release and publish to npm.
-
-A separate “Deploy production Storybook” workflow runs in parallel and refreshes our main Storybook environment from the latest `main`.
+After a successful build on `main`, the “Publish packages” workflow opens or updates the release PR.
 
 ### Review the release PR
 
-Review the release PR created by Release Please.
-Make sure to check the changelogs for the different packages.
+Check the proposed versions and changelogs for every affected package against the release scope and prepared release notes.
 A commit might only be a breaking change for one package, but it will be marked as breaking for all affected packages.
 
-**Note**: Apply any updates to the changelog to both `CHANGELOG.md` and the PR description.
-Release Please uses the PR description to create the GitHub release notes.
+Mirror changelog edits into the PR description, which becomes the GitHub release notes.
 
-**Note**: Make sure all necessary peer dependencies get updated.
-Releases that only change Tokens or Assets may require extra steps for CSS or React.
-See below for details.
+Check [peer dependencies](#dependencies-between-packages), especially when only Tokens or Assets change.
+
+**Note**: Add a ‘Deprecations’ section to the changelog of each package that deprecates something in this release.
+List the old names, their replacements, and the date from which we may remove them.
+Use the [deprecations report](#find-deprecations) as a starting point.
+
+#### Moving removal dates
+
+Our [release policy](../storybook/src/docs/guidelines/release-policy.docs.mdx) keeps deprecated features available for at least six months after we publish their deprecation.
+A pull request sets its removal date when it is merged into `develop`, so a later release can leave less than six months.
+Move every date that falls short to a date at least six months after publication, and give the deprecations in one release the same date.
+
+This is the one exception to the rule that a release PR changes no source files.
+Change the date everywhere it appears, on the release PR branch: JSDoc, `$deprecated` in tokens, comments in CSS, `deprecations.mjs`, and the Storybook docs.
+Don’t push to `main` until the release PR is merged: Release Please then rebuilds the release PR branch and drops these changes.
+An update also replaces the PR description, so keep a local copy of manual edits until merging.
 
 ### Approve and merge the release PR
 
-Approve the release PR, then merge it – no need to wait for the checks, since the release PR only bumps versions and updates changelogs (no source code changes). The merge must be done manually; the workflow does not merge the PR automatically.
-
-After merging, the “Publish packages” workflow runs again. Release Please now reports `releases_created == 'true'`, which gates the npm publish step, so the new versions are pushed to GitHub and npm.
+After another developer approves the PR, select **Squash and merge**, keeping the squash commit title `chore: release main (#…)`.
+Wait for the required checks, especially when [removal dates changed in source](#moving-removal-dates).
 
 ### Merge back into develop
 
-Merging the release PR adds the version bumps and changelog updates to `main` as a new commit, after which Release Please creates the corresponding GitHub release. Locally merge this commit back into `develop` and push it to the remote:
+Until the merge-back is automated, ask an admin to fast-forward `develop` to the release commit on `main` and push it.
+Admins can bypass the ruleset, which risks unreviewed changes reaching `develop`.
+Do not open a merge-back PR: `develop` only permits squash merges, which creates a different commit and breaks the ancestry needed for the next promotion.
 
 ```sh
-git checkout develop
-git pull
-git merge origin/main
-git push
+git fetch origin
+git rev-list --left-right --count origin/develop...origin/main
 ```
 
-If `develop` has progressed since the merge to `main`, this will produce a merge commit.
+Expect `0 0`.
 
-If a [branch protection rule](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches) prevents you from pushing directly to `develop`, you won’t be able to complete the merge-back with a direct push.
-If you have admin access, you can temporarily disable the rule, merge, and re-enable it.
-Alternatively, create a pull request to merge `main` into `develop`.
+#### Recover from an accidental push to develop
+
+If an unreviewed commit was pushed directly, tell the team and preserve it on a separate branch.
+Ask an admin to restore the last reviewed commit with `git push --force-with-lease=develop:<observed-tip> origin <last-reviewed-commit>:develop`, using the remote tip the team inspected as the lease.
+Bring the change in again through a normal, reviewed PR.
+
+### Find deprecations
+
+Compare the previous `chore: release main` commit with `HEAD`, or use `--to <ref>` for another endpoint.
+That commit covers every package, including those it didn’t release.
+
+```sh
+pnpm run deprecations <previous-release-commit> --publication-date <YYYY-MM-DD>
+```
+
+It lists new deprecations, flags new dates less than six months after publication, and reports expired dates.
+Check undated CSS markers against their token or component annotations, and check `StatusBadge` dates in [Storybook docs](../storybook/src) and the [icon registry](../packages-proprietary/react-icons/deprecations.mjs) by hand: neither is scanned.
+
+### Announce the release
+
+Use the highest version bump among the published packages to choose the Slack audience; the design system has no single version number.
+Patch-only releases have no routine announcement.
+
+| Release or change                                                                                                                        | Channel                                                                                                                                                      | Audience                                      |
+| ---------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------- |
+| Minor                                                                                                                                    | Slack `#gilde-frontend`                                                                                                                                      | Frontend developers                           |
+| Major                                                                                                                                    | Slack `#vakgroep-softwareontwikkeling`                                                                                                                       | Everyone in the Vakgroep Softwareontwikkeling |
+| Minor and major                                                                                                                          | [MS Teams, Amsterdam Design System, General](https://teams.microsoft.com/l/channel/19%3AfYKS_RD2n1q4UhguA9jwEJk0A_VjYPO4TiLQjYlG_bo1%40thread.tacv2/General) | Interested followers and stakeholders         |
+| New component or structural change, such as a rename, with an [NL Design System counterpart](https://www.nldesignsystem.nl/componenten/) | Matching [NL Design System discussion](https://github.com/orgs/nl-design-system/discussions/)                                                                | NL Design System maintainers                  |
+
+Use the [announcement tone](./writing.md#release-announcements) and link the release notes in Slack and Teams.
+For NL Design System, thank the community and ask maintainers to add our community implementation or update its name and links.
+Link the component's documentation, source code at the release tag, and npm package.
+
+Use the [release skill](../.github/skills/release/SKILL.md) for drafts and matching threads.
+Keep drafts private, outside public issues, PRs, Actions logs, and artefacts; agents post nothing.
 
 ### Gotchas
 
 #### Don’t change the PR title
 
-The Release Please Action generates a release PR with a specific title (currently: `chore: release main`).
-On subsequent runs, the Action looks for an open PR with this exact title so it can update it instead of creating a duplicate.
-Changing the title breaks that lookup and can cause the Action to fail or create a second release PR.
+Keep the generated `chore: release main` title: Release Please parses it when recognising the merged release PR.
 
 #### Remove stale release labels
 

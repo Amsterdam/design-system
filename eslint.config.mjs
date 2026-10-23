@@ -18,7 +18,7 @@ import storybookConfig from './storybook/eslint.config-partial.mjs'
 
 const jsAndTsFiles = ['**/*.{js,jsx,mjs,ts,tsx}']
 const testFiles = ['**/*.{test,spec}.{js,jsx,ts,tsx}']
-const nodeScriptFiles = ['**/*.{config,setup}.{js,mjs,ts}', '**/rollup.config.mjs', 'plopfile.mjs']
+const nodeScriptFiles = ['**/*.{config,setup}.{js,mjs,ts}', '**/rollup.config.mjs', 'plopfile.mjs', 'scripts/**/*.mjs']
 
 export default defineConfig([
   // Global
