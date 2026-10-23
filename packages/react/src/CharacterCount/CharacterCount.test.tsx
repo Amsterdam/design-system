@@ -5,11 +5,21 @@
 
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
-import { describe, expect, it } from 'vitest'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 import { CharacterCount } from './CharacterCount'
 
 describe('CharacterCount', () => {
+  let warn: ReturnType<typeof vi.spyOn>
+
+  beforeEach(() => {
+    warn = vi.spyOn(console, 'warn').mockImplementation(() => {})
+  })
+
+  afterEach(() => {
+    warn.mockRestore()
+  })
+
   it('renders', () => {
     render(<CharacterCount length={10} maxLength={100} />)
 
@@ -83,5 +93,24 @@ describe('CharacterCount', () => {
     expect(component).toHaveAttribute('aria-hidden', 'false')
     expect(component).toHaveAttribute('id', 'id')
     expect(component).toHaveAttribute('data-test', 'data-test')
+  })
+
+  it('warns that Character Count has been replaced', () => {
+    render(<CharacterCount length={10} maxLength={100} />)
+
+    expect(warn).toHaveBeenCalledTimes(1)
+    expect(warn).toHaveBeenCalledWith(expect.stringContaining('@deprecated'))
+    expect(warn).toHaveBeenCalledWith(
+      expect.stringContaining('Compose a `FormFieldStatus.CharacterCount` inside a `FormFieldStatus` instead.'),
+    )
+  })
+
+  it('does not warn again on rerender', () => {
+    const { rerender } = render(<CharacterCount length={10} maxLength={100} />)
+
+    warn.mockClear()
+    rerender(<CharacterCount length={11} maxLength={100} />)
+
+    expect(warn).not.toHaveBeenCalled()
   })
 })

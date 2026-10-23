@@ -8,7 +8,7 @@ import type { ForwardedRef, InputHTMLAttributes, PropsWithChildren } from 'react
 import { clsx } from 'clsx'
 import { forwardRef, useId } from 'react'
 
-import type { IconProps } from '../Icon'
+import type { IconProps } from '../Icon/Icon'
 
 import RadioIcon from './RadioIcon'
 

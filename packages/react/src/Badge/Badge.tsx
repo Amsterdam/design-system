@@ -8,9 +8,9 @@ import type { ForwardedRef, HTMLAttributes } from 'react'
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
 
-import type { IconProps } from '../Icon'
+import type { IconProps } from '../Icon/Icon'
 
-import { Icon } from '../Icon'
+import { Icon } from '../Icon/Icon'
 
 export const badgeColors = ['azure', 'lime', 'magenta', 'orange', 'purple', 'red', 'yellow'] as const
 type BadgeColor = (typeof badgeColors)[number]

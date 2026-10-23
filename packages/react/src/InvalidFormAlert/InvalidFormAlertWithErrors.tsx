@@ -10,8 +10,8 @@ import { forwardRef, useEffect, useImperativeHandle, useRef } from 'react'
 
 import type { InvalidFormAlertProps } from './InvalidFormAlert'
 
-import { Alert } from '../Alert'
-import { LinkList } from '../LinkList'
+import { Alert } from '../Alert/Alert'
+import { LinkList } from '../LinkList/LinkList'
 
 type InvalidFormAlertWithErrorsProps = {
   /** Whether the component has set focus once. */

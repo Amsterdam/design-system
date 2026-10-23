@@ -11,10 +11,10 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "postcss": "8.5.28"
+    "postcss": "8.5.30"
   },
   "devDependencies": {
-    "stylelint": "17.15.0",
-    "vitest": "5.0.1"
+    "stylelint": "17.16.0",
+    "vitest": "5.0.5"
   }
 }

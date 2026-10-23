@@ -127,5 +127,70 @@ describe('ModalDialogHeader', () => {
 
       expect(closeMock).toHaveBeenCalledOnce()
     })
+
+    it('renders closeButtonComponent="button" with an accessible name', () => {
+      render(<ModalDialogHeader closeButtonAccessibleName="Close" closeButtonComponent="button" />)
+
+      const button = screen.getByRole('button', { name: 'Close' })
+
+      expect(button).toHaveClass('ams-modal-dialog__close-button')
+      expect(button).toHaveAttribute('type', 'button')
+    })
+
+    it('closes the dialog containing the header with closeButtonComponent="button"', () => {
+      const closeMock = vi.fn()
+      HTMLDialogElement.prototype.close = closeMock
+
+      render(
+        <dialog open>
+          <ModalDialogHeader closeButtonComponent="button" />
+        </dialog>,
+      )
+
+      fireEvent.click(screen.getByRole('button', { name: 'Sluiten' }))
+
+      expect(closeMock).toHaveBeenCalledOnce()
+    })
+
+    it('closes the dialog when a custom close button calls onClick without an event', () => {
+      const closeMock = vi.fn()
+      HTMLDialogElement.prototype.close = closeMock
+      const CloseButton = ({ onClick }: { readonly onClick: () => void }) => (
+        <button onClick={() => onClick()} type="button">
+          Close
+        </button>
+      )
+
+      render(
+        <dialog open>
+          <ModalDialogHeader closeButtonComponent={CloseButton} />
+        </dialog>,
+      )
+
+      fireEvent.click(screen.getByRole('button', { name: 'Close' }))
+
+      expect(closeMock).toHaveBeenCalledOnce()
+    })
+
+    it('passes only the className, onClick, type and accessible name to a custom close button', () => {
+      const CloseButton = vi.fn(({ children }: { children: string }) => <button>{children}</button>)
+
+      render(
+        <ModalDialogHeader
+          closeButtonAccessibleName="Close"
+          closeButtonComponent={CloseButton}
+          closeButtonIcon={<svg />}
+          closeButtonSize="heading-5"
+        />,
+      )
+
+      expect(CloseButton).toHaveBeenCalledOnce()
+      expect(CloseButton.mock.calls[0][0]).toEqual({
+        children: 'Close',
+        className: 'ams-modal-dialog__close-button',
+        onClick: expect.any(Function),
+        type: 'button',
+      })
+    })
   })
 })

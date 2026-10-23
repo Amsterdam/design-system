@@ -8,7 +8,7 @@ import type { ForwardedRef, HTMLAttributes, KeyboardEvent } from 'react'
 import { clsx } from 'clsx'
 import { forwardRef, useEffect, useId, useRef, useState } from 'react'
 
-import type { IconProps } from '../Icon'
+import type { IconProps } from '../Icon/Icon'
 
 import { getDaysInMonth, isSameDay, isSameMonth, startOfDay } from '../common/dates'
 import { useMonthNavigation } from '../common/useMonthNavigation'

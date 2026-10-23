@@ -89,7 +89,7 @@
         }
       },
       "padding-inline": {
-        "$deprecated": "Use `ams.select.padding-inline-start` and `ams.select.padding-inline-end` instead. Will be removed on or after 2027-02-25.",
+        "$deprecated": "Use `ams.select.padding-inline-start` and `ams.select.padding-inline-end` instead. Will be removed on or after 2027-04-25.",
         "$value": "{ams.select.padding-inline-start} {ams.select.padding-inline-end}",
         "$extensions": {
           "nl.amsterdam.subtype": "space",
