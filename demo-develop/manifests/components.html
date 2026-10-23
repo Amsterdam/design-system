@@ -626,7 +626,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>4.8s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>4.9s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -59051,6 +59051,43 @@ Each opens with the package versions and what the release is about.
 Then what is new, what looks or behaves differently, and what the documentation gained.
 Every code change is listed in the changelogs, linked at the end of each release.
 For the cadence and the guarantees behind it, read the [release policy](/docs/docs-guidelines-release-policy--docs).
+
+## 22 October 2026
+
+Assets **2.7.0**, CSS **4.5.0**, React **4.5.0**, React Icons **2.3.0**, Tokens **4.4.0**.
+
+This release brings a clearer way to report form status, collect dates users already know, and present details about one subject.
+Nothing breaks.
+
+### New
+
+- [Data List](/docs/components-containers-data-list--docs) presents the details of one subject, with links or buttons for actions on each value.
+- [Form Field Status](/docs/components-forms-form-field-status--docs) reports when a character count passes its limit with words and a warning icon, not colour alone.
+- [Known Date Input](/docs/components-forms-known-date-input--docs) lets someone enter a date they already know as separate day, month, and year fields.
+- The Header of a [Modal Dialog](/docs/components-containers-modal-dialog--docs) can render a custom close-button component when an application needs one.
+  Websites for the City of Amsterdam must use the default button.
+- The [Edit and EditFill icons](/docs/brand-assets-icons--docs#learnable) can represent an edit action without a visible label on websites people use regularly enough to learn their meaning.
+
+### Adjusted
+
+- [Card](/docs/components-navigation-card--docs) images now have their own 16:9 default ratio, independent of the general Image ratio.
+  Set `--ams-card-image-aspect-ratio` to change the shape of Card images.
+- [Image](/docs/components-media-image--docs) can keep the whole picture in view with `fit=&quot;contain&quot;` instead of cropping it to fill its box.
+- Spacing tokens with different start and end values are now available as separate tokens, so each side can be set independently.
+
+### Also
+
+[Icon Button](/docs/components-buttons-icon-button--docs) now draws its contrast hover background from its text colour.
+
+### Documentation
+
+- [News Overview](/docs/pages-public-news-overview-page--docs) and [Events Overview](/docs/pages-public-events-overview-page--docs) show how to separate metadata from different filter fields.
+- The [Description List](/docs/components-text-description-list--docs) page adds guidance on when and how to use it.
+- The new [Accessibility guide](/docs/docs-guidelines-accessibility--docs) sets WCAG 2.2 Level AA as our target and explains how it relates to the legal requirement.
+- The [Form Flow](/docs/pages-public-form-flow--docs) examples no longer show a step counter, and the page explains when one still helps.
+- The [routing libraries guide](/docs/docs-guidelines-routing-libraries--docs) now uses React Router 7 in its example.
+
+Every code change in this release is listed in the [changelogs](https://github.com/Amsterdam/design-system/pull/3034).
 
 ## 8 August 2026
 
