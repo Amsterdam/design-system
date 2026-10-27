@@ -136,7 +136,7 @@ export const Default: StoryObj = {
             {/* A search result has no image, so this Card needs no Card Content and stays vertical at any width. */}
             <Card>
               {/*
-               * Every match is marked, in the title of a result as well as in its teaser; this title holds none.
+               * Every match is marked, in the title of a result as well as in its teaser.
                * The Metadata names the category rather than text the search matched, so nothing in it is marked.
                */}
               <Card.HeadingGroup>

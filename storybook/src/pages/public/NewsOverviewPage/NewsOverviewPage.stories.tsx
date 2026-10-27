@@ -172,6 +172,7 @@ export const Default: StoryObj = {
                    */}
                   <Metadata size="small">
                     Algemeen
+                    {/* Leave the Separator out for news that concerns the whole city, so no line ends in one. */}
                     <Metadata.Separator />
                     Centrum
                   </Metadata>

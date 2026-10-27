@@ -53,11 +53,6 @@ const acceptedDifferences: Record<string, { kinds: Array<'comments' | 'markup'>;
     reason:
       'Correct as it stands: the note about reading another story’s args.children explains this story’s own machinery, so it belongs only in the render. It would be noise in markup someone copies.',
   },
-  'public/NavigationPage::WithImageGallery': {
-    kinds: ['markup'],
-    reason:
-      'Known drift: the source omits roughly 40 lines the render has, with no ellipsis marking the gap. Worth fixing in the template.',
-  },
 }
 
 /**

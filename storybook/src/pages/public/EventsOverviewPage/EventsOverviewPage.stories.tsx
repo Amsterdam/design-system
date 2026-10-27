@@ -224,7 +224,10 @@ export const Default: StoryObj = {
                      * The visible date is prose; dateTime repeats it in the machine-readable format software parses.
                      */}
                     <time dateTime="2026-06-20">20 juni 2026</time>
-                    {/* The day, the time and the place are three kinds, so two Separators divide them. */}
+                    {/*
+                     * A Separator divides the day, the time and the place, each of which is a kind of its own. An
+                     * activity with no time leaves one out, so two Separators never meet.
+                     */}
                     <Metadata.Separator />
                     10.00–16.00 uur
                     <Metadata.Separator />
@@ -611,7 +614,10 @@ export const CardGrid: StoryObj = {
                      * The visible date is prose; dateTime repeats it in the machine-readable format software parses.
                      */}
                     <time dateTime="2026-06-20">20 juni 2026</time>
-                    {/* The day, the time and the place are three kinds, so two Separators divide them. */}
+                    {/*
+                     * A Separator divides the day, the time and the place, each of which is a kind of its own. An
+                     * activity with no time leaves one out, so two Separators never meet.
+                     */}
                     <Metadata.Separator />
                     10.00–16.00 uur
                     <Metadata.Separator />
