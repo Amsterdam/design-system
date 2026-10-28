@@ -3,7 +3,7 @@
 # GitHub Actions workflows
 
 This folder holds every continuous integration and delivery workflow for the design system.
-There are fifteen of them, but they only do four kinds of work, and the file name now starts with the verb for that kind.
+There are sixteen of them, but they only do four kinds of work, and the file name now starts with the verb for that kind.
 Job ids and step names follow the same rule — a verb first, and a name that matches what actually happens — so keep new ones consistent with their neighbours rather than inventing a new style.
 Reading them by responsibility is the quickest way to understand the whole picture.
 
@@ -24,7 +24,8 @@ Changes reach `main` through a release pull request, which is what triggers the 
 | Check test coverage           | Every pull request                                                | Run the React tests with coverage and post a summary comment.                                                                              |
 | Check bundle size             | Every pull request                                                | Report the compressed size change of the published bundles.                                                                                |
 | Check PR title                | Pull request opened, edited, or synchronized                      | Enforce a Conventional Commit title (`feat`, `fix`, `chore`) so release-please can read it.                                                |
-| Check workflows               | Every pull request                                                | Lint the Actions workflow files themselves with actionlint, including shellcheck on their `run:` scripts.                                  |
+| Check workflows               | Every pull request                                                | Lint the workflow files with actionlint, including their `run:` scripts, and the `.github/scripts` Bash scripts with ShellCheck.           |
+| Check code security           | Pull request; push to `develop`, `main`; Monday 08:00 CET/CEST    | Analyze the Actions, JavaScript/TypeScript, and Python code with CodeQL and report alerts to code scanning.                                |
 | Deploy acceptance Chromatic   | Push to `develop`                                                 | Publish Storybook to Chromatic and accept the snapshots, keeping the baseline on the integration branch current.                           |
 | Deploy acceptance Storybook   | Push to any branch except `main`; pull request opened or reopened | Build Storybook and publish a per-branch preview to `gh-pages` under `demo-<branch>`. Records a GitHub Deployment and Environment.         |
 | Deploy production Storybook   | Push to `main`                                                    | Build Storybook and publish the live documentation site to the `gh-pages` root.                                                            |

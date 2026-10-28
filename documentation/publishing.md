@@ -83,9 +83,25 @@ Release Please uses the PR description to create the GitHub release notes.
 Releases that only change Tokens or Assets may require extra steps for CSS or React.
 See below for details.
 
+**Note**: Add a ‘Deprecations’ section to the changelog of each package that deprecates something in this release.
+List the old names, their replacements, and the date from which we may remove them.
+
+#### Moving removal dates
+
+Our [release policy](../storybook/src/docs/guidelines/release-policy.docs.mdx) keeps deprecated features available for at least six months after we publish their deprecation.
+A pull request sets its removal date when it is merged into `develop`, so a later release can leave less than six months.
+Move every date that falls short to a date at least six months after publication, and give the deprecations in one release the same date.
+
+This is the one exception to the rule that a release PR changes no source files.
+Change the date everywhere it appears, on the release PR branch: JSDoc, `$deprecated` in tokens, comments in CSS, `deprecations.mjs`, and the Storybook docs.
+Don’t push to `main` until the release PR is merged: Release Please then rebuilds the release PR branch and drops these changes.
+
 ### Approve and merge the release PR
 
-Approve the release PR, then merge it – no need to wait for the checks, since the release PR only bumps versions and updates changelogs (no source code changes). The merge must be done manually; the workflow does not merge the PR automatically.
+Approve the release PR, then merge it.
+If it only bumps versions and updates changelogs, there’s no need to wait for the checks.
+If it also moves removal dates, wait until the checks pass.
+The merge must be done manually; the workflow does not merge the PR automatically.
 
 After merging, the “Publish packages” workflow runs again. Release Please now reports `releases_created == 'true'`, which gates the npm publish step, so the new versions are pushed to GitHub and npm.
 

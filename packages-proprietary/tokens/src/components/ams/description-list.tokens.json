@@ -135,7 +135,7 @@
       },
       "section": {
         "margin-block-end": {
-          "$deprecated": "Use `ams.description-list.item.margin-block-end` instead. Will be removed on or after 2027-04-16.",
+          "$deprecated": "Use `ams.description-list.item.margin-block-end` instead. Will be removed on or after 2027-04-25.",
           "$value": "{ams.description-list.item.margin-block-end}",
           "$extensions": {
             "nl.amsterdam.subtype": "space",
