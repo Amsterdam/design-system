@@ -1,4 +1,4 @@
-name: Check code scanning
+name: Check code security
 
 on:
   push:
