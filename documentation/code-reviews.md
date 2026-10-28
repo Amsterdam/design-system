@@ -129,10 +129,14 @@ When acting on review comments left by AI tools:
 
 We steer AI reviewers from files in the repository, so the guidance travels with the code and changes through a pull request like anything else.
 
-- [AGENTS.md](../AGENTS.md) and the per-package `AGENTS.md` files hold the conventions and the "never do" rules.
-  GitHub Copilot code review reads them from the head branch, and takes the nearest one in the directory tree for each changed file.
-- [.github/skills/code-review/SKILL.md](../.github/skills/code-review/SKILL.md) holds the review checklist: how to rank findings, what to flag per layer, what to leave to the linters, and how to phrase a comment.
-- [.github/skills/pull-request/SKILL.md](../.github/skills/pull-request/SKILL.md) holds the rules for a pull request title and description.
+- The root `AGENTS.md` and the per-package `AGENTS.md` files hold the conventions and the "never do" rules.
+  GitHub Copilot code review reads them from the head branch, and for each changed file the nearest one in the directory tree takes precedence.
+- `.github/skills/code-review/SKILL.md` holds the review checklist: how to rank findings, what to flag per layer, what to leave to the linters, and how to phrase a comment.
+- `.github/skills/pull-request/SKILL.md` holds the rules for a pull request title and description.
 - [agent-workarounds.md](./agent-workarounds.md) is the parking lot for patterns we have seen but not yet turned into a rule.
 
 When a review comment from an agent is wrong in the same way twice, that is a signal to change one of these files rather than to correct the agent again.
+
+Our documentation holds the rules, and these files point to it.
+A skill adds only what agents get wrong, and an `AGENTS.md` restates a rule only when agents break it without doubting themselves.
+Change a rule in the documentation first, then check the files that point to it.

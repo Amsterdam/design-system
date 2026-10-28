@@ -8,7 +8,7 @@ Do not add application-specific logic, domain defaults, or assumptions about how
 This file is a thin layer over the official documentation and the per-package `AGENTS.md` files.
 Use it for cross-cutting priorities and "never do" rules; go to those sources for detail.
 
-Reviewing a diff and writing a pull request each have their own instructions in [.github/skills](.github/skills); read the matching `SKILL.md` in full before you start.
+Reviewing a diff, writing a pull request, writing a commit message, and writing prose each have their own instructions in [.github/skills](.github/skills); read the matching `SKILL.md` in full before you start.
 
 ## Agent priorities
 
@@ -21,7 +21,7 @@ Follow these priorities in order:
 5. **Performance and maintainability** — simple and readable over clever.
 
 - Search for an existing pattern (component, token, story, mixin) before inventing one, and use Grid, Column, and Row instead of raw `<div>` elements with inline styles in Storybook stories.
-- Write Markdown one sentence per line, to keep diffs small.
+- One sentence per line applies to `.md`, `.mdx`, and TSDoc only, never to a commit body, pull request description, review comment, issue, or ticket.
 - Never invent a file, command, configuration option, or API; state the uncertainty instead of guessing.
 - When a user instruction conflicts with a rule here or in a package `AGENTS.md`, say so rather than silently following either.
 - On an ambiguous task ("improve performance", "add validation"), ask rather than assume new behaviour, UX, or scope.
@@ -65,7 +65,7 @@ Before making changes in a given layer, read the relevant package `AGENTS.md` an
 
 These rules override common agent defaults and apply across the repository:
 
-- **Never use npm or yarn** — always use `pnpm` (see commands in [README.md](README.md)).
+- **Never use npm or yarn** — always use `pnpm` (see Common commands below, and [Local development](CONTRIBUTING.md#computer-local-development) in the contributing guide).
 - **Never add `import React from 'react'`** — the JSX transform handles this automatically.
 - **Never weaken TypeScript safety** — avoid `any`, do not disable strict checks, and use `import type` for type-only imports.
 - **Never hardcode design values** (colors, spacing, typography, radii, shadows) — use a CSS custom property backed by tokens; add or update tokens first if needed.
@@ -97,13 +97,14 @@ Creating files by hand means following the naming table above and each package's
 - Quality checklist covering accessibility, tests, clean implementation, documentation, and licensing: [definition-of-done.md](documentation/definition-of-done.md) — cross-check it before submitting work.
 - Testing: [tests.md](documentation/tests.md)
 - Component docs: [component-docs.md](documentation/component-docs.md) and [storybook.md](documentation/storybook.md)
+- Writing, for every kind of prose: [writing.md](documentation/writing.md)
 - Page templates: [page-anatomy.md](documentation/page-anatomy.md)
 - Git, reviews, releases: [git.md](documentation/git.md), [code-reviews.md](documentation/code-reviews.md), [publishing.md](documentation/publishing.md)
 - Release notes: [release-notes.md](documentation/release-notes.md)
 - Storybook home page figures: [introduction-statistics.md](documentation/introduction-statistics.md)
 
 Run the most specific relevant lint and test commands for the package you touched before falling back to the full `pnpm run lint` and `pnpm run test`.
-Update the README, Storybook docs, and tests whenever behaviour, APIs, or visual contracts change.
+Update Storybook docs and tests whenever behaviour, APIs, or visual contracts change; see the [CSS package's README rules](packages/css/AGENTS.md#readme) for README requirements.
 ESLint, Stylelint, and Prettier are authoritative for code style; consult [eslint.config.mjs](eslint.config.mjs), [.stylelintrc.json](.stylelintrc.json), and [.prettierrc.json](.prettierrc.json) rather than restating their rules.
 
 ## Licensing
@@ -156,14 +157,12 @@ Package filter names: `@amsterdam/design-system-tokens`, `@amsterdam/design-syst
 
 ## Git and contribution workflow
 
-Human contributors and agents should both follow the conventions in [documentation/git.md](documentation/git.md): branch from `develop`, use branch names like `feat/DES-178-introduce-checkbox-component`, and write commit messages in English imperative mood describing the goal of the change.
+Human contributors and agents should both follow the conventions in [documentation/git.md](documentation/git.md): branch from `develop`, use branch names like `feat/DES-178-introduce-checkbox-component`, and describe each commit as that file sets out.
+Disclose GitHub Copilot only when it wrote or edited part of a commit, with the trailer `Co-authored-by: Copilot <175728472+Copilot@users.noreply.github.com>` that [documentation/git.md](documentation/git.md#disclose-github-copilot) sets out.
 
-Read [.github/skills/pull-request/SKILL.md](.github/skills/pull-request/SKILL.md) before writing a pull request title or description.
 One rule agents break without noticing: `feat`, `fix` and `chore` are the only types the "Check PR title" workflow accepts — never `docs`, `refactor`, `test`, `ci`, `style`, `build`, `perf`, or `revert`.
 
 ## Reviewing as an agent
 
-Read [.github/skills/code-review/SKILL.md](.github/skills/code-review/SKILL.md) before commenting on a diff, alongside the `AGENTS.md` of every package it touches.
+When you review a diff, also read the `AGENTS.md` of every package it touches.
 Our review culture, which applies to agents too, is in [documentation/code-reviews.md](documentation/code-reviews.md).
-
-Before marking work complete, cross-check the full definition-of-done checklist in [documentation/definition-of-done.md](documentation/definition-of-done.md).

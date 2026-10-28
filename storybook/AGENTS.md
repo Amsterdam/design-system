@@ -41,6 +41,7 @@ When adding a new component, choose the most fitting existing category. Agents m
 `<Title />` and `<Description of={…} />` render the component's name and rationale from its TSDoc comment via react-docgen.
 Add further documentation in the structured MDX sections below them.
 See [documentation/component-docs.md](../documentation/component-docs.md) for the full content model and section order.
+Write the MDX as [documentation/writing.md](../documentation/writing.md) sets out: British English, and one sentence per line.
 
 A page template under `src/pages/` opens its docs page with an Anatomy section instead: a schematic of the page, read from the story itself.
 See [documentation/page-anatomy.md](../documentation/page-anatomy.md) for how to add one.

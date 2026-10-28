@@ -37,48 +37,39 @@ A documentation change is `chore` unless it documents a component, in which case
 
 The deciding question for `chore` versus `fix` is not how large the change is, but whether someone installing the package would notice.
 
+This three-type restriction is for the pull request title alone: it is what Release Please reads and what becomes the squash commit on `develop`.
+A commit inside your branch is free to use any Conventional Commits type, as [commit-message/SKILL.md](../commit-message/SKILL.md) explains.
+
 ### Scope
 
 The scope is optional, and goes in parentheses.
-It becomes a bold prefix in the changelog, and changelog entries sort alphabetically by it, so it groups a component's history together.
-
-- **A component**: its display name in Title Case, spaces and all — `fix(Avatar)`, `feat(Modal Dialog)`, `fix(Table of Contents)`, `feat(Field Set)`.
-- **Two to five components**: separate them with commas — `fix(Ordered List, Unordered List)`.
-- **More than five, or none in particular**: leave the scope out.
-- **A package or topic**: lowercase — `chore(deps)`, `chore(deps-dev)`, `chore(docs)`, `chore(ci)`, `chore(css)`, `chore(tokens)`, `chore(assets)`.
-  `Storybook` and `React` are conventionally capitalised.
+Which one to pick and how to spell it is in [publishing.md](../../../documentation/publishing.md#adding-a-scope).
+Nothing enforces it: the "Check PR title" workflow validates the type only.
+A component keeps the spaces of its name, as in `fix(Table of Contents)`.
 
 ### Subject
 
-- English, no jargon, understandable to someone who did not read the code.
-- Start with a capital letter, in the imperative mood: "Correct the aspect ratio for the image", "Only style a list that is directly nested in a list item".
-- No full stop at the end.
-- Do not repeat the scope in the subject.
-  `fix(Avatar): Correct the Avatar aspect ratio` wastes the reader's first three words.
-- Describe the outcome, not the mechanics.
-  "Show a placeholder background while the image loads" beats "Add a CSS background-color declaration".
-- Keep it to one line; most of ours stay under 80 characters.
+Write it as [publishing.md](../../../documentation/publishing.md#writing-the-subject) sets out, with its examples.
+Two things agents get wrong:
 
-### Examples
-
-```text
-fix(Avatar): Correct the aspect ratio for the image
-feat(Modal Dialog): Add Modal Dialog component and repurpose Dialog for short messages
-fix(Ordered List, Unordered List): Only style a list that is directly nested in a list item
-feat(Progress List)!: Make collapsing and expanding steps optional
-chore(docs): Clarify what the Baseline linter cannot check in token values
-chore(deps): Install minor updates
-```
+- Repeating the scope: `fix(Avatar): Correct the Avatar aspect ratio` wastes the reader's first three words.
+- Describing the mechanics: "Add a CSS background-color declaration" repeats the diff, where "Show a placeholder background while the image loads" says what changed.
 
 ## The description
 
 Follow [.github/pull_request_template.md](../../pull_request_template.md).
-Keep every heading it defines, in its order, and keep the checklist.
-Write one sentence per line, so that later edits produce small diffs.
+Keep its first line, the licence comment.
+Keep every heading it defines, in its order.
+Replace the placeholder of the first heading with a short summary of the change in plain words: no type or scope, and it doesn't have to repeat the title.
+Write the text itself as [the writing skill](../writing/SKILL.md) prescribes.
+A description is not documentation, so it does not go one sentence per line.
+Leave a blank line before and after each heading and block, as [Markdown spacing](../../../documentation/writing.md#markdown-spacing) sets out.
 
-- **Links** — documentation pages, the story in the branch deploy, related issues or discussions.
-  Leave the section's placeholder in place rather than inventing a link you have not seen.
-  Never fabricate a Jira identifier; take it from the branch name if it is there.
+- **Links** — the documentation pages and stories in the branch deploy that the change affects, related issues, and discussions.
+  Link them before the deploy exists, because its address follows from the branch name, as [the workflows README](../../workflows/README.md) describes: drop the type prefix up to the first slash, and put `demo-` in its place.
+  Branch `feat/DES-1959-file-component` deploys to `https://designsystem.amsterdam/demo-DES-1959-file-component/`, so its File Card page is `https://designsystem.amsterdam/demo-DES-1959-file-component/?path=/docs/components-forms-file-card--docs`.
+  Take the `path` from the Storybook title: `/docs/<title>--docs` for a page and `/story/<title>--<story>` for a story, both in kebab case.
+  Never invent any other link, and never fabricate an issue identifier; take it from the branch name if it is there.
 - **What** — the changes, as a short list.
   The reviewer can read the diff; give them the shape of it.
 - **Why** — why the change is necessary.
@@ -86,9 +77,14 @@ Write one sentence per line, so that later edits produce small diffs.
 - **How** — the approach and the key considerations.
   This is where alternatives you rejected, deliberate omissions, and anything unusual belong.
   Mention what you left out of scope, and say so plainly.
-- **Checklist** — tick only what is genuinely done or genuinely not applicable.
+  If GitHub Copilot wrote or edited part of the change, say so here with "GitHub Copilot wrote or edited part of this change.", as the [GitHub Copilot usage rules](https://github.com/Amsterdam/development-standards/blob/main/internal/github-copilot.md) require.
+  The rules ask for no more than that, so there is no need to list the parts it touched.
+- **Checklist** — remove the items the change has no surface for, and tick only what is done.
+  Don't reword or merge the items that remain.
+  A `chore` often needs none of the test, documentation, story, export, Chromatic, or screen reader items.
+  A `feat` or `fix` without a visual change drops Chromatic, and one that changes no markup, ARIA, or behaviour drops the screen reader tests.
+  Tick the Chromatic item only after `/chromatic test` has passed, and leave the screen reader items to the person who ran them.
   An unticked box is a useful signal; a wrongly ticked one is a false one.
-  Do not tick the Chromatic box before `/chromatic test` has run and passed, unless the diff has no visual surface at all.
 - **Additional notes** — steps to reproduce, test data, and the parts where you specifically want feedback.
 
 Where the diff is unremarkable — a dependency bump, a typo — a short description is the right description.
@@ -96,6 +92,6 @@ Do not pad the template's sections to look thorough.
 
 ## Never
 
-- Never add AI attribution: no `Co-Authored-By` trailer, no "generated with" footer, no note that an agent wrote the branch.
+- Never dress the GitHub Copilot disclosure up as a footer or a `Co-Authored-By` trailer in the description; a sentence under **How** is what the rules ask for.
 - Never claim a test, story, or documentation update that is not in the diff.
 - Never describe intent you cannot see in the changes.
