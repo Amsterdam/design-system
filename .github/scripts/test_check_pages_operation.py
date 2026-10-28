@@ -42,6 +42,11 @@ class PagesOperationTests(unittest.TestCase):
         with patch.object(pages, "api", return_value=[self.pull("closed")]):
             self.assertTrue(pages.should_run("remove", "feat/demo", None))
 
+    def test_cleanup_needs_a_closed_preview_pr(self):
+        for pulls in ([], [self.pull("closed", repository="other/fork")]):
+            with self.subTest(pulls=pulls), patch.object(pages, "api", return_value=pulls):
+                self.assertFalse(pages.should_run("remove", "feat/demo", None))
+
     def test_deleted_branch_is_skipped_but_api_failure_is_not(self):
         for code in (404, 403, 500):
             with self.subTest(code=code), patch.object(pages, "api", side_effect=HTTPError("url", code, "error", {}, None)):
