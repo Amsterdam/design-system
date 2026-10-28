@@ -19,6 +19,38 @@ describe('Switch', () => {
     expect(switchElement).not.toBeChecked()
   })
 
+  it('takes its accessible name from its children', () => {
+    render(<Switch>Meldingen ontvangen</Switch>)
+
+    expect(screen.getByRole('switch', { name: 'Meldingen ontvangen' })).toBeInTheDocument()
+  })
+
+  it('renders the label text after the track', () => {
+    render(<Switch>Meldingen ontvangen</Switch>)
+
+    const label = screen.getByText('Meldingen ontvangen')
+
+    expect(label.firstElementChild).toHaveClass('ams-switch__track-container')
+  })
+
+  it('renders the label text before the track', () => {
+    render(<Switch labelPosition="start">Meldingen ontvangen</Switch>)
+
+    const label = screen.getByText('Meldingen ontvangen')
+
+    expect(label.lastElementChild).toHaveClass('ams-switch__track-container')
+  })
+
+  it('triggers a change event when clicking its own label text', () => {
+    const handleChange = vi.fn()
+
+    render(<Switch onChange={handleChange}>Meldingen ontvangen</Switch>)
+
+    screen.getByText('Meldingen ontvangen').click()
+
+    expect(handleChange).toHaveBeenCalled()
+  })
+
   it('is not disabled by default', () => {
     render(<Switch />)
 
