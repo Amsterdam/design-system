@@ -626,7 +626,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>4.9s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>5.6s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -5338,12 +5338,12 @@ import CustomIcon from './CustomIcon';</code></pre>
             </div>
             <div class="note ok">
               <div class="row">
-                <span class="ex-name">In A Field Set With Validation</span>
+                <span class="ex-name">With Validation</span>
                 <span class="badge ok">story ok</span>
               </div>
               
               
-              <pre><code>const InAFieldSetWithValidation = ({ invalid }) =&gt; (
+              <pre><code>const WithValidation = ({ invalid }) =&gt; (
   &lt;FieldSet
     aria-labelledby={`fieldset2 description2${invalid ? &#39; error2&#39; : &#39;&#39;}`}
     id=&quot;fieldset2&quot;
@@ -5487,7 +5487,7 @@ Check [the Field Set docs](/docs/components-forms-field-set--docs) for more info
 
 &lt;Canvas of={CheckboxStories.InAFieldSet} /&gt;
 
-### In a Field Set with validation
+### With validation
 
 A Field Set with Checkboxes can become invalid.
 In this case, connect an Error Message to the Field Set.
@@ -5500,7 +5500,7 @@ Do not use rich text (such as links or lists) in an Error Message. [Find out why
 
 Check [the Field Set docs](/docs/components-forms-field-set--docs) for more information on configuring it.
 
-&lt;Canvas of={CheckboxStories.InAFieldSetWithValidation} /&gt;
+&lt;Canvas of={CheckboxStories.WithValidation} /&gt;
 
 ### With custom icon
 
@@ -6522,12 +6522,12 @@ import { ErrorMessage, Field, Label, Paragraph } from '@amsterdam/design-system-
             </div>
             <div class="note ok">
               <div class="row">
-                <span class="ex-name">In A Field With Validation</span>
+                <span class="ex-name">With Validation</span>
                 <span class="badge ok">story ok</span>
               </div>
               
               
-              <pre><code>const InAFieldWithValidation = args =&gt; &lt;Field invalid&gt;
+              <pre><code>const WithValidation = args =&gt; &lt;Field invalid&gt;
     &lt;Label htmlFor=&quot;input2&quot;&gt;Label&lt;/Label&gt;
     &lt;Paragraph id=&quot;description2&quot;&gt;Omschrijving.&lt;/Paragraph&gt;
     {args.invalid &amp;&amp; &lt;ErrorMessage id=&quot;error2&quot;&gt;Foutmelding.&lt;/ErrorMessage&gt;}
@@ -6638,13 +6638,13 @@ Check [the Field docs](/docs/components-forms-field--docs) for more information 
 
 &lt;Canvas of={DateInputStories.InAField} /&gt;
 
-### In a Field with validation
+### With validation
 
 If the Date Input can become invalid, add an Error Message and its `id` to the `aria-describedby` attribute of the Date Input.
 
 Check [the Field docs](/docs/components-forms-field--docs) for more information on configuring it.
 
-&lt;Canvas of={DateInputStories.InAFieldWithValidation} /&gt;
+&lt;Canvas of={DateInputStories.WithValidation} /&gt;
 
 ## Design
 
@@ -9911,6 +9911,43 @@ import { FieldSet } from '@amsterdam/design-system-react/src';</code></pre>
             </div>
             <div class="note ok">
               <div class="row">
+                <span class="ex-name">With Heading In Legend</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const WithHeadingInLegend = args =&gt; &lt;FieldSet
+    disabled={false}
+    invalid={false}
+    legend=&quot;Wat is uw naam?&quot;
+    legendIsPageHeading&gt;
+    &lt;Field&gt;
+        &lt;Label htmlFor=&quot;input-h1&quot; inFieldSet&gt;Voornaam
+                    &lt;/Label&gt;
+        {args.invalid &amp;&amp; &lt;ErrorMessage id=&quot;error-h1&quot;&gt;Vul uw voornaam in.&lt;/ErrorMessage&gt;}
+        &lt;TextInput
+            aria-describedby={args.invalid ? &#39;error-h1&#39; : undefined}
+            aria-required=&quot;true&quot;
+            id=&quot;input-h1&quot;
+            invalid={false}
+            value={givenName} /&gt;
+    &lt;/Field&gt;
+    &lt;Field&gt;
+        &lt;Label htmlFor=&quot;input-h2&quot; inFieldSet&gt;Achternaam
+                    &lt;/Label&gt;
+        {args.invalid &amp;&amp; &lt;ErrorMessage id=&quot;error-h2&quot;&gt;Vul uw achternaam in.&lt;/ErrorMessage&gt;}
+        &lt;TextInput
+            aria-describedby={args.invalid ? &#39;error-h2&#39; : undefined}
+            aria-required=&quot;true&quot;
+            id=&quot;input-h2&quot;
+            invalid={false}
+            value={familyName} /&gt;
+    &lt;/Field&gt;
+&lt;/FieldSet&gt;;</code></pre>
+              
+            </div>
+            <div class="note ok">
+              <div class="row">
                 <span class="ex-name">With Validation</span>
                 <span class="badge ok">story ok</span>
               </div>
@@ -9960,43 +9997,6 @@ import { FieldSet } from '@amsterdam/design-system-react/src';</code></pre>
         &lt;Label htmlFor=&quot;input-d2&quot; inFieldSet&gt;Achternaam
                     &lt;/Label&gt;
         &lt;TextInput id=&quot;input-d2&quot; value={familyName} /&gt;
-    &lt;/Field&gt;
-&lt;/FieldSet&gt;;</code></pre>
-              
-            </div>
-            <div class="note ok">
-              <div class="row">
-                <span class="ex-name">With Heading In Legend</span>
-                <span class="badge ok">story ok</span>
-              </div>
-              
-              
-              <pre><code>const WithHeadingInLegend = args =&gt; &lt;FieldSet
-    disabled={false}
-    invalid={false}
-    legend=&quot;Wat is uw naam?&quot;
-    legendIsPageHeading&gt;
-    &lt;Field&gt;
-        &lt;Label htmlFor=&quot;input-h1&quot; inFieldSet&gt;Voornaam
-                    &lt;/Label&gt;
-        {args.invalid &amp;&amp; &lt;ErrorMessage id=&quot;error-h1&quot;&gt;Vul uw voornaam in.&lt;/ErrorMessage&gt;}
-        &lt;TextInput
-            aria-describedby={args.invalid ? &#39;error-h1&#39; : undefined}
-            aria-required=&quot;true&quot;
-            id=&quot;input-h1&quot;
-            invalid={false}
-            value={givenName} /&gt;
-    &lt;/Field&gt;
-    &lt;Field&gt;
-        &lt;Label htmlFor=&quot;input-h2&quot; inFieldSet&gt;Achternaam
-                    &lt;/Label&gt;
-        {args.invalid &amp;&amp; &lt;ErrorMessage id=&quot;error-h2&quot;&gt;Vul uw achternaam in.&lt;/ErrorMessage&gt;}
-        &lt;TextInput
-            aria-describedby={args.invalid ? &#39;error-h2&#39; : undefined}
-            aria-required=&quot;true&quot;
-            id=&quot;input-h2&quot;
-            invalid={false}
-            value={familyName} /&gt;
     &lt;/Field&gt;
 &lt;/FieldSet&gt;;</code></pre>
               
@@ -10099,7 +10099,14 @@ Make sure to add `aria-required` to &lt;em&gt;all&lt;/em&gt; form elements in th
 
 &lt;Canvas of={FieldSetStories.WithHint} /&gt;
 
-### With Validation
+### With Heading in Legend
+
+If the Field Set holds the only question on the page, its Legend serves as the main heading as well.
+Set `legendIsPageHeading` to include an `h1` element to reflect this.
+
+&lt;Canvas of={FieldSetStories.WithHeadingInLegend} /&gt;
+
+### With validation
 
 A Field Set can indicate whether any of the inputs it contains has a validation error.
 Use an [Error Message](/docs/components-forms-error-message--docs) to describe the error.
@@ -10119,13 +10126,6 @@ The Field Set itself keeps its appearance: the legend and the labels stay in the
 Each control inside shows that it is unavailable in its own way, so a [Text Input](/docs/components-forms-text-input--docs) takes the same grey fill and grey text it has when it is disabled on its own.
 
 &lt;Canvas of={FieldSetStories.Disabled} /&gt;
-
-### With Heading in Legend
-
-If the Field Set holds the only question on the page, its Legend serves as the main heading as well.
-Set `legendIsPageHeading` to include an `h1` element to reflect this.
-
-&lt;Canvas of={FieldSetStories.WithHeadingInLegend} /&gt;
 
 ### With a nested Field Set
 
@@ -10893,6 +10893,16 @@ import { FormFieldStatus } from '@amsterdam/design-system-react/src';</code></pr
             </div>
             <div class="note ok">
               <div class="row">
+                <span class="ex-name">Status Text</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const StatusText = () =&gt; &lt;FormFieldStatus&gt;Uw wachtwoord is sterk genoeg.&lt;/FormFieldStatus&gt;;</code></pre>
+              
+            </div>
+            <div class="note ok">
+              <div class="row">
                 <span class="ex-name">Over Limit</span>
                 <span class="badge ok">story ok</span>
               </div>
@@ -10905,12 +10915,30 @@ import { FormFieldStatus } from '@amsterdam/design-system-react/src';</code></pr
             </div>
             <div class="note ok">
               <div class="row">
-                <span class="ex-name">Status Text</span>
+                <span class="ex-name">In A Field</span>
                 <span class="badge ok">story ok</span>
               </div>
               
               
-              <pre><code>const StatusText = () =&gt; &lt;FormFieldStatus&gt;Uw wachtwoord is sterk genoeg.&lt;/FormFieldStatus&gt;;</code></pre>
+              <pre><code>const InAField = () =&gt; {
+    const [value, setValue] = useState(exampleRequest)
+
+    return (
+        &lt;Field&gt;
+            &lt;Label htmlFor=&quot;input1&quot;&gt;Beschrijf uw aanvraag&lt;/Label&gt;
+            &lt;Paragraph id=&quot;description1&quot;&gt;Licht kort toe wat u nodig heeft.&lt;/Paragraph&gt;
+            &lt;TextArea
+                aria-describedby=&quot;description1 status1&quot;
+                id=&quot;input1&quot;
+                onChange={(event) =&gt; setValue(event.target.value)}
+                rows={4}
+                value={value} /&gt;
+            &lt;FormFieldStatus maxLength={100} id=&quot;status1&quot;&gt;
+                &lt;FormFieldStatus.CharacterCount length={value.length} maxLength={maxLength} /&gt;
+            &lt;/FormFieldStatus&gt;
+        &lt;/Field&gt;
+    );
+};</code></pre>
               
             </div>
             <div class="note ok">
@@ -10964,34 +10992,6 @@ import { FormFieldStatus } from '@amsterdam/design-system-react/src';</code></pr
             maxLength={10} /&gt;
     &lt;/FormFieldStatus&gt;
 &lt;/Column&gt;;</code></pre>
-              
-            </div>
-            <div class="note ok">
-              <div class="row">
-                <span class="ex-name">In A Field</span>
-                <span class="badge ok">story ok</span>
-              </div>
-              
-              
-              <pre><code>const InAField = () =&gt; {
-    const [value, setValue] = useState(exampleRequest)
-
-    return (
-        &lt;Field&gt;
-            &lt;Label htmlFor=&quot;input1&quot;&gt;Beschrijf uw aanvraag&lt;/Label&gt;
-            &lt;Paragraph id=&quot;description1&quot;&gt;Licht kort toe wat u nodig heeft.&lt;/Paragraph&gt;
-            &lt;TextArea
-                aria-describedby=&quot;description1 status1&quot;
-                id=&quot;input1&quot;
-                onChange={(event) =&gt; setValue(event.target.value)}
-                rows={4}
-                value={value} /&gt;
-            &lt;FormFieldStatus maxLength={100} id=&quot;status1&quot;&gt;
-                &lt;FormFieldStatus.CharacterCount length={value.length} maxLength={maxLength} /&gt;
-            &lt;/FormFieldStatus&gt;
-        &lt;/Field&gt;
-    );
-};</code></pre>
               
             </div>
         </div>
@@ -11074,17 +11074,23 @@ Set `lang` on the component, or on an element containing it, when that language 
 
 ## Examples
 
+### Status text
+
+Anything passed as children is announced as it stands, for a status that counts nothing.
+
+&lt;Canvas of={FormFieldStatusStories.StatusText} /&gt;
+
 ### Over the limit
 
 Past the limit the count carries on, and a second line reports how far the value exceeds it.
 
 &lt;Canvas of={FormFieldStatusStories.OverLimit} /&gt;
 
-### Status text
+### In a Field
 
-Anything passed as children is announced as it stands, for a status that counts nothing.
+Type in the Text Area below to see and hear the status update in context.
 
-&lt;Canvas of={FormFieldStatusStories.StatusText} /&gt;
+&lt;Canvas of={FormFieldStatusStories.InAField} /&gt;
 
 ### Translated text
 
@@ -11094,12 +11100,6 @@ The Arabic formatters apply Arabic number–noun agreement.
 See the [Localisation guide](/docs/docs-guidelines-localisation--docs) for the tested locales.
 
 &lt;Canvas of={FormFieldStatusStories.Translated} /&gt;
-
-### In a Field
-
-Type in the Text Area below to see and hear the status update in context.
-
-&lt;Canvas of={FormFieldStatusStories.InAField} /&gt;
 
 ## Features
 
@@ -17537,6 +17537,24 @@ import { KnownDateInput } from '@amsterdam/design-system-react/src';</code></pre
             </div>
             <div class="note ok">
               <div class="row">
+                <span class="ex-name">Month And Year</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const MonthAndYear = () =&gt; &lt;FieldSet
+    aria-describedby=&quot;description-c&quot;
+    legend=&quot;Sinds wanneer woon je op dit adres?&quot;&gt;
+    &lt;Paragraph id=&quot;description-c&quot;&gt;Bijvoorbeeld 3 2019 voor maart 2019.&lt;/Paragraph&gt;
+    &lt;KnownDateInput&gt;
+        &lt;KnownDateInput.Month name=&quot;maand&quot; /&gt;
+        &lt;KnownDateInput.Year name=&quot;jaar&quot; /&gt;
+    &lt;/KnownDateInput&gt;
+&lt;/FieldSet&gt;;</code></pre>
+              
+            </div>
+            <div class="note ok">
+              <div class="row">
                 <span class="ex-name">In A Field Set</span>
                 <span class="badge ok">story ok</span>
               </div>
@@ -17554,12 +17572,12 @@ import { KnownDateInput } from '@amsterdam/design-system-react/src';</code></pre
             </div>
             <div class="note ok">
               <div class="row">
-                <span class="ex-name">In A Field Set With Validation</span>
+                <span class="ex-name">With Validation</span>
                 <span class="badge ok">story ok</span>
               </div>
               
               
-              <pre><code>const InAFieldSetWithValidation = () =&gt; &lt;FieldSet
+              <pre><code>const WithValidation = () =&gt; &lt;FieldSet
     aria-describedby=&quot;description-b error-b&quot;
     invalid
     legend=&quot;Wanneer ben je geboren?&quot;&gt;
@@ -17569,24 +17587,6 @@ import { KnownDateInput } from '@amsterdam/design-system-react/src';</code></pre
         &lt;KnownDateInput.Day defaultValue={16} name=&quot;dag&quot; /&gt;
         &lt;KnownDateInput.Month defaultValue={8} name=&quot;maand&quot; /&gt;
         &lt;KnownDateInput.Year invalid name=&quot;jaar&quot; /&gt;
-    &lt;/KnownDateInput&gt;
-&lt;/FieldSet&gt;;</code></pre>
-              
-            </div>
-            <div class="note ok">
-              <div class="row">
-                <span class="ex-name">Month And Year</span>
-                <span class="badge ok">story ok</span>
-              </div>
-              
-              
-              <pre><code>const MonthAndYear = () =&gt; &lt;FieldSet
-    aria-describedby=&quot;description-c&quot;
-    legend=&quot;Sinds wanneer woon je op dit adres?&quot;&gt;
-    &lt;Paragraph id=&quot;description-c&quot;&gt;Bijvoorbeeld 3 2019 voor maart 2019.&lt;/Paragraph&gt;
-    &lt;KnownDateInput&gt;
-        &lt;KnownDateInput.Month name=&quot;maand&quot; /&gt;
-        &lt;KnownDateInput.Year name=&quot;jaar&quot; /&gt;
     &lt;/KnownDateInput&gt;
 &lt;/FieldSet&gt;;</code></pre>
               
@@ -17683,6 +17683,13 @@ Both `1` and `01` are a valid month, and rejecting one of the two gives the user
 
 ## Examples
 
+### Month and year
+
+Ask only for the parts of the date you need.
+Leave out the Day for a month and a year.
+
+&lt;Canvas of={KnownDateInputStories.MonthAndYear} /&gt;
+
 ### In a Field Set
 
 Use a Field Set to give the fields a legend, a description and, when needed, an Error Message.
@@ -17691,7 +17698,7 @@ Check [the Field Set docs](/docs/components-forms-field-set--docs) for more info
 
 &lt;Canvas of={KnownDateInputStories.InAFieldSet} /&gt;
 
-### In a Field Set with validation
+### With validation
 
 The component does not validate its values itself.
 To report an error, add `invalid` and an [Error Message](/docs/components-forms-error-message--docs) to the Field Set, and connect the Error Message to the Field Set with `aria-describedby`.
@@ -17699,14 +17706,7 @@ Set `invalid` only on the fields that are at fault.
 
 See the [gov.uk documentation on validating this pattern](https://design-system.service.gov.uk/components/date-input/#error-messages) for how to word the message.
 
-&lt;Canvas of={KnownDateInputStories.InAFieldSetWithValidation} /&gt;
-
-### Month and year
-
-Ask only for the parts of the date you need.
-Leave out the Day for a month and a year.
-
-&lt;Canvas of={KnownDateInputStories.MonthAndYear} /&gt;
+&lt;Canvas of={KnownDateInputStories.WithValidation} /&gt;
 
 ### Translated
 
@@ -26960,12 +26960,12 @@ import { PasswordInput } from '@amsterdam/design-system-react/src';</code></pre>
             </div>
             <div class="note ok">
               <div class="row">
-                <span class="ex-name">In A Field With Validation</span>
+                <span class="ex-name">With Validation</span>
                 <span class="badge ok">story ok</span>
               </div>
               
               
-              <pre><code>const InAFieldWithValidation = args =&gt; &lt;Field invalid&gt;
+              <pre><code>const WithValidation = args =&gt; &lt;Field invalid&gt;
     &lt;Label htmlFor=&quot;input2&quot;&gt;Label&lt;/Label&gt;
     &lt;Paragraph id=&quot;description2&quot;&gt;Omschrijving.&lt;/Paragraph&gt;
     {args.invalid &amp;&amp; &lt;ErrorMessage id=&quot;error2&quot;&gt;Foutmelding.&lt;/ErrorMessage&gt;}
@@ -27059,13 +27059,13 @@ Check [the Field docs](/docs/components-forms-field--docs) for more information 
 
 &lt;Canvas of={PasswordInputStories.InAField} /&gt;
 
-### In a Field with validation
+### With validation
 
 If the Password Input can become invalid, add an Error Message and its `id` to the `aria-describedby` attribute of the Password Input.
 
 Check [the Field docs](/docs/components-forms-field--docs) for more information on configuring it.
 
-&lt;Canvas of={PasswordInputStories.InAFieldWithValidation} /&gt;
+&lt;Canvas of={PasswordInputStories.WithValidation} /&gt;
 
 ## Features
 
@@ -34826,12 +34826,12 @@ import CustomIcon from './CustomIcon';</code></pre>
             </div>
             <div class="note ok">
               <div class="row">
-                <span class="ex-name">In A Field Set With Validation</span>
+                <span class="ex-name">With Validation</span>
                 <span class="badge ok">story ok</span>
               </div>
               
               
-              <pre><code>const InAFieldSetWithValidation = ({ invalid }) =&gt; (
+              <pre><code>const WithValidation = ({ invalid }) =&gt; (
   &lt;FieldSet
     aria-describedby={`description2${invalid ? &#39; error2&#39; : &#39;&#39;}`}
     aria-required=&quot;true&quot;
@@ -34972,7 +34972,7 @@ Check [the Field Set docs](/docs/components-forms-field-set--docs) for more info
 
 &lt;Canvas of={RadioStories.InAFieldSet} /&gt;
 
-### In a Field Set with validation
+### With validation
 
 A Field Set with a Radio group can become invalid.
 In this case, connect an Error Message to the Field Set.
@@ -34982,7 +34982,7 @@ Do not use rich text (such as links or lists) in an Error Message. [Find out why
 
 Check [the Field Set docs](/docs/components-forms-field-set--docs) for more information on configuring it.
 
-&lt;Canvas of={RadioStories.InAFieldSetWithValidation} /&gt;
+&lt;Canvas of={RadioStories.WithValidation} /&gt;
 
 ### With custom icon
 
@@ -36523,12 +36523,12 @@ import { formatFieldValue } from '#storybook/_common/formatFieldValue';</code></
             </div>
             <div class="note ok">
               <div class="row">
-                <span class="ex-name">In A Field With Validation</span>
+                <span class="ex-name">With Validation</span>
                 <span class="badge ok">story ok</span>
               </div>
               
               
-              <pre><code>const InAFieldWithValidation = args =&gt; &lt;Field invalid&gt;
+              <pre><code>const WithValidation = args =&gt; &lt;Field invalid&gt;
     &lt;Label htmlFor=&quot;input2&quot;&gt;Label&lt;/Label&gt;
     &lt;Paragraph id=&quot;description2&quot;&gt;Omschrijving.&lt;/Paragraph&gt;
     {args.invalid &amp;&amp; &lt;ErrorMessage id=&quot;error2&quot;&gt;Foutmelding.&lt;/ErrorMessage&gt;}
@@ -36621,13 +36621,13 @@ Check [the Field docs](/docs/components-forms-field--docs) for more information 
 
 &lt;Canvas of={SelectStories.InAField} /&gt;
 
-### In a Field with validation
+### With validation
 
 If the Select can become invalid, add an Error Message and its `id` to the `aria-describedby` attribute of the Select.
 
 Check [the Field docs](/docs/components-forms-field--docs) for more information on configuring it.
 
-&lt;Canvas of={SelectStories.InAFieldWithValidation} /&gt;
+&lt;Canvas of={SelectStories.WithValidation} /&gt;
 
 ## Design
 
@@ -39863,12 +39863,12 @@ import { exampleParagraph } from '#storybook/_common/exampleContent';</code></pr
             </div>
             <div class="note ok">
               <div class="row">
-                <span class="ex-name">In A Field With Validation</span>
+                <span class="ex-name">With Validation</span>
                 <span class="badge ok">story ok</span>
               </div>
               
               
-              <pre><code>const InAFieldWithValidation = args =&gt; &lt;Field invalid&gt;
+              <pre><code>const WithValidation = args =&gt; &lt;Field invalid&gt;
     &lt;Label htmlFor=&quot;input2&quot;&gt;Label&lt;/Label&gt;
     &lt;Paragraph id=&quot;description2&quot;&gt;Omschrijving.&lt;/Paragraph&gt;
     {args.invalid &amp;&amp; &lt;ErrorMessage id=&quot;error2&quot;&gt;Foutmelding.&lt;/ErrorMessage&gt;}
@@ -39959,13 +39959,13 @@ Check [the Field docs](/docs/components-forms-field--docs) for more information 
 
 &lt;Canvas of={TextAreaStories.InAField} /&gt;
 
-### In a Field with validation
+### With validation
 
 If the Text Area can become invalid, add an Error Message and its `id` to the `aria-describedby` prop of the Text Area.
 
 Check [the Field docs](/docs/components-forms-field--docs) for more information on configuring it.
 
-&lt;Canvas of={TextAreaStories.InAFieldWithValidation} /&gt;
+&lt;Canvas of={TextAreaStories.WithValidation} /&gt;
 
 ## Design
 
@@ -40217,12 +40217,12 @@ import { TextInput } from '@amsterdam/design-system-react/src';</code></pre>
             </div>
             <div class="note ok">
               <div class="row">
-                <span class="ex-name">In A Field With Validation</span>
+                <span class="ex-name">With Validation</span>
                 <span class="badge ok">story ok</span>
               </div>
               
               
-              <pre><code>const InAFieldWithValidation = args =&gt; &lt;Field invalid&gt;
+              <pre><code>const WithValidation = args =&gt; &lt;Field invalid&gt;
     &lt;Label htmlFor=&quot;input2&quot;&gt;Label&lt;/Label&gt;
     &lt;Paragraph id=&quot;description2&quot;&gt;Omschrijving.&lt;/Paragraph&gt;
     {args.invalid &amp;&amp; &lt;ErrorMessage id=&quot;error2&quot;&gt;Foutmelding.&lt;/ErrorMessage&gt;}
@@ -40447,13 +40447,13 @@ Check [the Field docs](/docs/components-forms-field--docs) for more information 
 
 &lt;Canvas of={TextInputStories.InAField} /&gt;
 
-### In a Field with validation
+### With validation
 
 If the Text Input can become invalid, add an Error Message and its `id` to the `aria-describedby` attribute of the Text Input.
 
 Check [the Field docs](/docs/components-forms-field--docs) for more information on configuring it.
 
-&lt;Canvas of={TextInputStories.InAFieldWithValidation} /&gt;
+&lt;Canvas of={TextInputStories.WithValidation} /&gt;
 
 ## Design
 
@@ -40621,12 +40621,12 @@ import { TimeInput } from '@amsterdam/design-system-react/src';</code></pre>
             </div>
             <div class="note ok">
               <div class="row">
-                <span class="ex-name">In A Field With Validation</span>
+                <span class="ex-name">With Validation</span>
                 <span class="badge ok">story ok</span>
               </div>
               
               
-              <pre><code>const InAFieldWithValidation = args =&gt; &lt;Field invalid&gt;
+              <pre><code>const WithValidation = args =&gt; &lt;Field invalid&gt;
     &lt;Label htmlFor=&quot;input2&quot;&gt;Label&lt;/Label&gt;
     &lt;Paragraph id=&quot;description2&quot;&gt;Omschrijving.&lt;/Paragraph&gt;
     {args.invalid &amp;&amp; &lt;ErrorMessage id=&quot;error2&quot;&gt;Foutmelding.&lt;/ErrorMessage&gt;}
@@ -40699,13 +40699,13 @@ Check [the Field docs](/docs/components-forms-field--docs) for more information 
 
 &lt;Canvas of={TimeInputStories.InAField} /&gt;
 
-### In a Field with validation
+### With validation
 
 If the Time Input can become invalid, add an Error Message and its `id` to the `aria-describedby` attribute of the Time Input.
 
 Check [the Field docs](/docs/components-forms-field--docs) for more information on configuring it.
 
-&lt;Canvas of={TimeInputStories.InAFieldWithValidation} /&gt;
+&lt;Canvas of={TimeInputStories.WithValidation} /&gt;
 
 ## Design
 
