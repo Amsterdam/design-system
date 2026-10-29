@@ -35,17 +35,17 @@ export const ProgressBar = forwardRef(
 
     return (
       <div {...restProps} className={clsx('ams-progress-bar', className)} ref={ref}>
-        <p aria-hidden className="ams-progress-bar-text" id="progress-label-text">
+        <p aria-hidden className="ams-progress-bar__text" id="progress-label-text">
           {text}
         </p>
-        <div className="ams-progress-bar-track">
+        <div className="ams-progress-bar__track">
           <progress
             aria-labelledby="progress-label-text"
             className={clsx('ams-progress-bar-progress', 'ams-visually-hidden')}
             max={max}
             value={value}
-          />
-          <div aria-hidden className="ams-progress-bar-fill" style={{ transform: `scaleX(${fraction})` }} />
+          ></progress>
+          <div aria-hidden className="ams-progress-bar__fill" style={{ transform: `scaleX(${fraction})` }} />
         </div>
       </div>
     )

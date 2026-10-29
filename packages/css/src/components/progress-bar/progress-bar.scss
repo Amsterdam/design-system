@@ -5,15 +5,7 @@
 
 @use "animation";
 
-.ams-progress-bar {
-  block-size: auto;
-  display: flex;
-  flex-direction: column;
-  gap: var(--ams-progress-bar-gap);
-  inline-size: 100%;
-}
-
-.ams-progress-bar-text {
+.ams-progress-bar__text {
   color: var(--ams-progress-bar-text-color);
   direction: ltr;
   font-family: var(--ams-progress-bar-text-font-family);
@@ -21,7 +13,7 @@
   text-align: center;
 }
 
-.ams-progress-bar-track {
+.ams-progress-bar__track {
   background-color: var(--ams-progress-bar-track-background-color);
   block-size: var(--ams-progress-bar-block-size);
   border-color: var(--ams-progress-bar-track-border-color);
@@ -34,30 +26,30 @@
   position: relative;
 }
 
-.ams-progress-bar-fill {
+.ams-progress-bar__fill {
   background-color: var(--ams-progress-bar-fill-background-color);
   block-size: 100%;
   inline-size: 100%;
   transform-origin: left;
 }
 
-[dir="rtl"] .ams-progress-bar-fill {
+[dir="rtl"] .ams-progress-bar__fill {
   transform-origin: right;
 }
 
 @media (forced-colors: active) {
-  .ams-progress-bar-track {
+  .ams-progress-bar__track {
     border-color: CanvasText;
   }
 
-  .ams-progress-bar-fill {
+  .ams-progress-bar__fill {
     background-color: Highlight;
   }
 }
 
 @media print {
-  .ams-progress-bar-track,
-  .ams-progress-bar-fill {
+  .ams-progress-bar__track,
+  .ams-progress-bar__fill {
     -webkit-print-color-adjust: exact;
   }
 }
