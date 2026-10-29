@@ -1,7 +1,7 @@
 {
   "ams": {
-    "animations": {
-      "transitions": {
+    "motion": {
+      "transition": {
         "duration": {
           "$type": "duration",
           "$value": "0.3s",
@@ -15,14 +15,18 @@
           "$description": "Timing function used for transitions."
         }
       },
-      "rotation": {
-        "start-angle": {
-          "$value": "0deg",
-          "$description": "Starting angle of a rotation."
-        },
-        "end-angle": {
-          "$value": "-180deg",
-          "$description": "Ending angle of a rotation."
+      "collapsible-toggle": {
+        "rotate": {
+          "angle-start": {
+            "$type": "dimension",
+            "$value": "0deg",
+            "$description": "Starting angle of a collapsible toggle."
+          },
+          "angle-end": {
+            "$type": "dimension",
+            "$value": "-180deg",
+            "$description": "Ending angle of a collapsible toggle."
+          }
         }
       }
     }
