@@ -56,6 +56,26 @@
               "nl.amsterdam.type": "color"
             }
           }
+        },
+        "icon": {
+          "transition-duration": {
+            "$value": "{ams.motion.transition.duration}",
+            "$type": "duration"
+          },
+          "transition-timing-function": {
+            "$value": "{ams.motion.transition.timing-function}",
+            "$extensions": {
+              "nl.amsterdam.type": "transitionTimingFunction"
+            }
+          },
+          "svg-angle-start-rotate": {
+            "$value": "{ams.motion.collapsible-toggle.rotate.angle-start}",
+            "$type": "dimension"
+          },
+          "svg-angle-end-rotate": {
+            "$value": "{ams.motion.collapsible-toggle.rotate.angle-end}",
+            "$type": "dimension"
+          }
         }
       }
     }

@@ -1,0 +1,34 @@
+{
+  "ams": {
+    "motion": {
+      "transition": {
+        "duration": {
+          "$type": "duration",
+          "$value": "0.3s",
+          "$description": "Duration used for transitions."
+        },
+        "timing-function": {
+          "$value": "ease",
+          "$extensions": {
+            "nl.amsterdam.type": "transitionTimingFunction"
+          },
+          "$description": "Timing function used for transitions."
+        }
+      },
+      "collapsible-toggle": {
+        "rotate": {
+          "angle-start": {
+            "$type": "dimension",
+            "$value": "0deg",
+            "$description": "Starting angle of a collapsible toggle."
+          },
+          "angle-end": {
+            "$type": "dimension",
+            "$value": "-180deg",
+            "$description": "Ending angle of a collapsible toggle."
+          }
+        }
+      }
+    }
+  }
+}

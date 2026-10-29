@@ -197,10 +197,10 @@
 /* Icon */
 
 .ams-progress-list__icon svg {
-  rotate: 0deg;
+  rotate: var(--ams-progress-list-icon-svg-angle-start-rotate);
 
   [aria-expanded="true"] & {
-    rotate: -180deg;
+    rotate: var(--ams-progress-list-icon-svg-angle-end-rotate);
   }
 
   @media (prefers-reduced-motion: no-preference) {
