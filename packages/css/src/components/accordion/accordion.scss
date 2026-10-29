@@ -3,9 +3,9 @@
  * Copyright Gemeente Amsterdam
  */
 
+@use "../../common/animations" as *;
 @use "../../common/hyphenation" as *;
 @use "../../common/resets" as *;
-@use "../../common/transition" as *;
 @use "../../common/text-rendering" as *;
 
 .ams-accordion {
