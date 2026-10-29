@@ -6,7 +6,7 @@
 import { dimensionToString } from '../dimensionToString.js'
 
 /**
- * Normalizes DTCG dimension objects within shadow token sub-values to bare CSS strings.
+ * Normalises DTCG dimension objects within shadow token sub-values to bare CSS strings.
  *
  * The DTCG spec requires dimension values to be expressed as objects
  * (`{ value: number, unit: "px" | "rem" }`), but Style Dictionary's built-in

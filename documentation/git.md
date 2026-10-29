@@ -53,7 +53,6 @@ There are 2 ways to get the address of a branch deployment:
 ## Create a branch
 
 Create a new branch through your shell or a GUI.
-The possibility to create a branch from Jira is underway.
 
 ## Give the branch a name
 
@@ -76,14 +75,14 @@ Git applications use that convention to visually group branches.
 
 ### Add the task identifier
 
-Add the ID of the appropriate sub-task to help locate specifications and discussions related to the work done in the branch.
+Add the ID of the appropriate task to help locate specifications and discussions related to the work done in the branch.
 
 From here on, a hyphen-minus ‘-’ is the separator.
 
 ### Describe the work to be done
 
 Describe the contents of the branch in a few English words.
-Derive these from the name of the product backlog item (PBI) to which the sub-task belongs, or in the case of larger PBIs, from the sub-task itself.
+Derive these from the name of the task that the branch addresses.
 
 ### Examples
 

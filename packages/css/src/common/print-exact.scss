@@ -4,8 +4,8 @@
  */
 
 /**
- * Ask browsers to preserve authored colors, backgrounds, and images in print
- * instead of auto-optimizing them for ink saving or contrast. A user may still choose to override these settings.
+ * Ask browsers to preserve authored colours, backgrounds, and images in print
+ * instead of auto-optimising them for ink saving or contrast. A user may still choose to override these settings.
  */
 @mixin print-exact {
   @media print {
