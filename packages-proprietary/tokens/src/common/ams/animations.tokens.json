@@ -8,8 +8,10 @@
           "$description": "Duration used for transitions."
         },
         "timing-function": {
-          "$type": "transitionTimingFunction",
           "$value": "ease",
+          "$extensions": {
+            "nl.amsterdam.type": "transitionTimingFunction"
+          },
           "$description": "Timing function used for transitions."
         }
       },
