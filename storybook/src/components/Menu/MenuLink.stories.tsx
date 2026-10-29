@@ -7,9 +7,10 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { PieChartFillIcon } from '@amsterdam/design-system-react-icons'
 import { Menu } from '@amsterdam/design-system-react/src'
+import useViewportHasMinWidth from '@amsterdam/design-system-react/src/common/useViewportHasMinWidth'
 
 import { childrenArgType, hrefArgType, linkComponentArgType } from '#storybook/_common/argTypes'
-import { requiredIconArgType } from '#storybook/_common/iconArgTypes'
+import { iconArgType } from '#storybook/_common/iconArgTypes'
 
 const meta = {
   title: 'Components/Navigation/Menu',
@@ -17,15 +18,20 @@ const meta = {
   argTypes: {
     children: childrenArgType('The link text.'),
     href: hrefArgType,
-    icon: requiredIconArgType,
+    icon: iconArgType('PieChartFillIcon'),
     linkComponent: linkComponentArgType,
   },
   decorators: [
-    (Story) => (
-      <Menu inWideWindow>
-        <Story />
-      </Menu>
-    ),
+    // Follows the window like an application does: a Menu with `inWideWindow` is hidden in a narrower one.
+    (Story) => {
+      const inWideWindow = useViewportHasMinWidth('wide')
+
+      return (
+        <Menu inWideWindow={inWideWindow}>
+          <Story />
+        </Menu>
+      )
+    },
   ],
   parameters: {
     themes: {
