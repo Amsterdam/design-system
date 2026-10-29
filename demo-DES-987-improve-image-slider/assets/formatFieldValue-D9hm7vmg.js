@@ -1,1 +1,0 @@
-import{n as e}from"./rolldown-runtime-DkW27tQK.js";function t(e){return e.normalize(`NFD`).replace(/\p{Diacritic}/gu,``).toLowerCase().replace(/[^\p{Letter}\p{Number}]+/gu,`-`).replace(/^-|-$/g,``)}function n(){return(n=e((()=>{})))()}export{n,t};
