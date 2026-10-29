@@ -13,6 +13,8 @@ We test our components to ensure their quality and prevent unintended changes.
 
 Unit tests are written using [Vitest](https://vitest.dev) and [React Testing Library](https://github.com/testing-library/react-testing-library). These tests run on every [pull request](https://github.com/Amsterdam/design-system/blob/develop/.github/workflows/check-build-and-tests.yml).
 All components must have their own unit tests, which are located in a separate file named `component.test.tsx`.
+The unit tests must cover 100% of the statements, branches, functions and lines of the React package.
+A pull request that lowers any of these percentages fails the tests.
 
 ## Interaction tests
 

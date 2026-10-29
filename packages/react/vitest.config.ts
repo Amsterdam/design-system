@@ -13,6 +13,7 @@ export default defineConfig({
       exclude: ['**/index.ts'],
       provider: 'v8',
       reporter: ['text', 'json-summary'],
+      thresholds: { 100: true },
     },
     environment: 'jsdom',
     exclude: ['**/dist/**', '**/node_modules/**'],
