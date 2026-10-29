@@ -110,14 +110,22 @@
       },
       "icon": {
         "transition-duration": {
-          "$value": "0.3s",
+          "$value": "{ams.motion.transition.duration}",
           "$type": "duration"
         },
         "transition-timing-function": {
-          "$value": "ease",
+          "$value": "{ams.motion.transition.timing-function}",
           "$extensions": {
             "nl.amsterdam.type": "transitionTimingFunction"
           }
+        },
+        "svg-angle-start-rotate": {
+          "$value": "{ams.motion.collapsible-toggle.rotate.angle-start}",
+          "$type": "duration"
+        },
+        "svg-angle-end-rotate": {
+          "$value": "{ams.motion.collapsible-toggle.rotate.angle-end}",
+          "$type": "duration"
         }
       },
       "step": {
