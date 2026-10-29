@@ -3,7 +3,6 @@
  * Copyright Gemeente Amsterdam
  */
 
-@use "../../common/animations" as *;
 @use "../../common/breakpoint" as *;
 @use "../../common/print-exact" as *;
 @use "../../common/resets" as *;
@@ -198,17 +197,15 @@
 /* Icon */
 
 .ams-progress-list__icon svg {
-  rotate: var(--ams-animations-rotation-start-angle);
+  rotate: var(--ams-progress-list-icon-svg-angle-start-rotate);
 
   [aria-expanded="true"] & {
-    rotate: var(--ams-animations-rotation-end-angle);
+    rotate: var(--ams-progress-list-icon-svg-angle-end-rotate);
   }
 
   @media (prefers-reduced-motion: no-preference) {
-    @include transition;
-
-    transition-duration: var(--ams-progress-list-icon-transition-duration);
-    transition-timing-function: var(--ams-progress-list-icon-transition-timing-function);
+    transition: rotate var(--ams-progress-list-icon-transition-duration)
+      var(--ams-progress-list-icon-transition-timing-function);
   }
 }
 

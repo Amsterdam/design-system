@@ -3,7 +3,6 @@
  * Copyright Gemeente Amsterdam
  */
 
-@use "../../common/animations" as *;
 @use "../../common/hyphenation" as *;
 @use "../../common/resets" as *;
 @use "../../common/text-rendering" as *;
@@ -44,14 +43,15 @@
 }
 
 .ams-accordion__icon svg {
-  rotate: var(--ams-animations-rotation-start-angle);
+  rotate: var(--ams-accordion-button-icon-svg-angle-start-rotate);
 
   [aria-expanded="true"] & {
-    rotate: var(--ams-animations-rotation-end-angle);
+    rotate: var(--ams-accordion-button-icon-svg-angle-end-rotate);
   }
 
   @media (prefers-reduced-motion: no-preference) {
-    @include transition;
+    transition: rotate var(--ams-accordion-button-icon-transition-duration)
+      var(--ams-accordion-button-icon-transition-timing-function);
   }
 }
 
