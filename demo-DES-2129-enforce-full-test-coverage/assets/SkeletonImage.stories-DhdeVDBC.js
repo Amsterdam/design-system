@@ -1,0 +1,5 @@
+import{n as e,r as t}from"./rolldown-runtime-sJBDdmOt.js";import{t as n}from"./jsx-runtime-BG4KOiPz.js";import{n as r,t as i}from"./Skeleton-AhDM068r.js";import{n as a,t as o}from"./decorators-BjujRqAh.js";import{i as s,t as c}from"./types-DBCOQgsd.js";var l=t({Image:()=>f,__namedExportsOrder:()=>p,default:()=>d}),u,d,f,p;function m(){return(m=e((()=>{r(),s(),o(),u=n(),d={title:`Components/Feedback/Skeleton`,component:i.Image,argTypes:{aspectRatio:{control:`select`,options:c}},decorators:[a(`24rem`)],render:e=>(0,u.jsx)(i,{children:(0,u.jsx)(i.Image,{...e})}),tags:[`!manifest`]},f={args:{aspectRatio:`16:9`}},p=[`Image`],f.parameters={...f.parameters,docs:{...f.parameters?.docs,source:{originalSource:`{
+  args: {
+    aspectRatio: '16:9'
+  }
+}`,...f.parameters?.docs?.source}}}})))()}export{l as n,m as r,f as t};
