@@ -3,10 +3,10 @@
  * Copyright Gemeente Amsterdam
  */
 
+@use "../../common/animations" as *;
 @use "../../common/breakpoint" as *;
 @use "../../common/print-exact" as *;
 @use "../../common/resets" as *;
-@use "../../common/transition" as *;
 
 @mixin indicator {
   display: grid;

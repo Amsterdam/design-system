@@ -3,10 +3,10 @@
  * Copyright Gemeente Amsterdam
  */
 
+@use "../../common/animations" as *;
 @use "../../common/hyphenation" as *;
 @use "../../common/resets" as *;
 @use "../../common/text-rendering" as *;
-@use "../../common/transition" as *;
 
 .ams-table-of-contents {
   display: flex;
