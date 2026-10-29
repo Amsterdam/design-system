@@ -280,6 +280,7 @@ export const parameters = {
           [
             'Choosing a page type',
             'Page structure',
+            'Composing your own navigation',
             'Layout and spacing',
             'Reading the anatomy',
             'Composing your own page',
