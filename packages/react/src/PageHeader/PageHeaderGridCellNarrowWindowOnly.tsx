@@ -8,9 +8,9 @@ import type { ForwardedRef } from 'react'
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
 
-import type { GridCellProps } from '../Grid'
+import type { GridCellProps } from '../Grid/GridCell'
 
-import { Grid } from '../Grid'
+import { Grid } from '../Grid/Grid'
 
 /**
  * A Grid Cell within the Page Header that renders navigation links only on narrow windows.

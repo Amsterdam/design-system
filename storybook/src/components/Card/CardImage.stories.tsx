@@ -21,6 +21,13 @@ const meta = {
       },
       options: [undefined, ...aspectRatioOptions],
     },
+    fit: {
+      control: {
+        labels: { undefined: 'default (cover)' },
+        type: 'radio',
+      },
+      options: [undefined, 'contain'],
+    },
   },
   decorators: [
     (Story) => (
@@ -36,11 +43,15 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
+/**
+ * The image is portrait while its shape is 16 by 9, so `fit` has something to do here.
+ * An image that already matches the shape it is given looks the same either way.
+ */
 export const Image: Story = {
   args: {
     alt: '',
     aspectRatio: '16:9',
-    src: 'https://picsum.photos/800/450',
+    src: 'https://picsum.photos/800/1200',
   },
   argTypes: {
     alt: {

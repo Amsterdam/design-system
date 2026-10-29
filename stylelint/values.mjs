@@ -26,13 +26,14 @@ const LENGTH_PATTERN = /^(-?(?:\d+\.?\d*|\.\d+))([a-z%]+)$/i
 const VIEWPORT_UNIT_PATTERN = /\d\s*(?:s|l|d)?v(?:w|h|i|b|min|max)\b/i
 
 /**
- * Splits a CSS value on its top level commas, ignoring commas nested in functions or quoted strings.
+ * Splits a CSS value at its top level, ignoring separators nested in functions or quoted strings.
  * Escaped quotes are not accounted for; font stacks and `clamp()` arguments do not use them.
  *
  * @param {string} value - The value to split.
+ * @param {(character: string) => boolean} isSeparator - Tells whether a character separates parts.
  * @returns {string[]} The trimmed parts.
  */
-export function splitTopLevelParts(value) {
+function splitTopLevel(value, isSeparator) {
   const parts = []
   let current = ''
   let depth = 0
@@ -62,7 +63,7 @@ export function splitTopLevelParts(value) {
       depth -= 1
     }
 
-    if (character === ',' && depth === 0) {
+    if (depth === 0 && isSeparator(character)) {
       parts.push(current.trim())
       current = ''
 
@@ -75,6 +76,27 @@ export function splitTopLevelParts(value) {
   parts.push(current.trim())
 
   return parts
+}
+
+/**
+ * Splits a CSS value on its top level commas.
+ *
+ * @param {string} value - The value to split.
+ * @returns {string[]} The trimmed parts.
+ */
+export function splitTopLevelParts(value) {
+  return splitTopLevel(value, (character) => character === ',')
+}
+
+/**
+ * Splits a CSS value into the values it is composed of, on the whitespace between them.
+ * A property that takes one value is invalid when this returns more than one.
+ *
+ * @param {string} value - The resolved value to split.
+ * @returns {string[]} The individual values.
+ */
+export function splitTopLevelValues(value) {
+  return splitTopLevel(value, (character) => /\s/.test(character)).filter(Boolean)
 }
 
 /**
@@ -121,6 +143,34 @@ export function findFunction(value, functionName) {
   }
 
   return null
+}
+
+/**
+ * Finds every call of the given function in a value, including a call nested in another call of
+ * the same function.
+ *
+ * @param {string} value - The value to search.
+ * @param {string} functionName - The function to look for, such as `var` or `max`.
+ * @returns {Array<{ args: string[], end: number, start: number }>} The calls, in the order they open.
+ */
+export function findFunctions(value, functionName) {
+  const calls = []
+  let offset = 0
+
+  while (offset < value.length) {
+    const call = findFunction(value.slice(offset), functionName)
+
+    if (!call) {
+      break
+    }
+
+    calls.push({ args: call.args, end: call.end + offset, start: call.start + offset })
+
+    /* Resume just inside the call, so a call nested in this one is found as well. */
+    offset += call.start + functionName.length + 1
+  }
+
+  return calls
 }
 
 /**

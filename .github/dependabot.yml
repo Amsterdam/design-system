@@ -7,6 +7,9 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+      day: "tuesday"
+      time: "08:00"
+      timezone: "Europe/Amsterdam"
     cooldown:
       default-days: 1 # Wait for one day after release before updating a dependency
     groups:
@@ -22,6 +25,9 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+      day: "tuesday"
+      time: "08:00"
+      timezone: "Europe/Amsterdam"
     cooldown:
       default-days: 1 # Wait for one day after release before updating a dependency
     # Prod and dev dependencies are split in two groups,
@@ -57,6 +63,9 @@ updates:
     directory: "/.github/scripts"
     schedule:
       interval: "weekly"
+      day: "tuesday"
+      time: "08:00"
+      timezone: "Europe/Amsterdam"
     cooldown:
       default-days: 1 # Wait for one day after release before updating a dependency
     groups:

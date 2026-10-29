@@ -51,12 +51,12 @@ on:
 permissions:
   contents: write
 
-concurrency:
-  group: remove-stale-demo-directories
-  cancel-in-progress: false
-
 jobs:
   remove-demo-directories:
+    concurrency:
+      group: gh-pages-writes
+      queue: max
+      cancel-in-progress: false
     # Run on manual dispatch, or on a major-version release of a `design-system-*`
     # package — tag format is `design-system-<pkg>-v<major>.<minor>.<patch>`, so
     # the prefix scopes us to our release-please tags and the suffix scopes us to

@@ -21,6 +21,9 @@ jobs:
       - name: Check out branch
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
+      - name: Test Pages operation guards
+        run: python3 -m unittest discover -s .github/scripts -p test_check_pages_operation.py -v
+
       # Runs actionlint over .github/workflows. shellcheck ships on the runner,
       # so run: scripts are linted too. The action is pinned by digest, but the
       # actionlint binary it downloads is deliberately left unpinned: each run
@@ -28,3 +31,15 @@ jobs:
       # maintenance. Add `version: x.y.z` below if you need reproducible runs.
       - name: Run actionlint
         uses: raven-actions/actionlint@3d39aea434753780c3b3d4a1a31c854b4dbf49d7 # v2.2.0
+
+  lint-scripts:
+    name: Lint Bash scripts
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Check out branch
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Run ShellCheck
+        run: shellcheck .github/scripts/*.sh

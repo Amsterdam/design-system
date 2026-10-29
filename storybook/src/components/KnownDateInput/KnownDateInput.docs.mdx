@@ -61,6 +61,13 @@ Both `1` and `01` are a valid month, and rejecting one of the two gives the user
 
 ## Examples
 
+### Month and year
+
+Ask only for the parts of the date you need.
+Leave out the Day for a month and a year.
+
+<Canvas of={KnownDateInputStories.MonthAndYear} />
+
 ### In a Field Set
 
 Use a Field Set to give the fields a legend, a description and, when needed, an Error Message.
@@ -69,7 +76,7 @@ Check [the Field Set docs](/docs/components-forms-field-set--docs) for more info
 
 <Canvas of={KnownDateInputStories.InAFieldSet} />
 
-### In a Field Set with validation
+### With validation
 
 The component does not validate its values itself.
 To report an error, add `invalid` and an [Error Message](/docs/components-forms-error-message--docs) to the Field Set, and connect the Error Message to the Field Set with `aria-describedby`.
@@ -77,14 +84,7 @@ Set `invalid` only on the fields that are at fault.
 
 See the [gov.uk documentation on validating this pattern](https://design-system.service.gov.uk/components/date-input/#error-messages) for how to word the message.
 
-<Canvas of={KnownDateInputStories.InAFieldSetWithValidation} />
-
-### Month and year
-
-Ask only for the parts of the date you need.
-Leave out the Day for a month and a year.
-
-<Canvas of={KnownDateInputStories.MonthAndYear} />
+<Canvas of={KnownDateInputStories.WithValidation} />
 
 ### Translated
 

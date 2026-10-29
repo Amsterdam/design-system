@@ -27,8 +27,12 @@ $ams-card-horizontal-breakpoint: 36rem;
     outline-width: 0.0625rem;
   }
 
-  > .ams-card__image:not(:last-child) {
-    margin-block-end: var(--ams-card-image-margin-block-end);
+  > .ams-card__image {
+    aspect-ratio: var(--ams-card-image-aspect-ratio);
+
+    &:not(:last-child) {
+      margin-block-end: var(--ams-card-image-margin-block-end);
+    }
   }
 }
 

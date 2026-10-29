@@ -14,7 +14,7 @@ const valuesFromType = (argType: StrictInputType): VariantValue[] | undefined =>
   if (!type) return undefined
 
   if (type.name === 'enum') {
-    return [...type.value].sort()
+    return [...type.value].filter((value): value is string | number => value !== null).sort()
   }
 
   if (type.name === 'boolean') {

@@ -18,8 +18,6 @@
   font-weight: var(--ams-blockquote-font-weight);
   line-height: var(--ams-blockquote-line-height);
   quotes: auto;
-
-  /* stylelint-disable-next-line plugin/use-baseline -- Unbalanced line lengths in non-supporting browsers are acceptable */
   text-wrap: var(--ams-blockquote-text-wrap);
 
   @include hyphenation;

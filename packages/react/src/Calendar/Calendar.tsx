@@ -8,7 +8,7 @@ import type { ElementType, ForwardedRef, HTMLAttributes } from 'react'
 import { clsx } from 'clsx'
 import { forwardRef, useId } from 'react'
 
-import type { IconProps } from '../Icon'
+import type { IconProps } from '../Icon/Icon'
 
 import { useMonthNavigation } from '../common/useMonthNavigation'
 import { CalendarBody } from './CalendarBody'

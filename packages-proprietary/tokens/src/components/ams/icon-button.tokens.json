@@ -55,7 +55,7 @@
         },
         "hover": {
           "background-color": {
-            "$value": "rgb(0 0 0 / 12.5%)",
+            "$value": "rgb(32 32 32 / 12.5%)",
             "$type": "color"
           },
           "color": {

@@ -11,10 +11,9 @@ import { describe, expect, it, vi } from 'vitest'
 import type { ImageSliderProps } from './ImageSlider'
 
 import { ImageSlider } from './ImageSlider'
-import { scrollToCurrentSlideOnResize } from './utils'
+import { scrollToCurrentSlideOnResize } from './utils/scrollToCurrentSlideOnResize'
 
-vi.mock('./utils', async () => ({
-  ...(await vi.importActual('./utils')),
+vi.mock('./utils/scrollToCurrentSlideOnResize', () => ({
   scrollToCurrentSlideOnResize: vi.fn(),
 }))
 

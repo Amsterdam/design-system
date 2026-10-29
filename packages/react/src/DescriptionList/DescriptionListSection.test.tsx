@@ -5,11 +5,21 @@
 
 import { render } from '@testing-library/react'
 import { createRef } from 'react'
-import { describe, expect, it } from 'vitest'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 import { DescriptionList } from './DescriptionList'
 
 describe('DescriptionListSection', () => {
+  let warn: ReturnType<typeof vi.spyOn>
+
+  beforeEach(() => {
+    warn = vi.spyOn(console, 'warn').mockImplementation(() => {})
+  })
+
+  afterEach(() => {
+    warn.mockRestore()
+  })
+
   it('renders', () => {
     const { container } = render(<DescriptionList.Section>Test</DescriptionList.Section>)
 
@@ -57,5 +67,22 @@ describe('DescriptionListSection', () => {
     expect(component).toHaveAttribute('aria-hidden', 'false')
     expect(component).toHaveAttribute('id', 'id')
     expect(component).toHaveAttribute('data-test', 'data-test')
+  })
+
+  it('warns that Description List Section has been renamed', () => {
+    render(<DescriptionList.Section>Test</DescriptionList.Section>)
+
+    expect(warn).toHaveBeenCalledTimes(1)
+    expect(warn).toHaveBeenCalledWith(expect.stringContaining('@deprecated'))
+    expect(warn).toHaveBeenCalledWith(expect.stringContaining('Use `DescriptionList.Item` instead.'))
+  })
+
+  it('does not warn again on rerender', () => {
+    const { rerender } = render(<DescriptionList.Section>Test</DescriptionList.Section>)
+
+    warn.mockClear()
+    rerender(<DescriptionList.Section className="extra">Test</DescriptionList.Section>)
+
+    expect(warn).not.toHaveBeenCalled()
   })
 })
