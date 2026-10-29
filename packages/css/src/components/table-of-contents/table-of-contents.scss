@@ -90,6 +90,10 @@
   }
 }
 
+.ams-table-of-contents__button[aria-expanded="true"] svg {
+  rotate: var(--ams-animations-rotation-end-angle);
+}
+
 .ams-table-of-contents__item--collapsed > .ams-table-of-contents__list {
   display: none;
 
