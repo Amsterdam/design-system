@@ -9,14 +9,6 @@
         "$type": "dimension",
         "$description": "The block size of the ProgressBar's track."
       },
-      "gap": {
-        "$value": {
-          "value": 0.25,
-          "unit": "rem"
-        },
-        "$type": "dimension",
-        "$description": "The space between the ProgressBar's text and its track."
-      },
       "transition-duration": {
         "$value": "0.3s",
         "$type": "duration",
