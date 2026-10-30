@@ -111,7 +111,7 @@ describe('ProgressBar', () => {
   it('scales the visual fill to empty when value is 0', () => {
     const { container } = render(<ProgressBar max={4} text="0 van de 4 stappen" value={0} />)
 
-    const fill = container.querySelector('.ams-progress-bar-fill')
+    const fill = container.querySelector('.ams-progress-bar__fill')
 
     expect(fill).toHaveStyle({ transform: 'scaleX(0)' })
   })
