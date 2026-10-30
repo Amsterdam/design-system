@@ -46,7 +46,7 @@ export const LinkListLink = forwardRef(
     const Tag = linkComponent || 'a'
 
     return (
-      <li>
+      <li className="ams-link-list__item">
         <Tag
           {...restProps}
           className={clsx(

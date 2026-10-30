@@ -30,8 +30,10 @@ describe('LinkListLink', () => {
   it('renders a design system BEM class name', () => {
     render(<LinkList.Link href="#" />)
 
+    const listItem = screen.getByRole('listitem')
     const component = screen.getByRole('link')
 
+    expect(listItem).toHaveClass('ams-link-list__item')
     expect(component).toHaveClass('ams-link-list__link')
   })
 

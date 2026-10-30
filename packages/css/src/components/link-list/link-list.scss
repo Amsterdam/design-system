@@ -15,12 +15,16 @@
 
   @include hyphenation;
   @include text-rendering;
+}
 
-  > * {
-    break-inside: avoid;
-  }
+.ams-link-list__item {
+  // CSS says margins at automatic column breaks between block-level items should be deleted, but Safari can move that space to the next column.
+  // Full-width inline-block boxes keep each item on its own line, so browsers normally break between lines instead of inside an item or its margin.
+  // “Atomic inline-level boxes participate in their formatting context as a single opaque box.” – https://www.w3.org/TR/CSS2/visuren.html#inline-boxes
+  display: inline-block;
+  inline-size: 100%;
 
-  > :not(:last-child) {
+  &:not(:last-child) {
     margin-block-end: var(--ams-link-list-gap /* @deprecated */, var(--ams-link-list-item-margin-block-end));
   }
 }
