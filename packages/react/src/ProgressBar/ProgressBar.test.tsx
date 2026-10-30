@@ -63,7 +63,7 @@ describe('ProgressBar', () => {
   it('shows the text visually, above the bar', () => {
     const { container } = render(<ProgressBar {...defaultProps} />)
 
-    const text = container.querySelector('.ams-progress-bar-text')
+    const text = container.querySelector('.ams-progress-bar__text')
 
     expect(text).toHaveTextContent(defaultProps.text)
     expect(text).toBeVisible()
@@ -72,7 +72,7 @@ describe('ProgressBar', () => {
   it('hides the visible text from assistive technology, so it is not announced twice', () => {
     const { container } = render(<ProgressBar {...defaultProps} />)
 
-    const text = container.querySelector('.ams-progress-bar-text')
+    const text = container.querySelector('.ams-progress-bar__text')
 
     expect(text).toHaveAttribute('aria-hidden', 'true')
   })
@@ -95,7 +95,7 @@ describe('ProgressBar', () => {
   it('hides the visual fill from assistive technology', () => {
     const { container } = render(<ProgressBar {...defaultProps} />)
 
-    const fill = container.querySelector('.ams-progress-bar-fill')
+    const fill = container.querySelector('.ams-progress-bar__fill')
 
     expect(fill).toHaveAttribute('aria-hidden', 'true')
   })
@@ -103,7 +103,7 @@ describe('ProgressBar', () => {
   it('scales the visual fill to match value and max', () => {
     const { container } = render(<ProgressBar max={4} text="1 van de 4 stappen" value={1} />)
 
-    const fill = container.querySelector('.ams-progress-bar-fill')
+    const fill = container.querySelector('.ams-progress-bar__fill')
 
     expect(fill).toHaveStyle({ transform: 'scaleX(0.25)' })
   })
@@ -119,7 +119,7 @@ describe('ProgressBar', () => {
   it('scales the visual fill to full width when value equals max', () => {
     const { container } = render(<ProgressBar max={4} text="4 van de 4 stappen" value={4} />)
 
-    const fill = container.querySelector('.ams-progress-bar-fill')
+    const fill = container.querySelector('.ams-progress-bar__fill')
 
     expect(fill).toHaveStyle({ transform: 'scaleX(1)' })
   })
