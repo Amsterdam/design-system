@@ -31,6 +31,7 @@ describe('formatFileMetadataText', () => {
   it('names the application for the media types that people do not recognise by their subtype', () => {
     expect(formatFileMetadataTextNl({ type: 'application/msword' })).toBe('(Word)')
     expect(formatFileMetadataTextNl({ type: 'application/vnd.ms-excel' })).toBe('(Excel)')
+    expect(formatFileMetadataTextNl({ type: 'application/vnd.ms-excel.sheet.macroEnabled.12' })).toBe('(Excel)')
     expect(formatFileMetadataTextNl({ type: 'application/vnd.ms-powerpoint' })).toBe('(PowerPoint)')
     expect(formatFileMetadataTextNl({ type: 'image/jpeg' })).toBe('(jpg)')
     expect(formatFileMetadataTextNl({ type: 'text/plain' })).toBe('(txt)')
@@ -41,6 +42,10 @@ describe('formatFileMetadataText', () => {
     expect(formatFileMetadataTextNl({ type: 'image/png' })).toBe('(png)')
     expect(formatFileMetadataTextNl({ type: 'text/csv' })).toBe('(csv)')
     expect(formatFileMetadataTextNl({ type: 'application/vnd.oasis.opendocument.text' })).toBe('(text)')
+  })
+
+  it('ignores media type parameters', () => {
+    expect(formatFileMetadataTextNl({ type: 'text/html; charset=utf-8' })).toBe('(html)')
   })
 
   it('uses the singular unit for a file of one byte', () => {

@@ -17,6 +17,7 @@ const fileSizeUnits = ['bytes', 'kB', 'MB', 'GB', 'TB']
 const fileTypeLabels: Record<string, string> = {
   'application/msword': 'Word',
   'application/vnd.ms-excel': 'Excel',
+  'application/vnd.ms-excel.sheet.macroenabled.12': 'Excel',
   'application/vnd.ms-powerpoint': 'PowerPoint',
   'application/vnd.openxmlformats-officedocument.presentationml.presentation': 'PowerPoint',
   'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet': 'Excel',
@@ -29,9 +30,10 @@ const fileTypeLabels: Record<string, string> = {
 // An unmapped media type falls back to its subtype, reduced to the last dot-separated segment
 // so that the long `application/vnd.…` names stay readable.
 const formatFileType = (type: string) => {
-  const subtype = type.slice(type.lastIndexOf('/') + 1)
+  const mediaType = type.split(';', 1)[0].trim().toLowerCase()
+  const subtype = mediaType.slice(mediaType.lastIndexOf('/') + 1)
 
-  return fileTypeLabels[type] ?? subtype.slice(subtype.lastIndexOf('.') + 1)
+  return fileTypeLabels[mediaType] ?? subtype.slice(subtype.lastIndexOf('.') + 1)
 }
 
 const formatFileSize = (size: number, locale: string) => {
