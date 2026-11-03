@@ -11,8 +11,8 @@ import { forwardRef, useCallback, useRef } from 'react'
 
 import type { FormatFileMetadataText } from './formatFileMetadataText'
 
-import { Button } from '../Button'
-import { Icon } from '../Icon'
+import { Button } from '../Button/Button'
+import { Icon } from '../Icon/Icon'
 import { focusAdjacentDeleteButton } from './focusAdjacentDeleteButton'
 import { formatFileMetadataTextNl } from './formatFileMetadataText'
 
