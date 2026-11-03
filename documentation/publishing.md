@@ -120,6 +120,10 @@ git merge --ff-only origin/develop
 git push origin main
 ```
 
+**Optional**: To leave a reviewable record of each promotion, open a draft pull request from `develop` into `main` before the final `git push` to `main`.
+This doesn’t interfere with the release PR that Release Please creates.
+GitHub will mark the pull request as merged automatically when you push.
+
 After a successful build on `main`, the “Publish packages” workflow opens or updates the release PR.
 
 ### Review the release PR
@@ -163,6 +167,7 @@ git rev-list --left-right --count origin/develop...origin/main
 ```
 
 Expect `0 0`.
+If the counts differ, stop the release and ask an admin to inspect both branches, preserve any reviewed commits, and restore the expected ancestry before resuming.
 
 #### Recover from an accidental push to develop
 
