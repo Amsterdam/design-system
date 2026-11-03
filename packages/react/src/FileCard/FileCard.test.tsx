@@ -162,10 +162,12 @@ describe('FileCard', () => {
         keyByIndex = false,
         onDelete = () => {},
         withActions = false,
+        withoutDelete,
       }: {
         keyByIndex?: boolean
         onDelete?: (name: string) => void
         withActions?: boolean
+        withoutDelete?: string
       } = {},
     ) => (
       <ul>
@@ -174,7 +176,7 @@ describe('FileCard', () => {
             <FileCard
               actions={withActions ? <button type="button">Download</button> : undefined}
               name={name}
-              onDelete={() => onDelete(name)}
+              onDelete={name === withoutDelete ? undefined : () => onDelete(name)}
             />
           </li>
         ))}
@@ -266,6 +268,18 @@ describe('FileCard', () => {
       rerender(getList(['eerste.pdf', 'tweede.pdf', 'derde.pdf'], { onDelete: vi.fn() }))
 
       expect(screen.getByRole('button', { name: 'Verwijder tweede.pdf' })).toHaveFocus()
+    })
+
+    it('does not move focus when onDelete is removed while the File Card stays in place', () => {
+      const { rerender } = render(getList(['eerste.pdf', 'tweede.pdf', 'derde.pdf']))
+
+      const button = screen.getByRole('button', { name: 'Verwijder tweede.pdf' })
+
+      button.focus()
+      rerender(getList(['eerste.pdf', 'tweede.pdf', 'derde.pdf'], { withoutDelete: 'tweede.pdf' }))
+
+      expect(button).not.toBeInTheDocument()
+      expect(screen.getByRole('button', { name: 'Verwijder derde.pdf' })).not.toHaveFocus()
     })
 
     it('still finds the next delete button when other action buttons are present', () => {

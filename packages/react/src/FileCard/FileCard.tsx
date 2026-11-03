@@ -7,7 +7,7 @@ import type { ForwardedRef, HTMLAttributes, ReactNode } from 'react'
 
 import { DocumentIcon } from '@amsterdam/design-system-react-icons'
 import { clsx } from 'clsx'
-import { forwardRef, useCallback, useRef } from 'react'
+import { forwardRef, useLayoutEffect, useRef } from 'react'
 
 import type { FormatFileMetadataText } from './formatFileMetadataText'
 
@@ -73,14 +73,17 @@ export const FileCard = forwardRef(
     const metadata = formatMetadataText({ size, type })
     const deleteButton = useRef<HTMLButtonElement | null>(null)
 
-    // Use a ref callback so React can move focus at the moment it removes the focused delete button.
-    const setDeleteButton = useCallback((button: HTMLButtonElement | null) => {
-      if (button === null && deleteButton.current && deleteButton.current === document.activeElement) {
-        focusAdjacentDeleteButton(deleteButton.current)
-      }
+    // React runs this cleanup before it removes the card from the page, so the list is still there to search.
+    useLayoutEffect(
+      () => () => {
+        const button = deleteButton.current
 
-      deleteButton.current = button
-    }, [])
+        if (button && button === document.activeElement) {
+          focusAdjacentDeleteButton(button)
+        }
+      },
+      [],
+    )
 
     return (
       <div {...restProps} className={clsx('ams-file-card', className)} ref={ref}>
@@ -99,7 +102,7 @@ export const FileCard = forwardRef(
           <div className="ams-file-card__actions">
             {actions}
             {onDelete && (
-              <Button data-file-card-delete-button onClick={onDelete} ref={setDeleteButton} variant="tertiary">
+              <Button data-file-card-delete-button onClick={onDelete} ref={deleteButton} variant="tertiary">
                 {deleteButtonLabel}
                 <span className="ams-visually-hidden">{` ${name}`}</span>
               </Button>
