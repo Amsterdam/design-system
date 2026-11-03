@@ -37,11 +37,19 @@ const formatFileType = (type: string) => {
 }
 
 const formatFileSize = (size: number, locale: string) => {
-  const exponent = size >= 1 ? Math.min(Math.floor(Math.log10(size) / 3), fileSizeUnits.length - 1) : 0
+  let exponent = size >= 1 ? Math.min(Math.floor(Math.log10(size) / 3), fileSizeUnits.length - 1) : 0
   const amount = size / 1000 ** exponent
-  const number = new Intl.NumberFormat(locale, { maximumFractionDigits: exponent === 0 ? 0 : 1 }).format(amount)
+  const precision = exponent === 0 ? 0 : 1
+  const roundedAmount = Math.round(amount * 10 ** precision) / 10 ** precision
 
-  return `${number} ${exponent === 0 && amount === 1 ? 'byte' : fileSizeUnits[exponent]}`
+  if (roundedAmount >= 1000 && exponent < fileSizeUnits.length - 1) {
+    exponent += 1
+  }
+
+  const adjustedAmount = size / 1000 ** exponent
+  const number = new Intl.NumberFormat(locale, { maximumFractionDigits: exponent === 0 ? 0 : 1 }).format(adjustedAmount)
+
+  return `${number} ${exponent === 0 && adjustedAmount === 1 ? 'byte' : fileSizeUnits[exponent]}`
 }
 
 const formatFileMetadataText =

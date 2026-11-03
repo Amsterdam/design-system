@@ -66,4 +66,9 @@ describe('formatFileMetadataText', () => {
     expect(formatFileMetadataTextNl({ size: 2_000_000 })).toBe('(2 MB)')
     expect(formatFileMetadataTextEn({ size: 2_000_000 })).toBe('(2 MB)')
   })
+
+  it('moves to the next unit when rounding reaches 1000', () => {
+    expect(formatFileMetadataTextNl({ size: 999_999 })).toBe('(1 MB)')
+    expect(formatFileMetadataTextNl({ size: 999_999_999 })).toBe('(1 GB)')
+  })
 })
