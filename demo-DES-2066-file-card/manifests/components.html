@@ -626,7 +626,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>3.2s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>5.5s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -10502,12 +10502,42 @@ import { FileCard } from '@amsterdam/design-system-react/src';</code></pre>
           
             <div class="note ok">
               <div class="row">
-                <span class="ex-name">Default</span>
+                <span class="ex-name">With Delete Button</span>
                 <span class="badge ok">story ok</span>
               </div>
               
               
-              <pre><code>const Default = () =&gt; &lt;FileCard name=&quot;paspoort.pdf&quot; size={1536000} type=&quot;application/pdf&quot; /&gt;;</code></pre>
+              <pre><code>const WithDeleteButton = () =&gt; &lt;FileCard
+    name=&quot;paspoort.pdf&quot;
+    size={1536000}
+    type=&quot;application/pdf&quot;
+    onDelete={() =&gt; {}} /&gt;;</code></pre>
+              
+            </div>
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">With Custom Actions</span>
+                <span class="badge info">incomplete example</span>
+              </div>
+              
+              
+              <pre><code>const WithCustomActions = () =&gt; &lt;FileCard
+    name=&quot;paspoort.pdf&quot;
+    size={1536000}
+    type=&quot;application/pdf&quot;
+    actions={(&lt;Button onClick={download} variant=&quot;tertiary&quot;&gt;Download&lt;span className=&quot;ams-visually-hidden&quot;&gt; paspoort.pdf&lt;/span&gt;
+    &lt;/Button&gt;)}
+    onDelete={() =&gt; {}} /&gt;;</code></pre>
+              <div class="snippet-warning">Incomplete snippet: `download` could not be resolved statically.</div>
+            </div>
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Without Actions</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const WithoutActions = () =&gt; &lt;FileCard name=&quot;paspoort.pdf&quot; size={1536000} type=&quot;application/pdf&quot; /&gt;;</code></pre>
               
             </div>
             <div class="note ok">
@@ -10524,32 +10554,6 @@ import { FileCard } from '@amsterdam/design-system-react/src';</code></pre>
     onDelete={() =&gt; {}}
     previewUrl=&quot;https://picsum.photos/id/64/128/128&quot; /&gt;;</code></pre>
               
-            </div>
-            <div class="note ok">
-              <div class="row">
-                <span class="ex-name">Without Actions</span>
-                <span class="badge ok">story ok</span>
-              </div>
-              
-              
-              <pre><code>const WithoutActions = () =&gt; &lt;FileCard name=&quot;paspoort.pdf&quot; size={1536000} type=&quot;application/pdf&quot; /&gt;;</code></pre>
-              
-            </div>
-            <div class="note ok">
-              <div class="row">
-                <span class="ex-name">With Custom Actions</span>
-                <span class="badge info">incomplete example</span>
-              </div>
-              
-              
-              <pre><code>const WithCustomActions = () =&gt; &lt;FileCard
-    name=&quot;paspoort.pdf&quot;
-    size={1536000}
-    type=&quot;application/pdf&quot;
-    actions={(&lt;Button onClick={download} variant=&quot;tertiary&quot;&gt;Download
-            &lt;/Button&gt;)}
-    onDelete={() =&gt; {}} /&gt;;</code></pre>
-              <div class="snippet-warning">Incomplete snippet: `download` could not be resolved statically.</div>
             </div>
             <div class="note ok">
               <div class="row">
@@ -10655,7 +10659,7 @@ It has no icon, and it always comes after the other actions.
 A delete button of your own in `actions` gets neither the file name for screen readers, nor the focus move after a delete.
 When you ask for confirmation first, remove the file after the confirmation has closed and returned focus to the delete button.
 
-When a File Card stands alone, or the last file leaves and takes the list with it, the page decides where focus goes.
+When you remove a File Card that stands alone, or the only one left in a list, move focus yourself to an element near it, such as the file input or the heading of the section.
 
 Leave out both `actions` and `onDelete` to only show the file.
 
@@ -10664,11 +10668,17 @@ The component never creates that address, so whoever creates an object URL also 
 
 ## Examples
 
-### With a preview
+### With a delete button
 
-Pass `previewUrl` to show a thumbnail of an image instead of the generic document icon.
+Pass `onDelete` to let the user remove the file.
 
-&lt;Canvas of={FileCardStories.WithPreview} /&gt;
+&lt;Canvas of={FileCardStories.WithDeleteButton} /&gt;
+
+### With custom actions
+
+Use custom actions for tasks such as downloading a file.
+
+&lt;Canvas of={FileCardStories.WithCustomActions} /&gt;
 
 ### Without actions
 
@@ -10676,11 +10686,11 @@ Leave out `actions` and `onDelete` to show a file that the user cannot change.
 
 &lt;Canvas of={FileCardStories.WithoutActions} /&gt;
 
-### With custom actions
+### With a preview
 
-Use custom actions for tasks such as downloading a file.
+Pass `previewUrl` to show a thumbnail of an image instead of the generic document icon.
 
-&lt;Canvas of={FileCardStories.WithCustomActions} /&gt;
+&lt;Canvas of={FileCardStories.WithPreview} /&gt;
 
 ### Translated text
 
@@ -10696,7 +10706,8 @@ See the [Localisation guide](/docs/docs-guidelines-localisation--docs) for more 
 A name too long for its row wraps onto the next line, also when it has no spaces.
 When the card is too narrow for the name and the actions side by side, the actions move to a line of their own below.
 
-When the focused delete button leaves the page, focus moves to the delete button of the next file, or of the previous one for the last file.
+When a File Card with the focused delete button is removed from a list, focus moves to the delete button of the next file, or of the previous one when it was the last file in the list.
+Each File Card must sit in its own list item for this focus move to work.
 It moves once the file has left the page rather than on the click, so a cancelled confirmation or a failed delete leaves focus where it was.
 
 ## Design
