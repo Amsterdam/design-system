@@ -50,18 +50,18 @@ The ‘Check PR title’ workflow validates the type of a title, never its scope
 
 #### Choosing a scope
 
-Take the first row that fits the change:
+Take the first row that fits the change, and leave the scope out if none does:
 
-| The change concerns                          | Scope                            | Example                               |
-| -------------------------------------------- | -------------------------------- | ------------------------------------- |
-| 1 component                                  | Its name                         | `fix(Avatar)`                         |
-| 2 to 5 components                            | Their names, separated by commas | `fix(Ordered List, Unordered List)`   |
-| A package, but no component in particular    | The name of the package          | `chore(Storybook)`                    |
-| Documentation that isn’t about a component   | `docs`                           | `chore(docs)`                         |
-| A dependency                                 | `deps` or `deps-dev`             | `chore(deps)`                         |
-| A workflow                                   | `ci`                             | `chore(ci)`                           |
-| The configuration of a tool                  | The name of the tool             | `chore(ESLint)`                       |
-| More than 5 components, or none of the above | None                             | `feat: Add a skip link to every page` |
+| The change concerns                        | Scope                            | Example                               |
+| ------------------------------------------ | -------------------------------- | ------------------------------------- |
+| 1 component                                | Its name                         | `fix(Avatar)`                         |
+| 2 to 5 components                          | Their names, separated by commas | `fix(Ordered List, Unordered List)`   |
+| A dependency                               | `deps` or `deps-dev`             | `chore(deps)`                         |
+| A workflow                                 | `ci`                             | `chore(ci)`                           |
+| The configuration of a tool                | The name of the tool             | `chore(ESLint)`                       |
+| Documentation that isn’t about a component | `docs`                           | `chore(docs)`                         |
+| More than 5 components                     | None                             | `feat: Add a skip link to every page` |
+| A package, but no component in particular  | The name of the package          | `chore(Storybook)`                    |
 
 #### Spelling a scope
 
