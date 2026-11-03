@@ -124,7 +124,7 @@ export const Test: Story = {
           <Checkbox invalid>Evenementen</Checkbox>
         </Field>
         <Field>
-          <Switch defaultChecked />
+          <Switch defaultChecked>Ook per e-mail</Switch>
         </Field>
       </FieldSet>
     </div>
