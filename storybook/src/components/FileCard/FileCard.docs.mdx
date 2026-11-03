@@ -65,7 +65,7 @@ It has no icon, and it always comes after the other actions.
 A delete button of your own in `actions` gets neither the file name for screen readers, nor the focus move after a delete.
 When you ask for confirmation first, remove the file after the confirmation has closed and returned focus to the delete button.
 
-When a File Card stands alone, or the last file leaves and takes the list with it, the page decides where focus goes.
+When you remove a File Card that stands alone, or the only one left in a list, move focus yourself to an element near it, such as the file input or the heading of the section.
 
 Leave out both `actions` and `onDelete` to only show the file.
 
@@ -106,7 +106,8 @@ See the [Localisation guide](/docs/docs-guidelines-localisation--docs) for more 
 A name too long for its row wraps onto the next line, also when it has no spaces.
 When the card is too narrow for the name and the actions side by side, the actions move to a line of their own below.
 
-When the focused delete button leaves the page, focus moves to the delete button of the next file, or of the previous one for the last file.
+When a File Card with the focused delete button is removed from a list, focus moves to the delete button of the next file, or of the previous one when it was the last file in the list.
+Each File Card must sit in its own list item for this focus move to work.
 It moves once the file has left the page rather than on the click, so a cancelled confirmation or a failed delete leaves focus where it was.
 
 ## Design
