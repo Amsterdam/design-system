@@ -45,6 +45,11 @@ updates:
         update-types:
           - "patch"
           - "minor"
+      # Security updates, which often concern transitive dependencies, arrive together in one pull request
+      security-updates:
+        applies-to: "security-updates"
+        patterns:
+          - "*"
     versioning-strategy: "increase-if-necessary"
     open-pull-requests-limit: 20
     commit-message:
