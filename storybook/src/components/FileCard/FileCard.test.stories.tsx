@@ -5,7 +5,7 @@
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-import { Button, Column, UnorderedList } from '@amsterdam/design-system-react'
+import { Button, Column, Grid, UnorderedList } from '@amsterdam/design-system-react'
 import { FileCard } from '@amsterdam/design-system-react/src'
 import { useState } from 'react'
 import { expect } from 'storybook/test'
@@ -52,9 +52,11 @@ export const Test: Story = {
       <FileCard {...args} name={longName} onDelete={remove} />
       <FileCard {...args} name={nameWithoutSpaces} onDelete={remove} />
       <p>In a narrow container, where the actions move below the name</p>
-      <div style={{ maxInlineSize: '20rem' }}>
-        <FileCard {...args} actions={actions(nameWithoutSpaces)} name={nameWithoutSpaces} onDelete={remove} />
-      </div>
+      <Grid>
+        <Grid.Cell span={{ narrow: 2, medium: 3, wide: 4 }}>
+          <FileCard {...args} actions={actions(nameWithoutSpaces)} name={nameWithoutSpaces} onDelete={remove} />
+        </Grid.Cell>
+      </Grid>
       <p>Without a size or a type, so without metadata</p>
       <FileCard name="besluit.pdf" onDelete={remove} />
       <p>In an Unordered List</p>
