@@ -99,12 +99,7 @@ export const FileCard = forwardRef(
           <div className="ams-file-card__actions">
             {actions}
             {onDelete && (
-              <Button
-                className="ams-file-card__delete-button"
-                onClick={onDelete}
-                ref={setDeleteButton}
-                variant="tertiary"
-              >
+              <Button data-file-card-delete-button onClick={onDelete} ref={setDeleteButton} variant="tertiary">
                 {deleteButtonLabel}
                 <span className="ams-visually-hidden">{` ${name}`}</span>
               </Button>
