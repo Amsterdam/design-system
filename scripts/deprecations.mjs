@@ -24,6 +24,86 @@ export function minimumRemovalDate(publication) {
   return date.toISOString().slice(0, 10)
 }
 
+function splitScssSelectors(header) {
+  const selectors = []
+  let start = 0
+  let depth = 0
+
+  for (let index = 0; index < header.length; index++) {
+    if (header[index] === '(' || header[index] === '[') depth++
+    if (header[index] === ')' || header[index] === ']') depth--
+    if (header[index] === ',' && depth === 0) {
+      selectors.push(header.slice(start, index).trim())
+      start = index + 1
+    }
+  }
+
+  selectors.push(header.slice(start).trim())
+  return selectors.filter((selector) => selector.startsWith('.'))
+}
+
+function enclosingScssSelectors(source, index) {
+  const blocks = []
+  let segmentStart = 0
+  let quote = ''
+  let escaped = false
+  let blockComment = false
+  let lineComment = false
+
+  for (let cursor = 0; cursor < index; cursor++) {
+    const character = source[cursor]
+    const next = source[cursor + 1]
+
+    if (blockComment) {
+      if (character === '*' && next === '/') {
+        blockComment = false
+        cursor++
+      }
+      continue
+    }
+    if (lineComment) {
+      if (character === '\n') lineComment = false
+      continue
+    }
+    if (quote) {
+      if (escaped) escaped = false
+      else if (character === '\\') escaped = true
+      else if (character === quote) quote = ''
+      continue
+    }
+    if (character === '/' && next === '*') {
+      blockComment = true
+      cursor++
+      continue
+    }
+    if (character === '/' && next === '/' && source[cursor - 1] !== ':') {
+      lineComment = true
+      cursor++
+      continue
+    }
+    if (character === '"' || character === "'") {
+      quote = character
+      continue
+    }
+
+    if (character === '{') {
+      blocks.push(source.slice(segmentStart, cursor).trim())
+      segmentStart = cursor + 1
+    } else if (character === '}') {
+      blocks.pop()
+      segmentStart = cursor + 1
+    } else if (character === ';') {
+      segmentStart = cursor + 1
+    }
+  }
+
+  for (const header of blocks.reverse()) {
+    if (header && !header.startsWith('@')) return splitScssSelectors(header)
+  }
+
+  return []
+}
+
 export function extractMarkers(file, source) {
   const markers = []
   if (file.endsWith('.json')) {
@@ -40,19 +120,28 @@ export function extractMarkers(file, source) {
       const lineStart = source.lastIndexOf('\n', match.index) + 1
       const before = source.slice(lineStart, match.index)
       const after = source.slice(match.index + match[0].length)
-      const text = match[1].replace(/\n\s*\*\s?/g, ' ').trim()
-      const name =
-        before.match(/--[\w-]+/)?.[0] ||
-        (!file.endsWith('.scss') &&
-          (after.match(/^\s*(?:export\s+)?(?:const|function|class|type|interface)\s+(\w+)/)?.[1] ||
-            after.match(/^\s*(?:readonly\s+)?(\w+)\??\s*:/)?.[1])) ||
+      const rawText = match[1].replace(/\n\s*\*\s?/g, ' ').trim()
+      const tagStart = file.endsWith('.scss') ? -1 : rawText.search(/(?:^|\s)@[\w-]+\b|\{@[\w-]+\b/)
+      const text = (tagStart < 0 ? rawText : rawText.slice(0, tagStart)).trim()
+      const isScss = file.endsWith('.scss')
+      const scssSelectors = isScss ? enclosingScssSelectors(source, match.index) : []
+      const propertyName = before.match(/--[\w-]+/)?.[0] || (isScss && after.match(/^\s*(--[\w-]+)\s*:/)?.[1])
+      const codeName =
+        !isScss &&
+        (after.match(/^\s*default\s+as\s+(\w+)/)?.[1] ||
+          after.match(/^\s*(?:export\s+)?(?:const|function|class|type|interface)\s+(\w+)/)?.[1] ||
+          after.match(/^\s*(?:readonly\s+)?(\w+)\??\s*:/)?.[1])
+      const fallbackName =
         text.match(/`([^`]+)`/)?.[1] ||
-        (file.endsWith('.scss') && after.match(/\.[\w-]+/)?.[0]) ||
+        (isScss && after.match(/\.[\w-]+/)?.[0]) ||
         file
           .split('/')
           .at(-1)
           .replace(/\.[^.]+$/, '')
-      markers.push({ name, text })
+      const names = (propertyName && [propertyName]) ||
+        (codeName && [codeName]) ||
+        (scssSelectors.length > 0 && scssSelectors) || [fallbackName]
+      markers.push(...names.map((name) => ({ name, text })))
     }
   }
   return markers

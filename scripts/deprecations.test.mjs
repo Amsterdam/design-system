@@ -23,12 +23,64 @@ test('extracts token paths, exported names, and bare CSS markers', () => {
   assert.deepEqual(extractMarkers('space.scss', '--ams-space /* @deprecated */, var(--ams-gap)'), [
     { name: '--ams-space', text: '' },
   ])
+  assert.deepEqual(extractMarkers('space.scss', '.foo {\n  --ams-space: 1rem /* @deprecated */;\n}'), [
+    { name: '--ams-space', text: '' },
+  ])
+  assert.deepEqual(
+    extractMarkers(
+      'CharacterCount.tsx',
+      '/** @deprecated Use `FormFieldStatus` instead. @see {@link https://example.com} */\nexport const CharacterCount = () => {}',
+    ),
+    [{ name: 'CharacterCount', text: 'Use `FormFieldStatus` instead.' }],
+  )
   assert.deepEqual(extractMarkers('Pencil.tsx', '/** @deprecated Use Edit instead. */\nexport default SvgPencil'), [
     { name: 'Pencil', text: 'Use Edit instead.' },
   ])
   assert.deepEqual(extractMarkers('props.ts', '/** @deprecated Use `defaultExpanded`. */\nexpanded?: boolean'), [
     { name: 'expanded', text: 'Use `defaultExpanded`.' },
   ])
+})
+
+test('identifies deprecated default re-export aliases independently', () => {
+  const file = 'packages-proprietary/react-icons/src/index.ts'
+  const source = `export {\n  /** @deprecated Use LinkedInIcon instead. Will be removed on or after 2027-04-01. */\n  default as LinkedinIcon,\n} from './LinkedIn'\nexport {\n  /** @deprecated Use NewNameIcon instead. Will be removed on or after 2027-05-01. */\n  default as OldNameIcon,\n} from './NewName'`
+  const markers = extractMarkers(file, source).map((marker) => ({ ...marker, file }))
+
+  assert.deepEqual(
+    markers.map(({ name }) => name),
+    ['LinkedinIcon', 'OldNameIcon'],
+  )
+  const output = report([{ file, name: 'index', text: 'Previous alias' }], markers, '2026-10-22')
+  assert.match(output, /NEW, per package\n {2}react-icons/)
+  assert.match(output, /LinkedinIcon → LinkedInIcon/)
+  assert.match(output, /OldNameIcon → NewNameIcon/)
+  assert.match(output, /FIX BEFORE RELEASING[\s\S]*LinkedinIcon/)
+})
+
+test('associates SCSS deprecations with every enclosing selector', () => {
+  const source = `.ams-page-header__mega-menu-button-label,\n.ams-page-header__mega-menu-button-hidden-label {\n  /* @deprecated These class names will be removed on or after 2026-09-13. */\n}\n.ams-page-header__menu-icon-top {}`
+
+  assert.deepEqual(extractMarkers('page-header.scss', source), [
+    {
+      name: '.ams-page-header__mega-menu-button-label',
+      text: 'These class names will be removed on or after 2026-09-13.',
+    },
+    {
+      name: '.ams-page-header__mega-menu-button-hidden-label',
+      text: 'These class names will be removed on or after 2026-09-13.',
+    },
+  ])
+
+  assert.deepEqual(extractMarkers('x.scss', '.a { color: red; }\n/* @deprecated Remove 2027-05-01 */\n.b {}'), [
+    { name: '.b', text: 'Remove 2027-05-01' },
+  ])
+  assert.deepEqual(extractMarkers('x.scss', '.a {\n  /* @deprecated Remove 2027-05-01 */\n  --ams-old: 1px;\n}'), [
+    { name: '--ams-old', text: 'Remove 2027-05-01' },
+  ])
+  assert.deepEqual(
+    extractMarkers('x.scss', '.a {\n  @media (min-width: 1px) {\n    /* @deprecated Remove 2027-05-01 */\n  }\n}'),
+    [{ name: '.a', text: 'Remove 2027-05-01' }],
+  )
 })
 
 test('uses six calendar months, clamping the last day of a month', () => {
