@@ -176,10 +176,11 @@ Compare the previous `chore: release main` commit with `HEAD`, or use `--to <ref
 That commit covers every package, including those it didn’t release.
 
 ```sh
-pnpm run deprecations <previous-release-commit> --publication-date <YYYY-MM-DD>
+pnpm run deprecations <previous-release-commit> --publication-date <YYYY-MM-DD> [--to <ref>] [--expired] [--verbose]
 ```
 
-It lists new deprecations, flags new dates less than six months after publication, and reports expired dates.
+The report groups new deprecations by package, separates dates to fix before releasing, and counts expired entries from earlier releases.
+Use `--expired` to list expired entries and `--verbose` to include source paths.
 Check undated CSS markers against their token or component annotations, and check `StatusBadge` dates in [Storybook docs](../storybook/src) and the [icon registry](../packages-proprietary/react-icons/deprecations.mjs) by hand: neither is scanned.
 
 ### Announce the release

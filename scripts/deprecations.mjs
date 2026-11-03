@@ -104,25 +104,137 @@ function readMarkers(ref) {
   })
 }
 
-export function report(previous, current, publication) {
-  const existing = new Set(previous.map(({ file, name }) => `${file}:${name}`))
+function packageName(file) {
+  return file.split('/')[1] || file
+}
+
+function summary(marker) {
+  const date = marker.text.match(/\d{4}-\d{2}-\d{2}/)?.[0] || 'no removal date'
+  const replacement = marker.text
+    .match(/\bUse\s+(.+?)\s+instead\b/i)?.[1]
+    ?.trim()
+    .replace(/[`'‘’“”]/g, '')
+  const description = marker.text
+    .replace(/\s*(?:will be )?removed on or after\s+\d{4}-\d{2}-\d{2}\.?/i, '')
+    .replace(date, '')
+    .trim()
+    .replace(/[.;]\s*$/, '')
+  return `${marker.name} → ${replacement || description || '(bare marker)'}    ${date}`
+}
+
+function groupByPackage(records) {
   const groups = new Map()
-  for (const marker of current) {
+  for (const record of records) {
+    const name = packageName(record.file)
+    if (!groups.has(name)) groups.set(name, [])
+    groups.get(name).push(record)
+  }
+  return groups
+}
+
+function warningLabels(warnings) {
+  return warnings
+    .filter((warning) => warning !== 'No removal date')
+    .map((warning) => warning.replace(/:\s+\d{4}-\d{2}-\d{2}$/, ''))
+}
+
+function formattedRecord(record, verbose, indent = '    ', note = '', pathIndent = indent) {
+  return `${indent}${summary(record)}${note}${verbose ? `\n${pathIndent}${record.file}` : ''}`
+}
+
+function isUndatedCss(record) {
+  return record.file.endsWith('.scss') && record.warnings.includes('No removal date')
+}
+
+function undatedCssSummary(records, verbose, indent) {
+  const lines = []
+  for (const [name, entries] of groupByPackage(records)) {
+    lines.push(`${indent}${name}: ${entries.length} markers without a removal date`)
+    if (verbose) lines.push(...entries.map((record) => formattedRecord(record, true, `${indent}  `, '', `${indent}  `)))
+  }
+  return lines
+}
+
+export function report(
+  previous,
+  current,
+  publication,
+  { includeExpired = false, since = 'previous release', verbose = false } = {},
+) {
+  const existing = new Set(previous.map(({ file, name }) => `${file}:${name}`))
+  const records = current.map((marker) => {
     const isNew = !existing.has(`${marker.file}:${marker.name}`)
     const warnings = dateWarnings(marker.text, publication, isNew)
-    if (!isNew && !warnings.some((warning) => warning.startsWith('Expired'))) continue
-    const packagePath = marker.file.split('/').slice(0, 2).join('/')
-    if (!groups.has(packagePath)) groups.set(packagePath, [])
-    groups
-      .get(packagePath)
-      .push(
-        `- ${isNew ? 'NEW' : 'EXISTING'} ${marker.name}: ${marker.text || '(bare marker)'}${warnings.length ? ` [${warnings.join('; ')}]` : ''}\n  ${marker.file}`,
-      )
-  }
-  return (
-    [...groups].map(([name, entries]) => `## ${name}\n\n${entries.join('\n')}`).join('\n\n') ||
-    'No new deprecations or expired removal dates.'
+    return { ...marker, isNew, warnings }
+  })
+  const newRecords = records.filter(({ isNew }) => isNew)
+  const fixes = records.filter(({ isNew, warnings }) => isNew && warnings.length > 0)
+  const expired = records.filter(
+    ({ isNew, warnings }) => !isNew && warnings.some((warning) => warning.startsWith('Expired')),
   )
+  const sections = [
+    `Deprecations\n  since ${since}, published ${publication}\n  earliest allowed removal: ${minimumRemovalDate(publication)}`,
+  ]
+
+  if (fixes.length > 0) {
+    const lines = fixes
+      .filter((record) => !isUndatedCss(record))
+      .map((record) => {
+        const labels = warningLabels(record.warnings)
+        return formattedRecord(
+          record,
+          verbose,
+          `  ${packageName(record.file)}: `,
+          labels.length > 0 ? ` (${labels.join('; ')})` : '',
+          '    ',
+        )
+      })
+    lines.push(...undatedCssSummary(fixes.filter(isUndatedCss), verbose, '  '))
+    sections.push(`FIX BEFORE RELEASING\n${lines.join('\n')}`)
+  }
+
+  if (newRecords.length > 0) {
+    sections.push(
+      `NEW, per package\n${[...groupByPackage(newRecords)]
+        .map(([name, entries]) => {
+          const undatedCss = entries.filter(isUndatedCss)
+          const listed = entries
+            .filter((record) => !isUndatedCss(record))
+            .map((record) => formattedRecord(record, verbose))
+          if (undatedCss.length > 0) {
+            listed.push(...undatedCssSummary(undatedCss, verbose, '    '))
+          }
+          return `  ${name}\n${listed.join('\n')}`
+        })
+        .join('\n')}`,
+    )
+  } else {
+    sections.push('No new deprecations.')
+  }
+
+  if (expired.length > 0) {
+    sections.push(
+      `EXPIRED, from earlier releases: ${expired.length} ${expired.length === 1 ? 'entry' : 'entries'} (--expired to list them)`,
+    )
+    if (includeExpired) {
+      sections.push(
+        expired
+          .map((record) => {
+            const labels = warningLabels(record.warnings)
+            return formattedRecord(
+              record,
+              verbose,
+              `  ${packageName(record.file)}: `,
+              labels.length > 0 ? ` (${labels.join('; ')})` : '',
+              '    ',
+            )
+          })
+          .join('\n'),
+      )
+    }
+  }
+
+  return sections.join('\n\n')
 }
 
 if (import.meta.main) {
@@ -130,15 +242,25 @@ if (import.meta.main) {
     const { positionals, values } = parseArgs({
       allowPositionals: true,
       options: {
+        expired: { type: 'boolean' },
         'publication-date': { type: 'string' },
         to: { default: 'HEAD', type: 'string' },
+        verbose: { type: 'boolean' },
       },
     })
     if (positionals.length !== 1 || !values['publication-date']) {
-      throw new Error('Usage: pnpm run deprecations <previous-tag> --to <ref> --publication-date YYYY-MM-DD')
+      throw new Error(
+        'Usage: pnpm run deprecations <previous-release-commit> --to <ref> --publication-date YYYY-MM-DD [--expired] [--verbose]',
+      )
     }
     parseDate(values['publication-date'])
-    console.log(report(readMarkers(positionals[0]), readMarkers(values.to), values['publication-date']))
+    console.log(
+      report(readMarkers(positionals[0]), readMarkers(values.to), values['publication-date'], {
+        includeExpired: values.expired,
+        since: positionals[0],
+        verbose: values.verbose,
+      }),
+    )
   } catch (error) {
     console.error(error.message)
     process.exitCode = 1
