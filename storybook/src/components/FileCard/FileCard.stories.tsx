@@ -49,7 +49,7 @@ export const WithCustomActions: Story = {
   args: {
     actions: (
       <Button onClick={download} variant="tertiary">
-        Download
+        Download<span className="ams-visually-hidden"> paspoort.pdf</span>
       </Button>
     ),
     onDelete: remove,

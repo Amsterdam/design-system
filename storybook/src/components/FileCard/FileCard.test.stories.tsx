@@ -27,9 +27,9 @@ const download = () => {}
 const longName = 'aanvraag omgevingsvergunning Nieuwezijds Voorburgwal 147 definitieve versie 11 maart 2026.pdf'
 const nameWithoutSpaces = 'aanvraag-omgevingsvergunning-nieuwezijds-voorburgwal-147-definitief-2026-03-11.pdf'
 const previewUrl = 'https://picsum.photos/id/64/128/128'
-const actions = (
+const actions = (name: string) => (
   <Button onClick={download} variant="tertiary">
-    Download
+    Download<span className="ams-visually-hidden"> {name}</span>
   </Button>
 )
 
@@ -44,8 +44,8 @@ export const Test: Story = {
       <p>On its own, with and without a preview and actions</p>
       <FileCard {...args} onDelete={remove} />
       <FileCard {...args} />
-      <FileCard {...args} actions={actions} />
-      <FileCard {...args} actions={actions} onDelete={remove} />
+      <FileCard {...args} actions={actions(args.name)} />
+      <FileCard {...args} actions={actions(args.name)} onDelete={remove} />
       <FileCard {...args} name="pasfoto.jpg" onDelete={remove} previewUrl={previewUrl} type="image/jpeg" />
       <FileCard {...args} name="pasfoto.jpg" previewUrl={previewUrl} type="image/jpeg" />
       <p>Names that do not fit on one row</p>
@@ -53,7 +53,7 @@ export const Test: Story = {
       <FileCard {...args} name={nameWithoutSpaces} onDelete={remove} />
       <p>In a narrow container, where the actions move below the name</p>
       <div style={{ maxInlineSize: '20rem' }}>
-        <FileCard {...args} actions={actions} name={nameWithoutSpaces} onDelete={remove} />
+        <FileCard {...args} actions={actions(nameWithoutSpaces)} name={nameWithoutSpaces} onDelete={remove} />
       </div>
       <p>Without a size or a type, so without metadata</p>
       <FileCard name="besluit.pdf" onDelete={remove} />
