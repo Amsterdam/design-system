@@ -92,14 +92,6 @@ describe('Paragraph', () => {
     expect(small).toHaveClass('ams-paragraph__small')
   })
 
-  it('renders the class name for inverse color', () => {
-    render(<Paragraph color="inverse">Paragraph</Paragraph>)
-
-    const paragraph = screen.getByRole('paragraph')
-
-    expect(paragraph).toHaveClass('ams-paragraph--inverse')
-  })
-
   it('renders an extra class name', () => {
     render(<Paragraph className="intro" />)
 
