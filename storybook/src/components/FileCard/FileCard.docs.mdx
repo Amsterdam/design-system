@@ -74,11 +74,17 @@ The component never creates that address, so whoever creates an object URL also 
 
 ## Examples
 
-### With a preview
+### With a delete button
 
-Pass `previewUrl` to show a thumbnail of an image instead of the generic document icon.
+Pass `onDelete` to let the user remove the file.
 
-<Canvas of={FileCardStories.WithPreview} />
+<Canvas of={FileCardStories.WithDeleteButton} />
+
+### With custom actions
+
+Use custom actions for tasks such as downloading a file.
+
+<Canvas of={FileCardStories.WithCustomActions} />
 
 ### Without actions
 
@@ -86,11 +92,11 @@ Leave out `actions` and `onDelete` to show a file that the user cannot change.
 
 <Canvas of={FileCardStories.WithoutActions} />
 
-### With custom actions
+### With a preview
 
-Use custom actions for tasks such as downloading a file.
+Pass `previewUrl` to show a thumbnail of an image instead of the generic document icon.
 
-<Canvas of={FileCardStories.WithCustomActions} />
+<Canvas of={FileCardStories.WithPreview} />
 
 ### Translated text
 

@@ -37,18 +37,6 @@ export const WithDeleteButton: Story = {
   },
 }
 
-export const WithPreview: Story = {
-  args: {
-    name: 'pasfoto.jpg',
-    onDelete: remove,
-    previewUrl: 'https://picsum.photos/id/64/128/128',
-    size: 248000,
-    type: 'image/jpeg',
-  },
-}
-
-export const WithoutActions: Story = {}
-
 export const WithCustomActions: Story = {
   args: {
     actions: (
@@ -57,6 +45,18 @@ export const WithCustomActions: Story = {
       </Button>
     ),
     onDelete: remove,
+  },
+}
+
+export const WithoutActions: Story = {}
+
+export const WithPreview: Story = {
+  args: {
+    name: 'pasfoto.jpg',
+    onDelete: remove,
+    previewUrl: 'https://picsum.photos/id/64/128/128',
+    size: 248000,
+    type: 'image/jpeg',
   },
 }
 
