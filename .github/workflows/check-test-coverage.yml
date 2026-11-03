@@ -41,8 +41,9 @@ jobs:
         run: pnpm --filter @amsterdam/design-system-react test
 
       - name: Report test coverage
+        if: ${{ !cancelled() }}
         uses: davelosert/vitest-coverage-report-action@8f86cfb56ed6d5613ea8cdc5259f207fbfd51ece # v2.13.1
         with:
           json-summary-path: packages/react/coverage/coverage-summary.json
           name: React components
-          threshold-icons: '{"0": "🔴", "95": "🟠", "99": "🟢"}'
+          threshold-icons: '{"0": "🔴", "100": "🟢"}'
