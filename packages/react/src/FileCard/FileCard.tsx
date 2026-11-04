@@ -24,7 +24,7 @@ export type FileCardProps = {
   readonly actions?: ReactNode
   /**
    * The visible label of the delete button.
-   * The name of the file is appended for screen readers.
+   * The name of the file is appended for screen readers, so do not include it.
    * @default 'Verwijder'
    */
   readonly deleteButtonLabel?: string

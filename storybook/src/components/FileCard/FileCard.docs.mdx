@@ -58,12 +58,14 @@ When all you have is an extension, pass a function that formats it:
 ```
 
 Pass other actions, such as a download link, to `actions`.
-Give every custom action the file name for screen readers with `ams-visually-hidden`, as the delete button does.
-
 Pass `onDelete` to add the built-in delete button.
 It has no icon, and it always comes after the other actions.
-A delete button of your own in `actions` gets neither the file name for screen readers, nor the focus move after a delete.
 When you ask for confirmation first, remove the file after the confirmation has closed and returned focus to the delete button.
+
+Every action needs the file name in its accessible name, so that someone who lists the buttons on a page can tell them apart.
+The delete button adds the name for you, so leave it out of `deleteButtonLabel`.
+In your own actions, add it with `ams-visually-hidden`.
+A delete button of your own in `actions` needs the name from you too, and it does not move focus after a delete.
 
 When you remove a File Card that stands alone, or the only one left in a list, move focus yourself to an element near it, such as the file input or the heading of the section.
 
