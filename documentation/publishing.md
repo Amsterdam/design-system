@@ -194,16 +194,19 @@ Check undated CSS markers against their token or component annotations, and chec
 Use the highest version bump among the published packages to choose the Slack audience; the design system has no single version number.
 Patch-only releases have no routine announcement.
 
-| Release or change                                                                                                                        | Channel                                                                                                                                                      | Audience                                      |
-| ---------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------- |
-| Minor                                                                                                                                    | Slack `#gilde-frontend`                                                                                                                                      | Frontend developers                           |
-| Major                                                                                                                                    | Slack `#vakgroep-softwareontwikkeling`                                                                                                                       | Everyone in the Vakgroep Softwareontwikkeling |
-| Minor and major                                                                                                                          | [MS Teams, Amsterdam Design System, General](https://teams.microsoft.com/l/channel/19%3AfYKS_RD2n1q4UhguA9jwEJk0A_VjYPO4TiLQjYlG_bo1%40thread.tacv2/General) | Interested followers and stakeholders         |
-| New component or structural change, such as a rename, with an [NL Design System counterpart](https://www.nldesignsystem.nl/componenten/) | Matching [NL Design System discussion](https://github.com/orgs/nl-design-system/discussions/)                                                                | NL Design System maintainers                  |
+| Release or change                                                                                                                        | Channel                                                                                                                                                                 | Audience                                      |
+| ---------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------- |
+| Minor                                                                                                                                    | Slack `#gilde-frontend`                                                                                                                                                 | Frontend developers                           |
+| Major                                                                                                                                    | Slack `#vakgroep-softwareontwikkeling`                                                                                                                                  | Everyone in the Vakgroep Softwareontwikkeling |
+| Minor and major                                                                                                                          | [MS Teams, Amsterdam Design System, General](https://teams.microsoft.com/l/channel/19%3AfYKS_RD2n1q4UhguA9jwEJk0A_VjYPO4TiLQjYlG_bo1%40thread.tacv2/General)            | Interested followers and stakeholders         |
+| New component or structural change, such as a rename, with an [NL Design System counterpart](https://www.nldesignsystem.nl/componenten/) | [NL Design System project board](https://github.com/orgs/nl-design-system/projects/48) and matching [discussion](https://github.com/orgs/nl-design-system/discussions/) | NL Design System community and maintainers    |
 
 Use the [announcement tone](./writing.md#release-announcements) and link the release notes in Slack and Teams.
-For NL Design System, thank the community and ask maintainers to add our community implementation or update its name and links.
-Link the component's documentation, source code at the release tag, and npm package.
+For NL Design System, update our implementation’s name and links on our project board item, which supplies the links on nldesignsystem.nl.
+Ask the product owner if you need board access.
+Edit our own comment in the component’s discussion, or add one, and thank the community.
+In both, link the component’s documentation, source code at the release tag, and npm package.
+Ask maintainers only for changes we cannot make ourselves, and mention them so they receive a notification.
 
 Use the [release skill](../.github/skills/release/SKILL.md) for drafts and matching threads.
 Keep drafts private, outside public issues, PRs, Actions logs, and artefacts; agents post nothing.
