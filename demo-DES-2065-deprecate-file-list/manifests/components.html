@@ -626,7 +626,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>5.3s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>3.8s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -11043,7 +11043,7 @@ A [File Card](/docs/components-forms-file-card--docs) beside the field, or sever
     <div class="meta" title="./src/components/FileList/FileList.stories.tsx">components-forms-file-list · ./src/components/FileList/FileList.stories.tsx</div>
     
     <div class="hint">Groups files in a list, so assistive technology can announce how many there are.</div>
-    <div class="kv"><span class="chip">deprecated: Wrap File Cards in an Unordered List without markers instead. Will be removed on or after 2027-04-01.</span><span class="chip">see: {@link https://designsystem.amsterdam/?path=/docs/components-forms-file-list--docs File List docs at Amsterdam Design System}</span></div>
+    <div class="kv"><span class="chip">deprecated: Wrap File Cards in an Unordered List without markers instead. Will be removed on or after 2027-06-01.</span><span class="chip">see: {@link https://designsystem.amsterdam/?path=/docs/components-forms-file-list--docs File List docs at Amsterdam Design System}</span></div>
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
@@ -11116,7 +11116,7 @@ import * as FileListStories from &quot;./FileList.stories.tsx&quot;;
 import * as FileListItemStories from &quot;./FileListItem.stories.tsx&quot;;
 
 &lt;StatusBadge
-  description=&quot;Use File Cards inside an Unordered List without markers instead. This component will be removed on or after 2027-04-01.&quot;
+  description=&quot;Use File Cards inside an Unordered List without markers instead. This component will be removed on or after 2027-06-01.&quot;
   status=&quot;deprecated&quot;
 /&gt;
 
@@ -11131,7 +11131,6 @@ import * as FileListItemStories from &quot;./FileListItem.stories.tsx&quot;;
 This component has no props to configure.
 
 Wrap File Cards in an [Unordered List](/docs/components-text-unordered-list--docs) without markers instead, as the [example on the File Card page](/docs/components-forms-file-card--docs#in-an-unordered-list) shows.
-Pass `previewUrl` to a File Card to show a thumbnail.
 
 ```diff
 - &lt;FileList&gt;
@@ -11143,6 +11142,9 @@ Pass `previewUrl` to a File Card to show a thumbnail.
 +   &lt;/UnorderedList.Item&gt;
 + &lt;/UnorderedList&gt;
 ```
+
+File List Item created and released the address of an image’s thumbnail itself, and a File Card does not.
+Create it with `URL.createObjectURL`, pass it as `previewUrl`, and release it with `URL.revokeObjectURL` when the card goes; see the [File Card docs](/docs/components-forms-file-card--docs#how-to-use).
 
 ## Subcomponents
 
@@ -11156,7 +11158,7 @@ Renders one file within the list.
 
 ### When to use
 
-Use a File List to display the files a user has selected or uploaded, showing each file’s name, type, size, and a preview.
+Keep a File List only in an existing integration while you migrate to File Cards in an Unordered List without markers.
 
 ## Design
 
@@ -11206,7 +11208,7 @@ It moves when the file is removed, not when the delete button is clicked, so a c
       <div class="hint">/home/runner/work/design-system/design-system/packages/react/src/index.ts</div>
       
       <div class="hint">Represents a single uploaded file within a File List, with its details and an optional delete action.</div>
-      <div class="kv"><span class="chip">deprecated: Use a File Card inside an Unordered List item instead. Will be removed on or after 2027-04-01.</span><span class="chip">see: {@link https://designsystem.amsterdam/?path=/docs/components-forms-file-list--docs File List docs at Amsterdam Design System}</span></div>
+      <div class="kv"><span class="chip">deprecated: Use a File Card inside an Unordered List item instead. Will be removed on or after 2027-06-01.</span><span class="chip">see: {@link https://designsystem.amsterdam/?path=/docs/components-forms-file-list--docs File List docs at Amsterdam Design System}</span></div>
       <pre><code>import { FileList } from &#39;@amsterdam/design-system-react/src&#39;;</code></pre>
       
       
