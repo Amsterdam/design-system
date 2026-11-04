@@ -12,12 +12,14 @@ import type { ImageSliderProps } from './ImageSlider'
 import { generateAspectRatioClass } from '../Image/generateAspectRatioClass'
 
 export type ImageSliderThumbnailsProps = {
+  /** The identifier shared with ImageSlider, used to build the matching ids for each thumbnail (tab) and its slide (tabpanel). */
+  readonly baseId: string
   /** The index of the slide currently in view. */
   readonly currentSlideId: number
+  /** Marks the slide with the given index as current and scrolls it into view. */
+  readonly goToSlide: (id: number) => void
   /** The label for an image, used in the accessible name of each thumbnail. */
   readonly imageLabel?: string
-  /** A function to run when a thumbnail is activated. Scrolls the slide with the provided index into view. */
-  readonly scrollToSlide: (id: number) => void
   /** The set of images to display thumbnails for. */
   readonly thumbnails: ImageSliderProps['images']
 } & Readonly<HTMLAttributes<HTMLElement>>
@@ -28,55 +30,51 @@ export type ImageSliderThumbnailsProps = {
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-media-image-slider--docs Image Slider docs at Amsterdam Design System}
  */
 export const ImageSliderThumbnails = ({
+  baseId,
   currentSlideId,
+  goToSlide,
   imageLabel,
-  scrollToSlide,
   thumbnails,
   ...restProps
 }: ImageSliderThumbnailsProps) => {
   const handleKeyDown = (event: KeyboardEvent<HTMLElement>) => {
-    const element = event.currentTarget.children[currentSlideId]
-
-    if (event.key === 'ArrowRight') {
-      const nextElement = element?.nextElementSibling as HTMLElement | null
-
-      if (nextElement) {
-        nextElement.focus()
-        scrollToSlide(currentSlideId + 1)
-      }
+    if (event.key === 'ArrowRight' && currentSlideId < thumbnails.length - 1) {
+      goToSlide(currentSlideId + 1)
+      ;(event.currentTarget.children[currentSlideId + 1] as HTMLElement | undefined)?.focus()
     }
 
-    if (event.key === 'ArrowLeft') {
-      const previousElement = element?.previousElementSibling as HTMLElement | null
-
-      if (previousElement) {
-        previousElement.focus()
-        scrollToSlide(currentSlideId - 1)
-      }
+    if (event.key === 'ArrowLeft' && currentSlideId > 0) {
+      goToSlide(currentSlideId - 1)
+      ;(event.currentTarget.children[currentSlideId - 1] as HTMLElement | undefined)?.focus()
     }
   }
 
   return (
-    <nav {...restProps} className="ams-image-slider__thumbnails" onKeyDown={handleKeyDown} role="tablist">
+    <div {...restProps} className="ams-image-slider__thumbnails" onKeyDown={handleKeyDown} role="tablist">
       {thumbnails.map(({ alt, aspectRatio, src }, index) => (
         <button
-          aria-label={`${imageLabel} ${index + 1}: ${alt}`}
-          aria-posinset={index + 1}
-          aria-selected={currentSlideId === index ? 'true' : 'false'}
-          aria-setsize={thumbnails.length}
+          aria-controls={`${baseId}-panel-${index}`}
+          aria-selected={currentSlideId === index}
           className={clsx(
             'ams-image-slider__thumbnail',
             currentSlideId === index && 'ams-image-slider__thumbnail--in-view',
-            generateAspectRatioClass(aspectRatio),
           )}
+          id={`${baseId}-tab-${index}`}
           key={`${index}-${src}`}
-          onClick={() => scrollToSlide(index)}
+          onClick={() => goToSlide(index)}
           role="tab"
-          style={{ backgroundImage: `url(${src})` }}
           tabIndex={currentSlideId === index ? 0 : -1}
           type="button"
-        />
+        >
+          <span
+            className={clsx('ams-image-slider__thumbnail-image', generateAspectRatioClass(aspectRatio))}
+            style={{ backgroundImage: `url(${src})` }}
+          />
+          <span className="ams-visually-hidden">
+            {imageLabel}: {alt}
+          </span>
+        </button>
       ))}
-    </nav>
+    </div>
   )
 }
