@@ -80,6 +80,8 @@ Add the ID of the appropriate sub-task to help locate specifications and discuss
 
 From here on, a hyphen-minus ‘-’ is the separator.
 
+Release notes without a ticket are the exception: use the planned publication date, as in `chore/release-notes-22-october-2026`, and follow the [release checklist](./publishing.md#release-checklist).
+
 ### Describe the work to be done
 
 Describe the contents of the branch in a few English words.
