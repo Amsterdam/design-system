@@ -197,18 +197,22 @@ function packageName(file) {
   return file.split('/')[1] || file
 }
 
-function summary(marker) {
+function summary(marker, prefix = '') {
   const date = marker.text.match(/\d{4}-\d{2}-\d{2}/)?.[0] || 'no removal date'
-  const replacement = marker.text
-    .match(/\bUse\s+(.+?)\s+instead\b/i)?.[1]
-    ?.trim()
-    .replace(/[`'‘’“”]/g, '')
+  const replacement = marker.text.match(/\bUse\s+(.+?)\s+instead\b/i)?.[1]?.trim()
+  const replacementNames = replacement?.replace(/['‘’“”"]/g, '`')
+  const formattedReplacement =
+    replacementNames && /^`?[\w$.-]+`?(?:\s+(?:and|or)\s+`?[\w$.-]+`?)*$/.test(replacementNames)
+      ? replacementNames.replace(/`?([\w$.-]+)`?/g, (match, name) =>
+          ['and', 'or'].includes(name) ? name : `\`${name}\``,
+        )
+      : replacement
   const description = marker.text
-    .replace(/\s*(?:will be )?removed on or after\s+\d{4}-\d{2}-\d{2}\.?/i, '')
+    .replace(/\s*(?:The \S+ component )?(?:will be )?removed on or after\s+\d{4}-\d{2}-\d{2}\.?/i, '')
     .replace(date, '')
     .trim()
     .replace(/[.;]\s*$/, '')
-  return `${marker.name} → ${replacement || description || '(bare marker)'}    ${date}`
+  return `${date.padEnd(15)}  ${prefix}\`${marker.name}\` → ${formattedReplacement || description || '(bare marker)'}`
 }
 
 function groupByPackage(records) {
@@ -227,8 +231,8 @@ function warningLabels(warnings) {
     .map((warning) => warning.replace(/:\s+\d{4}-\d{2}-\d{2}$/, ''))
 }
 
-function formattedRecord(record, verbose, indent = '    ', note = '', pathIndent = indent) {
-  return `${indent}${summary(record)}${note}${verbose ? `\n${pathIndent}${record.file}` : ''}`
+function formattedRecord(record, verbose, indent = '  ', note = '', prefix = '') {
+  return `${indent}- ${summary(record, prefix)}${note}${verbose ? `\n${indent}  - \`${record.file}\`` : ''}`
 }
 
 function isUndatedCss(record) {
@@ -238,8 +242,8 @@ function isUndatedCss(record) {
 function undatedCssSummary(records, verbose, indent) {
   const lines = []
   for (const [name, entries] of groupByPackage(records)) {
-    lines.push(`${indent}${name}: ${entries.length} markers without a removal date`)
-    if (verbose) lines.push(...entries.map((record) => formattedRecord(record, true, `${indent}  `, '', `${indent}  `)))
+    lines.push(`${indent}- ${name}: ${entries.length} markers without a removal date`)
+    if (verbose) lines.push(...entries.map((record) => formattedRecord(record, true, `${indent}  `)))
   }
   return lines
 }
@@ -262,7 +266,7 @@ export function report(
     ({ isNew, warnings }) => !isNew && warnings.some((warning) => warning.startsWith('Expired')),
   )
   const sections = [
-    `Deprecations\n  since ${since}, published ${publication}\n  earliest allowed removal: ${minimumRemovalDate(publication)}`,
+    `# Deprecations\n\nSince ${since}, published ${publication}; earliest allowed removal: ${minimumRemovalDate(publication)}.`,
   ]
 
   if (fixes.length > 0) {
@@ -273,27 +277,27 @@ export function report(
         return formattedRecord(
           record,
           verbose,
-          `  ${packageName(record.file)}: `,
+          '',
           labels.length > 0 ? ` (${labels.join('; ')})` : '',
-          '    ',
+          `${packageName(record.file)}: `,
         )
       })
-    lines.push(...undatedCssSummary(fixes.filter(isUndatedCss), verbose, '  '))
-    sections.push(`FIX BEFORE RELEASING\n${lines.join('\n')}`)
+    lines.push(...undatedCssSummary(fixes.filter(isUndatedCss), verbose, ''))
+    sections.push(`## FIX BEFORE RELEASING\n\n${lines.join('\n')}`)
   }
 
   if (newRecords.length > 0) {
     sections.push(
-      `NEW, per package\n${[...groupByPackage(newRecords)]
+      `## NEW, per package\n\n${[...groupByPackage(newRecords)]
         .map(([name, entries]) => {
           const undatedCss = entries.filter(isUndatedCss)
           const listed = entries
             .filter((record) => !isUndatedCss(record))
             .map((record) => formattedRecord(record, verbose))
           if (undatedCss.length > 0) {
-            listed.push(...undatedCssSummary(undatedCss, verbose, '    '))
+            listed.push(...undatedCssSummary(undatedCss, verbose, '  '))
           }
-          return `  ${name}\n${listed.join('\n')}`
+          return `- ${name}\n${listed.join('\n')}`
         })
         .join('\n')}`,
     )
@@ -303,7 +307,7 @@ export function report(
 
   if (expired.length > 0) {
     sections.push(
-      `EXPIRED, from earlier releases: ${expired.length} ${expired.length === 1 ? 'entry' : 'entries'} (--expired to list them)`,
+      `## EXPIRED, from earlier releases: ${expired.length} ${expired.length === 1 ? 'entry' : 'entries'} (--expired to list them)`,
     )
     if (includeExpired) {
       sections.push(
@@ -313,9 +317,9 @@ export function report(
             return formattedRecord(
               record,
               verbose,
-              `  ${packageName(record.file)}: `,
+              '',
               labels.length > 0 ? ` (${labels.join('; ')})` : '',
-              '    ',
+              `${packageName(record.file)}: `,
             )
           })
           .join('\n'),

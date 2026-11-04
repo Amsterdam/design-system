@@ -185,6 +185,7 @@ pnpm run deprecations <previous-release-commit> --publication-date <YYYY-MM-DD> 
 ```
 
 The report groups new deprecations by package, separates dates to fix before releasing, and counts expired entries from earlier releases.
+It uses Markdown lists with aligned removal dates first and backticks around names, so you can paste it into a release PR or discussion.
 Use `--expired` to list expired entries and `--verbose` to include source paths.
 Check undated CSS markers against their token or component annotations, and check `StatusBadge` dates in [Storybook docs](../storybook/src) and the [icon registry](../packages-proprietary/react-icons/deprecations.mjs) by hand: neither is scanned.
 
