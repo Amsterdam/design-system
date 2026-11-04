@@ -39,13 +39,18 @@ export const WithDeleteButton: Story = {
 
 export const WithCustomActions: Story = {
   args: {
-    actions: (
-      <Button onClick={download} variant="tertiary">
-        Download<span className="ams-visually-hidden"> paspoort.pdf</span>
-      </Button>
-    ),
     onDelete: remove,
   },
+  render: (args) => (
+    <FileCard
+      {...args}
+      actions={
+        <Button onClick={download} variant="tertiary">
+          Download<span className="ams-visually-hidden"> {args.name}</span>
+        </Button>
+      }
+    />
+  ),
 }
 
 export const WithoutActions: Story = {}
