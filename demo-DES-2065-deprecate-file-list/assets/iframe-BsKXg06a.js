@@ -1,0 +1,1 @@
+import{t as e}from"./iframe-DWZT__f0.js";e();
