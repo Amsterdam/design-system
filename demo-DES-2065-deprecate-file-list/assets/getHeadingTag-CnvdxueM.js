@@ -1,1 +1,0 @@
-import{n as e}from"./rolldown-runtime-DkW27tQK.js";function t(e){switch(e){case 2:return`h2`;case 3:return`h3`;case 4:return`h4`;default:return`h1`}}function n(){return(n=e((()=>{})))()}export{n,t};
