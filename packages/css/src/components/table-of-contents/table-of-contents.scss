@@ -73,6 +73,12 @@
 }
 
 .ams-table-of-contents__button svg {
+  rotate: var(--ams-table-of-contents-button-icon-svg-angle-start-rotate);
+
+  [aria-expanded="true"] & {
+    rotate: var(--ams-table-of-contents-button-icon-svg-angle-end-rotate);
+  }
+
   @media (prefers-reduced-motion: no-preference) {
     transition: rotate var(--ams-table-of-contents-button-icon-transition-duration)
       var(--ams-table-of-contents-button-icon-transition-timing-function);
@@ -80,7 +86,7 @@
 }
 
 .ams-table-of-contents__button[aria-expanded="true"] svg {
-  rotate: -180deg;
+  rotate: var(--ams-table-of-contents-button-icon-svg-angle-end-rotate);
 }
 
 .ams-table-of-contents__item--collapsed > .ams-table-of-contents__list {
