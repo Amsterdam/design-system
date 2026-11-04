@@ -45,7 +45,10 @@ export type FileCardProps = {
   readonly previewUrl?: string
   /** The size of the file in bytes. */
   readonly size?: number
-  /** The media type of the file, e.g. `application/pdf`. */
+  /**
+   * The type of the file, as passed to `formatMetadataText`.
+   * The default formatter expects a media type, e.g. `application/pdf`.
+   */
   readonly type?: string
 } & Readonly<HTMLAttributes<HTMLDivElement>>
 

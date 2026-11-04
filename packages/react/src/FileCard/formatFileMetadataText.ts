@@ -6,7 +6,7 @@
 export type FileMetadata = {
   /** The size of the file in bytes. */
   size?: number
-  /** The media type of the file. */
+  /** The type of the file. */
   type?: string
 }
 
