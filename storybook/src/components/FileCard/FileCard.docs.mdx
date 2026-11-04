@@ -33,6 +33,8 @@ Use a [Link](/docs/components-navigation-link--docs), a [Standalone Link](/docs/
 
 Pass the name, and the size and type when they are known.
 A File Card takes these as separate values rather than a `File` object, so it works just as well for a file that already sits on a server and has no `File` object at all.
+Pass a name that people recognise: the File Card displays it, and its delete button reads it out.
+When the stored name is technical, such as a hash, pass a readable one instead.
 
 ```tsx
 <FileCard name="besluit.pdf" onDelete={remove} size={1536000} type="application/pdf" />

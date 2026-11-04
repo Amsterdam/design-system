@@ -35,7 +35,11 @@ export type FileCardProps = {
    * @default formatFileMetadataTextNl
    */
   readonly formatMetadataText?: FormatFileMetadataText
-  /** The name of the file. */
+  /**
+   * The name of the file, as the user knows it.
+   * It is displayed, and added to the accessible name of the delete button.
+   * Pass a readable name when the stored name of the file is technical.
+   */
   readonly name: string
   /**
    * A function to run when the user removes the file.
