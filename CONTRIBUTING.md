@@ -118,6 +118,8 @@ This repository is part of the [NL Design System](https://nldesignsystem.nl/).
 When you contribute to this project you allow your contributions to be made a part of the NL Design System component library.
 For more information, please read about [their contribution model](https://nldesignsystem.nl/meedoen/estafettemodel/).
 
+When NL Design System posts a ‘Help Wanted’ call for a component in a GitHub discussion, the design system team posts Amsterdam’s input as its own comment so we can keep it up to date.
+
 ## :computer: Local development
 
 ### Install prerequisites
