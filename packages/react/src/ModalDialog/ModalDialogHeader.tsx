@@ -3,31 +3,42 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
+import type { ElementType, ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 
 import { clsx } from 'clsx'
-import { forwardRef } from 'react'
+import { forwardRef, useImperativeHandle, useRef } from 'react'
 
 import type { IconProps } from '../Icon/Icon'
 
 import { IconButton } from '../IconButton/IconButton'
-import { closeModalDialog } from './modalDialogActions'
 
 export type ModalDialogHeaderProps = {
   /**
    * The accessible name of the button that dismisses the Modal Dialog.
    * Will be announced by screen readers.
+   * A custom close button renders it as its visible label.
    * @default Sluiten
    */
   readonly closeButtonAccessibleName?: string
   /**
+   * The React component to use for the button that dismisses the Modal Dialog.
+   * Receives only `className`, `onClick`, `type="button"` and the accessible name as `children`.
+   * Apply `className`, `onClick` and `type` to its button; render `children` as its visible label.
+   * Merge `className` with its own classes; wrap the component to set other props.
+   * `closeButtonIcon` and `closeButtonSize` apply only to the default button.
+   * Websites for the City of Amsterdam must use the default button.
+   */
+  readonly closeButtonComponent?: ElementType
+  /**
    * An icon for the button that dismisses the Modal Dialog, to display instead of the default cross.
+   * Applies to the default close button only.
    * Websites for the City of Amsterdam must use the default icon.
    */
   readonly closeButtonIcon?: IconProps['svg']
   /**
    * The size of the button that dismisses the Modal Dialog.
    * Match it to the size of the Heading in the Header.
+   * Applies to the default close button only.
    * @default heading-2
    */
   readonly closeButtonSize?: Extract<IconProps['size'], `heading-${number}`>
@@ -44,24 +55,40 @@ export const ModalDialogHeader = forwardRef(
       children,
       className,
       closeButtonAccessibleName = 'Sluiten',
+      closeButtonComponent,
       closeButtonIcon,
       closeButtonSize = 'heading-2',
       ...restProps
     }: ModalDialogHeaderProps,
     ref: ForwardedRef<HTMLElement>,
-  ) => (
-    <header {...restProps} className={clsx('ams-modal-dialog__header', className)} ref={ref}>
-      {children}
-      <IconButton
-        className="ams-modal-dialog__close-button"
-        label={closeButtonAccessibleName}
-        onClick={closeModalDialog}
-        size={closeButtonSize}
-        svg={closeButtonIcon}
-        type="button"
-      />
-    </header>
-  ),
+  ) => {
+    const innerRef = useRef<HTMLElement>(null)
+
+    useImperativeHandle(ref, () => innerRef.current as HTMLElement)
+
+    const handleClose = () => innerRef.current?.closest('dialog')?.close()
+    const CloseButton = closeButtonComponent
+
+    return (
+      <header {...restProps} className={clsx('ams-modal-dialog__header', className)} ref={innerRef}>
+        {children}
+        {CloseButton ? (
+          <CloseButton className="ams-modal-dialog__close-button" onClick={handleClose} type="button">
+            {closeButtonAccessibleName}
+          </CloseButton>
+        ) : (
+          <IconButton
+            className="ams-modal-dialog__close-button"
+            label={closeButtonAccessibleName}
+            onClick={handleClose}
+            size={closeButtonSize}
+            svg={closeButtonIcon}
+            type="button"
+          />
+        )}
+      </header>
+    )
+  },
 )
 
 ModalDialogHeader.displayName = 'ModalDialog.Header'

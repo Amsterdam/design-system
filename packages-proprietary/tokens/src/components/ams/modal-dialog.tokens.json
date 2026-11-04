@@ -144,7 +144,7 @@
           }
         },
         "padding-block": {
-          "$deprecated": "Use `ams.modal-dialog.body.padding-block-start` and `ams.modal-dialog.body.padding-block-end` instead. Will be removed on or after 2027-02-25.",
+          "$deprecated": "Use `ams.modal-dialog.body.padding-block-start` and `ams.modal-dialog.body.padding-block-end` instead. Will be removed on or after 2027-04-25.",
           "$value": "{ams.modal-dialog.body.padding-block-start} {ams.modal-dialog.body.padding-block-end}",
           "$extensions": {
             "nl.amsterdam.subtype": "space",
@@ -174,7 +174,7 @@
         },
         "vi-medium": {
           "padding-block": {
-            "$deprecated": "Use `ams.modal-dialog.body.vi-medium.padding-block-start` and `ams.modal-dialog.body.vi-medium.padding-block-end` instead. Will be removed on or after 2027-02-25.",
+            "$deprecated": "Use `ams.modal-dialog.body.vi-medium.padding-block-start` and `ams.modal-dialog.body.vi-medium.padding-block-end` instead. Will be removed on or after 2027-04-25.",
             "$value": "{ams.modal-dialog.body.vi-medium.padding-block-start} {ams.modal-dialog.body.vi-medium.padding-block-end}",
             "$extensions": {
               "nl.amsterdam.subtype": "space",
@@ -206,7 +206,7 @@
       },
       "footer": {
         "padding-block": {
-          "$deprecated": "Use `ams.modal-dialog.footer.padding-block-start` and `ams.modal-dialog.footer.padding-block-end` instead. Will be removed on or after 2027-02-25.",
+          "$deprecated": "Use `ams.modal-dialog.footer.padding-block-start` and `ams.modal-dialog.footer.padding-block-end` instead. Will be removed on or after 2027-04-25.",
           "$value": "{ams.modal-dialog.footer.padding-block-start} {ams.modal-dialog.footer.padding-block-end}",
           "$extensions": {
             "nl.amsterdam.subtype": "space",
@@ -236,7 +236,7 @@
         },
         "vi-medium": {
           "padding-block": {
-            "$deprecated": "Use `ams.modal-dialog.footer.vi-medium.padding-block-start` and `ams.modal-dialog.footer.vi-medium.padding-block-end` instead. Will be removed on or after 2027-02-25.",
+            "$deprecated": "Use `ams.modal-dialog.footer.vi-medium.padding-block-start` and `ams.modal-dialog.footer.vi-medium.padding-block-end` instead. Will be removed on or after 2027-04-25.",
             "$value": "{ams.modal-dialog.footer.vi-medium.padding-block-start} {ams.modal-dialog.footer.vi-medium.padding-block-end}",
             "$extensions": {
               "nl.amsterdam.subtype": "space",

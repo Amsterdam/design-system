@@ -3,6 +3,49 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.4.0](https://github.com/Amsterdam/design-system/compare/design-system-tokens-v4.3.0...design-system-tokens-v4.4.0) (2026-10-22)
+
+
+### Features
+
+* **Card:** Give the image its own default aspect ratio ([#2989](https://github.com/Amsterdam/design-system/issues/2989)) ([ed64d24](https://github.com/Amsterdam/design-system/commit/ed64d24330f94392cd1bd01927a94fc4286907cd))
+* **Data List:** Introduce component to show details and actions for a single subject ([#2966](https://github.com/Amsterdam/design-system/issues/2966)) ([46908ee](https://github.com/Amsterdam/design-system/commit/46908ee021a0d0902ad6be2956b394beb9a56e16))
+* **Description List:** Rename Section to Item and deprecate Section ([#3022](https://github.com/Amsterdam/design-system/issues/3022)) ([fe702d4](https://github.com/Amsterdam/design-system/commit/fe702d4e146c2cfb66299f73ce55a4d568a3812a))
+* **Form Field Status:** Take over from Character Count ([#2947](https://github.com/Amsterdam/design-system/issues/2947)) ([3672147](https://github.com/Amsterdam/design-system/commit/3672147efc24047bca3a4b41b11a6ec032ef2349))
+* **Known Date Input:** Introduce as separate component ([#2944](https://github.com/Amsterdam/design-system/issues/2944)) ([a8caa94](https://github.com/Amsterdam/design-system/commit/a8caa94d09288c23edc158542c82feb8f730b7b8))
+* **Tokens:** Split two-value spacing tokens into start and end ([#2953](https://github.com/Amsterdam/design-system/issues/2953)) ([9d33baf](https://github.com/Amsterdam/design-system/commit/9d33bafea6d6436b42c73d7e1732d75bdedceeb8))
+
+
+### Bug Fixes
+
+* **deps:** Bump postcss from 8.5.26 to 8.5.27 in the patch-and-minor-dependencies group ([#2960](https://github.com/Amsterdam/design-system/issues/2960)) ([b5e7286](https://github.com/Amsterdam/design-system/commit/b5e7286db2a70b9d8573c386e6250afef5b72ff9))
+* **deps:** Bump postcss from 8.5.29 to 8.5.30 in the patch-and-minor-dependencies group ([#3025](https://github.com/Amsterdam/design-system/issues/3025)) ([d1a9e03](https://github.com/Amsterdam/design-system/commit/d1a9e0379ed8f55974c0f60ff152bf9d364cd7d6))
+* **Icon Button:** Draw the contrast hover background from the text colour ([#3004](https://github.com/Amsterdam/design-system/issues/3004)) ([9cccaca](https://github.com/Amsterdam/design-system/commit/9cccacad87590cad16b225221ca4ad5b5a31531e))
+
+### Deprecations
+
+The following remain available during deprecation and will be removed on or after 25 April 2027:
+
+| Deprecated token                                  | Replacement                                                                                                       |
+| ------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| `ams.character-count.color`                       | `ams.form-field-status.color`                                                                                     |
+| `ams.character-count.font-family`                 | `ams.form-field-status.font-family`                                                                               |
+| `ams.character-count.font-size`                   | `ams.form-field-status.font-size`                                                                                 |
+| `ams.character-count.font-weight`                 | `ams.form-field-status.font-weight`                                                                               |
+| `ams.character-count.line-height`                 | `ams.form-field-status.line-height`                                                                               |
+| `ams.character-count.error.color`                 | `ams.form-field-status.error.color`                                                                               |
+| `ams.description-list.section.margin-block-end`   | `ams.description-list.item.margin-block-end`                                                                      |
+| `ams.dialog.header.padding-block`                 | `ams.dialog.header.padding-block-start` and `ams.dialog.header.padding-block-end`                                 |
+| `ams.dialog.header.vi-medium.padding-block`       | `ams.dialog.header.vi-medium.padding-block-start` and `ams.dialog.header.vi-medium.padding-block-end`             |
+| `ams.dialog.footer.padding-block`                 | `ams.dialog.footer.padding-block-start` and `ams.dialog.footer.padding-block-end`                                 |
+| `ams.dialog.footer.vi-medium.padding-block`       | `ams.dialog.footer.vi-medium.padding-block-start` and `ams.dialog.footer.vi-medium.padding-block-end`             |
+| `ams.modal-dialog.body.padding-block`             | `ams.modal-dialog.body.padding-block-start` and `ams.modal-dialog.body.padding-block-end`                         |
+| `ams.modal-dialog.body.vi-medium.padding-block`   | `ams.modal-dialog.body.vi-medium.padding-block-start` and `ams.modal-dialog.body.vi-medium.padding-block-end`     |
+| `ams.modal-dialog.footer.padding-block`           | `ams.modal-dialog.footer.padding-block-start` and `ams.modal-dialog.footer.padding-block-end`                     |
+| `ams.modal-dialog.footer.vi-medium.padding-block` | `ams.modal-dialog.footer.vi-medium.padding-block-start` and `ams.modal-dialog.footer.vi-medium.padding-block-end` |
+| `ams.menu.vi-wide.padding-block`                  | `ams.menu.vi-wide.padding-block-start` and `ams.menu.vi-wide.padding-block-end`                                   |
+| `ams.select.padding-inline`                       | `ams.select.padding-inline-start` and `ams.select.padding-inline-end`                                             |
+
 ## [4.3.0](https://github.com/Amsterdam/design-system/compare/design-system-tokens-v4.2.0...design-system-tokens-v4.3.0) (2026-08-08)
 
 

@@ -26,7 +26,9 @@ The Body holds the main content of the dialog and has no props of its own; the e
 ### Header
 
 The Header contains the title of the dialog and always renders a button to dismiss it.
-Pass `closeButtonAccessibleName` to translate the name of that button for screen readers, and `closeButtonSize` to match the button to the size of your Heading.
+Pass `closeButtonAccessibleName` to translate the name of that button.
+The default button uses it as screen reader text; a custom close button renders it as its visible label.
+Use `closeButtonSize` to match the default button to the size of your Heading; it does not apply to a custom component.
 Any content you add to the Header – a [Heading](/docs/components-text-heading--docs), a subtitle, or both – stacks to the left of the close button.
 
 <Canvas of={ModalDialogHeaderStories.Header} />
@@ -107,6 +109,28 @@ Don’t render the dialog conditionally: unmounting it while open skips the `clo
 
 <Canvas of={ModalDialogStories.Controlled} />
 
+### Replacing the close button
+
+Pass a component to the `closeButtonComponent` prop of the Header to replace the close button with one of your own.
+Websites for the City of Amsterdam must use the default button.
+This example uses the plain HTML `button` element.
+
+The component receives `className`, `onClick`, `type="button"` and the accessible name as `children`.
+Apply `className`, `onClick` and `type` to the button, and render `children` in it as its visible label.
+The class places the button next to the heading, and the click handler closes the dialog.
+Merge `className` with any classes of its own.
+The Header passes no other props, so wrap the component to set props such as `appearance`.
+`closeButtonIcon` and `closeButtonSize` do not apply to a custom component.
+Give the button a visible focus indicator and a target large enough to use.
+A custom component that shows only an icon hides its text with the `ams-visually-hidden` class.
+
+The heading and the button share the first row of the Header.
+That row grows to fit the button.
+A close button taller than one line of the heading pushes a subtitle down.
+A shorter button sits at the top of the row, not centred on the heading.
+
+<Canvas of={ModalDialogStories.WithCloseButtonComponent} />
+
 ## Features
 
 The Modal Dialog is a [query container](/docs/utilities-css-query-container--docs) for inline size, so elements inside it can adapt their appearance to the width of the dialog.
@@ -151,6 +175,7 @@ A scrolling Body takes keyboard focus in its own right, so someone navigating by
 Chromium and Firefox already make an overflowing scroll container focusable; Safari does not, so the component makes the Body focusable itself.
 
 Scrolling of the page behind the dialog is suppressed while it is open.
+For this to work, the `body` element needs the [`ams-body` class](/docs/utilities-css-body--docs).
 Opening a modal does not lock scrolling on its own, and iOS Safari still needs JavaScript for a guarantee, so a gesture over the backdrop there can move the page underneath.
 
 Note that a modal dialog requires JavaScript: without it, the dialog stays closed and its content stays hidden.

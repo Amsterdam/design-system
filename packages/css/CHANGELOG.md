@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.5.0](https://github.com/Amsterdam/design-system/compare/design-system-css-v4.4.0...design-system-css-v4.5.0) (2026-10-22)
+
+
+### Features
+
+* **Card:** Give the image its own default aspect ratio ([#2989](https://github.com/Amsterdam/design-system/issues/2989)) ([ed64d24](https://github.com/Amsterdam/design-system/commit/ed64d24330f94392cd1bd01927a94fc4286907cd))
+* **Data List:** Introduce component to show details and actions for a single subject ([#2966](https://github.com/Amsterdam/design-system/issues/2966)) ([46908ee](https://github.com/Amsterdam/design-system/commit/46908ee021a0d0902ad6be2956b394beb9a56e16))
+* **Description List:** Rename Section to Item and deprecate Section ([#3022](https://github.com/Amsterdam/design-system/issues/3022)) ([fe702d4](https://github.com/Amsterdam/design-system/commit/fe702d4e146c2cfb66299f73ce55a4d568a3812a))
+* **Form Field Status:** Take over from Character Count ([#2947](https://github.com/Amsterdam/design-system/issues/2947)) ([3672147](https://github.com/Amsterdam/design-system/commit/3672147efc24047bca3a4b41b11a6ec032ef2349))
+* **Image:** Add optional contain fit for constrained images ([#2988](https://github.com/Amsterdam/design-system/issues/2988)) ([3b27623](https://github.com/Amsterdam/design-system/commit/3b27623514798a5439ed47886709317ed959d935))
+* **Known Date Input:** Introduce as separate component ([#2944](https://github.com/Amsterdam/design-system/issues/2944)) ([a8caa94](https://github.com/Amsterdam/design-system/commit/a8caa94d09288c23edc158542c82feb8f730b7b8))
+* **Tokens:** Split two-value spacing tokens into start and end ([#2953](https://github.com/Amsterdam/design-system/issues/2953)) ([9d33baf](https://github.com/Amsterdam/design-system/commit/9d33bafea6d6436b42c73d7e1732d75bdedceeb8))
+
+### Deprecations
+
+The following remain available during deprecation and will be removed on or after 25 April 2027:
+
+- `.ams-character-count` and `.ams-character-count--error`: migrate to `.ams-form-field-status`, with `.ams-form-field-status__character-count` for the count and `.ams-form-field-status__error` for the separate over-limit message.
+- `.ams-description-list__section`: use `.ams-description-list__item` instead.
+
 ## [4.4.0](https://github.com/Amsterdam/design-system/compare/design-system-css-v4.3.0...design-system-css-v4.4.0) (2026-08-08)
 
 

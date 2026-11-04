@@ -63,9 +63,11 @@ Keep every heading it defines, in its order.
 Replace the placeholder of the first heading with a short summary of the change in plain words: no type or scope, and it doesn't have to repeat the title.
 Write the text itself as [the writing skill](../writing/SKILL.md) prescribes.
 A description is not documentation, so it does not go one sentence per line.
+Leave a blank line before and after each heading and block, as [Markdown spacing](../../../documentation/writing.md#markdown-spacing) sets out.
 
-- **Links** — the documentation pages and stories in the branch deploy that the change affects, related issues, and discussions.
-  Link them before the deploy exists, because its address follows from the branch name, as [the workflows README](../../workflows/README.md) describes: drop the type prefix up to the first slash, and put `demo-` in its place.
+- **Links**: the documentation pages and stories in the branch deploy that the change affects, related issues, and discussions.
+  Link them before the deploy exists, because its address follows from the branch name.
+  The [Deploy acceptance Storybook workflow](../../workflows/deploy-acceptance-storybook.yml) removes everything through the first `/` and prefixes the remainder with `demo-`.
   Branch `feat/DES-1959-file-component` deploys to `https://designsystem.amsterdam/demo-DES-1959-file-component/`, so its File Card page is `https://designsystem.amsterdam/demo-DES-1959-file-component/?path=/docs/components-forms-file-card--docs`.
   Take the `path` from the Storybook title: `/docs/<title>--docs` for a page and `/story/<title>--<story>` for a story, both in kebab case.
   Never invent any other link, and never fabricate an issue identifier; take it from the branch name if it is there.
@@ -78,7 +80,7 @@ A description is not documentation, so it does not go one sentence per line.
   Mention what you left out of scope, and say so plainly.
   If GitHub Copilot wrote or edited part of the change, say so here with "GitHub Copilot wrote or edited part of this change.", as the [GitHub Copilot usage rules](https://github.com/Amsterdam/development-standards/blob/main/internal/github-copilot.md) require.
   The rules ask for no more than that, so there is no need to list the parts it touched.
-- **Checklist** — remove the items the change has no surface for, and tick only what is done.
+- **Checklist**: remove the items the change has no surface for, and tick only what is done.
   Don't reword or merge the items that remain.
   A `chore` often needs none of the test, documentation, story, export, Chromatic, or screen reader items.
   A `feat` or `fix` without a visual change drops Chromatic, and one that changes no markup, ARIA, or behaviour drops the screen reader tests.

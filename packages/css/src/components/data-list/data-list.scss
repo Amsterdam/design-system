@@ -1,0 +1,92 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+@use "../../common/align-first-lines" as *;
+@use "../../common/hyphenation" as *;
+@use "../../common/resets" as *;
+@use "../../common/text-rendering" as *;
+
+/** The container width at which Data List places each key beside its value. */
+$ams-data-list-breakpoint: 32rem;
+
+.ams-data-list {
+  @include reset-dl;
+
+  color: var(--ams-data-list-color);
+  display: grid;
+  font-family: var(--ams-data-list-font-family);
+  font-size: var(--ams-data-list-font-size);
+  grid-template-columns: minmax(0, 1fr);
+  line-height: var(--ams-data-list-line-height);
+  row-gap: var(--ams-data-list-row-gap);
+
+  @include hyphenation;
+  @include text-rendering;
+}
+
+.ams-data-list__item:not(:last-child) {
+  border-block-end: var(--ams-data-list-item-border-block-end);
+  padding-block-end: var(--ams-data-list-item-padding-block-end);
+}
+
+.ams-data-list__key {
+  font-size: var(--ams-data-list-key-font-size);
+  font-weight: var(--ams-data-list-key-font-weight);
+  line-height: var(--ams-data-list-key-line-height);
+  margin-block-end: var(--ams-data-list-key-margin-block-end);
+}
+
+.ams-data-list__value {
+  @include reset-dd;
+
+  font-weight: var(--ams-data-list-value-font-weight);
+
+  &:not(:last-child) {
+    margin-block-end: var(--ams-data-list-value-margin-block-end);
+  }
+}
+
+.ams-data-list__actions {
+  @include reset-dd;
+}
+
+@container ams-query-container-inline-size (inline-size >= #{$ams-data-list-breakpoint}) {
+  .ams-data-list:not(.ams-data-list--vertical) {
+    column-gap: var(--ams-data-list-vi-medium-column-gap);
+    grid-template-columns: var(--ams-data-list-vi-medium-grid-template-columns);
+
+    // Every item follows the columns of the list, so values line up whatever actions an item has.
+    .ams-data-list__item {
+      align-items: start;
+      display: grid;
+      grid-column: 1 / -1;
+      grid-template-columns: subgrid;
+    }
+
+    .ams-data-list__key {
+      grid-column-start: 1;
+      margin-block-end: 0;
+
+      // Vertically align keys with values.
+      // Keys use heading line heights, while values use those of body text.
+      @include align-first-lines(
+        $font-size: var(--ams-data-list-key-font-size),
+        $line-height: var(--ams-data-list-key-line-height),
+        $reference-font-size: var(--ams-data-list-font-size),
+        $reference-line-height: var(--ams-data-list-line-height)
+      );
+    }
+
+    .ams-data-list__value {
+      grid-column-start: 2;
+      margin-block-end: 0;
+    }
+
+    .ams-data-list__actions {
+      grid-column-start: 3;
+      grid-row-start: 1;
+    }
+  }
+}

@@ -47,6 +47,12 @@ A comment that explains code to whoever edits it wraps to a width instead.
 TSDoc sits on the first side because react-docgen renders it onto the Storybook page and into IDE tooltips, as [component docs](./component-docs.md#the-component-tsdoc) sets out.
 A comment above an effect or a selector is read in the editor only, so a width wrap serves it better.
 
+## Markdown spacing
+
+Prettier formats the Markdown in this repository, including the blank lines around headings and blocks, and the newline at the end of a file.
+Markdown outside the repository gets no formatter, so in a pull request description, a review comment, an issue, or a ticket, leave a blank line before and after each heading, list, code block, table, and block quote.
+Separate whole blocks, not the items of a list or the rows of a table.
+
 ## Writing style
 
 These patterns apply to every row of the table, whatever its line treatment.

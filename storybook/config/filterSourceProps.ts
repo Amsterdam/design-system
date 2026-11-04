@@ -28,10 +28,16 @@ const offByDefaultFlags = [
 ]
 
 /**
+ * Event handlers that add markup when passed, such as the delete button of File Card and File List Item.
+ * Without them, the code would not render what the canvas shows.
+ */
+const markupHandlers = ['onDelete']
+
+/**
  * Decides which props the Code Panel prints.
  * This replaces the generator’s own filter, which drops the props that are `undefined` – hence the first clause.
  */
 export const filterSourceProps = (value: unknown, key: string): boolean =>
   value !== undefined &&
   !(value === false && offByDefaultFlags.includes(key)) &&
-  !(typeof value === 'function' && /^on[A-Z]/.test(key))
+  !(typeof value === 'function' && /^on[A-Z]/.test(key) && !markupHandlers.includes(key))

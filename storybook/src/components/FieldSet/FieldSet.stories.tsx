@@ -151,6 +151,42 @@ export const WithHint: Story = {
   ),
 }
 
+export const WithHeadingInLegend: Story = {
+  args: {
+    legendIsPageHeading: true,
+  },
+  render: (args) => (
+    <FieldSet {...args}>
+      <Field>
+        <Label htmlFor="input-h1" inFieldSet>
+          Voornaam
+        </Label>
+        {args.invalid && <ErrorMessage id="error-h1">Vul uw voornaam in.</ErrorMessage>}
+        <TextInput
+          aria-describedby={args.invalid ? 'error-h1' : undefined}
+          aria-required="true"
+          id="input-h1"
+          invalid={args.invalid}
+          value={givenName}
+        />
+      </Field>
+      <Field>
+        <Label htmlFor="input-h2" inFieldSet>
+          Achternaam
+        </Label>
+        {args.invalid && <ErrorMessage id="error-h2">Vul uw achternaam in.</ErrorMessage>}
+        <TextInput
+          aria-describedby={args.invalid ? 'error-h2' : undefined}
+          aria-required="true"
+          id="input-h2"
+          invalid={args.invalid}
+          value={familyName}
+        />
+      </Field>
+    </FieldSet>
+  ),
+}
+
 export const WithValidation: Story = {
   args: {
     invalid: true,
@@ -205,42 +241,6 @@ export const Disabled: Story = {
           Achternaam
         </Label>
         <TextInput id="input-d2" value={familyName} />
-      </Field>
-    </FieldSet>
-  ),
-}
-
-export const WithHeadingInLegend: Story = {
-  args: {
-    legendIsPageHeading: true,
-  },
-  render: (args) => (
-    <FieldSet {...args}>
-      <Field>
-        <Label htmlFor="input-h1" inFieldSet>
-          Voornaam
-        </Label>
-        {args.invalid && <ErrorMessage id="error-h1">Vul uw voornaam in.</ErrorMessage>}
-        <TextInput
-          aria-describedby={args.invalid ? 'error-h1' : undefined}
-          aria-required="true"
-          id="input-h1"
-          invalid={args.invalid}
-          value={givenName}
-        />
-      </Field>
-      <Field>
-        <Label htmlFor="input-h2" inFieldSet>
-          Achternaam
-        </Label>
-        {args.invalid && <ErrorMessage id="error-h2">Vul uw achternaam in.</ErrorMessage>}
-        <TextInput
-          aria-describedby={args.invalid ? 'error-h2' : undefined}
-          aria-required="true"
-          id="input-h2"
-          invalid={args.invalid}
-          value={familyName}
-        />
       </Field>
     </FieldSet>
   ),

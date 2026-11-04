@@ -14,6 +14,7 @@ const meta = {
   title: 'Components/Containers/Modal Dialog',
   component: ModalDialog.Header,
   argTypes: {
+    closeButtonComponent: { control: false },
     closeButtonIcon: iconArgType('CloseIcon'),
   },
   decorators: [

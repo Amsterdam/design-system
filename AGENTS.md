@@ -65,7 +65,7 @@ Before making changes in a given layer, read the relevant package `AGENTS.md` an
 
 These rules override common agent defaults and apply across the repository:
 
-- **Never use npm or yarn** — always use `pnpm` (see Common commands below, and [Local development](CONTRIBUTING.md#computer-local-development) in the contributing guide).
+- **Never use npm or yarn**: always use `pnpm` (see Common commands below, and [Local development](CONTRIBUTING.md#computer-local-development) in the contributing guide).
 - **Never add `import React from 'react'`** — the JSX transform handles this automatically.
 - **Never weaken TypeScript safety** — avoid `any`, do not disable strict checks, and use `import type` for type-only imports.
 - **Never hardcode design values** (colours, spacing, typography, radii, shadows) — use a CSS custom property backed by tokens; add or update tokens first if needed.
