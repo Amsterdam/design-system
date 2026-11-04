@@ -26,8 +26,8 @@ const propAxisRow: CSSProperties = { display: 'flex', flexWrap: 'wrap', gap: 'va
  * every size, in every state (hovered, disabled, ...). Used by *.test.stories.tsx
  * for Chromatic visual diffing.
  *
- * Prop values come from `context.argTypes` — Storybook's normalized
- * manifest, populated by whichever docgen analyzer is configured.
+ * Prop values come from `context.argTypes` — Storybook's normalised
+ * manifest, populated by whichever docgen analyser is configured.
  * buildVariantMatrix turns those into the cells to render, and owns which
  * combinations those are. A component with nothing to vary yields its states
  * alone, which stack instead of flowing in a row because each takes the full width.
