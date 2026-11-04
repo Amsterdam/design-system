@@ -19,6 +19,7 @@ import { formatFileMetadataTextNl } from './formatFileMetadataText'
 export type FileCardProps = {
   /**
    * A slot for action buttons or links, e.g. to download or edit the file.
+   * Include the file name in each action's accessible name with `ams-visually-hidden`.
    * A delete button is built-in and added when an `onDelete` handler is provided.
    */
   readonly actions?: ReactNode
