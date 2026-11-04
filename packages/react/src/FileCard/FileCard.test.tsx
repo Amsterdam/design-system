@@ -9,6 +9,12 @@ import { describe, expect, it, vi } from 'vitest'
 
 import { FileCard } from './FileCard'
 
+const downloadButton = (name: string) => (
+  <button type="button">
+    Download<span className="ams-visually-hidden"> {name}</span>
+  </button>
+)
+
 describe('FileCard', () => {
   it('renders', () => {
     const { container } = render(<FileCard name="besluit.pdf" />)
@@ -118,15 +124,15 @@ describe('FileCard', () => {
   })
 
   it('renders custom actions', () => {
-    render(<FileCard actions={<button type="button">Download</button>} name="besluit.pdf" />)
+    render(<FileCard actions={downloadButton('besluit.pdf')} name="besluit.pdf" />)
 
-    expect(screen.getByRole('button', { name: 'Download' })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'Download besluit.pdf' })).toBeInTheDocument()
   })
 
   it('renders custom actions beside the built-in delete button', () => {
-    render(<FileCard actions={<button type="button">Download</button>} name="besluit.pdf" onDelete={() => {}} />)
+    render(<FileCard actions={downloadButton('besluit.pdf')} name="besluit.pdf" onDelete={() => {}} />)
 
-    expect(screen.getByRole('button', { name: 'Download' })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'Download besluit.pdf' })).toBeInTheDocument()
     expect(screen.getByRole('button', { name: 'Verwijder besluit.pdf' })).toBeInTheDocument()
   })
 
@@ -174,7 +180,7 @@ describe('FileCard', () => {
         {names.map((name, index) => (
           <li key={keyByIndex ? index : name}>
             <FileCard
-              actions={withActions ? <button type="button">Download</button> : undefined}
+              actions={withActions ? downloadButton(name) : undefined}
               name={name}
               onDelete={name === withoutDelete ? undefined : () => onDelete(name)}
             />
