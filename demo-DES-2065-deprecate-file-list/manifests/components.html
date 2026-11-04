@@ -626,7 +626,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>5.3s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>5.0s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -11177,8 +11177,8 @@ The preview of an image file is decorative and carries an empty `alt`, because t
 
 Every delete button reads ‘Verwijder’ on screen and ‘Verwijder’ followed by the name of the file to a screen reader, so each button has a name of its own.
 The label is in Dutch and cannot be configured.
-
-When the focused delete button leaves the page, focus moves to the delete button of the next file, or of the previous one for the last file.
+Focus moves to another file only when the file with the focused delete button is removed from the list.
+When another file remains, focus moves to the next file’s delete button, or to the previous file’s delete button if the removed file was last.
 
 ## See also
 
