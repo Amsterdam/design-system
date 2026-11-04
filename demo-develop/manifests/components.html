@@ -626,7 +626,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>5.2s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>5.3s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -1409,7 +1409,7 @@ Announce the success of a significant action.
 
 ### Information
 
-An informative message can emphasize matters that are useful to follow.
+An informative message can emphasise matters that are useful to follow.
 
 &lt;Canvas of={AlertStories.Info} /&gt;
 
@@ -2520,7 +2520,7 @@ Each replaces the entire announcement and is used verbatim, so repeat the initia
 
 The Avatar can also display a photo or other image for the person.
 Make sure to scale the image down to around 100 pixels to prevent unnecessary data transfers.
-The center of the image will be visible; provide a square image if possible.
+The centre of the image will be visible; provide a square image if possible.
 
 &lt;Canvas of={AvatarStories.WithImage} /&gt;
 
@@ -2535,7 +2535,7 @@ A user icon displays if no label and image are provided.
 The Avatar contains 1 or 2 initial letters from the person’s full name, a picture, or a generic icon.
 The component takes the first two characters of the label and sets them in capitals, so the shape stays the same however the name was written.
 
-To personalize the Avatar, the user can be allowed to choose one of the [highlight colours](/docs/brand-design-tokens-colour--docs).
+To personalise the Avatar, the user can be allowed to choose one of the [highlight colours](/docs/brand-design-tokens-colour--docs).
 The default is purple.
 The design system does not define a meaning to any of these background colours.
 
@@ -5766,16 +5766,16 @@ Without a name the element groups the content in the markup but adds nothing any
 
 Items in the column can be aligned vertically in several ways:
 
-- **Center**: center items within the column.
-- **End**: align items to the bottom of the column – to the bottom.
-- **Space Between**: distribute whitespace between items.
-- **Space Around**: distribute whitespace around items.
-- **Space Evenly**: distribute whitespace evenly around items.
+- `center` – centre items within the column.
+- `end` – align items to the bottom of the column – to the bottom.
+- `between` – distribute whitespace between items.
+- `around` – distribute whitespace around items.
+- `evenly` – distribute whitespace evenly around items.
 
-By default, items align to the **start** of the column – at the top.
+By default, items align to the `start` of the column – at the top.
 This option has no class name or prop value.
 
-This example centers three items vertically.
+This example centres three items vertically.
 
 &lt;Canvas of={ColumnStories.Alignment} /&gt;
 
@@ -5783,11 +5783,11 @@ This example centers three items vertically.
 
 Items in the column can be aligned horizontally in several ways:
 
-- **Start**: align items to the start of the column. This is the left side in left-to-right languages.
-- **Center**: center items within the column.
-- **End**: align items to the end of the column. This is the right side in left-to-right languages.
+- `start` – align items to the start of the column. This is the left side in left-to-right languages.
+- `center` – centre items within the column.
+- `end` – align items to the end of the column. This is the right side in left-to-right languages.
 
-This example centers three items horizontally.
+This example centres three items horizontally.
 
 &lt;Canvas of={ColumnStories.HorizontalAlignment} /&gt;
 
@@ -18435,7 +18435,7 @@ Use the `optional` prop to indicate that the user doesn’t need to fill in the 
 
 ### With hint
 
-Use the `hint` prop to either customize the text for the optional property or provide another type of remark.
+Use the `hint` prop to either customise the text for the optional property or provide another type of remark.
 
 Note: ensure the hint meets [language level B1](https://www.amsterdam.nl/schrijfwijzer/heldere-taal-basis-onze-huisstijl/).
 For the same reason, the default hint text in Dutch is ‘niet verplicht’, not ‘optioneel’.
@@ -18964,7 +18964,7 @@ It will make the Link white.
 ## Design
 
 Every list item starts with a chevron.
-It emphasizes the list structure and thematic coherence.
+It emphasises the list structure and thematic coherence.
 The chevron is part of the link.
 Therefore, it is blue and clickable.
 
@@ -25536,7 +25536,7 @@ For elements inside a [Grid Cell](/docs/components-layout-grid--docs) or [Dialog
 
 ## Design
 
-The Page is centered horizontally and sets a maximum width of 90 rems (usually 1440 pixels).
+The Page is centred horizontally and sets a maximum width of 90 rems (usually 1440 pixels).
 With a Menu, that becomes 120 rems (1920 pixels).
 
 An element placed directly in the Page, outside a [Grid](/docs/components-layout-grid--docs), spans the full width of the Page rather than the full width of the window.
@@ -25812,7 +25812,7 @@ A visually hidden heading to group them is not necessary – the footer&#39;s la
 
 The menu includes a visually hidden heading for screen reader users.
 The default heading text is &#39;Over deze website&#39;.
-Customize it when the menu serves a different purpose, or the interface language is not Dutch.
+Customise it when the menu serves a different purpose, or the interface language is not Dutch.
 
 ## Examples
 
@@ -26610,14 +26610,14 @@ Make sure the abbreviation is widely understood.
 
 ### With custom logo link
 
-The destination and accessible text of the logo link can be customized,
+The destination and accessible text of the logo link can be customised,
 as well as the logo itself and its accessible name.
 
 &lt;Canvas of={PageHeaderStories.WithCustomLogoLink} /&gt;
 
 ### With custom texts
 
-The visible text of the menu button, its accessible texts and the accessible navigation description can be customized.
+The visible text of the menu button, its accessible texts and the accessible navigation description can be customised.
 
 &lt;Canvas of={PageHeaderStories.WithCustomTexts} /&gt;
 
@@ -31964,7 +31964,7 @@ A Progress List renders an ordered list, so it is announced as a list with a num
 The step in progress is marked as the current step, which lets assistive technology report where in the process the reader is without their having to count.
 
 The status is conveyed visually through both colour and an icon, and via screen reader text.
-You can customize the screen reader text with `completedAccessibleText` and `currentAccessibleText` (defaults: ‘Klaar’ and ‘Bezig’).
+You can customise the screen reader text with `completedAccessibleText` and `currentAccessibleText` (defaults: ‘Klaar’ and ‘Bezig’).
 Neither the colour of a marker nor the style of a connecting line reaches a screen reader, so that text is the only thing carrying the status.
 
 A collapsible step reports whether it is expanded and names the panel it controls.
@@ -34666,7 +34666,7 @@ Large images provide context or show the impact.
 A map indicates the project location and the areas affected.
 A video may be included to clarify complex issues or planned changes.
 
-Related information is organized in Link Sections.
+Related information is organised in Link Sections.
 These links lead to news updates, related projects, and supporting documents, allowing users to delve deeper without overwhelming the main content.
 
 ## Accessibility
@@ -35663,13 +35663,13 @@ Wrap a Row around a set of elements that need the same amount of white space bet
 
 Items in the row can be aligned horizontally in several ways:
 
-- **Center**: center items within the row.
-- **End**: align items to the end of the row. This is the right side in left-to-right languages.
-- **Space Between**: distribute whitespace between items.
-- **Space Around**: distribute whitespace around items.
-- **Space Evenly**: distribute whitespace evenly around items.
+- `center` – centre items within the row.
+- `end` – align items to the end of the row. This is the right side in left-to-right languages.
+- `between` – distribute whitespace between items.
+- `around` – distribute whitespace around items.
+- `evenly` – distribute whitespace evenly around items.
 
-By default, items align to the **start** of the row – the left side in right-to-left languages.
+By default, items align to the `start` of the row – the left side in left-to-right languages.
 This option has no class name or prop value.
 
 We left out the word ‘space’ from the values for the alignment prop, e.g. `align=&quot;around&quot;`.
@@ -35702,15 +35702,15 @@ This example shows a right-aligned link next to a heading.
 
 Items in the row can be aligned vertically in several ways:
 
-- **Start**: align items to the top of the row.
-- **Center**: align items to the middle of the row.
-- **End**: align items to the bottom of the row.
-- **Baseline**: align items to their common text baseline.
+- `start` – align items to the top of the row.
+- `center` – align items to the middle of the row.
+- `end` – align items to the bottom of the row.
+- `baseline` – align items to their common text baseline.
 
-By default, items **stretch** to the height of the row.
+By default, items `stretch` to the height of the row.
 This option has no class name or prop value.
 
-This example centers three items vertically.
+This example centres three items vertically.
 
 &lt;Canvas of={RowStories.VerticalAlignment} /&gt;
 
@@ -37675,7 +37675,7 @@ The [Utrecht design system](https://github.com/nl-design-system/utrecht/blob/mai
     </div>
     <div class="meta" title="./src/components/Spotlight/Spotlight.stories.tsx">components-containers-spotlight · ./src/components/Spotlight/Spotlight.stories.tsx</div>
     
-    <div class="hint">Emphasizes a section on a page through a distinctive background colour.</div>
+    <div class="hint">Emphasises a section on a page through a distinctive background colour.</div>
     <div class="kv"><span class="chip">see: {@link https://designsystem.amsterdam/?path=/docs/components-containers-spotlight--docs Spotlight docs at Amsterdam Design System}</span></div>
   </div>
 
@@ -38595,7 +38595,7 @@ Caption, Header, Body, Footer, and Row have no props of their own; the example a
 ### Cell
 
 Holds a single value within a row.
-Use the `align` prop to align the content to the center or end of the cell.
+Use the `align` prop to align the content to the centre or end of the cell.
 Apply the same value to all cells in the column and the matching `Table.HeaderCell`.
 
 &lt;Canvas of={TableCellStories.Cell} /&gt;
@@ -40782,7 +40782,7 @@ It has built-in validation to check for a valid format.
 However, do not rely only on the browser’s validation.
 
 The `tel` input field looks like a standard text input.
-On mobile devices, it may display a numeric keypad or a keyboard optimized for entering phone numbers.
+On mobile devices, it may display a numeric keypad or a keyboard optimised for entering phone numbers.
 
 Guidelines:
 
@@ -58634,7 +58634,7 @@ Large images provide context or show the impact.
 A map indicates the project location and the areas affected.
 A video may be included to clarify complex issues or planned changes.
 
-Related information is organized in Link Sections.
+Related information is organised in Link Sections.
 These links lead to news updates, related projects, and supporting documents, allowing users to delve deeper without overwhelming the main content.
 
 ## Accessibility
@@ -59762,7 +59762,7 @@ export default App
 
 Add the `ams-body` [class name](/docs/utilities-css-body--docs) to your document’s `&lt;body&gt;` tag.
 This removes white space that the browser might add.
-In Compact Mode, it also sets the background color to match the Page component seamlessly.
+In Compact Mode, it also sets the background colour to match the Page component seamlessly.
 
 Declare the viewport in your document’s `&lt;head&gt;`.
 
@@ -59978,7 +59978,7 @@ We use linters for CSS and JavaScript to enforce it.
 These tools help us catch most usages of unsupported features early in the development process, allowing us to maintain our commitment to browser compatibility.
 
 They do not reach everything: the linter judges a declaration by the value written next to it, and our design tokens are generated into a stylesheet we exclude from linting, so the values they carry go unchecked.
-We carefully test and review our code to minimize the risk of using unsupported values.
+We carefully test and review our code to minimise the risk of using unsupported values.
 If you find any issues related to browser support, please [report them](https://github.com/Amsterdam/design-system/issues) so we can address them promptly.
 </code></pre>
           </div>
@@ -60810,7 +60810,7 @@ This helps browsers, screen readers, and search engines interpret it correctly.
 It is mandatory to explicitly indicate in which language the content of your page is.
 With the correct language set, your website will work better.
 Screen readers will know what language to use for speech.
-It is also helpful for search engine optimization (SEO).
+It is also helpful for search engine optimisation (SEO).
 
 Specify the language on your website’s `&lt;html&gt;` element.
 After all, the contents of elements in the `&lt;head&gt;`, such as `title` and `meta`, also contain content in the same language.
@@ -61195,7 +61195,7 @@ Then link all these assets in the HTML by placing the following tags in the `&lt
 How this is done exactly depends on your project structure and build process.
 Follow the documentation of your framework or build tool for the best way to link static assets in the HTML.
 
-**Note**: not all servers recognize the `.webmanifest` extension.
+**Note**: not all servers recognise the `.webmanifest` extension.
 See [Using a link element to link to a manifest on W3.org](https://www.w3.org/TR/appmanifest/#using-a-link-element-to-link-to-a-manifest) for more information.
 
 ### Submit changes
@@ -61740,7 +61740,7 @@ Their names are usually **verbs** that describe the associated function.
 
 ### Universal
 
-The only icons that are recognized widely enough to be used anywhere without a label:
+The only icons that are recognised widely enough to be used anywhere without a label:
 
 &lt;IconGallery icons={UniversalIcons} /&gt;
 
@@ -61827,7 +61827,7 @@ Constrains media content to a supported aspect ratio.
 
 ## Design
 
-Media content like images, videos, and maps take up sizable portions of a screen.
+Media content like images, videos, and maps take up sizeable portions of a screen.
 Displaying them in a limited set of aspect ratios keeps the visual impression of a page composed.
 The default aspect ratio is 16:9.
 Content with intrinsic dimensions that do not match an aspect ratio will be cropped.
@@ -62628,7 +62628,7 @@ To see how, consult our [tokens for links](/docs/brand-design-tokens-links--docs
 
 ### Letter spacing
 
-Kerning has been optimized in the font file.
+Kerning has been optimised in the font file.
 We do not adjust the space between glyphs.
 
 ## Compact Mode
@@ -62716,7 +62716,7 @@ import { Meta } from &quot;@storybook/addon-docs/blocks&quot;;
 # Pages
 
 This section demonstrates how to compose pages with the Design System’s components.
-It uses the latest versions of the libraries, without any customizations.
+It uses the latest versions of the libraries, without any customisations.
 This gives an honest representation of what they can achieve and how they work in the browser.
 
 ## Documentation
