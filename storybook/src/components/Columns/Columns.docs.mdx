@@ -62,10 +62,10 @@ It uses the breakpoints of the Grid.
 Each column is at least `14rem` wide, so a Cell that is too narrow for that many columns shows fewer.
 
 The columns end at about the same height.
+A nested Link List keeps each item together at a column break, and its columns start at the same height in Safari, Chrome and Firefox.
 
-Safari has two known issues with content in columns.
+**Note:** Safari has two known issues with other content in columns.
 Content laid out as a grid or with flexbox can have a line cut in half where a column ends.
-This includes a [Link List](/docs/components-navigation-link-list--docs), an [Ordered List](/docs/components-text-ordered-list--docs), an [Unordered List](/docs/components-text-unordered-list--docs) and a [Column](/docs/components-layout-column--docs).
 And the space between two parts can move to the top of the next column, so that column starts lower than the first.
 
 ## Design
