@@ -3,7 +3,17 @@
  * Copyright Gemeente Amsterdam
  */
 
+@use "../../common/breakpoint" as *;
+
 .ams-columns {
+  column-count: var(--ams-columns-column-count);
   column-gap: var(--ams-columns-column-gap);
-  column-width: var(--ams-columns-column-width);
+
+  @media (min-width: $ams-breakpoint-medium) {
+    column-count: var(--ams-columns-vi-medium-column-count);
+  }
+
+  @media (min-width: $ams-breakpoint-wide) {
+    column-count: var(--ams-columns-vi-wide-column-count);
+  }
 }
