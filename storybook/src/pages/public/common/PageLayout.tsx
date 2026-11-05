@@ -5,10 +5,21 @@
 
 import type { HTMLAttributes, PropsWithChildren } from 'react'
 
-import { Grid, Heading, LinkList, Page, PageFooter, PageHeader, SkipLink } from '@amsterdam/design-system-react'
+import {
+  Columns,
+  Grid,
+  Heading,
+  LinkList,
+  Page,
+  PageFooter,
+  PageHeader,
+  SkipLink,
+} from '@amsterdam/design-system-react'
+
+import { topics } from '#storybook/_common/exampleContent'
 
 import { PageFooterContent } from '../../../components/PageFooter/PageFooterContent'
-import { megaMenuLinks, pageHeaderMenuLinks } from './menu'
+import { pageHeaderMenuLinks } from './menu'
 
 type SkipLinkItem = {
   readonly label: string
@@ -68,13 +79,15 @@ export const PageLayout = ({
           <Heading className="ams-mb-s" level={2}>
             Alle onderwerpen
           </Heading>
-          <LinkList>
-            {megaMenuLinks.map((label) => (
-              <LinkList.Link href="#" key={label}>
-                {label}
-              </LinkList.Link>
-            ))}
-          </LinkList>
+          <Columns>
+            <LinkList>
+              {topics.map((topic) => (
+                <LinkList.Link href="#" key={topic}>
+                  {topic}
+                </LinkList.Link>
+              ))}
+            </LinkList>
+          </Columns>
         </Grid.Cell>
       </Grid>
     </PageHeader>

@@ -1,0 +1,38 @@
+{
+  "ams": {
+    "columns": {
+      "column-count": {
+        "$value": 1,
+        "$description": "The maximum number of columns in a narrow window. The medium and wide windows have their own.",
+        "$type": "number"
+      },
+      "column-gap": {
+        "$value": "{ams.grid.column-gap}",
+        "$description": "Matches the gap between the columns of the Grid, so the columns line up with its Cells.",
+        "$extensions": {
+          "nl.amsterdam.subtype": "space",
+          "nl.amsterdam.type": "dimension"
+        }
+      },
+      "column-width": {
+        "$value": "14rem",
+        "$description": "The minimum width of a column. A Cell too narrow for the column count shows fewer columns.",
+        "$type": "dimension"
+      },
+      "vi-medium": {
+        "column-count": {
+          "$value": 2,
+          "$description": "The maximum number of columns in a medium window, from the medium breakpoint of the Grid.",
+          "$type": "number"
+        }
+      },
+      "vi-wide": {
+        "column-count": {
+          "$value": 3,
+          "$description": "The maximum number of columns in a wide window, from the wide breakpoint of the Grid.",
+          "$type": "number"
+        }
+      }
+    }
+  }
+}
