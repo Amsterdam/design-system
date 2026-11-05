@@ -132,7 +132,6 @@ export const DeprecatedIcons: Set<IconName> = new Set([
   'CogwheelFillIcon',
   'CogwheelIcon',
   'HandWithEuroCoinIcon',
-  'LinkedinIcon',
   'PencilFillIcon',
   'PencilIcon',
   'PersonCircleFillIcon',
