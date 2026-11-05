@@ -8,5 +8,12 @@ module.exports = {
         attrs: '(fill|stroke)',
       },
     },
+    {
+      name: 'sortAttrs',
+      params: {
+        order: [],
+        xmlnsOrder: 'alphabetical',
+      },
+    },
   ],
 }
