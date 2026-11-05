@@ -1,18 +1,35 @@
 import { deprecatedIconComment } from './deprecations.mjs'
+import { directionalIcons } from './directional-icons.mjs'
 import { indexTemplate } from './indexTemplate.mjs'
 
 // Matches SVGR’s default output, but adds the `@deprecated` JSDoc comment for
 // icons listed in `deprecations.mjs` so it is reapplied on each run.
-// `data-directional` is not injected here: it lives on the source SVG and
-// SVGR carries it through to the generated component on its own.
 function template(variables, { tpl }) {
+  const iconName = variables.componentName.replace(/^Svg/, '')
+  const attributes = variables.jsx.openingElement.attributes
+  const directionalAttributeIndex = attributes.findIndex(
+    (attribute) => attribute.type === 'JSXAttribute' && attribute.name.name === 'data-directional',
+  )
+
+  if (!directionalIcons.has(iconName) && directionalAttributeIndex !== -1) {
+    attributes.splice(directionalAttributeIndex, 1)
+  } else if (directionalIcons.has(iconName) && directionalAttributeIndex === -1) {
+    const propsIndex = attributes.findIndex((attribute) => attribute.type === 'JSXSpreadAttribute')
+
+    attributes.splice(propsIndex === -1 ? attributes.length : propsIndex, 0, {
+      name: { name: 'data-directional', type: 'JSXIdentifier' },
+      type: 'JSXAttribute',
+      value: { type: 'StringLiteral', value: 'true' },
+    })
+  }
+
   const statements = tpl`
 ${variables.imports};
 ${variables.interfaces};
 const ${variables.componentName} = (${variables.props}) => ${variables.jsx};
 ${variables.exports};
 `
-  const comment = deprecatedIconComment(variables.componentName.replace(/^Svg/, ''))
+  const comment = deprecatedIconComment(iconName)
   const component = statements.find((statement) => statement.type === 'VariableDeclaration')
 
   if (comment && component) {

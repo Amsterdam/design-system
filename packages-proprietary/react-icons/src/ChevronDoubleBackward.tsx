@@ -9,8 +9,8 @@ const SvgChevronDoubleBackward = (props: SVGProps<SVGSVGElement>) => (
     xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
-    <path d="m10 12 9.589-9.5L21 3.898 12.823 12 21 20.102 19.59 21.5z" />
-    <path d="m2 12 9.589-9.5L13 3.898 4.823 12 13 20.102 11.59 21.5z" />
+    <path d="m11 12 9.589 9.5 1.41-1.398L13.824 12 22 3.898 20.589 2.5z" />
+    <path d="m3 12 9.589 9.5 1.41-1.398L5.824 12 14 3.898 12.589 2.5z" />
   </svg>
 )
 export default SvgChevronDoubleBackward

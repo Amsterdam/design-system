@@ -26,13 +26,7 @@ export const deprecatedIcons = {
 
 // Deprecated re-exports that alias an icon under another name, keyed by alias.
 /** @type {Record<string, { comment: string; icon: string }>} */
-export const deprecatedAliases = {
-  LinkedinIcon: {
-    comment:
-      'This icon misspells the brand as ‘Linkedin’, with a lowercase ‘i’. Use ‘LinkedInIcon’ instead. Will be removed on or after 2026-05-01.',
-    icon: 'LinkedIn',
-  },
-}
+export const deprecatedAliases = {}
 
 // Fail the build on a malformed removal date.
 const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/
