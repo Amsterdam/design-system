@@ -3,17 +3,6 @@
 import { Meta } from "@storybook/addon-docs/blocks";
 
 import { IconGallery } from "#storybook/_components/IconGallery/IconGallery";
-import {
-  LearnableIcons,
-  BrandIcons,
-  DirectionIcons,
-  MediaIcons,
-  SeverityIcons,
-  UniversalIcons,
-  FormattingIcons,
-  KeyboardKeyIcons,
-  DeprecatedIcons,
-} from "#storybook/_components/IconGallery/IconGalleryCategories";
 
 <Meta title="Brand/Assets/Icons" />
 
@@ -27,89 +16,9 @@ We distinguish **functional icons**, which have a specific meaning and can be us
 
 Where possible, our icons have both an outlined and a filled variant.
 
-## General icons
+## All icons
 
-We name most of our icons after the objects they picture, like ‘car’, ‘house’, or ‘light bulb’.
-This allows using them in various contexts or with slightly different meanings.
-All these names are **nouns**.
-
-<IconGallery
-  excludeIcons={[
-    ...BrandIcons,
-    ...DeprecatedIcons,
-    ...DirectionIcons,
-    ...FormattingIcons,
-    ...KeyboardKeyIcons,
-    ...LearnableIcons,
-    ...MediaIcons,
-    ...SeverityIcons,
-    ...UniversalIcons,
-  ]}
-/>
-
-### Direction
-
-Arrows and chevrons indicate direction or movement.
-We use ‘forward’ and ‘backward’ to make them easier to use in languages that read from right to left.
-
-<IconGallery icons={DirectionIcons} />
-
-### Severity
-
-The following icons indicate the tone of an Alert or Error Message.
-These components use them without a label.
-
-<IconGallery icons={SeverityIcons} />
-
-### Brands
-
-These icons can accompany links to external products or services:
-
-<IconGallery icons={BrandIcons} />
-
-## Functional icons
-
-Some icons are widely recognised and can stand on their own without a label – for example, in an icon button.
-Their names are usually **verbs** that describe the associated function.
-
-**Note:** Use these icons only for the action their name represents, and don’t use another icon for such an action.
-
-### Universal
-
-The only icons that are recognised widely enough to be used anywhere without a label:
-
-<IconGallery icons={UniversalIcons} />
-
-### Learnable
-
-In websites that users use so regularly that they can learn the meaning of icons, these can go without labels as well:
-
-<IconGallery icons={LearnableIcons} />
-
-### Media
-
-The following icons can be used without labels in audio or video players:
-
-<IconGallery icons={MediaIcons} />
-
-### Formatting
-
-These icons are used in text editors to indicate formatting options:
-
-<IconGallery icons={FormattingIcons} />
-
-### Keyboard
-
-These icons represent common keyboard keys and can be used without labels:
-
-<IconGallery icons={KeyboardKeyIcons} />
-
-## Deprecated icons
-
-These icons have been removed or renamed.
-They will be fully deleted in an upcoming major release, so please update any remaining usages.
-
-<IconGallery icons={DeprecatedIcons} />
+<IconGallery />
 
 ## See also
 
