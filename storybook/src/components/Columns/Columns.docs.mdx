@@ -30,9 +30,6 @@ To place separate blocks of content side by side, use the [Grid](/docs/component
 
 ### How to use
 
-Use Columns in a Cell that spans the whole Grid.
-In a narrower Cell the columns become too narrow.
-
 Keep the parts short.
 A long one can break across two columns.
 
@@ -60,8 +57,9 @@ A longer text makes readers scroll back up to continue in the next column.
 
 ## Features
 
-Columns shows one column in a narrow window, two in a medium one and three in a wide one.
-It uses the breakpoints of the Grid, and the width of the window decides, not the width of Columns itself.
+Columns shows at most one column in a narrow window, two in a medium one and three in a wide one.
+It uses the breakpoints of the Grid.
+Each column is at least `14rem` wide, so a Cell that is too narrow for that many columns shows fewer.
 
 The columns end at about the same height.
 
