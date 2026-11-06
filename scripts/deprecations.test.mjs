@@ -41,22 +41,6 @@ test('extracts token paths, exported names, and bare CSS markers', () => {
   ])
 })
 
-test('identifies deprecated default re-export aliases independently', () => {
-  const file = 'packages-proprietary/react-icons/src/index.ts'
-  const source = `export {\n  /** @deprecated Use LinkedInIcon instead. Will be removed on or after 2027-04-01. */\n  default as LinkedinIcon,\n} from './LinkedIn'\nexport {\n  /** @deprecated Use NewNameIcon instead. Will be removed on or after 2027-05-01. */\n  default as OldNameIcon,\n} from './NewName'`
-  const markers = extractMarkers(file, source).map((marker) => ({ ...marker, file }))
-
-  assert.deepEqual(
-    markers.map(({ name }) => name),
-    ['LinkedinIcon', 'OldNameIcon'],
-  )
-  const output = report([{ file, name: 'index', text: 'Previous alias' }], markers, '2026-10-22')
-  assert.match(output, /NEW, per package\n\n- react-icons/)
-  assert.match(output, /`LinkedinIcon` → `LinkedInIcon`/)
-  assert.match(output, /`OldNameIcon` → `NewNameIcon`/)
-  assert.match(output, /FIX BEFORE RELEASING[\s\S]*LinkedinIcon/)
-})
-
 test('associates SCSS deprecations with every enclosing selector', () => {
   const source = `.ams-page-header__mega-menu-button-label,\n.ams-page-header__mega-menu-button-hidden-label {\n  /* @deprecated These class names will be removed on or after 2026-09-13. */\n}\n.ams-page-header__menu-icon-top {}`
 

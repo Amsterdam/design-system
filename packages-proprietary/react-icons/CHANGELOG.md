@@ -67,7 +67,6 @@ The following icons will be removed on or after 2026-05-01:
 - `CheckMarkCircle` and `CheckMarkCircleFill`, use `Success` and `SuccessFill` instead.
 - `Cogwheel` and `CogwheelFill`, use `Settings` and `SettingsFill` instead.
 - `HandWithEuroCoin`, use `PersonsWithEuroCoin` instead.
-- `LinkedinIcon`, use `LinkedInIcon` instead.
 
 
 ### Bug Fixes
