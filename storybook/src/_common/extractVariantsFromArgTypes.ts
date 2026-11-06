@@ -28,7 +28,7 @@ const valuesFromType = (argType: StrictInputType): VariantValue[] | undefined =>
  * The value a prop falls back to when a story doesn’t set it, so the matrix can
  * leave that value out: the baseline instance already shows it.
  *
- * The docgen analyzer reports the default as a display string — the source text of
+ * The docgen analyser reports the default as a display string — the source text of
  * the destructured default, so `'primary'` arrives as `primary` and `CheckboxIcon`
  * as the identifier. Booleans rarely declare one, since a component reads them
  * straight from the rest props; an absent boolean is `false`.
@@ -48,7 +48,7 @@ const defaultValueOf = (argType: StrictInputType): VariantValue | undefined => {
 }
 
 /**
- * Pure parser: turns Storybook's normalized argTypes into the
+ * Pure parser: turns Storybook's normalised argTypes into the
  * { name, values, hasIcon, defaultValue } shape consumed by buildVariantMatrix.
  *
  * Props disabled in the controls table (e.g. children, className, style)

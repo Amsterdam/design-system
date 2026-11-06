@@ -18,18 +18,21 @@ A change is only correct if it stays generic, accessible, and reusable across an
 
    | Changed path                     | Also read                                                          |
    | -------------------------------- | ------------------------------------------------------------------ |
+   | `**`                             | [AGENTS.md](../../../AGENTS.md)                                    |
    | `packages-proprietary/tokens/**` | [tokens/AGENTS.md](../../../packages-proprietary/tokens/AGENTS.md) |
    | `packages/css/**`                | [css/AGENTS.md](../../../packages/css/AGENTS.md)                   |
    | `packages/react/**`              | [react/AGENTS.md](../../../packages/react/AGENTS.md)               |
    | `storybook/**`                   | [storybook/AGENTS.md](../../../storybook/AGENTS.md)                |
 
 2. Check a component's real API before claiming anything about it.
-   Call the design system MCP server — `list-all-documentation`, then `get-documentation` — to confirm that a property, variant, or component exists.
-   It is a public Streamable HTTP endpoint at `https://main--68db9df886b46f139748c074.chromatic.com/mcp`.
-   It tracks `main`, so it knows the released API only: a component, property, or variant the pull request itself adds will be absent from it, and that absence is not a finding.
-   Use it to check what the branch _consumes_, not what the branch _introduces_.
-   If the server is unavailable to you, or you cannot verify a claim through it, say so instead of asserting it — a confidently wrong review comment costs the author more time than no comment at all.
-3. Read the pull request title and description first, so you review the change the author intended to make.
+   Read its source and its docs page in the head branch, such as `packages/react/src/<Name>/<Name>.tsx` and `storybook/src/components/<Name>/<Name>.docs.mdx`: they hold both the API the branch consumes and the API it introduces.
+   The design system MCP server, through `docs-list` and `docs-show`, can find components and stories faster: the hosted one knows the released API only, and a local one serves the working branch while `pnpm run watch:storybook` runs.
+   Use it if you have it, but the source in the branch decides.
+   The hosted server does not know what the pull request adds, and that absence is not a finding.
+   If you cannot verify a claim, say so instead of asserting it: a confidently wrong review comment costs the author more time than no comment at all.
+3. Read the pull request title and description for the author's stated intent, then check it against the diff.
+   In practice the description trails the code, and a later push can leave it stale, so the diff is the source of truth.
+   Say so when they disagree.
 
 ## Rank findings before you write them
 
@@ -46,50 +49,8 @@ A review of five genuine accessibility findings is worth more than twenty findin
 
 ## What to look for
 
-These are the mistakes that actually recur here, per layer.
-
-**Any file**
-
-- A new source file without its license header: `@license EUPL-1.2+` for `.ts`, `.tsx`, `.scss` and `.js`, `@license CC0-1.0` for `.md` and `.mdx`.
-  Token `.tokens.json` files carry none.
-- Markdown or MDX prose that is not one sentence per line.
-- Changes to generated output under any `dist/`, or to generated assets under `packages-proprietary/assets/logo/` and `.../icons/`.
-- Scope creep: refactors, abstractions, or renames the task did not ask for.
-  Flag these even when the code is good.
-
-**Tokens and CSS**
-
-- A hardcoded design value — a raw `px`, `rem`, `em`, or hex colour for spacing, typography, radii, shadows, or colour — where a `var(--ams-…)` custom property belongs.
-  This also applies to inline `style` props in stories.
-- CSS changed where a missing token was the real cause: the token comes first, then the SCSS.
-- A pseudo-class block that repeats properties the base class already sets.
-- Input state precedence broken.
-  It runs Disabled → Hover → Invalid → Default.
-- A removed or weakened focus indicator.
-- A new component not registered in `packages/css/src/components/index.scss`.
-
-**React**
-
-- `import React from 'react'`, a default export, or `React.FC`.
-- A component that is not wrapped in `forwardRef`, or that has no `displayName`.
-- `...restProps` not spread onto the root element, or class names merged with a template literal instead of `clsx('ams-<component>', className)`.
-- `aria-label` used to supply screen reader-only text.
-  `ams-visually-hidden` is the rule; other ARIA attributes are fine.
-- A CSS or SCSS import inside a component.
-- `any`, a loosened `tsconfig`, or a type-only import that is missing `import type`.
-- A prop without a JSDoc description, or prop types declared with `interface` rather than `type`.
-- A new runtime dependency, or a change to ESLint, TypeScript, Vitest, or Storybook config that the task did not call for.
-- Unit tests missing the baseline four (renders, BEM class name, extra class name, ForwardRef), or querying with `getByTestId` instead of a semantic query.
-- A new component not exported from `packages/react/src/index.ts`.
-
-**Storybook**
-
-- A meta title that does not read `Components/<Category>/<Component Name>`, or a category invented outside the documented list.
-- Test stories missing the `['!dev', '!autodocs', '!manifest']` tags, or a subcomponent's stories missing `['!manifest']`.
-- A raw `<div>` with inline styles where Grid, Column, or Row would do.
-- The primary component imported from the package barrel instead of `@amsterdam/design-system-react/src`.
-- An ad-hoc debug or sandbox story.
-- A test story added under `src/pages/` — page templates deliberately have none.
+Read the root `AGENTS.md` and the `AGENTS.md` of every package the diff touches, using the table above, and flag any break of their rules.
+Read [documentation/writing.md](../../../documentation/writing.md) and flag prose that breaks its rules.
 
 ## Leave these alone
 

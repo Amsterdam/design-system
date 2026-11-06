@@ -12,11 +12,11 @@ This package defines design tokens using the [Design Tokens Community Group (DTC
 
 ## Token structure
 
-Tokens are organized into three layers:
+Tokens are organised into three layers:
 
 | Directory          | Purpose                                           |
 | ------------------ | ------------------------------------------------- |
-| `src/brand/ams/`   | Brand-level values (colors, typography, spacing)  |
+| `src/brand/ams/`   | Brand-level values (colours, typography, spacing)  |
 | `src/common/ams/`  | Shared patterns across components (inputs, links) |
 | `src/components/ams/` | Component-specific tokens                      |
 

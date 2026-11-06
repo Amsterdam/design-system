@@ -13,6 +13,8 @@ We test our components to ensure their quality and prevent unintended changes.
 
 Unit tests are written using [Vitest](https://vitest.dev) and [React Testing Library](https://github.com/testing-library/react-testing-library). These tests run on every [pull request](https://github.com/Amsterdam/design-system/blob/develop/.github/workflows/check-build-and-tests.yml).
 All components must have their own unit tests, which are located in a separate file named `component.test.tsx`.
+The unit tests must cover 100% of the statements, branches, functions and lines of the React package.
+A pull request that lowers any of these percentages fails the tests.
 
 ## Interaction tests
 
@@ -60,7 +62,7 @@ With each pull request there are two actions:
 1. [Unit Tests](https://github.com/Amsterdam/design-system/actions/workflows/check-build-and-tests.yml)
 2. [Interaction, Visual, Accessibility tests](https://github.com/Amsterdam/design-system/actions/workflows/check-visual-regressions.yml)
 
-The interaction, visual, and accessibility tests are run by [Chromatic](https://chromatic.com). Chromatic runs these tests on each component and CSS utility story labeled ‘Test’, and on every story of a page template. If any changes are detected, they must be approved before merging the pull request. You can accept changes directly through the Chromatic dashboard. Once the changes are accepted, the pull request can be merged.
+The interaction, visual, and accessibility tests are run by [Chromatic](https://chromatic.com). Chromatic runs these tests on each component and CSS utility story labelled ‘Test’, and on every story of a page template. If any changes are detected, they must be approved before merging the pull request. You can accept changes directly through the Chromatic dashboard. Once the changes are accepted, the pull request can be merged.
 
 These actions are required to succeed before merging a pull-request.
 
