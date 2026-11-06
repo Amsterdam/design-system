@@ -1,0 +1,55 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+@use "animation";
+
+.ams-progress-bar__text {
+  color: var(--ams-progress-bar-text-color);
+  direction: ltr;
+  font-family: var(--ams-progress-bar-text-font-family);
+  font-size: var(--ams-progress-bar-text-font-size);
+  text-align: center;
+}
+
+.ams-progress-bar__track {
+  background-color: var(--ams-progress-bar-track-background-color);
+  block-size: var(--ams-progress-bar-block-size);
+  border-color: var(--ams-progress-bar-track-border-color);
+  border-radius: calc(var(--ams-progress-bar-block-size) / 2);
+  border-style: solid;
+  border-width: var(--ams-progress-bar-track-border-width);
+  box-sizing: border-box;
+  inline-size: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.ams-progress-bar__fill {
+  background-color: var(--ams-progress-bar-fill-background-color);
+  block-size: 100%;
+  inline-size: 100%;
+  transform-origin: left;
+}
+
+[dir="rtl"] .ams-progress-bar__fill {
+  transform-origin: right;
+}
+
+@media (forced-colors: active) {
+  .ams-progress-bar__track {
+    border-color: CanvasText;
+  }
+
+  .ams-progress-bar__fill {
+    background-color: Highlight;
+  }
+}
+
+@media print {
+  .ams-progress-bar__track,
+  .ams-progress-bar__fill {
+    -webkit-print-color-adjust: exact;
+  }
+}
