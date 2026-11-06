@@ -76,7 +76,7 @@ This is our largest genuine backlog, spread over 32 components.
 Three patterns:
 
 - Simple feedback on links and buttons: `&:hover { color: … }` in Accordion, Breadcrumb, Calendar, Link, and friends.
-- Guarded control hovers: `&:hover:not(:disabled, [aria-disabled="true"])` on Button and the input components, changing box shadows or border colors.
+- Guarded control hovers: `&:hover:not(:disabled, [aria-disabled="true"])` on Button and the input components, changing box shadows or border colours.
 - Compound sibling hovers in Checkbox and Radio, such as `&:hover:not(:disabled) + *` and `&:checked + *:hover .ams-checkbox__rectangle`, where hovering either the control or its label restyles SVG parts.
 
 No selector mixes `:hover` and `:focus` in one list, so wrapping hover rules cannot accidentally remove focus styles.
@@ -97,7 +97,7 @@ The default `nowrap` makes content overflow rather than wrap when space runs out
 Most of our 36 shipped cases are small icon-plus-label controls where wrapping is undesirable or impossible: Button, Badge, Icon Button, Standalone Link, Pagination links, Checkbox and Radio labels, Error Message.
 For these, `flex-wrap: nowrap` documents intent and changes nothing.
 Row is the clearest example of nowrap-by-design: wrapping is an explicit opt-in via its `.ams-row--wrap` modifier, so the base must stay `nowrap`.
-A handful are genuine judgment calls — toolbar-like rows such as the Calendar and Date Picker headers, the Dialog header, and Image Slider controls — where wrapping on narrow viewports may be the better behaviour.
+A handful are genuine judgement calls — toolbar-like rows such as the Calendar and Date Picker headers, the Dialog header, and Image Slider controls — where wrapping on narrow viewports may be the better behaviour.
 
 **Approach:** one pass over all 36 containers, writing `nowrap` for the single-line controls and deciding the toolbar cases individually.
 Then raise to error.
@@ -327,7 +327,7 @@ By audience:
 
 1. **Safety adds, no visible change** — background-repeat (3), scrollbar-gutter (1), grid-minmax (11), Storybook overscroll and viewport fixes, list-style mixins.
    One mechanical PR, Chromatic-verified.
-2. **Flex-wrap intent pass** — 36 explicit declarations, mostly `nowrap`; the handful of toolbar judgment calls reviewed individually.
+2. **Flex-wrap intent pass** — 36 explicit declarations, mostly `nowrap`; the handful of toolbar judgement calls reviewed individually.
 3. **Hover media queries** — the 72-site wrap, as its own PR for reviewability.
 4. **Annotations** — `stylelint-disable-next-line` with reasons on the ~30 deliberate patterns and false positives documented above, each in the same PR as the fix that makes its rule clean.
 5. **Ratchet** — as each rule’s backlog reaches zero, raise it from warning to error in `.stylelintrc.json` by removing its warning-severity override, which also restores strict’s options where the override had narrowed them.

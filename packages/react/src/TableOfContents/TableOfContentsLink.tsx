@@ -9,7 +9,7 @@ import { ChevronDownIcon } from '@amsterdam/design-system-react-icons'
 import { clsx } from 'clsx'
 import { forwardRef, useContext } from 'react'
 
-import { IconButton } from '../IconButton'
+import { IconButton } from '../IconButton/IconButton'
 import { TableOfContentsContext } from './TableOfContentsContext'
 import { useCollapsibleItem } from './useCollapsibleItem'
 

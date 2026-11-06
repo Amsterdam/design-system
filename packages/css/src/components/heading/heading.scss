@@ -22,8 +22,6 @@
   color: var(--ams-heading-color);
   font-family: var(--ams-heading-font-family);
   font-weight: var(--ams-heading-font-weight);
-
-  /* stylelint-disable-next-line plugin/use-baseline -- Unbalanced line lengths in non-supporting browsers are acceptable */
   text-wrap: var(--ams-heading-text-wrap);
 
   @include hyphenation;

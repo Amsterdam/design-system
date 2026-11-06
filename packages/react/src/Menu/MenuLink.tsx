@@ -8,9 +8,9 @@ import type { AnchorHTMLAttributes, ElementType, ForwardedRef, PropsWithChildren
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
 
-import type { IconProps } from '../Icon'
+import type { IconProps } from '../Icon/Icon'
 
-import { Icon } from '../Icon'
+import { Icon } from '../Icon/Icon'
 
 export type MenuLinkProps = {
   /** The icon to display for the menu icon. Use the filled variant. */

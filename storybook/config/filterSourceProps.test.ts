@@ -37,6 +37,10 @@ describe('filterSourceProps', () => {
     expect(filterSourceProps(() => {}, 'onClick')).toBe(false)
   })
 
+  it('keeps an event handler that adds markup', () => {
+    expect(filterSourceProps(() => {}, 'onDelete')).toBe(true)
+  })
+
   it('keeps a function that is not an event handler', () => {
     expect(filterSourceProps(() => {}, 'linkComponent')).toBe(true)
   })

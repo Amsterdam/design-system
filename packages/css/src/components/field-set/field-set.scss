@@ -50,8 +50,6 @@
   font-size: var(--ams-field-set-legend-font-size);
   font-weight: var(--ams-field-set-legend-font-weight);
   line-height: var(--ams-field-set-legend-line-height);
-
-  /* stylelint-disable-next-line plugin/use-baseline -- Unbalanced line lengths in non-supporting browsers are acceptable */
   text-wrap: var(--ams-field-set-legend-text-wrap);
 
   @include hyphenation;

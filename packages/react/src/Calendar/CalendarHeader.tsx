@@ -12,7 +12,7 @@ import {
 
 import type { CalendarProps } from './Calendar'
 
-import { IconButton } from '../IconButton'
+import { IconButton } from '../IconButton/IconButton'
 
 export type CalendarHeaderProps = {
   /** Navigates to the next month. */

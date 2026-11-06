@@ -19,9 +19,13 @@ import * as DescriptionListStories from "./DescriptionList.stories.tsx";
 
 ## Subcomponents
 
-The Term, Description, and Section subcomponents make up a Description List.
-Term and Description render the `<dt>` and `<dd>` elements, and a Section groups a term with its descriptions.
+The Term, Description, and Item subcomponents make up a Description List.
+Term and Description render the `<dt>` and `<dd>` elements, and an Item groups a term with its descriptions.
 None of them has props of its own; the examples on this page show them in place.
+
+**Note**: Item was previously called Section.
+The Section subcomponent and its classes and tokens are **deprecated**.
+They keep working until their removal on or after 25 April 2027.
 
 ## Usage guidelines
 
@@ -33,6 +37,7 @@ Use a Description List for pairs of terms and descriptions, such as a glossary.
 
 Use a [Table](/docs/components-containers-table--docs) to compare multiple items by the same properties.
 Use an [Unordered List](/docs/components-text-unordered-list--docs) or [Ordered List](/docs/components-text-ordered-list--docs) for items without a term.
+Use a [Data List](/docs/components-containers-data-list--docs) to show the properties of a subject, such as a person, an object or a concept.
 
 ### How to use
 
@@ -52,13 +57,13 @@ Resize the following example to see the Description List adapt its layout to the
 ### Multiple descriptions
 
 A term can have several descriptions.
-Descriptions have the same spacing as sections because they usually include longer text.
+Descriptions have the same spacing as items because they usually include longer text.
 
 <Canvas of={DescriptionListStories.MultipleDescriptions} />
 
 ### Multiple terms
 
-If several terms have the same description, place them in a `DescriptionList.Section` component for a correct grid layout.
+If several terms have the same description, place them in a `DescriptionList.Item` component for a correct grid layout.
 The terms are positioned closely together.
 
 <Canvas of={DescriptionListStories.MultipleTerms} />
@@ -67,7 +72,7 @@ The terms are positioned closely together.
 
 Do not group multiple terms with several descriptions.
 This type of content is too complicated and will distort the layout.
-Use distinct sections instead, or find an alternative to a Description List.
+Use distinct items instead, or find an alternative to a Description List.
 
 ### Rich description
 
@@ -99,13 +104,14 @@ The term is set in bold text, and its line lengths are balanced so it does not e
 
 A Description List renders `dl`, `dt`, and `dd` elements.
 These tie each term to its descriptions in the markup instead of only through the layout, which is the kind of relationship [WCAG 1.3.1](https://www.w3.org/TR/WCAG22/#info-and-relationships) asks to be made available.
-A Section renders a `div` around one group, which HTML permits inside a `dl`.
+An Item renders a `div` around one group, which HTML permits inside a `dl`.
 
 Screen readers expose description lists in noticeably different ways: the number of items they report, the context they give for a term or a description, and the commands available to move through the list all vary.
 The component leaves the native elements alone rather than adding `term` and `definition` roles, because overriding them changes how VoiceOver announces the list.
 
 ## See also
 
+- [Data List](/docs/components-containers-data-list--docs) – pairs keys with values instead of terms with meanings, and separates them by a line.
 - [Prose](/docs/utilities-css-prose--docs) – applies the recommended vertical spacing for editorial content.
 
 ## Design tokens

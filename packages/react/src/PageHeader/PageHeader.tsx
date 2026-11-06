@@ -8,12 +8,12 @@ import type { AnchorHTMLAttributes, ElementType, ForwardedRef, HTMLAttributes, R
 import { clsx } from 'clsx'
 import { forwardRef, useEffect, useId, useRef, useState } from 'react'
 
-import type { IconProps } from '../Icon'
-import type { LogoBrand } from '../Logo'
+import type { IconProps } from '../Icon/Icon'
+import type { LogoBrand } from '../Logo/Logo'
 import type { LogoBrandConfig } from '../Logo/Logo'
 
 import useViewportHasMinWidth from '../common/useViewportHasMinWidth'
-import { Icon } from '../Icon'
+import { Icon } from '../Icon/Icon'
 import { LogoLinkContent } from './LogoLinkContent'
 import { PageHeaderGridCellNarrowWindowOnly } from './PageHeaderGridCellNarrowWindowOnly'
 import { PageHeaderMenuIcon } from './PageHeaderMenuIcon'

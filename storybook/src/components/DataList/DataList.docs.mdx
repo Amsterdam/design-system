@@ -1,0 +1,157 @@
+{/* @license CC0-1.0 */}
+
+import { Canvas, Controls, Description, Meta, Primary, Title } from "@storybook/addon-docs/blocks";
+
+import { DesignTokensTable } from "#storybook/_components/DesignTokensTable/DesignTokensTable";
+import dataListTokens from "#tokens/components/ams/data-list.tokens.json";
+
+import * as DataListStories from "./DataList.stories.tsx";
+
+<Meta of={DataListStories} />
+
+<Title />
+
+<Description of={DataListStories} />
+
+<Primary />
+
+<Controls />
+
+## Subcomponents
+
+The Item, Key, Value, and Actions subcomponents make up a Data List.
+An Item groups one key with its value, Key and Value render the `<dt>` and `<dd>` elements, and Actions holds the links or buttons that act on that value.
+None of them has props of its own; the examples on this page show them in place.
+
+## Usage guidelines
+
+### When to use
+
+To show a set of data that a reader checks or scans, such as the details of an object, a case, or a person.
+
+To let a reader review the answers they gave in a form before they submit it.
+
+### When not to use
+
+For data that is compared across rows or columns: use a [Table](/docs/components-containers-table--docs).
+
+For terms and their meanings, such as a glossary: use a [Description List](/docs/components-text-description-list--docs).
+
+For values to suggest while someone types in a field: despite the name, a Data List is unrelated to the HTML [`datalist` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/datalist).
+
+### How to use
+
+Give every item a Key and a Value.
+Add Actions only when the reader can change or remove that value, whether that takes them elsewhere or happens in place.
+Do not nest a Data List inside another Data List.
+
+### How to write
+
+Keep keys short and write them without a colon.
+Write an action as the change it makes, such as ‘Wijzigen’, and include its key in the accessible name so repeated actions stay unique.
+
+## Examples
+
+### Orientation
+
+A key and its value sit side by side, and stack as soon as the container gets too narrow for both.
+Resize the following example to see the Data List adapt its layout to the available width.
+
+<Canvas of={DataListStories.Orientation} />
+
+### Stacked
+
+Set the orientation to ‘vertical’ to place every value below its key, however wide the container is.
+Use this when the values are long.
+
+<Canvas of={DataListStories.Stacked} />
+
+### Form flow actions
+
+An item can offer one or more actions on its value.
+Use a [Standalone Link](/docs/components-navigation-standalone-link--docs) when an action opens another page, such as returning to a question in a [Form Flow](/docs/pages-public-form-flow--docs).
+Do not use a link to delete an item or change the current page.
+
+<Canvas of={DataListStories.FormFlowActions} />
+
+### In-place actions
+
+Use a [Button](/docs/components-buttons-button--docs) for an action on the current page, such as editing in place, deleting, or adding an item.
+On public websites, use a text-only tertiary Button at the end of an item.
+
+Give every action within an item the same treatment: all with an icon or all without one.
+Actions renders its children directly; use a [Row](/docs/components-layout-row--docs) with wrapping to arrange multiple actions.
+Give repeated actions unique accessible names by adding the key as visually hidden text to the visible label.
+
+<Canvas of={DataListStories.InPlaceActions} />
+
+### Learnable in-place actions
+
+Show only an icon when its meaning is immediately clear, or when frequent users of an internal application can learn it.
+Otherwise, give the action a visible text label.
+Our [icon guidelines](/docs/brand-assets-icons--docs#functional-icons) distinguish universal from learnable icons; Edit and Delete are learnable icons.
+Use an [Icon Button](/docs/components-buttons-icon-button--docs) aligned with the surrounding text, and give its `label` prop a unique accessible name, such as ‘Wijzigen telefoonnummer’.
+
+Open the [learnable in-place actions example](/story/components-containers-data-list--learnable-in-place-actions), which is only available in Compact Mode.
+It is not embedded here because the mode also affects the other examples on this page.
+
+### Composite value
+
+A value takes rich content: several lines of text, an address, a paragraph, a link, or an image.
+Wrap its parts in a [Column](/docs/components-layout-column--docs) to stack them with space between them.
+Separate the lines of an address with line breaks instead.
+Text with inline markup, such as a link in a sentence, needs no wrapper: it flows and wraps as a single run of text.
+
+<Canvas of={DataListStories.CompositeValue} />
+
+### With header
+
+Introduce a Data List with a [Heading](/docs/components-text-heading--docs) and an action, laid out in a [Row](/docs/components-layout-row--docs) above the list.
+Use this when a group of data needs a title, or an action that applies to the whole group.
+Use a secondary Button with an icon for a group action on the current page.
+A group action that opens another page stays a Standalone Link.
+Add `ams-mb-s` to the heading row to separate it from the list below a level 2 Heading.
+
+<Canvas of={DataListStories.WithHeader} />
+
+## Features
+
+Keys and values wrap and hyphenate.
+Below the breakpoint every value moves under its key.
+
+## Design
+
+Items are separated by a line between them, which runs the full width of the list.
+The whitespace above and below that line is the same by default, so the line sits between two items rather than belonging to one.
+
+Keys use heading typography and values use body text, which gives the two different line heights.
+Side by side, a key therefore gets half of that difference as extra space above it, so its first line sits level with the first line of its value.
+
+Keys and values sit next to each other when their [query container](/docs/utilities-css-query-container--docs) is wide enough (at least `32rem`).
+All items then share the same columns, so keys, values, and actions line up across the list.
+The key column fits its content with a limit of `15rem` or 30% of the list, whichever is smaller.
+The actions column fits its content with a limit of a quarter of the list.
+Min-content sizing can exceed these limits.
+When no item has actions, the actions track collapses but its gutter remains.
+
+## Accessibility
+
+A Data List renders `dl`, `dt`, and `dd` elements.
+This keeps each key paired with its value in the markup instead of only through the layout.
+
+Actions renders a second `dd` for its links and buttons.
+Give repeated actions a unique accessible name that includes the key they act on.
+For visible text labels, add the key with the `ams-visually-hidden` helper rather than `aria-label`, because browsers do not reliably translate that attribute.
+For Icon Buttons, put the complete accessible name in the `label` prop.
+
+When you compose a heading row above a Data List, the action in that row applies to the whole group.
+Include the name of the group in its accessible name, such as ‘Wijzigen Magere Brug’.
+
+## See also
+
+- [Description List](/docs/components-text-description-list--docs) – pairs terms with their meanings, without separators or actions.
+- [Table](/docs/components-containers-table--docs) – presents data that is compared across rows and columns.
+
+## Design tokens
+
+<DesignTokensTable tokens={dataListTokens} />

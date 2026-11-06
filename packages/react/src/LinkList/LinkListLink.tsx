@@ -9,9 +9,9 @@ import { ChevronForwardIcon } from '@amsterdam/design-system-react-icons'
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
 
-import type { IconProps } from '../Icon'
+import type { IconProps } from '../Icon/Icon'
 
-import { Icon } from '../Icon'
+import { Icon } from '../Icon/Icon'
 
 export const linkListLinkColors = ['contrast', 'inverse'] as const
 type LinkListLinkColor = (typeof linkListLinkColors)[number]

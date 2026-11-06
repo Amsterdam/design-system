@@ -52,21 +52,21 @@ export const Test: Story = {
       <DescriptionList.Description key={5}>Weesp</DescriptionList.Description>,
 
       // n:1
-      <DescriptionList.Section key={6}>
+      <DescriptionList.Item key={6}>
         <DescriptionList.Term>Voornaam</DescriptionList.Term>
         <DescriptionList.Term>Achternaam</DescriptionList.Term>
         <DescriptionList.Description>Johan Cruijff</DescriptionList.Description>
-      </DescriptionList.Section>,
+      </DescriptionList.Item>,
 
       // n:m
-      <DescriptionList.Section key={7}>
+      <DescriptionList.Item key={7}>
         <DescriptionList.Term>Stadsdeel</DescriptionList.Term>
         <DescriptionList.Term>Stadsgebied</DescriptionList.Term>
         <DescriptionList.Description>Centrum</DescriptionList.Description>
         <DescriptionList.Description>Oost</DescriptionList.Description>
         <DescriptionList.Description>Nieuw-West</DescriptionList.Description>
         <DescriptionList.Description>Weesp</DescriptionList.Description>
-      </DescriptionList.Section>,
+      </DescriptionList.Item>,
     ],
   },
   render: (args, context) => renderComponentVariants(DescriptionListWithContainerQueryExamples, { args }, context),

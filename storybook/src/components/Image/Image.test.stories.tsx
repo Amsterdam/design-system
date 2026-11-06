@@ -23,7 +23,7 @@ type Story = StoryObj<typeof meta>
 export const Test: Story = {
   args: {
     alt: '',
-    src: 'https://picsum.photos/id/122/1280/720',
+    src: 'https://picsum.photos/id/122/800/1200',
   },
   render: (args, context) => renderComponentVariants(Image, { args }, context),
   tags: ['!dev', '!autodocs', '!manifest'],

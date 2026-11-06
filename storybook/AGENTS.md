@@ -19,7 +19,7 @@ Meta title format: `Components/<Category>/<Component Name>`
 Valid categories (use exactly these):
 
 - `Buttons` — Button, Icon Button
-- `Containers` — Accordion, Dialog, Modal Dialog, Page, Page Footer, Page Header, Progress List, Spotlight, Table, Tabs
+- `Containers` — Accordion, Data List, Dialog, Modal Dialog, Page, Page Footer, Page Header, Progress List, Spotlight, Table, Tabs
 - `Feedback` — Alert, Avatar, Badge, Skeleton
 - `Forms` — all form-related components (Checkbox, Field, Label, Select, Text Input, etc.)
 - `Layout` — Action Group, Breakout, Column, Grid, Overlap, Row
@@ -41,6 +41,7 @@ When adding a new component, choose the most fitting existing category. Agents m
 `<Title />` and `<Description of={…} />` render the component's name and rationale from its TSDoc comment via react-docgen.
 Add further documentation in the structured MDX sections below them.
 See [documentation/component-docs.md](../documentation/component-docs.md) for the full content model and section order.
+Write the MDX as [documentation/writing.md](../documentation/writing.md) sets out: British English, and one sentence per line.
 
 A page template under `src/pages/` opens its docs page with an Anatomy section instead: a schematic of the page, read from the story itself.
 See [documentation/page-anatomy.md](../documentation/page-anatomy.md) for how to add one.

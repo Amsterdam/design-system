@@ -6,7 +6,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Avatar, Heading, StandaloneLink } from '@amsterdam/design-system-react'
-import { PencilIcon } from '@amsterdam/design-system-react-icons'
+import { EditIcon } from '@amsterdam/design-system-react-icons'
 import { Row } from '@amsterdam/design-system-react/src'
 import { crossAlignOptions, mainAlignOptions } from '@amsterdam/design-system-react/src/common/types'
 import { rowGapSizes, rowTags } from '@amsterdam/design-system-react/src/Row/Row'
@@ -91,7 +91,7 @@ export const AlignOpposingTexts: Story = {
       <Heading key={1} level={3}>
         Kerngegevens
       </Heading>,
-      <StandaloneLink href="#" icon={PencilIcon} key={2}>
+      <StandaloneLink href="#" icon={EditIcon} key={2}>
         Gegevens wijzigen
       </StandaloneLink>,
     ],

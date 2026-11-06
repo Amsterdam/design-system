@@ -29,13 +29,13 @@ This replaces the deprecated `legacyBehavior` and `passHref` props, which are no
 
 ## React Router
 
-For React Router, wrap [the useLinkClickHandler hook](https://reactrouter.com/en/main/hooks/use-link-click-handler) in a hook that returns a link component, like so:
+For React Router, wrap [the useLinkClickHandler hook](https://reactrouter.com/api/hooks/useLinkClickHandler) in a hook that returns a link component, like so:
 
 {/* prettier-ignore */}
 ```jsx
 import { Link } from "@amsterdam/design-system-react"
 import { useCallback } from "react"
-import { useHref, useLinkClickHandler } from "react-router-dom"
+import { useHref, useLinkClickHandler } from "react-router"
 
 const useReactRouterLink = (to) => {
   const href = useHref(to)

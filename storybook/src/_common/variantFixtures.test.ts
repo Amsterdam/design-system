@@ -42,6 +42,13 @@ describe('fixtureValuesFor', () => {
     expect(result).toEqual({ hasIcon: null, values: ['contrast', 'default', 'inverse'] })
   })
 
+  it('merges a nullable color enum with the default sentinel, dropping null', () => {
+    const result = fixtureValuesFor(
+      argType({ name: 'color', type: { name: 'enum', value: ['inverse', null, 'contrast'] } }),
+    )
+    expect(result).toEqual({ hasIcon: null, values: ['contrast', 'default', 'inverse'] })
+  })
+
   it('returns just the default sentinel for a non-enum color prop', () => {
     expect(fixtureValuesFor(argType({ name: 'color' }))).toEqual({ hasIcon: null, values: ['default'] })
   })

@@ -9,7 +9,7 @@ import { PersonFillIcon } from '@amsterdam/design-system-react-icons'
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
 
-import { Icon } from '../Icon'
+import { Icon } from '../Icon/Icon'
 
 export const avatarColors = ['azure', 'green', 'lime', 'magenta', 'orange', 'yellow'] as const
 type AvatarColor = (typeof avatarColors)[number]

@@ -8,8 +8,8 @@ import type { DialogHTMLAttributes, ForwardedRef, MouseEvent, PropsWithChildren,
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
 
-import { Heading } from '../Heading'
-import { IconButton } from '../IconButton'
+import { Heading } from '../Heading/Heading'
+import { IconButton } from '../IconButton/IconButton'
 
 export type DialogProps = {
   /** The label for the button that dismisses the dialog. */

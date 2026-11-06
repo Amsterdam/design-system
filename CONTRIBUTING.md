@@ -36,7 +36,7 @@ Follow these guidelines when doing so:
 - **Do not open a duplicate issue.**
   Search through existing issues to see if your issue has previously been reported.
   If your issue exists, comment with any additional information you have.
-  Reacting with a ‘thumbs up’ helps us prioritize the most common problems and requests.
+  Reacting with a ‘thumbs up’ helps us prioritise the most common problems and requests.
 
 - **Prefer using [reactions](https://github.blog/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/)**,
   not comments, if you simply want to "+1" an existing issue.
@@ -92,7 +92,7 @@ If there is no design, or if you have questions about an existing design, please
   For large and non-trivial changes, open an issue to discuss a strategy with the maintainers.
   Otherwise, you risk doing a lot of work for nothing!
 
-- **Prioritize understanding over cleverness.**
+- **Prioritise understanding over cleverness.**
   Write code clearly and concisely.
   Remember that source code usually gets written once and read often.
   Ensure the code is clear to the reader.
@@ -117,6 +117,8 @@ If there is no design, or if you have questions about an existing design, please
 This repository is part of the [NL Design System](https://nldesignsystem.nl/).
 When you contribute to this project you allow your contributions to be made a part of the NL Design System component library.
 For more information, please read about [their contribution model](https://nldesignsystem.nl/meedoen/estafettemodel/).
+
+When NL Design System posts a ‘Help Wanted’ call for a component in a GitHub discussion, the design system team posts Amsterdam’s input as its own comment so we can keep it up to date.
 
 ## :computer: Local development
 

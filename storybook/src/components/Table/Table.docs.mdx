@@ -27,7 +27,7 @@ Caption, Header, Body, Footer, and Row have no props of their own; the example a
 ### Cell
 
 Holds a single value within a row.
-Use the `align` prop to align the content to the center or end of the cell.
+Use the `align` prop to align the content to the centre or end of the cell.
 Apply the same value to all cells in the column and the matching `Table.HeaderCell`.
 
 <Canvas of={TableCellStories.Cell} />
@@ -44,6 +44,15 @@ Use the `align` prop to match the alignment of the column’s cells.
 <Controls of={TableHeaderCellStories.HeaderCell} />
 
 ## Usage guidelines
+
+### When to use
+
+Use a Table to compare several subjects, such as people, objects or concepts, by the same properties.
+Each row holds one subject and each column one property.
+
+### When not to use
+
+Use a [Data List](/docs/components-containers-data-list--docs) to show the properties of a single subject.
 
 ### How to use
 
@@ -107,6 +116,7 @@ The container that scrolls is a focusable group, which keeps the columns past it
 
 ## See also
 
+- [Data List](/docs/components-containers-data-list--docs) – presents the data of one subject, which needs no comparison across rows.
 - [Prose](/docs/utilities-css-prose--docs) – applies the recommended vertical spacing for editorial content.
 - [Table Page](/docs/pages-internal-table-page--docs) – various templates for large data tables in internal websites.
 

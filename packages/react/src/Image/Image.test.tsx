@@ -48,6 +48,22 @@ describe('Image', () => {
     })
   })
 
+  it('fits the image inside its box when fit is set to contain', () => {
+    render(<Image alt="" fit="contain" />)
+
+    const component = screen.getByRole('presentation')
+
+    expect(component).toHaveClass('ams-image--contain')
+  })
+
+  it('crops the image by default', () => {
+    render(<Image alt="" />)
+
+    const component = screen.getByRole('presentation')
+
+    expect(component).not.toHaveClass('ams-image--contain')
+  })
+
   it('sets a default width attribute', () => {
     render(<Image alt="" />)
 

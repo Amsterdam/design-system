@@ -1,0 +1,34 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+@use "../../common/hyphenation" as *;
+@use "../../common/text-rendering" as *;
+
+.ams-form-field-status {
+  color: var(--ams-form-field-status-color);
+  display: flex;
+  flex-direction: column;
+  font-family: var(--ams-form-field-status-font-family);
+  font-size: var(--ams-form-field-status-font-size);
+  font-weight: var(--ams-form-field-status-font-weight);
+  gap: var(--ams-form-field-status-gap);
+  line-height: var(--ams-form-field-status-line-height);
+
+  @include hyphenation;
+  @include text-rendering;
+}
+
+.ams-form-field-status__character-count {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ams-form-field-status-error-gap);
+}
+
+.ams-form-field-status__error {
+  color: var(--ams-form-field-status-error-color);
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--ams-form-field-status-error-gap);
+}

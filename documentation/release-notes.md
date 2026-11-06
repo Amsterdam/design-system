@@ -4,6 +4,7 @@
 
 Release notes live in Storybook at [storybook/src/docs/release-notes.docs.mdx](../storybook/src/docs/release-notes.docs.mdx), directly below the Introduction.
 This guide describes how to write them, for any release, past or future.
+For an upcoming release, follow the [release checklist](./publishing.md#release-checklist).
 
 ## Why the page exists
 
@@ -43,6 +44,7 @@ git log --oneline --all --grep="chore: release main"
 git log --format="%h %ad %s" --date=short <previous-release>..<this-release>
 ```
 
+Before promotion, use `<previous-release>..origin/develop` and the expected versions, then confirm them when reviewing the release PR.
 That range is the truth.
 Work from it.
 Use the sources below to interpret it, never the other way around.
@@ -254,7 +256,7 @@ Cut it and let the page prove the point.
 
 Concretely:
 
-- Write Markdown with one sentence per line, as everywhere in this repository.
+- Write one sentence per line, as [for all our documentation](./writing.md#one-sentence-per-line).
 - Keep sentences short and simple.
   Avoid compound sentences: two independent clauses joined by ‘and’, ‘but’ or ‘so’ are two sentences.
   Split them.

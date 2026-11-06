@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.0](https://github.com/Amsterdam/design-system/compare/design-system-react-icons-v2.2.0...design-system-react-icons-v2.3.0) (2026-10-22)
+
+
+### Features
+
+* **icons:** Rename ‘pencil’ icon to ‘edit’ to allow usage without label ([#3000](https://github.com/Amsterdam/design-system/issues/3000)) ([772f93f](https://github.com/Amsterdam/design-system/commit/772f93f417ff65efbd83102df36d2395aa65b0d3))
+
+### Deprecations
+
+The following exports remain available during deprecation and will be removed on or after 25 April 2027:
+
+- `PencilIcon`: use `EditIcon` instead.
+- `PencilFillIcon`: use `EditFillIcon` instead.
+
 ## [2.2.0](https://github.com/Amsterdam/design-system/compare/design-system-react-icons-v2.1.0...design-system-react-icons-v2.2.0) (2026-07-12)
 
 

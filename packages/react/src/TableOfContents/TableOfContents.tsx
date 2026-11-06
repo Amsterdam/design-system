@@ -8,10 +8,10 @@ import type { ForwardedRef, HTMLAttributes, KeyboardEvent, PropsWithChildren } f
 import { clsx } from 'clsx'
 import { forwardRef, useId, useImperativeHandle, useRef } from 'react'
 
-import type { HeadingProps } from '../Heading'
+import type { HeadingProps } from '../Heading/Heading'
 
 import { useKeyboardFocus } from '../common/useKeyboardFocus'
-import { Heading } from '../Heading'
+import { Heading } from '../Heading/Heading'
 import { TableOfContentsContext } from './TableOfContentsContext'
 import { TableOfContentsLink } from './TableOfContentsLink'
 import { TableOfContentsList } from './TableOfContentsList'

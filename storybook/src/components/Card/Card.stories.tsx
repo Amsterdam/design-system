@@ -3,6 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { CardImageProps } from '@amsterdam/design-system-react/src'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import type { ComponentProps } from 'react'
 
@@ -29,23 +30,27 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 type DefaultProps = {
-  aspectRatio: (typeof aspectRatioOptions)[number]
   category: string
   date: string
   heading: string
   imageSrc: string
   text: string
-} & Readonly<ComponentProps<typeof Card>>
+} & Pick<CardImageProps, 'aspectRatio' | 'fit'> &
+  Readonly<ComponentProps<typeof Card>>
 
 type DefaultStory = StoryObj<DefaultProps>
 
+/**
+ * The image is portrait while the shape of the image is 16 by 9, so `fit` has something to do here.
+ * An image that already matches the shape it is given looks the same either way.
+ */
 export const Default: DefaultStory = {
   args: {
     aspectRatio: '16:9',
     category: 'Nieuws',
     date: formatDate(Date.now()),
     heading: 'Nederlands eerste houten woonwijk komt in Zuidoost',
-    imageSrc: 'https://picsum.photos/480/360',
+    imageSrc: 'https://picsum.photos/800/1200',
     text: 'We bouwen een levendige, groene en duurzame woonbuurt tussen de Gooiseweg en het Nelson Mandelapark.',
   },
   // These argTypes describe flattened args specific to this composed story; the meta cannot provide them.
@@ -56,15 +61,22 @@ export const Default: DefaultStory = {
     },
     category: { control: 'text' },
     date: { control: 'text' },
+    fit: {
+      control: {
+        labels: { undefined: 'default (cover)' },
+        type: 'radio',
+      },
+      options: [undefined, 'contain'],
+    },
     heading: { control: 'text' },
     imageSrc: { control: 'text' },
     text: { control: 'text' },
   },
   // The query container keeps this Card below the width at which it would switch to a horizontal layout.
   decorators: [wrapInInlineSizeQueryContainer(), maximiseInlineSize('24rem')],
-  render: ({ aspectRatio, category, date, heading, imageSrc, text, ...args }) => (
+  render: ({ aspectRatio, category, date, fit, heading, imageSrc, text, ...args }) => (
     <Card {...args}>
-      <Card.Image alt="" aspectRatio={aspectRatio} src={imageSrc} />
+      <Card.Image alt="" aspectRatio={aspectRatio} fit={fit} src={imageSrc} />
       <Card.Content>
         <Card.HeadingGroup>
           <Card.Heading level={3}>
@@ -108,6 +120,40 @@ export const HorizontalLayout: DefaultStory = {
   argTypes: Default.argTypes,
   decorators: [wrapInInlineSizeQueryContainer(undefined, { inlineSize: '56rem', maxInlineSize: '100%' })],
   render: Default.render,
+}
+
+/**
+ * Both Cards show the same portrait photograph in the same area, which is 16 by 9 as usual.
+ * The first keeps all of the image in view; the second uses the default fit and crops to fill the area.
+ */
+export const ImageFit: Story = {
+  parameters: {
+    layout: 'fullscreen',
+  },
+  // Storybook needs a render function with an args parameter to correctly render Code view, even if we don't use it in this story.
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  render: (args) => (
+    <Grid paddingVertical="x-large">
+      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
+        <Card>
+          <Card.Image alt="" fit="contain" src="https://picsum.photos/id/122/800/1200" />
+          <Card.Heading level={2}>
+            <Card.Link href="#">Volledig in beeld</Card.Link>
+          </Card.Heading>
+          <Paragraph>De afbeelding past in het vlak, met de achtergrond ernaast.</Paragraph>
+        </Card>
+      </Grid.Cell>
+      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
+        <Card>
+          <Card.Image alt="" src="https://picsum.photos/id/122/800/1200" />
+          <Card.Heading level={2}>
+            <Card.Link href="#">Bijgesneden</Card.Link>
+          </Card.Heading>
+          <Paragraph>De afbeelding vult het vlak, waarbij de boven- en onderkant wegvallen.</Paragraph>
+        </Card>
+      </Grid.Cell>
+    </Grid>
+  ),
 }
 
 export const TopTasks: Story = {
