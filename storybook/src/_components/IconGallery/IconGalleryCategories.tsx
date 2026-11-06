@@ -65,6 +65,7 @@ export const BrandIcons: Set<IconName> = new Set([
   'InstagramIcon',
   'LinkedInIcon',
   'MastodonIcon',
+  'SignalIcon',
   'WhatsappIcon',
   'XIcon',
 ])
