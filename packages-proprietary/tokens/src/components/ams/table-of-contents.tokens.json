@@ -165,14 +165,18 @@
             "$extensions": {
               "nl.amsterdam.type": "transitionTimingFunction"
             }
-          },
-          "svg-angle-start-rotate": {
-            "$value": "{ams.motion.collapsible-toggle.rotate.angle-start}",
+          }
+        },
+        "svg": {
+          "rotate": {
+            "$value": "{ams.motion.collapsible.rotate}",
             "$type": "dimension"
           },
-          "svg-angle-end-rotate": {
-            "$value": "{ams.motion.collapsible-toggle.rotate.angle-end}",
-            "$type": "dimension"
+          "expanded": {
+            "rotate": {
+              "$value": "{ams.motion.collapsible.expanded.rotate}",
+              "$type": "dimension"
+            }
           }
         }
       }

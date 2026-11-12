@@ -106,6 +106,18 @@
               "nl.amsterdam.type": "color"
             }
           }
+        },
+        "svg": {
+          "rotate": {
+            "$value": "{ams.motion.collapsible.rotate}",
+            "$type": "dimension"
+          },
+          "expanded": {
+            "rotate": {
+              "$value": "{ams.motion.collapsible.expanded.rotate}",
+              "$type": "dimension"
+            }
+          }
         }
       },
       "icon": {
@@ -118,14 +130,6 @@
           "$extensions": {
             "nl.amsterdam.type": "transitionTimingFunction"
           }
-        },
-        "svg-angle-start-rotate": {
-          "$value": "{ams.motion.collapsible-toggle.rotate.angle-start}",
-          "$type": "duration"
-        },
-        "svg-angle-end-rotate": {
-          "$value": "{ams.motion.collapsible-toggle.rotate.angle-end}",
-          "$type": "duration"
         }
       },
       "step": {
