@@ -10,6 +10,7 @@ import {
   Breadcrumb,
   Card,
   Column,
+  Columns,
   DescriptionList,
   Grid,
   Heading,
@@ -854,18 +855,10 @@ export const Location: StoryObj = {
         />
       </Grid.Cell>
     </Grid>
-    {/*
-     * The row gap would put an x-large below the heading, where the guidance asks for an x-small at this size.
-     * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
-     * between the Cells.
-     */}
-    <Grid gapVertical="none" paddingVertical="x-large">
-      {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
-      <Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-        <Heading className="ams-mb-xs" level={2} size="level-3">Faciliteiten</Heading>
-      </Grid.Cell>
-      <Grid.Subgrid gapVertical="x-large" span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-        <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
+    <Grid paddingVertical="x-large">
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+        <Heading level={2} size="level-3">Faciliteiten</Heading>
+        <Columns>
           <UnorderedList>
             <UnorderedList.Item>3 x FIFA-gecertificeerde kunstgrasvelden naast elkaar</UnorderedList.Item>
             <UnorderedList.Item>
@@ -877,10 +870,6 @@ export const Location: StoryObj = {
             <UnorderedList.Item>Beachvolleybal</UnorderedList.Item>
             <UnorderedList.Item>Cricketveld en -pitch</UnorderedList.Item>
             <UnorderedList.Item>Verenigingsgebouw</UnorderedList.Item>
-          </UnorderedList>
-        </Grid.Cell>
-        <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
-          <UnorderedList>
             <UnorderedList.Item>
               400 meter lange atletiekbaan, in het midden ligt een veld voor uiteenlopende sporten en spellen
             </UnorderedList.Item>
@@ -892,8 +881,8 @@ export const Location: StoryObj = {
               Multifunctioneel verenigingsgebouw met 8 kleedkamers en sportkantine
             </UnorderedList.Item>
           </UnorderedList>
-        </Grid.Cell>
-      </Grid.Subgrid>
+        </Columns>
+      </Grid.Cell>
     </Grid>
     <Spotlight as="section">
       <Grid paddingVertical="x-large">
@@ -1023,24 +1012,16 @@ export const Location: StoryObj = {
             />
           </Grid.Cell>
         </Grid>
-        {/*
-         * The row gap would put an x-large below the heading, where the guidance asks for an x-small at this size.
-         * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
-         * between the Cells.
-         */}
-        <Grid gapVertical="none" paddingVertical="x-large">
-          {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
-          <Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-            <Heading className="ams-mb-xs" level={2} size="level-3">
-              Faciliteiten
-            </Heading>
-          </Grid.Cell>
-          <Grid.Subgrid
-            gapVertical="x-large"
+        <Grid paddingVertical="x-large">
+          <Grid.Cell
+            className="ams-prose"
             span={{ narrow: 4, medium: 8, wide: 10 }}
             start={{ narrow: 1, medium: 1, wide: 2 }}
           >
-            <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
+            <Heading level={2} size="level-3">
+              Faciliteiten
+            </Heading>
+            <Columns>
               <UnorderedList>
                 <UnorderedList.Item>3 x FIFA-gecertificeerde kunstgrasvelden naast elkaar</UnorderedList.Item>
                 <UnorderedList.Item>
@@ -1052,10 +1033,6 @@ export const Location: StoryObj = {
                 <UnorderedList.Item>Beachvolleybal</UnorderedList.Item>
                 <UnorderedList.Item>Cricketveld en -pitch</UnorderedList.Item>
                 <UnorderedList.Item>Verenigingsgebouw</UnorderedList.Item>
-              </UnorderedList>
-            </Grid.Cell>
-            <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
-              <UnorderedList>
                 <UnorderedList.Item>
                   400 meter lange atletiekbaan, in het midden ligt een veld voor uiteenlopende sporten en spellen
                 </UnorderedList.Item>
@@ -1067,8 +1044,8 @@ export const Location: StoryObj = {
                   Multifunctioneel verenigingsgebouw met 8 kleedkamers en sportkantine
                 </UnorderedList.Item>
               </UnorderedList>
-            </Grid.Cell>
-          </Grid.Subgrid>
+            </Columns>
+          </Grid.Cell>
         </Grid>
         <Spotlight as="section">
           <Grid paddingVertical="x-large">
@@ -1304,13 +1281,10 @@ export const LocationLarge: StoryObj = {
         </Grid.Cell>
       </Grid.Subgrid>
     </Grid>
-    <Grid gapVertical="none" paddingBottom="x-large">
-      {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
-      <Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-        <Heading className="ams-mb-xs" level={2} size="level-3">Faciliteiten</Heading>
-      </Grid.Cell>
-      <Grid.Subgrid gapVertical="x-large" span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-        <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
+    <Grid paddingBottom="x-large">
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+        <Heading level={2} size="level-3">Faciliteiten</Heading>
+        <Columns>
           <UnorderedList>
             <UnorderedList.Item>
               8 kleedkamers met douches voor sporters en 2 kleedkamers voor scheidsrechters, inclusief voorzieningen
@@ -1323,10 +1297,6 @@ export const LocationLarge: StoryObj = {
               Groot materiaal is beschikbaar voor verenigingen en scholen; klein materiaal is niet aanwezig
             </UnorderedList.Item>
             <UnorderedList.Item>Er zijn kluisjes met codeslot</UnorderedList.Item>
-          </UnorderedList>
-        </Grid.Cell>
-        <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
-          <UnorderedList>
             <UnorderedList.Item>
               Horeca in de voorhal, open tijdens openingstijden, met broodjes, snacks, fruit, koffie, thee, fris en
               alcoholvrije dranken
@@ -1338,8 +1308,8 @@ export const LocationLarge: StoryObj = {
             <UnorderedList.Item>EHBO en AED in de voorhal</UnorderedList.Item>
             <UnorderedList.Item>10 nooduitgangen</UnorderedList.Item>
           </UnorderedList>
-        </Grid.Cell>
-      </Grid.Subgrid>
+        </Columns>
+      </Grid.Cell>
     </Grid>
     <Spotlight as="section">
       <Grid paddingVertical="x-large">
@@ -1593,19 +1563,16 @@ export const LocationLarge: StoryObj = {
             </Grid.Cell>
           </Grid.Subgrid>
         </Grid>
-        <Grid gapVertical="none" paddingBottom="x-large">
-          {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
-          <Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-            <Heading className="ams-mb-xs" level={2} size="level-3">
-              Faciliteiten
-            </Heading>
-          </Grid.Cell>
-          <Grid.Subgrid
-            gapVertical="x-large"
+        <Grid paddingBottom="x-large">
+          <Grid.Cell
+            className="ams-prose"
             span={{ narrow: 4, medium: 8, wide: 10 }}
             start={{ narrow: 1, medium: 1, wide: 2 }}
           >
-            <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
+            <Heading level={2} size="level-3">
+              Faciliteiten
+            </Heading>
+            <Columns>
               <UnorderedList>
                 <UnorderedList.Item>
                   8 kleedkamers met douches voor sporters en 2 kleedkamers voor scheidsrechters, inclusief voorzieningen
@@ -1618,10 +1585,6 @@ export const LocationLarge: StoryObj = {
                   Groot materiaal is beschikbaar voor verenigingen en scholen; klein materiaal is niet aanwezig
                 </UnorderedList.Item>
                 <UnorderedList.Item>Er zijn kluisjes met codeslot</UnorderedList.Item>
-              </UnorderedList>
-            </Grid.Cell>
-            <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
-              <UnorderedList>
                 <UnorderedList.Item>
                   Horeca in de voorhal, open tijdens openingstijden, met broodjes, snacks, fruit, koffie, thee, fris en
                   alcoholvrije dranken
@@ -1633,8 +1596,8 @@ export const LocationLarge: StoryObj = {
                 <UnorderedList.Item>EHBO en AED in de voorhal</UnorderedList.Item>
                 <UnorderedList.Item>10 nooduitgangen</UnorderedList.Item>
               </UnorderedList>
-            </Grid.Cell>
-          </Grid.Subgrid>
+            </Columns>
+          </Grid.Cell>
         </Grid>
         <Spotlight as="section">
           <Grid paddingVertical="x-large">
