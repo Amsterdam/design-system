@@ -157,7 +157,8 @@
         },
         "current": {
           "background-color": {
-            "$value": "rgba(255, 255, 255, 12.5%)",
+            "$value": "color-mix(in srgb, {ams.links.inverse.color} 12.5%, {ams.color.interactive.default})",
+            "$description": "Mixes the current color with the background color to create a subtle background for the current link.",
             "$extensions": {
               "nl.amsterdam.type": "color"
             }
