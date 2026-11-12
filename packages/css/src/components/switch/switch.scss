@@ -5,6 +5,8 @@
 
 @use "../../common/input-label-focus" as *;
 @use "../../common/hide-input" as *;
+@use "../../common/hyphenation" as *;
+@use "../../common/text-rendering" as *;
 
 .ams-switch__input {
   @include hide-input;
@@ -12,26 +14,54 @@
 }
 
 .ams-switch__label {
-  // The effective border width, shared by the track border and the thumb offset. Floored in forced colors mode below.
-  --_ams-switch-label-border-width: var(--ams-switch-label-border-width);
+  color: var(--ams-switch-color);
+  cursor: var(--ams-switch-cursor);
+  display: inline-flex;
+  flex-wrap: nowrap;
+  font-family: var(--ams-switch-font-family);
+  font-size: var(--ams-switch-font-size);
+  font-weight: var(--ams-switch-font-weight);
+  gap: var(--ams-switch-gap);
+  line-height: var(--ams-switch-line-height);
+  outline-offset: var(--ams-switch-outline-offset);
+  text-decoration-thickness: var(--ams-switch-text-decoration-thickness);
+  text-underline-offset: var(--ams-switch-text-underline-offset);
 
-  background-color: var(--ams-switch-background-color);
+  @include hyphenation;
+  @include text-rendering;
+}
+
+.ams-switch__track-container {
+  align-items: center;
+  block-size: var(--ams-switch-track-container-block-size);
+  display: flex;
+  flex: none;
+  flex-wrap: nowrap;
+}
+
+.ams-switch__track {
+  // The effective border width, shared by the track border and the thumb offset. Floored in forced colors mode below.
+  --_ams-switch-track-border-width: var(
+    --ams-switch-label-border-width /* @deprecated */,
+    var(--ams-switch-track-border-width)
+  );
+
+  background-color: var(--ams-switch-background-color /* @deprecated */, var(--ams-switch-track-background-color));
 
   // Using a transparent border to make sure the component is visible in forced colors mode.
   border-color: transparent;
   border-radius: calc(var(--ams-switch-thumb-inline-size) * 2);
   border-style: solid;
-  border-width: var(--_ams-switch-label-border-width);
+  border-width: var(--_ams-switch-track-border-width);
   box-sizing: border-box;
-  cursor: var(--ams-switch-cursor);
-  display: inline-block;
-  inline-size: var(--ams-switch-inline-size);
-  outline-offset: var(--ams-switch-outline-offset);
-  vertical-align: middle;
+  inline-size: var(--ams-switch-inline-size /* @deprecated */, var(--ams-switch-track-inline-size));
 
   // Keep at least 1px so a token set to 0 can’t hide the border.
   @media (forced-colors: active) {
-    --_ams-switch-label-border-width: max(1px, var(--ams-switch-label-border-width));
+    --_ams-switch-track-border-width: max(
+      1px,
+      var(--ams-switch-label-border-width /* @deprecated */, var(--ams-switch-track-border-width))
+    );
   }
 
   @media (prefers-reduced-motion: no-preference) {
@@ -39,9 +69,9 @@
   }
 }
 
-.ams-switch__label::before {
+.ams-switch__track::before {
   // The distance the thumb slides when the switch is checked.
-  --_ams-switch-thumb-translate: calc(100% - 2 * var(--_ams-switch-label-border-width));
+  --_ams-switch-thumb-translate: calc(100% - 2 * var(--_ams-switch-track-border-width));
 
   background-color: var(--ams-switch-thumb-background-color);
   block-size: var(--ams-switch-thumb-block-size);
@@ -61,27 +91,47 @@
   }
 }
 
+// Checked
 .ams-switch__input:checked + .ams-switch__label {
-  background-color: var(--ams-switch-checked-background-color);
-}
+  .ams-switch__track {
+    background-color: var(
+      --ams-switch-checked-background-color /* @deprecated */,
+      var(--ams-switch-track-checked-background-color)
+    );
+  }
 
-.ams-switch__input:disabled + .ams-switch__label {
-  background-color: var(--ams-switch-disabled-background-color);
-  cursor: var(--ams-switch-disabled-cursor);
-}
-
-.ams-switch__input:checked + .ams-switch__label::before {
-  transform: translate(var(--_ams-switch-thumb-translate));
+  .ams-switch__track::before {
+    transform: translate(var(--_ams-switch-thumb-translate));
+  }
 }
 
 // `translate` is physical, so the checked thumb always moves to the right. Reverse it in right-to-left
 // contexts so it travels to the inline end (the left) instead.
-.ams-switch__input:checked + .ams-switch__label:dir(rtl)::before {
+.ams-switch__input:checked + .ams-switch__label:dir(rtl) .ams-switch__track::before {
   transform: translate(calc(-1 * var(--_ams-switch-thumb-translate)));
 }
 
+// Disabled
+.ams-switch__input:disabled + .ams-switch__label {
+  color: var(--ams-switch-disabled-color);
+  cursor: var(--ams-switch-disabled-cursor);
+
+  .ams-switch__track {
+    background-color: var(
+      --ams-switch-disabled-background-color /* @deprecated */,
+      var(--ams-switch-track-disabled-background-color)
+    );
+  }
+}
+
+// Default hover
 @media (hover: hover) {
-  .ams-switch:hover .ams-switch__input:enabled + .ams-switch__label::before {
-    box-shadow: var(--ams-switch-thumb-hover-box-shadow);
+  .ams-switch__input:enabled + .ams-switch__label:hover {
+    color: var(--ams-switch-hover-color);
+    text-decoration-line: var(--ams-switch-hover-text-decoration-line);
+
+    .ams-switch__track::before {
+      box-shadow: var(--ams-switch-thumb-hover-box-shadow);
+    }
   }
 }
