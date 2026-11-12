@@ -7,6 +7,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { LinkList, Paragraph, UnorderedList } from '@amsterdam/design-system-react'
 import { Columns } from '@amsterdam/design-system-react/src'
+import { columnsCounts } from '@amsterdam/design-system-react/src/Columns/Columns'
 
 import { childrenArgType } from '#storybook/_common/argTypes'
 import { exampleParagraph, topics } from '#storybook/_common/exampleContent'
@@ -18,6 +19,13 @@ const meta = {
   component: Columns,
   argTypes: {
     children: childrenArgType('The content to flow into columns.'),
+    count: {
+      control: {
+        labels: { undefined: '2 (default)' },
+        type: 'radio',
+      },
+      options: [undefined, ...columnsCounts],
+    },
   },
 } satisfies Meta<typeof Columns>
 
@@ -25,17 +33,26 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
+const topicLinks = (
+  <LinkList>
+    {topics.map((topic) => (
+      <LinkList.Link href="#" key={topic}>
+        {topic}
+      </LinkList.Link>
+    ))}
+  </LinkList>
+)
+
 export const Default: Story = {
   args: {
-    children: (
-      <LinkList>
-        {topics.map((topic) => (
-          <LinkList.Link href="#" key={topic}>
-            {topic}
-          </LinkList.Link>
-        ))}
-      </LinkList>
-    ),
+    children: topicLinks,
+  },
+}
+
+export const ResponsiveCount: Story = {
+  args: {
+    children: topicLinks,
+    count: { narrow: 1, medium: 2, wide: 3 },
   },
 }
 

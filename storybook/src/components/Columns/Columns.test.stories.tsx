@@ -3,8 +3,10 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { Columns } from '@amsterdam/design-system-react/src'
 import type { Meta, StoryObj } from '@storybook/react-vite'
+
+import { Columns } from '@amsterdam/design-system-react/src'
+import { columnsCounts } from '@amsterdam/design-system-react/src/Columns/Columns'
 
 import { default as columnsMeta } from './Columns.stories'
 
@@ -29,15 +31,24 @@ const items = [
   'Wonen, bouwen en verbouwen',
 ]
 
+const list = (
+  <ul>
+    {items.map((item) => (
+      <li key={item}>{item}</li>
+    ))}
+  </ul>
+)
+
 export const Test: Story = {
-  args: {
-    children: (
-      <ul>
-        {items.map((item) => (
-          <li key={item}>{item}</li>
-        ))}
-      </ul>
-    ),
-  },
+  render: (args) => (
+    <div className="_ams-tests-stack">
+      <Columns {...args}>{list}</Columns>
+      {columnsCounts.map((count) => (
+        <Columns {...args} count={count} key={count}>
+          {list}
+        </Columns>
+      ))}
+    </div>
+  ),
   tags: ['!dev', '!autodocs', '!manifest'],
 }

@@ -1,6 +1,6 @@
 {/* @license CC0-1.0 */}
 
-import { Canvas, Description, Meta, Primary, Title } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Description, Meta, Primary, Title } from "@storybook/addon-docs/blocks";
 
 import { DesignTokensTable } from "#storybook/_components/DesignTokensTable/DesignTokensTable";
 import tokens from "#tokens/components/ams/columns.tokens.json";
@@ -15,7 +15,7 @@ import * as ColumnsStories from "./Columns.stories.tsx";
 
 <Primary />
 
-This component has no props to configure.
+<Controls />
 
 ## Usage guidelines
 
@@ -30,6 +30,12 @@ To place separate blocks of content side by side, use the [Grid](/docs/component
 
 ### How to use
 
+Choose a `count` that the span of the Cell divides by, so the columns line up with the Grid.
+Check that each column stays wide enough for its content, especially in a Cell that spans only a few Grid columns.
+
+Keep one column in a narrow window, unless every part is a word or two, such as the names of the city districts.
+More columns leave each part little room there, so a longer part wraps over many lines.
+
 Keep the parts short.
 A long one can break across two columns.
 
@@ -39,6 +45,12 @@ Sort a list so it can be scanned that way, for example alphabetically.
 Small layout glitches in Safari, described under Features, are fine as long as the content stays easy to read.
 
 ## Examples
+
+### Responsive count
+
+In a Cell that spans the whole Grid, three columns line up with the Grid in a wide window.
+
+<Canvas of={ColumnsStories.ResponsiveCount} />
 
 ### With Unordered List
 
@@ -57,9 +69,9 @@ A longer text makes readers scroll back up to continue in the next column.
 
 ## Features
 
-Columns shows at most one column in a narrow window, two in a medium one and three in a wide one.
-It uses the breakpoints of the Grid.
-Each column has a minimum width, so a narrow Cell can show fewer columns.
+By default, Columns shows two columns from the medium breakpoint of the Grid, and one in a narrow window.
+A number for `count` sets one to four columns from the medium breakpoint, and keeps one column in a narrow window.
+An object sets the number for narrow, medium, and wide windows separately, including more than one column in a narrow window.
 
 The columns end at about the same height.
 
@@ -72,8 +84,7 @@ WebKit tracks them in its bugs about [grid](https://bugs.webkit.org/show_bug.cgi
 ## Design
 
 The space between the columns is the same as between the columns of the Grid.
-In a Cell that spans the whole Grid, the columns line up with the columns of the Grid.
-Each takes four, because the Grid has four, eight and twelve columns.
+Two columns line up with the Grid in every Cell that spans an even number of Grid columns, which is why two is the default.
 
 ## Accessibility
 
