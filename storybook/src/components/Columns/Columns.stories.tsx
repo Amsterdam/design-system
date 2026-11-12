@@ -83,12 +83,7 @@ export const WithUnorderedList: Story = {
 
 export const WithProse: Story = {
   args: {
-    children: (
-      <div className="ams-prose">
-        {paragraphs.map((paragraph, index) => (
-          <Paragraph key={index}>{paragraph}</Paragraph>
-        ))}
-      </div>
-    ),
+    children: paragraphs.map((paragraph, index) => <Paragraph key={index}>{paragraph}</Paragraph>),
+    className: 'ams-prose',
   },
 }
