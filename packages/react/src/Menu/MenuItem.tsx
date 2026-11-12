@@ -5,14 +5,31 @@
 
 import type { AnchorHTMLAttributes, ElementType, ForwardedRef, PropsWithChildren } from 'react'
 
+import { ChevronDownIcon } from '@amsterdam/design-system-react-icons'
 import { clsx } from 'clsx'
-import { Children, forwardRef } from 'react'
+import { Children, forwardRef, useContext, useId, useRef } from 'react'
 
 import type { IconProps } from '../Icon/Icon'
 
+import { useBrowserLayoutEffect } from '../common/useBrowserLayoutEffect'
+import { useCollapsible } from '../common/useCollapsible'
 import { Icon } from '../Icon/Icon'
+import { IconButton } from '../IconButton/IconButton'
+import { MenuContext } from './MenuContext'
 
 export type MenuItemProps = {
+  /**
+   * Whether the nested submenu is initially expanded.
+   * Ignored when the parent `Menu` does not have `collapsibleSubmenus`, when there is no submenu, or when `expanded` is provided.
+   * @default false
+   */
+  readonly defaultExpanded?: boolean
+  /**
+   * Whether the nested submenu is expanded.
+   * When provided, the component is controlled and internal state is ignored.
+   * Ignored when the parent `Menu` does not have `collapsibleSubmenus` or when there is no submenu.
+   */
+  readonly expanded?: boolean
   /** The icon to display for the menu item. Use the filled variant for top-level items. */
   readonly icon?: IconProps['svg']
   /** The text for the link. */
@@ -22,6 +39,11 @@ export type MenuItemProps = {
    * Refs are forwarded only to a plain anchor (the default, or `linkComponent="a"`), not to any other `linkComponent`.
    */
   readonly linkComponent?: ElementType
+  /**
+   * Callback fired when the nested submenu is expanded or collapsed. Receives the new expanded state.
+   * Ignored when the parent `Menu` does not have `collapsibleSubmenus` or when there is no submenu.
+   */
+  readonly onToggle?: (expanded: boolean) => void
 } & Readonly<PropsWithChildren<AnchorHTMLAttributes<HTMLAnchorElement>>>
 
 /**
@@ -31,15 +53,51 @@ export type MenuItemProps = {
  */
 export const MenuItem = forwardRef(
   (
-    { children, className, icon, label, linkComponent, ...restProps }: MenuItemProps,
+    {
+      children,
+      className,
+      defaultExpanded,
+      expanded,
+      icon,
+      label,
+      linkComponent,
+      onToggle,
+      ...restProps
+    }: MenuItemProps,
     ref: ForwardedRef<HTMLAnchorElement>,
   ) => {
     const Tag = linkComponent || 'a'
     const submenuChildren = Children.toArray(children)
     const hasSubmenu = submenuChildren.length > 0
+    const { collapsibleSubmenus, hideAccessibleLabel, showAccessibleLabel } = useContext(MenuContext)
+    const panelId = useId()
+    const submenuRef = useRef<HTMLUListElement>(null)
+    const buttonRef = useRef<HTMLButtonElement>(null)
+    const isExpandable = collapsibleSubmenus && hasSubmenu
+
+    const [isExpanded, toggle] = useCollapsible({
+      defaultValue: defaultExpanded,
+      gate: isExpandable,
+      onToggle,
+      value: expanded,
+    })
+
+    // Moves focus out of a submenu that collapses, so it never disappears into hidden content.
+    // An effect covers every way to collapse: the button, or a parent that sets `expanded`.
+    useBrowserLayoutEffect(() => {
+      if (!isExpanded && submenuRef.current?.contains(document.activeElement)) {
+        buttonRef.current?.focus()
+      }
+    }, [isExpanded])
 
     return (
-      <li className="ams-menu__item">
+      <li
+        className={clsx(
+          'ams-menu__item',
+          isExpandable && 'ams-menu__item--collapsible',
+          isExpandable && !isExpanded && 'ams-menu__item--collapsed',
+        )}
+      >
         <Tag
           {...restProps}
           className={clsx('ams-menu__link', className)}
@@ -48,7 +106,23 @@ export const MenuItem = forwardRef(
           {icon && <Icon className="ams-menu__icon" svg={icon} />}
           {label}
         </Tag>
-        {hasSubmenu && <ul className="ams-menu__submenu">{submenuChildren}</ul>}
+        {isExpandable && (
+          <IconButton
+            aria-controls={panelId}
+            aria-expanded={isExpanded}
+            className="ams-menu__toggle-button"
+            color="inverse"
+            label={`${isExpanded ? hideAccessibleLabel : showAccessibleLabel} ${label}`}
+            onClick={toggle}
+            ref={buttonRef}
+            svg={ChevronDownIcon}
+          />
+        )}
+        {hasSubmenu && (
+          <ul className="ams-menu__submenu" id={isExpandable ? panelId : undefined} ref={submenuRef}>
+            {submenuChildren}
+          </ul>
+        )}
       </li>
     )
   },

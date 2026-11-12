@@ -79,6 +79,32 @@ const menuWithSubmenuChildren = [
   </Menu.Link>,
 ]
 
+const collapsibleMenuChildren = [
+  <Menu.Link href="#" icon={<PieChartFillIcon />} key="Dashboard">
+    Dashboard
+  </Menu.Link>,
+  <Menu.Item defaultExpanded href="#" icon={<FolderFillIcon />} key="Projecten" label="Projecten">
+    <Menu.Link aria-current="page" href="#" key="Overzicht">
+      Overzicht
+    </Menu.Link>
+    <Menu.Link href="#" key="Planning">
+      Planning
+    </Menu.Link>
+    <Menu.Link href="#" key="Team">
+      Team
+    </Menu.Link>
+  </Menu.Item>,
+  <Menu.Link href="#" icon={<DocumentsFillIcon />} key="Rapportages">
+    Rapportages
+  </Menu.Link>,
+  <Menu.Link href="#" icon={<BarChartFillIcon />} key="Analyses">
+    Analyses
+  </Menu.Link>,
+  <Menu.Link href="#" icon={<SettingsFillIcon />} key="Instellingen">
+    Instellingen
+  </Menu.Link>,
+]
+
 const withInWideWindowArg: Decorator = (StoryFn, context) => {
   const [, updateArgs] = useArgs()
   const isFixed = Boolean(context.parameters['fixedInWideWindow'])
@@ -145,5 +171,14 @@ export const AlwaysWide: Story = {
   args: {
     children: Default.args?.children,
     expanded: true,
+  },
+}
+
+export const CollapsibleSubmenu: Story = {
+  args: {
+    children: collapsibleMenuChildren,
+    collapsibleSubmenus: true,
+    defaultExpanded: true,
+    expandable: true,
   },
 }

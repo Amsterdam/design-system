@@ -291,4 +291,65 @@ describe('Menu', () => {
 
     expect(link).toHaveFocus()
   })
+
+  it('keeps submenu rendering unchanged without collapsible submenus', () => {
+    render(
+      <Menu>
+        <Menu.Item href="#" label="Projecten">
+          <Menu.Link href="#">Overzicht</Menu.Link>
+        </Menu.Item>
+      </Menu>,
+    )
+
+    const item = screen.getByRole('link', { name: 'Projecten' }).closest('li')
+    const submenu = screen.getAllByRole('list')[1]
+
+    expect(item).toBeInTheDocument()
+    expect(screen.queryByRole('button', { name: /Toon submenu van|Verberg submenu van/ })).not.toBeInTheDocument()
+    expect(item).not.toHaveClass('ams-menu__item--collapsed')
+    expect(submenu).not.toHaveAttribute('id')
+  })
+
+  it('renders submenu toggles in a wide Menu that is always expanded without expandable', () => {
+    render(
+      <Menu collapsibleSubmenus expanded inWideWindow>
+        <Menu.Item href="#" label="Projecten">
+          <Menu.Link href="#">Overzicht</Menu.Link>
+        </Menu.Item>
+      </Menu>,
+    )
+
+    expect(screen.getByRole('button', { name: 'Toon submenu van Projecten' })).toBeInTheDocument()
+    expect(screen.queryByRole('button', { name: /Klap menu uit|Klap menu in/ })).not.toBeInTheDocument()
+  })
+
+  it('renders submenu toggles in a wide Menu that is expanded', () => {
+    render(
+      <Menu collapsibleSubmenus defaultExpanded expandable inWideWindow>
+        <Menu.Item href="#" label="Projecten">
+          <Menu.Link href="#">Overzicht</Menu.Link>
+        </Menu.Item>
+      </Menu>,
+    )
+
+    expect(screen.getByRole('button', { name: 'Toon submenu van Projecten' })).toBeInTheDocument()
+  })
+
+  it('moves focus to the link of an item when a parent collapses the Menu with focus on its submenu toggle', () => {
+    const menu = (expanded: boolean) => (
+      <Menu collapsibleSubmenus expanded={expanded} inWideWindow>
+        <Menu.Item href="#" label="Projecten">
+          <Menu.Link href="#child">Overzicht</Menu.Link>
+        </Menu.Item>
+      </Menu>
+    )
+
+    const { rerender } = render(menu(true))
+
+    screen.getByRole('button', { name: 'Toon submenu van Projecten' }).focus()
+
+    rerender(menu(false))
+
+    expect(screen.getByRole('link', { name: 'Projecten' })).toHaveFocus()
+  })
 })
