@@ -1,0 +1,50 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+@use "animation";
+
+.ams-spinner {
+  align-items: baseline;
+  align-self: baseline; // Aligns the spinner with text in flex or grid context
+  display: inline-flex; // Reserves the line height around the ring
+  flex-wrap: nowrap;
+  font-size: var(--ams-spinner-font-size);
+  line-height: var(--ams-spinner-line-height);
+
+  &::before {
+    aspect-ratio: 1;
+    /* stylelint-disable-next-line plugin/use-baseline -- Progressive enhancement. */
+    block-size: round(1cap, 2px); // The ring is as tall as an uppercase letter and stands on the baseline.
+    border-block-end-color: var(--ams-spinner-track-border-color);
+    border-block-start-color: var(--ams-spinner-accent-border-color);
+    border-inline-end-color: var(--ams-spinner-track-border-color);
+    border-inline-start-color: var(--ams-spinner-track-border-color);
+    border-radius: 50%;
+    border-style: solid;
+    border-width: var(--ams-spinner-border-width);
+    box-sizing: border-box;
+    content: "";
+
+    @media (forced-colors: active) {
+      border-block-end-color: GrayText;
+      border-block-start-color: Highlight;
+      border-inline-end-color: GrayText;
+      border-inline-start-color: GrayText;
+    }
+  }
+
+  &::after {
+    content: "\00200B"; // This zero width space enables baseline alignment.
+  }
+}
+
+.ams-spinner--large {
+  font-size: var(--ams-spinner-large-font-size);
+  line-height: var(--ams-spinner-large-line-height);
+
+  &::before {
+    border-width: var(--ams-spinner-large-border-width);
+  }
+}
