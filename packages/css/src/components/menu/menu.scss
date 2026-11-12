@@ -33,26 +33,6 @@
   margin-inline-start: calc(var(--_ams-menu-padding-inline-start) * -1);
   padding-block: var(--ams-menu-padding-block);
 
-  // We subtract the menu link padding to align the items with surrounding content.
-  padding-inline-end: calc(var(--_ams-menu-padding-inline-end) - var(--ams-menu-link-padding-inline));
-  padding-inline-start: calc(var(--_ams-menu-padding-inline-start) - var(--ams-menu-link-padding-inline));
-
-  @media (min-width: $ams-breakpoint-medium) {
-    /* stylelint-disable csstools/value-no-unknown-custom-properties -- Declared in common/safe-area.scss. */
-    --_ams-menu-padding-inline-end: max(
-      var(--ams-grid-medium-padding-inline /* @deprecated */, var(--ams-grid-vi-medium-padding-inline)),
-      var(--ams-safe-area-inset-inline-end)
-    );
-    --_ams-menu-padding-inline-start: max(
-      var(--ams-grid-medium-padding-inline /* @deprecated */, var(--ams-grid-vi-medium-padding-inline)),
-      var(--ams-safe-area-inset-inline-start)
-    );
-    /* stylelint-enable csstools/value-no-unknown-custom-properties */
-
-    padding-inline-end: var(--_ams-menu-padding-inline-end);
-    padding-inline-start: var(--_ams-menu-padding-inline-start);
-  }
-
   @media (min-width: $ams-breakpoint-wide) {
     display: none;
     margin-inline: 0; // Override negative margin above.
@@ -64,7 +44,6 @@
         var(--ams-menu-vi-wide-padding-block-start) var(--ams-menu-vi-wide-padding-block-end)
       )
     );
-    padding-inline: var(--ams-menu-wide-padding-inline /* @deprecated */, var(--ams-menu-vi-wide-padding-inline));
   }
 }
 
@@ -92,7 +71,7 @@
 .ams-menu__link {
   align-items: flex-start;
   color: var(--ams-menu-link-color);
-  display: inline-flex; // Inline display prevents an excessive hit area next to the link text.
+  display: flex;
   gap: var(--ams-menu-link-gap);
   outline-offset: var(--ams-menu-link-outline-offset);
   padding-block: var(--ams-menu-link-padding-block);
@@ -108,6 +87,16 @@
     }
   }
 
+  &[aria-current="page"] {
+    background-color: var(--ams-menu-link-current-background-color);
+    box-shadow: var(--ams-menu-link-current-box-shadow);
+    color: var(--ams-menu-link-current-color);
+
+    @media (forced-colors: active) {
+      background-color: SelectedItem;
+    }
+  }
+
   .ams-menu__icon {
     align-self: initial;
   }
@@ -118,6 +107,10 @@
     flex-direction: column;
     gap: var(--ams-menu-link-wide-gap /* @deprecated */, var(--ams-menu-link-vi-wide-gap));
     text-align: center;
+
+    &[aria-current="page"] {
+      box-shadow: var(--ams-menu-link-wide-current-box-shadow);
+    }
 
     .ams-menu__icon {
       --ams-icon-font-size: var(--ams-icon-heading-2-font-size);

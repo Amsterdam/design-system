@@ -52,14 +52,6 @@
           "$extensions": {
             "nl.amsterdam.subtype": "space"
           }
-        },
-        "padding-inline": {
-          "$deprecated": "Use `ams.menu.vi-wide.padding-inline` instead. Will be removed on or after 2026-10-20.",
-          "$value": "{ams.menu.vi-wide.padding-inline}",
-          "$type": "dimension",
-          "$extensions": {
-            "nl.amsterdam.subtype": "space"
-          }
         }
       },
       "vi-wide": {
@@ -87,13 +79,6 @@
         },
         "padding-block-start": {
           "$value": "calc({ams.logo.block-size} + 2 * {ams.page-header.padding-block})",
-          "$extensions": {
-            "nl.amsterdam.subtype": "space",
-            "nl.amsterdam.type": "dimension"
-          }
-        },
-        "padding-inline": {
-          "$value": "{ams.space.s}",
           "$extensions": {
             "nl.amsterdam.subtype": "space",
             "nl.amsterdam.type": "dimension"
@@ -170,7 +155,63 @@
             }
           }
         },
+        "current": {
+          "background-color": {
+            "$value": "rgba(255, 255, 255, 12.5%)",
+            "$extensions": {
+              "nl.amsterdam.type": "color"
+            }
+          },
+          "box-shadow": {
+            "$type": "shadow",
+            "$value": {
+              "inset": true,
+              "offsetX": "{ams.border.width.xl}",
+              "offsetY": {
+                "value": 0,
+                "unit": "rem"
+              },
+              "blur": {
+                "value": 0,
+                "unit": "rem"
+              },
+              "spread": {
+                "value": 0,
+                "unit": "rem"
+              },
+              "color": "currentColor"
+            }
+          },
+          "color": {
+            "$value": "{ams.links.inverse.color}",
+            "$extensions": {
+              "nl.amsterdam.type": "color"
+            }
+          }
+        },
         "wide": {
+          "current": {
+            "box-shadow": {
+              "$type": "shadow",
+              "$value": {
+                "inset": true,
+                "offsetX": "{ams.border.width.negative.xl}",
+                "offsetY": {
+                  "value": 0,
+                  "unit": "rem"
+                },
+                "blur": {
+                  "value": 0,
+                  "unit": "rem"
+                },
+                "spread": {
+                  "value": 0,
+                  "unit": "rem"
+                },
+                "color": "currentColor"
+              }
+            }
+          },
           "gap": {
             "$deprecated": "Use `ams.menu.link.vi-wide.gap` instead. Will be removed on or after 2026-10-20.",
             "$value": "{ams.menu.link.vi-wide.gap}",

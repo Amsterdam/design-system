@@ -22,6 +22,7 @@ import { derivedArgType } from '#storybook/_common/argTypes'
 
 const menuItems = [
   {
+    current: true,
     href: '#',
     icon: <PieChartFillIcon />,
     text: 'Dashboard',
@@ -97,8 +98,8 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
-    children: menuItems.map(({ text, ...restProps }) => (
-      <Menu.Link {...restProps} key={text}>
+    children: menuItems.map(({ current, text, ...restProps }) => (
+      <Menu.Link {...restProps} aria-current={current ? 'page' : undefined} key={text}>
         {text}
       </Menu.Link>
     )),
