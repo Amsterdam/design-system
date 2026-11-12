@@ -21,81 +21,95 @@ import * as ColumnsStories from "./Columns.stories.tsx";
 
 ### When to use
 
-Use Columns for content made of many short parts, such as a long list: the topics in a mega menu or the facilities of a location.
-The content uses the width it has, and takes up less height.
+Use Columns for content with many short parts, such as the topics in a mega menu or the facilities of a location.
+It spreads the content over the width, so it takes up less height.
 
 ### When not to use
 
-To place separate blocks of content side by side, use the [Grid](/docs/components-layout-grid--docs).
+Use the [Grid](/docs/components-layout-grid--docs) to put separate blocks of content side by side.
 
 ### How to use
 
-Choose a `count` that the span of the Cell divides by, so the columns line up with the Grid.
-Check that each column stays wide enough for its content, especially in a Cell that spans only a few Grid columns.
+Make the columns line up with the Grid.
+In a Cell that spans 8 Grid columns, for example, use 2 or 4 columns, not 3.
 
-Keep one column in a narrow window, unless every part is a word or two, such as the names of the city districts.
-More columns leave each part little room there, so a longer part wraps over many lines.
+Make sure each column is wide enough for its content.
+This matters most in a narrow Cell.
+
+Use one column in a narrow window.
+Only use more if each part is a word or two, such as the names of the city districts.
+Otherwise the text wraps over many short lines.
 
 Keep the parts short.
 A long one can break across two columns.
 
-The content reads down the first column, then the next.
-Sort a list so it can be scanned that way, for example alphabetically.
+People read down the first column, then the next.
+Sort a list so it makes sense in that order, for example alphabetically.
 
-Small layout glitches in Safari, described under Features, are fine as long as the content stays easy to read.
+Safari shows some small layout errors, described under Features.
+These are fine as long as the content stays easy to read.
 
 ## Examples
 
 ### Responsive count
 
-In a Cell that spans the whole Grid, three columns line up with the Grid in a wide window.
+The number of columns can vary with the window width.
+Give `count` three values, for narrow, medium, and wide windows.
+These topics show one column in a narrow window, two in a medium one, and three in a wide one.
 
 <Canvas of={ColumnsStories.ResponsiveCount} />
 
 ### With Unordered List
 
-Columns makes the columns, so there is no need to split a long list with HTML.
-That would make its semantics incorrect.
+A long list stays one list, while Columns spreads it over the columns.
 
 <Canvas of={ColumnsStories.WithUnorderedList} />
 
 ### With Prose
 
-A few paragraphs could flow into columns as well.
-Keep it short.
-A longer text makes readers scroll back up to continue in the next column.
+A few paragraphs can go into columns too.
+Keep them short, or readers have to scroll back up to read the next column.
 
 <Canvas of={ColumnsStories.WithProse} />
 
 ## Features
 
-By default, Columns shows two columns from the medium breakpoint of the Grid, and one in a narrow window.
-A number for `count` sets one to four columns from the medium breakpoint, and keeps one column in a narrow window.
-An object sets the number for narrow, medium, and wide windows separately, including more than one column in a narrow window.
+By default, Columns shows two columns from the medium breakpoint of the Grid.
+A narrow window shows one column.
+
+A number for `count` changes the number of columns from the medium breakpoint.
+A narrow window still shows one column.
+An object for `count` sets the number for narrow, medium, and wide windows separately.
 
 The columns end at about the same height.
 
-Safari has two known issues with content in columns.
-Content laid out as a grid or with flexbox can have a line cut in half where a column ends.
-This includes a [Link List](/docs/components-navigation-link-list--docs), an [Ordered List](/docs/components-text-ordered-list--docs), an [Unordered List](/docs/components-text-unordered-list--docs) and a [Column](/docs/components-layout-column--docs).
-And the space between two parts can move to the top of the next column, so that column starts lower than the first.
-WebKit tracks them in its bugs about [grid](https://bugs.webkit.org/show_bug.cgi?id=233397), [flexbox](https://bugs.webkit.org/show_bug.cgi?id=78562), and [spacing](https://bugs.webkit.org/show_bug.cgi?id=242313).
+Safari has two known issues with content in columns:
+
+- **Cut lines:** a line can be cut in half where a column ends.
+  This happens in content that uses grid or flexbox, such as a [Link List](/docs/components-navigation-link-list--docs), an [Ordered List](/docs/components-text-ordered-list--docs), an [Unordered List](/docs/components-text-unordered-list--docs), or a [Column](/docs/components-layout-column--docs).
+- **Uneven columns:** the space between two parts can move to the top of the next column.
+  That column then starts lower than the first.
+
+WebKit tracks these in its bugs about [grid](https://bugs.webkit.org/show_bug.cgi?id=233397), [flexbox](https://bugs.webkit.org/show_bug.cgi?id=78562), and [spacing](https://bugs.webkit.org/show_bug.cgi?id=242313).
 
 ## Design
 
-The space between the columns is the same as between the columns of the Grid.
-Two columns line up with the Grid in every Cell that spans an even number of Grid columns, which is why two is the default.
+The space between the columns is the same as in the Grid.
+Two columns line up with the Grid in any Cell that spans an even number of Grid columns.
+That is why two is the default.
 
 ## Accessibility
 
 Columns renders a `div`, which adds nothing to the accessibility tree.
-It changes how its content is laid out, not the markup.
-A list inside stays one list, so its structure reaches assistive technology as [WCAG 1.3.1](https://www.w3.org/TR/WCAG22/#info-and-relationships) requires: a screen reader announces one list with all its items.
-Screen readers and the keyboard follow the markup, down the first column and then the next, which is also the order in which the content reads on screen.
+It changes the layout, not the markup.
+A list inside stays one list.
+A screen reader announces it once, with all its items, as [WCAG 1.3.1](https://www.w3.org/TR/WCAG22/#info-and-relationships) requires.
+Screen readers and the keyboard go down the first column, then the next.
+That is the same order in which the content reads on screen.
 
 In Safari, a link at the top of the second or a later column loses the top edge of its focus outline.
 This is a known issue.
-WebKit cuts off a shadow in the same way, and [tracks it as a bug](https://bugs.webkit.org/show_bug.cgi?id=14137).
+WebKit cuts off shadows in the same way, and [tracks it as a bug](https://bugs.webkit.org/show_bug.cgi?id=14137).
 
 ## See also
 

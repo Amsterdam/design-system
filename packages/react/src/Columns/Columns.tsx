@@ -15,8 +15,8 @@ export type ColumnsCounts = { narrow: ColumnsCount; medium: ColumnsCount; wide: 
 export type ColumnsProps = {
   /**
    * The number of columns.
-   * A number sets it from the medium breakpoint of the Grid up, and a narrow window keeps one column.
-   * An object sets it for narrow, medium, and wide windows separately, so a narrow window can show more than one.
+   * A number sets it from the medium breakpoint of the Grid, and a narrow window keeps one column.
+   * An object sets it for narrow, medium, and wide windows separately.
    * @default 2 from the medium breakpoint, 1 below it
    */
   readonly count?: ColumnsCount | ColumnsCounts
