@@ -7338,13 +7338,40 @@
             "{@link https://designsystem.amsterdam/?path=/docs/components-layout-columns--docs Columns docs at Amsterdam Design System}"
           ]
         },
-        "props": {}
+        "props": {
+          "count": {
+            "name": "count",
+            "required": false,
+            "type": {
+              "name": "3 | 1 | 2 | 4 | ColumnsCounts | undefined"
+            },
+            "description": "The number of columns.\nA number sets it from the medium breakpoint of the Grid, and a narrow window keeps one column.\nAn object sets it for narrow, medium, and wide windows separately.",
+            "defaultValue": {
+              "value": "2 from the medium breakpoint, 1 below it"
+            },
+            "parent": {
+              "name": "ColumnsProps",
+              "fileName": "../packages/react/src/Columns/Columns.tsx"
+            },
+            "declarations": [
+              {
+                "name": "TypeLiteral",
+                "fileName": "../packages/react/src/Columns/Columns.tsx"
+              }
+            ]
+          }
+        }
       },
       "stories": [
         {
           "id": "components-layout-columns--default",
           "name": "Default",
           "snippet": "const Default = () => <Columns>(<LinkList>\n      {topics.map((topic) => (\n        <LinkList.Link href=\"#\" key={topic}>\n          {topic}\n        </LinkList.Link>\n      ))}\n    </LinkList>)</Columns>;"
+        },
+        {
+          "id": "components-layout-columns--responsive-count",
+          "name": "Responsive Count",
+          "snippet": "const ResponsiveCount = () => <Columns count={{ narrow: 1, medium: 2, wide: 3 }}>(<LinkList>\n      {topics.map((topic) => (\n        <LinkList.Link href=\"#\" key={topic}>\n          {topic}\n        </LinkList.Link>\n      ))}\n    </LinkList>)</Columns>;"
         },
         {
           "id": "components-layout-columns--with-unordered-list",
@@ -7354,7 +7381,7 @@
         {
           "id": "components-layout-columns--with-prose",
           "name": "With Prose",
-          "snippet": "const WithProse = () => <Columns>(<div className=\"ams-prose\">\n      {paragraphs.map((paragraph, index) => (\n        <Paragraph key={index}>{paragraph}</Paragraph>\n      ))}\n    </div>)</Columns>;",
+          "snippet": "const WithProse = () => <Columns className=\"ams-prose\">{paragraphs.map((paragraph, index) => <Paragraph key={index}>{paragraph}</Paragraph>)}</Columns>;",
           "warning": "Incomplete snippet: `paragraphs` could not be resolved statically."
         }
       ],
@@ -7365,8 +7392,8 @@
           "name": "Docs",
           "path": "./src/components/Columns/Columns.docs.mdx",
           "title": "Components/Layout/Columns",
-          "content": "{/* @license CC0-1.0 */}\n\nimport { Canvas, Description, Meta, Primary, Title } from \"@storybook/addon-docs/blocks\";\n\nimport { DesignTokensTable } from \"#storybook/_components/DesignTokensTable/DesignTokensTable\";\nimport tokens from \"#tokens/components/ams/columns.tokens.json\";\n\nimport * as ColumnsStories from \"./Columns.stories.tsx\";\n\n<Meta of={ColumnsStories} />\n\n<Title />\n\n<Description of={ColumnsStories} />\n\n<Primary />\n\nThis component has no props to configure.\n\n## Usage guidelines\n\n### When to use\n\nUse Columns for content made of many short parts, such as a long list: the topics in a mega menu or the facilities of a location.\nThe content uses the width it has, and takes up less height.\n\n### When not to use\n\nTo place separate blocks of content side by side, use the [Grid](/docs/components-layout-grid--docs).\n\n### How to use\n\nKeep the parts short.\nA long one can break across two columns.\n\nThe content reads down the first column, then the next.\nSort a list so it can be scanned that way, for example alphabetically.\n\nSmall layout glitches in Safari, described under Features, are fine as long as the content stays easy to read.\n\n## Examples\n\n### With Unordered List\n\nColumns makes the columns, so there is no need to split a long list with HTML.\nThat would make its semantics incorrect.\n\n<Canvas of={ColumnsStories.WithUnorderedList} />\n\n### With Prose\n\nA few paragraphs could flow into columns as well.\nKeep it short.\nA longer text makes readers scroll back up to continue in the next column.\n\n<Canvas of={ColumnsStories.WithProse} />\n\n## Features\n\nColumns shows at most one column in a narrow window, two in a medium one and three in a wide one.\nIt uses the breakpoints of the Grid.\nEach column is at least `14rem` wide, so a Cell that is too narrow for that many columns shows fewer.\n\nThe columns end at about the same height.\n\nSafari has two known issues with content in columns.\nContent laid out as a grid or with flexbox can have a line cut in half where a column ends.\nThis includes a [Link List](/docs/components-navigation-link-list--docs), an [Ordered List](/docs/components-text-ordered-list--docs), an [Unordered List](/docs/components-text-unordered-list--docs) and a [Column](/docs/components-layout-column--docs).\nAnd the space between two parts can move to the top of the next column, so that column starts lower than the first.\n\n## Design\n\nThe space between the columns is the same as between the columns of the Grid.\nIn a Cell that spans the whole Grid, the columns line up with the columns of the Grid.\nEach takes four, because the Grid has four, eight and twelve columns.\n\n## Accessibility\n\nColumns renders a `div`, which adds nothing to the accessibility tree.\nIt changes how its content is laid out, not the markup.\nA list inside stays one list, so its structure reaches assistive technology as [WCAG 1.3.1](https://www.w3.org/TR/WCAG22/#info-and-relationships) requires: a screen reader announces one list with all its items.\nScreen readers and the keyboard follow the markup, down the first column and then the next, which is also the order in which the content reads on screen.\n\nIn Safari, a link at the top of the second or a later column loses the top edge of its focus outline.\nThis is a known issue.\n\n## See also\n\n- [Grid](/docs/components-layout-grid--docs) – places separate blocks of content side by side.\n- [Link List](/docs/components-navigation-link-list--docs) – a list of links, such as the topics in a mega menu.\n- [Unordered List](/docs/components-text-unordered-list--docs) – a list of items in no particular order.\n\n## Design tokens\n\n<DesignTokensTable tokens={tokens} />\n",
-          "summary": "This component has no props to configure. ## Usage guidelines ### When to use Use Columns ..."
+          "content": "{/* @license CC0-1.0 */}\n\nimport { Canvas, Controls, Description, Meta, Primary, Title } from \"@storybook/addon-docs/blocks\";\n\nimport { DesignTokensTable } from \"#storybook/_components/DesignTokensTable/DesignTokensTable\";\nimport tokens from \"#tokens/components/ams/columns.tokens.json\";\n\nimport * as ColumnsStories from \"./Columns.stories.tsx\";\n\n<Meta of={ColumnsStories} />\n\n<Title />\n\n<Description of={ColumnsStories} />\n\n<Primary />\n\n<Controls />\n\n## Usage guidelines\n\n### When to use\n\nUse Columns for content with many short parts, such as the topics in a mega menu or the facilities of a location.\nIt spreads the content over the width, so it takes up less height.\n\n### When not to use\n\nUse the [Grid](/docs/components-layout-grid--docs) to put separate blocks of content side by side.\n\n### How to use\n\nMake the columns line up with the Grid.\nIn a Cell that spans 8 Grid columns, for example, use 2 or 4 columns, not 3.\n\nMake sure each column is wide enough for its content.\nThis matters most in a narrow Cell.\n\nUse one column in a narrow window.\nOnly use more if each part is a word or two, such as the names of the city districts.\nOtherwise the text wraps over many short lines.\n\nKeep the parts short.\nA long one can break across two columns.\n\nPeople read down the first column, then the next.\nSort a list so it makes sense in that order, for example alphabetically.\n\nSafari shows some small layout errors, described under Features.\nThese are fine as long as the content stays easy to read.\n\n## Examples\n\n### Responsive count\n\nThe number of columns can vary with the window width.\nGive `count` three values, for narrow, medium, and wide windows.\nThese topics show one column in a narrow window, two in a medium one, and three in a wide one.\n\n<Canvas of={ColumnsStories.ResponsiveCount} />\n\n### With Unordered List\n\nA long list stays one list, while Columns spreads it over the columns.\n\n<Canvas of={ColumnsStories.WithUnorderedList} />\n\n### With Prose\n\nA few paragraphs can go into columns too.\nKeep them short, or readers have to scroll back up to read the next column.\n\n<Canvas of={ColumnsStories.WithProse} />\n\n## Features\n\nBy default, Columns shows two columns from the medium breakpoint of the Grid.\nA narrow window shows one column.\n\nA number for `count` changes the number of columns from the medium breakpoint.\nA narrow window still shows one column.\nAn object for `count` sets the number for narrow, medium, and wide windows separately.\n\nThe columns end at about the same height.\n\nSafari has two known issues with content in columns:\n\n- **Cut lines:** a line can be cut in half where a column ends.\n  This happens in content that uses grid or flexbox, such as a [Link List](/docs/components-navigation-link-list--docs), an [Ordered List](/docs/components-text-ordered-list--docs), an [Unordered List](/docs/components-text-unordered-list--docs), or a [Column](/docs/components-layout-column--docs).\n- **Uneven columns:** the space between two parts can move to the top of the next column.\n  That column then starts lower than the first.\n\nWebKit tracks these in its bugs about [grid](https://bugs.webkit.org/show_bug.cgi?id=233397), [flexbox](https://bugs.webkit.org/show_bug.cgi?id=78562), and [spacing](https://bugs.webkit.org/show_bug.cgi?id=242313).\n\n## Design\n\nThe space between the columns is the same as in the Grid.\nTwo columns line up with the Grid in any Cell that spans an even number of Grid columns.\nThat is why two is the default.\n\n## Accessibility\n\nColumns renders a `div`, which adds nothing to the accessibility tree.\nIt changes the layout, not the markup.\nA list inside stays one list.\nA screen reader announces it once, with all its items, as [WCAG 1.3.1](https://www.w3.org/TR/WCAG22/#info-and-relationships) requires.\nScreen readers and the keyboard go down the first column, then the next.\nThat is the same order in which the content reads on screen.\n\nIn Safari, a link at the top of the second or a later column loses the top edge of its focus outline.\nThis is a known issue.\nWebKit cuts off shadows in the same way, and [tracks it as a bug](https://bugs.webkit.org/show_bug.cgi?id=14137).\n\n## See also\n\n- [Grid](/docs/components-layout-grid--docs) – places separate blocks of content side by side.\n- [Link List](/docs/components-navigation-link-list--docs) – a list of links, such as the topics in a mega menu.\n- [Unordered List](/docs/components-text-unordered-list--docs) – a list of items in no particular order.\n\n## Design tokens\n\n<DesignTokensTable tokens={tokens} />\n",
+          "summary": "## Usage guidelines ### When to use Use Columns for content with many short parts, such as..."
         }
       }
     },
@@ -13142,6 +13169,6 @@
   },
   "meta": {
     "docgen": "react-component-meta",
-    "durationMs": 3253
+    "durationMs": 5416
   }
 }
