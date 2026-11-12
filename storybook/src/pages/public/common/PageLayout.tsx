@@ -79,7 +79,7 @@ export const PageLayout = ({
           <Heading className="ams-mb-s" level={2}>
             Alle onderwerpen
           </Heading>
-          <Columns>
+          <Columns count={{ narrow: 1, medium: 2, wide: 3 }}>
             <LinkList>
               {topics.map((topic) => (
                 <LinkList.Link href="#" key={topic}>
