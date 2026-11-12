@@ -43,7 +43,7 @@ Ask one thing per page, and write each question as the label or legend rather th
 
 ## Variants
 
-### Landing Page
+### Landing page
 
 Most form flows start with a landing page that explains the process and provides a call to action to start the form flow.
 
@@ -51,7 +51,7 @@ Most form flows start with a landing page that explains the process and provides
 {/*
 TODO: Decide what we want to do here first.
 
-### First Form Page
+### First form page
 
 The first form page is the same as other form pages, with one exception: it does not have a back link.
 A back link helps users feel secure that their progress is preserved while moving between form pages.
@@ -60,7 +60,7 @@ Additionally, users might reach the first form page from a source other than the
 
 \*/}
 
-### Single Question
+### Single question
 
 On a form page with one question, the label or legend for the question is the level 1 heading of the page.
 For labels, wrap the `h1` around it.
@@ -68,18 +68,18 @@ For legends, wrap it around the `h1`.
 
 For more information, see [Making labels and legends headings](https://design-system.service.gov.uk/get-started/labels-legends-headings/).
 
-### Single Question With Subquestions
+### Single question with subquestions
 
 A single question can have subquestions. Wrap the Fields in a Field Set, and use the Field Set’s legend as the level 1 heading of the page.
 
-### With Multiple Questions
+### With multiple questions
 
 When a form page has multiple questions, place an `h1` outside the `form`-tag,
 which describes the group of questions.
 
 For more information, see [Question pages - Asking complex questions without using hint text](https://design-system.service.gov.uk/patterns/question-pages/#asking-complex-questions-without-using-hint-text)
 
-### With Validation Error
+### With validation error
 
 If the user’s answers fail validation:
 
@@ -97,6 +97,27 @@ For more information:
 
 - [Recover from validation errors](https://design-system.service.gov.uk/patterns/validation/)
 - [Error summary](https://design-system.service.gov.uk/components/error-summary/)
+
+### Check answers
+
+Let users review their answers before submitting the form.
+The [Check Answers example](/story/pages-public-form-flow--check-answers) summarises the Stadsloket appointment described on the landing page in one [Data List](/docs/components-containers-data-list--docs).
+Give each item one Standalone Link that returns to the matching question with the answers preserved.
+Include the key as visually hidden text so each ‘Wijzigen’ link has a unique accessible name.
+End the form with a submit Button.
+
+The links in these examples have placeholder destinations, and the submit handler prevents navigation.
+Connect them to the questions and submission in your own form flow.
+
+### Check answers with groups
+
+Use a level 2 Heading and a separate Data List for each person or other group of answers.
+The [Check Answers With Groups example](/story/pages-public-form-flow--check-answers-with-groups) shows two fictional people.
+Include both the key and the group name in each item action’s accessible name.
+
+An action on the whole group that happens on the current page uses a secondary Button with an icon.
+Give it `type="button"` so it does not submit the form, and include the group name as visually hidden text.
+The ‘Verwijderen’ buttons illustrate this pattern; they do not remove people in this example.
 
 ### With a progress indicator
 
@@ -133,6 +154,7 @@ An [Invalid Form Alert](/docs/components-forms-invalid-form-alert--docs) takes f
 
 ## See also
 
+- [Data List](/docs/components-containers-data-list--docs) – presents the answers and their actions on the check answers page.
 - [Product Page](/docs/pages-public-product-page--docs) – explains the task this flow carries out.
 - [Invalid Form Alert](/docs/components-forms-invalid-form-alert--docs) – the summary at the top of a failed page.
 - [Field](/docs/components-forms-field--docs) – how to mark a single question invalid.
