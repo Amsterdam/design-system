@@ -67,6 +67,7 @@ Safari has two known issues with content in columns.
 Content laid out as a grid or with flexbox can have a line cut in half where a column ends.
 This includes a [Link List](/docs/components-navigation-link-list--docs), an [Ordered List](/docs/components-text-ordered-list--docs), an [Unordered List](/docs/components-text-unordered-list--docs) and a [Column](/docs/components-layout-column--docs).
 And the space between two parts can move to the top of the next column, so that column starts lower than the first.
+WebKit tracks them in its bugs about [grid](https://bugs.webkit.org/show_bug.cgi?id=233397), [flexbox](https://bugs.webkit.org/show_bug.cgi?id=78562), and [spacing](https://bugs.webkit.org/show_bug.cgi?id=242313).
 
 ## Design
 
@@ -83,6 +84,7 @@ Screen readers and the keyboard follow the markup, down the first column and the
 
 In Safari, a link at the top of the second or a later column loses the top edge of its focus outline.
 This is a known issue.
+WebKit cuts off a shadow in the same way, and [tracks it as a bug](https://bugs.webkit.org/show_bug.cgi?id=14137).
 
 ## See also
 
