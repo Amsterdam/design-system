@@ -98,6 +98,27 @@ For more information:
 - [Recover from validation errors](https://design-system.service.gov.uk/patterns/validation/)
 - [Error summary](https://design-system.service.gov.uk/components/error-summary/)
 
+### Check answers
+
+Let users review their answers before submitting the form.
+The [Check Answers example](/story/pages-public-form-flow--check-answers) summarises the Stadsloket appointment described on the landing page in one [Data List](/docs/components-containers-data-list--docs).
+Give each item one Standalone Link that returns to the matching question with the answers preserved.
+Include the key as visually hidden text so each ‘Wijzigen’ link has a unique accessible name.
+End the form with a submit Button.
+
+The links in these examples have placeholder destinations, and the submit handler prevents navigation.
+Connect them to the questions and submission in your own form flow.
+
+### Check answers with groups
+
+Use a level 2 Heading and a separate Data List for each person or other group of answers.
+The [Check Answers With Groups example](/story/pages-public-form-flow--check-answers-with-groups) shows two fictional people.
+Include both the key and the group name in each item action’s accessible name.
+
+An action on the whole group that happens on the current page uses a secondary Button with an icon.
+Give it `type="button"` so it does not submit the form, and include the group name as visually hidden text.
+The ‘Verwijderen’ buttons illustrate this pattern; they do not remove people in this example.
+
 ### With a progress indicator
 
 Form pages usually don’t have their own step counter for good reasons:
@@ -133,6 +154,7 @@ An [Invalid Form Alert](/docs/components-forms-invalid-form-alert--docs) takes f
 
 ## See also
 
+- [Data List](/docs/components-containers-data-list--docs) – presents the answers and their actions on the check answers page.
 - [Product Page](/docs/pages-public-product-page--docs) – explains the task this flow carries out.
 - [Invalid Form Alert](/docs/components-forms-invalid-form-alert--docs) – the summary at the top of a failed page.
 - [Field](/docs/components-forms-field--docs) – how to mark a single question invalid.
