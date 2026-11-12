@@ -7,7 +7,7 @@ import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 import { describe, expect, it } from 'vitest'
 
-import { Columns } from './Columns'
+import { Columns, columnsCounts } from './Columns'
 
 describe('Columns', () => {
   it('renders', () => {
@@ -59,6 +59,33 @@ describe('Columns', () => {
 
     expect(list.parentElement).toHaveClass('ams-columns')
     expect(screen.getAllByRole('listitem')).toHaveLength(2)
+  })
+
+  it('renders no count class by default', () => {
+    const { container } = render(<Columns />)
+
+    const component = container.querySelector(':only-child')
+
+    expect(component?.className).toBe('ams-columns')
+  })
+
+  columnsCounts.forEach((count) => {
+    it(`renders the class for ${count} columns from the medium breakpoint`, () => {
+      const { container } = render(<Columns count={count} />)
+
+      const component = container.querySelector(':only-child')
+
+      expect(component).toHaveClass(`ams-columns--count-${count}-medium`)
+      expect(component).not.toHaveClass(`ams-columns--count-${count}`)
+    })
+  })
+
+  it('renders a class per breakpoint for an object', () => {
+    const { container } = render(<Columns count={{ narrow: 1, medium: 2, wide: 3 }} />)
+
+    const component = container.querySelector(':only-child')
+
+    expect(component).toHaveClass('ams-columns--count-1 ams-columns--count-2-medium ams-columns--count-3-wide')
   })
 
   it('passes additional props', () => {

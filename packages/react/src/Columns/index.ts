@@ -4,4 +4,4 @@
  */
 
 export { Columns } from './Columns'
-export type { ColumnsProps } from './Columns'
+export type { ColumnsCount, ColumnsCounts, ColumnsProps } from './Columns'
