@@ -3,26 +3,66 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { MenuProps } from '@amsterdam/design-system-react'
 import type { Meta } from '@storybook/react-vite'
 
+import { MenuWithItems } from './MenuWithItems'
 import { PageLayout } from './PageLayout'
 
+type MenuPlacementProps = {
+  readonly collapsibleSubmenus?: boolean
+  readonly defaultExpanded?: boolean
+  readonly expandable?: boolean
+  readonly expanded?: boolean
+  readonly expandForCurrentSubmenu?: boolean
+  readonly navigationDepth?: 1 | 2
+}
+
 type InternalPageParameters = {
-  readonly menuWithSubmenus?: boolean
-  readonly wideMenuProps?: MenuProps
+  readonly currentPageId?: string
+  readonly currentSectionId?: string
+  readonly navigation?: {
+    readonly headerMenu?: MenuPlacementProps
+    readonly wideMenu?: MenuPlacementProps
+  }
 } & Meta['parameters']
 
 export const commonMeta = {
   decorators: [
     // Every internal template renders inside the same Page Layout, so each story supplies the page body only.
-    // A story can pass `wideMenuProps` as a parameter for the Menu beside the page,
-    // and `menuWithSubmenus` to give both Menus a second level of navigation.
+    // A template names its place in the Menu through the parameter `currentPageId`,
+    // or through `currentSectionId` when the Menu has no link to the page itself.
     (Story, context) => {
-      const { menuWithSubmenus, wideMenuProps } = context.parameters as InternalPageParameters
+      const { currentPageId, currentSectionId, navigation } = context.parameters as InternalPageParameters
+
+      const withCurrentLocation = (
+        menuProps: MenuPlacementProps | undefined,
+        placementProps?: { className: string; inWideWindow: true },
+      ) => {
+        if (menuProps === undefined) {
+          return undefined
+        }
+
+        return (
+          <MenuWithItems
+            currentPageId={currentPageId}
+            currentSectionId={currentSectionId}
+            {...menuProps}
+            {...placementProps}
+          />
+        )
+      }
 
       return (
-        <PageLayout menuWithSubmenus={menuWithSubmenus} wideMenuProps={wideMenuProps}>
+        <PageLayout
+          currentPageId={currentPageId}
+          currentSectionId={currentSectionId}
+          headerNavigation={withCurrentLocation(navigation?.headerMenu)}
+          // The Menu beside the page needs its area class to land in the menu column of the Page.
+          wideNavigation={withCurrentLocation(navigation?.wideMenu, {
+            className: 'ams-page__area--menu',
+            inWideWindow: true,
+          })}
+        >
           <Story />
         </PageLayout>
       )
