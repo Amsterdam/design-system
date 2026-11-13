@@ -250,20 +250,27 @@ export const WithANestedFieldSet: Story = {
   args: {
     legend: 'Contact',
   },
-  render: (args) => (
+  render: ({ invalid, ...args }) => (
     <FieldSet {...args}>
       <Field>
         <Label htmlFor="input-i1" inFieldSet>
           Waarover wilt u contact opnemen?
         </Label>
-        <TextArea cols={42} id="input-i1" invalid={args.invalid} />
+        <TextArea cols={42} id="input-i1" />
       </Field>
-      <FieldSet id="fieldset-i2" inFieldSet invalid={args.invalid} legend="Hoe wilt u benaderd worden?">
+      <FieldSet
+        aria-labelledby={invalid ? 'fieldset-i2 error-i2' : undefined}
+        id="fieldset-i2"
+        inFieldSet
+        invalid={invalid}
+        legend="Hoe wilt u benaderd worden?"
+      >
+        {invalid && <ErrorMessage id="error-i2">Geef aan hoe u benaderd wilt worden.</ErrorMessage>}
         <Column gap="x-small">
-          <Checkbox invalid={args.invalid} name="preferred-contact" value="tel">
+          <Checkbox invalid={invalid} name="preferred-contact" value="tel">
             Telefoon
           </Checkbox>
-          <Checkbox invalid={args.invalid} name="preferred-contact" value="email">
+          <Checkbox invalid={invalid} name="preferred-contact" value="email">
             E-mail
           </Checkbox>
         </Column>
