@@ -10188,8 +10188,7 @@
         {
           "id": "components-navigation-menu--default",
           "name": "Default",
-          "snippet": "const Default = () => <Menu inWideWindow={false}>{menuItems.map(({ current, text, ...restProps }) => (\n      <Menu.Link {...restProps} aria-current={current ? 'page' : undefined} key={text}>\n        {text}\n      </Menu.Link>\n    ))}</Menu>;",
-          "warning": "Incomplete snippet: `menuItems` could not be resolved statically."
+          "snippet": "const Default = () => {\n    const [current, setCurrent] = useState(menuItems[0].text)\n\n    return (\n        <Menu inWideWindow={false}>\n            {menuItems.map(({ text, ...restProps }) => (\n              <Menu.Link\n                {...restProps}\n                aria-current={current === text ? 'page' : undefined}\n                key={text}\n                onClick={(event) => {\n                  event.preventDefault()\n                  setCurrent(text)\n                }}\n              >\n                {text}\n              </Menu.Link>\n            ))}\n        </Menu>\n    );\n};"
         }
       ],
       "import": "import {\n  BarChartFillIcon,\n  DocumentsFillIcon,\n  FolderFillIcon,\n  PieChartFillIcon,\n  SettingsFillIcon,\n} from '@amsterdam/design-system-react-icons';\nimport { Menu } from '@amsterdam/design-system-react/src';",
@@ -13090,6 +13089,6 @@
   },
   "meta": {
     "docgen": "react-component-meta",
-    "durationMs": 5029
+    "durationMs": 3790
   }
 }

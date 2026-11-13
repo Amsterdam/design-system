@@ -620,13 +620,13 @@
 <header>
   <div class="wrap">
     <h1>Manifest Debugger</h1>
-    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">15/93 API errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">15/93 infos</a><a class="filter-pill" data-k="no-api" href="#filter-no-api">18/93 without API description</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">1/327 story errors</a><a class="filter-pill info" data-k="story-warnings" href="#filter-story-warnings">44/327 incomplete snippets</a><a class="filter-pill ok" data-k="docs" href="#filter-docs">130 docs ok</a></div>
+    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">15/93 API errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">15/93 infos</a><a class="filter-pill" data-k="no-api" href="#filter-no-api">18/93 without API description</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">1/327 story errors</a><a class="filter-pill info" data-k="story-warnings" href="#filter-story-warnings">43/327 incomplete snippets</a><a class="filter-pill ok" data-k="docs" href="#filter-docs">130 docs ok</a></div>
   </div>
 </header>
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>5.0s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>3.8s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -20454,7 +20454,7 @@ The component cannot make up for that on its own, so what the highlight conveys 
   no-error
   no-info
   no-story-error
-  has-story-warning
+  no-story-warning
   
   no-doc-error"
   role="listitem"
@@ -20465,7 +20465,7 @@ The component cannot make up for that on its own, so what the highlight conveys 
       <div class="badges">
         <label for="c-53-components-navigation-menu-props" class="badge ok as-toggle">2 prop types</label>
         
-        <label for="c-53-components-navigation-menu-stories" class="badge ok as-toggle">1 story · 1 incomplete</label>
+        <label for="c-53-components-navigation-menu-stories" class="badge ok as-toggle">1 story</label>
         <label for="c-53-components-navigation-menu-docs" class="badge ok as-toggle">1 doc</label>
         <label for="c-53-components-navigation-menu-subcomponents" class="badge ok as-toggle">1 subcomponent</label>
       </div>
@@ -20531,16 +20531,32 @@ import { Menu } from '@amsterdam/design-system-react/src';</code></pre>
             <div class="note ok">
               <div class="row">
                 <span class="ex-name">Default</span>
-                <span class="badge info">incomplete example</span>
+                <span class="badge ok">story ok</span>
               </div>
               
               
-              <pre><code>const Default = () =&gt; &lt;Menu inWideWindow={false}&gt;{menuItems.map(({ current, text, ...restProps }) =&gt; (
-      &lt;Menu.Link {...restProps} aria-current={current ? &#39;page&#39; : undefined} key={text}&gt;
-        {text}
-      &lt;/Menu.Link&gt;
-    ))}&lt;/Menu&gt;;</code></pre>
-              <div class="snippet-warning">Incomplete snippet: `menuItems` could not be resolved statically.</div>
+              <pre><code>const Default = () =&gt; {
+    const [current, setCurrent] = useState(menuItems[0].text)
+
+    return (
+        &lt;Menu inWideWindow={false}&gt;
+            {menuItems.map(({ text, ...restProps }) =&gt; (
+              &lt;Menu.Link
+                {...restProps}
+                aria-current={current === text ? &#39;page&#39; : undefined}
+                key={text}
+                onClick={(event) =&gt; {
+                  event.preventDefault()
+                  setCurrent(text)
+                }}
+              &gt;
+                {text}
+              &lt;/Menu.Link&gt;
+            ))}
+        &lt;/Menu&gt;
+    );
+};</code></pre>
+              
             </div>
         </div>
     
