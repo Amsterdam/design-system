@@ -4497,7 +4497,7 @@
         {
           "id": "components-forms-field--in-a-field-set-with-validation",
           "name": "In A Field Set With Validation",
-          "snippet": "const InAFieldSetWithValidation = () => <FieldSet legend=\"Wat is uw naam?\">\n    <Field invalid>\n        <Label htmlFor=\"input-b1\" inFieldSet>Voornaam\n                    </Label>\n        <TextInput aria-required=\"true\" id=\"input-b1\" value={givenName} />\n    </Field>\n    <Field invalid={invalid}>\n        <Label htmlFor=\"input-b2\" inFieldSet>Achternaam\n                    </Label>\n        {invalid && <ErrorMessage id=\"error-b2\">Vul uw achternaam in.</ErrorMessage>}\n        <TextInput\n            aria-describedby={invalid ? 'error-b2' : undefined}\n            aria-required=\"true\"\n            id=\"input-b2\"\n            invalid={invalid}\n            value=\"\" />\n    </Field>\n</FieldSet>;"
+          "snippet": "const InAFieldSetWithValidation = () => <FieldSet legend=\"Wat is uw naam?\">\n    <Field invalid>\n        <Label htmlFor=\"input-b1\" inFieldSet>Voornaam\n                    </Label>\n        <TextInput aria-required=\"true\" defaultValue={givenName} id=\"input-b1\" />\n    </Field>\n    <Field invalid={invalid}>\n        <Label htmlFor=\"input-b2\" inFieldSet>Achternaam\n                    </Label>\n        {invalid && <ErrorMessage id=\"error-b2\">Vul uw achternaam in.</ErrorMessage>}\n        <TextInput\n            aria-describedby={invalid ? 'error-b2' : undefined}\n            aria-required=\"true\"\n            id=\"input-b2\"\n            invalid={invalid} />\n    </Field>\n</FieldSet>;"
         }
       ],
       "import": "import { ErrorMessage, FieldSet, Label, Paragraph, TextInput } from '@amsterdam/design-system-react';\nimport { Field } from '@amsterdam/design-system-react/src';",
@@ -13100,6 +13100,6 @@
   },
   "meta": {
     "docgen": "react-component-meta",
-    "durationMs": 5466
+    "durationMs": 3618
   }
 }

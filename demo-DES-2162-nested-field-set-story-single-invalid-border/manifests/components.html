@@ -626,7 +626,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>5.5s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>3.6s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -9591,7 +9591,7 @@ import { Field } from '@amsterdam/design-system-react/src';</code></pre>
     &lt;Field invalid&gt;
         &lt;Label htmlFor=&quot;input-b1&quot; inFieldSet&gt;Voornaam
                     &lt;/Label&gt;
-        &lt;TextInput aria-required=&quot;true&quot; id=&quot;input-b1&quot; value={givenName} /&gt;
+        &lt;TextInput aria-required=&quot;true&quot; defaultValue={givenName} id=&quot;input-b1&quot; /&gt;
     &lt;/Field&gt;
     &lt;Field invalid={invalid}&gt;
         &lt;Label htmlFor=&quot;input-b2&quot; inFieldSet&gt;Achternaam
@@ -9601,8 +9601,7 @@ import { Field } from '@amsterdam/design-system-react/src';</code></pre>
             aria-describedby={invalid ? &#39;error-b2&#39; : undefined}
             aria-required=&quot;true&quot;
             id=&quot;input-b2&quot;
-            invalid={invalid}
-            value=&quot;&quot; /&gt;
+            invalid={invalid} /&gt;
     &lt;/Field&gt;
 &lt;/FieldSet&gt;;</code></pre>
               
