@@ -281,3 +281,40 @@ export const InAFieldSet: Story = {
     </FieldSet>
   ),
 }
+
+export const InAFieldSetWithValidation: Story = {
+  args: {
+    invalid: true,
+    legend: 'Uw evenement',
+  },
+  render: ({ invalid, ...args }) => (
+    <FieldSet {...args}>
+      <Field>
+        <Label htmlFor="input-j1" inFieldSet>
+          Wat gaat u organiseren?
+        </Label>
+        <TextArea cols={42} defaultValue="Een buurtfeest met muziek en een rommelmarkt." id="input-j1" />
+      </Field>
+      <FieldSet
+        aria-labelledby={invalid ? 'fieldset-j2 error-j2' : undefined}
+        id="fieldset-j2"
+        inFieldSet
+        invalid={invalid}
+        legend="Waar vindt het plaats?"
+      >
+        {invalid && <ErrorMessage id="error-j2">Geef aan waar uw evenement plaatsvindt.</ErrorMessage>}
+        <Column gap="x-small">
+          <Checkbox invalid={invalid} name="location-j" value="straat">
+            Op straat
+          </Checkbox>
+          <Checkbox invalid={invalid} name="location-j" value="park">
+            In een park
+          </Checkbox>
+          <Checkbox invalid={invalid} name="location-j" value="water">
+            Op het water
+          </Checkbox>
+        </Column>
+      </FieldSet>
+    </FieldSet>
+  ),
+}
