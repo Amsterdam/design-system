@@ -94,7 +94,7 @@
         },
         "padding-inline": {
           "$deprecated": "Padding moved to link. Use `ams.menu.link.vi-wide.padding-inline` instead. Will be removed on or after 2027-04-25.",
-          "$value": "{ams.space.s}",
+          "$value": "0",
           "$extensions": {
             "nl.amsterdam.subtype": "space",
             "nl.amsterdam.type": "dimension"

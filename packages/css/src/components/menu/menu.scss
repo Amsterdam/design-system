@@ -32,6 +32,7 @@
         var(--ams-menu-vi-wide-padding-block-start) var(--ams-menu-vi-wide-padding-block-end)
       )
     );
+    padding-inline: var(--ams-menu-wide-padding-inline /* @deprecated */, var(--ams-menu-vi-wide-padding-inline));
   }
 }
 
