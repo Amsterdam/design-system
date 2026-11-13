@@ -620,13 +620,13 @@
 <header>
   <div class="wrap">
     <h1>Manifest Debugger</h1>
-    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">15/94 API errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">15/94 infos</a><a class="filter-pill" data-k="no-api" href="#filter-no-api">18/94 without API description</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">1/331 story errors</a><a class="filter-pill info" data-k="story-warnings" href="#filter-story-warnings">45/331 incomplete snippets</a><a class="filter-pill ok" data-k="docs" href="#filter-docs">131 docs ok</a></div>
+    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">15/94 API errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">15/94 infos</a><a class="filter-pill" data-k="no-api" href="#filter-no-api">18/94 without API description</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">1/332 story errors</a><a class="filter-pill info" data-k="story-warnings" href="#filter-story-warnings">45/332 incomplete snippets</a><a class="filter-pill ok" data-k="docs" href="#filter-docs">131 docs ok</a></div>
   </div>
 </header>
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>5.4s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>5.5s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -26220,7 +26220,7 @@ linkComponent?: ElementType | undefined</code></pre>
       <div class="badges">
         <label for="c-64-components-containers-page-header-props" class="badge ok as-toggle">17 prop types</label>
         
-        <label for="c-64-components-containers-page-header-stories" class="badge ok as-toggle">8 stories</label>
+        <label for="c-64-components-containers-page-header-stories" class="badge ok as-toggle">9 stories</label>
         <label for="c-64-components-containers-page-header-docs" class="badge ok as-toggle">1 doc</label>
         <label for="c-64-components-containers-page-header-subcomponents" class="badge ok as-toggle">1 subcomponent</label>
       </div>
@@ -26350,10 +26350,11 @@ open?: boolean</code></pre>
                 <div class="row">
                   <span class="ex-name">Imports</span>
                 </div>
-                <pre><code>import { Grid, Heading, LinkList } from '@amsterdam/design-system-react';
+                <pre><code>import { Columns, Grid, Heading, LinkList } from '@amsterdam/design-system-react';
 import { PageHeader } from '@amsterdam/design-system-react/src';
-import { collapsibleMenuItems, headerMenuItems } from './content';
+import { topics } from '#storybook/_common/exampleContent';
 import { SearchIcon, LogInIcon, PlusIcon } from '@amsterdam/design-system-react-icons';
+import { collapsibleMenuItems, headerMenuItems } from './content';
 import ExampleLogo from '../Logo/ExampleLogo';</code></pre>
               </div>
           
@@ -26366,6 +26367,64 @@ import ExampleLogo from '../Logo/ExampleLogo';</code></pre>
               
               
               <pre><code>const Default = args =&gt; {
+    const [open, setOpen] = useState(args.defaultOpen ?? false)
+
+    return (
+        &lt;PageHeader
+            menuItems={[
+              &lt;PageHeader.MenuLink href=&quot;#&quot; key={1} lang=&quot;en&quot;&gt;
+                English
+              &lt;/PageHeader.MenuLink&gt;,
+              &lt;PageHeader.MenuLink fixed href=&quot;#&quot; icon={SearchIcon} key={2}&gt;
+                Zoeken
+              &lt;/PageHeader.MenuLink&gt;,
+            ]}
+            onClick={(event) =&gt; {
+              // The links are placeholders; keep any Page Header link (logo, inline menu, mega menu) from
+              // navigating, and close the mega menu the way an app would on navigation.
+              if (event.target instanceof Element &amp;&amp; event.target.closest(&#39;a&#39;)) {
+                event.preventDefault()
+                setOpen(false)
+              }
+            }}
+            onOpenChange={(nextOpen) =&gt; {
+              setOpen(nextOpen)
+              args.onOpenChange?.(nextOpen)
+            }}
+            open={args.open ?? open}&gt;&lt;Grid&gt;
+                &lt;PageHeader.GridCellNarrowWindowOnly span=&quot;all&quot;&gt;
+                    &lt;LinkList&gt;
+                        &lt;LinkList.Link href=&quot;#&quot; lang=&quot;en&quot;&gt;English
+                                        &lt;/LinkList.Link&gt;
+                    &lt;/LinkList&gt;
+                &lt;/PageHeader.GridCellNarrowWindowOnly&gt;
+                &lt;Grid.Cell span=&quot;all&quot;&gt;
+                    &lt;Heading className=&quot;ams-mb-s&quot; level={2} size=&quot;level-3&quot;&gt;Alle onderwerpen
+                                  &lt;/Heading&gt;
+                    {/* Columns spreads the topics over the width of the menu, while they stay one list. */}
+                    &lt;Columns count={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+                        &lt;LinkList&gt;
+                            {topics.map((topic) =&gt; (
+                              &lt;LinkList.Link href=&quot;#&quot; key={topic}&gt;
+                                {topic}
+                              &lt;/LinkList.Link&gt;
+                            ))}
+                        &lt;/LinkList&gt;
+                    &lt;/Columns&gt;
+                &lt;/Grid.Cell&gt;
+            &lt;/Grid&gt;&lt;/PageHeader&gt;
+    );
+};</code></pre>
+              
+            </div>
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">With Groups Of Links</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const WithGroupsOfLinks = args =&gt; {
     const [open, setOpen] = useState(args.defaultOpen ?? false)
 
     return (
@@ -26821,6 +26880,9 @@ Don’t add whitespace to the Grid in the collapsible menu – its container alr
 
 If the collapsible menu contains [Headings](/docs/components-text-heading--docs), give them level 2 and a size of ‘level-3’.
 
+Put a long list of links, such as all the topics of the website, in [Columns](/docs/components-layout-columns--docs).
+It uses the width of the menu, and the links stay one list.
+
 #### Controlling the menu
 
 By default the Page Header keeps track of whether the collapsible menu is open.
@@ -26852,6 +26914,14 @@ function Header() {
 ```
 
 ## Examples
+
+### With groups of links
+
+The links in the collapsible menu can fall into a few groups, each with a heading.
+Place each group in a Grid Cell of its own.
+The groups are separate lists, so they don’t need Columns.
+
+&lt;Canvas of={PageHeaderStories.WithGroupsOfLinks} /&gt;
 
 ### With moving links
 
@@ -29298,6 +29368,11 @@ export const Location: StoryObj = {
     &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
       &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
         &lt;Heading level={2} size=&quot;level-3&quot;&gt;Faciliteiten&lt;/Heading&gt;
+        {/*
+         * Columns keeps the facilities one list, so a screen reader announces it once with all its items.
+         * Without a count it shows two columns from the medium breakpoint, which line up with the 8 and 10
+         * Grid columns of this Cell.
+         */}
         &lt;Columns&gt;
           &lt;UnorderedList&gt;
             &lt;UnorderedList.Item&gt;3 x FIFA-gecertificeerde kunstgrasvelden naast elkaar&lt;/UnorderedList.Item&gt;
@@ -29461,6 +29536,11 @@ export const Location: StoryObj = {
             &lt;Heading level={2} size=&quot;level-3&quot;&gt;
               Faciliteiten
             &lt;/Heading&gt;
+            {/*
+             * Columns keeps the facilities one list, so a screen reader announces it once with all its items.
+             * Without a count it shows two columns from the medium breakpoint, which line up with the 8 and 10
+             * Grid columns of this Cell.
+             */}
             &lt;Columns&gt;
               &lt;UnorderedList&gt;
                 &lt;UnorderedList.Item&gt;3 x FIFA-gecertificeerde kunstgrasvelden naast elkaar&lt;/UnorderedList.Item&gt;
@@ -29724,6 +29804,11 @@ export const LocationLarge: StoryObj = {
     &lt;Grid paddingBottom=&quot;x-large&quot;&gt;
       &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
         &lt;Heading level={2} size=&quot;level-3&quot;&gt;Faciliteiten&lt;/Heading&gt;
+        {/*
+         * Columns keeps the facilities one list, so a screen reader announces it once with all its items.
+         * Without a count it shows two columns from the medium breakpoint, which line up with the 8 and 10
+         * Grid columns of this Cell.
+         */}
         &lt;Columns&gt;
           &lt;UnorderedList&gt;
             &lt;UnorderedList.Item&gt;
@@ -30012,6 +30097,11 @@ export const LocationLarge: StoryObj = {
             &lt;Heading level={2} size=&quot;level-3&quot;&gt;
               Faciliteiten
             &lt;/Heading&gt;
+            {/*
+             * Columns keeps the facilities one list, so a screen reader announces it once with all its items.
+             * Without a count it shows two columns from the medium breakpoint, which line up with the 8 and 10
+             * Grid columns of this Cell.
+             */}
             &lt;Columns&gt;
               &lt;UnorderedList&gt;
                 &lt;UnorderedList.Item&gt;
@@ -31051,6 +31141,11 @@ import { PhotoPlaceholder } from '@amsterdam/storybook';</code></pre>
           &lt;Heading level={2} size=&quot;level-3&quot;&gt;
             Faciliteiten
           &lt;/Heading&gt;
+          {/*
+           * Columns keeps the facilities one list, so a screen reader announces it once with all its items.
+           * Without a count it shows two columns from the medium breakpoint, which line up with the 8 and 10
+           * Grid columns of this Cell.
+           */}
           &lt;Columns&gt;
             &lt;UnorderedList&gt;
               &lt;UnorderedList.Item&gt;3 x FIFA-gecertificeerde kunstgrasvelden naast elkaar&lt;/UnorderedList.Item&gt;
@@ -31331,6 +31426,11 @@ import { PhotoPlaceholder } from '@amsterdam/storybook';</code></pre>
           &lt;Heading level={2} size=&quot;level-3&quot;&gt;
             Faciliteiten
           &lt;/Heading&gt;
+          {/*
+           * Columns keeps the facilities one list, so a screen reader announces it once with all its items.
+           * Without a count it shows two columns from the medium breakpoint, which line up with the 8 and 10
+           * Grid columns of this Cell.
+           */}
           &lt;Columns&gt;
             &lt;UnorderedList&gt;
               &lt;UnorderedList.Item&gt;
@@ -53649,6 +53749,11 @@ export const Location: StoryObj = {
     &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
       &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
         &lt;Heading level={2} size=&quot;level-3&quot;&gt;Faciliteiten&lt;/Heading&gt;
+        {/*
+         * Columns keeps the facilities one list, so a screen reader announces it once with all its items.
+         * Without a count it shows two columns from the medium breakpoint, which line up with the 8 and 10
+         * Grid columns of this Cell.
+         */}
         &lt;Columns&gt;
           &lt;UnorderedList&gt;
             &lt;UnorderedList.Item&gt;3 x FIFA-gecertificeerde kunstgrasvelden naast elkaar&lt;/UnorderedList.Item&gt;
@@ -53812,6 +53917,11 @@ export const Location: StoryObj = {
             &lt;Heading level={2} size=&quot;level-3&quot;&gt;
               Faciliteiten
             &lt;/Heading&gt;
+            {/*
+             * Columns keeps the facilities one list, so a screen reader announces it once with all its items.
+             * Without a count it shows two columns from the medium breakpoint, which line up with the 8 and 10
+             * Grid columns of this Cell.
+             */}
             &lt;Columns&gt;
               &lt;UnorderedList&gt;
                 &lt;UnorderedList.Item&gt;3 x FIFA-gecertificeerde kunstgrasvelden naast elkaar&lt;/UnorderedList.Item&gt;
@@ -54075,6 +54185,11 @@ export const LocationLarge: StoryObj = {
     &lt;Grid paddingBottom=&quot;x-large&quot;&gt;
       &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
         &lt;Heading level={2} size=&quot;level-3&quot;&gt;Faciliteiten&lt;/Heading&gt;
+        {/*
+         * Columns keeps the facilities one list, so a screen reader announces it once with all its items.
+         * Without a count it shows two columns from the medium breakpoint, which line up with the 8 and 10
+         * Grid columns of this Cell.
+         */}
         &lt;Columns&gt;
           &lt;UnorderedList&gt;
             &lt;UnorderedList.Item&gt;
@@ -54363,6 +54478,11 @@ export const LocationLarge: StoryObj = {
             &lt;Heading level={2} size=&quot;level-3&quot;&gt;
               Faciliteiten
             &lt;/Heading&gt;
+            {/*
+             * Columns keeps the facilities one list, so a screen reader announces it once with all its items.
+             * Without a count it shows two columns from the medium breakpoint, which line up with the 8 and 10
+             * Grid columns of this Cell.
+             */}
             &lt;Columns&gt;
               &lt;UnorderedList&gt;
                 &lt;UnorderedList.Item&gt;
@@ -55402,6 +55522,11 @@ import { PhotoPlaceholder } from '@amsterdam/storybook';</code></pre>
           &lt;Heading level={2} size=&quot;level-3&quot;&gt;
             Faciliteiten
           &lt;/Heading&gt;
+          {/*
+           * Columns keeps the facilities one list, so a screen reader announces it once with all its items.
+           * Without a count it shows two columns from the medium breakpoint, which line up with the 8 and 10
+           * Grid columns of this Cell.
+           */}
           &lt;Columns&gt;
             &lt;UnorderedList&gt;
               &lt;UnorderedList.Item&gt;3 x FIFA-gecertificeerde kunstgrasvelden naast elkaar&lt;/UnorderedList.Item&gt;
@@ -55682,6 +55807,11 @@ import { PhotoPlaceholder } from '@amsterdam/storybook';</code></pre>
           &lt;Heading level={2} size=&quot;level-3&quot;&gt;
             Faciliteiten
           &lt;/Heading&gt;
+          {/*
+           * Columns keeps the facilities one list, so a screen reader announces it once with all its items.
+           * Without a count it shows two columns from the medium breakpoint, which line up with the 8 and 10
+           * Grid columns of this Cell.
+           */}
           &lt;Columns&gt;
             &lt;UnorderedList&gt;
               &lt;UnorderedList.Item&gt;
