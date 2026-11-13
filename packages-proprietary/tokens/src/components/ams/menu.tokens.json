@@ -200,7 +200,7 @@
             "$type": "color"
           },
           "color": {
-            "$value": "{ams.links.inverse.color}",
+            "$value": "{ams.menu.link.color}",
             "$extensions": {
               "nl.amsterdam.type": "color"
             }
