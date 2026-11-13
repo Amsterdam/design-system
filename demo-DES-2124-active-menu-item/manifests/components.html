@@ -626,7 +626,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>4.2s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>3.4s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -20651,8 +20651,8 @@ In narrow and medium windows the Menu reaches both edges of the window by cancel
 That ties the component to the one context it is used in, which is accepted here: it is the only way for a band of colour to span the window while the links stay aligned with the content around them.
 Where that padding grows to clear a display cutout, the margin grows with it, so the blue still runs to the physical edge of the screen while the links move in.
 
-A link is only as wide as its icon and label in the narrow layout, so the area that responds to a click does not extend across the empty space beside the text.
-In the wide layout the links do stretch, since the column is barely wider than the labels themselves.
+Links stretch across the Menu in every layout, so their backgrounds and clickable areas reach its edges.
+In narrow and medium windows, each link has padding on both sides to keep its icon and label clear of display cutouts and aligned with the surrounding content.
 
 ## Accessibility
 
