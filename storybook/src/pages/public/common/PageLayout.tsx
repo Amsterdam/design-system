@@ -76,7 +76,7 @@ export const PageLayout = ({
           </LinkList>
         </PageHeader.GridCellNarrowWindowOnly>
         <Grid.Cell span="all">
-          <Heading className="ams-mb-s" level={2}>
+          <Heading className="ams-mb-s" level={2} size="level-3">
             Alle onderwerpen
           </Heading>
           {/*
