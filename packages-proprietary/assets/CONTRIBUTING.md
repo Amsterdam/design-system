@@ -52,9 +52,9 @@ To export all icons from our [Figma Library](https://www.figma.com/community/fil
 2. In the right-hand sidebar, click the plus sign next to Export.
 3. Choose SVG and export.
 4. Copy these files over to the `icons` folder.
-5. If any new or updated icons are directional, add `data-directional="true"` to the root `<svg>` element of each.
+5. If any new or updated icons are directional, add their names to `directional-icons.mjs`.
    See [Right-to-left (RTL) mirroring](#right-to-left-rtl-mirroring) for the classification criteria.
-6. Run the following command to optimise them:
+6. Run the following command to optimise them and set `data-directional="true"` on the root `<svg>` element of each directional icon:
 
 ```sh
 pnpm run optimize-icons
@@ -76,7 +76,8 @@ Others — universal symbols, physical objects held in the right hand, and media
 
 The CSS package applies `transform: scaleX(-1)` to any icon SVG that carries the attribute `data-directional="true"` and is rendered inside the `Icon` component's `.ams-icon` wrapper, when that wrapper has a computed direction of RTL (`:dir(rtl)`).
 `:dir(rtl)` is evaluated on the `.ams-icon` wrapper, not the `<svg>` itself — applying it directly to an `<svg>` element relies on cross-namespace directionality inheritance (HTML into SVG) that is unspecified and handled inconsistently across browsers.
-The attribute is set directly on the root `<svg>` element of the source file in `packages-proprietary/assets/icons`; SVGR carries it through to the generated `react-icons` component unchanged, the same way it carries through `viewBox` or `xmlns`.
+The `optimize-icons` command sets the attribute on the root `<svg>` element of each icon listed in `directional-icons.mjs` and removes it from other icons.
+SVGR carries it through to the generated `react-icons` component unchanged, the same way it carries through `viewBox` or `xmlns`.
 The CSS rule is scoped to `.ams-icon` so it stays consistent with the rest of the icon stylesheet; an icon rendered without the `Icon` wrapper does not get RTL mirroring from this package — see the [react-icons package README](../react-icons/README.md#right-to-left-mirroring) if you need it without the wrapper.
 
 ### When to mirror
