@@ -11,13 +11,6 @@
 @use "../../common/text-rendering" as *;
 
 .ams-menu {
-  // The padding of Page Header, which resolves to the same value: its token aliases the Grid one.
-  // Recomputed here rather than inherited, so a Menu outside a Page Header still bleeds correctly.
-  /* stylelint-disable csstools/value-no-unknown-custom-properties -- Declared in common/safe-area.scss. */
-  --_ams-menu-padding-inline-end: max(var(--ams-grid-padding-inline), var(--ams-safe-area-inset-inline-end));
-  --_ams-menu-padding-inline-start: max(var(--ams-grid-padding-inline), var(--ams-safe-area-inset-inline-start));
-  /* stylelint-enable csstools/value-no-unknown-custom-properties */
-
   background-color: var(--ams-menu-background-color);
 
   // Keeps the horizontal padding within the maximum inline size in wide windows.
@@ -26,12 +19,6 @@
   font-size: var(--ams-menu-font-size);
   font-weight: var(--ams-menu-font-weight);
   line-height: var(--ams-menu-line-height);
-
-  // Menu must overlap the horizontal padding of Page Header to span the entire window.
-  // We accept that this approach with a negative margin tightly couples the component to that context.
-  // Each side is negated on its own: a display cutout makes that padding asymmetric.
-  margin-inline-end: calc(var(--_ams-menu-padding-inline-end) * -1);
-  margin-inline-start: calc(var(--_ams-menu-padding-inline-start) * -1);
   padding-block: var(--ams-menu-padding-block);
 
   @media (min-width: $ams-breakpoint-wide) {
@@ -70,13 +57,23 @@
 }
 
 .ams-menu__link {
+  // The padding of Page Header, which resolves to the same value: its token aliases the Grid one.
+  // Recomputed here rather than inherited, so a Menu outside a Page Header still bleeds correctly.
+  /* stylelint-disable csstools/value-no-unknown-custom-properties -- Declared in common/safe-area.scss. */
+  --_ams-menu-link-padding-inline-end: max(var(--ams-grid-padding-inline), var(--ams-safe-area-inset-inline-end));
+  --_ams-menu-link-padding-inline-start: max(var(--ams-grid-padding-inline), var(--ams-safe-area-inset-inline-start));
+  /* stylelint-enable csstools/value-no-unknown-custom-properties */
+
   align-items: flex-start;
+  border-inline-start: var(--ams-menu-link-border-width) var(--ams-menu-link-border-style)
+    var(--ams-menu-link-border-color);
   color: var(--ams-menu-link-color);
   display: flex;
   gap: var(--ams-menu-link-gap);
   outline-offset: var(--ams-menu-link-outline-offset);
   padding-block: var(--ams-menu-link-padding-block);
-  padding-inline: var(--ams-menu-link-padding-inline);
+  padding-inline-end: var(--_ams-menu-link-padding-inline-end);
+  padding-inline-start: calc(var(--_ams-menu-link-padding-inline-start) - var(--ams-menu-link-border-width));
   text-decoration-line: var(--ams-menu-link-text-decoration-line);
   text-decoration-thickness: var(--ams-menu-link-text-decoration-thickness);
   text-underline-offset: var(--ams-menu-link-text-underline-offset);
@@ -90,33 +87,59 @@
 
   &[aria-current="page"] {
     background-color: var(--ams-menu-link-current-background-color);
-    box-shadow: var(--ams-menu-link-current-box-shadow);
+    border-inline-start-color: var(--ams-menu-link-current-border-color);
     color: var(--ams-menu-link-current-color);
     font-weight: var(--ams-menu-link-current-font-weight);
-
-    @media (forced-colors: active) {
-      background-color: SelectedItem;
-    }
   }
 
   .ams-menu__icon {
     align-self: initial;
   }
 
+  @media (min-width: $ams-breakpoint-medium) {
+    /* stylelint-disable csstools/value-no-unknown-custom-properties -- Declared in common/safe-area.scss. */
+    --_ams-menu-link-padding-inline-end: max(
+      var(--ams-grid-medium-padding-inline /* @deprecated */, var(--ams-grid-vi-medium-padding-inline)),
+      var(--ams-safe-area-inset-inline-end)
+    );
+    --_ams-menu-link-padding-inline-start: max(
+      var(--ams-grid-medium-padding-inline /* @deprecated */, var(--ams-grid-vi-medium-padding-inline)),
+      var(--ams-safe-area-inset-inline-start)
+    );
+    /* stylelint-enable csstools/value-no-unknown-custom-properties */
+
+    padding-inline-end: calc(var(--_ams-menu-link-padding-inline-end) + var(--ams-menu-link-padding-inline));
+    padding-inline-start: calc(
+      var(--_ams-menu-link-padding-inline-start) +
+        var(--ams-menu-link-padding-inline) - var(--ams-menu-link-border-width)
+    );
+  }
+
   @media (min-width: $ams-breakpoint-wide) {
     align-items: center;
+    border-inline-end: var(--ams-menu-link-border-width) var(--ams-menu-link-border-style)
+      var(--ams-menu-link-border-color);
+    border-inline-start: initial;
     display: flex; // The links do stretch in the vertical layout of Menu.
     flex-direction: column;
     gap: var(--ams-menu-link-wide-gap /* @deprecated */, var(--ams-menu-link-vi-wide-gap));
+    padding-inline-end: calc(var(--ams-menu-link-vi-wide-padding-inline) - var(--ams-menu-link-border-width));
+    padding-inline-start: var(--ams-menu-link-vi-wide-padding-inline);
     text-align: center;
 
     &[aria-current="page"] {
-      box-shadow: var(--ams-menu-link-wide-current-box-shadow);
+      border-inline-end-color: var(--ams-menu-link-current-border-color);
     }
 
     .ams-menu__icon {
       --ams-icon-font-size: var(--ams-icon-heading-2-font-size);
       --ams-icon-line-height: var(--ams-icon-heading-2-line-height);
+    }
+  }
+
+  @media (forced-colors: active) {
+    &:not([aria-current="page"]) {
+      border-color: Canvas;
     }
   }
 }

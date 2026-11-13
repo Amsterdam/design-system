@@ -52,6 +52,14 @@
           "$extensions": {
             "nl.amsterdam.subtype": "space"
           }
+        },
+        "padding-inline": {
+          "$deprecated": "Use `ams.menu.vi-wide.padding-inline` instead. Will be removed on or after 2026-10-20.",
+          "$value": "{ams.menu.vi-wide.padding-inline}",
+          "$type": "dimension",
+          "$extensions": {
+            "nl.amsterdam.subtype": "space"
+          }
         }
       },
       "vi-wide": {
@@ -83,9 +91,33 @@
             "nl.amsterdam.subtype": "space",
             "nl.amsterdam.type": "dimension"
           }
+        },
+        "padding-inline": {
+          "$deprecated": "Padding moved to link. Use `ams.menu.link.vi-wide.padding-inline` instead. Will be removed on or after 2027-04-25.",
+          "$value": "{ams.space.s}",
+          "$extensions": {
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
+          }
         }
       },
       "link": {
+        "border-color": {
+          "$value": "{ams.color.interactive.default}",
+          "$type": "color"
+        },
+        "border-style": {
+          "$value": "solid",
+          "$extensions": {
+            "nl.amsterdam.type": "borderStyle"
+          }
+        },
+        "border-width": {
+          "$value": "{ams.border.width.xl}",
+          "$extensions": {
+            "nl.amsterdam.type": "borderWidth"
+          }
+        },
         "color": {
           "$value": "{ams.links.inverse.color}",
           "$extensions": {
@@ -163,25 +195,9 @@
               "nl.amsterdam.type": "color"
             }
           },
-          "box-shadow": {
-            "$type": "shadow",
-            "$value": {
-              "inset": true,
-              "offsetX": "{ams.border.width.xl}",
-              "offsetY": {
-                "value": 0,
-                "unit": "rem"
-              },
-              "blur": {
-                "value": 0,
-                "unit": "rem"
-              },
-              "spread": {
-                "value": 0,
-                "unit": "rem"
-              },
-              "color": "currentColor"
-            }
+          "border-color": {
+            "$value": "currentColor",
+            "$type": "color"
           },
           "color": {
             "$value": "{ams.links.inverse.color}",
@@ -195,28 +211,6 @@
           }
         },
         "wide": {
-          "current": {
-            "box-shadow": {
-              "$type": "shadow",
-              "$value": {
-                "inset": true,
-                "offsetX": "{ams.border.width.negative.xl}",
-                "offsetY": {
-                  "value": 0,
-                  "unit": "rem"
-                },
-                "blur": {
-                  "value": 0,
-                  "unit": "rem"
-                },
-                "spread": {
-                  "value": 0,
-                  "unit": "rem"
-                },
-                "color": "currentColor"
-              }
-            }
-          },
           "gap": {
             "$deprecated": "Use `ams.menu.link.vi-wide.gap` instead. Will be removed on or after 2026-10-20.",
             "$value": "{ams.menu.link.vi-wide.gap}",
@@ -229,6 +223,13 @@
         "vi-wide": {
           "gap": {
             "$value": "{ams.space.xs}",
+            "$extensions": {
+              "nl.amsterdam.subtype": "space",
+              "nl.amsterdam.type": "dimension"
+            }
+          },
+          "padding-inline": {
+            "$value": "calc(2 * {ams.space.s})",
             "$extensions": {
               "nl.amsterdam.subtype": "space",
               "nl.amsterdam.type": "dimension"
