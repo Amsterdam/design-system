@@ -95,7 +95,7 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = {
+export const Default = {
   render: (args) => {
     const [current, setCurrent] = useState(menuItems[0].text)
 
@@ -117,4 +117,4 @@ export const Default: Story = {
       </Menu>
     )
   },
-}
+} satisfies Story
