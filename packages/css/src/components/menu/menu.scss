@@ -105,7 +105,7 @@
   outline-offset: var(--ams-menu-link-outline-offset);
   padding-block: var(--ams-menu-link-padding-block);
   padding-inline-end: var(--_ams-menu-link-padding-inline-end);
-  padding-inline-start: calc(var(--_ams-menu-link-padding-inline-start) - var(--ams-menu-link-border-width));
+  padding-inline-start: calc(var(--_ams-menu-link-padding-inline-start) + var(--ams-menu-link-border-width));
   text-decoration-line: var(--ams-menu-link-text-decoration-line);
   text-decoration-thickness: var(--ams-menu-link-text-decoration-thickness);
   text-underline-offset: var(--ams-menu-link-text-underline-offset);
