@@ -79,6 +79,10 @@ export const PageLayout = ({
           <Heading className="ams-mb-s" level={2}>
             Alle onderwerpen
           </Heading>
+          {/*
+           * Columns keeps the topics one list, so a screen reader announces it once with all its items.
+           * This Cell spans the whole Grid, so two columns in a medium window and three in a wide one line up with it.
+           */}
           <Columns count={{ narrow: 1, medium: 2, wide: 3 }}>
             <LinkList>
               {topics.map((topic) => (

@@ -858,6 +858,11 @@ export const Location: StoryObj = {
     <Grid paddingVertical="x-large">
       <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <Heading level={2} size="level-3">Faciliteiten</Heading>
+        {/*
+         * Columns keeps the facilities one list, so a screen reader announces it once with all its items.
+         * Without a count it shows two columns from the medium breakpoint, which line up with the 8 and 10
+         * Grid columns of this Cell.
+         */}
         <Columns>
           <UnorderedList>
             <UnorderedList.Item>3 x FIFA-gecertificeerde kunstgrasvelden naast elkaar</UnorderedList.Item>
@@ -1021,6 +1026,11 @@ export const Location: StoryObj = {
             <Heading level={2} size="level-3">
               Faciliteiten
             </Heading>
+            {/*
+             * Columns keeps the facilities one list, so a screen reader announces it once with all its items.
+             * Without a count it shows two columns from the medium breakpoint, which line up with the 8 and 10
+             * Grid columns of this Cell.
+             */}
             <Columns>
               <UnorderedList>
                 <UnorderedList.Item>3 x FIFA-gecertificeerde kunstgrasvelden naast elkaar</UnorderedList.Item>
@@ -1284,6 +1294,11 @@ export const LocationLarge: StoryObj = {
     <Grid paddingBottom="x-large">
       <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <Heading level={2} size="level-3">Faciliteiten</Heading>
+        {/*
+         * Columns keeps the facilities one list, so a screen reader announces it once with all its items.
+         * Without a count it shows two columns from the medium breakpoint, which line up with the 8 and 10
+         * Grid columns of this Cell.
+         */}
         <Columns>
           <UnorderedList>
             <UnorderedList.Item>
@@ -1572,6 +1587,11 @@ export const LocationLarge: StoryObj = {
             <Heading level={2} size="level-3">
               Faciliteiten
             </Heading>
+            {/*
+             * Columns keeps the facilities one list, so a screen reader announces it once with all its items.
+             * Without a count it shows two columns from the medium breakpoint, which line up with the 8 and 10
+             * Grid columns of this Cell.
+             */}
             <Columns>
               <UnorderedList>
                 <UnorderedList.Item>
