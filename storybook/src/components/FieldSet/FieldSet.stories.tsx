@@ -248,13 +248,13 @@ export const Disabled: Story = {
 
 export const InAFieldSet: Story = {
   args: {
-    legend: 'Contact',
+    legend: 'Uw evenement',
   },
   render: ({ invalid, ...args }) => (
     <FieldSet {...args}>
       <Field>
         <Label htmlFor="input-i1" inFieldSet>
-          Waarover wilt u contact opnemen?
+          Wat gaat u organiseren?
         </Label>
         <TextArea cols={42} id="input-i1" />
       </Field>
@@ -263,15 +263,18 @@ export const InAFieldSet: Story = {
         id="fieldset-i2"
         inFieldSet
         invalid={invalid}
-        legend="Hoe wilt u benaderd worden?"
+        legend="Waar vindt het plaats?"
       >
-        {invalid && <ErrorMessage id="error-i2">Geef aan hoe u benaderd wilt worden.</ErrorMessage>}
+        {invalid && <ErrorMessage id="error-i2">Geef aan waar uw evenement plaatsvindt.</ErrorMessage>}
         <Column gap="x-small">
-          <Checkbox invalid={invalid} name="preferred-contact" value="tel">
-            Telefoon
+          <Checkbox invalid={invalid} name="location-i" value="straat">
+            Op straat
           </Checkbox>
-          <Checkbox invalid={invalid} name="preferred-contact" value="email">
-            E-mail
+          <Checkbox invalid={invalid} name="location-i" value="park">
+            In een park
+          </Checkbox>
+          <Checkbox invalid={invalid} name="location-i" value="water">
+            Op het water
           </Checkbox>
         </Column>
       </FieldSet>
