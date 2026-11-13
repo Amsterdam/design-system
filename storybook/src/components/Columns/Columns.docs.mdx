@@ -1,0 +1,122 @@
+{/* @license CC0-1.0 */}
+
+import { Canvas, Controls, Description, Meta, Primary, Title } from "@storybook/addon-docs/blocks";
+
+import { DesignTokensTable } from "#storybook/_components/DesignTokensTable/DesignTokensTable";
+import tokens from "#tokens/components/ams/columns.tokens.json";
+
+import * as ColumnsStories from "./Columns.stories.tsx";
+
+<Meta of={ColumnsStories} />
+
+<Title />
+
+<Description of={ColumnsStories} />
+
+<Primary />
+
+<Controls />
+
+## Usage guidelines
+
+### When to use
+
+Use Columns for content with many short parts, such as the topics in a mega menu or the facilities of a location.
+It spreads the content over the width, so it takes up less height.
+
+### When not to use
+
+Use the [Grid](/docs/components-layout-grid--docs) to put separate blocks of content side by side.
+
+### How to use
+
+Make the columns line up with the Grid.
+In a Cell that spans 8 Grid columns, for example, use 2 or 4 columns, not 3.
+
+Make sure each column is wide enough for its content.
+This matters most in a narrow Cell.
+
+Use one column in a narrow window.
+Only use more if each part is a word or two, such as the names of the city districts.
+Otherwise the text wraps over many short lines.
+
+Keep the parts short.
+A long one can break across two columns.
+
+People read down the first column, then the next.
+Sort a list so it makes sense in that order, for example alphabetically.
+
+Safari shows some small layout errors, described under Features.
+These are fine as long as the content stays easy to read.
+
+## Examples
+
+### Responsive count
+
+The number of columns can vary with the window width.
+Give `count` three values, for narrow, medium, and wide windows.
+These topics show one column in a narrow window, two in a medium one, and three in a wide one.
+
+<Canvas of={ColumnsStories.ResponsiveCount} />
+
+### With Unordered List
+
+A long list stays one list, while Columns spreads it over the columns.
+
+<Canvas of={ColumnsStories.WithUnorderedList} />
+
+### With Prose
+
+A few paragraphs can go into columns too.
+Keep them short, or readers have to scroll back up to read the next column.
+
+<Canvas of={ColumnsStories.WithProse} />
+
+## Features
+
+By default, Columns shows two columns from the medium breakpoint of the Grid.
+A narrow window shows one column.
+
+A number for `count` changes the number of columns from the medium breakpoint.
+A narrow window still shows one column.
+An object for `count` sets the number for narrow, medium, and wide windows separately.
+
+The columns end at about the same height.
+
+Safari has two known issues with content in columns:
+
+- **Cut lines:** a line can be cut in half where a column ends.
+  This happens in content that uses grid or flexbox, such as a [Link List](/docs/components-navigation-link-list--docs), an [Ordered List](/docs/components-text-ordered-list--docs), an [Unordered List](/docs/components-text-unordered-list--docs), or a [Column](/docs/components-layout-column--docs).
+- **Uneven columns:** the space between two parts can move to the top of the next column.
+  That column then starts lower than the first.
+
+WebKit tracks these in its bugs about [grid](https://bugs.webkit.org/show_bug.cgi?id=233397), [flexbox](https://bugs.webkit.org/show_bug.cgi?id=78562), and [spacing](https://bugs.webkit.org/show_bug.cgi?id=242313).
+
+## Design
+
+The space between the columns is the same as in the Grid.
+Two columns line up with the Grid in any Cell that spans an even number of Grid columns.
+That is why two is the default.
+
+## Accessibility
+
+Columns renders a `div`, which adds nothing to the accessibility tree.
+It changes the layout, not the markup.
+A list inside stays one list.
+A screen reader announces it once, with all its items, as [WCAG 1.3.1](https://www.w3.org/TR/WCAG22/#info-and-relationships) requires.
+Screen readers and the keyboard go down the first column, then the next.
+That is the same order in which the content reads on screen.
+
+In Safari, a link at the top of the second or a later column loses the top edge of its focus outline.
+This is a known issue.
+WebKit cuts off shadows in the same way, and [tracks it as a bug](https://bugs.webkit.org/show_bug.cgi?id=14137).
+
+## See also
+
+- [Grid](/docs/components-layout-grid--docs) – places separate blocks of content side by side.
+- [Link List](/docs/components-navigation-link-list--docs) – a list of links, such as the topics in a mega menu.
+- [Unordered List](/docs/components-text-unordered-list--docs) – a list of items in no particular order.
+
+## Design tokens
+
+<DesignTokensTable tokens={tokens} />
