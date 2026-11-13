@@ -15,34 +15,34 @@ import {
 } from '@amsterdam/design-system-react-icons'
 import { Menu } from '@amsterdam/design-system-react/src'
 import { BREAKPOINTS } from '@amsterdam/design-system-react/src/common/useViewportHasMinWidth'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useArgs } from 'storybook/preview-api'
 
 import { derivedArgType } from '#storybook/_common/argTypes'
 
 const menuItems = [
   {
-    href: '#',
+    href: '#dashboard',
     icon: <PieChartFillIcon />,
     text: 'Dashboard',
   },
   {
-    href: '#',
+    href: '#projecten',
     icon: <FolderFillIcon />,
     text: 'Projecten',
   },
   {
-    href: '#',
+    href: '#rapportage',
     icon: <DocumentsFillIcon />,
     text: 'Rapportages',
   },
   {
-    href: '#',
+    href: '#analyses',
     icon: <BarChartFillIcon />,
     text: 'Analyses',
   },
   {
-    href: '#',
+    href: '#instellingen',
     icon: <SettingsFillIcon />,
     text: 'Instellingen',
   },
@@ -95,12 +95,26 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = {
-  args: {
-    children: menuItems.map(({ text, ...restProps }) => (
-      <Menu.Link {...restProps} key={text}>
-        {text}
-      </Menu.Link>
-    )),
+export const Default = {
+  render: (args) => {
+    const [current, setCurrent] = useState(menuItems[0].text)
+
+    return (
+      <Menu {...args}>
+        {menuItems.map(({ text, ...restProps }) => (
+          <Menu.Link
+            {...restProps}
+            aria-current={current === text ? 'page' : undefined}
+            key={text}
+            onClick={(event) => {
+              event.preventDefault()
+              setCurrent(text)
+            }}
+          >
+            {text}
+          </Menu.Link>
+        ))}
+      </Menu>
+    )
   },
-}
+} satisfies Story

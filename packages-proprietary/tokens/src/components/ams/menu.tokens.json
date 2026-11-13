@@ -93,7 +93,8 @@
           }
         },
         "padding-inline": {
-          "$value": "{ams.space.s}",
+          "$deprecated": "Padding moved to link. Use `ams.menu.link.vi-wide.padding-inline` instead. Will be removed on or after 2027-04-25.",
+          "$value": "0",
           "$extensions": {
             "nl.amsterdam.subtype": "space",
             "nl.amsterdam.type": "dimension"
@@ -101,6 +102,22 @@
         }
       },
       "link": {
+        "border-color": {
+          "$value": "{ams.color.interactive.default}",
+          "$type": "color"
+        },
+        "border-style": {
+          "$value": "solid",
+          "$extensions": {
+            "nl.amsterdam.type": "borderStyle"
+          }
+        },
+        "border-width": {
+          "$value": "{ams.border.width.xl}",
+          "$extensions": {
+            "nl.amsterdam.type": "borderWidth"
+          }
+        },
         "color": {
           "$value": "{ams.links.inverse.color}",
           "$extensions": {
@@ -170,6 +187,29 @@
             }
           }
         },
+        "current": {
+          "background-color": {
+            "$value": "color-mix(in srgb, {ams.links.inverse.color} 12.5%, {ams.color.interactive.default})",
+            "$description": "Mixes the current color with the background color to create a subtle background for the current link.",
+            "$extensions": {
+              "nl.amsterdam.type": "color"
+            }
+          },
+          "border-color": {
+            "$value": "currentColor",
+            "$type": "color"
+          },
+          "color": {
+            "$value": "{ams.menu.link.color}",
+            "$extensions": {
+              "nl.amsterdam.type": "color"
+            }
+          },
+          "font-weight": {
+            "$value": "{ams.typography.body-text.bold.font-weight}",
+            "$type": "fontWeight"
+          }
+        },
         "wide": {
           "gap": {
             "$deprecated": "Use `ams.menu.link.vi-wide.gap` instead. Will be removed on or after 2026-10-20.",
@@ -183,6 +223,13 @@
         "vi-wide": {
           "gap": {
             "$value": "{ams.space.xs}",
+            "$extensions": {
+              "nl.amsterdam.subtype": "space",
+              "nl.amsterdam.type": "dimension"
+            }
+          },
+          "padding-inline": {
+            "$value": "calc(2 * {ams.space.s})",
             "$extensions": {
               "nl.amsterdam.subtype": "space",
               "nl.amsterdam.type": "dimension"
