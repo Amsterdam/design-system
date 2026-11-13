@@ -246,7 +246,7 @@ export const Disabled: Story = {
   ),
 }
 
-export const WithANestedFieldSet: Story = {
+export const InAFieldSet: Story = {
   args: {
     legend: 'Contact',
   },
