@@ -18,7 +18,7 @@
 
 .ams-page--with-menu {
   display: grid;
-  grid-auto-rows: min-content auto auto 1fr auto;
+  grid-auto-rows: min-content auto min-content 1fr auto;
   grid-template-areas:
     "skip-link"
     "header"
