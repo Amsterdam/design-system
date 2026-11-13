@@ -40,6 +40,10 @@ const list = (
 )
 
 export const Test: Story = {
+  /*
+   * Built by hand, because a generated matrix cannot produce the object form of `count`.
+   * Chromatic snapshots a wide window: a number writes a `-medium` class, so the object shows the `-wide` one.
+   */
   render: (args) => (
     <div className="_ams-tests-stack">
       <Columns {...args}>{list}</Columns>
@@ -48,6 +52,9 @@ export const Test: Story = {
           {list}
         </Columns>
       ))}
+      <Columns {...args} count={{ narrow: 1, medium: 2, wide: 3 }}>
+        {list}
+      </Columns>
     </div>
   ),
   tags: ['!dev', '!autodocs', '!manifest'],
