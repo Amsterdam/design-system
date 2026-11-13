@@ -192,20 +192,18 @@
       color: var(--ams-progress-list-button-hover-color);
     }
   }
-}
 
-/* Icon */
+  svg {
+    rotate: var(--ams-progress-list-button-svg-rotate);
 
-.ams-progress-list__icon svg {
-  rotate: 0deg;
-
-  [aria-expanded="true"] & {
-    rotate: -180deg;
+    @media (prefers-reduced-motion: no-preference) {
+      transition: rotate var(--ams-progress-list-icon-transition-duration)
+        var(--ams-progress-list-icon-transition-timing-function);
+    }
   }
 
-  @media (prefers-reduced-motion: no-preference) {
-    transition: rotate var(--ams-progress-list-icon-transition-duration)
-      var(--ams-progress-list-icon-transition-timing-function);
+  &[aria-expanded="true"] svg {
+    rotate: var(--ams-progress-list-button-svg-expanded-rotate);
   }
 }
 

@@ -38,7 +38,7 @@ Token files use the `.tokens.json` extension and follow the DTCG format:
 ```
 
 - Always reference existing brand or common tokens where possible — do not hardcode raw values.
-- Valid `$type` values used in this project: `color`, `dimension`, `fontFamily`, `fontWeight`, `shadow`. Do not invent other `$type` values.
+- Valid `$type` values used in this project: `color`, `dimension`, `duration`, `fontFamily`, `fontWeight`, `shadow`. Do not invent other `$type` values.
 - Use the `$extensions` field for Amsterdam-specific metadata (e.g. `nl.amsterdam.type`, `nl.amsterdam.subtype`). Common `$extensions` types include `fontSize`, `lineHeight`, and `space` (via `nl.amsterdam.subtype`). See existing component tokens for examples.
 - Variant tokens are nested under the component (e.g. `ams.badge.azure.background-color`).
 
