@@ -105,7 +105,7 @@ export const InAFieldSetWithValidation: Story = {
         <Label htmlFor="input-b1" inFieldSet>
           Voornaam
         </Label>
-        <TextInput aria-required="true" id="input-b1" value={givenName} />
+        <TextInput aria-required="true" defaultValue={givenName} id="input-b1" />
       </Field>
       <Field {...args} invalid={invalid}>
         <Label htmlFor="input-b2" inFieldSet>
@@ -117,7 +117,6 @@ export const InAFieldSetWithValidation: Story = {
           aria-required="true"
           id="input-b2"
           invalid={invalid}
-          value=""
         />
       </Field>
     </FieldSet>
