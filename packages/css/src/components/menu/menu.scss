@@ -64,6 +64,7 @@
         var(--ams-menu-vi-wide-padding-block-start) var(--ams-menu-vi-wide-padding-block-end)
       )
     );
+    padding-block-start: 0; // Override padding-block above for menu demo
     padding-inline: var(--ams-menu-wide-padding-inline /* @deprecated */, var(--ams-menu-vi-wide-padding-inline));
   }
 }
@@ -72,6 +73,12 @@
   display: none;
 
   @media (min-width: $ams-breakpoint-wide) {
+    display: block;
+  }
+}
+
+.ams-menu--open {
+  @media (width < $ams-breakpoint-wide) {
     display: block;
   }
 }
