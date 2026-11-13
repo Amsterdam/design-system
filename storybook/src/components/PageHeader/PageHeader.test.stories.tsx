@@ -109,6 +109,9 @@ export const Test: Story = {
             return story ? <PageHeader key={key} {...story.args} /> : null
           })}
 
+        {/* The stories above keep the mega menu closed, so this one opens it to bring its content into the snapshot. */}
+        <PageHeader {...PageHeaderStories.Default.args} defaultOpen />
+
         {/* All logo brands */}
         {logoBrands.map((brand) => (
           <PageHeader
