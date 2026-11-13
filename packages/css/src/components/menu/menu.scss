@@ -5,6 +5,7 @@
 
 @use "../../common/breakpoint" as *;
 @use "../../common/hyphenation" as *;
+@use "../../common/reserve-bold-label-space" as *;
 @use "../../common/resets" as *;
 @use "../../common/safe-area" as *;
 @use "../../common/text-rendering" as *;
@@ -91,6 +92,7 @@
     background-color: var(--ams-menu-link-current-background-color);
     box-shadow: var(--ams-menu-link-current-box-shadow);
     color: var(--ams-menu-link-current-color);
+    font-weight: var(--ams-menu-link-current-font-weight);
 
     @media (forced-colors: active) {
       background-color: SelectedItem;
@@ -117,4 +119,18 @@
       --ams-icon-line-height: var(--ams-icon-heading-2-line-height);
     }
   }
+}
+
+.ams-menu__link-label-wrapper {
+  display: grid;
+}
+
+.ams-menu__link-label,
+.ams-menu__link-label-hidden {
+  display: initial;
+  grid-area: 1 / 1;
+}
+
+.ams-menu__link-label-hidden {
+  @include reserve-bold-label-space(var(--ams-menu-link-current-font-weight));
 }

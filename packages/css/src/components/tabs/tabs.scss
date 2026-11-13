@@ -4,6 +4,7 @@
  */
 
 @use "../../common/breakpoint" as *;
+@use "../../common/reserve-bold-label-space" as *;
 @use "../../common/resets" as *;
 
 .ams-tabs {
@@ -76,18 +77,8 @@
   grid-area: 1 / 1;
 }
 
-// This hidden label is used to prevent a layout shift when the tab is selected
-// and the button text becomes bold.
 .ams-tabs__button-label-hidden {
-  font-weight: var(--ams-tabs-button-selected-font-weight);
-  pointer-events: none;
-  /* stylelint-disable-next-line defensive-css/no-user-select-none -- Prevents copying invisible text. */
-  -webkit-user-select: none;
-
-  /* Safari support is added with the prefixed property. */
-  /* stylelint-disable-next-line plugin/use-baseline, defensive-css/no-user-select-none -- Prevents copying invisible text. */
-  user-select: none;
-  visibility: hidden;
+  @include reserve-bold-label-space(var(--ams-tabs-button-selected-font-weight));
 }
 
 .ams-tabs__panel {

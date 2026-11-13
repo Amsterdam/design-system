@@ -1,0 +1,18 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+// Apply to a hidden duplicate overlapping the visible label in the same grid area
+// to prevent layout shifts when the visible label becomes bold.
+@mixin reserve-bold-label-space($font-weight) {
+  font-weight: $font-weight;
+  pointer-events: none;
+  /* stylelint-disable-next-line defensive-css/no-user-select-none -- Prevents copying invisible text. */
+  -webkit-user-select: none;
+
+  /* Safari support is added with the prefixed property. */
+  /* stylelint-disable-next-line plugin/use-baseline, defensive-css/no-user-select-none -- Prevents copying invisible text. */
+  user-select: none;
+  visibility: hidden;
+}
