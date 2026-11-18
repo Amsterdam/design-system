@@ -70,17 +70,19 @@
       color: var(--ams-table-of-contents-button-hover-color);
     }
   }
-}
 
-.ams-table-of-contents__button svg {
-  @media (prefers-reduced-motion: no-preference) {
-    transition: rotate var(--ams-table-of-contents-button-icon-transition-duration)
-      var(--ams-table-of-contents-button-icon-transition-timing-function);
+  svg {
+    rotate: var(--ams-table-of-contents-button-svg-rotate);
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition: rotate var(--ams-table-of-contents-button-icon-transition-duration)
+        var(--ams-table-of-contents-button-icon-transition-timing-function);
+    }
   }
-}
 
-.ams-table-of-contents__button[aria-expanded="true"] svg {
-  rotate: -180deg;
+  &[aria-expanded="true"] svg {
+    rotate: var(--ams-table-of-contents-button-svg-expanded-rotate);
+  }
 }
 
 .ams-table-of-contents__item--collapsed > .ams-table-of-contents__list {

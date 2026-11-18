@@ -106,15 +106,31 @@
               "nl.amsterdam.type": "color"
             }
           }
+        },
+        "svg": {
+          "rotate": {
+            "$value": "{ams.motion.collapsible.rotate}",
+            "$extensions": {
+              "nl.amsterdam.type": "rotate"
+            }
+          },
+          "expanded": {
+            "rotate": {
+              "$value": "{ams.motion.collapsible.expanded.rotate}",
+              "$extensions": {
+                "nl.amsterdam.type": "rotate"
+              }
+            }
+          }
         }
       },
       "icon": {
         "transition-duration": {
-          "$value": "0.3s",
+          "$value": "{ams.motion.transition.duration}",
           "$type": "duration"
         },
         "transition-timing-function": {
-          "$value": "ease",
+          "$value": "{ams.motion.transition.timing-function}",
           "$extensions": {
             "nl.amsterdam.type": "transitionTimingFunction"
           }
