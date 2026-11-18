@@ -106,6 +106,30 @@
           "$value": "{ams.color.interactive.default}",
           "$type": "color"
         },
+        "border-inline-end-style": {
+          "$value": "{ams.menu.link.border-style}",
+          "$extensions": {
+            "nl.amsterdam.type": "borderStyle"
+          }
+        },
+        "border-inline-end-width": {
+          "$value": "{ams.menu.link.border-width}",
+          "$extensions": {
+            "nl.amsterdam.type": "borderWidth"
+          }
+        },
+        "border-inline-start-style": {
+          "$value": "{ams.menu.link.border-style}",
+          "$extensions": {
+            "nl.amsterdam.type": "borderStyle"
+          }
+        },
+        "border-inline-start-width": {
+          "$value": "{ams.menu.link.border-width}",
+          "$extensions": {
+            "nl.amsterdam.type": "borderWidth"
+          }
+        },
         "border-style": {
           "$value": "solid",
           "$extensions": {
