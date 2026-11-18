@@ -97,15 +97,19 @@
   /* stylelint-enable csstools/value-no-unknown-custom-properties */
 
   align-items: flex-start;
-  border-inline-start: var(--ams-menu-link-border-width) var(--ams-menu-link-border-style)
-    var(--ams-menu-link-border-color);
+  border-inline-end-color: var(--ams-menu-link-border-color);
+  border-inline-end-style: var(--ams-menu-link-border-style);
+  border-inline-end-width: 0;
+  border-inline-start-color: var(--ams-menu-link-border-color);
+  border-inline-start-style: var(--ams-menu-link-border-style);
+  border-inline-start-width: var(--ams-menu-link-border-width);
   color: var(--ams-menu-link-color);
   display: flex;
   gap: var(--ams-menu-link-gap);
   outline-offset: var(--ams-menu-link-outline-offset);
   padding-block: var(--ams-menu-link-padding-block);
   padding-inline-end: var(--_ams-menu-link-padding-inline-end);
-  padding-inline-start: calc(var(--_ams-menu-link-padding-inline-start) + var(--ams-menu-link-border-width));
+  padding-inline-start: calc(var(--_ams-menu-link-padding-inline-start) - var(--ams-menu-link-border-width));
   text-decoration-line: var(--ams-menu-link-text-decoration-line);
   text-decoration-thickness: var(--ams-menu-link-text-decoration-thickness);
   text-underline-offset: var(--ams-menu-link-text-underline-offset);
@@ -143,9 +147,8 @@
 
   @media (min-width: $ams-breakpoint-wide) {
     align-items: center;
-    border-inline-end: var(--ams-menu-link-border-width) var(--ams-menu-link-border-style)
-      var(--ams-menu-link-border-color);
-    border-inline-start: initial;
+    border-inline-end-width: var(--ams-menu-link-border-width);
+    border-inline-start-width: 0;
     display: flex; // The links do stretch in the vertical layout of Menu.
     flex-direction: column;
     gap: var(--ams-menu-link-wide-gap /* @deprecated */, var(--ams-menu-link-vi-wide-gap));
@@ -157,6 +160,12 @@
       border-inline-end-color: var(--ams-menu-link-current-border-color);
     }
 
+    @media (forced-colors: active) {
+      &:not([aria-current="page"]) {
+        border-inline-end-color: Canvas;
+      }
+    }
+
     .ams-menu__icon {
       --ams-icon-font-size: var(--ams-icon-heading-2-font-size);
       --ams-icon-line-height: var(--ams-icon-heading-2-line-height);
@@ -165,7 +174,7 @@
 
   @media (forced-colors: active) {
     &:not([aria-current="page"]) {
-      border-color: Canvas;
+      border-inline-start-color: Canvas;
     }
   }
 }
