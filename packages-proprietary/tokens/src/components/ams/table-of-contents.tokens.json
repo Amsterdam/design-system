@@ -170,12 +170,16 @@
         "svg": {
           "rotate": {
             "$value": "{ams.motion.collapsible.rotate}",
-            "$type": "dimension"
+            "$extensions": {
+              "nl.amsterdam.type": "rotate"
+            }
           },
           "expanded": {
             "rotate": {
               "$value": "{ams.motion.collapsible.expanded.rotate}",
-              "$type": "dimension"
+              "$extensions": {
+                "nl.amsterdam.type": "rotate"
+              }
             }
           }
         }

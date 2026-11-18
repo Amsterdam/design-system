@@ -342,6 +342,7 @@ We use these types to help decide which preview to render in the Design Tokens T
 | `hyphenateLimitChars`      | Hyphenation limit values            |
 | `listStyleType`            | List marker styles                  |
 | `opacity`                  | Opacity values                      |
+| `rotate`                   | Rotation angle values               |
 | `textDecorationLine`       | Text decoration line values         |
 | `textWrap`                 | Text wrapping values                |
 | `transitionTimingFunction` | Transition timing function values   |

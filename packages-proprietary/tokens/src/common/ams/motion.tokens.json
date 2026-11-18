@@ -17,15 +17,19 @@
       },
       "collapsible": {
         "rotate": {
-          "$type": "dimension",
           "$value": "0deg",
-          "$description": "Rotation of the icon in the button of a collapsed section."
+          "$description": "Rotation of the icon in the button of a collapsed section.",
+          "$extensions": {
+            "nl.amsterdam.type": "rotate"
+          }
         },
         "expanded": {
           "rotate": {
-            "$type": "dimension",
             "$value": "-180deg",
-            "$description": "Rotation of the icon in the button of an expanded section."
+            "$description": "Rotation of the icon in the button of an expanded section.",
+            "$extensions": {
+              "nl.amsterdam.type": "rotate"
+            }
           }
         }
       }
