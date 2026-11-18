@@ -1,0 +1,36 @@
+{/* @license CC0-1.0 */}
+
+import { Meta } from "@storybook/addon-docs/blocks";
+
+import { DesignTokensTable } from "#storybook/_components/DesignTokensTable/DesignTokensTable";
+import tokens from "#tokens/common/ams/motion.tokens.json";
+
+<Meta title="Brand/Design tokens/Motion" />
+
+# Motion
+
+Several components move in the same way when their state changes.
+This set of common tokens keeps that motion consistent.
+
+These tokens are used by
+[Accordion](/docs/components-containers-accordion--docs),
+[Progress List](/docs/components-containers-progress-list--docs), and
+[Table of Contents](/docs/components-navigation-table-of-contents--docs).
+
+## Transition
+
+A transition between two states takes this long and follows this curve.
+
+<DesignTokensTable hideExamples path="ams.motion.transition" showDescriptions tokens={tokens} />
+
+## Collapsible
+
+The button that expands and collapses a section holds a chevron icon.
+The icon turns half a circle when the section expands, and back when it collapses.
+
+<DesignTokensTable hideExamples path="ams.motion.collapsible" showDescriptions tokens={tokens} />
+
+## How to use
+
+Use these tokens if you recreate our React components with different technology, or if you create a new component that expands and collapses.
+Apply the transition only if the user has no preference for reduced motion.
