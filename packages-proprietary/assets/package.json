@@ -32,7 +32,8 @@
   },
   "scripts": {
     "optimize-icons": "svgo -f icons",
-    "optimize-logos": "svgo -f logo --config svgo.logos.config.js"
+    "optimize-logos": "svgo -f logo --config svgo.logos.config.js",
+    "test": "node --test svgo.test.mjs"
   },
   "devDependencies": {
     "svgo": "4.1.0"
