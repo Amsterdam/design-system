@@ -3,6 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
+@use "../../common/breakpoint" as *;
+
 .ams-page {
   background-color: var(--ams-page-background-color);
   container-name: var(--ams-page-container-name);
@@ -16,14 +18,25 @@
 
 .ams-page--with-menu {
   display: grid;
-  grid-auto-rows: min-content auto 1fr auto;
+  grid-auto-rows: min-content auto min-content 1fr auto;
   grid-template-areas:
-    "skip-link skip-link"
-    "menu header"
-    "menu body"
-    "menu footer";
-  grid-template-columns: auto minmax(0, 1fr);
+    "skip-link"
+    "header"
+    "menu"
+    "body"
+    "footer";
+  grid-template-columns: auto;
   max-inline-size: var(--ams-page-with-menu-max-inline-size);
+
+  @media (min-width: $ams-breakpoint-wide) {
+    grid-auto-rows: min-content auto 1fr auto;
+    grid-template-areas:
+      "skip-link skip-link"
+      "menu header"
+      "menu body"
+      "menu footer";
+    grid-template-columns: auto minmax(0, 1fr);
+  }
 
   > .ams-page__area--skip-link {
     grid-area: skip-link;
@@ -32,6 +45,16 @@
 
   > .ams-page__area--menu {
     grid-area: menu;
+
+    @media (min-width: $ams-breakpoint-wide) {
+      display: grid;
+      grid-template-rows: subgrid;
+
+      > .ams-menu__list {
+        align-self: start;
+        grid-row: 2;
+      }
+    }
   }
 
   > .ams-page__area--header {
