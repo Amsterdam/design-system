@@ -18,11 +18,8 @@ const meta = {
   component: Columns,
   argTypes: {
     count: {
-      control: {
-        labels: { undefined: '2 (default)' },
-        type: 'radio',
-      },
-      options: [undefined, ...columnsCounts],
+      control: 'radio',
+      options: columnsCounts,
     },
   },
 } satisfies Meta<typeof Columns>
