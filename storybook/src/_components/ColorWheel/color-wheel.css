@@ -1,0 +1,127 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+._ams-color-wheel {
+  align-items: start;
+  color: var(--ams-color-text);
+  container: color-wheel / inline-size;
+  display: grid;
+  font-family: var(--ams-typography-font-family);
+  font-size: 1rem;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
+  line-height: var(--ams-typography-body-text-line-height);
+}
+
+._ams-color-wheel-chart {
+  aspect-ratio: 1;
+  block-size: auto;
+  inline-size: 100%;
+  max-inline-size: 32rem;
+}
+
+._ams-color-wheel-group {
+  cursor: var(--ams-button-cursor);
+  outline: none;
+}
+
+._ams-color-wheel-segment {
+  stroke: var(--ams-color-background);
+  stroke-width: 0.1875rem;
+  vector-effect: non-scaling-stroke;
+}
+
+._ams-color-wheel-outline {
+  fill: none;
+  pointer-events: none;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+
+._ams-color-wheel-outline--focus {
+  stroke: var(--ams-color-interactive);
+  stroke-width: 0.5rem;
+}
+
+._ams-color-wheel-outline--halo {
+  stroke: var(--ams-color-background);
+  stroke-width: 0.3125rem;
+}
+
+._ams-color-wheel-outline--selected {
+  stroke: var(--ams-color-text);
+  stroke-width: 0.125rem;
+}
+
+._ams-color-wheel-hint {
+  color: var(--ams-color-text-secondary);
+  margin-block: 0 !important;
+}
+
+._ams-color-wheel-heading {
+  font-size: 1.5rem !important;
+  margin-block: 0 !important;
+}
+
+._ams-color-wheel-subheading {
+  font-size: 1rem !important;
+  margin-block: 1.5rem 0.5rem !important;
+}
+
+._ams-color-wheel-list {
+  display: grid;
+  gap: 0.75rem;
+  list-style-type: "";
+  margin-block: 0.5rem 0 !important;
+  padding-inline-start: 0 !important;
+}
+
+._ams-color-wheel-item {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: 2.5rem minmax(0, 1fr);
+  margin-block: 0 !important;
+  padding-inline-start: 0 !important;
+}
+
+._ams-color-wheel-sample {
+  /* We allow non-baseline CSS in Storybook. */
+  /* stylelint-disable-next-line plugin/use-baseline */
+  forced-color-adjust: none;
+  min-block-size: 2.5rem;
+}
+
+._ams-color-wheel-sample--white {
+  box-shadow: inset 0 0 0 0.0625rem rgb(0 0 0 / 12.5%);
+}
+
+._ams-color-wheel-name {
+  display: block;
+  font-weight: var(--ams-typography-body-text-bold-font-weight);
+}
+
+._ams-color-wheel-codes {
+  align-items: baseline;
+  column-gap: 0.5rem;
+  display: grid;
+  font-size: 0.875rem;
+  grid-template-columns: auto 6.5rem auto minmax(0, 1fr);
+  margin-block: 0 !important;
+}
+
+._ams-color-wheel-term {
+  color: var(--ams-color-text-secondary);
+}
+
+._ams-color-wheel-code {
+  margin-block: 0 !important;
+  margin-inline: 0 !important;
+}
+
+@container color-wheel (width < 26rem) {
+  ._ams-color-wheel-codes {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+}
