@@ -9,6 +9,7 @@ import {
   Button,
   CallToActionLink,
   Column,
+  DataList,
   DateInput,
   ErrorMessage,
   Field,
@@ -20,10 +21,11 @@ import {
   OrderedList,
   Paragraph,
   Radio,
+  Row,
   StandaloneLink,
   TextInput,
 } from '@amsterdam/design-system-react'
-import { ChevronBackwardIcon } from '@amsterdam/design-system-react-icons'
+import { ChevronBackwardIcon, DeleteIcon, EditIcon } from '@amsterdam/design-system-react-icons'
 
 import { FormPageLayout } from '../common/FormPageLayout'
 import { PageLayout } from '../common/PageLayout'
@@ -841,6 +843,241 @@ export const WithValidationError: StoryObj = {
               </Column>
             </FieldSet>
             <Button type="submit">Volgende vraag</Button>
+          </form>
+        </Grid.Cell>
+      </Grid>
+    </>
+  ),
+}
+
+export const CheckAnswers: StoryObj = {
+  decorators: [formPageLayoutDecorator],
+  parameters: {
+    docs: {
+      source: {
+        // Provide the source by hand so the Code Panel keeps the map instead of expanding every item.
+        code: `<>
+  <Grid paddingTop="large">
+    <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
+      <StandaloneLink href="#" icon={ChevronBackwardIcon}>Vorige vraag</StandaloneLink>
+    </Grid.Cell>
+  </Grid>
+  <Grid as="main" paddingBottom="2x-large" paddingTop="x-large">
+    <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
+      <Paragraph className="ams-mb-m"><b>Afspraak maken</b></Paragraph>
+      <Heading className="ams-mb-xl" level={1}>Controleer uw gegevens</Heading>
+      {/* The onSubmit handler only keeps this example from navigating; a real form submits. */}
+      <form onSubmit={(e) => e.preventDefault()}>
+        <DataList className="ams-mb-xl">
+          {[
+            { key: 'Afspraak', value: 'Paspoort / ID / Rijbewijs' },
+            { key: 'Stadsloket', value: 'Centrum' },
+            { key: 'Datum', value: '24 november 2026' },
+            { key: 'Tijd', value: '10.00 uur' },
+            { key: 'E-mailadres', value: 'voorbeeld@example.com' },
+            { key: 'Telefoonnummer', value: '06 12345678' },
+          ].map(({ key, value }) => (
+            <DataList.Item key={key}>
+              <DataList.Key>{key}</DataList.Key>
+              <DataList.Value>{value}</DataList.Value>
+              <DataList.Actions>
+                {/* Return to the matching question with the answers preserved. */}
+                <StandaloneLink href="#" icon={EditIcon}>
+                  Wijzigen<span className="ams-visually-hidden"> {key.toLowerCase()}</span>
+                </StandaloneLink>
+              </DataList.Actions>
+            </DataList.Item>
+          ))}
+        </DataList>
+        <Button type="submit">Aanvraag versturen</Button>
+      </form>
+    </Grid.Cell>
+  </Grid>
+</>`,
+        language: 'tsx',
+      },
+    },
+  },
+  render: () => (
+    <>
+      <Grid paddingTop="large">
+        <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
+          <StandaloneLink href="#" icon={ChevronBackwardIcon}>
+            Vorige vraag
+          </StandaloneLink>
+        </Grid.Cell>
+      </Grid>
+      <Grid as="main" paddingBottom="2x-large" paddingTop="x-large">
+        <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
+          <Paragraph className="ams-mb-m">
+            <b>Afspraak maken</b>
+          </Paragraph>
+          <Heading className="ams-mb-xl" level={1}>
+            Controleer uw gegevens
+          </Heading>
+          {/* The onSubmit handler only keeps this example from navigating; a real form submits. */}
+          <form onSubmit={(e) => e.preventDefault()}>
+            <DataList className="ams-mb-xl">
+              {[
+                { key: 'Afspraak', value: 'Paspoort / ID / Rijbewijs' },
+                { key: 'Stadsloket', value: 'Centrum' },
+                { key: 'Datum', value: '24 november 2026' },
+                { key: 'Tijd', value: '10.00 uur' },
+                { key: 'E-mailadres', value: 'voorbeeld@example.com' },
+                { key: 'Telefoonnummer', value: '06 12345678' },
+              ].map(({ key, value }) => (
+                <DataList.Item key={key}>
+                  <DataList.Key>{key}</DataList.Key>
+                  <DataList.Value>{value}</DataList.Value>
+                  <DataList.Actions>
+                    {/* Return to the matching question with the answers preserved. */}
+                    <StandaloneLink href="#" icon={EditIcon}>
+                      Wijzigen<span className="ams-visually-hidden"> {key.toLowerCase()}</span>
+                    </StandaloneLink>
+                  </DataList.Actions>
+                </DataList.Item>
+              ))}
+            </DataList>
+            <Button type="submit">Aanvraag versturen</Button>
+          </form>
+        </Grid.Cell>
+      </Grid>
+    </>
+  ),
+}
+
+export const CheckAnswersWithGroups: StoryObj = {
+  decorators: [formPageLayoutDecorator],
+  parameters: {
+    docs: {
+      source: {
+        // Provide the source by hand so the Code Panel keeps the map instead of expanding every group.
+        code: `<>
+  <Grid paddingTop="large">
+    <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
+      <StandaloneLink href="#" icon={ChevronBackwardIcon}>Vorige vraag</StandaloneLink>
+    </Grid.Cell>
+  </Grid>
+  <Grid as="main" paddingBottom="2x-large" paddingTop="x-large">
+    <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
+      <Heading className="ams-mb-xl" level={1}>Controleer uw gegevens</Heading>
+      {/* The onSubmit handler only keeps this example from navigating; a real form submits. */}
+      <form onSubmit={(e) => e.preventDefault()}>
+        <Column className="ams-mb-xl" gap="x-large">
+          {[
+            { address: 'Voorbeeldstraat 1', birthDate: '1 januari 1990', name: 'Alex Voorbeeld' },
+            { address: 'Voorbeeldstraat 2', birthDate: '2 februari 1992', name: 'Sam Voorbeeld' },
+          ].map(({ address, birthDate, name }, index) => {
+            const person = \`persoon \${index + 1}\`
+
+            return (
+              <div key={name}>
+                <Row align="between" alignVertical="center" className="ams-mb-s" wrap>
+                  <Heading level={2}>Persoon {index + 1}</Heading>
+                  {/* This illustrative action affects the current page, so use a non-submit Button. */}
+                  <Button icon={DeleteIcon} iconBefore type="button" variant="secondary">
+                    Verwijderen<span className="ams-visually-hidden"> {person}</span>
+                  </Button>
+                </Row>
+                <DataList>
+                  {[
+                    { key: 'Naam', value: name },
+                    { key: 'Geboortedatum', value: birthDate },
+                    { key: 'Adres', value: <>{address}<br />1000 AA Amsterdam</> },
+                  ].map(({ key, value }) => (
+                    <DataList.Item key={key}>
+                      <DataList.Key>{key}</DataList.Key>
+                      <DataList.Value>{value}</DataList.Value>
+                      <DataList.Actions>
+                        {/* Include the key and person so every link has a unique accessible name. */}
+                        <StandaloneLink href="#" icon={EditIcon}>
+                          Wijzigen<span className="ams-visually-hidden"> {key.toLowerCase()} van {person}</span>
+                        </StandaloneLink>
+                      </DataList.Actions>
+                    </DataList.Item>
+                  ))}
+                </DataList>
+              </div>
+            )
+          })}
+        </Column>
+        <Button type="submit">Aanvraag versturen</Button>
+      </form>
+    </Grid.Cell>
+  </Grid>
+</>`,
+        language: 'tsx',
+      },
+    },
+  },
+  render: () => (
+    <>
+      <Grid paddingTop="large">
+        <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
+          <StandaloneLink href="#" icon={ChevronBackwardIcon}>
+            Vorige vraag
+          </StandaloneLink>
+        </Grid.Cell>
+      </Grid>
+      <Grid as="main" paddingBottom="2x-large" paddingTop="x-large">
+        <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
+          <Heading className="ams-mb-xl" level={1}>
+            Controleer uw gegevens
+          </Heading>
+          {/* The onSubmit handler only keeps this example from navigating; a real form submits. */}
+          <form onSubmit={(e) => e.preventDefault()}>
+            <Column className="ams-mb-xl" gap="x-large">
+              {[
+                { address: 'Voorbeeldstraat 1', birthDate: '1 januari 1990', name: 'Alex Voorbeeld' },
+                { address: 'Voorbeeldstraat 2', birthDate: '2 februari 1992', name: 'Sam Voorbeeld' },
+              ].map(({ address, birthDate, name }, index) => {
+                const person = `persoon ${index + 1}`
+
+                return (
+                  <div key={name}>
+                    <Row align="between" alignVertical="center" className="ams-mb-s" wrap>
+                      <Heading level={2}>Persoon {index + 1}</Heading>
+                      {/* This illustrative action affects the current page, so use a non-submit Button. */}
+                      <Button icon={DeleteIcon} iconBefore type="button" variant="secondary">
+                        Verwijderen<span className="ams-visually-hidden"> {person}</span>
+                      </Button>
+                    </Row>
+                    <DataList>
+                      {[
+                        { key: 'Naam', value: name },
+                        { key: 'Geboortedatum', value: birthDate },
+                        {
+                          key: 'Adres',
+                          value: (
+                            <>
+                              {address}
+                              <br />
+                              1000 AA Amsterdam
+                            </>
+                          ),
+                        },
+                      ].map(({ key, value }) => (
+                        <DataList.Item key={key}>
+                          <DataList.Key>{key}</DataList.Key>
+                          <DataList.Value>{value}</DataList.Value>
+                          <DataList.Actions>
+                            {/* Include the key and person so every link has a unique accessible name. */}
+                            <StandaloneLink href="#" icon={EditIcon}>
+                              Wijzigen
+                              <span className="ams-visually-hidden">
+                                {' '}
+                                {key.toLowerCase()} van {person}
+                              </span>
+                            </StandaloneLink>
+                          </DataList.Actions>
+                        </DataList.Item>
+                      ))}
+                    </DataList>
+                  </div>
+                )
+              })}
+            </Column>
+            <Button type="submit">Aanvraag versturen</Button>
           </form>
         </Grid.Cell>
       </Grid>
