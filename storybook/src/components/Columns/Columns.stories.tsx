@@ -9,7 +9,6 @@ import { LinkList, Paragraph, UnorderedList } from '@amsterdam/design-system-rea
 import { Columns } from '@amsterdam/design-system-react/src'
 import { columnsCounts } from '@amsterdam/design-system-react/src/Columns/Columns'
 
-import { childrenArgType } from '#storybook/_common/argTypes'
 import { exampleParagraph, topics } from '#storybook/_common/exampleContent'
 
 const paragraphs = Array.from({ length: 3 }, exampleParagraph)
@@ -18,7 +17,6 @@ const meta = {
   title: 'Components/Layout/Columns',
   component: Columns,
   argTypes: {
-    children: childrenArgType('The content to flow into columns.'),
     count: {
       control: {
         labels: { undefined: '2 (default)' },
