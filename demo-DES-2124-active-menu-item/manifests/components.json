@@ -10191,7 +10191,7 @@
           "snippet": "const Default = () => {\n    const [current, setCurrent] = useState(menuItems[0].text)\n\n    return (\n        <Menu inWideWindow={false}>\n            {menuItems.map(({ text, ...restProps }) => (\n              <Menu.Link\n                {...restProps}\n                aria-current={current === text ? 'page' : undefined}\n                key={text}\n                onClick={(event) => {\n                  event.preventDefault()\n                  setCurrent(text)\n                }}\n              >\n                {text}\n              </Menu.Link>\n            ))}\n        </Menu>\n    );\n};"
         }
       ],
-      "import": "import {\n  BarChartFillIcon,\n  DocumentsFillIcon,\n  FolderFillIcon,\n  PieChartFillIcon,\n  SettingsFillIcon,\n} from '@amsterdam/design-system-react-icons';\nimport { Menu } from '@amsterdam/design-system-react/src';",
+      "import": "import {\n  BarChartFillIcon,\n  DocumentsFillIcon,\n  FolderFillIcon,\n  PieChartFillIcon,\n  SettingsFillIcon,\n} from '@amsterdam/design-system-react-icons';\nimport { Grid } from '@amsterdam/design-system-react';\nimport { Menu } from '@amsterdam/design-system-react/src';",
       "docs": {
         "components-navigation-menu--docs": {
           "id": "components-navigation-menu--docs",
@@ -13089,6 +13089,6 @@
   },
   "meta": {
     "docgen": "react-component-meta",
-    "durationMs": 4160
+    "durationMs": 5245
   }
 }
