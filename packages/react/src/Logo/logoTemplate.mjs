@@ -1,5 +1,3 @@
-import { types as t } from '@babel/core'
-
 export function logoTemplate({ componentName, jsx }, { tpl }) {
   // SVGR prefixes all component names with 'Svg'; strip it for logos
   const name = componentName.replace(/^Svg/, '')
@@ -12,7 +10,7 @@ export function logoTemplate({ componentName, jsx }, { tpl }) {
       ${jsx}
     ))
 
-    ${name}.displayName = ${t.stringLiteral(name)}
+    ${name}.displayName = "${name}"
 
     export default ${name}
   `
