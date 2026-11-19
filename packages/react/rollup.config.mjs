@@ -1,4 +1,3 @@
-import babel from '@rollup/plugin-babel'
 import commonjs from '@rollup/plugin-commonjs'
 import resolve from '@rollup/plugin-node-resolve'
 import { readFileSync } from 'fs'
@@ -22,7 +21,7 @@ export const outputGlobals = {
 
 export default [
   {
-    external: [/@babel\/runtime/, 'react-dom', 'react'],
+    external: ['react-dom', 'react'],
     input: 'src/index.ts',
     output: [
       {
@@ -47,14 +46,6 @@ export default [
       }),
       nodePolyfills(),
       typescript({ includeDependencies: false, tsconfig: './tsconfig.build.json', useTsconfigDeclarationDir: true }),
-      babel({
-        babelHelpers: 'runtime',
-        exclude: ['node_modules/**', 'dist/**'],
-        extensions: ['.ts', '.tsx'],
-        inputSourceMap: true,
-        plugins: ['@babel/plugin-transform-runtime'],
-        presets: ['@babel/preset-react'],
-      }),
     ],
   },
   {
