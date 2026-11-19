@@ -102,41 +102,33 @@
         }
       },
       "link": {
-        "border-color": {
+        "border-inline-end-color": {
           "$value": "{ams.color.interactive.default}",
           "$type": "color"
         },
         "border-inline-end-style": {
-          "$value": "{ams.menu.link.border-style}",
+          "$value": "{ams.border.style}",
           "$extensions": {
             "nl.amsterdam.type": "borderStyle"
           }
         },
         "border-inline-end-width": {
-          "$value": "{ams.menu.link.border-width}",
+          "$value": "{ams.border.width.xl}",
           "$extensions": {
             "nl.amsterdam.type": "borderWidth"
           }
         },
+        "border-inline-start-color": {
+          "$value": "{ams.color.interactive.default}",
+          "$type": "color"
+        },
         "border-inline-start-style": {
-          "$value": "{ams.menu.link.border-style}",
+          "$value": "{ams.border.style}",
           "$extensions": {
             "nl.amsterdam.type": "borderStyle"
           }
         },
         "border-inline-start-width": {
-          "$value": "{ams.menu.link.border-width}",
-          "$extensions": {
-            "nl.amsterdam.type": "borderWidth"
-          }
-        },
-        "border-style": {
-          "$value": "solid",
-          "$extensions": {
-            "nl.amsterdam.type": "borderStyle"
-          }
-        },
-        "border-width": {
           "$value": "{ams.border.width.xl}",
           "$extensions": {
             "nl.amsterdam.type": "borderWidth"
@@ -219,7 +211,7 @@
               "nl.amsterdam.type": "color"
             }
           },
-          "border-color": {
+          "border-inline-start-color": {
             "$value": "currentColor",
             "$type": "color"
           },
@@ -245,6 +237,20 @@
           }
         },
         "vi-wide": {
+          "border-inline-end-color": {
+            "$value": "{ams.color.interactive.default}",
+            "$type": "color"
+          },
+          "border-inline-start-color": {
+            "$value": "{ams.color.interactive.default}",
+            "$type": "color"
+          },
+          "current": {
+            "border-inline-end-color": {
+              "$value": "currentColor",
+              "$type": "color"
+            }
+          },
           "gap": {
             "$value": "{ams.space.xs}",
             "$extensions": {

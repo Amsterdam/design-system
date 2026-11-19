@@ -7,6 +7,12 @@
           "nl.amsterdam.type": "borderRadius"
         }
       },
+      "style": {
+        "$value": "solid",
+        "$extensions": {
+          "nl.amsterdam.type": "borderStyle"
+        }
+      },
       "width": {
         "s": {
           "$value": {

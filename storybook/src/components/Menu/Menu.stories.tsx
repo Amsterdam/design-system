@@ -6,6 +6,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import type { ReactElement } from 'react'
 
+import { Grid } from '@amsterdam/design-system-react'
 import {
   BarChartFillIcon,
   DocumentsFillIcon,
@@ -66,7 +67,13 @@ const withInWideWindowArg = (StoryFn: () => ReactElement) => {
     return () => mq.removeEventListener('change', onChange)
   }, [updateArgs])
 
-  return <StoryFn />
+  return (
+    <Grid>
+      <Grid.Cell span="all">
+        <StoryFn />
+      </Grid.Cell>
+    </Grid>
+  )
 }
 
 const meta = {
