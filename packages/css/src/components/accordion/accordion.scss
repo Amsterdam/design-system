@@ -40,22 +40,19 @@
       color: var(--ams-accordion-button-hover-color);
     }
   }
-}
 
-.ams-accordion__icon svg {
-  rotate: 0deg;
+  svg {
+    rotate: var(--ams-accordion-button-svg-rotate);
 
-  [aria-expanded="true"] & {
-    rotate: -180deg;
+    @media (prefers-reduced-motion: no-preference) {
+      transition: rotate var(--ams-accordion-button-icon-transition-duration)
+        var(--ams-accordion-button-icon-transition-timing-function);
+    }
   }
 
-  @media (prefers-reduced-motion: no-preference) {
-    transition: rotate 0.3s ease;
+  &[aria-expanded="true"] svg {
+    rotate: var(--ams-accordion-button-svg-expanded-rotate);
   }
-}
-
-.ams-accordion__button[aria-expanded="true"] svg {
-  rotate: -180deg;
 }
 
 .ams-accordion__panel {
