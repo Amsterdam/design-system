@@ -4,6 +4,7 @@
  */
 
 import assert from 'node:assert/strict'
+import { readdirSync } from 'node:fs'
 import { test } from 'node:test'
 import { optimize } from 'svgo'
 
@@ -11,6 +12,13 @@ import { directionalIcons } from './directional-icons.mjs'
 import config from './svgo.config.mjs'
 
 const svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0h24v24H0z"/></svg>'
+
+test('lists only directional icons that have a file', () => {
+  const files = new Set(readdirSync(new URL('./icons', import.meta.url)))
+  const missing = [...directionalIcons].filter((name) => !files.has(`${name}.svg`))
+
+  assert.deepEqual(missing, [])
+})
 
 test('marks every directional icon on the root SVG element', () => {
   for (const name of directionalIcons) {
