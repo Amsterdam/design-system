@@ -1,0 +1,67 @@
+{/* @license CC0-1.0 */}
+
+import { Description, Meta, Title } from "@storybook/addon-docs/blocks";
+
+import { PageAnatomy } from "#storybook/_components/PageAnatomy/PageAnatomy";
+import { StatusBadge } from "#storybook/_components/StatusBadge/StatusBadge";
+
+import { anatomyLabels } from "./anatomyLabels.ts";
+import * as NavigationModelStories from "./NavigationModels.stories";
+
+<Meta of={NavigationModelStories} />
+
+<StatusBadge
+  description="These navigation models are exploratory and may change as design and implementation guidance evolves."
+  status="experimental"
+/>
+
+<Title />
+
+<Description of={NavigationModelStories} />
+
+## Anatomy
+
+This schematic shows the default sections for this page type and how the grids and vertical space work.
+
+<PageAnatomy labels={anatomyLabels} menu mode="compact" of={NavigationModelStories} story="NarrowWithSectionOverview" />
+
+The drawing shows the section overview, where the Menu is a narrow column.
+A Menu that is wide takes `14rem` beside the page instead, which leaves the Grid less room.
+
+## Usage guidelines
+
+### When to use
+
+Use this page to compare navigation models with the same shell, links and content, so only navigation decisions differ.
+
+## Variants
+
+### Always wide, open submenus
+
+The application keeps the Menu wide, and every submenu is open.
+
+### Always wide, collapsible submenus
+
+The application keeps the Menu wide, and each submenu has a button to show and hide it.
+The submenu that holds the current page starts open.
+
+### Widened by user
+
+The Menu has a button that lets users widen and narrow it.
+It starts wide here, because the current page is in a submenu.
+
+### Narrow with Table of Contents
+
+The Menu stays a narrow column and shows the first level only.
+A Table of Contents in the page body lists the pages of the current section.
+
+### Narrow with section overview
+
+The Menu stays a narrow column and shows the first level only.
+Its link leads to a page that lists the pages of the section.
+
+## See also
+
+- [Menu](/docs/components-navigation-menu--docs) – the navigation component used in each model.
+- [Table of Contents](/docs/components-navigation-table-of-contents--docs) – section navigation for the narrow-column model.
+- [Page structure](/docs/pages-guidelines-page-structure--docs) – the shared shell all internal pages use.

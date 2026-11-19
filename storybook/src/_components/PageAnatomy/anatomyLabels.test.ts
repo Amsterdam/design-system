@@ -30,6 +30,7 @@ const storyModules = import.meta.glob('../../pages/**/*.stories.tsx', { eager: t
 /** The story each page draws, where it is not the Default one. */
 const storyNames: Record<string, string> = {
   FormFlow: 'MultipleQuestions',
+  NavigationModels: 'NarrowWithSectionOverview',
   ProfilePage: 'Person',
   TablePage: 'SortingWithSelect',
 }

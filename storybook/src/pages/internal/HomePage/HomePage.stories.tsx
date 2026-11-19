@@ -20,6 +20,7 @@ const meta = {
   parameters: pageParameters(
     'The entry point of an internal website, such as a backoffice system. ' +
       'This example concentrates on the overall page layout rather than any particular content.',
+    { currentPageId: 'dashboard' },
   ),
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   render: (args) => (
@@ -29,7 +30,7 @@ const meta = {
        * on the page instead of looking like one of the content blocks the other cells form.
        */}
       <Grid.Cell appearance="transparent" span="all">
-        <Heading level={1}>Titel van de pagina</Heading>
+        <Heading level={1}>Dashboard</Heading>
       </Grid.Cell>
       {/*
        * This is a layout demo: the empty cells stand in for content blocks. Their blockSize only gives them
@@ -69,7 +70,7 @@ export const Default: StoryObj = {
    * on the page instead of looking like one of the content blocks the other cells form.
    */}
   <Grid.Cell appearance="transparent" span="all">
-    <Heading level={1}>Titel van de pagina</Heading>
+    <Heading level={1}>Dashboard</Heading>
   </Grid.Cell>
   {/*
    * This is a layout demo: the empty cells stand in for content blocks. Their blockSize only gives them

@@ -18,6 +18,8 @@ const meta = {
   parameters: pageParameters(
     'Suits websites whose content is organised into a handful of main sections ' +
       'that each have their own subsections.',
+    // The Menu has no link to a single project, so this page marks the section it belongs to.
+    { currentSectionId: 'projecten' },
   ),
   render: () => {
     const [currentMenuSlug, setCurrentMenuSlug] = useState(menuItems[0].slug)
