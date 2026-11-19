@@ -12,10 +12,11 @@ import { UserAccountIcon } from '@amsterdam/design-system-react-icons'
 import { MenuWithItems } from './MenuWithItems'
 
 type PageLayoutProps = {
+  readonly menuWithSubmenus?: boolean
   readonly wideMenuProps?: MenuProps
 } & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
-export const PageLayout = ({ children, wideMenuProps, ...restProps }: PageLayoutProps) => (
+export const PageLayout = ({ children, menuWithSubmenus, wideMenuProps, ...restProps }: PageLayoutProps) => (
   // withMenu lays the Page out as a grid with a column for the Menu beside the header, the body and the footer.
   // The rules for those areas select direct children of the Page only, so each child below needs its own
   // ams-page__area class and none of them may be wrapped in another element.
@@ -44,11 +45,11 @@ export const PageLayout = ({ children, wideMenuProps, ...restProps }: PageLayout
       noMenuButtonOnWideWindow
     >
       {/* The Menu for narrow and medium windows, inside the collapsible menu of the Page Header. */}
-      <MenuWithItems />
+      <MenuWithItems withSubmenus={menuWithSubmenus} />
     </PageHeader>
     {/* The same Menu for wide windows, in the menu column of the Page. inWideWindow shows one of the two. */}
     {/* Props reach this Menu only, because the one in the Page Header ignores `expandable`. */}
-    <MenuWithItems {...wideMenuProps} className="ams-page__area--menu" inWideWindow />
+    <MenuWithItems {...wideMenuProps} className="ams-page__area--menu" inWideWindow withSubmenus={menuWithSubmenus} />
     {/* The main element lives here rather than in the templates: an area class only works on a direct child. */}
     <main className="ams-page__area--body" id="inhoud">
       {children}
