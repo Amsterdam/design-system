@@ -82,7 +82,7 @@ export const Test: Story = {
     }
 
     // Click on third thumbnail button and show that slide
-    const thirdThumbnailButton = canvas.getAllByRole('tab', { name: 'Afbeelding 3: Chairs' })[0]
+    const thirdThumbnailButton = canvas.getAllByRole('tab', { name: 'Afbeelding: Chairs' })[0]
     await userEvent.click(thirdThumbnailButton)
     await expectOnlySlideVisible(slides, 2)
   },
