@@ -94,3 +94,31 @@ export const InAFieldSet: Story = {
     </FieldSet>
   ),
 }
+
+export const InAFieldSetWithValidation: Story = {
+  args: {
+    invalid: true,
+  },
+  render: ({ invalid, ...args }) => (
+    <FieldSet legend="Wat is uw naam?">
+      <Field {...args}>
+        <Label htmlFor="input-b1" inFieldSet>
+          Voornaam
+        </Label>
+        <TextInput aria-required="true" defaultValue={givenName} id="input-b1" />
+      </Field>
+      <Field {...args} invalid={invalid}>
+        <Label htmlFor="input-b2" inFieldSet>
+          Achternaam
+        </Label>
+        {invalid && <ErrorMessage id="error-b2">Vul uw achternaam in.</ErrorMessage>}
+        <TextInput
+          aria-describedby={invalid ? 'error-b2' : undefined}
+          aria-required="true"
+          id="input-b2"
+          invalid={invalid}
+        />
+      </Field>
+    </FieldSet>
+  ),
+}
