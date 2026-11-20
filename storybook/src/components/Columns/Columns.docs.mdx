@@ -30,7 +30,7 @@ Use the [Grid](/docs/components-layout-grid--docs) to put separate blocks of con
 
 ### How to use
 
-Make the columns line up with the Grid.
+Make the gaps line up with the Grid.
 In a Cell that spans 8 Grid columns, for example, use 2 or 4 columns, not 3.
 
 Make sure each column is wide enough for its content.
@@ -95,8 +95,9 @@ WebKit tracks these in its bugs about [grid](https://bugs.webkit.org/show_bug.cg
 ## Design
 
 The space between the columns is the same as in the Grid.
-Two columns line up with the Grid in any Cell that spans an even number of Grid columns.
+The gap between two columns lines up with a gap of the Grid in any Cell that spans an even number of Grid columns.
 That is why two is the default.
+In some situations the columns can sit slightly off the Grid, which is fine.
 
 ## Accessibility
 
