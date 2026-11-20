@@ -63,6 +63,22 @@ describe('MenuLink', () => {
     expect(icon).toBeInTheDocument()
   })
 
+  it('hides the duplicate current-link label from assistive technology', () => {
+    render(
+      <Menu.Link aria-current="page" href="#" icon={DocumentIcon}>
+        Dashboard
+      </Menu.Link>,
+    )
+
+    const link = screen.getByRole('link', { name: 'Dashboard' })
+    const hiddenLabel = screen.getByText('Dashboard', { selector: '.ams-menu__link-label-hidden' })
+
+    expect(link).toHaveAccessibleName('Dashboard')
+    expect(screen.queryByRole('link', { name: 'Dashboard Dashboard' })).not.toBeInTheDocument()
+    expect(hiddenLabel).toHaveAttribute('aria-hidden', 'true')
+    expect(hiddenLabel).toHaveAttribute('hidden')
+  })
+
   it('passes additional props', () => {
     render(<Menu.Link aria-hidden="false" data-test="data-test" href="#" icon={DocumentIcon} id="id" />)
 
