@@ -6,7 +6,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import type { CSSProperties, ReactNode } from 'react'
 
-import { Grid, Heading, LinkList } from '@amsterdam/design-system-react'
+import { Columns, Grid, Heading, LinkList } from '@amsterdam/design-system-react'
 import { LogInIcon, PlusIcon, SearchIcon } from '@amsterdam/design-system-react-icons'
 import { PageHeader } from '@amsterdam/design-system-react/src'
 import { logoBrands } from '@amsterdam/design-system-react/src/Logo/Logo'
@@ -14,6 +14,7 @@ import { useState } from 'react'
 
 import { linkComponentArgType } from '#storybook/_common/argTypes'
 import { wrapInPage } from '#storybook/_common/decorators'
+import { topics } from '#storybook/_common/exampleContent'
 import { iconArgType } from '#storybook/_common/iconArgTypes'
 
 import ExampleLogo from '../Logo/ExampleLogo'
@@ -95,6 +96,45 @@ const CollapsibleMenuWithOneLink: ReactNode = (
 )
 
 export const Default: PageHeaderStory = {
+  args: {
+    children: (
+      <Grid>
+        <PageHeader.GridCellNarrowWindowOnly span="all">
+          <LinkList>
+            <LinkList.Link href="#" lang="en">
+              English
+            </LinkList.Link>
+          </LinkList>
+        </PageHeader.GridCellNarrowWindowOnly>
+        <Grid.Cell span="all">
+          <Heading className="ams-mb-s" level={2} size="level-3">
+            Alle onderwerpen
+          </Heading>
+          {/* Columns spreads the topics over the width of the menu, while they stay one list. */}
+          <Columns count={{ narrow: 1, medium: 2, wide: 3 }}>
+            <LinkList>
+              {topics.map((topic) => (
+                <LinkList.Link href="#" key={topic}>
+                  {topic}
+                </LinkList.Link>
+              ))}
+            </LinkList>
+          </Columns>
+        </Grid.Cell>
+      </Grid>
+    ),
+    menuItems: [
+      <PageHeader.MenuLink href="#" key={1} lang="en">
+        English
+      </PageHeader.MenuLink>,
+      <PageHeader.MenuLink fixed href="#" icon={SearchIcon} key={2}>
+        Zoeken
+      </PageHeader.MenuLink>,
+    ],
+  },
+}
+
+export const WithGroupsOfLinks: PageHeaderStory = {
   args: {
     brandName: 'Data Amsterdam',
     children: (

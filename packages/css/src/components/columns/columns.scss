@@ -1,0 +1,38 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+@use "../../common/breakpoint" as *;
+
+$ams-columns-max-count: 4;
+
+.ams-columns {
+  column-gap: var(--ams-columns-column-gap);
+
+  @media (min-width: $ams-breakpoint-medium) {
+    column-count: 2;
+  }
+}
+
+@for $i from 1 through $ams-columns-max-count {
+  .ams-columns--count-#{$i} {
+    column-count: $i;
+  }
+}
+
+@media (min-width: $ams-breakpoint-medium) {
+  @for $i from 1 through $ams-columns-max-count {
+    .ams-columns--count-#{$i}-medium {
+      column-count: $i;
+    }
+  }
+}
+
+@media (min-width: $ams-breakpoint-wide) {
+  @for $i from 1 through $ams-columns-max-count {
+    .ams-columns--count-#{$i}-wide {
+      column-count: $i;
+    }
+  }
+}

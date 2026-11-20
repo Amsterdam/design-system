@@ -26,7 +26,3 @@ export const pageHeaderMenuLinks: PageHeaderMenuLink[] = [
     label: 'Zoeken',
   },
 ]
-
-type MegaMenuLink = string
-
-export const megaMenuLinks: MegaMenuLink[] = ['Afval', 'Bestuur en organisatie', 'Gemeentebelastingen', '…']
