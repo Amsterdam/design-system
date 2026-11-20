@@ -109,6 +109,10 @@ const config: StorybookConfig = {
 
   viteFinal: (viteConfig) => ({
     ...viteConfig,
+    build: {
+      ...viteConfig.build,
+      cssMinify: false,
+    },
     plugins: [...(viteConfig.plugins ?? []), viewportFitCover],
   }),
 }
