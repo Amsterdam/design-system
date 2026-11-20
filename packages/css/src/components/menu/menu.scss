@@ -123,9 +123,17 @@
 
   &[aria-current="page"] {
     background-color: var(--ams-menu-link-current-background-color);
+    border-inline-end-color: var(--ams-menu-link-current-border-inline-end-color);
     border-inline-start-color: var(--ams-menu-link-current-border-inline-start-color);
     color: var(--ams-menu-link-current-color);
     font-weight: var(--ams-menu-link-current-font-weight);
+  }
+
+  @media (forced-colors: active) {
+    &[aria-current="page"],
+    &:not([aria-current="page"]) {
+      border-inline-end-color: Canvas;
+    }
   }
 
   .ams-menu__icon {
@@ -147,8 +155,6 @@
 
   @media (min-width: $ams-breakpoint-wide) {
     align-items: center;
-    border-inline-end-color: var(--ams-menu-link-vi-wide-border-inline-end-color);
-    border-inline-start-color: var(--ams-menu-link-vi-wide-border-inline-start-color);
     display: flex; // The links do stretch in the vertical layout of Menu.
     flex-direction: column;
     gap: var(--ams-menu-link-wide-gap /* @deprecated */, var(--ams-menu-link-vi-wide-gap));
@@ -162,10 +168,13 @@
 
     &[aria-current="page"] {
       border-inline-end-color: var(--ams-menu-link-vi-wide-current-border-inline-end-color);
-      border-inline-start-color: var(--ams-menu-link-vi-wide-border-inline-start-color);
+      border-inline-start-color: var(--ams-menu-link-vi-wide-current-border-inline-start-color);
     }
 
     @media (forced-colors: active) {
+      &[aria-current="page"] {
+        border-inline-start-color: Canvas;
+      }
       &:not([aria-current="page"]) {
         border-inline-end-color: Canvas;
       }
