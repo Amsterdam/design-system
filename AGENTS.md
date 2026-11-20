@@ -93,7 +93,8 @@ Creating files by hand means following the naming table above and each package's
 
 ## Documentation, tests, and accessibility
 
-- Accessibility standard we target: [accessibility.docs.mdx](storybook/src/docs/guidelines/accessibility.docs.mdx) — WCAG 2.2 Level AA; do not cite individual success criteria in component documentation.
+- Accessibility standard we target: [accessibility.docs.mdx](storybook/src/docs/guidelines/accessibility.docs.mdx) — WCAG 2.2 Level AA.
+  In component documentation, cite a success criterion only inline, where it explains a behaviour, and never as a list.
 - Quality checklist covering accessibility, tests, clean implementation, documentation, and licensing: [definition-of-done.md](documentation/definition-of-done.md) — cross-check it before submitting work.
 - Testing: [tests.md](documentation/tests.md)
 - Component docs: [component-docs.md](documentation/component-docs.md) and [storybook.md](documentation/storybook.md)
