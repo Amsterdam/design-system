@@ -87,11 +87,11 @@
   // Recomputed here rather than inherited, so a Menu outside a Page Header still bleeds correctly.
   /* stylelint-disable csstools/value-no-unknown-custom-properties -- Declared in common/safe-area.scss. */
   --_ams-menu-link-padding-inline-end: max(
-    var(--ams-menu-link-padding-inline /* @deprecated */, var(--ams-grid-padding-inline)),
+    var(--ams-grid-padding-inline, var(--ams-menu-link-padding-inline /* @deprecated */)),
     var(--ams-safe-area-inset-inline-end)
   );
   --_ams-menu-link-padding-inline-start: max(
-    var(--ams-menu-link-padding-inline /* @deprecated */, var(--ams-grid-padding-inline)),
+    var(--ams-grid-padding-inline, var(--ams-menu-link-padding-inline /* @deprecated */)),
     var(--ams-safe-area-inset-inline-start)
   );
   /* stylelint-enable csstools/value-no-unknown-custom-properties */
@@ -109,7 +109,9 @@
   outline-offset: var(--ams-menu-link-outline-offset);
   padding-block: var(--ams-menu-link-padding-block);
   padding-inline-end: calc(var(--_ams-menu-link-padding-inline-end) - var(--ams-menu-link-border-inline-end-width));
-  padding-inline-start: var(--_ams-menu-link-padding-inline-start);
+  padding-inline-start: calc(
+    var(--_ams-menu-link-padding-inline-start) - var(--ams-menu-link-border-inline-start-width)
+  );
   text-decoration-line: var(--ams-menu-link-text-decoration-line);
   text-decoration-thickness: var(--ams-menu-link-text-decoration-thickness);
   text-underline-offset: var(--ams-menu-link-text-underline-offset);
