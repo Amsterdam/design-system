@@ -162,7 +162,7 @@
           }
         },
         "padding-inline": {
-          "$value": "{ams.space.s}",
+          "$value": "{ams.grid.padding-inline}",
           "$extensions": {
             "nl.amsterdam.hint": "Must be a single value: it is used in a calculation, which two values would invalidate.",
             "nl.amsterdam.subtype": "space",

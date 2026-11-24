@@ -86,12 +86,10 @@
   // The padding of Page Header, which resolves to the same value: its token aliases the Grid one.
   // Recomputed here rather than inherited, so a Menu outside a Page Header still bleeds correctly.
   /* stylelint-disable csstools/value-no-unknown-custom-properties -- Declared in common/safe-area.scss. */
-  --_ams-menu-link-padding-inline-end: max(
-    var(--ams-grid-padding-inline, var(--ams-menu-link-padding-inline /* @deprecated */)),
-    var(--ams-safe-area-inset-inline-end)
-  );
+  --_ams-menu-link-padding-inline-delta: calc(var(--ams-menu-link-padding-inline) - var(--ams-grid-padding-inline));
+  --_ams-menu-link-padding-inline-end: max(var(--ams-menu-link-padding-inline), var(--ams-safe-area-inset-inline-end));
   --_ams-menu-link-padding-inline-start: max(
-    var(--ams-grid-padding-inline, var(--ams-menu-link-padding-inline /* @deprecated */)),
+    var(--ams-menu-link-padding-inline),
     var(--ams-safe-area-inset-inline-start)
   );
   /* stylelint-enable csstools/value-no-unknown-custom-properties */
@@ -145,11 +143,17 @@
   @media (min-width: $ams-breakpoint-medium) {
     /* stylelint-disable csstools/value-no-unknown-custom-properties -- Declared in common/safe-area.scss. */
     --_ams-menu-link-padding-inline-end: max(
-      var(--ams-grid-medium-padding-inline /* @deprecated */, var(--ams-grid-vi-medium-padding-inline)),
+      calc(
+        var(--ams-grid-medium-padding-inline /* @deprecated */, var(--ams-grid-vi-medium-padding-inline)) +
+          var(--_ams-menu-link-padding-inline-delta)
+      ),
       var(--ams-safe-area-inset-inline-end)
     );
     --_ams-menu-link-padding-inline-start: max(
-      var(--ams-grid-medium-padding-inline /* @deprecated */, var(--ams-grid-vi-medium-padding-inline)),
+      calc(
+        var(--ams-grid-medium-padding-inline /* @deprecated */, var(--ams-grid-vi-medium-padding-inline)) +
+          var(--_ams-menu-link-padding-inline-delta)
+      ),
       var(--ams-safe-area-inset-inline-start)
     );
     /* stylelint-enable csstools/value-no-unknown-custom-properties */
@@ -160,10 +164,12 @@
     flex-direction: column;
     gap: var(--ams-menu-link-wide-gap /* @deprecated */, var(--ams-menu-link-vi-wide-gap));
     padding-inline-end: calc(
-      var(--ams-menu-link-vi-wide-padding-inline) - var(--ams-menu-link-border-inline-end-width)
+      var(--ams-menu-link-vi-wide-padding-inline) +
+        var(--_ams-menu-link-padding-inline-delta) - var(--ams-menu-link-border-inline-end-width)
     );
     padding-inline-start: calc(
-      var(--ams-menu-link-vi-wide-padding-inline) - var(--ams-menu-link-border-inline-start-width)
+      var(--ams-menu-link-vi-wide-padding-inline) +
+        var(--_ams-menu-link-padding-inline-delta) - var(--ams-menu-link-border-inline-start-width)
     );
     text-align: center;
 
