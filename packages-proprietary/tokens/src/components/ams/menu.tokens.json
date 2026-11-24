@@ -86,7 +86,7 @@
           }
         },
         "padding-block-start": {
-          "$value": "calc({ams.logo.block-size} + 2 * {ams.page-header.padding-block})",
+          "$value": "calc(max({ams.logo.block-size}, {ams.logo.min-block-size}) + 2 * {ams.page-header.padding-block})",
           "$extensions": {
             "nl.amsterdam.subtype": "space",
             "nl.amsterdam.type": "dimension"
@@ -205,7 +205,7 @@
         },
         "current": {
           "background-color": {
-            "$value": "color-mix(in srgb, {ams.links.inverse.color} 12.5%, {ams.color.interactive.default})",
+            "$value": "color-mix(in srgb, {ams.menu.link.color} 12.5%, {ams.menu.background-color})",
             "$description": "Mixes the current color with the background color to create a subtle background for the current link.",
             "$extensions": {
               "nl.amsterdam.type": "color"

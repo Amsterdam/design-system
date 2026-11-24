@@ -157,7 +157,6 @@
 
   @media (min-width: $ams-breakpoint-wide) {
     align-items: center;
-    display: flex; // The links do stretch in the vertical layout of Menu.
     flex-direction: column;
     gap: var(--ams-menu-link-wide-gap /* @deprecated */, var(--ams-menu-link-vi-wide-gap));
     padding-inline-end: calc(

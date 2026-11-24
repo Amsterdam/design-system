@@ -86,6 +86,9 @@ In narrow and medium windows, each link has padding on both sides to keep its ic
 
 ## Accessibility
 
+Screen readers announce the link marked with `aria-current="page"` as the current page.
+The bold label and the border mark it visually as well, so colour alone doesn’t carry the meaning.
+
 Without `inWideWindow` the Menu renders a `div`, because it then sits inside the `nav` element of the [Page Header](/docs/components-containers-page-header--docs).
 With the prop it renders a `nav` of its own, named by a visually hidden heading that `accessibleName` fills.
 
