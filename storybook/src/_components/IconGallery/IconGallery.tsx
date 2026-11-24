@@ -10,6 +10,26 @@ import './icon-gallery.css'
 
 type IconName = keyof typeof Icons
 
+const groupIcons = (icons: IconName[]) => {
+  const groupedIcons: {
+    [key: string]: { filled?: IconName; outline?: IconName }
+  } = {}
+
+  icons.forEach((key) => {
+    const baseName = key.replace('Fill', '')
+    if (!groupedIcons[baseName]) {
+      groupedIcons[baseName] = {}
+    }
+    if (key.includes('Fill')) {
+      groupedIcons[baseName].filled = key
+    } else {
+      groupedIcons[baseName].outline = key
+    }
+  })
+
+  return groupedIcons
+}
+
 type IconGalleryProps = {
   readonly excludeIcons?: Set<IconName> | IconName[]
   readonly icons?: Set<IconName> | IconName[]
@@ -34,17 +54,20 @@ export const IconGallery = ({ excludeIcons, icons }: IconGalleryProps) => {
     filteredIcons = filteredIcons.filter((icon) => !excludeIconsSet.has(icon))
   }
 
-  // Sort alphabetically for consistent order
-  const sortedIcons = [...filteredIcons].sort((a, b) => a.localeCompare(b))
+  const groupedIcons = groupIcons(filteredIcons)
+
+  // Sort baseNames alphabetically for consistent order
+  const sortedBaseNames = Object.keys(groupedIcons).sort((a, b) => a.localeCompare(b))
 
   return (
     <div className="_ams-icon-gallery sb-unstyled">
-      {sortedIcons.map((iconName) => (
-        <div className="_ams-icon-gallery__item" key={iconName}>
+      {sortedBaseNames.map((baseName) => (
+        <div className="_ams-icon-gallery__item" key={baseName}>
           <div className="_ams-icon-gallery__icons">
-            <Icon size="heading-2" svg={Icons[iconName]} />
+            {groupedIcons[baseName].outline && <Icon size="heading-2" svg={Icons[groupedIcons[baseName].outline!]} />}
+            {groupedIcons[baseName].filled && <Icon size="heading-2" svg={Icons[groupedIcons[baseName].filled!]} />}
           </div>
-          <p className="_ams-icon-gallery__name">{iconName.substring(0, iconName.length - 4)}</p>
+          <p className="_ams-icon-gallery__name">{baseName.substring(0, baseName.length - 4)}</p>
         </div>
       ))}
     </div>
