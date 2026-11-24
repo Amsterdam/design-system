@@ -39,7 +39,12 @@ export const MenuLink = forwardRef(
           {...((!linkComponent || linkComponent === 'a') && { ref })}
         >
           <Icon className="ams-menu__icon" svg={icon} />
-          {children}
+          <span className="ams-menu__link-label-wrapper">
+            <span aria-hidden="true" className="ams-menu__link-label-hidden" hidden>
+              {children}
+            </span>
+            <span className="ams-menu__link-label">{children}</span>
+          </span>
         </Tag>
       </li>
     )

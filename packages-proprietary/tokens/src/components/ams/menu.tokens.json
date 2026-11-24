@@ -86,14 +86,15 @@
           }
         },
         "padding-block-start": {
-          "$value": "calc({ams.logo.block-size} + 2 * {ams.page-header.padding-block})",
+          "$value": "calc(max({ams.logo.block-size}, {ams.logo.min-block-size}) + 2 * {ams.page-header.padding-block})",
           "$extensions": {
             "nl.amsterdam.subtype": "space",
             "nl.amsterdam.type": "dimension"
           }
         },
         "padding-inline": {
-          "$value": "{ams.space.s}",
+          "$deprecated": "Padding moved to link. Use `ams.menu.link.vi-wide.padding-inline` instead. Will be removed on or after 2027-04-25.",
+          "$value": "0",
           "$extensions": {
             "nl.amsterdam.subtype": "space",
             "nl.amsterdam.type": "dimension"
@@ -101,6 +102,38 @@
         }
       },
       "link": {
+        "border-inline-end-color": {
+          "$value": "transparent",
+          "$type": "color"
+        },
+        "border-inline-end-style": {
+          "$value": "solid",
+          "$extensions": {
+            "nl.amsterdam.type": "borderStyle"
+          }
+        },
+        "border-inline-end-width": {
+          "$value": "{ams.border.width.xl}",
+          "$extensions": {
+            "nl.amsterdam.type": "borderWidth"
+          }
+        },
+        "border-inline-start-color": {
+          "$value": "transparent",
+          "$type": "color"
+        },
+        "border-inline-start-style": {
+          "$value": "solid",
+          "$extensions": {
+            "nl.amsterdam.type": "borderStyle"
+          }
+        },
+        "border-inline-start-width": {
+          "$value": "{ams.border.width.xl}",
+          "$extensions": {
+            "nl.amsterdam.type": "borderWidth"
+          }
+        },
         "color": {
           "$value": "{ams.links.inverse.color}",
           "$extensions": {
@@ -129,7 +162,7 @@
           }
         },
         "padding-inline": {
-          "$value": "{ams.space.s}",
+          "$value": "{ams.grid.padding-inline}",
           "$extensions": {
             "nl.amsterdam.hint": "Must be a single value: it is used in a calculation, which two values would invalidate.",
             "nl.amsterdam.subtype": "space",
@@ -170,6 +203,33 @@
             }
           }
         },
+        "current": {
+          "background-color": {
+            "$value": "color-mix(in srgb, {ams.menu.link.color} 12.5%, {ams.menu.background-color})",
+            "$description": "Mixes the current color with the background color to create a subtle background for the current link.",
+            "$extensions": {
+              "nl.amsterdam.type": "color"
+            }
+          },
+          "border-inline-start-color": {
+            "$value": "currentColor",
+            "$type": "color"
+          },
+          "border-inline-end-color": {
+            "$value": "{ams.menu.link.current.background-color}",
+            "$type": "color"
+          },
+          "color": {
+            "$value": "{ams.menu.link.color}",
+            "$extensions": {
+              "nl.amsterdam.type": "color"
+            }
+          },
+          "font-weight": {
+            "$value": "{ams.typography.body-text.bold.font-weight}",
+            "$type": "fontWeight"
+          }
+        },
         "wide": {
           "gap": {
             "$deprecated": "Use `ams.menu.link.vi-wide.gap` instead. Will be removed on or after 2026-10-20.",
@@ -181,8 +241,25 @@
           }
         },
         "vi-wide": {
+          "current": {
+            "border-inline-end-color": {
+              "$value": "currentColor",
+              "$type": "color"
+            },
+            "border-inline-start-color": {
+              "$value": "{ams.menu.link.current.background-color}",
+              "$type": "color"
+            }
+          },
           "gap": {
             "$value": "{ams.space.xs}",
+            "$extensions": {
+              "nl.amsterdam.subtype": "space",
+              "nl.amsterdam.type": "dimension"
+            }
+          },
+          "padding-inline": {
+            "$value": "{ams.space.m}",
             "$extensions": {
               "nl.amsterdam.subtype": "space",
               "nl.amsterdam.type": "dimension"

@@ -22,7 +22,7 @@ type Story = StoryObj<typeof meta>
 export const Test: Story = {
   render: (args) => (
     <Menu {...args}>
-      <Menu.Link href="#" icon={<SvgPieChartFill />}>
+      <Menu.Link aria-current="page" href="#" icon={<SvgPieChartFill />}>
         Dashboard
       </Menu.Link>
       <Menu.Link href="#" icon={<SvgPieChartFill />}>

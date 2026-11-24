@@ -55,9 +55,11 @@ They should offer navigation using the Page Header only.
 
 Do not use this component anywhere other than the Page Header and the side of the Page.
 
-### How to write
+### How to use
 
 Use filled icons for the links.
+Mark the link to the current page with `aria-current="page"`.
+Apply it to one link per Menu.
 
 ## Examples
 
@@ -79,10 +81,13 @@ In narrow and medium windows the Menu reaches both edges of the window by cancel
 That ties the component to the one context it is used in, which is accepted here: it is the only way for a band of colour to span the window while the links stay aligned with the content around them.
 Where that padding grows to clear a display cutout, the margin grows with it, so the blue still runs to the physical edge of the screen while the links move in.
 
-A link is only as wide as its icon and label in the narrow layout, so the area that responds to a click does not extend across the empty space beside the text.
-In the wide layout the links do stretch, since the column is barely wider than the labels themselves.
+Links stretch across the Menu in every layout, so their backgrounds and clickable areas reach its edges.
+In narrow and medium windows, each link has padding on both sides to keep its icon and label clear of display cutouts and aligned with the surrounding content.
 
 ## Accessibility
+
+Screen readers announce the link marked with `aria-current="page"` as the current page.
+The bold label and the border mark it visually as well, so colour alone doesn’t carry the meaning.
 
 Without `inWideWindow` the Menu renders a `div`, because it then sits inside the `nav` element of the [Page Header](/docs/components-containers-page-header--docs).
 With the prop it renders a `nav` of its own, named by a visually hidden heading that `accessibleName` fills.

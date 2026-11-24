@@ -5,6 +5,7 @@
 
 @use "../../common/breakpoint" as *;
 @use "../../common/hyphenation" as *;
+@use "../../common/reserve-bold-label-space" as *;
 @use "../../common/resets" as *;
 
 .ams-tab-navigation__list {
@@ -101,16 +102,6 @@
   grid-area: 1 / 1;
 }
 
-// This hidden label is used to prevent a layout shift when the link is current
-// and the link text becomes bold.
 .ams-tab-navigation__link-label-hidden {
-  font-weight: var(--ams-tab-navigation-link-current-font-weight);
-  pointer-events: none;
-  /* stylelint-disable-next-line defensive-css/no-user-select-none -- Prevents copying invisible text. */
-  -webkit-user-select: none;
-
-  /* Safari support is added with the prefixed property. */
-  /* stylelint-disable-next-line plugin/use-baseline, defensive-css/no-user-select-none -- Prevents copying invisible text. */
-  user-select: none;
-  visibility: hidden;
+  @include reserve-bold-label-space(var(--ams-tab-navigation-link-current-font-weight));
 }
