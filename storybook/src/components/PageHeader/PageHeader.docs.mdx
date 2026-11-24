@@ -86,6 +86,9 @@ Don’t add whitespace to the Grid in the collapsible menu – its container alr
 
 If the collapsible menu contains [Headings](/docs/components-text-heading--docs), give them level 2 and a size of ‘level-3’.
 
+Put a long list of links, such as all the topics of the website, in [Columns](/docs/components-layout-columns--docs).
+It uses the width of the menu, and the links stay one list.
+
 #### Controlling the menu
 
 By default the Page Header keeps track of whether the collapsible menu is open.
@@ -117,6 +120,14 @@ function Header() {
 ```
 
 ## Examples
+
+### With groups of links
+
+The links in the collapsible menu can fall into a few groups, each with a heading.
+Place each group in a Grid Cell of its own.
+The groups are separate lists, so they don’t need Columns.
+
+<Canvas of={PageHeaderStories.WithGroupsOfLinks} />
 
 ### With moving links
 

@@ -16,6 +16,30 @@ export const districts: ReadonlyArray<string> = [
   'Zuidoost',
 ]
 
+/** The topics in the main menu of amsterdam.nl. */
+export const topics: ReadonlyArray<string> = [
+  'Afval',
+  'Belastingen',
+  'Bestuur en organisatie',
+  'Bouw- en verkeersprojecten',
+  'Burgerzaken',
+  'Jeugdhulp',
+  'Leefomgeving',
+  'Ondernemen',
+  'Onderwijs',
+  'Parkeren',
+  'Sport',
+  'Stadsdelen',
+  'Subsidies',
+  'Vergunningen en ontheffingen',
+  'Verkeer en vervoer',
+  'Verkiezingen',
+  'Werk aan de weg',
+  'Werk en inkomen',
+  'Wonen, bouwen en verbouwen',
+  'Zorg en ondersteuning',
+]
+
 // Chromatic captures every Pages story, so varying content would report differences that aren’t regressions.
 // It gets the first entry of each list; everywhere else keeps picking at random.
 const pickRandomContent = <T>(list: Array<T>): T =>

@@ -1,0 +1,14 @@
+{
+  "ams": {
+    "columns": {
+      "column-gap": {
+        "$value": "{ams.grid.column-gap}",
+        "$description": "Matches the gap between the columns of the Grid, so the columns line up with its Cells.",
+        "$extensions": {
+          "nl.amsterdam.subtype": "space",
+          "nl.amsterdam.type": "dimension"
+        }
+      }
+    }
+  }
+}
