@@ -1,0 +1,82 @@
+{
+  "ams": {
+    "spinner": {
+      "animation": {
+        "$value": "ams-spinner-rotate 0.8s linear infinite",
+        "$description": "The loading animation."
+      },
+      "reduced-motion": {
+        "animation": {
+          "$value": "ams-spinner-rotate 2.4s linear infinite",
+          "$description": "The loading animation for users who prefer reduced motion."
+        }
+      },
+      "accent": {
+        "border-color": {
+          "$value": "{ams.color.progress.current}",
+          "$description": "The colour of the moving part of the ring.",
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
+        }
+      },
+      "track": {
+        "border-color": {
+          "$value": "#bababa",
+          "$description": "The colour of the ring's resting track.",
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
+        }
+      },
+      "border-width": {
+        "$value": {
+          "value": 0.125,
+          "unit": "rem"
+        },
+        "$type": "dimension",
+        "$description": "The border width of a Spinner."
+      },
+      "font-size": {
+        "$value": "{ams.typography.body-text.font-size}",
+        "$description": "The font size that the Spinner is sized from. It matches the size of body text.",
+        "$extensions": {
+          "nl.amsterdam.type": "fontSize"
+        }
+      },
+      "line-height": {
+        "$value": "{ams.typography.body-text.line-height}",
+        "$description": "The height of the space a Spinner reserves. It matches the line height of body text.",
+        "$extensions": {
+          "nl.amsterdam.subtype": "lineHeight",
+          "nl.amsterdam.type": "number"
+        }
+      },
+      "large": {
+        "border-width": {
+          "$value": {
+            "value": 0.125,
+            "unit": "rem"
+          },
+          "$type": "dimension",
+          "$description": "The border width of a large Spinner."
+        },
+        "font-size": {
+          "$value": "{ams.typography.body-text.large.font-size}",
+          "$description": "The font size that a large Spinner is sized from. It matches the size of large body text.",
+          "$extensions": {
+            "nl.amsterdam.type": "fontSize"
+          }
+        },
+        "line-height": {
+          "$value": "{ams.typography.body-text.large.line-height}",
+          "$description": "The height of the space a large Spinner reserves. It matches the line height of large body text.",
+          "$extensions": {
+            "nl.amsterdam.subtype": "lineHeight",
+            "nl.amsterdam.type": "number"
+          }
+        }
+      }
+    }
+  }
+}
