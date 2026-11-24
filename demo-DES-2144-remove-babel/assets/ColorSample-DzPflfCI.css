@@ -1,0 +1,14 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+._ams-color-sample {
+  block-size: 1rem;
+  box-shadow: inset 0 0 0 0.0625rem rgb(0 0 0 / 12.5%);
+
+  /* We allow non-baseline CSS in Storybook. */
+  /* stylelint-disable-next-line plugin/use-baseline */
+  forced-color-adjust: none;
+  inline-size: 1rem;
+}
