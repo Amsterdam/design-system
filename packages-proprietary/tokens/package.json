@@ -38,6 +38,6 @@
     "chokidar-cli": "3.0.0",
     "postcss": "8.5.33",
     "style-dictionary": "5.8.0",
-    "vitest": "5.1.0"
+    "vitest": "5.1.1"
   }
 }
