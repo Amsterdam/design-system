@@ -69,6 +69,7 @@ function colour(value) {
   )
 }
 
+// A line-height ratio needs the font size at its point of use, which can differ from its alias target's context.
 function fontSizeToken(token, tokens) {
   const parent = token.path.slice(0, -1)
   while (parent.length > 1) {
@@ -88,6 +89,7 @@ function convert(token, tokens, width) {
   const property = token.path.at(-1)
   const subtype = extensions['nl.amsterdam.subtype']
   let result
+  // An empty scope keeps primitives without a matching property picker out of Figma's menus.
   let scopes = []
 
   if (property === 'line-height' || subtype === 'lineHeight' || type === 'lineHeight') {
@@ -173,6 +175,7 @@ function sameValues(left, right) {
 }
 
 function viewportsFromBreakpoints(source) {
+  // Phone has no Sass breakpoint; 320px is the fluid scales' documented lower bound.
   const viewports = { Phone: 320 }
   for (const [mode, breakpoint] of [
     ['Tablet', 'medium'],
@@ -192,13 +195,26 @@ function viewportsFromBreakpoints(source) {
 }
 
 /**
- * Creates native Figma import documents from resolved Style Dictionary tokens.
- * The two density dictionaries must contain the same token paths.
+ * Creates core Figma import documents from resolved brand and common tokens.
+ * The two density dictionaries must contain the same core token paths.
+ * Theme selects density; a separate Viewport collection provides responsive pixel values.
+ * Unsupported CSS-only values are returned in the report instead of becoming unusable variables.
  */
 export function createFigmaFiles(densityTokens, breakpoints) {
   const viewports = viewportsFromBreakpoints(breakpoints)
   if (densityTokens.length !== densities.length) throw new Error('Expected Spacious and Compact source dictionaries.')
-  const tokens = densityTokens.map((allTokens) => new Map(allTokens.map((token) => [token.path.join('.'), token])))
+  const tokens = densityTokens.map(
+    (allTokens) =>
+      new Map(
+        allTokens
+          .filter((token) => {
+            if (typeof token.filePath !== 'string') throw new Error('Figma source tokens must include their filePath.')
+            // The source layer, not a component-like name such as inputs or links, defines the library boundary.
+            return /(?:^|\/)src\/(?:brand|common)\//.test(token.filePath.replaceAll('\\', '/'))
+          })
+          .map((token) => [token.path.join('.'), token]),
+      ),
+  )
   const paths = [...tokens[0].keys()].sort()
   if (tokens.some((mode) => mode.size !== paths.length || paths.some((path) => !mode.has(path)))) {
     throw new Error('Spacious and Compact must define the same source token paths.')
@@ -206,6 +222,12 @@ export function createFigmaFiles(densityTokens, breakpoints) {
   const excluded = []
   const evaluated = new Map()
   for (const path of paths) {
+    for (const mode of tokens) {
+      const target = reference(mode.get(path))
+      if (target && !mode.has(target)) {
+        throw new Error(`Core Figma token ${path} references an out-of-scope token: ${target}.`)
+      }
+    }
     const failures = []
     const values = tokens.map((mode, density) => {
       try {
@@ -238,6 +260,7 @@ export function createFigmaFiles(densityTokens, breakpoints) {
       const target = reference(sourceToken)
       const targetValues = evaluated.get(target)?.[density]
       const token = structuredClone(values[density][0])
+      // Equal source values can convert differently, especially line-height ratios with different font sizes.
       if (targetValues && sameValues(values[density], targetValues)) {
         token.$value = `{${target}}`
       } else if (
@@ -246,6 +269,7 @@ export function createFigmaFiles(densityTokens, breakpoints) {
           values[density].map(() => values[density][0]),
         )
       ) {
+        // Density-specific helpers let Theme and Viewport modes remain independent choices.
         const helperPath = [name, ...sourceToken.path]
         for (const [index, viewport] of Object.keys(viewports).entries()) {
           const helper = structuredClone(values[density][index])
@@ -274,7 +298,9 @@ export function createFigmaFiles(densityTokens, breakpoints) {
       ],
       excluded,
       materialisedAliases,
+      outOfScopeTokens: densityTokens[0].length - paths.length,
       rootFontSize,
+      sourceLayers: ['brand', 'common'],
       sourceTokens: paths.length,
       viewports,
     },
@@ -283,6 +309,9 @@ export function createFigmaFiles(densityTokens, breakpoints) {
 
 /**
  * Adds offline, native Figma import files to the normal token build.
+ * Base values and Compact overrides are resolved without web transforms so units and source aliases remain available.
+ * Both density dictionaries are complete because native import requires matching variables in every mode.
+ * This writes local JSON only; importing, publishing, and removing obsolete variables happen separately in Figma.
  */
 export async function buildFigmaTokens(source) {
   const densityTokens = await Promise.all(

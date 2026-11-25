@@ -449,6 +449,11 @@ The tokens are used in our [Figma Library](https://www.figma.com/community/file/
 
 The normal token build adds one offline export step for [Figma's native DTCG JSON import](https://help.figma.com/hc/en-us/articles/15343816063383).
 It needs no Figma credentials and never writes to a Figma file or publishes a library.
+Only the brand and common layers are exported, selected by their source files in `src/brand/` and `src/common/`.
+Component tokens are excluded: they belong in the separate component library, which can consume the published core variables.
+The existing web outputs still include all layers.
+`build.js` calls `figma/export.js` to resolve density dictionaries, convert values, assign scopes, and write the import files.
+`figma/export.test.js` checks the layer boundary, conversions, aliases, independent modes, and explicit exclusions.
 
 ```sh
 pnpm --filter @amsterdam/design-system-tokens build
@@ -479,6 +484,10 @@ For subsequent updates, right-click each existing mode and choose **Import mode*
 Figma updates variables with matching names and types.
 This is not automatic deletion or a migration of differently named variables in the existing library.
 Review removals and type changes separately.
+To reconcile obsolete variables, compare the generated variable set with the previous import's recorded variable IDs.
+Remove only previously managed IDs that are absent from the new export, after checking that retained variables do not alias them.
+Keep retained IDs unchanged and leave variables outside that recorded set alone.
+Native JSON import does not perform this reconciliation.
 The build produces import files; the native import is a separate action in Figma.
 
 #### Translation rules
@@ -498,14 +507,16 @@ Scopes describe design properties, not breakpoints.
 Font sizes, line heights, weights, families, border widths, radii, dimensions, and colours receive property-specific scopes.
 Figma's `GAP` scope covers spacing and padding.
 Tokens without a corresponding property picker and internal Viewport helpers have empty scopes, not `ALL_SCOPES`.
-Every exported variable carries its actual CSS custom property syntax, such as `var(--ams-button-font-size)`.
+Every exported variable carries its actual CSS custom property syntax, such as `var(--ams-inputs-font-size)`.
 
 Exact source aliases are retained when conversion gives the same values.
+A core alias to a component token fails the export rather than introducing a dependency on the component library.
 A line-height alias that uses a different font size is materialised instead of incorrectly sharing a pixel value.
 Responsive values live in hidden, density-specific Viewport helpers, selected by Theme aliases.
 This keeps density and viewport selection independent without duplicating every variable into six combined modes.
 
 The build prints a warning and lists every unsupported token and reason in `report.json`.
+The report distinguishes unsupported core tokens from tokens outside the exported layers.
 Unsupported values include contextual CSS keywords and colours, layout-dependent units and calculations, shadows, background images, and CSS-only strings with no usable variable mapping.
 They are not converted into fake strings or guessed values.
 No text styles, effect styles, components, or documentation pages are generated.

@@ -9,11 +9,13 @@ import { createFigmaFiles } from './export.js'
 
 const breakpoints = '$ams-breakpoint-medium: 37.5rem;\n$ams-breakpoint-wide: 72.5rem;'
 
+// Synthetic fixtures belong to the brand layer unless a boundary test overrides their source file path.
 function source(path, value, type, original = value, extensions = {}) {
   return {
     $extensions: extensions,
     $type: type,
     $value: value,
+    filePath: './src/brand/ams/example.tokens.json',
     original: { $value: original },
     path: path.split('.'),
   }
@@ -35,6 +37,50 @@ function resolve(files, density, viewport, path, collection = 'Theme') {
 }
 
 describe('Figma import files', () => {
+  it.each(['./src/', 'C:\\repository\\src\\'])(
+    'exports brand and common tokens, not component tokens, using source file paths under %s',
+    (root) => {
+      const tokens = [
+        { ...source('ams.space.m', '1rem', 'dimension'), filePath: `${root}brand/ams/space.tokens.json` },
+        {
+          ...source('ams.inputs.padding-inline', '1rem', 'dimension', '{ams.space.m}'),
+          filePath: `${root}common/ams/inputs.tokens.json`,
+        },
+        {
+          ...source('ams.space.component-only', 'clamp(1rem, 0.5rem + 2vw, 2rem)', 'dimension'),
+          filePath: `${root}components/ams/example.tokens.json`,
+        },
+      ]
+      const { files, report } = createFigmaFiles([tokens, tokens], breakpoints)
+      expect(read(files['Theme/Spacious.json'], 'ams.inputs.padding-inline').$value).toBe('{ams.space.m}')
+      for (const density of ['Spacious', 'Compact']) {
+        expect(files[`Theme/${density}.json`].ams.space).not.toHaveProperty('component-only')
+      }
+      expect(report).toMatchObject({
+        collections: [{ variables: 0 }, { variables: 2 }],
+        outOfScopeTokens: 1,
+        sourceLayers: ['brand', 'common'],
+        sourceTokens: 2,
+      })
+    },
+  )
+
+  it('rejects a core alias to a component token instead of silently materialising a cross-library dependency', () => {
+    const tokens = [
+      source('ams.space.m', '1rem', 'dimension', '{ams.button.padding-inline}'),
+      {
+        ...source('ams.button.padding-inline', '1rem', 'dimension'),
+        filePath: './src/components/ams/button.tokens.json',
+      },
+    ]
+    expect(() => createFigmaFiles([tokens, tokens], breakpoints)).toThrow('references an out-of-scope token')
+  })
+
+  it('requires source file metadata instead of guessing the layer from a token name', () => {
+    const token = { ...source('ams.space.m', '1rem', 'dimension'), filePath: undefined }
+    expect(() => createFigmaFiles([[token], [token]], breakpoints)).toThrow('must include their filePath')
+  })
+
   it('keeps density and viewport independently selectable through native cross-collection aliases', () => {
     const spacious = [
       source('ams.space.m', 'clamp(1rem, 0.5rem + 2vw, 2rem)', 'dimension'),
