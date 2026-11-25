@@ -1,0 +1,10 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+._ams-shadow-sample {
+  background-color: white;
+  block-size: 1rem;
+  inline-size: 2rem;
+}
