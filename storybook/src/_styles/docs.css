@@ -139,6 +139,8 @@
   display: none;
 }
 
+/* Make sure the Menu Link story does not disapear due to the Menu media queries, animation: delay;
+  * do not show Menu padding related to the page header */
 .menu-link-story.ams-menu {
   display: block;
   padding-block: 0;
