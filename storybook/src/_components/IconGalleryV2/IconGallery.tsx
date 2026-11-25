@@ -38,13 +38,13 @@ export const IconGallery = ({ excludeIcons, icons }: IconGalleryProps) => {
   const sortedIcons = [...filteredIcons].sort((a, b) => a.localeCompare(b))
 
   return (
-    <div className="_ams-icon-gallery sb-unstyled">
+    <div className="_ams-icon-gallery-v2 sb-unstyled">
       {sortedIcons.map((iconName) => (
-        <div className="_ams-icon-gallery__item" key={iconName}>
-          <div className="_ams-icon-gallery__icons">
+        <div className="_ams-icon-gallery-v2__item" key={iconName}>
+          <div className="_ams-icon-gallery-v2__icons">
             <Icon size="heading-2" svg={Icons[iconName]} />
           </div>
-          <p className="_ams-icon-gallery__name">{iconName.substring(0, iconName.length - 4)}</p>
+          <p className="_ams-icon-gallery-v2__name">{iconName.substring(0, iconName.length - 4)}</p>
         </div>
       ))}
     </div>
