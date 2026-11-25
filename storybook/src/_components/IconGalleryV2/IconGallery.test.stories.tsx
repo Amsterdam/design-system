@@ -5,7 +5,7 @@
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-import { IconGallery } from './IconGalleryV2'
+import { IconGallery } from './IconGallery'
 
 const meta = {
   title: 'Components/Docs/Icon Gallery V2',
