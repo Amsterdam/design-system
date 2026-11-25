@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Icon } from '@amsterdam/design-system-react'
+import { Icon, SearchField } from '@amsterdam/design-system-react'
 import * as Icons from '@amsterdam/design-system-react-icons/src'
 
 import './icon-gallery.css'
@@ -38,15 +38,22 @@ export const IconGallery = ({ excludeIcons, icons }: IconGalleryProps) => {
   const sortedIcons = [...filteredIcons].sort((a, b) => a.localeCompare(b))
 
   return (
-    <div className="_ams-icon-gallery-v2 sb-unstyled">
-      {sortedIcons.map((iconName) => (
-        <div className="_ams-icon-gallery-v2__item" key={iconName}>
-          <div className="_ams-icon-gallery-v2__icons">
-            <Icon size="heading-2" svg={Icons[iconName]} />
+    <>
+      <SearchField>
+        <SearchField.Input label="Search an icon with name or synonym" placeholder="Search for icons..." />
+        <SearchField.Button>Search</SearchField.Button>
+      </SearchField>
+
+      <div className="_ams-icon-gallery-v2 sb-unstyled">
+        {sortedIcons.map((iconName) => (
+          <div className="_ams-icon-gallery-v2__item" key={iconName}>
+            <div className="_ams-icon-gallery-v2__icons">
+              <Icon size="heading-2" svg={Icons[iconName]} />
+            </div>
+            <p className="_ams-icon-gallery-v2__name">{iconName.substring(0, iconName.length - 4)}</p>
           </div>
-          <p className="_ams-icon-gallery-v2__name">{iconName.substring(0, iconName.length - 4)}</p>
-        </div>
-      ))}
-    </div>
+        ))}
+      </div>
+    </>
   )
 }
