@@ -476,6 +476,9 @@ The generated files are in `dist/figma/`:
 
 Keep the collection names unchanged: Theme uses native cross-collection alias metadata to locate its Viewport helpers.
 Import Viewport first so those aliases can resolve.
+Theme omits the source `ams` namespace: groups such as `color`, `inputs`, `space`, and `typography` sit directly under the collection.
+References between Theme variables use those same unprefixed paths.
+CSS custom property names and internal Viewport helper paths retain their original namespace.
 Do not import `report.json` or mix files from different collections.
 Figma only creates a variable when it has a supported, matching type in every imported mode file, so Compact is exported as a complete base-plus-overrides dictionary, not the sparse CSS override set.
 Lo-fi remains available in the existing web outputs but is not exported to Figma.
@@ -488,6 +491,7 @@ To reconcile obsolete variables, compare the generated variable set with the pre
 Remove only previously managed IDs that are absent from the new export, after checking that retained variables do not alias them.
 Keep retained IDs unchanged and leave variables outside that recorded set alone.
 Native JSON import does not perform this reconciliation.
+When updating an earlier preview with `ams/`-prefixed Theme variables, rename those variables in place before importing the new files to preserve their IDs and avoid duplicates.
 The build produces import files; the native import is a separate action in Figma.
 
 #### Translation rules

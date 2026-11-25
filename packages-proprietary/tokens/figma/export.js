@@ -18,6 +18,11 @@ function reference(token) {
   return typeof value === 'string' ? value.match(/^\{([^{}]+)\}$/)?.[1] : undefined
 }
 
+// Theme groups omit the code namespace; CSS syntax and Viewport helpers retain their source names.
+function themePath(path) {
+  return path.replace(/^ams\./, '')
+}
+
 function dimension(value, width) {
   if (value && typeof value === 'object') {
     if (Number.isFinite(value.value) && ['px', 'rem'].includes(value.unit)) {
@@ -262,7 +267,7 @@ export function createFigmaFiles(densityTokens, breakpoints) {
       const token = structuredClone(values[density][0])
       // Equal source values can convert differently, especially line-height ratios with different font sizes.
       if (targetValues && sameValues(values[density], targetValues)) {
-        token.$value = `{${target}}`
+        token.$value = `{${themePath(target)}}`
       } else if (
         !sameValues(
           values[density],
@@ -286,7 +291,7 @@ export function createFigmaFiles(densityTokens, breakpoints) {
       if (target && (!targetValues || !sameValues(values[density], targetValues))) {
         materialisedAliases.push({ density: name, path, target })
       }
-      setToken(files[`Theme/${name}.json`], sourceToken.path, token)
+      setToken(files[`Theme/${name}.json`], themePath(path).split('.'), token)
     }
   }
   return {

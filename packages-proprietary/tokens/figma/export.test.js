@@ -52,9 +52,10 @@ describe('Figma import files', () => {
         },
       ]
       const { files, report } = createFigmaFiles([tokens, tokens], breakpoints)
-      expect(read(files['Theme/Spacious.json'], 'ams.inputs.padding-inline').$value).toBe('{ams.space.m}')
+      expect(read(files['Theme/Spacious.json'], 'inputs.padding-inline').$value).toBe('{space.m}')
       for (const density of ['Spacious', 'Compact']) {
-        expect(files[`Theme/${density}.json`].ams.space).not.toHaveProperty('component-only')
+        expect(files[`Theme/${density}.json`]).not.toHaveProperty('ams')
+        expect(files[`Theme/${density}.json`].space).not.toHaveProperty('component-only')
       }
       expect(report).toMatchObject({
         collections: [{ variables: 0 }, { variables: 2 }],
@@ -64,6 +65,25 @@ describe('Figma import files', () => {
       })
     },
   )
+
+  it('only removes a leading ams segment from Theme names and alias references', () => {
+    const tokens = [
+      source('ams.space.ams', '1rem', 'dimension'),
+      source('ams.inputs.padding-inline', '1rem', 'dimension', '{ams.space.ams}'),
+      source('custom.space.m', '2rem', 'dimension'),
+    ]
+    const { files } = createFigmaFiles([tokens, tokens], breakpoints)
+    for (const density of ['Spacious', 'Compact']) {
+      const document = files[`Theme/${density}.json`]
+      expect(document).not.toHaveProperty('ams')
+      expect(read(document, 'space.ams').$value).toEqual({ unit: 'px', value: 16 })
+      expect(read(document, 'inputs.padding-inline')).toMatchObject({
+        $extensions: { 'com.figma.codeSyntax': { Web: 'var(--ams-inputs-padding-inline)' } },
+        $value: '{space.ams}',
+      })
+      expect(read(document, 'custom.space.m').$value).toEqual({ unit: 'px', value: 32 })
+    }
+  })
 
   it('rejects a core alias to a component token instead of silently materialising a cross-library dependency', () => {
     const tokens = [
@@ -96,10 +116,14 @@ describe('Figma import files', () => {
       ['Tablet', 20],
       ['Desktop', 31.2],
     ]) {
-      expect(resolve(files, 'Spacious', viewport, 'ams.button.padding-inline')).toEqual({ unit: 'px', value })
-      expect(resolve(files, 'Compact', viewport, 'ams.button.padding-inline')).toEqual({ unit: 'px', value: 8 })
+      expect(resolve(files, 'Spacious', viewport, 'button.padding-inline')).toEqual({ unit: 'px', value })
+      expect(resolve(files, 'Compact', viewport, 'button.padding-inline')).toEqual({ unit: 'px', value: 8 })
     }
-    expect(read(files['Theme/Spacious.json'], 'ams.button.padding-inline').$value).toBe('{ams.space.m}')
+    expect(read(files['Theme/Spacious.json'], 'button.padding-inline').$value).toBe('{space.m}')
+    expect(read(files['Theme/Spacious.json'], 'space.m').$extensions['com.figma.aliasData']).toEqual({
+      targetVariableName: 'Spacious/ams/space/m',
+      targetVariableSetName: 'Viewport',
+    })
     expect(read(files['Viewport/Phone.json'], 'Spacious.ams.space.m').$extensions).toMatchObject({
       'com.figma.hiddenFromPublishing': true,
       'com.figma.scopes': [],
@@ -113,8 +137,8 @@ describe('Figma import files', () => {
       '$ams-breakpoint-medium: 40rem;\n$ams-breakpoint-wide: 1600px;',
     )
     expect(report.viewports).toEqual({ Desktop: 1600, Phone: 320, Tablet: 640 })
-    expect(resolve(files, 'Spacious', 'Tablet', 'ams.space.m')).toEqual({ unit: 'px', value: 20.8 })
-    expect(resolve(files, 'Spacious', 'Desktop', 'ams.space.m')).toEqual({ unit: 'px', value: 32 })
+    expect(resolve(files, 'Spacious', 'Tablet', 'space.m')).toEqual({ unit: 'px', value: 20.8 })
+    expect(resolve(files, 'Spacious', 'Desktop', 'space.m')).toEqual({ unit: 'px', value: 32 })
   })
 
   it('converts line-height ratios using their own font size and only retains equivalent aliases', () => {
@@ -127,9 +151,9 @@ describe('Figma import files', () => {
       source('ams.heading.line-height', 1.5, 'number', '{ams.body.line-height}'),
     ]
     const { files, report } = createFigmaFiles([tokens, tokens], breakpoints)
-    expect(resolve(files, 'Spacious', 'Tablet', 'ams.button.line-height')).toEqual({ unit: 'px', value: 30 })
-    expect(resolve(files, 'Spacious', 'Tablet', 'ams.heading.line-height')).toEqual({ unit: 'px', value: 48 })
-    expect(read(files['Theme/Spacious.json'], 'ams.button.line-height').$value).toBe('{ams.body.line-height}')
+    expect(resolve(files, 'Spacious', 'Tablet', 'button.line-height')).toEqual({ unit: 'px', value: 30 })
+    expect(resolve(files, 'Spacious', 'Tablet', 'heading.line-height')).toEqual({ unit: 'px', value: 48 })
+    expect(read(files['Theme/Spacious.json'], 'button.line-height').$value).toBe('{body.line-height}')
     expect(report.materialisedAliases).toContainEqual({
       density: 'Spacious',
       path: 'ams.heading.line-height',
@@ -154,7 +178,7 @@ describe('Figma import files', () => {
     ]
     const { files } = createFigmaFiles([tokens, tokens], breakpoints)
     const document = files['Theme/Spacious.json']
-    expect(read(document, 'ams.button.background-color')).toMatchObject({
+    expect(read(document, 'button.background-color')).toMatchObject({
       $extensions: { 'com.figma.scopes': ['FRAME_FILL', 'SHAPE_FILL'] },
       $type: 'color',
       $value: { alpha: 1, colorSpace: 'srgb', components: [0, 70 / 255, 153 / 255] },
@@ -167,16 +191,16 @@ describe('Figma import files', () => {
       ['border-radius', 'dimension', { unit: 'px', value: 0 }, ['CORNER_RADIUS']],
       ['border-width', 'dimension', { unit: 'px', value: 2 }, ['STROKE_FLOAT']],
     ]) {
-      expect(read(document, `ams.button.${property}`)).toMatchObject({
+      expect(read(document, `button.${property}`)).toMatchObject({
         $extensions: { 'com.figma.scopes': scopes },
         $type: type,
         $value: value,
       })
     }
-    expect(read(document, 'ams.button.border-color').$value.alpha).toBe(0)
-    expect(read(document, 'ams.checkbox.rectangle.fill').$extensions['com.figma.scopes']).toEqual(['SHAPE_FILL'])
-    expect(read(document, 'ams.checkbox.rectangle.stroke').$extensions['com.figma.scopes']).toEqual(['STROKE_COLOR'])
-    expect(read(document, 'ams.motion.duration')).toMatchObject({
+    expect(read(document, 'button.border-color').$value.alpha).toBe(0)
+    expect(read(document, 'checkbox.rectangle.fill').$extensions['com.figma.scopes']).toEqual(['SHAPE_FILL'])
+    expect(read(document, 'checkbox.rectangle.stroke').$extensions['com.figma.scopes']).toEqual(['STROKE_COLOR'])
+    expect(read(document, 'motion.duration')).toMatchObject({
       $type: 'duration',
       $value: { unit: 's', value: 0.3 },
     })
@@ -185,7 +209,7 @@ describe('Figma import files', () => {
   it('normalises RGB opacity without replacing it with an opaque or invented colour', () => {
     const tokens = [source('ams.dialog.backdrop.background-color', 'rgb(24 24 24 / 62.5%)', 'color')]
     const { files } = createFigmaFiles([tokens, tokens], breakpoints)
-    expect(read(files['Theme/Spacious.json'], 'ams.dialog.backdrop.background-color').$value).toEqual({
+    expect(read(files['Theme/Spacious.json'], 'dialog.backdrop.background-color').$value).toEqual({
       alpha: 0.625,
       colorSpace: 'srgb',
       components: [24 / 255, 24 / 255, 24 / 255],
@@ -199,7 +223,7 @@ describe('Figma import files', () => {
       $description: 'An interactive colour.',
     }
     const { files } = createFigmaFiles([[token], [token]], breakpoints)
-    expect(read(files['Theme/Spacious.json'], 'ams.color.interactive.default')).toMatchObject({
+    expect(read(files['Theme/Spacious.json'], 'color.interactive.default')).toMatchObject({
       $description: 'An interactive colour.',
       $extensions: {
         'com.figma.codeSyntax': { Web: 'var(--ams-color-interactive)' },
