@@ -17,7 +17,13 @@ const thumbnails: ImageSliderProps['images'] = [
   { alt: 'Three', src: 'https://picsum.photos/id/153/320/180' },
 ]
 
-const defaultProps = { currentSlideId: 0, scrollToSlide: vi.fn(), thumbnails: thumbnails }
+const defaultProps = {
+  baseId: 'image-slider',
+  currentSlideId: 0,
+  goToSlide: vi.fn(),
+  imageLabel: 'Afbeelding',
+  thumbnails: thumbnails,
+}
 
 describe('ImageSliderThumbnails', () => {
   it('renders', () => {
@@ -45,12 +51,41 @@ describe('ImageSliderThumbnails', () => {
     expect(component).toHaveClass('ams-image-slider__thumbnails')
   })
 
-  it('calls scrollToSlide on ArrowRight keydown', async () => {
-    const scrollToSlide = vi.fn()
+  it('renders the tablist as a div, not a nav', () => {
+    const { container } = render(<ImageSliderThumbnails {...defaultProps} />)
+
+    const component = container.querySelector(':only-child') as HTMLElement
+
+    expect(component.tagName).toBe('DIV')
+  })
+
+  it('does not render aria-posinset or aria-setsize, since every thumbnail is always in the DOM', () => {
+    const { container } = render(<ImageSliderThumbnails {...defaultProps} />)
+
+    const tabs = container.querySelectorAll('.ams-image-slider__thumbnail')
+
+    tabs.forEach((tab) => {
+      expect(tab).not.toHaveAttribute('aria-posinset')
+      expect(tab).not.toHaveAttribute('aria-setsize')
+    })
+  })
+
+  it('links each thumbnail to its panel via aria-controls', () => {
+    const { container } = render(<ImageSliderThumbnails {...defaultProps} />)
+
+    const tabs = container.querySelectorAll('.ams-image-slider__thumbnail')
+
+    tabs.forEach((tab, index) => {
+      expect(tab).toHaveAttribute('aria-controls', `${defaultProps.baseId}-panel-${index}`)
+    })
+  })
+
+  it('calls goToSlide on ArrowRight keydown', async () => {
+    const goToSlide = vi.fn()
 
     const user = userEvent.setup()
 
-    const { container } = render(<ImageSliderThumbnails {...defaultProps} scrollToSlide={scrollToSlide} />)
+    const { container } = render(<ImageSliderThumbnails {...defaultProps} goToSlide={goToSlide} />)
 
     const component = container.querySelector(':only-child') as HTMLElement
 
@@ -59,16 +94,16 @@ describe('ImageSliderThumbnails', () => {
 
     await user.keyboard('{ArrowRight}')
 
-    expect(scrollToSlide).toHaveBeenCalledWith(1)
+    expect(goToSlide).toHaveBeenCalledWith(1)
   })
 
-  it('does not call scrollToSlide on ArrowRight keydown when at end', async () => {
-    const scrollToSlide = vi.fn()
+  it('does not call goToSlide on ArrowRight keydown when at end', async () => {
+    const goToSlide = vi.fn()
 
     const user = userEvent.setup()
 
     const { container } = render(
-      <ImageSliderThumbnails {...defaultProps} currentSlideId={thumbnails.length - 1} scrollToSlide={scrollToSlide} />,
+      <ImageSliderThumbnails {...defaultProps} currentSlideId={thumbnails.length - 1} goToSlide={goToSlide} />,
     )
 
     const component = container.querySelector(':only-child') as HTMLElement
@@ -78,17 +113,15 @@ describe('ImageSliderThumbnails', () => {
 
     await user.keyboard('{ArrowRight}')
 
-    expect(scrollToSlide).not.toHaveBeenCalled()
+    expect(goToSlide).not.toHaveBeenCalled()
   })
 
-  it('calls scrollToSlide on ArrowLeft keydown', async () => {
-    const scrollToSlide = vi.fn()
+  it('calls goToSlide on ArrowLeft keydown', async () => {
+    const goToSlide = vi.fn()
 
     const user = userEvent.setup()
 
-    const { container } = render(
-      <ImageSliderThumbnails {...defaultProps} currentSlideId={1} scrollToSlide={scrollToSlide} />,
-    )
+    const { container } = render(<ImageSliderThumbnails {...defaultProps} currentSlideId={1} goToSlide={goToSlide} />)
 
     const component = container.querySelector(':only-child') as HTMLElement
 
@@ -97,17 +130,15 @@ describe('ImageSliderThumbnails', () => {
 
     await user.keyboard('{ArrowLeft}')
 
-    expect(scrollToSlide).toHaveBeenCalledWith(0)
+    expect(goToSlide).toHaveBeenCalledWith(0)
   })
 
-  it('does not call scrollToSlide on ArrowLeft keydown when at start', async () => {
-    const scrollToSlide = vi.fn()
+  it('does not call goToSlide on ArrowLeft keydown when at start', async () => {
+    const goToSlide = vi.fn()
 
     const user = userEvent.setup()
 
-    const { container } = render(
-      <ImageSliderThumbnails {...defaultProps} currentSlideId={0} scrollToSlide={scrollToSlide} />,
-    )
+    const { container } = render(<ImageSliderThumbnails {...defaultProps} currentSlideId={0} goToSlide={goToSlide} />)
 
     const component = container.querySelector(':only-child') as HTMLElement
 
@@ -116,15 +147,15 @@ describe('ImageSliderThumbnails', () => {
 
     await user.keyboard('{ArrowLeft}')
 
-    expect(scrollToSlide).not.toHaveBeenCalled()
+    expect(goToSlide).not.toHaveBeenCalled()
   })
 
-  it('calls scrollToSlide on thumbnail click', async () => {
-    const scrollToSlide = vi.fn()
+  it('calls goToSlide on thumbnail click', async () => {
+    const goToSlide = vi.fn()
 
     const user = userEvent.setup()
 
-    const { container } = render(<ImageSliderThumbnails {...defaultProps} scrollToSlide={scrollToSlide} />)
+    const { container } = render(<ImageSliderThumbnails {...defaultProps} goToSlide={goToSlide} />)
 
     const component = container.querySelector(':only-child') as HTMLElement
 
@@ -132,7 +163,7 @@ describe('ImageSliderThumbnails', () => {
 
     await user.click(secondThumbnail)
 
-    expect(scrollToSlide).toHaveBeenCalledWith(1)
+    expect(goToSlide).toHaveBeenCalledWith(1)
   })
 
   it('passes additional props', () => {
