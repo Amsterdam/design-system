@@ -138,3 +138,8 @@
 .sbdocs-content div:has(.tabbutton):not(:has([role="tabpanel"])) {
   display: none;
 }
+
+.menu-link-story.ams-menu {
+  display: block;
+  padding-block: 0;
+}

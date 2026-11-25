@@ -22,7 +22,7 @@ const meta = {
   },
   decorators: [
     (Story) => (
-      <Menu inWideWindow>
+      <Menu className="menu-link-story">
         <Story />
       </Menu>
     ),
