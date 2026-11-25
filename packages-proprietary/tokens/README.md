@@ -445,6 +445,71 @@ const tokens = { ...spaciousTokens, ...compactTokens }
 
 The tokens are used in our [Figma Library](https://www.figma.com/community/file/1530535540611888495/amsterdam-design-system-community-edition) as well.
 
+### Build Figma variables
+
+The normal token build adds one offline export step for [Figma's native DTCG JSON import](https://help.figma.com/hc/en-us/articles/15343816063383).
+It needs no Figma credentials and never writes to a Figma file or publishes a library.
+
+```sh
+pnpm --filter @amsterdam/design-system-tokens build
+```
+
+The generated files are in `dist/figma/`:
+
+| Directory or file                                    | Purpose                                                                                                        |
+| ---------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| `Viewport/Phone.json`, `Tablet.json`, `Desktop.json` | Pixel values for responsive helpers, one file per viewport mode                                                |
+| `Theme/Spacious.json`, `Compact.json`                | Scoped variables with source references and independent density selection                                      |
+| `report.json`                                        | Source counts, collection counts, conversion policy, excluded tokens, and references that needed materialising |
+
+#### Import into a blank test file
+
+1. Open Figma's Variables view and create a collection named **Viewport**.
+2. Drag the three files from `Viewport/` into that collection together, creating Phone, Tablet, and Desktop modes.
+3. Create a collection named **Theme**, then drag both files from `Theme/` into it together.
+4. Use Theme variables in designs, choosing density and viewport modes independently.
+
+Keep the collection names unchanged: Theme uses native cross-collection alias metadata to locate its Viewport helpers.
+Import Viewport first so those aliases can resolve.
+Do not import `report.json` or mix files from different collections.
+Figma only creates a variable when it has a supported, matching type in every imported mode file, so Compact is exported as a complete base-plus-overrides dictionary, not the sparse CSS override set.
+Lo-fi remains available in the existing web outputs but is not exported to Figma.
+
+For subsequent updates, right-click each existing mode and choose **Import mode**, selecting its generated JSON file.
+Figma updates variables with matching names and types.
+This is not automatic deletion or a migration of differently named variables in the existing library.
+Review removals and type changes separately.
+The build produces import files; the native import is a separate action in Figma.
+
+#### Translation rules
+
+All `rem` dimensions use a 16px root.
+Phone uses the source fluid scales' documented 320px lower bound, because Sass defines no Phone breakpoint.
+Tablet and Desktop use `$ams-breakpoint-medium` and `$ams-breakpoint-wide` from `packages/css/src/common/breakpoint.scss`, currently 600px and 1160px.
+Fluid `clamp(rem, rem + vw, rem)` dimensions are evaluated at those widths; changing a frame's width alone does not recalculate Figma variables.
+Breakpoint-specific token names remain distinct, because viewport and container-query behaviour cannot safely be inferred from a token name alone.
+
+Numeric line-height ratios are multiplied by the applicable source font size to produce pixels.
+Font families use the first family in the source stack, without CSS fallbacks.
+Numeric font weights become number variables; durations use seconds, and percentage opacity becomes a fraction.
+Concrete hex and RGB colours become DTCG sRGB values, including alpha.
+
+Scopes describe design properties, not breakpoints.
+Font sizes, line heights, weights, families, border widths, radii, dimensions, and colours receive property-specific scopes.
+Figma's `GAP` scope covers spacing and padding.
+Tokens without a corresponding property picker and internal Viewport helpers have empty scopes, not `ALL_SCOPES`.
+Every exported variable carries its actual CSS custom property syntax, such as `var(--ams-button-font-size)`.
+
+Exact source aliases are retained when conversion gives the same values.
+A line-height alias that uses a different font size is materialised instead of incorrectly sharing a pixel value.
+Responsive values live in hidden, density-specific Viewport helpers, selected by Theme aliases.
+This keeps density and viewport selection independent without duplicating every variable into six combined modes.
+
+The build prints a warning and lists every unsupported token and reason in `report.json`.
+Unsupported values include contextual CSS keywords and colours, layout-dependent units and calculations, shadows, background images, and CSS-only strings with no usable variable mapping.
+They are not converted into fake strings or guessed values.
+No text styles, effect styles, components, or documentation pages are generated.
+
 ## Updating
 
 We follow semantic versioning and publish a [change log](https://github.com/Amsterdam/design-system/blob/main/packages-proprietary/tokens/CHANGELOG.md) to guide you through updates.

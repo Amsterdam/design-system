@@ -6,6 +6,7 @@
 import process from 'node:process'
 import StyleDictionary from 'style-dictionary'
 
+import { buildFigmaTokens } from './figma/export.js'
 import { findMultiValueDimensions } from './style-dictionary/multiValueDimensions.js'
 import { dtcgDimension } from './style-dictionary/transforms/dtcg-dimension.js'
 import { dtcgFontFamily } from './style-dictionary/transforms/dtcg-font-family.js'
@@ -26,6 +27,7 @@ const commonCssTransforms = [
   'dtcg/fontFamily',
 ]
 const modes = ['compact', 'lo-fi']
+const baseSource = [`./src/**/!(*.${modes.join(`|*.`)}).tokens.json`]
 
 function generateSharedConfig(mode) {
   const name = mode || 'index'
@@ -111,10 +113,7 @@ const dictionaries = [
       verbosity: 'verbose',
     },
     platforms: generateSharedConfig(),
-    source: [
-      // exclude non-default modes from source
-      `./src/**/!(*.${modes.join(`|*.`)}).tokens.json`,
-    ],
+    source: baseSource,
   }),
   ...modes.map(
     (mode) =>
@@ -162,6 +161,7 @@ async function build() {
   for (const dictionary of dictionaries) {
     await dictionary.buildAllPlatforms()
   }
+  await buildFigmaTokens(baseSource)
 }
 
 build()

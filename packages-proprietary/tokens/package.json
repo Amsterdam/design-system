@@ -29,7 +29,7 @@
   "scripts": {
     "clean:dist": "rimraf dist/",
     "build": "node build.js",
-    "build:watch": "chokidar --follow-symlinks --initial --command \"pnpm run build\" \"src/**/*.tokens.json\"",
+    "build:watch": "chokidar --follow-symlinks --initial --command \"pnpm run build\" \"src/**/*.tokens.json\" \"../../packages/css/src/common/breakpoint.scss\"",
     "lint": "node lint/index.mjs",
     "test": "vitest run"
   },
