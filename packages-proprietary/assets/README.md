@@ -48,7 +48,7 @@ This font is open source, licensed under the [SIL Open Font License](font/lo-fi/
 
 ### Icons
 
-The Design System Handbook offers an [overview of our icon library](https://designsystem.amsterdam/?path=/docs/brand-assets-icons--docs).
+The Design System Handbook offers an [overview of our icon library](https://designsystem.amsterdam/?path=/docs/brand-assets-icons-icon-overview--docs).
 
 You can import the SVG files to use icons in your websites.
 
