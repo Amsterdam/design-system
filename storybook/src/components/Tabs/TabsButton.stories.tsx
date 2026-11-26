@@ -43,7 +43,7 @@ export const Button: Story = {
   },
 }
 
-export const WithBadge: Story = {
+export const ButtonWithBadge: Story = {
   args: {
     'aria-controls': 'panel-1',
     children: ['West ', <Badge key="badge" label="Nieuw" />],

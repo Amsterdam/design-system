@@ -5,7 +5,7 @@
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-import { Paragraph } from '@amsterdam/design-system-react'
+import { Badge, Paragraph } from '@amsterdam/design-system-react'
 import { Tabs } from '@amsterdam/design-system-react/src'
 
 import { maximiseInlineSize } from '#storybook/_common/decorators'
@@ -34,6 +34,41 @@ export const Default: Story = {
       <Tabs.List key="list">
         <Tabs.Button aria-controls="west">West</Tabs.Button>
         <Tabs.Button aria-controls="centrum">Centrum</Tabs.Button>
+        <Tabs.Button aria-controls="oost">Oost</Tabs.Button>
+      </Tabs.List>,
+      <Tabs.Panel id="west" key="west">
+        <Paragraph>
+          Bos en Lommerplein 250
+          <br />
+          1055 EK Amsterdam
+        </Paragraph>
+      </Tabs.Panel>,
+      <Tabs.Panel id="centrum" key="centrum">
+        <Paragraph>
+          Amstel 1
+          <br />
+          1011 PN Amsterdam
+        </Paragraph>
+      </Tabs.Panel>,
+      <Tabs.Panel id="oost" key="oost">
+        <Paragraph>
+          Oranje-Vrijstaatplein 2<br />
+          1093 NG Amsterdam
+        </Paragraph>
+      </Tabs.Panel>,
+    ],
+  },
+  decorators: [maximiseInlineSize('24rem')],
+}
+
+export const WithNumberBadge: Story = {
+  args: {
+    children: [
+      <Tabs.List key="list">
+        <Tabs.Button aria-controls="west">West</Tabs.Button>
+        <Tabs.Button aria-controls="centrum">
+          Centrum <Badge color="azure" label="99" />
+        </Tabs.Button>
         <Tabs.Button aria-controls="oost">Oost</Tabs.Button>
       </Tabs.List>,
       <Tabs.Panel id="west" key="west">
