@@ -7,6 +7,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Image } from '@amsterdam/design-system-react/src'
 
+import examplePhoto03Portrait from '#storybook/_common/images/example-photo-03-portrait.jpg'
 import { renderComponentVariants } from '#storybook/_common/renderComponentVariants'
 
 import { default as imageMeta } from './Image.stories'
@@ -23,7 +24,7 @@ type Story = StoryObj<typeof meta>
 export const Test: Story = {
   args: {
     alt: '',
-    src: 'https://picsum.photos/id/122/800/1200',
+    src: examplePhoto03Portrait,
   },
   render: (args, context) => renderComponentVariants(Image, { args }, context),
   tags: ['!dev', '!autodocs', '!manifest'],

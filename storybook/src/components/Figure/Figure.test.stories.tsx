@@ -7,6 +7,8 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Figure } from '@amsterdam/design-system-react/src'
 
+import examplePhoto03Landscape from '#storybook/_common/images/example-photo-03-1280x720.jpg'
+
 import { default as figureMeta } from './Figure.stories'
 
 const meta = {
@@ -22,21 +24,13 @@ export const Test: Story = {
   render: (args) => (
     <div className="_ams-tests-stack">
       <Figure {...args}>
-        <img
-          alt=""
-          sizes="(max-width: 36rem) 640px, (max-width: 68rem) 1280px, 1440px"
-          src="https://picsum.photos/id/122/1280/720"
-        />
+        <img alt="" sizes="(max-width: 36rem) 640px, (max-width: 68rem) 1280px, 1440px" src={examplePhoto03Landscape} />
         <Figure.Caption>
           Een schuin geplaatste fiets tegen een lantaarnpaal, met op de achtergrond een karakteristiek houten bruggetje.
         </Figure.Caption>
       </Figure>
       <Figure {...args} style={{ backgroundColor: 'var(--ams-color-highlight-azure)' }}>
-        <img
-          alt=""
-          sizes="(max-width: 36rem) 640px, (max-width: 68rem) 1280px, 1440px"
-          src="https://picsum.photos/id/122/1280/720"
-        />
+        <img alt="" sizes="(max-width: 36rem) 640px, (max-width: 68rem) 1280px, 1440px" src={examplePhoto03Landscape} />
         <Figure.Caption color="inverse">
           Een schuin geplaatste fiets tegen een lantaarnpaal, met op de achtergrond een karakteristiek houten bruggetje.
         </Figure.Caption>

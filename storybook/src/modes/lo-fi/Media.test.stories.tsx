@@ -9,6 +9,11 @@ import { Avatar, Figure, Image, ImageSlider, Logo } from '@amsterdam/design-syst
 import { avatarColors } from '@amsterdam/design-system-react/src/Avatar/Avatar'
 import { logoBrands } from '@amsterdam/design-system-react/src/Logo/Logo'
 
+import examplePhoto01Square from '#storybook/_common/images/example-photo-01-128x128.jpg'
+import examplePhoto02 from '#storybook/_common/images/example-photo-02.jpg'
+import examplePhoto03 from '#storybook/_common/images/example-photo-03.jpg'
+import examplePhoto06 from '#storybook/_common/images/example-photo-06.jpg'
+
 import { loFiMeta } from './loFiMeta'
 
 const meta = {
@@ -21,9 +26,9 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 const sliderImages = [
-  { alt: 'Bridge', src: 'https://picsum.photos/id/122/1280/720' },
-  { alt: 'Bunker', src: 'https://picsum.photos/id/101/1280/720' },
-  { alt: 'Chairs', src: 'https://picsum.photos/id/153/1280/720' },
+  { alt: 'Bridge', src: examplePhoto03 },
+  { alt: 'Bunker', src: examplePhoto02 },
+  { alt: 'Chairs', src: examplePhoto06 },
 ]
 
 /**
@@ -39,17 +44,17 @@ const sliderImages = [
 export const Test: Story = {
   render: () => (
     <div className="_ams-tests-stack" style={{ maxInlineSize: '44rem' }}>
-      <Image alt="" src="https://picsum.photos/id/122/1280/720" />
+      <Image alt="" src={examplePhoto03} />
 
       <Figure>
-        <Image alt="" src="https://picsum.photos/id/101/1280/720" />
+        <Image alt="" src={examplePhoto02} />
         <Figure.Caption>
           Een schuin geplaatste fiets tegen een lantaarnpaal, met op de achtergrond een karakteristiek houten bruggetje.
         </Figure.Caption>
       </Figure>
 
       <div className="_ams-tests-grid">
-        <Avatar imageSrc="https://picsum.photos/id/64/128/128" label="Iris Bakker" />
+        <Avatar imageSrc={examplePhoto01Square} label="Iris Bakker" />
         {avatarColors.map((color) => (
           <Avatar color={color} key={color} label="Iris Bakker" />
         ))}

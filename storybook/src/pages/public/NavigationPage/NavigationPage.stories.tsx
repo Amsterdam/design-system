@@ -24,10 +24,11 @@ import {
 
 import {
   exampleHeading,
-  exampleImageSource,
+  exampleImage,
   exampleParagraph,
   exampleStandaloneLink,
 } from '#storybook/_common/exampleContent'
+import examplePhoto05 from '#storybook/_common/images/example-photo-05.jpg'
 
 import { commonMeta, pageParameters } from '../common/commonMeta'
 import { burgerzakenLinks, parkerenLinks, persons, shopGroups, shopLocations, topTaskLinks } from './data'
@@ -381,7 +382,7 @@ export const WithInteractiveElement: StoryObj = {
      * layout does not shift while the file loads.
      */}
     {/* This image carries no information the text does not, so it takes an empty alt. */}
-    <Image alt="" aspectRatio="16:9" className="ams-mb-2xl" src="https://picsum.photos/id/133/1440/810" />
+    <Image alt="" aspectRatio="16:9" className="ams-mb-2xl" src="${examplePhoto05}" />
   </main>
 </>`,
         language: 'tsx',
@@ -476,7 +477,7 @@ export const WithInteractiveElement: StoryObj = {
          * layout does not shift while the file loads.
          */}
         {/* This image carries no information the text does not, so it takes an empty alt. */}
-        <Image alt="" aspectRatio="16:9" className="ams-mb-2xl" src="https://picsum.photos/id/133/1440/810" />
+        <Image alt="" aspectRatio="16:9" className="ams-mb-2xl" src={examplePhoto05} />
       </main>
     </>
   ),
@@ -515,7 +516,7 @@ export const WithImageGallery: StoryObj = {
     {/* Outside the Grid, the image spans the full Page width: up to 90rem, centred — not the full window. */}
     {/* Image always reserves its box; aspectRatio only changes it from the default 16:9 to a banner’s 16:5. */}
     {/* This image carries no information the text does not, so it takes an empty alt. */}
-    <Image alt="" aspectRatio="16:5" src="https://picsum.photos/1440/450" />
+    <Image alt="" aspectRatio="16:5" src="${exampleImage(11)}" />
     <Grid paddingVertical="x-large">
       {/* This cell is as wide as a regular content body, but it start-aligns with the grid it introduces. */}
       <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 6, wide: 7 }}>
@@ -614,9 +615,9 @@ export const WithImageGallery: StoryObj = {
         <Heading level={2} size="level-3">Rechtenvrije foto’s</Heading>
         {/*
          * Image always crops to an aspect ratio: omitting aspectRatio falls back to the 16:9 default,
-         * not to the file’s own ratio. This 640x360 source is already 16:9, so nothing is cropped.
+         * not to the file’s own ratio. This 3:2 photo therefore loses a strip at the top and bottom.
          */}
-        <Image alt="" src="https://picsum.photos/640/360" />
+        <Image alt="" src="${exampleImage(12)}" />
       </Grid.Cell>
     </Grid>
   </main>
@@ -657,7 +658,7 @@ export const WithImageGallery: StoryObj = {
         {/* Outside the Grid, the image spans the full Page width: up to 90rem, centred — not the full window. */}
         {/* Image always reserves its box; aspectRatio only changes it from the default 16:9 to a banner’s 16:5. */}
         {/* This image carries no information the text does not, so it takes an empty alt. */}
-        <Image alt="" aspectRatio="16:5" src={exampleImageSource(1440, 450, 11)} />
+        <Image alt="" aspectRatio="16:5" src={exampleImage(11)} />
         <Grid paddingVertical="x-large">
           {/* This cell is as wide as a regular content body, but it start-aligns with the grid it introduces. */}
           <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 6, wide: 7 }}>
@@ -804,9 +805,9 @@ export const WithImageGallery: StoryObj = {
             </Heading>
             {/*
              * Image always crops to an aspect ratio: omitting aspectRatio falls back to the 16:9 default,
-             * not to the file’s own ratio. This 640x360 source is already 16:9, so nothing is cropped.
+             * not to the file’s own ratio. This 3:2 photo therefore loses a strip at the top and bottom.
              */}
-            <Image alt="" src={exampleImageSource(640, 360, 12)} />
+            <Image alt="" src={exampleImage(12)} />
           </Grid.Cell>
         </Grid>
       </main>
@@ -849,7 +850,7 @@ export const WithSideNavigation: StoryObj = {
     <Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
       {/* Image always reserves its box; aspectRatio only changes it from the default 16:9 to the map’s 4:3. */}
       {/* This image carries no information the text does not, so it takes an empty alt. */}
-      <Image alt="" aspectRatio="4:3" src="https://picsum.photos/1040/780" />
+      <Image alt="" aspectRatio="4:3" src="${exampleImage()}" />
     </Grid.Cell>
     {/*
      * The navigation comes first in source, so it precedes the content in the reading and tab order. It
@@ -962,7 +963,7 @@ export const WithSideNavigation: StoryObj = {
         <Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
           {/* Image always reserves its box; aspectRatio only changes it from the default 16:9 to the map’s 4:3. */}
           {/* This image carries no information the text does not, so it takes an empty alt. */}
-          <Image alt="" aspectRatio="4:3" src={exampleImageSource(1040, 780)} />
+          <Image alt="" aspectRatio="4:3" src={exampleImage()} />
         </Grid.Cell>
         {/*
          * The navigation comes first in source, so it precedes the content in the reading and tab order. It
@@ -1072,7 +1073,7 @@ export const SubnavigationPage: StoryObj = {
     {/* Outside the Grid, the image spans the full Page width: up to 90rem, centred — not the full window. */}
     {/* Image always reserves its box; aspectRatio only changes it from the default 16:9 to a banner’s 16:5. */}
     {/* This image carries no information the text does not, so it takes an empty alt. */}
-    <Image alt="" aspectRatio="16:5" src="https://picsum.photos/1440/450" />
+    <Image alt="" aspectRatio="16:5" src="${exampleImage()}" />
     <Grid paddingVertical="x-large">
       {/* This cell is as wide as a regular content body, but it start-aligns with the grid it introduces. */}
       <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
@@ -1186,7 +1187,7 @@ export const SubnavigationPage: StoryObj = {
         {/* Outside the Grid, the image spans the full Page width: up to 90rem, centred — not the full window. */}
         {/* Image always reserves its box; aspectRatio only changes it from the default 16:9 to a banner’s 16:5. */}
         {/* This image carries no information the text does not, so it takes an empty alt. */}
-        <Image alt="" aspectRatio="16:5" src={exampleImageSource(1440, 450)} />
+        <Image alt="" aspectRatio="16:5" src={exampleImage()} />
         <Grid paddingVertical="x-large">
           {/* This cell is as wide as a regular content body, but it start-aligns with the grid it introduces. */}
           <Grid.Cell

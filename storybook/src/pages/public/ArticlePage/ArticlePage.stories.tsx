@@ -19,7 +19,7 @@ import {
   StandaloneLink,
 } from '@amsterdam/design-system-react'
 
-import { exampleImageSource } from '#storybook/_common/exampleContent'
+import { exampleImage } from '#storybook/_common/exampleContent'
 
 import { commonMeta, pageParameters } from '../common/commonMeta'
 
@@ -73,8 +73,8 @@ const meta = {
         <Image
           alt=""
           aspectRatio="16:5"
-          src={exampleImageSource(1440, 450)}
-          srcSet={`${exampleImageSource(640, 200)} 640w, ${exampleImageSource(1280, 400)} 1280w, ${exampleImageSource(1440, 450)} 1440w`}
+          src={exampleImage()}
+          srcSet={`${exampleImage()} 640w, ${exampleImage()} 1280w, ${exampleImage()} 1440w`}
         />
         <Grid paddingVertical="x-large">
           {/*
@@ -184,7 +184,7 @@ const meta = {
           <Grid.Cell span={4}>
             <Card>
               {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
-              <Card.Image alt="" src={exampleImageSource(640, 360, 1)} />
+              <Card.Image alt="" src={exampleImage(1)} />
               <Card.HeadingGroup>
                 <Card.Heading level={3}>
                   <Card.Link href="#">Waarom we op zoek zijn naar vleermuizen</Card.Link>
@@ -199,7 +199,7 @@ const meta = {
           </Grid.Cell>
           <Grid.Cell span={4}>
             <Card>
-              <Card.Image alt="" src={exampleImageSource(640, 360, 2)} />
+              <Card.Image alt="" src={exampleImage(2)} />
               <Card.HeadingGroup>
                 <Card.Heading level={3}>
                   <Card.Link href="#">Meer aandacht voor voetgangers, een jaar lang</Card.Link>
@@ -213,7 +213,7 @@ const meta = {
           </Grid.Cell>
           <Grid.Cell span={4}>
             <Card>
-              <Card.Image alt="" src={exampleImageSource(640, 360, 3)} />
+              <Card.Image alt="" src={exampleImage(3)} />
               <Card.HeadingGroup>
                 <Card.Heading level={3}>
                   <Card.Link href="#">Nieuwe manieren om afval op te halen</Card.Link>
@@ -278,8 +278,8 @@ export const Default: StoryObj = {
     <Image
       alt=""
       aspectRatio="16:5"
-      src="https://picsum.photos/1440/450"
-      srcSet="https://picsum.photos/640/200 640w, https://picsum.photos/1280/400 1280w, https://picsum.photos/1440/450 1440w"
+      src="${exampleImage()}"
+      srcSet="${exampleImage()} 640w, ${exampleImage()} 1280w, ${exampleImage()} 1440w"
     />
     <Grid paddingVertical="x-large">
       {/*
@@ -361,7 +361,7 @@ export const Default: StoryObj = {
       <Grid.Cell span={4}>
         <Card>
           {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
-          <Card.Image alt="" src="https://picsum.photos/640/360?random=1" />
+          <Card.Image alt="" src="${exampleImage(1)}" />
           <Card.HeadingGroup>
             <Card.Heading level={3}>
               <Card.Link href="#">Waarom we op zoek zijn naar vleermuizen</Card.Link>
@@ -375,7 +375,7 @@ export const Default: StoryObj = {
       </Grid.Cell>
       <Grid.Cell span={4}>
         <Card>
-          <Card.Image alt="" src="https://picsum.photos/640/360?random=2" />
+          <Card.Image alt="" src="${exampleImage(2)}" />
           <Card.HeadingGroup>
             <Card.Heading level={3}>
               <Card.Link href="#">Meer aandacht voor voetgangers, een jaar lang</Card.Link>
@@ -387,7 +387,7 @@ export const Default: StoryObj = {
       </Grid.Cell>
       <Grid.Cell span={4}>
         <Card>
-          <Card.Image alt="" src="https://picsum.photos/640/360?random=3" />
+          <Card.Image alt="" src="${exampleImage(3)}" />
           <Card.HeadingGroup>
             <Card.Heading level={3}>
               <Card.Link href="#">Nieuwe manieren om afval op te halen</Card.Link>

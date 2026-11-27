@@ -22,14 +22,20 @@ import {
 } from '@amsterdam/design-system-react'
 import { MailIcon, PhoneIcon } from '@amsterdam/design-system-react-icons'
 
-import { exampleImageSource } from '#storybook/_common/exampleContent'
+import { exampleImage } from '#storybook/_common/exampleContent'
+import examplePhoto08 from '#storybook/_common/images/example-photo-08.jpg'
+import examplePhoto10 from '#storybook/_common/images/example-photo-10.jpg'
+import examplePhoto18 from '#storybook/_common/images/example-photo-18.jpg'
+import examplePhoto19 from '#storybook/_common/images/example-photo-19.jpg'
+import examplePhoto20 from '#storybook/_common/images/example-photo-20.jpg'
+import examplePhoto21 from '#storybook/_common/images/example-photo-21.jpg'
 
 import { commonMeta, pageParameters } from '../common/commonMeta'
 
-const images = [268, 12, 267, 164, 128].map((id) => ({
+const images = [examplePhoto21, examplePhoto18, examplePhoto20, examplePhoto08, examplePhoto19].map((src) => ({
   alt: '',
   aspectRatio: '16:9' as const,
-  src: `https://picsum.photos/id/${id}/1440/810`,
+  src,
 }))
 
 const meta = {
@@ -327,7 +333,7 @@ const meta = {
               Ontwikkeling Centrumeiland, herfst 2025
             </Heading>
             {/* This image only contributes to the visual atmosphere of the page, so it takes an empty alt. */}
-            <Image alt="" src="https://picsum.photos/id/385/640/360" />
+            <Image alt="" src={examplePhoto10} />
             <StandaloneLink href="#">Meer video’s</StandaloneLink>
           </Grid.Cell>
           <Grid.Cell
@@ -403,7 +409,7 @@ const meta = {
         {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
         <Grid paddingBottom="2x-large" paddingTop="x-large">
           <Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-            <Image alt="" src={exampleImageSource(1280, 720)} />
+            <Image alt="" src={exampleImage()} />
           </Grid.Cell>
         </Grid>
       </main>
@@ -569,7 +575,7 @@ export const Default: StoryObj = {
       <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}>
         <Heading level={2} size="level-3">Ontwikkeling Centrumeiland, herfst 2025</Heading>
         {/* This image only contributes to the visual atmosphere of the page, so it takes an empty alt. */}
-        <Image alt="" src="https://picsum.photos/id/385/640/360" />
+        <Image alt="" src="${examplePhoto10}" />
         <StandaloneLink href="#">Meer video’s</StandaloneLink>
       </Grid.Cell>
       {/* … a Plannen en publicaties cell, start-aligned to the left like Meer informatie … */}
@@ -613,7 +619,7 @@ export const Default: StoryObj = {
     {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
     <Grid paddingBottom="2x-large" paddingTop="x-large">
       <Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-        <Image alt="" src="https://picsum.photos/1280/720" />
+        <Image alt="" src="${exampleImage()}" />
       </Grid.Cell>
     </Grid>
   </main>
@@ -870,7 +876,7 @@ export const WithBreakout: StoryObj = {
       <Breakout.Cell colSpan="all" has="figure" rowSpan={{ narrow: 1, medium: 2, wide: 2 }} rowStart={1}>
         <Image
           alt="Kaart van het stationsgebied met de locaties van de deelprojecten."
-          src="https://picsum.photos/1440/810"
+          src="${exampleImage(2)}"
         />
       </Breakout.Cell>
       <Breakout.Cell
@@ -965,7 +971,7 @@ export const WithBreakout: StoryObj = {
          */}
         <Paragraph>In deze animatie ziet u hoe het station en het plein er na de vernieuwing uitzien.</Paragraph>
         {/* This image carries no information the text does not, so it takes an empty alt. */}
-        <Image alt="" src="https://picsum.photos/1280/720" />
+        <Image alt="" src="${exampleImage(3)}" />
         <StandaloneLink href="#">Bekijk meer video’s over dit project</StandaloneLink>
       </Grid.Cell>
       <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
@@ -1048,7 +1054,7 @@ export const WithBreakout: StoryObj = {
       <Grid.Cell span="all">
         <Image
           alt="Kaart van het projectgebied, van het Julianaplein tot de Spaklerweg."
-          src="https://picsum.photos/1440/810"
+          src="${exampleImage(4)}"
         />
       </Grid.Cell>
     </Grid>
@@ -1324,10 +1330,7 @@ export const WithBreakout: StoryObj = {
            */}
           {/* On the narrow grid the image takes a single row, so it sits above the band rather than over it. */}
           <Breakout.Cell colSpan="all" has="figure" rowSpan={{ narrow: 1, medium: 2, wide: 2 }} rowStart={1}>
-            <Image
-              alt="Kaart van het stationsgebied met de locaties van de deelprojecten."
-              src={exampleImageSource(1440, 810, 2)}
-            />
+            <Image alt="Kaart van het stationsgebied met de locaties van de deelprojecten." src={exampleImage(2)} />
           </Breakout.Cell>
           <Breakout.Cell
             className="ams-prose"
@@ -1441,7 +1444,7 @@ export const WithBreakout: StoryObj = {
              */}
             <Paragraph>In deze animatie ziet u hoe het station en het plein er na de vernieuwing uitzien.</Paragraph>
             {/* This image carries no information the text does not, so it takes an empty alt. */}
-            <Image alt="" src={exampleImageSource(1280, 720, 3)} />
+            <Image alt="" src={exampleImage(3)} />
             <StandaloneLink href="#">Bekijk meer video’s over dit project</StandaloneLink>
           </Grid.Cell>
           <Grid.Cell
@@ -1534,10 +1537,7 @@ export const WithBreakout: StoryObj = {
         {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
         <Grid paddingBottom="2x-large" paddingTop="x-large">
           <Grid.Cell span="all">
-            <Image
-              alt="Kaart van het projectgebied, van het Julianaplein tot de Spaklerweg."
-              src={exampleImageSource(1440, 810, 4)}
-            />
+            <Image alt="Kaart van het projectgebied, van het Julianaplein tot de Spaklerweg." src={exampleImage(4)} />
           </Grid.Cell>
         </Grid>
       </main>

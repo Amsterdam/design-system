@@ -5,6 +5,21 @@
 
 import isChromatic from 'chromatic/isChromatic'
 
+import examplePhoto01 from './images/example-photo-01.jpg'
+import examplePhoto02 from './images/example-photo-02.jpg'
+import examplePhoto03 from './images/example-photo-03.jpg'
+import examplePhoto04 from './images/example-photo-04.jpg'
+import examplePhoto05 from './images/example-photo-05.jpg'
+import examplePhoto06 from './images/example-photo-06.jpg'
+import examplePhoto07 from './images/example-photo-07.jpg'
+import examplePhoto10 from './images/example-photo-10.jpg'
+import examplePhoto11 from './images/example-photo-11.jpg'
+import examplePhoto12 from './images/example-photo-12.jpg'
+import examplePhoto13 from './images/example-photo-13.jpg'
+import examplePhoto14 from './images/example-photo-14.jpg'
+import examplePhoto15 from './images/example-photo-15.jpg'
+import examplePhoto16 from './images/example-photo-16.jpg'
+
 export const districts: ReadonlyArray<string> = [
   'Centrum',
   'Nieuw-West',
@@ -91,18 +106,28 @@ export const exampleGivenName = () =>
     'Yassine',
   ])
 
-// Lorem Picsum serves a random photo unless you name one, and it has gaps, so these ids are known to resolve.
-const exampleImageIds = [64, 101, 122, 123, 133, 153, 159, 385, 1015, 1016, 1029, 1039, 1043, 1044]
+const exampleImages = [
+  examplePhoto01,
+  examplePhoto02,
+  examplePhoto03,
+  examplePhoto04,
+  examplePhoto05,
+  examplePhoto06,
+  examplePhoto07,
+  examplePhoto10,
+  examplePhoto11,
+  examplePhoto12,
+  examplePhoto13,
+  examplePhoto14,
+  examplePhoto15,
+  examplePhoto16,
+]
 
 /**
- * Returns the source for a placeholder photo.
- * Give each photo on a page its own index, and reuse one index across the sizes in a `srcSet`.
- * Only Chromatic resolves those indexes to fixed photos; elsewhere every source is a fresh random one.
+ * Returns a local example photo.
+ * Give each photo on a page its own index, and reuse one index across a `srcSet`.
  */
-export const exampleImageSource = (width: number, height: number, index = 0) =>
-  isChromatic()
-    ? `https://picsum.photos/id/${exampleImageIds[index % exampleImageIds.length]}/${width}/${height}`
-    : `https://picsum.photos/${width}/${height}?random=${index}`
+export const exampleImage = (index = 0) => exampleImages[index % exampleImages.length]
 
 export const exampleLinkList = () =>
   pickRandomContent<Array<string>>([
@@ -373,7 +398,7 @@ export const newsArticles: ReadonlyArray<NewsArticle> = [
     date: '20 oktober 2023',
     district: 'Centrum',
     id: 'berlagebrug',
-    imageSource: exampleImageSource(640, 360, 0),
+    imageSource: exampleImage(0),
     isoDate: '2023-10-20',
     teaser:
       'Tussen 3 juni en 21 juli leggen we het tramspoor op de Berlagebrug aan. De brug is ongeveer 12 nachten dicht voor gemotoriseerd verkeer en in 3 nachten voor al het verkeer.',
@@ -383,7 +408,7 @@ export const newsArticles: ReadonlyArray<NewsArticle> = [
     category: 'Achtergrond',
     date: '18 oktober 2023',
     id: 'brandweerkorps',
-    imageSource: exampleImageSource(640, 360, 1),
+    imageSource: exampleImage(1),
     isoDate: '2023-10-18',
     teaser:
       'In de zomer van 1874 werd het allereerste beroepsbrandweerkorps van Nederland opgericht: de huidige Brandweer Amsterdam-Amstelland.',
@@ -394,7 +419,7 @@ export const newsArticles: ReadonlyArray<NewsArticle> = [
     date: '16 oktober 2023',
     district: 'Noord',
     id: 'noorderpark',
-    imageSource: exampleImageSource(640, 360, 2),
+    imageSource: exampleImage(2),
     isoDate: '2023-10-16',
     teaser:
       'Het Noorderpark krijgt meer schaduw, ruimere wandelpaden en een speelveld dat ook bij regen bruikbaar blijft. De werkzaamheden beginnen na de zomer.',
@@ -405,7 +430,7 @@ export const newsArticles: ReadonlyArray<NewsArticle> = [
     date: '13 oktober 2023',
     district: 'Zuidoost',
     id: 'zuidoost-subsidie',
-    imageSource: exampleImageSource(640, 360, 3),
+    imageSource: exampleImage(3),
     isoDate: '2023-10-13',
     teaser:
       'Bewoners en organisaties in Zuidoost kunnen tot 1 december subsidie aanvragen voor een buurtinitiatief dat bijdraagt aan de viering van 750 jaar Amsterdam.',
@@ -415,7 +440,7 @@ export const newsArticles: ReadonlyArray<NewsArticle> = [
     category: 'Live blogs',
     date: '11 oktober 2023',
     id: 'kades-bruggen',
-    imageSource: exampleImageSource(640, 360, 4),
+    imageSource: exampleImage(4),
     isoDate: '2023-10-11',
     teaser:
       'We vernieuwen de komende jaren honderden kilometers kade en honderden bruggen. In dit live blog houden we bij welke werkzaamheden er deze week starten.',
@@ -426,7 +451,7 @@ export const newsArticles: ReadonlyArray<NewsArticle> = [
     date: '9 oktober 2023',
     district: 'West',
     id: 'amsterdamse-school',
-    imageSource: exampleImageSource(640, 360, 5),
+    imageSource: exampleImage(5),
     isoDate: '2023-10-09',
     teaser:
       'De woningblokken in de Spaarndammerbuurt gelden als het hoogtepunt van de Amsterdamse School. Honderd jaar later wonen er nog steeds Amsterdammers.',
@@ -441,7 +466,7 @@ export const eventItems: ReadonlyArray<EventItem> = [
     district: 'Centrum',
     href: '#',
     id: 'open-dag-stadsarchief',
-    imageSource: exampleImageSource(640, 360, 0),
+    imageSource: exampleImage(0),
     isoDate: '2026-06-20',
     teaser:
       'Ontdek eeuwenoude kaarten, foto’s en films over Amsterdam en doorzoek het archief met hulp van onze medewerkers.',
@@ -455,7 +480,7 @@ export const eventItems: ReadonlyArray<EventItem> = [
     district: 'West',
     href: '#',
     id: 'inloopavond-jan-evertsenstraat',
-    imageSource: exampleImageSource(640, 360, 1),
+    imageSource: exampleImage(1),
     isoDate: '2026-06-23',
     teaser: 'Praat mee over de nieuwe inrichting van de straat, met meer ruimte voor groen, fietsers en voetgangers.',
     timeLabel: '19.00–21.00 uur',
@@ -468,7 +493,7 @@ export const eventItems: ReadonlyArray<EventItem> = [
     district: 'Centrum',
     href: '#',
     id: 'commissie-ruimtelijke-ordening',
-    imageSource: exampleImageSource(640, 360, 2),
+    imageSource: exampleImage(2),
     isoDate: '2026-06-24',
     teaser: 'Volg het debat van de raadscommissie over ruimtelijke plannen in de stad. De vergadering is openbaar.',
     timeLabel: '13.30 uur',
@@ -481,7 +506,7 @@ export const eventItems: ReadonlyArray<EventItem> = [
     district: 'Nieuw-West',
     href: '#',
     id: 'gratis-zwemles-ookmeer',
-    imageSource: exampleImageSource(640, 360, 3),
+    imageSource: exampleImage(3),
     isoDate: '2026-06-27',
     teaser: 'Kinderen van 5 tot 10 jaar oefenen spelenderwijs met zwemmen onder begeleiding. Aanmelden is niet nodig.',
     timeLabel: '14.00–15.30 uur',
@@ -494,7 +519,7 @@ export const eventItems: ReadonlyArray<EventItem> = [
     district: 'Noord',
     href: '#',
     id: 'buurtmoestuin-buikslotermeer',
-    imageSource: exampleImageSource(640, 360, 4),
+    imageSource: exampleImage(4),
     isoDate: '2026-06-28',
     teaser:
       'Steek de handen uit de mouwen in de buurtmoestuin en neem aan het eind van de ochtend verse groenten mee naar huis.',
@@ -508,7 +533,7 @@ export const eventItems: ReadonlyArray<EventItem> = [
     district: 'Oost',
     href: '#',
     id: 'taalcafe-javaplein',
-    imageSource: exampleImageSource(640, 360, 5),
+    imageSource: exampleImage(5),
     isoDate: '2026-07-01',
     teaser:
       'Oefen op een ontspannen manier Nederlands met vrijwilligers en andere bewoners, onder het genot van een kop koffie.',

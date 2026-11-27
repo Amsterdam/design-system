@@ -7,6 +7,8 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Card, Metadata } from '@amsterdam/design-system-react/src'
 
+import examplePhoto03Portrait from '#storybook/_common/images/example-photo-03-portrait.jpg'
+
 import { default as cardMeta } from './Card.stories'
 
 const meta = {
@@ -20,7 +22,7 @@ type Story = StoryObj<typeof meta>
 
 const NewsCard = ({ fit }: { readonly fit?: 'contain' }) => (
   <Card>
-    <Card.Image alt="" fit={fit} src="https://picsum.photos/id/122/800/1200" />
+    <Card.Image alt="" fit={fit} src={examplePhoto03Portrait} />
     <Card.Content>
       <Card.HeadingGroup>
         <Card.Heading level={3}>

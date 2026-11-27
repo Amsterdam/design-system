@@ -9,6 +9,10 @@ import { ChevronDownIcon } from '@amsterdam/design-system-react-icons'
 
 import type { PropWithValues, VariantValue } from './renderComponentVariantTypes'
 
+import examplePhoto01Small from './images/example-photo-01-16x16.jpg'
+import examplePhoto01Wide from './images/example-photo-01-128x64.jpg'
+import examplePhoto01Square from './images/example-photo-01-128x128.jpg'
+
 /** A fixture supplies the values to render, never the default: that comes from the arg types. */
 type PropFixture = Omit<PropWithValues, 'defaultValue' | 'name'>
 
@@ -41,11 +45,7 @@ const byPropName: Record<string, PropFixture> = {
   },
   imageSrc: {
     hasIcon: null,
-    values: [
-      'https://picsum.photos/id/64/128/128',
-      'https://picsum.photos/id/64/128/64',
-      'https://picsum.photos/id/64/16/16',
-    ],
+    values: [examplePhoto01Square, examplePhoto01Wide, examplePhoto01Small],
   },
 }
 
