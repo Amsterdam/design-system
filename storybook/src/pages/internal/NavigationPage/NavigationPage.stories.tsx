@@ -6,7 +6,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import type { MouseEvent } from 'react'
 
-import { Breadcrumb, Grid, Heading, TabNavigation } from '@amsterdam/design-system-react'
+import { Badge, Breadcrumb, Grid, Heading, TabNavigation } from '@amsterdam/design-system-react'
 import { useRef, useState } from 'react'
 
 import { commonMeta, pageParameters } from '../common/commonMeta'
@@ -69,7 +69,7 @@ const meta = {
                   key={slug}
                   onClick={(e) => handleMenuItemClick(e, slug)}
                 >
-                  {label}
+                  {label} {slug === 'documenten' && <Badge color="orange" label={14} />}
                 </TabNavigation.Link>
               ))}
             </TabNavigation.List>
@@ -93,7 +93,7 @@ const meta = {
                   key={slug}
                   onClick={(e) => handleSubMenuItemClick(e, slug)}
                 >
-                  {label}
+                  {label} {slug === 'status' && <Badge label="Nieuw" />}
                 </TabNavigation.Link>
               ))}
             </TabNavigation.List>
@@ -152,7 +152,7 @@ export const Default: StoryObj = {
             key={slug}
             onClick={(e) => handleMenuItemClick(e, slug)}
           >
-            {label}
+            {label} {slug === 'documenten' && <Badge color="orange" label={14} />}
           </TabNavigation.Link>
         ))}
       </TabNavigation.List>
@@ -172,7 +172,7 @@ export const Default: StoryObj = {
             key={slug}
             onClick={(e) => handleSubMenuItemClick(e, slug)}
           >
-            {label}
+            {label} {slug === 'status' && <Badge label="Nieuw" />}
           </TabNavigation.Link>
         ))}
       </TabNavigation.List>
