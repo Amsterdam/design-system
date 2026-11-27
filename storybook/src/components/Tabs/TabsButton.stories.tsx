@@ -6,7 +6,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Paragraph } from '@amsterdam/design-system-react'
-import { Tabs } from '@amsterdam/design-system-react/src'
+import { Badge, Tabs } from '@amsterdam/design-system-react/src'
 
 import { childrenArgType } from '#storybook/_common/argTypes'
 
@@ -40,5 +40,12 @@ export const Button: Story = {
   args: {
     'aria-controls': 'panel-1',
     children: 'West',
+  },
+}
+
+export const ButtonWithBadge: Story = {
+  args: {
+    'aria-controls': 'panel-1',
+    children: ['West ', <Badge key="badge" label="Nieuw" />],
   },
 }

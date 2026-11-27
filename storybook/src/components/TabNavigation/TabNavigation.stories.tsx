@@ -4,10 +4,10 @@
  */
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
-import type { MouseEvent } from 'react'
+import type { MouseEvent, ReactNode } from 'react'
 
 import { DocumentIcon, EuroIcon, MegaphoneIcon, PersonIcon } from '@amsterdam/design-system-react-icons'
-import { TabNavigation } from '@amsterdam/design-system-react/src'
+import { Badge, TabNavigation } from '@amsterdam/design-system-react/src'
 import { useState } from 'react'
 
 const useTabNavigation = (labels: Array<string>, initialLabel?: string) => {
@@ -202,6 +202,63 @@ export const WithManyLinks: Story = {
               onClick={(e) => handleClick(e, name)}
             >
               Tab {name}
+            </TabNavigation.Link>
+          ))}
+        </TabNavigation.List>
+      </TabNavigation>
+    )
+  },
+}
+
+const badgedLabels: [string, ReactNode?][] = [
+  ['Gegevens', <Badge color="lime" key={1} label="34" />],
+  ['Aanslagen', <Badge color="azure" key={2} label="99+" />],
+  ['Documenten', <Badge key={3} label="New" />],
+  ['Acties', <Badge color="red" key={4} label="!" />],
+]
+export const Badges: Story = {
+  parameters: {
+    docs: {
+      source: {
+        code: `const badgedLabels = [
+  ['Gegevens', <Badge color="lime" label="34" />],
+  ['Aanslagen', <Badge color="azure" label="99+" />],
+  ['Documenten', <Badge label="New" />],
+  ['Acties', <Badge color="red" label="!" />],
+]
+
+<TabNavigation orientation="vertical">
+  <TabNavigation.List>
+    {badgedLabels.map(([label, badge]) => (
+      <TabNavigation.Link
+        aria-current={label === 'Gegevens' ? 'page' : undefined}
+        href={'#' + label.toLowerCase()}
+        key={label}
+      >
+        {label} {badge}
+      </TabNavigation.Link>
+    ))}
+  </TabNavigation.List>
+</TabNavigation>`,
+        language: 'tsx',
+      },
+    },
+  },
+  render: (args) => {
+    const labels = badgedLabels.map(([label]) => label)
+    const { current, handleClick } = useTabNavigation(labels)
+
+    return (
+      <TabNavigation {...args}>
+        <TabNavigation.List>
+          {badgedLabels.map(([label, badge]) => (
+            <TabNavigation.Link
+              aria-current={current === label ? 'page' : undefined}
+              href={`#${label.toLowerCase()}`}
+              key={label}
+              onClick={(e) => handleClick(e, label)}
+            >
+              {label} {badge}
             </TabNavigation.Link>
           ))}
         </TabNavigation.List>
