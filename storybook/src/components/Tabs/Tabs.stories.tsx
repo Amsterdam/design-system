@@ -61,15 +61,19 @@ export const Default: Story = {
   decorators: [maximiseInlineSize('24rem')],
 }
 
-export const WithNumberBadge: Story = {
+export const Badges: Story = {
   args: {
     children: [
       <Tabs.List key="list">
-        <Tabs.Button aria-controls="west">West</Tabs.Button>
+        <Tabs.Button aria-controls="west">
+          West <Badge color="lime" label="13" />
+        </Tabs.Button>
         <Tabs.Button aria-controls="centrum">
           Centrum <Badge color="azure" label="99" />
         </Tabs.Button>
-        <Tabs.Button aria-controls="oost">Oost</Tabs.Button>
+        <Tabs.Button aria-controls="oost">
+          Oost <Badge color="orange" label="New" />
+        </Tabs.Button>
       </Tabs.List>,
       <Tabs.Panel id="west" key="west">
         <Paragraph>
