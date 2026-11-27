@@ -1,5 +1,0 @@
-import{n as e,r as t}from"./rolldown-runtime-sJBDdmOt.js";import{t as n}from"./jsx-runtime-BG4KOiPz.js";import{tt as r,w as i}from"./index.esm-BFuEIccm.js";import{n as a,t as o}from"./Figure-CVIqRiC6.js";import{f as s,p as c,r as l}from"./argTypes-BlEHYq0r.js";import{a as u,g as d}from"./exampleContent-CNOnkqdG.js";import{n as f,t as p}from"./example-photo-14-DPqxbwdm.js";var m=t({Caption:()=>_,__namedExportsOrder:()=>v,default:()=>g}),h,g,_,v;function y(){return(y=e((()=>{r(),a(),s(),d(),f(),h=n(),g={title:`Components/Media/Figure`,component:o.Caption,argTypes:{children:l(`The text for the caption.`),color:c},render:({children:e,...t})=>(0,h.jsxs)(o,{children:[(0,h.jsx)(i,{alt:``,aspectRatio:`16:5`,sizes:`(max-width: 37.5rem) 640px, (max-width: 72.5rem) 1280px, 1440px`,src:p,srcSet:`${p} 640w, ${p} 1280w, ${p} 1440w`}),(0,h.jsx)(o.Caption,{...t,children:e})]}),tags:[`!manifest`]},_={args:{children:u()}},v=[`Caption`],_.parameters={..._.parameters,docs:{..._.parameters?.docs,source:{originalSource:`{
-  args: {
-    children: exampleCaption()
-  }
-}`,..._.parameters?.docs?.source}}}})))()}export{m as n,y as r,_ as t};
