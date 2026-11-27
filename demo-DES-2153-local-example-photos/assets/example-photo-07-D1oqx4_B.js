@@ -1,0 +1,1 @@
+import{n as e}from"./rolldown-runtime-sJBDdmOt.js";var t;function n(){return(n=e((()=>{t=new URL(`example-photo-04-_RWJnueV.jpg`,import.meta.url).href})))()}var r;function i(){return(i=e((()=>{r=new URL(`example-photo-07-87FnuCyu.jpg`,import.meta.url).href})))()}export{n as i,i as n,t as r,r as t};
