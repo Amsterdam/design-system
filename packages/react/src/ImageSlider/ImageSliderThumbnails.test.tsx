@@ -12,9 +12,9 @@ import type { ImageSliderProps } from './ImageSlider'
 import { ImageSliderThumbnails } from './ImageSliderThumbnails'
 
 const thumbnails: ImageSliderProps['images'] = [
-  { alt: 'One', src: 'https://picsum.photos/id/122/320/180' },
-  { alt: 'Two', src: 'https://picsum.photos/id/101/320/180' },
-  { alt: 'Three', src: 'https://picsum.photos/id/153/320/180' },
+  { alt: 'One', src: '/one.jpg' },
+  { alt: 'Two', src: '/two.jpg' },
+  { alt: 'Three', src: '/three.jpg' },
 ]
 
 const defaultProps = { currentSlideId: 0, scrollToSlide: vi.fn(), thumbnails: thumbnails }

@@ -37,9 +37,9 @@ const scrollIntoView = vi.fn()
 Element.prototype.scrollIntoView = scrollIntoView
 
 const images: ImageSliderProps['images'] = [
-  { alt: 'One', src: 'https://picsum.photos/id/122/320/180' },
-  { alt: 'Two', src: 'https://picsum.photos/id/101/320/180' },
-  { alt: 'Three', src: 'https://picsum.photos/id/153/320/180' },
+  { alt: 'One', src: '/one.jpg' },
+  { alt: 'Two', src: '/two.jpg' },
+  { alt: 'Three', src: '/three.jpg' },
 ]
 
 // All functionality that relies on IntersectionObserver, like setting aria-hidden and showing an image
@@ -110,9 +110,9 @@ describe('ImageSlider', () => {
     expect(secondImage).toHaveAttribute('aria-hidden', 'true')
     expect(thirdImage).toHaveAttribute('aria-hidden', 'true')
 
-    expect(firstImage.src).toBe('https://picsum.photos/id/122/320/180')
-    expect(secondImage.src).toBe('https://picsum.photos/id/101/320/180')
-    expect(thirdImage.src).toBe('https://picsum.photos/id/153/320/180')
+    expect(firstImage).toHaveAttribute('src', '/one.jpg')
+    expect(secondImage).toHaveAttribute('src', '/two.jpg')
+    expect(thirdImage).toHaveAttribute('src', '/three.jpg')
   })
 
   it('scrolls to the next image when clicking the next button', async () => {
