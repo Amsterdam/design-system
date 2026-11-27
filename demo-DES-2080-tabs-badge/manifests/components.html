@@ -620,13 +620,13 @@
 <header>
   <div class="wrap">
     <h1>Manifest Debugger</h1>
-    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">15/93 API errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">15/93 infos</a><a class="filter-pill" data-k="no-api" href="#filter-no-api">18/93 without API description</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">1/328 story errors</a><a class="filter-pill info" data-k="story-warnings" href="#filter-story-warnings">43/328 incomplete snippets</a><a class="filter-pill ok" data-k="docs" href="#filter-docs">131 docs ok</a></div>
+    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">15/93 API errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">15/93 infos</a><a class="filter-pill" data-k="no-api" href="#filter-no-api">18/93 without API description</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">1/329 story errors</a><a class="filter-pill info" data-k="story-warnings" href="#filter-story-warnings">43/329 incomplete snippets</a><a class="filter-pill ok" data-k="docs" href="#filter-docs">131 docs ok</a></div>
   </div>
 </header>
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>4.4s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>4.1s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -39480,7 +39480,7 @@ The heading text is duplicated for assistive technology; this is the trade-off f
       <div class="badges">
         <label for="c-86-components-navigation-tab-navigation-props" class="badge ok as-toggle">3 prop types</label>
         
-        <label for="c-86-components-navigation-tab-navigation-stories" class="badge ok as-toggle">4 stories</label>
+        <label for="c-86-components-navigation-tab-navigation-stories" class="badge ok as-toggle">5 stories</label>
         <label for="c-86-components-navigation-tab-navigation-docs" class="badge ok as-toggle">1 doc</label>
         <label for="c-86-components-navigation-tab-navigation-subcomponents" class="badge ok as-toggle">1 subcomponent</label>
       </div>
@@ -39537,7 +39537,7 @@ orientation?: &quot;horizontal&quot; | &quot;vertical&quot;</code></pre>
                 <div class="row">
                   <span class="ex-name">Imports</span>
                 </div>
-                <pre><code>import { TabNavigation } from '@amsterdam/design-system-react/src';</code></pre>
+                <pre><code>import { Badge, TabNavigation } from '@amsterdam/design-system-react/src';</code></pre>
               </div>
           
           
@@ -39658,6 +39658,36 @@ orientation?: &quot;horizontal&quot; | &quot;vertical&quot;</code></pre>
 };</code></pre>
               
             </div>
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Badges</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const Badges = () =&gt; {
+    const labels = badgedLabels.map(([label]) =&gt; label)
+    const { current, handleClick } = useTabNavigation(labels)
+
+    return (
+        &lt;TabNavigation&gt;
+            &lt;TabNavigation.List&gt;
+                {badgedLabels.map(([label, badge]) =&gt; (
+                  &lt;TabNavigation.Link
+                    aria-current={current === label ? &#39;page&#39; : undefined}
+                    href={`#${label.toLowerCase()}`}
+                    key={label}
+                    onClick={(e) =&gt; handleClick(e, label)}
+                  &gt;
+                    {label} {badge}
+                  &lt;/TabNavigation.Link&gt;
+                ))}
+            &lt;/TabNavigation.List&gt;
+        &lt;/TabNavigation&gt;
+    );
+};</code></pre>
+              
+            </div>
         </div>
     
         <div class="panel panel-docs">
@@ -39669,7 +39699,7 @@ orientation?: &quot;horizontal&quot; | &quot;vertical&quot;</code></pre>
                 <span class="badge ok">doc ok</span>
               </div>
               <div class="hint">./src/components/TabNavigation/TabNavigation.docs.mdx</div>
-              <div>## Subcomponents The List wraps the Links and has no props of its own; the example above s...</div>
+              <div>## Badges Tabs can display badges to indicate additional information, such as the number o...</div>
               <div class="mdx-content"><pre><code>{/* @license CC0-1.0 */}
 
 import { Canvas, Controls, Description, Meta, Primary, Title } from &quot;@storybook/addon-docs/blocks&quot;;
@@ -39689,6 +39719,12 @@ import * as TabNavigationLinkStories from &quot;./TabNavigationLink.stories.tsx&
 &lt;Primary /&gt;
 
 &lt;Controls /&gt;
+
+## Badges
+
+Tabs can display badges to indicate additional information, such as the number of items or a status.
+
+&lt;Canvas of={TabNavigationStories.Badges} /&gt;
 
 ## Subcomponents
 
@@ -39947,18 +39983,22 @@ import { Tabs } from '@amsterdam/design-system-react/src';</code></pre>
             </div>
             <div class="note ok">
               <div class="row">
-                <span class="ex-name">With Number Badge</span>
+                <span class="ex-name">Badges</span>
                 <span class="badge ok">story ok</span>
               </div>
               
               
-              <pre><code>const WithNumberBadge = () =&gt; &lt;Tabs&gt;{[
+              <pre><code>const Badges = () =&gt; &lt;Tabs&gt;{[
       &lt;Tabs.List key=&quot;list&quot;&gt;
-        &lt;Tabs.Button aria-controls=&quot;west&quot;&gt;West&lt;/Tabs.Button&gt;
+        &lt;Tabs.Button aria-controls=&quot;west&quot;&gt;
+          West &lt;Badge color=&quot;lime&quot; label=&quot;13&quot; /&gt;
+        &lt;/Tabs.Button&gt;
         &lt;Tabs.Button aria-controls=&quot;centrum&quot;&gt;
           Centrum &lt;Badge color=&quot;azure&quot; label=&quot;99&quot; /&gt;
         &lt;/Tabs.Button&gt;
-        &lt;Tabs.Button aria-controls=&quot;oost&quot;&gt;Oost&lt;/Tabs.Button&gt;
+        &lt;Tabs.Button aria-controls=&quot;oost&quot;&gt;
+          Oost &lt;Badge color=&quot;orange&quot; label=&quot;New&quot; /&gt;
+        &lt;/Tabs.Button&gt;
       &lt;/Tabs.List&gt;,
       &lt;Tabs.Panel id=&quot;west&quot; key=&quot;west&quot;&gt;
         &lt;Paragraph&gt;
@@ -39994,7 +40034,7 @@ import { Tabs } from '@amsterdam/design-system-react/src';</code></pre>
                 <span class="badge ok">doc ok</span>
               </div>
               <div class="hint">./src/components/Tabs/Tabs.docs.mdx</div>
-              <div>## Subcomponents The List groups the Buttons of all tabs; it has no props of its own and i...</div>
+              <div>## Badges Tabs can display badges to indicate additional information, such as the number o...</div>
               <div class="mdx-content"><pre><code>{/* @license CC0-1.0 */}
 
 import { Canvas, Controls, Description, Meta, Primary, Title } from &quot;@storybook/addon-docs/blocks&quot;;
@@ -40015,6 +40055,12 @@ import * as TabsPanelStories from &quot;./TabsPanel.stories.tsx&quot;;
 &lt;Primary /&gt;
 
 &lt;Controls /&gt;
+
+## Badges
+
+Tabs can display badges to indicate additional information, such as the number of items or a status.
+
+&lt;Canvas of={TabsStories.Badges} /&gt;
 
 ## Subcomponents
 
