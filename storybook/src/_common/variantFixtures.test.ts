@@ -8,6 +8,9 @@ import type { StrictInputType } from 'storybook/internal/csf'
 import { ChevronDownIcon } from '@amsterdam/design-system-react-icons'
 import { describe, expect, it } from 'vitest'
 
+import examplePhoto01Small from './images/example-photo-01-16x16.jpg'
+import examplePhoto01Wide from './images/example-photo-01-128x64.jpg'
+import examplePhoto01Square from './images/example-photo-01-128x128.jpg'
 import { fixtureValuesFor, HEADING_SAMPLE, NUMBER_SAMPLE, STRING_SAMPLE } from './variantFixtures'
 
 const argType = (overrides: { name: string } & Partial<StrictInputType>): StrictInputType => ({ ...overrides })
@@ -24,10 +27,9 @@ describe('fixtureValuesFor', () => {
     })
   })
 
-  it('returns three sample image URLs for an imageSrc prop', () => {
+  it('returns local photos with different intrinsic sizes for an imageSrc prop', () => {
     const result = fixtureValuesFor(argType({ name: 'imageSrc' }))
-    expect(result?.values).toHaveLength(3)
-    expect(result?.values[0]).toMatch(/^https:\/\/picsum\.photos\//)
+    expect(result?.values).toEqual([examplePhoto01Square, examplePhoto01Wide, examplePhoto01Small])
   })
 
   it('returns the Amsterdam heading sample for a heading prop', () => {

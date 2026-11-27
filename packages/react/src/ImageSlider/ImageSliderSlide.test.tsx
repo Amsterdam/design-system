@@ -13,7 +13,7 @@ const defaultProps = {
   alt: '',
   currentSlideId: 0,
   index: 0,
-  src: 'https://picsum.photos/id/122/320/180',
+  src: '/one.jpg',
 }
 
 describe('ImageSliderSlide', () => {

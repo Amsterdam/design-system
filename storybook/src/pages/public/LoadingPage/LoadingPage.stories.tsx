@@ -9,6 +9,13 @@ import type { FormEvent } from 'react'
 import { Card, Grid, Heading, Paragraph, SearchField, Skeleton } from '@amsterdam/design-system-react'
 import { useEffect, useRef, useState } from 'react'
 
+import examplePhoto11 from '#storybook/_common/images/example-photo-11.jpg'
+import examplePhoto12 from '#storybook/_common/images/example-photo-12.jpg'
+import examplePhoto13 from '#storybook/_common/images/example-photo-13.jpg'
+import examplePhoto14 from '#storybook/_common/images/example-photo-14.jpg'
+import examplePhoto15 from '#storybook/_common/images/example-photo-15.jpg'
+import examplePhoto16 from '#storybook/_common/images/example-photo-16.jpg'
+
 import { commonMeta, pageParameters } from '../common/commonMeta'
 
 const initialQuery = 'woningbouw'
@@ -17,32 +24,32 @@ const results = [
   {
     description: 'Een levendige, groene en duurzame woonbuurt tussen de Gooiseweg en het Nelson Mandelapark.',
     heading: 'Nederlands eerste houten woonwijk komt in Zuidoost',
-    imageSrc: 'https://picsum.photos/id/1015/640/360',
+    imageSrc: examplePhoto11,
   },
   {
     description: 'De komende jaren bouwt de gemeente duizenden nieuwe woningen in stadsdeel Noord.',
     heading: 'Meer betaalbare woningen in Noord',
-    imageSrc: 'https://picsum.photos/id/1016/640/360',
+    imageSrc: examplePhoto12,
   },
   {
     description: 'Havenstad groeit uit tot een gemengd stadsgebied met ruimte om te wonen en te werken.',
     heading: 'Woningbouwplannen Havenstad',
-    imageSrc: 'https://picsum.photos/id/1029/640/360',
+    imageSrc: examplePhoto13,
   },
   {
     description: 'Bekijk hoe u zich inschrijft en wat de wachttijden zijn voor een sociale huurwoning.',
     heading: 'Sneller een sociale huurwoning',
-    imageSrc: 'https://picsum.photos/id/1039/640/360',
+    imageSrc: examplePhoto14,
   },
   {
     description: 'Subsidies en advies om uw huis te isoleren en van het gas af te gaan.',
     heading: 'Verduurzaam uw woning',
-    imageSrc: 'https://picsum.photos/id/1043/640/360',
+    imageSrc: examplePhoto15,
   },
   {
     description: 'Op het Zeeburgereiland verrijst een hoogstedelijke buurt met hoge woontorens.',
     heading: 'Nieuwbouw in de Sluisbuurt',
-    imageSrc: 'https://picsum.photos/id/1044/640/360',
+    imageSrc: examplePhoto16,
   },
 ]
 
@@ -285,7 +292,7 @@ const loadedSource = pageShell({
     <Grid.Cell span={{ narrow: 4, medium: 4, wide: 4 }}>
       <Card>
         {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
-        <Card.Image alt="" aspectRatio="16:9" src="https://picsum.photos/id/1015/640/360" />
+        <Card.Image alt="" aspectRatio="16:9" src="${examplePhoto11}" />
         <Card.Heading level={3}>
           <Card.Link href="#">Nederlands eerste houten woonwijk komt in Zuidoost</Card.Link>
         </Card.Heading>

@@ -9,6 +9,8 @@ import { Spotlight } from '@amsterdam/design-system-react'
 import { Breakout } from '@amsterdam/design-system-react/src'
 import { gridGaps } from '@amsterdam/design-system-react/src/Grid/Grid'
 
+import examplePhoto03SmallPortrait from '#storybook/_common/images/example-photo-03-200x300.jpg'
+
 import { default as breakoutMeta } from './Breakout.stories'
 
 const meta = {
@@ -44,7 +46,7 @@ export const Test: Story = {
         rowSpan={2}
         rowStart={1}
       >
-        <img alt="" src="https://picsum.photos/id/122/200/300" />
+        <img alt="" src={examplePhoto03SmallPortrait} />
       </Breakout.Cell>,
     ],
   },

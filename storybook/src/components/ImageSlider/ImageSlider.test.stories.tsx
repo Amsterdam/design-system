@@ -8,6 +8,11 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { ImageSlider } from '@amsterdam/design-system-react/src'
 import { expect, waitFor } from 'storybook/test'
 
+import examplePhoto02 from '#storybook/_common/images/example-photo-02.jpg'
+import examplePhoto03 from '#storybook/_common/images/example-photo-03.jpg'
+import examplePhoto04 from '#storybook/_common/images/example-photo-04.jpg'
+import examplePhoto06 from '#storybook/_common/images/example-photo-06.jpg'
+import examplePhoto07 from '#storybook/_common/images/example-photo-07.jpg'
 import { renderComponentVariants } from '#storybook/_common/renderComponentVariants'
 
 import { default as imageSliderMeta } from './ImageSlider.stories'
@@ -38,23 +43,23 @@ export const Test: Story = {
     images: [
       {
         alt: 'Bridge',
-        src: 'https://picsum.photos/id/122/1280/720',
+        src: examplePhoto03,
       },
       {
         alt: 'Bunker',
-        src: 'https://picsum.photos/id/101/1280/720',
+        src: examplePhoto02,
       },
       {
         alt: 'Chairs',
-        src: 'https://picsum.photos/id/153/1280/720',
+        src: examplePhoto06,
       },
       {
         alt: 'Droplet',
-        src: 'https://picsum.photos/id/159/1280/720',
+        src: examplePhoto07,
       },
       {
         alt: 'Dew',
-        src: 'https://picsum.photos/id/123/1280/720',
+        src: examplePhoto04,
       },
     ],
   },

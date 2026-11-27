@@ -6,7 +6,10 @@
 import isChromatic from 'chromatic/isChromatic'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 
-import { exampleImageSource, exampleParagraph } from './exampleContent'
+import { exampleImage, exampleParagraph } from './exampleContent'
+import examplePhoto01 from './images/example-photo-01.jpg'
+import examplePhoto02 from './images/example-photo-02.jpg'
+import examplePhoto16 from './images/example-photo-16.jpg'
 
 vi.mock('chromatic/isChromatic', () => ({ default: vi.fn(() => false) }))
 
@@ -36,34 +39,26 @@ describe('example content', () => {
   })
 })
 
-describe('exampleImageSource', () => {
-  const photoId = (source: string) => source.split('/')[4]
-
+describe('exampleImage', () => {
   afterEach(() => {
     vi.restoreAllMocks()
   })
 
-  it('requests a random photo outside Chromatic', () => {
+  it('returns the same local photo inside and outside Chromatic', () => {
     vi.mocked(isChromatic).mockReturnValue(false)
+    expect(exampleImage(1)).toBe(examplePhoto02)
 
-    expect(exampleImageSource(640, 360, 1)).toBe('https://picsum.photos/640/360?random=1')
+    vi.mocked(isChromatic).mockReturnValue(true)
+    expect(exampleImage(1)).toBe(examplePhoto02)
   })
 
-  it('names a specific photo in Chromatic', () => {
-    vi.mocked(isChromatic).mockReturnValue(true)
-
-    expect(exampleImageSource(640, 360, 1)).toMatch(/^https:\/\/picsum\.photos\/id\/\d+\/640\/360$/)
+  it('defaults to the first local photo', () => {
+    expect(exampleImage()).toBe(examplePhoto01)
   })
 
-  it('shows one photo at several sizes for the same index', () => {
-    vi.mocked(isChromatic).mockReturnValue(true)
-
-    expect(photoId(exampleImageSource(640, 200, 3))).toBe(photoId(exampleImageSource(1440, 450, 3)))
-  })
-
-  it('shows different photos for different indexes', () => {
-    vi.mocked(isChromatic).mockReturnValue(true)
-
-    expect(photoId(exampleImageSource(640, 360, 0))).not.toBe(photoId(exampleImageSource(640, 360, 1)))
+  it('wraps around after the last local photo', () => {
+    expect(exampleImage(13)).toBe(examplePhoto16)
+    expect(exampleImage(14)).toBe(examplePhoto01)
+    expect(exampleImage(15)).toBe(examplePhoto02)
   })
 })

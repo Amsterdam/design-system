@@ -25,6 +25,7 @@ import {
 
 import { districts, newsArticles, newsCategories } from '#storybook/_common/exampleContent'
 import { formatFieldValue } from '#storybook/_common/formatFieldValue'
+import examplePhoto03 from '#storybook/_common/images/example-photo-03.jpg'
 
 import { commonMeta, pageParameters } from '../common/commonMeta'
 
@@ -159,7 +160,7 @@ export const Default: StoryObj = {
           <Grid.Cell as="li" span={{ narrow: 4, medium: 4, wide: 9 }}>
             <Card>
               {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
-              <Card.Image alt="" loading="lazy" src="https://picsum.photos/id/122/640/360" />
+              <Card.Image alt="" loading="lazy" src="${examplePhoto03}" />
               {/* A Card that pairs an image with a Content lays out horizontally in a cell this wide. */}
               <Card.Content>
                 <Card.HeadingGroup>

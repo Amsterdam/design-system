@@ -10,6 +10,7 @@ import { Button, Column, Heading, Image, Link, Paragraph, Row, StandaloneLink } 
 import { EditIcon } from '@amsterdam/design-system-react-icons'
 import { DataList } from '@amsterdam/design-system-react/src'
 
+import examplePhoto08 from '#storybook/_common/images/example-photo-08.jpg'
 import { renderComponentVariants } from '#storybook/_common/renderComponentVariants'
 
 import { default as dataListMeta, LearnableInPlaceActions } from './DataList.stories'
@@ -52,7 +53,7 @@ const DataListWithContainerQueryExamples = (props: DataListProps) => {
           <DataList.Item>
             <DataList.Key>Foto</DataList.Key>
             <DataList.Value>
-              <Image alt="De Magere Brug over de Amstel" aspectRatio="4:3" src="https://picsum.photos/id/164/320/240" />
+              <Image alt="De Magere Brug over de Amstel" aspectRatio="4:3" src={examplePhoto08} />
             </DataList.Value>
           </DataList.Item>
         </DataList>

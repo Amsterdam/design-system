@@ -8,6 +8,9 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { Button, Column, UnorderedList } from '@amsterdam/design-system-react'
 import { FileCard, formatFileMetadataTextEn } from '@amsterdam/design-system-react/src'
 
+import examplePhoto01Square from '#storybook/_common/images/example-photo-01-128x128.jpg'
+import examplePhoto27 from '#storybook/_common/images/example-photo-27.jpg'
+
 const remove = () => {}
 const download = () => {}
 
@@ -59,7 +62,7 @@ export const WithPreview: Story = {
   args: {
     name: 'pasfoto.jpg',
     onDelete: remove,
-    previewUrl: 'https://picsum.photos/id/64/128/128',
+    previewUrl: examplePhoto01Square,
     size: 248000,
     type: 'image/jpeg',
   },
@@ -75,13 +78,7 @@ export const InAnUnorderedList: Story = {
         <FileCard {...args} />
       </UnorderedList.Item>
       <UnorderedList.Item>
-        <FileCard
-          {...args}
-          name="pasfoto.jpg"
-          previewUrl="https://picsum.photos/id/64/128/128"
-          size={248000}
-          type="image/jpeg"
-        />
+        <FileCard {...args} name="foto.jpg" previewUrl={examplePhoto27} size={248000} type="image/jpeg" />
       </UnorderedList.Item>
       <UnorderedList.Item>
         <FileCard

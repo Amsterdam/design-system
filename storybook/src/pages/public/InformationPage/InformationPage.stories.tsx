@@ -18,6 +18,9 @@ import {
   Table,
 } from '@amsterdam/design-system-react'
 
+import examplePhoto11 from '#storybook/_common/images/example-photo-11.jpg'
+import examplePhoto12 from '#storybook/_common/images/example-photo-12.jpg'
+
 import { commonMeta, pageParameters } from '../common/commonMeta'
 
 const meta = {
@@ -82,7 +85,7 @@ export const Default: StoryObj = {
          * viewport.
          */}
         {/* This image carries no information the text does not, so it takes an empty alt. */}
-        <Image alt="" aspectRatio="4:3" src="https://picsum.photos/id/1015/640/480" />
+        <Image alt="" aspectRatio="4:3" src="${examplePhoto11}" />
       </Grid.Cell>
     </Grid>
     {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
@@ -137,7 +140,7 @@ export const Default: StoryObj = {
           horeca mogen staan.
         </Paragraph>
         {/* An image within the body column is as wide as the text above it. */}
-        <Image alt="" loading="lazy" src="https://picsum.photos/id/1016/1280/720" />
+        <Image alt="" loading="lazy" src="${examplePhoto12}" />
 
         <Heading level={2}>Bezwaar maken tegen een vergunning</Heading>
         <Paragraph>
@@ -212,7 +215,7 @@ export const Default: StoryObj = {
              * viewport.
              */}
             {/* This image carries no information the text does not, so it takes an empty alt. */}
-            <Image alt="" aspectRatio="4:3" src="https://picsum.photos/id/1015/640/480" />
+            <Image alt="" aspectRatio="4:3" src={examplePhoto11} />
           </Grid.Cell>
         </Grid>
         {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
@@ -271,7 +274,7 @@ export const Default: StoryObj = {
               horeca mogen staan.
             </Paragraph>
             {/* An image within the body column is as wide as the text above it. */}
-            <Image alt="" loading="lazy" src="https://picsum.photos/id/1016/1280/720" />
+            <Image alt="" loading="lazy" src={examplePhoto12} />
 
             <Heading level={2}>Bezwaar maken tegen een vergunning</Heading>
             <Paragraph>

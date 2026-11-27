@@ -24,33 +24,44 @@ import {
 } from '@amsterdam/design-system-react'
 import { MailIcon, PersonsIcon } from '@amsterdam/design-system-react-icons'
 
+import examplePhoto08 from '#storybook/_common/images/example-photo-08.jpg'
+import examplePhoto09 from '#storybook/_common/images/example-photo-09.jpg'
+import examplePhoto11 from '#storybook/_common/images/example-photo-11.jpg'
+import examplePhoto12 from '#storybook/_common/images/example-photo-12.jpg'
+import examplePhoto13 from '#storybook/_common/images/example-photo-13.jpg'
+import examplePhoto15 from '#storybook/_common/images/example-photo-15.jpg'
+import examplePhoto22 from '#storybook/_common/images/example-photo-22.jpg'
+import examplePhoto23 from '#storybook/_common/images/example-photo-23.jpg'
+import examplePhoto24 from '#storybook/_common/images/example-photo-24.jpg'
+import examplePhoto25 from '#storybook/_common/images/example-photo-25.jpg'
+import examplePhoto26 from '#storybook/_common/images/example-photo-26.jpg'
+import examplePhoto27 from '#storybook/_common/images/example-photo-27.jpg'
+import examplePhoto28 from '#storybook/_common/images/example-photo-28.jpg'
 import { PhotoPlaceholder } from '#storybook/_components/PhotoPlaceholder/PhotoPlaceholder'
 
 import { commonMeta, pageParameters } from '../common/commonMeta'
 import { councilMembers, groupRepresentatives } from './data'
 
-// Lorem Picsum is mostly landscapes, so these ids are hand-picked: each one is a photo in which a
-// person is actually visible.
 const pressPhotos = [
-  { alt: 'Een optreden tijdens een stadsevenement.', id: 453 },
-  { alt: 'Twee mensen in gesprek op straat.', id: 838 },
-  { alt: 'Bezoekers op een markt in de stad.', id: 342 },
-].map(({ alt, id }) => ({
+  { alt: 'Een optreden tijdens een stadsevenement.', src: examplePhoto26 },
+  { alt: 'Twee mensen in gesprek op straat.', src: examplePhoto27 },
+  { alt: 'Bezoekers op een markt in de stad.', src: examplePhoto22 },
+].map(({ alt, src }) => ({
   alt,
   aspectRatio: '16:9' as const,
-  src: `https://picsum.photos/id/${id}/1440/810`,
+  src,
 }))
 
 const sublocationPhotos = [
-  { alt: 'De kunstgrasvelden gezien vanaf de tribune.', id: 1084 },
-  { alt: 'De atletiekbaan met de werpkooi op de achtergrond.', id: 274 },
-  { alt: 'Het clubhuis met het terras aan de voorzijde.', id: 355 },
-  { alt: 'Een van de kleedkamers met banken en kapstokken.', id: 431 },
-  { alt: 'De ingang van het sportpark aan de Sloterweg.', id: 452 },
-].map(({ alt, id }) => ({
+  { alt: 'De kunstgrasvelden gezien vanaf de tribune.', src: examplePhoto28 },
+  { alt: 'De atletiekbaan met de werpkooi op de achtergrond.', src: examplePhoto09 },
+  { alt: 'Het clubhuis met het terras aan de voorzijde.', src: examplePhoto23 },
+  { alt: 'Een van de kleedkamers met banken en kapstokken.', src: examplePhoto24 },
+  { alt: 'De ingang van het sportpark aan de Sloterweg.', src: examplePhoto25 },
+].map(({ alt, src }) => ({
   alt,
   aspectRatio: '16:9' as const,
-  src: `https://picsum.photos/id/${id}/1440/810`,
+  src,
 }))
 
 const meta = {
@@ -850,7 +861,7 @@ export const Location: StoryObj = {
         <Image
           alt="De velden van Sportpark Riekerhaven vanuit de lucht, met daarachter de atletiekbaan."
           aspectRatio="16:5"
-          src="https://picsum.photos/id/274/1440/450"
+          src="${examplePhoto09}"
         />
       </Grid.Cell>
     </Grid>
@@ -966,7 +977,7 @@ export const Location: StoryObj = {
           alt="Kaart met de ligging van Sportpark Riekerhaven aan de Anderlechtlaan in Amsterdam Nieuw-West."
           aspectRatio="16:9"
           loading="lazy"
-          src="https://picsum.photos/id/164/1280/720"
+          src="${examplePhoto08}"
         />
       </Grid.Cell>
     </Grid>
@@ -1019,7 +1030,7 @@ export const Location: StoryObj = {
             <Image
               alt="De velden van Sportpark Riekerhaven vanuit de lucht, met daarachter de atletiekbaan."
               aspectRatio="16:5"
-              src="https://picsum.photos/id/274/1440/450"
+              src={examplePhoto09}
             />
           </Grid.Cell>
         </Grid>
@@ -1177,7 +1188,7 @@ export const Location: StoryObj = {
               alt="Kaart met de ligging van Sportpark Riekerhaven aan de Anderlechtlaan in Amsterdam Nieuw-West."
               aspectRatio="16:9"
               loading="lazy"
-              src="https://picsum.photos/id/164/1280/720"
+              src={examplePhoto08}
             />
           </Grid.Cell>
         </Grid>
@@ -1231,7 +1242,7 @@ export const LocationLarge: StoryObj = {
         <Image
           alt="De voorgevel van de Apollohal aan de Apollolaan."
           aspectRatio="16:5"
-          src="https://picsum.photos/id/164/1440/450"
+          src="${examplePhoto08}"
         />
       </Grid.Cell>
     </Grid>
@@ -1273,7 +1284,7 @@ export const LocationLarge: StoryObj = {
         <Grid.Cell span={4}>
           <Card>
             {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
-            <Card.Image alt="" aspectRatio="16:9" src="https://picsum.photos/id/1015/640/360" />
+            <Card.Image alt="" aspectRatio="16:9" src="${examplePhoto11}" />
             {/* Level 3 keeps the card under the level-2 section heading; Card.Heading supplies its own size. */}
             <Card.Heading level={3}>
               {/* Card.Link stretches over the whole Card, so the entire Card is one clickable link. */}
@@ -1284,7 +1295,7 @@ export const LocationLarge: StoryObj = {
         </Grid.Cell>
         <Grid.Cell span={4}>
           <Card>
-            <Card.Image alt="" aspectRatio="16:9" src="https://picsum.photos/id/1016/640/360" />
+            <Card.Image alt="" aspectRatio="16:9" src="${examplePhoto12}" />
             <Card.Heading level={3}>
               <Card.Link href="#">Du Midi benedenzaal</Card.Link>
             </Card.Heading>
@@ -1293,7 +1304,7 @@ export const LocationLarge: StoryObj = {
         </Grid.Cell>
         <Grid.Cell span={4}>
           <Card>
-            <Card.Image alt="" aspectRatio="16:9" src="https://picsum.photos/id/1029/640/360" />
+            <Card.Image alt="" aspectRatio="16:9" src="${examplePhoto13}" />
             <Card.Heading level={3}>
               <Card.Link href="#">Du Midi bovenzaal</Card.Link>
             </Card.Heading>
@@ -1461,7 +1472,7 @@ export const LocationLarge: StoryObj = {
           alt="Kaart met de ligging van de Apollohal tussen de Apollolaan en het Muzenplein."
           aspectRatio="16:9"
           loading="lazy"
-          src="https://picsum.photos/id/1043/1280/720"
+          src="${examplePhoto15}"
         />
       </Grid.Cell>
     </Grid>
@@ -1511,11 +1522,7 @@ export const LocationLarge: StoryObj = {
            * largest image in the viewport.
            */}
           <Grid.Cell span="all">
-            <Image
-              alt="De voorgevel van de Apollohal aan de Apollolaan."
-              aspectRatio="16:5"
-              src="https://picsum.photos/id/164/1440/450"
-            />
+            <Image alt="De voorgevel van de Apollohal aan de Apollolaan." aspectRatio="16:5" src={examplePhoto08} />
           </Grid.Cell>
         </Grid>
         <Grid paddingVertical="x-large">
@@ -1564,7 +1571,7 @@ export const LocationLarge: StoryObj = {
             <Grid.Cell span={4}>
               <Card>
                 {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
-                <Card.Image alt="" aspectRatio="16:9" src="https://picsum.photos/id/1015/640/360" />
+                <Card.Image alt="" aspectRatio="16:9" src={examplePhoto11} />
                 {/* Level 3 keeps the card under the level-2 section heading; Card.Heading supplies its own size. */}
                 <Card.Heading level={3}>
                   {/* Card.Link stretches over the whole Card, so the entire Card is one clickable link. */}
@@ -1575,7 +1582,7 @@ export const LocationLarge: StoryObj = {
             </Grid.Cell>
             <Grid.Cell span={4}>
               <Card>
-                <Card.Image alt="" aspectRatio="16:9" src="https://picsum.photos/id/1016/640/360" />
+                <Card.Image alt="" aspectRatio="16:9" src={examplePhoto12} />
                 <Card.Heading level={3}>
                   <Card.Link href="#">Du Midi benedenzaal</Card.Link>
                 </Card.Heading>
@@ -1584,7 +1591,7 @@ export const LocationLarge: StoryObj = {
             </Grid.Cell>
             <Grid.Cell span={4}>
               <Card>
-                <Card.Image alt="" aspectRatio="16:9" src="https://picsum.photos/id/1029/640/360" />
+                <Card.Image alt="" aspectRatio="16:9" src={examplePhoto13} />
                 <Card.Heading level={3}>
                   <Card.Link href="#">Du Midi bovenzaal</Card.Link>
                 </Card.Heading>
@@ -1804,7 +1811,7 @@ export const LocationLarge: StoryObj = {
               alt="Kaart met de ligging van de Apollohal tussen de Apollolaan en het Muzenplein."
               aspectRatio="16:9"
               loading="lazy"
-              src="https://picsum.photos/id/1043/1280/720"
+              src={examplePhoto15}
             />
           </Grid.Cell>
         </Grid>
@@ -1949,7 +1956,7 @@ export const Sublocation: StoryObj = {
           alt="Kaart met de ligging van Sportpark Sloten aan de Sloterweg in Nieuw-West."
           aspectRatio="16:9"
           loading="lazy"
-          src="https://picsum.photos/id/1015/1440/810"
+          src="${examplePhoto11}"
         />
       </Grid.Cell>
     </Grid>
@@ -2135,7 +2142,7 @@ export const Sublocation: StoryObj = {
               alt="Kaart met de ligging van Sportpark Sloten aan de Sloterweg in Nieuw-West."
               aspectRatio="16:9"
               loading="lazy"
-              src="https://picsum.photos/id/1015/1440/810"
+              src={examplePhoto11}
             />
           </Grid.Cell>
         </Grid>

@@ -9,6 +9,11 @@ import { Column, Image, Row } from '@amsterdam/design-system-react/src'
 import { aspectRatioOptions } from '@amsterdam/design-system-react/src/common/types'
 
 import { maximiseInlineSize } from '#storybook/_common/decorators'
+import examplePhoto01 from '#storybook/_common/images/example-photo-01.jpg'
+import examplePhoto02 from '#storybook/_common/images/example-photo-02.jpg'
+import examplePhoto09 from '#storybook/_common/images/example-photo-09.jpg'
+import examplePhoto11 from '#storybook/_common/images/example-photo-11.jpg'
+import examplePhoto28 from '#storybook/_common/images/example-photo-28.jpg'
 
 const meta = {
   title: 'Components/Media/Image',
@@ -45,7 +50,7 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   args: {
     alt: '',
-    src: 'https://picsum.photos/640/360',
+    src: examplePhoto01,
   },
 }
 
@@ -53,8 +58,8 @@ export const ResponsiveImages: Story = {
   args: {
     alt: '',
     sizes: '(max-width: 37.5rem) 640px, 50vw',
-    src: 'https://picsum.photos/1280/720',
-    srcSet: 'https://picsum.photos/640/360 640w, https://picsum.photos/1280/720 1280w',
+    src: examplePhoto02,
+    srcSet: `${examplePhoto02} 640w, ${examplePhoto02} 1280w`,
   },
 }
 
@@ -62,14 +67,14 @@ export const ContainedImage: Story = {
   args: {
     alt: '',
     fit: 'contain',
-    src: 'https://picsum.photos/640/800',
+    src: examplePhoto09,
   },
 }
 
 export const ContainedImageComparison: Story = {
   args: {
     alt: '',
-    src: 'https://picsum.photos/640/800',
+    src: examplePhoto28,
   },
   parameters: {
     controls: { include: ['aspectRatio', 'src'] },
@@ -90,6 +95,6 @@ export const LazyLoading: Story = {
   args: {
     alt: '',
     loading: 'lazy',
-    src: 'https://picsum.photos/2560/1440',
+    src: examplePhoto11,
   },
 }

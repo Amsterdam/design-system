@@ -10,6 +10,8 @@ import { FileCard } from '@amsterdam/design-system-react/src'
 import { useState } from 'react'
 import { expect } from 'storybook/test'
 
+import examplePhoto01Square from '#storybook/_common/images/example-photo-01-128x128.jpg'
+
 import { default as fileCardMeta } from './FileCard.stories'
 
 const meta = {
@@ -26,7 +28,7 @@ const download = () => {}
 
 const longName = 'aanvraag omgevingsvergunning Nieuwezijds Voorburgwal 147 definitieve versie 11 maart 2026.pdf'
 const nameWithoutSpaces = 'aanvraag-omgevingsvergunning-nieuwezijds-voorburgwal-147-definitief-2026-03-11.pdf'
-const previewUrl = 'https://picsum.photos/id/64/128/128'
+const previewUrl = examplePhoto01Square
 const actions = (name: string) => (
   <Button onClick={download} variant="tertiary">
     Download<span className="ams-visually-hidden"> {name}</span>

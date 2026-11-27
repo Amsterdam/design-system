@@ -13,6 +13,9 @@ import { aspectRatioOptions } from '@amsterdam/design-system-react/src/common/ty
 
 import { maximiseInlineSize, wrapInInlineSizeQueryContainer } from '#storybook/_common/decorators'
 import { formatDate } from '#storybook/_common/formatDate'
+import examplePhoto18 from '#storybook/_common/images/example-photo-18.jpg'
+import examplePhoto19 from '#storybook/_common/images/example-photo-19.jpg'
+import examplePhoto20 from '#storybook/_common/images/example-photo-20.jpg'
 
 const meta = {
   title: 'Components/Navigation/Card',
@@ -41,7 +44,7 @@ type DefaultProps = {
 type DefaultStory = StoryObj<DefaultProps>
 
 /**
- * The image is portrait while the shape of the image is 16 by 9, so `fit` has something to do here.
+ * The photo and its box have different aspect ratios, so `fit` has something to do here.
  * An image that already matches the shape it is given looks the same either way.
  */
 export const Default: DefaultStory = {
@@ -50,7 +53,7 @@ export const Default: DefaultStory = {
     category: 'Nieuws',
     date: formatDate(Date.now()),
     heading: 'Nederlands eerste houten woonwijk komt in Zuidoost',
-    imageSrc: 'https://picsum.photos/800/1200',
+    imageSrc: examplePhoto18,
     text: 'We bouwen een levendige, groene en duurzame woonbuurt tussen de Gooiseweg en het Nelson Mandelapark.',
   },
   // These argTypes describe flattened args specific to this composed story; the meta cannot provide them.
@@ -116,14 +119,14 @@ export const WithMetadata: Story = {
  * than 36rem. Resize the container to see it change; the markup is the same in both layouts.
  */
 export const HorizontalLayout: DefaultStory = {
-  args: Default.args,
+  args: { ...Default.args, imageSrc: examplePhoto19 },
   argTypes: Default.argTypes,
   decorators: [wrapInInlineSizeQueryContainer(undefined, { inlineSize: '56rem', maxInlineSize: '100%' })],
   render: Default.render,
 }
 
 /**
- * Both Cards show the same portrait photograph in the same area, which is 16 by 9 as usual.
+ * Both Cards show the same photograph in the same area, which is 16 by 9 as usual.
  * The first keeps all of the image in view; the second uses the default fit and crops to fill the area.
  */
 export const ImageFit: Story = {
@@ -136,7 +139,7 @@ export const ImageFit: Story = {
     <Grid paddingVertical="x-large">
       <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
         <Card>
-          <Card.Image alt="" fit="contain" src="https://picsum.photos/id/122/800/1200" />
+          <Card.Image alt="" fit="contain" src={examplePhoto20} />
           <Card.Heading level={2}>
             <Card.Link href="#">Volledig in beeld</Card.Link>
           </Card.Heading>
@@ -145,7 +148,7 @@ export const ImageFit: Story = {
       </Grid.Cell>
       <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
         <Card>
-          <Card.Image alt="" src="https://picsum.photos/id/122/800/1200" />
+          <Card.Image alt="" src={examplePhoto20} />
           <Card.Heading level={2}>
             <Card.Link href="#">Bijgesneden</Card.Link>
           </Card.Heading>

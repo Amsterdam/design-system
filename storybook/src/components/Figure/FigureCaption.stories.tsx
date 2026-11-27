@@ -10,6 +10,7 @@ import { Figure } from '@amsterdam/design-system-react/src'
 
 import { childrenArgType, inverseColorArgType } from '#storybook/_common/argTypes'
 import { exampleCaption } from '#storybook/_common/exampleContent'
+import examplePhoto14 from '#storybook/_common/images/example-photo-14.jpg'
 
 const meta = {
   title: 'Components/Media/Figure',
@@ -24,8 +25,8 @@ const meta = {
         alt=""
         aspectRatio="16:5"
         sizes="(max-width: 37.5rem) 640px, (max-width: 72.5rem) 1280px, 1440px"
-        src="https://picsum.photos/1440/450"
-        srcSet="https://picsum.photos/640/200 640w, https://picsum.photos/1280/400 1280w, https://picsum.photos/1440/450 1440w"
+        src={examplePhoto14}
+        srcSet={`${examplePhoto14} 640w, ${examplePhoto14} 1280w, ${examplePhoto14} 1440w`}
       />
       <Figure.Caption {...args}>{children}</Figure.Caption>
     </Figure>

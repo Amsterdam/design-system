@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { exampleImageSource } from '#storybook/_common/exampleContent'
+import { exampleImage } from '#storybook/_common/exampleContent'
 
 export const topTaskSection = {
   title: 'Direct naar',
@@ -68,19 +68,19 @@ export const newsSection = {
       title: 'Waarom we op zoek zijn naar vleermuizen',
       description:
         'U kunt ’s avonds ecologen in oranje hesjes tegenkomen. Zij zijn op zoek naar vleermuizen. Dat heeft te maken met het verduurzamen van woningen.',
-      image: exampleImageSource(640, 360, 0),
+      image: exampleImage(0),
     },
     {
       title: 'Meer aandacht voor voetgangers, een jaar lang',
       description:
         'We gaan de veiligheid voor voetgangers verbeteren, meer ruimte maken, en lopen en wandelen stimuleren.',
-      image: exampleImageSource(640, 360, 1),
+      image: exampleImage(1),
     },
     {
       title: 'Nieuwe manieren om afval op te halen',
       description:
         'Afvalboten, bakfietsen en ondergrondse containers. We experimenteren met nieuwe manieren om afval op te halen in het centrum.',
-      image: exampleImageSource(640, 360, 2),
+      image: exampleImage(2),
     },
   ],
 }

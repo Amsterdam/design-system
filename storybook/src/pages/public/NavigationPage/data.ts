@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { exampleImageSource } from '#storybook/_common/exampleContent'
+import { exampleImage } from '#storybook/_common/exampleContent'
 
 export type LinkGroup = {
   heading: string
@@ -195,57 +195,57 @@ type Person = {
 
 export const persons: Person[] = [
   {
-    imageSource: exampleImageSource(480, 270, 0),
+    imageSource: exampleImage(0),
     name: 'Aicha Bayraktar',
     role: 'Burgemeester',
   },
   {
-    imageSource: exampleImageSource(480, 270, 1),
+    imageSource: exampleImage(1),
     name: 'Laurens Dijkstra',
     role: 'Wethouder',
   },
   {
-    imageSource: exampleImageSource(480, 270, 2),
+    imageSource: exampleImage(2),
     name: 'Yassine El Idrissi',
     role: 'Wethouder',
   },
   {
-    imageSource: exampleImageSource(480, 270, 3),
+    imageSource: exampleImage(3),
     name: 'Lisette Janssen',
     role: 'Wethouder',
   },
   {
-    imageSource: exampleImageSource(480, 270, 4),
+    imageSource: exampleImage(4),
     name: 'Abdulaziz Farooq',
     role: 'Wethouder',
   },
   {
-    imageSource: exampleImageSource(480, 270, 5),
+    imageSource: exampleImage(5),
     name: 'Angelique Pieterse',
     role: 'Wethouder',
   },
   {
-    imageSource: exampleImageSource(480, 270, 6),
+    imageSource: exampleImage(6),
     name: 'Ruben op den Akker',
     role: 'Wethouder',
   },
   {
-    imageSource: exampleImageSource(480, 270, 7),
+    imageSource: exampleImage(7),
     name: 'Meryam Laghmani',
     role: 'Wethouder',
   },
   {
-    imageSource: exampleImageSource(480, 270, 8),
+    imageSource: exampleImage(8),
     name: 'Sebastiaan van Harinxma thoe Slooten',
     role: 'Wethouder',
   },
   {
-    imageSource: exampleImageSource(480, 270, 9),
+    imageSource: exampleImage(9),
     name: 'William Moussaoui',
     role: 'Wethouder',
   },
   {
-    imageSource: exampleImageSource(480, 270, 10),
+    imageSource: exampleImage(10),
     name: 'Nora Veldkamp',
     role: 'Gemeentesecretaris',
     suffix: 'waarnemend',

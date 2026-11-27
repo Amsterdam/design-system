@@ -10,6 +10,8 @@ import { Figure } from '@amsterdam/design-system-react/src'
 
 import { maximiseInlineSize } from '#storybook/_common/decorators'
 import { exampleCaption } from '#storybook/_common/exampleContent'
+import examplePhoto12 from '#storybook/_common/images/example-photo-12.jpg'
+import examplePhoto13 from '#storybook/_common/images/example-photo-13.jpg'
 
 const caption = exampleCaption()
 
@@ -23,8 +25,8 @@ const meta = {
         alt=""
         aspectRatio="16:5"
         sizes="(max-width: 37.5rem) 640px, (max-width: 72.5rem) 1280px, 1440px"
-        src="https://picsum.photos/1440/450"
-        srcSet="https://picsum.photos/640/200 640w, https://picsum.photos/1280/400 1280w, https://picsum.photos/1440/450 1440w"
+        src={examplePhoto12}
+        srcSet={`${examplePhoto12} 640w, ${examplePhoto12} 1280w, ${examplePhoto12} 1440w`}
       />
       <Figure.Caption>{caption}</Figure.Caption>
     </Figure>
@@ -47,8 +49,8 @@ export const InverseColour: Story = {
         alt=""
         aspectRatio="16:5"
         sizes="(max-width: 37.5rem) 640px, (max-width: 72.5rem) 1280px, 1440px"
-        src="https://picsum.photos/1440/450"
-        srcSet="https://picsum.photos/640/200 640w, https://picsum.photos/1280/400 1280w, https://picsum.photos/1440/450 1440w"
+        src={examplePhoto13}
+        srcSet={`${examplePhoto13} 640w, ${examplePhoto13} 1280w, ${examplePhoto13} 1440w`}
       />
       <Figure.Caption color="inverse">{caption}</Figure.Caption>
     </Figure>

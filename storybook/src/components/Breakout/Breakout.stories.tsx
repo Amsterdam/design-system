@@ -11,6 +11,8 @@ import { breakoutTags } from '@amsterdam/design-system-react/src/Breakout/Breako
 
 import { asArgType } from '#storybook/_common/argTypes'
 import { wrapInPage } from '#storybook/_common/decorators'
+import examplePhoto15 from '#storybook/_common/images/example-photo-15.jpg'
+import examplePhoto16 from '#storybook/_common/images/example-photo-16.jpg'
 
 import { gridGapAndPaddingArgTypes } from '../Grid/Grid.argTypes'
 
@@ -58,7 +60,7 @@ export const Default: Story = {
         rowSpan={2}
         rowStart={1}
       >
-        <Image alt="" aspectRatio="1:1" src="https://picsum.photos/960/960" />
+        <Image alt="" aspectRatio="1:1" src={examplePhoto15} />
       </Breakout.Cell>,
     ],
   },
@@ -71,7 +73,7 @@ export const VerticalLayout: Story = {
         <Spotlight color="orange" />
       </Breakout.Cell>,
       <Breakout.Cell colSpan="all" has="figure" key={2} rowSpan={2} rowStart={1}>
-        <Image alt="" src="https://picsum.photos/1440/810" />
+        <Image alt="" src={examplePhoto16} />
       </Breakout.Cell>,
       <Breakout.Cell
         className="ams-prose"
