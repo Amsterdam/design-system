@@ -1,0 +1,32 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+._ams-vertical-space-finder {
+  color: var(--ams-color-text);
+  display: flex;
+  flex-direction: column;
+  font-family: var(--ams-typography-font-family);
+  font-size: 1rem;
+  gap: var(--ams-space-m);
+  margin-block: var(--ams-space-m) !important;
+}
+
+._ams-vertical-space-finder__fields {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ams-space-m);
+}
+
+._ams-vertical-space-finder select {
+  font-family: var(--ams-typography-font-family);
+  font-size: 1rem;
+  padding-block: var(--ams-space-xs);
+  padding-inline: var(--ams-space-xs);
+}
+
+._ams-vertical-space-finder__result {
+  margin-block: 0;
+}
