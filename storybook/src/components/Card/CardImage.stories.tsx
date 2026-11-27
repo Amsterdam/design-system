@@ -9,6 +9,7 @@ import { Card } from '@amsterdam/design-system-react/src'
 import { aspectRatioOptions } from '@amsterdam/design-system-react/src/common/types'
 
 import { maximiseInlineSize } from '#storybook/_common/decorators'
+import examplePhoto21 from '#storybook/_common/images/example-photo-21.jpg'
 
 const meta = {
   title: 'Components/Navigation/Card',
@@ -44,14 +45,14 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 /**
- * The image is portrait while its shape is 16 by 9, so `fit` has something to do here.
+ * The photo and its box have different aspect ratios, so `fit` has something to do here.
  * An image that already matches the shape it is given looks the same either way.
  */
 export const Image: Story = {
   args: {
     alt: '',
     aspectRatio: '16:9',
-    src: 'https://picsum.photos/800/1200',
+    src: examplePhoto21,
   },
   argTypes: {
     alt: {

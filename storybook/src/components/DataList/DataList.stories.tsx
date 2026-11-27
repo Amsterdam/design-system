@@ -21,6 +21,8 @@ import { DataList } from '@amsterdam/design-system-react/src'
 import { dataListOrientations } from '@amsterdam/design-system-react/src/DataList/DataList'
 
 import { wrapInInlineSizeQueryContainer } from '#storybook/_common/decorators'
+import examplePhoto03 from '#storybook/_common/images/example-photo-03.jpg'
+import examplePhoto08 from '#storybook/_common/images/example-photo-08.jpg'
 
 const meta = {
   title: 'Components/Containers/Data List',
@@ -200,8 +202,8 @@ export const CompositeValue: Story = {
         <DataList.Key>Foto’s</DataList.Key>
         <DataList.Value>
           <Column gap="small">
-            <Image alt="De Magere Brug over de Amstel" aspectRatio="4:3" src="https://picsum.photos/id/164/1280/960" />
-            <Image alt="De leuning van de Magere Brug" aspectRatio="4:3" src="https://picsum.photos/id/122/1280/960" />
+            <Image alt="De Magere Brug over de Amstel" aspectRatio="4:3" src={examplePhoto08} />
+            <Image alt="De leuning van de Magere Brug" aspectRatio="4:3" src={examplePhoto03} />
           </Column>
         </DataList.Value>
       </DataList.Item>,
