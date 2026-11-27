@@ -626,7 +626,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>4.1s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>3.6s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -23749,7 +23749,7 @@ The suffix follows the visible label, so that label stays a contiguous part of t
 import type { Meta, StoryObj } from &#39;@storybook/react-vite&#39;
 import type { MouseEvent } from &#39;react&#39;
 
-import { Breadcrumb, Grid, Heading, TabNavigation } from &#39;@amsterdam/design-system-react&#39;
+import { Badge, Breadcrumb, Grid, Heading, TabNavigation } from &#39;@amsterdam/design-system-react&#39;
 import { useRef, useState } from &#39;react&#39;
 
 import { commonMeta, pageParameters } from &#39;../common/commonMeta&#39;
@@ -23812,7 +23812,7 @@ const meta = {
                   key={slug}
                   onClick={(e) =&gt; handleMenuItemClick(e, slug)}
                 &gt;
-                  {label}
+                  {label} {slug === &#39;documenten&#39; &amp;&amp; &lt;Badge color=&quot;orange&quot; label={14} /&gt;}
                 &lt;/TabNavigation.Link&gt;
               ))}
             &lt;/TabNavigation.List&gt;
@@ -23836,7 +23836,7 @@ const meta = {
                   key={slug}
                   onClick={(e) =&gt; handleSubMenuItemClick(e, slug)}
                 &gt;
-                  {label}
+                  {label} {slug === &#39;status&#39; &amp;&amp; &lt;Badge label=&quot;Nieuw&quot; /&gt;}
                 &lt;/TabNavigation.Link&gt;
               ))}
             &lt;/TabNavigation.List&gt;
@@ -23895,7 +23895,7 @@ export const Default: StoryObj = {
             key={slug}
             onClick={(e) =&gt; handleMenuItemClick(e, slug)}
           &gt;
-            {label}
+            {label} {slug === &#39;documenten&#39; &amp;&amp; &lt;Badge color=&quot;orange&quot; label={14} /&gt;}
           &lt;/TabNavigation.Link&gt;
         ))}
       &lt;/TabNavigation.List&gt;
@@ -23915,7 +23915,7 @@ export const Default: StoryObj = {
             key={slug}
             onClick={(e) =&gt; handleSubMenuItemClick(e, slug)}
           &gt;
-            {label}
+            {label} {slug === &#39;status&#39; &amp;&amp; &lt;Badge label=&quot;Nieuw&quot; /&gt;}
           &lt;/TabNavigation.Link&gt;
         ))}
       &lt;/TabNavigation.List&gt;
@@ -23954,7 +23954,7 @@ export const Default: StoryObj = {
                 <div class="row">
                   <span class="ex-name">Imports</span>
                 </div>
-                <pre><code>import { Breadcrumb, Grid, Heading, TabNavigation } from '@amsterdam/design-system-react';</code></pre>
+                <pre><code>import { Badge, Breadcrumb, Grid, Heading, TabNavigation } from '@amsterdam/design-system-react';</code></pre>
               </div>
           
           
@@ -24015,7 +24015,7 @@ export const Default: StoryObj = {
                 key={slug}
                 onClick={(e) =&gt; handleMenuItemClick(e, slug)}
               &gt;
-                {label}
+                {label} {slug === &#39;documenten&#39; &amp;&amp; &lt;Badge color=&quot;orange&quot; label={14} /&gt;}
               &lt;/TabNavigation.Link&gt;
             ))}
           &lt;/TabNavigation.List&gt;
@@ -24039,7 +24039,7 @@ export const Default: StoryObj = {
                 key={slug}
                 onClick={(e) =&gt; handleSubMenuItemClick(e, slug)}
               &gt;
-                {label}
+                {label} {slug === &#39;status&#39; &amp;&amp; &lt;Badge label=&quot;Nieuw&quot; /&gt;}
               &lt;/TabNavigation.Link&gt;
             ))}
           &lt;/TabNavigation.List&gt;
@@ -50881,7 +50881,7 @@ The suffix follows the visible label, so that label stays a contiguous part of t
 import type { Meta, StoryObj } from &#39;@storybook/react-vite&#39;
 import type { MouseEvent } from &#39;react&#39;
 
-import { Breadcrumb, Grid, Heading, TabNavigation } from &#39;@amsterdam/design-system-react&#39;
+import { Badge, Breadcrumb, Grid, Heading, TabNavigation } from &#39;@amsterdam/design-system-react&#39;
 import { useRef, useState } from &#39;react&#39;
 
 import { commonMeta, pageParameters } from &#39;../common/commonMeta&#39;
@@ -50944,7 +50944,7 @@ const meta = {
                   key={slug}
                   onClick={(e) =&gt; handleMenuItemClick(e, slug)}
                 &gt;
-                  {label}
+                  {label} {slug === &#39;documenten&#39; &amp;&amp; &lt;Badge color=&quot;orange&quot; label={14} /&gt;}
                 &lt;/TabNavigation.Link&gt;
               ))}
             &lt;/TabNavigation.List&gt;
@@ -50968,7 +50968,7 @@ const meta = {
                   key={slug}
                   onClick={(e) =&gt; handleSubMenuItemClick(e, slug)}
                 &gt;
-                  {label}
+                  {label} {slug === &#39;status&#39; &amp;&amp; &lt;Badge label=&quot;Nieuw&quot; /&gt;}
                 &lt;/TabNavigation.Link&gt;
               ))}
             &lt;/TabNavigation.List&gt;
@@ -51027,7 +51027,7 @@ export const Default: StoryObj = {
             key={slug}
             onClick={(e) =&gt; handleMenuItemClick(e, slug)}
           &gt;
-            {label}
+            {label} {slug === &#39;documenten&#39; &amp;&amp; &lt;Badge color=&quot;orange&quot; label={14} /&gt;}
           &lt;/TabNavigation.Link&gt;
         ))}
       &lt;/TabNavigation.List&gt;
@@ -51047,7 +51047,7 @@ export const Default: StoryObj = {
             key={slug}
             onClick={(e) =&gt; handleSubMenuItemClick(e, slug)}
           &gt;
-            {label}
+            {label} {slug === &#39;status&#39; &amp;&amp; &lt;Badge label=&quot;Nieuw&quot; /&gt;}
           &lt;/TabNavigation.Link&gt;
         ))}
       &lt;/TabNavigation.List&gt;
@@ -51086,7 +51086,7 @@ export const Default: StoryObj = {
                 <div class="row">
                   <span class="ex-name">Imports</span>
                 </div>
-                <pre><code>import { Breadcrumb, Grid, Heading, TabNavigation } from '@amsterdam/design-system-react';</code></pre>
+                <pre><code>import { Badge, Breadcrumb, Grid, Heading, TabNavigation } from '@amsterdam/design-system-react';</code></pre>
               </div>
           
           
@@ -51147,7 +51147,7 @@ export const Default: StoryObj = {
                 key={slug}
                 onClick={(e) =&gt; handleMenuItemClick(e, slug)}
               &gt;
-                {label}
+                {label} {slug === &#39;documenten&#39; &amp;&amp; &lt;Badge color=&quot;orange&quot; label={14} /&gt;}
               &lt;/TabNavigation.Link&gt;
             ))}
           &lt;/TabNavigation.List&gt;
@@ -51171,7 +51171,7 @@ export const Default: StoryObj = {
                 key={slug}
                 onClick={(e) =&gt; handleSubMenuItemClick(e, slug)}
               &gt;
-                {label}
+                {label} {slug === &#39;status&#39; &amp;&amp; &lt;Badge label=&quot;Nieuw&quot; /&gt;}
               &lt;/TabNavigation.Link&gt;
             ))}
           &lt;/TabNavigation.List&gt;
