@@ -100,7 +100,7 @@ const iconMeta: IconMetadata = {
 
 When using `deprecatedBy`, make sure the value matches the name of the icon.
 
-## Announcing that a icon is deprecated
+## Announcing that an icon is deprecated
 
 1. Set `deprecated: true` in the metadata of the icon.
 2. If a fitting replacement exists, add it as `deprecatedBy`. Use the exact `name` of the replacement icon.
